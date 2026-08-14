@@ -1,0 +1,17 @@
+{
+  "name": "Aegis",
+  "colors": { "primary": "#1E4D8B", "secondary": "#B8BCC2", "banner": "blue" },
+  "doctrine": {
+    "aggression": 0.6,
+    "casualty_tolerance": 0.3,
+    "preferred_squad_size": 4,
+    "flank_vectors": 3,
+    "ambush_bias": 0.2,
+    "night_bias": 0.3,
+    "retreat_threshold": 0.3,
+    "tech_rate": 1.4,
+    "gear_bonus": 1,
+    "squad_growth": 0.75,
+    "ambush_growth": 0.0
+  }
+}

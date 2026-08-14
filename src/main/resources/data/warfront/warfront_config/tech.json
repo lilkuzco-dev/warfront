@@ -1,0 +1,7 @@
+{
+  "level_thresholds": [0, 100, 250, 450, 700],
+  "points_per_day": 3.3333,
+  "gear_by_level": { "0": "leather", "1": "chainmail", "2": "iron", "3": "diamond", "4": "netherite" },
+  "squad_bonus_by_level": { "0": 0, "1": 1, "2": 2, "3": 2, "4": 3 },
+  "unlocks_by_level": { "0": [], "1": ["stations"], "2": [], "3": [], "4": [] }
+}

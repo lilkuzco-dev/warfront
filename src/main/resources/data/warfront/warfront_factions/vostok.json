@@ -1,0 +1,17 @@
+{
+  "name": "Vostok",
+  "colors": { "primary": "#8B1A1A", "secondary": "#3D3D3D", "banner": "red" },
+  "doctrine": {
+    "aggression": 0.9,
+    "casualty_tolerance": 0.7,
+    "preferred_squad_size": 7,
+    "flank_vectors": 1,
+    "ambush_bias": 0.1,
+    "night_bias": 0.2,
+    "retreat_threshold": 0.7,
+    "tech_rate": 1.0,
+    "gear_bonus": 0,
+    "squad_growth": 1.5,
+    "ambush_growth": 0.0
+  }
+}

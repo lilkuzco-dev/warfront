@@ -1,0 +1,7 @@
+{
+  "executor": "warfront:infantry_assault",
+  "preconditions": { "min_tech_level": 0, "assets": ["infantry"], "intel": [] },
+  "constraint_compatibility": ["no_capture"],
+  "cost_estimate": { "soldiers": 6, "time_ticks": 2400 },
+  "doctrine_affinity": { "aggression": 1.0, "ambush_bias": 0.3 }
+}

@@ -1,0 +1,8 @@
+{
+  "default": "neutral",
+  "pairs": [
+    { "a": "vostok", "b": "aegis", "relation": "hostile" },
+    { "a": "sarab", "b": "vostok", "relation": "hostile" },
+    { "a": "sarab", "b": "aegis", "relation": "hostile" }
+  ]
+}

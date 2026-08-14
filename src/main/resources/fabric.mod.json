@@ -1,0 +1,30 @@
+{
+	"schemaVersion": 1,
+	"id": "warfront",
+	"version": "${version}",
+	"name": "Warfront",
+	"description": "Modern military factions: doctrine-driven soldiers, bases, tech progression, and an order pipeline. Phase 1 skeleton.",
+	"authors": [
+		"lilkuzco-dev"
+	],
+	"contact": {
+		"sources": "https://github.com/lilkuzco-dev"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/warfront/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"io.github.lilkuzcodev.warfront.Warfront"
+		],
+		"client": [
+			"io.github.lilkuzcodev.warfront.client.WarfrontClient"
+		]
+	},
+	"depends": {
+		"fabricloader": ">=0.19.3",
+		"minecraft": "~26.2",
+		"java": ">=25",
+		"fabric-api": "*"
+	}
+}

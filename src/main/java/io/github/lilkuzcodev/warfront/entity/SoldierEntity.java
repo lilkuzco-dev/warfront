@@ -1,0 +1,321 @@
+package io.github.lilkuzcodev.warfront.entity;
+
+import io.github.lilkuzcodev.warfront.Warfront;
+import io.github.lilkuzcodev.warfront.data.Doctrine;
+import io.github.lilkuzcodev.warfront.data.Faction;
+import io.github.lilkuzcodev.warfront.data.WarfrontRegistry;
+import io.github.lilkuzcodev.warfront.data.WarfrontState;
+import io.github.lilkuzcodev.warfront.entity.ai.PatrolGoal;
+import io.github.lilkuzcodev.warfront.entity.ai.RetreatGoal;
+import io.github.lilkuzcodev.warfront.entity.ai.StationGoal;
+import java.util.UUID;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.component.DataComponents;
+import net.minecraft.network.syncher.EntityDataAccessor;
+import net.minecraft.network.syncher.EntityDataSerializers;
+import net.minecraft.network.syncher.SynchedEntityData;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.Mob;
+import net.minecraft.world.entity.PathfinderMob;
+import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
+import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.ai.goal.FloatGoal;
+import net.minecraft.world.entity.ai.goal.LookAtPlayerGoal;
+import net.minecraft.world.entity.ai.goal.MeleeAttackGoal;
+import net.minecraft.world.entity.ai.goal.RandomLookAroundGoal;
+import net.minecraft.world.entity.ai.goal.WaterAvoidingRandomStrollGoal;
+import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
+import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.component.DyedItemColor;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.storage.ValueInput;
+import net.minecraft.world.level.storage.ValueOutput;
+import org.jspecify.annotations.Nullable;
+
+/**
+ * The one soldier entity type. Faction, rank, squad, home base and station are DATA on
+ * the entity; every behavioral difference between factions comes from doctrine weights
+ * read at decision time (architecture note 1 — no faction logic is hardcoded here).
+ */
+public class SoldierEntity extends PathfinderMob {
+	private static final EntityDataAccessor<String> FACTION =
+			SynchedEntityData.defineId(SoldierEntity.class, EntityDataSerializers.STRING);
+
+	public static final Doctrine DEFAULT_DOCTRINE =
+			new Doctrine(0.5F, 0.5F, 4, 1, 0.0F, 0.0F, 0.5F, 1.0F, 0, 1.0F, 0.0F);
+
+	private String rank = "soldier";
+	private @Nullable UUID squadId;
+	private @Nullable BlockPos homePos;
+	private @Nullable BlockPos stationPos;
+	private long scatterUntil; // Sarab scatter timer (absolute game time)
+
+	public SoldierEntity(EntityType<? extends SoldierEntity> type, Level level) {
+		super(type, level);
+	}
+
+	public static AttributeSupplier.Builder createAttributes() {
+		return Mob.createMobAttributes()
+				.add(Attributes.MAX_HEALTH, 24.0)
+				.add(Attributes.MOVEMENT_SPEED, 0.32)
+				.add(Attributes.ATTACK_DAMAGE, 3.0)
+				.add(Attributes.FOLLOW_RANGE, 32.0);
+	}
+
+	@Override
+	protected void defineSynchedData(SynchedEntityData.Builder builder) {
+		super.defineSynchedData(builder);
+		builder.define(FACTION, "");
+	}
+
+	@Override
+	protected void registerGoals() {
+		this.goalSelector.addGoal(0, new FloatGoal(this));
+		this.goalSelector.addGoal(2, new RetreatGoal(this));
+		this.goalSelector.addGoal(3, new StationGoal(this));
+		this.goalSelector.addGoal(4, new MeleeAttackGoal(this, 1.15, true));
+		this.goalSelector.addGoal(6, new PatrolGoal(this));
+		this.goalSelector.addGoal(7, new WaterAvoidingRandomStrollGoal(this, 0.6) {
+			@Override
+			public boolean canUse() {
+				// ambush doctrine holds position instead of wandering; stationed soldiers stay put
+				return SoldierEntity.this.stationPos == null
+						&& SoldierEntity.this.doctrine().ambushBias() < 0.5F && super.canUse();
+			}
+		});
+		this.goalSelector.addGoal(8, new LookAtPlayerGoal(this, Player.class, 8.0F));
+		this.goalSelector.addGoal(9, new RandomLookAroundGoal(this));
+
+		this.targetSelector.addGoal(1, new HurtByTargetGoal(this));
+		this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, SoldierEntity.class, true,
+				(target, level) -> target instanceof SoldierEntity other && this.isHostileToSoldier(other)));
+		this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, Player.class, true,
+				(target, level) -> target instanceof ServerPlayer player && this.isHostileToPlayer(player, level)));
+	}
+
+	// ---------- doctrine-driven checks ----------
+	public Doctrine doctrine() {
+		Faction faction = WarfrontRegistry.faction(getFaction());
+		return faction == null ? DEFAULT_DOCTRINE : faction.doctrine();
+	}
+
+	private boolean isHostileToSoldier(SoldierEntity other) {
+		if (isScattered() || getFaction().isEmpty() || other.getFaction().isEmpty()) {
+			return false;
+		}
+		if (!"hostile".equals(WarfrontRegistry.relation(getFaction(), other.getFaction()))) {
+			return false;
+		}
+		return engagementAllowed(other);
+	}
+
+	private boolean isHostileToPlayer(ServerPlayer player, ServerLevel level) {
+		if (isScattered() || getFaction().isEmpty() || player.isCreative() || player.isSpectator()) {
+			return false;
+		}
+		return WarfrontState.get(level.getServer()).isHostileTo(player.getUUID(), getFaction())
+				&& engagementAllowed(player);
+	}
+
+	/**
+	 * Night-preference gate: high night-bias factions only initiate distant engagements
+	 * at night; by day they strike only at close range (or when already hurt).
+	 */
+	private boolean engagementAllowed(LivingEntity target) {
+		Doctrine doctrine = doctrine();
+		long dayTime = level().getOverworldClockTime() % 24000L;
+		boolean night = dayTime >= 13000L && dayTime <= 23000L;
+		if (doctrine.nightBias() < 0.5F || night || getLastHurtByMob() == target) {
+			return true;
+		}
+		return distanceTo(target) < 8.0;
+	}
+
+	// ---------- data accessors ----------
+	public String getFaction() {
+		return this.entityData.get(FACTION);
+	}
+
+	public void setFaction(String faction) {
+		this.entityData.set(FACTION, faction);
+	}
+
+	public String getRank() {
+		return rank;
+	}
+
+	public void setRank(String value) {
+		this.rank = value;
+	}
+
+	public @Nullable UUID getSquadId() {
+		return squadId;
+	}
+
+	public void setSquadId(@Nullable UUID id) {
+		this.squadId = id;
+	}
+
+	public @Nullable BlockPos getHomePos() {
+		return homePos;
+	}
+
+	public void setHomePos(@Nullable BlockPos pos) {
+		this.homePos = pos;
+	}
+
+	public @Nullable BlockPos getStationPos() {
+		return stationPos;
+	}
+
+	public void setStationPos(@Nullable BlockPos pos) {
+		this.stationPos = pos;
+	}
+
+	public boolean isScattered() {
+		return level().getGameTime() < scatterUntil;
+	}
+
+	public void scatter(int ticks) {
+		this.scatterUntil = level().getGameTime() + ticks;
+		this.setTarget(null);
+	}
+
+	public int techLevel() {
+		if (!(level() instanceof ServerLevel serverLevel) || getFaction().isEmpty()) {
+			return 0;
+		}
+		return WarfrontState.get(serverLevel.getServer()).techLevel(getFaction());
+	}
+
+	public boolean stationsUnlocked() {
+		return WarfrontRegistry.tech().unlocked(techLevel(), "stations");
+	}
+
+	// ---------- gear ----------
+	/** Equips armor + weapon for the given tech level (+doctrine gear bonus), leather dyed in faction colors. */
+	public void applyLoadout(int techLevel) {
+		Faction faction = WarfrontRegistry.faction(getFaction());
+		int tier = Math.clamp(techLevel + doctrine().gearBonus(), 0, 4);
+		String gear = WarfrontRegistry.tech().gearByLevel().getOrDefault(tier, "leather");
+		ItemStack head;
+		ItemStack chest;
+		ItemStack legs;
+		ItemStack feet;
+		ItemStack weapon;
+		switch (gear) {
+			case "chainmail" -> {
+				head = new ItemStack(Items.LEATHER_HELMET);
+				chest = new ItemStack(Items.CHAINMAIL_CHESTPLATE);
+				legs = new ItemStack(Items.LEATHER_LEGGINGS);
+				feet = new ItemStack(Items.LEATHER_BOOTS);
+				weapon = new ItemStack(Items.STONE_SWORD);
+			}
+			case "iron" -> {
+				head = new ItemStack(Items.IRON_HELMET);
+				chest = new ItemStack(Items.IRON_CHESTPLATE);
+				legs = new ItemStack(Items.LEATHER_LEGGINGS);
+				feet = new ItemStack(Items.IRON_BOOTS);
+				weapon = new ItemStack(Items.IRON_SWORD);
+			}
+			case "diamond" -> {
+				head = new ItemStack(Items.DIAMOND_HELMET);
+				chest = new ItemStack(Items.DIAMOND_CHESTPLATE);
+				legs = new ItemStack(Items.DIAMOND_LEGGINGS);
+				feet = new ItemStack(Items.DIAMOND_BOOTS);
+				weapon = new ItemStack(Items.DIAMOND_SWORD);
+			}
+			case "netherite" -> {
+				head = new ItemStack(Items.NETHERITE_HELMET);
+				chest = new ItemStack(Items.NETHERITE_CHESTPLATE);
+				legs = new ItemStack(Items.NETHERITE_LEGGINGS);
+				feet = new ItemStack(Items.NETHERITE_BOOTS);
+				weapon = new ItemStack(Items.NETHERITE_SWORD);
+			}
+			default -> { // leather militia
+				head = new ItemStack(Items.LEATHER_HELMET);
+				chest = new ItemStack(Items.LEATHER_CHESTPLATE);
+				legs = new ItemStack(Items.LEATHER_LEGGINGS);
+				feet = new ItemStack(Items.LEATHER_BOOTS);
+				weapon = new ItemStack(Items.WOODEN_SWORD);
+			}
+		}
+		if (faction != null) {
+			for (ItemStack stack : new ItemStack[] { head, chest, legs, feet }) {
+				if (stack.is(Items.LEATHER_HELMET) || stack.is(Items.LEATHER_CHESTPLATE)
+						|| stack.is(Items.LEATHER_LEGGINGS) || stack.is(Items.LEATHER_BOOTS)) {
+					stack.set(DataComponents.DYED_COLOR, new DyedItemColor(faction.primaryColor()));
+				}
+			}
+		}
+		setItemSlot(EquipmentSlot.HEAD, head);
+		setItemSlot(EquipmentSlot.CHEST, chest);
+		setItemSlot(EquipmentSlot.LEGS, legs);
+		setItemSlot(EquipmentSlot.FEET, feet);
+		setItemSlot(EquipmentSlot.MAINHAND, weapon);
+		for (EquipmentSlot slot : EquipmentSlot.values()) {
+			setDropChance(slot, 0.0F);
+		}
+	}
+
+	// ---------- persistence ----------
+	@Override
+	protected void addAdditionalSaveData(ValueOutput output) {
+		super.addAdditionalSaveData(output);
+		output.putString("warfront_faction", getFaction());
+		output.putString("warfront_rank", rank);
+		output.putString("warfront_squad", squadId == null ? "" : squadId.toString());
+		output.storeNullable("warfront_home", BlockPos.CODEC, homePos);
+	}
+
+	@Override
+	protected void readAdditionalSaveData(ValueInput input) {
+		super.readAdditionalSaveData(input);
+		setFaction(input.getStringOr("warfront_faction", ""));
+		rank = input.getStringOr("warfront_rank", "soldier");
+		String squad = input.getStringOr("warfront_squad", "");
+		squadId = squad.isEmpty() ? null : UUID.fromString(squad);
+		homePos = input.read("warfront_home", BlockPos.CODEC).orElse(null);
+		// Structure-template soldiers ship with faction data but empty hands:
+		// outfit them for the faction's current tech level on first load.
+		if (!getFaction().isEmpty() && getMainHandItem().isEmpty()) {
+			applyLoadout(techLevel());
+			setPersistenceRequired();
+		}
+	}
+
+	private boolean squadChecked;
+
+	@Override
+	public void tick() {
+		super.tick();
+		if (!squadChecked && !level().isClientSide()) {
+			squadChecked = true;
+			SquadManager.ensureRegistered(this);
+			// structure-template garrisons anchor their patrol home where they spawned
+			if (homePos == null && !getFaction().isEmpty()) {
+				homePos = blockPosition();
+			}
+		}
+	}
+
+	@Override
+	public void die(net.minecraft.world.damagesource.DamageSource source) {
+		super.die(source);
+		if (level() instanceof ServerLevel) {
+			SquadManager.onSoldierDeath(this);
+			StationManager.release(this);
+		}
+	}
+
+	public static net.minecraft.resources.Identifier textureFor(String faction) {
+		return Warfront.id("textures/entity/soldier/" + (faction.isEmpty() ? "vostok" : faction) + ".png");
+	}
+}

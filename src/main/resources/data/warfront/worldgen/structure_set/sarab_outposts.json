@@ -1,0 +1,4 @@
+{
+  "placement": { "type": "minecraft:random_spread", "salt": 564738291, "separation": 5, "spacing": 14 },
+  "structures": [ { "structure": "warfront:sarab_outpost", "weight": 1 } ]
+}

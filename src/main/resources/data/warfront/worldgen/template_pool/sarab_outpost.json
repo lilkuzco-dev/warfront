@@ -1,0 +1,7 @@
+{
+  "elements": [
+    { "weight": 1, "element": { "element_type": "minecraft:single_pool_element", "location": "warfront:sarab_outpost_1", "processors": "minecraft:empty", "projection": "rigid" } },
+    { "weight": 1, "element": { "element_type": "minecraft:single_pool_element", "location": "warfront:sarab_outpost_2", "processors": "minecraft:empty", "projection": "rigid" } }
+  ],
+  "fallback": "minecraft:empty"
+}

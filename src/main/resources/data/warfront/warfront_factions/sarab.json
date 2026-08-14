@@ -1,0 +1,17 @@
+{
+  "name": "Sarab",
+  "colors": { "primary": "#8B7B3D", "secondary": "#4A4232", "banner": "yellow" },
+  "doctrine": {
+    "aggression": 0.4,
+    "casualty_tolerance": 0.4,
+    "preferred_squad_size": 3,
+    "flank_vectors": 2,
+    "ambush_bias": 0.9,
+    "night_bias": 0.8,
+    "retreat_threshold": 0.5,
+    "tech_rate": 0.6,
+    "gear_bonus": 0,
+    "squad_growth": 0.5,
+    "ambush_growth": 0.15
+  }
+}
