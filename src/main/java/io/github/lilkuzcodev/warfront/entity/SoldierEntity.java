@@ -381,7 +381,7 @@ public class SoldierEntity extends PathfinderMob {
 			}
 			if (source.getEntity() instanceof ServerPlayer player && !getFaction().isEmpty()) {
 				WarfrontState.get(serverLevel.getServer()).recordEvent(player.getUUID(), getFaction(),
-						"killed_soldier", serverLevel.getGameTime());
+						"killed_soldier", WarfrontState.clock(serverLevel));
 				io.github.lilkuzcodev.warfront.dialogue.WorkOrders.onSoldierKilled(player, this);
 			}
 			io.github.lilkuzcodev.warfront.dialogue.DialogueSessions.onSoldierGone(this);
@@ -429,7 +429,7 @@ public class SoldierEntity extends PathfinderMob {
 		WarfrontState state = WarfrontState.get(serverLevel.getServer());
 		String standingLabel = WarfrontRegistry.standing().label(state.standing(player.getUUID(), getFaction()));
 		String bandGroup = io.github.lilkuzcodev.warfront.data.DispositionConfig.bandGroup(
-				state.dispositionBand(player.getUUID(), getFaction(), serverLevel.getGameTime()));
+				state.dispositionBand(player.getUUID(), getFaction(), WarfrontState.clock(serverLevel)));
 		int standingRank = standingRank(standingLabel);
 		float multiplier = stock.standingMultiplier().getOrDefault(standingLabel, 1.0F)
 				* stock.dispositionMultiplier().getOrDefault(bandGroup, 1.0F);
@@ -489,7 +489,7 @@ public class SoldierEntity extends PathfinderMob {
 			// trading builds disposition memory
 			if (tradingPlayer instanceof ServerPlayer serverPlayer && level() instanceof ServerLevel serverLevel) {
 				WarfrontState.get(serverLevel.getServer()).recordEvent(serverPlayer.getUUID(), getFaction(),
-						"traded", serverLevel.getGameTime());
+						"traded", WarfrontState.clock(serverLevel));
 			}
 		}
 

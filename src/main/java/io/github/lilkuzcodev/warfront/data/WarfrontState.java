@@ -71,7 +71,7 @@ public class WarfrontState extends SavedData {
 			if (halfLifeTicks <= 0) {
 				return weight;
 			}
-			return (float) (weight * Math.pow(0.5, (now - time) / (double) halfLifeTicks));
+			return (float) (weight * Math.pow(0.5, Math.max(0, now - time) / (double) halfLifeTicks));
 		}
 	}
 
@@ -186,6 +186,15 @@ public class WarfrontState extends SavedData {
 
 	public static WarfrontState get(MinecraftServer server) {
 		return server.overworld().getDataStorage().computeIfAbsent(TYPE);
+	}
+
+	/**
+	 * The ledger clock: the overworld day clock, so "half-life in in-game days" means
+	 * calendar days — sleeping and /time add genuinely age memories. Decay clamps
+	 * against backwards /time set.
+	 */
+	public static long clock(net.minecraft.world.level.Level level) {
+		return level.getOverworldClockTime();
 	}
 
 	// ---------- tech ----------

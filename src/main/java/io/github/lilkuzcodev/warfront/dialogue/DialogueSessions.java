@@ -99,7 +99,7 @@ public final class DialogueSessions {
 			return;
 		}
 		WarfrontState state = WarfrontState.get(player.level().getServer());
-		long now = player.level().getGameTime();
+		long now = WarfrontState.clock(player.level());
 		if ("__leave".equals(optionId)) {
 			close(player, player.getUUID());
 			return;
@@ -128,7 +128,7 @@ public final class DialogueSessions {
 	private static boolean applyEffects(ServerPlayer player, SoldierEntity soldier, Session session,
 			DialogueOption option) {
 		WarfrontState state = WarfrontState.get(player.level().getServer());
-		long now = player.level().getGameTime();
+		long now = WarfrontState.clock(player.level());
 		String faction = session.faction;
 		for (DialogueOption.Effect effect : option.effects()) {
 			switch (effect.type()) {
@@ -225,7 +225,7 @@ public final class DialogueSessions {
 	private static void send(ServerPlayer player, SoldierEntity soldier, Session session,
 			String responseClass, boolean openScreen) {
 		WarfrontState state = WarfrontState.get(player.level().getServer());
-		long now = player.level().getGameTime();
+		long now = WarfrontState.clock(player.level());
 		DialogueEngine.Context ctx = DialogueEngine.Context.of(player, soldier);
 		List<DialogueOption> picked = DialogueEngine.select(ctx, state, session.shownThisConvo, now);
 		session.offered.clear();

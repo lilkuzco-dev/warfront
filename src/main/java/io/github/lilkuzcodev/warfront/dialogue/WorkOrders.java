@@ -121,7 +121,7 @@ public final class WorkOrders {
 		}
 		DialogueRegistry.WorkOrder order = DialogueRegistry.workOrder(faction, contract.orderId());
 		int reward = order == null ? 6 : order.rewardStanding();
-		long now = player.level().getGameTime();
+		long now = WarfrontState.clock(player.level());
 		state.addStanding(player.getUUID(), faction, reward);
 		state.recordEvent(player.getUUID(), faction,
 				contract.penance() ? "penance_completed" : "contract_completed", now);
@@ -147,7 +147,7 @@ public final class WorkOrders {
 		}
 		state.clearContract(player.getUUID(), faction);
 		state.addStanding(player.getUUID(), faction, -5);
-		state.recordEvent(player.getUUID(), faction, "contract_failed", player.level().getGameTime());
+		state.recordEvent(player.getUUID(), faction, "contract_failed", WarfrontState.clock(player.level()));
 	}
 
 	static void consumeItems(ServerPlayer player, String itemId, int count) {

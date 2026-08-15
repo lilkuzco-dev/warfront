@@ -137,7 +137,7 @@ public final class WarfrontCommands {
 			return 0;
 		}
 		WarfrontState state = WarfrontState.get(source.getServer());
-		long now = source.getLevel().getGameTime();
+		long now = WarfrontState.clock(source.getLevel());
 		for (Faction faction : WarfrontRegistry.factions().values()) {
 			float score = state.disposition(player.getUUID(), faction.id(), now);
 			String band = state.dispositionBand(player.getUUID(), faction.id(), now);

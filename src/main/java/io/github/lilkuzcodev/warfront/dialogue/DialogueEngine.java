@@ -31,7 +31,7 @@ public final class DialogueEngine {
 			ServerLevel level = (ServerLevel) soldier.level();
 			WarfrontState state = WarfrontState.get(level.getServer());
 			String faction = soldier.getFaction();
-			long now = level.getGameTime();
+			long now = WarfrontState.clock(level);
 			float standingValue = state.standing(player.getUUID(), faction);
 			String band = state.dispositionBand(player.getUUID(), faction, now);
 			String role = switch (soldier.getRank()) {
