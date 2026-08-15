@@ -1,0 +1,1017 @@
+{
+  "category": "greetings",
+  "options": [
+    { "id": "greetings_hail_plain", "text": "Hello there.", "response": "greetings_hail", "weight": 12 },
+    { "id": "greetings_hail_hey", "text": "Hey.", "response": "greetings_hail", "weight": 10 },
+    { "id": "greetings_hail_soldier", "text": "Hello, soldier.", "response": "greetings_hail", "weight": 12 },
+    { "id": "greetings_hail_wave", "text": "Just wanted to say hi.", "response": "greetings_hail", "weight": 8 },
+    { "id": "greetings_hail_stop_by", "text": "Thought I'd stop and say hello.", "response": "greetings_hail", "weight": 8 },
+    { "id": "greetings_hail_again", "text": "Hello again.", "response": "greetings_hail", "weight": 10 },
+    { "id": "greetings_hail_you_there", "text": "You there. Got a moment?", "response": "greetings_hail", "weight": 8 },
+    { "id": "greetings_hail_busy", "text": "Busy? I can come back later.", "response": "greetings_hail", "weight": 8 },
+    { "id": "greetings_hail_traveler", "text": "Greetings from a weary traveler.", "response": "greetings_hail", "weight": 7 },
+    { "id": "greetings_hail_peace", "text": "I come in peace.", "response": "greetings_hail", "weight": 8 },
+    { "id": "greetings_hail_chat", "text": "Anyone up for a bit of conversation?", "response": "greetings_hail", "weight": 7 },
+    { "id": "greetings_hail_stranger", "text": "Hello, stranger.", "response": "greetings_hail", "weight": 9 },
+    { "id": "greetings_hail_ho", "text": "Hail!", "response": "greetings_hail", "weight": 8 },
+    { "id": "greetings_hail_soul", "text": "Good to see another living soul out here.", "response": "greetings_hail", "weight": 7 },
+    { "id": "greetings_hail_how_goes", "text": "How goes it?", "response": "greetings_hail", "weight": 10 },
+    { "id": "greetings_hail_well_met", "text": "Well met.", "response": "greetings_hail", "weight": 9 },
+    { "id": "greetings_weather_nice", "text": "Nice weather today, isn't it?", "response": "greetings_smalltalk_weather", "weight": 10 },
+    { "id": "greetings_weather_awful", "text": "Miserable weather we're having.", "response": "greetings_smalltalk_weather", "weight": 10 },
+    { "id": "greetings_weather_rain", "text": "Think it'll rain?", "response": "greetings_smalltalk_weather", "weight": 9 },
+    { "id": "greetings_weather_cold", "text": "Cold enough for you?", "response": "greetings_smalltalk_weather", "weight": 9 },
+    { "id": "greetings_weather_heat", "text": "This heat is something else.", "response": "greetings_smalltalk_weather", "weight": 9 },
+    { "id": "greetings_weather_wind", "text": "That wind's really picking up.", "response": "greetings_smalltalk_weather", "weight": 8 },
+    { "id": "greetings_weather_storm", "text": "Looks like a storm's brewing.", "response": "greetings_smalltalk_weather", "weight": 8 },
+    { "id": "greetings_weather_sky", "text": "What's the sky telling you today?", "response": "greetings_smalltalk_weather", "weight": 7 },
+    { "id": "greetings_weather_season", "text": "Strange season this year, no?", "response": "greetings_smalltalk_weather", "weight": 7 },
+    { "id": "greetings_weather_stars", "text": "Clear night. Look at those stars.", "response": "greetings_smalltalk_weather", "conditions": { "time": ["night"] }, "weight": 8 },
+    { "id": "greetings_ask_war_going", "text": "How's the war going?", "response": "greetings_ask_war", "weight": 12 },
+    { "id": "greetings_ask_war_winning", "text": "Are you lot winning?", "response": "greetings_ask_war", "weight": 9 },
+    { "id": "greetings_ask_war_news", "text": "Any news from the front?", "response": "greetings_ask_war", "weight": 10 },
+    { "id": "greetings_ask_war_quiet", "text": "Seems quiet lately. Is it?", "response": "greetings_ask_war", "weight": 8 },
+    { "id": "greetings_ask_war_end", "text": "Think this war will ever end?", "response": "greetings_ask_war", "weight": 8 },
+    { "id": "greetings_ask_war_cost", "text": "This war's costing everyone plenty.", "response": "greetings_ask_war", "weight": 7 },
+    { "id": "greetings_ask_war_upper_hand", "text": "Who has the upper hand these days?", "response": "greetings_ask_war", "weight": 8 },
+    { "id": "greetings_ask_war_worth", "text": "Is it all worth it, do you think?", "response": "greetings_ask_war", "weight": 7 },
+    { "id": "greetings_ask_war_rough", "text": "Rough month out there?", "response": "greetings_ask_war", "weight": 8 },
+    { "id": "greetings_ask_war_holding", "text": "Still holding your ground out here?", "response": "greetings_ask_war", "weight": 8 },
+    { "id": "greetings_ask_name", "text": "What's your name?", "response": "greetings_ask_name", "weight": 10 },
+    { "id": "greetings_ask_name_call", "text": "What should I call you?", "response": "greetings_ask_name", "weight": 9 },
+    { "id": "greetings_ask_name_who", "text": "Who am I talking to?", "response": "greetings_ask_name", "weight": 8 },
+    { "id": "greetings_ask_name_catch", "text": "I never caught your name.", "response": "greetings_ask_name", "weight": 8 },
+    { "id": "greetings_ask_name_rank", "text": "Do you have a name, or just a rank?", "response": "greetings_ask_name", "weight": 6 },
+    { "id": "greetings_ask_name_remind", "text": "Remind me of your name?", "response": "greetings_ask_name", "weight": 6 },
+    { "id": "greetings_ask_day_going", "text": "How's your day going?", "response": "greetings_ask_day", "weight": 10 },
+    { "id": "greetings_ask_day_holding", "text": "How are you holding up?", "response": "greetings_ask_day", "weight": 9 },
+    { "id": "greetings_ask_day_shift", "text": "Long shift?", "response": "greetings_ask_day", "weight": 9 },
+    { "id": "greetings_ask_day_tired", "text": "You look tired.", "response": "greetings_ask_day", "weight": 7 },
+    { "id": "greetings_ask_day_alright", "text": "Everything alright with you?", "response": "greetings_ask_day", "weight": 8 },
+    { "id": "greetings_ask_day_morale", "text": "How are spirits around here?", "response": "greetings_ask_day", "weight": 8 },
+    { "id": "greetings_ask_day_eaten", "text": "Have you eaten today?", "response": "greetings_ask_day", "weight": 7 },
+    { "id": "greetings_ask_day_sleep", "text": "Getting any sleep out here?", "response": "greetings_ask_day", "weight": 7 },
+    { "id": "greetings_joke_offer", "text": "Want to hear a joke?", "response": "greetings_joke", "weight": 8 },
+    { "id": "greetings_joke_rations", "text": "What do you call a meal that fights back? Rations.", "response": "greetings_joke", "weight": 6 },
+    { "id": "greetings_joke_map", "text": "I asked a map for directions once. It folded under pressure.", "response": "greetings_joke", "weight": 6 },
+    { "id": "greetings_joke_know_any", "text": "Know any good jokes?", "response": "greetings_joke", "weight": 7 },
+    { "id": "greetings_joke_laugh", "text": "You look like you could use a laugh.", "response": "greetings_joke", "weight": 7 },
+    { "id": "greetings_joke_boots", "text": "My boots have seen more of this war than most generals.", "response": "greetings_joke", "weight": 6 },
+    { "id": "greetings_joke_soup", "text": "Is the soup here as dangerous as they say?", "response": "greetings_joke", "weight": 6 },
+    { "id": "greetings_morning_good", "text": "Good morning.", "response": "greetings_morning", "conditions": { "time": ["day"] }, "weight": 12 },
+    { "id": "greetings_morning_early", "text": "You're up early.", "response": "greetings_morning", "conditions": { "time": ["day"] }, "weight": 8 },
+    { "id": "greetings_morning_sunrise", "text": "Fine sunrise today.", "response": "greetings_morning", "conditions": { "time": ["day"] }, "weight": 8 },
+    { "id": "greetings_morning_quiet_night", "text": "Morning. Quiet night, I hope?", "response": "greetings_morning", "conditions": { "time": ["day"] }, "weight": 8 },
+    { "id": "greetings_morning_drink", "text": "Morning. Anything hot to drink around here?", "response": "greetings_morning", "conditions": { "time": ["day"] }, "weight": 7 },
+    { "id": "greetings_morning_start", "text": "Early start for both of us, I see.", "response": "greetings_morning", "conditions": { "time": ["day"] }, "weight": 7 },
+    { "id": "greetings_morning_walk", "text": "Morning. I've been walking since first light.", "response": "greetings_morning", "conditions": { "time": ["day"] }, "weight": 7 },
+    { "id": "greetings_night_good", "text": "Good evening.", "response": "greetings_night", "conditions": { "time": ["night"] }, "weight": 12 },
+    { "id": "greetings_night_late", "text": "You're on watch late.", "response": "greetings_night", "conditions": { "time": ["night"] }, "weight": 8 },
+    { "id": "greetings_night_dark", "text": "Dark out tonight.", "response": "greetings_night", "conditions": { "time": ["night"] }, "weight": 8 },
+    { "id": "greetings_night_sleepless", "text": "Couldn't sleep. Saw your light.", "response": "greetings_night", "conditions": { "time": ["night"] }, "weight": 7 },
+    { "id": "greetings_night_long", "text": "Long night ahead?", "response": "greetings_night", "conditions": { "time": ["night"] }, "weight": 8 },
+    { "id": "greetings_night_moon", "text": "Good moon for walking tonight.", "response": "greetings_night", "conditions": { "time": ["night"] }, "weight": 7 },
+    { "id": "greetings_night_air", "text": "Night air has teeth this time of year.", "response": "greetings_night", "conditions": { "time": ["night"] }, "weight": 7 },
+    { "id": "greetings_first_not_met", "text": "I don't think we've met.", "response": "greetings_first_meeting", "conditions": { "disposition": ["neutral"] }, "weight": 9 },
+    { "id": "greetings_first_of_yours", "text": "You're the first of your people I've spoken with.", "response": "greetings_first_meeting", "conditions": { "disposition": ["neutral"] }, "weight": 7 },
+    { "id": "greetings_first_introduce", "text": "Let me introduce myself — I'm new around here.", "response": "greetings_first_meeting", "conditions": { "disposition": ["neutral"] }, "weight": 8 },
+    { "id": "greetings_first_banners", "text": "I've seen your banners around, never stopped to talk.", "response": "greetings_first_meeting", "conditions": { "disposition": ["neutral"] }, "weight": 7 },
+    { "id": "greetings_first_heard", "text": "I've heard about your people. Wanted to meet one.", "response": "greetings_first_meeting", "conditions": { "disposition": ["neutral"] }, "weight": 7 },
+    { "id": "greetings_first_brief", "text": "New face, I know. I'll keep it brief.", "response": "greetings_first_meeting", "conditions": { "disposition": ["neutral"] }, "weight": 7 },
+    { "id": "greetings_first_region", "text": "Just arrived in this region.", "response": "greetings_first_meeting", "conditions": { "disposition": ["neutral"] }, "weight": 8 },
+    { "id": "greetings_killer_no_fight", "text": "I'm not here to fight.", "response": "greetings_killer_wary", "conditions": { "has_killed_this_faction": true, "disposition": ["negative"] }, "weight": 10 },
+    { "id": "greetings_killer_know", "text": "I know what you think of me.", "response": "greetings_killer_wary", "conditions": { "has_killed_this_faction": true, "disposition": ["negative"] }, "weight": 9 },
+    { "id": "greetings_killer_done", "text": "What's done is done. I only want to talk.", "response": "greetings_killer_wary", "conditions": { "has_killed_this_faction": true, "disposition": ["negative"] }, "weight": 8 },
+    { "id": "greetings_killer_watched", "text": "Your people have been watching me. I noticed.", "response": "greetings_killer_wary", "conditions": { "has_killed_this_faction": true, "disposition": ["negative"] }, "weight": 8 },
+    { "id": "greetings_killer_hands", "text": "See? Empty hands.", "response": "greetings_killer_wary", "conditions": { "has_killed_this_faction": true, "disposition": ["negative"] }, "weight": 8 },
+    { "id": "greetings_killer_regret", "text": "For what it's worth, I'm not proud of what happened.", "response": "greetings_killer_wary", "conditions": { "has_killed_this_faction": true, "disposition": ["negative"] }, "weight": 8 },
+    { "id": "greetings_killer_talk", "text": "Can we still talk, after everything?", "response": "greetings_killer_wary", "conditions": { "has_killed_this_faction": true, "disposition": ["negative"] }, "weight": 8 },
+    { "id": "greetings_killer_price", "text": "Is there a price on my head yet?", "response": "greetings_killer_wary", "conditions": { "has_killed_this_faction": true, "disposition": ["negative"] }, "weight": 7 },
+    { "id": "greetings_killer_alone", "text": "I came alone. That should count for something.", "response": "greetings_killer_wary", "conditions": { "has_killed_this_faction": true, "disposition": ["negative"] }, "weight": 7 },
+    { "id": "greetings_killer_hear", "text": "Hear me out before you decide anything.", "response": "greetings_killer_wary", "conditions": { "has_killed_this_faction": true, "disposition": ["negative"] }, "weight": 7 },
+    { "id": "greetings_killer_visible", "text": "I'll stay where you can see me.", "response": "greetings_killer_wary", "conditions": { "has_killed_this_faction": true, "disposition": ["negative"] }, "weight": 7 },
+    { "id": "greetings_killer_blood", "text": "There's blood between us. I know it.", "response": "greetings_killer_wary", "conditions": { "has_killed_this_faction": true, "disposition": ["negative"] }, "weight": 7 },
+    { "id": "greetings_killer_amends", "text": "Maybe someday I can make it right.", "response": "greetings_killer_wary", "conditions": { "has_killed_this_faction": true }, "weight": 7 },
+    { "id": "greetings_killer_bold", "text": "Surprised I'd show my face?", "response": "greetings_killer_wary", "conditions": { "has_killed_this_faction": true }, "weight": 6 },
+    { "id": "greetings_gate_fine_camp", "text": "Fine camp you've got here.", "response": "greetings_gate_respect", "conditions": { "location": ["in_base"] }, "weight": 9 },
+    { "id": "greetings_gate_thanks", "text": "Thanks for letting me through the gate.", "response": "greetings_gate_respect", "conditions": { "location": ["in_base"] }, "weight": 8 },
+    { "id": "greetings_gate_security", "text": "Tight watch you keep around here.", "response": "greetings_gate_respect", "conditions": { "location": ["in_base"] }, "weight": 8 },
+    { "id": "greetings_gate_out_of_way", "text": "Busy place. I'll stay out of the way.", "response": "greetings_gate_respect", "conditions": { "location": ["in_base"] }, "weight": 8 },
+    { "id": "greetings_gate_walls", "text": "These walls look like they've seen some action.", "response": "greetings_gate_respect", "conditions": { "location": ["in_base"] }, "weight": 7 },
+    { "id": "greetings_gate_home", "text": "So this is home for you?", "response": "greetings_gate_respect", "conditions": { "location": ["in_base"] }, "weight": 7 },
+    { "id": "greetings_gate_respects", "text": "Just stopping in to pay my respects.", "response": "greetings_gate_respect", "conditions": { "location": ["in_base"] }, "weight": 7 },
+    { "id": "greetings_gate_inside", "text": "Good to be inside the walls for once.", "response": "greetings_gate_respect", "conditions": { "location": ["in_base"] }, "weight": 7 },
+    { "id": "greetings_trail_far", "text": "You're a long way from your walls.", "response": "greetings_trail_meet", "conditions": { "location": ["patrol", "wilderness"] }, "weight": 9 },
+    { "id": "greetings_trail_alone", "text": "Out here all alone?", "response": "greetings_trail_meet", "conditions": { "location": ["patrol", "wilderness"] }, "weight": 8 },
+    { "id": "greetings_trail_road", "text": "How's the road ahead?", "response": "greetings_trail_meet", "conditions": { "location": ["patrol", "wilderness"] }, "weight": 9 },
+    { "id": "greetings_trail_unexpected", "text": "Didn't expect to meet anyone out here.", "response": "greetings_trail_meet", "conditions": { "location": ["patrol", "wilderness"] }, "weight": 8 },
+    { "id": "greetings_trail_patrol", "text": "Out on patrol, are you?", "response": "greetings_trail_meet", "conditions": { "location": ["patrol"] }, "weight": 8 },
+    { "id": "greetings_trail_company", "text": "Mind if I walk with you a stretch?", "response": "greetings_trail_meet", "conditions": { "location": ["patrol", "wilderness"] }, "weight": 7 },
+    { "id": "greetings_trail_country", "text": "Rough country, this.", "response": "greetings_trail_meet", "conditions": { "location": ["wilderness"] }, "weight": 8 },
+    { "id": "greetings_trail_trouble", "text": "Any trouble on the paths lately?", "response": "greetings_trail_meet", "conditions": { "location": ["patrol", "wilderness"] }, "weight": 8 },
+    { "id": "greetings_officer_respects", "text": "Officer. My respects.", "response": "greetings_officer_formal", "conditions": { "role": ["officer"] }, "weight": 9 },
+    { "id": "greetings_officer_commander", "text": "Good day to you, commander.", "response": "greetings_officer_formal", "conditions": { "role": ["officer"] }, "weight": 9 },
+    { "id": "greetings_officer_moment", "text": "Could I have a moment of your time, officer?", "response": "greetings_officer_formal", "conditions": { "role": ["officer"] }, "weight": 8 },
+    { "id": "greetings_officer_in_charge", "text": "You're the one in charge here, I take it?", "response": "greetings_officer_formal", "conditions": { "role": ["officer"] }, "weight": 8 },
+    { "id": "greetings_officer_no_waste", "text": "I won't waste your time, officer.", "response": "greetings_officer_formal", "conditions": { "role": ["officer"] }, "weight": 8 },
+    { "id": "greetings_officer_honor", "text": "An honor to speak with you.", "response": "greetings_officer_formal", "conditions": { "role": ["officer"] }, "weight": 7 },
+    { "id": "greetings_defer_no_trouble", "text": "I don't want any trouble.", "response": "greetings_nervous_peace", "conditions": { "disposition": ["negative"] }, "weight": 10 },
+    { "id": "greetings_defer_passing", "text": "Just passing through, that's all.", "response": "greetings_nervous_peace", "conditions": { "disposition": ["negative"] }, "weight": 10 },
+    { "id": "greetings_defer_moment", "text": "Mind if I stop here a moment?", "response": "greetings_nervous_peace", "conditions": { "disposition": ["negative"] }, "weight": 8 },
+    { "id": "greetings_defer_easy", "text": "Easy. I'm only here to talk.", "response": "greetings_nervous_peace", "conditions": { "disposition": ["negative"] }, "weight": 9 },
+    { "id": "greetings_defer_distance", "text": "I'll keep my distance if that helps.", "response": "greetings_nervous_peace", "conditions": { "disposition": ["negative"] }, "weight": 8 },
+    { "id": "greetings_defer_respect", "text": "I mean your people no disrespect.", "response": "greetings_nervous_peace", "conditions": { "disposition": ["negative"] }, "weight": 8 },
+    { "id": "greetings_defer_wrong_foot", "text": "I think we got off on the wrong foot.", "response": "greetings_nervous_peace", "conditions": { "disposition": ["negative"] }, "weight": 8 },
+    { "id": "greetings_defer_start_over", "text": "Any chance we could start over?", "response": "greetings_nervous_peace", "conditions": { "disposition": ["negative"] }, "weight": 8 },
+    { "id": "greetings_defer_rules", "text": "Tell me your rules and I'll follow them.", "response": "greetings_nervous_peace", "conditions": { "disposition": ["negative"] }, "weight": 7 },
+    { "id": "greetings_defer_quick", "text": "I'll be quick, then I'm gone.", "response": "greetings_nervous_peace", "conditions": { "disposition": ["negative"] }, "weight": 8 },
+    { "id": "greetings_defer_safe", "text": "Am I safe walking this road?", "response": "greetings_nervous_peace", "conditions": { "disposition": ["negative"] }, "weight": 8 },
+    { "id": "greetings_defer_not_enemy", "text": "I'm not your enemy. Not today, anyway.", "response": "greetings_nervous_peace", "conditions": { "disposition": ["negative"] }, "weight": 7 },
+    { "id": "greetings_defer_word", "text": "You have my word I'll behave.", "response": "greetings_nervous_peace", "conditions": { "disposition": ["negative"] }, "weight": 7 },
+    { "id": "greetings_defer_startle", "text": "Didn't mean to startle you.", "response": "greetings_nervous_peace", "conditions": { "disposition": ["negative"] }, "weight": 7 },
+    { "id": "greetings_defer_good", "text": "So... are we good, you and I?", "response": "greetings_nervous_peace", "conditions": { "disposition": ["negative"] }, "weight": 7 },
+    { "id": "greetings_defer_fix", "text": "If I've wronged your people, tell me how to fix it.", "response": "greetings_nervous_peace", "conditions": { "disposition": ["negative"] }, "weight": 7 },
+    { "id": "greetings_defer_watch", "text": "Keep an eye on me if you want. I understand.", "response": "greetings_nervous_peace", "conditions": { "disposition": ["negative"] }, "weight": 6 },
+    { "id": "greetings_defer_welcome", "text": "Am I still welcome here?", "response": "greetings_nervous_peace", "conditions": { "disposition": ["negative"], "standing": ["wary", "hostile"] }, "weight": 7 },
+    { "id": "greetings_defer_alarm", "text": "Don't raise an alarm. It's only me.", "response": "greetings_nervous_peace", "conditions": { "disposition": ["negative"], "time": ["night"] }, "weight": 6 },
+    { "id": "greetings_banter_dragged", "text": "Look what the war dragged in.", "response": "greetings_familiar_banter", "conditions": { "disposition": ["positive"] }, "weight": 9 },
+    { "id": "greetings_banter_alive", "text": "Still alive, I see. Good habit.", "response": "greetings_familiar_banter", "conditions": { "disposition": ["positive"] }, "weight": 9 },
+    { "id": "greetings_banter_uglier", "text": "You get uglier every time I visit.", "response": "greetings_familiar_banter", "conditions": { "disposition": ["friendly", "devoted"] }, "weight": 7 },
+    { "id": "greetings_banter_miss", "text": "Miss me?", "response": "greetings_familiar_banter", "conditions": { "disposition": ["positive"] }, "weight": 9 },
+    { "id": "greetings_banter_favorite", "text": "There's my favorite soldier.", "response": "greetings_familiar_banter", "conditions": { "disposition": ["positive"] }, "weight": 8 },
+    { "id": "greetings_banter_promoted", "text": "They haven't promoted you yet? Criminal.", "response": "greetings_familiar_banter", "conditions": { "disposition": ["positive"] }, "weight": 8 },
+    { "id": "greetings_banter_trouble", "text": "Stayed out of trouble since I left?", "response": "greetings_familiar_banter", "conditions": { "disposition": ["positive"] }, "weight": 8 },
+    { "id": "greetings_banter_troublemakers", "text": "How's my favorite band of troublemakers?", "response": "greetings_familiar_banter", "conditions": { "disposition": ["positive"] }, "weight": 8 },
+    { "id": "greetings_banter_work", "text": "Hard at work, or hardly working?", "response": "greetings_familiar_banter", "conditions": { "disposition": ["positive"] }, "weight": 8 },
+    { "id": "greetings_banter_bet", "text": "You still owe me from that bet.", "response": "greetings_familiar_banter", "conditions": { "disposition": ["friendly", "devoted"] }, "weight": 7 },
+    { "id": "greetings_banter_gossip", "text": "Got any gossip for me?", "response": "greetings_familiar_banter", "conditions": { "disposition": ["positive"] }, "weight": 8 },
+    { "id": "greetings_banter_home_feel", "text": "This place is starting to feel like home.", "response": "greetings_familiar_banter", "conditions": { "disposition": ["positive"] }, "weight": 7 },
+    { "id": "greetings_banter_no_dying", "text": "Try not to get killed while I'm gone, yeah?", "response": "greetings_familiar_banter", "conditions": { "disposition": ["positive"] }, "weight": 7 },
+    { "id": "greetings_banter_round", "text": "Next round's on me, whenever you get leave.", "response": "greetings_familiar_banter", "conditions": { "disposition": ["positive"] }, "weight": 7 },
+    { "id": "greetings_banter_cant_stay_away", "text": "Can't seem to stay away from you lot.", "response": "greetings_familiar_banter", "conditions": { "disposition": ["positive"] }, "weight": 7 },
+    { "id": "greetings_banter_helmet", "text": "New helmet? Very dashing.", "response": "greetings_familiar_banter", "conditions": { "disposition": ["positive"] }, "weight": 7 },
+    { "id": "greetings_banter_boredom_score", "text": "So who's winning — you or the boredom?", "response": "greetings_familiar_banter", "conditions": { "disposition": ["positive"] }, "weight": 7 },
+    { "id": "greetings_banter_stories_posts", "text": "They tell stories about you at the other posts, you know.", "response": "greetings_familiar_banter", "conditions": { "disposition": ["positive"] }, "weight": 6 },
+    { "id": "greetings_banter_one_piece", "text": "Told you I'd come back in one piece.", "response": "greetings_familiar_banter", "conditions": { "disposition": ["positive"] }, "weight": 7 },
+    { "id": "greetings_banter_cooking", "text": "I could smell the camp cooking a mile off. Came anyway.", "response": "greetings_familiar_banter", "conditions": { "disposition": ["positive"] }, "weight": 6 },
+    { "id": "greetings_banter_mud", "text": "How's the mud treating you?", "response": "greetings_familiar_banter", "conditions": { "faction": ["vostok"], "disposition": ["positive"] }, "weight": 7 },
+    { "id": "greetings_banter_net", "text": "Any chatter on the net worth hearing?", "response": "greetings_familiar_banter", "conditions": { "faction": ["aegis"], "disposition": ["positive"] }, "weight": 7 },
+    { "id": "greetings_banter_kettle", "text": "Is the kettle on?", "response": "greetings_familiar_banter", "conditions": { "faction": ["sarab"], "disposition": ["positive"] }, "weight": 7 },
+    { "id": "greetings_banter_holes", "text": "Dug any good holes lately?", "response": "greetings_familiar_banter", "conditions": { "faction": ["vostok"], "disposition": ["positive"] }, "weight": 6 },
+    { "id": "greetings_banter_sand", "text": "How do you bear all this sand?", "response": "greetings_familiar_banter", "conditions": { "faction": ["sarab"], "disposition": ["positive"] }, "weight": 6 },
+    { "id": "greetings_banter_reports", "text": "Filed all your reports today?", "response": "greetings_familiar_banter", "conditions": { "faction": ["aegis"], "disposition": ["positive"] }, "weight": 6 },
+    { "id": "greetings_bye_care", "text": "Take care of yourself out here.", "response": "greetings_farewell", "conditions": { "disposition": ["positive"] }, "effects": [{ "type": "end" }], "exit": true, "weight": 8 },
+    { "id": "greetings_bye_watch", "text": "I'll leave you to your watch.", "response": "greetings_farewell", "effects": [{ "type": "end" }], "exit": true, "weight": 8 },
+    { "id": "greetings_bye_out_of_way", "text": "I'll get out of your way now.", "response": "greetings_farewell", "conditions": { "disposition": ["negative"] }, "effects": [{ "type": "end" }], "exit": true, "weight": 8 },
+    { "id": "greetings_bye_around", "text": "See you around.", "response": "greetings_farewell", "conditions": { "disposition": ["positive"] }, "effects": [{ "type": "end" }], "exit": true, "weight": 8 },
+    { "id": "greetings_bye_awkward", "text": "Right. This got awkward. Goodbye.", "response": "greetings_farewell", "conditions": { "disposition": ["negative"] }, "effects": [{ "type": "end" }], "exit": true, "weight": 6 },
+    { "id": "greetings_bye_off", "text": "Safe watch. I'm off.", "response": "greetings_farewell", "effects": [{ "type": "end" }], "exit": true, "weight": 8 },
+    { "id": "greetings_compliment_tight", "text": "Your people run a tight operation.", "response": "greetings_compliment", "weight": 8 },
+    { "id": "greetings_compliment_guts", "text": "Takes guts to do what you do.", "response": "greetings_compliment", "weight": 8 },
+    { "id": "greetings_compliment_gear", "text": "That's fine gear you're carrying.", "response": "greetings_compliment", "weight": 7 },
+    { "id": "greetings_compliment_cause", "text": "I respect what your people fight for.", "response": "greetings_compliment", "weight": 7 },
+    { "id": "greetings_compliment_tough", "text": "You lot are tougher than you get credit for.", "response": "greetings_compliment", "weight": 7 },
+    { "id": "greetings_compliment_outfit", "text": "Best-run outfit I've seen anywhere.", "response": "greetings_compliment", "weight": 6 },
+    { "id": "greetings_rude_smell", "text": "You lot smell like a swamp died.", "response": "greetings_rude_insult", "effects": [{ "type": "disposition", "event": "insulted" }], "weight": 5 },
+    { "id": "greetings_rude_losing", "text": "Heard your side's been taking a beating. Looks true.", "response": "greetings_rude_insult", "effects": [{ "type": "disposition", "event": "insulted" }], "weight": 5 },
+    { "id": "greetings_rude_nervous", "text": "Do they teach you that nervous look, or is it natural?", "response": "greetings_rude_insult", "effects": [{ "type": "disposition", "event": "insulted" }], "weight": 5 }
+  ],
+  "responses": {
+    "greetings_hail": {
+      "vostok": {
+        "negative": [
+          "Save the hello. Words are cheap and wire is expensive.",
+          "The line sees you. That is not a welcome.",
+          "You greet us like we forgot. We don't forget. We count."
+        ],
+        "neutral": [
+          "Yeah. You're on the drainage board. Move left.",
+          "Hello, hello. The mud says hello too.",
+          "A greeting. Fine. What comes after it?"
+        ],
+        "positive": [
+          "There's that face. The trench is uglier without it.",
+          "Hey. Come over where the arrows don't land. Mostly don't.",
+          "The line greets you back, friend. That's rare as dry socks."
+        ]
+      },
+      "aegis": {
+        "negative": [
+          "Contact noted. Keep your distance and your hands empty.",
+          "Greeting received. Trust not included.",
+          "You're on the watch list, civilian. Hellos don't amend files."
+        ],
+        "neutral": [
+          "Acknowledged. State your business or move along.",
+          "Receiving you. Keep the approach clear while we talk.",
+          "Contact logged, civilian. Proceed."
+        ],
+        "positive": [
+          "Good copy. Always room on the net for a friendly.",
+          "Receiving you loud and clear, friend. Go ahead.",
+          "Cleared through. You picked a quiet hour — enjoy it."
+        ]
+      },
+      "sarab": {
+        "negative": [
+          "The jackal also says hello before it circles.",
+          "A greeting from you weighs less than the wind that carries it.",
+          "Words are water. Yours arrive salted."
+        ],
+        "neutral": [
+          "Peace, walker. Small peace, but ours.",
+          "You greet the shade; the shade considers you.",
+          "The road brought you; let us see what else it brought."
+        ],
+        "positive": [
+          "And peace upon you, friend of the quiet places.",
+          "The kettle heard your voice and is already warm.",
+          "Welcome twice — once for you, once for the news you carry."
+        ]
+      }
+    },
+    "greetings_smalltalk_weather": {
+      "vostok": {
+        "negative": [
+          "The weather is mud. You are also a problem. One of these we can fix.",
+          "Rain falls on friend and debtor alike. Only one of them should relax."
+        ],
+        "neutral": [
+          "It rains, we dig, the trench drinks. Same forecast since forever.",
+          "Cold today. Cold tomorrow. The line doesn't check the sky, it checks the wire.",
+          "Sky's grey. Sky is always grey. It matches the uniforms."
+        ],
+        "positive": [
+          "Ha — you learn. Talk weather first, bad news second. The trench way.",
+          "Good drying wind today. First dry socks in a week. A feast day.",
+          "Sun's out. The line distrusts it. Sun means someone sees you."
+        ]
+      },
+      "aegis": {
+        "negative": [
+          "Weather chat won't clear your file. Anything operational?",
+          "Visibility's fine. Good enough to keep eyes on you."
+        ],
+        "neutral": [
+          "Ceiling's low, wind's manageable. That's the full report, civilian.",
+          "Forecast calls for rain over the sector by nightfall. Plan accordingly.",
+          "Weather's within parameters. Everything else, classified."
+        ],
+        "positive": [
+          "Clear skies, friend. Best observation weather all week.",
+          "Front's moving in from the west. You'll want a roof by dusk — take the near road.",
+          "Nice enough that command scheduled drills. There's always a cost."
+        ]
+      },
+      "sarab": {
+        "negative": [
+          "You speak of the sky to avoid speaking of yourself. The sky notices.",
+          "Weather is the desert's mood. Today it shares mine. Be brief."
+        ],
+        "neutral": [
+          "The wind turned east in the night. East winds carry news and grit.",
+          "Hot sun, cold stars. The desert keeps honest books.",
+          "Rain here is a rumor. We treat rumors with respect."
+        ],
+        "positive": [
+          "For you, friend, I will say it: storm coming. Two days. Dig your camp deep.",
+          "The cool hours are kind today. Sit in them with us a while.",
+          "The sky is soft this evening. Even the scorpions are at peace."
+        ]
+      }
+    },
+    "greetings_ask_war": {
+      "vostok": {
+        "negative": [
+          "The war goes. You would know — you fed it.",
+          "Ask the ones we buried. Oh. You can't."
+        ],
+        "neutral": [
+          "The war eats. We feed it. Some weeks it chews slow.",
+          "Front's quiet. Quiet is a debt the loud days collect on.",
+          "We hold. They push. The mud referees."
+        ],
+        "positive": [
+          "Between us? We're winning slowly, which is the only speed we know.",
+          "War's the same. But the soup improved, so morale is up two percent.",
+          "The line held all month, friend. For us that's a parade."
+        ]
+      },
+      "aegis": {
+        "negative": [
+          "Operational status is not shared with flagged individuals.",
+          "The war proceeds. Your part in it is under review."
+        ],
+        "neutral": [
+          "Situation is stable. Details are need-to-know, and you don't.",
+          "Contested sectors remain contested. That's all that's releasable.",
+          "The board shows amber. Amber is survivable."
+        ],
+        "positive": [
+          "Off the record? We hold the ridge, they hold the marsh, nobody holds the middle.",
+          "Progress is real but slow, friend. Doctrine says patience. Doctrine wins.",
+          "Two sectors quieter than last season. Small wins log the same as big ones."
+        ]
+      },
+      "sarab": {
+        "negative": [
+          "The war is a fire. You ask how it burns while smelling of smoke.",
+          "It goes as the desert wills. The desert has opinions about you."
+        ],
+        "neutral": [
+          "Wars are rivers. Loud at the rapids, patient underground. We are underground.",
+          "Ask the vulture, who sees the whole board. We only see our shade.",
+          "The strong tire. The desert does not. That is the whole war."
+        ],
+        "positive": [
+          "Well, friend. The heavy ones chase our footprints; the footprints lead nowhere kind.",
+          "The war leans our way like an evening shadow — slowly, then all at once.",
+          "We lost nothing this month. For sand, that is victory."
+        ]
+      }
+    },
+    "greetings_ask_name": {
+      "vostok": {
+        "negative": [
+          "My name is none-of-yours. It's a common name here.",
+          "The dead had names. Ask about them instead."
+        ],
+        "neutral": [
+          "Names wear out fast here. Call me what you like, I answer to shouting.",
+          "I'm the third one on the left, second trench. That's name enough."
+        ],
+        "positive": [
+          "Ha! Nobody asks that. I'm Lev's boy — everyone here is somebody's boy.",
+          "They call me Shovel. Long story. Short shovel."
+        ]
+      },
+      "aegis": {
+        "negative": [
+          "You don't need my designation. You need distance.",
+          "Identity is operational information. Denied."
+        ],
+        "neutral": [
+          "Callsigns only past the wire. Mine's whatever the roster says today.",
+          "You can address me as 'watchstander'. Everyone does."
+        ],
+        "positive": [
+          "Off duty they call me Deuce. On duty I'm a post number. Take your pick.",
+          "Ask me again over rations sometime, friend. On post, I'm just the helmet."
+        ]
+      },
+      "sarab": {
+        "negative": [
+          "You collect names like a trapper collects tracks. Mine stays in the sand.",
+          "The desert gives names. It has not given you mine."
+        ],
+        "neutral": [
+          "A name is a rope. I hand it only to those who won't pull.",
+          "Call me cousin. Out here everyone is a cousin or a corpse."
+        ],
+        "positive": [
+          "For you? I am called Whisper-of-the-Well. My mother called me something shorter.",
+          "Names are gifts, friend. Mine is Sef. Spend it gently."
+        ]
+      }
+    },
+    "greetings_ask_day": {
+      "vostok": {
+        "negative": [
+          "My day was fine until the arithmetic walked up and said hello.",
+          "Alive. Annoyed. In that order."
+        ],
+        "neutral": [
+          "Knee-deep in water, holding a wall. A classic.",
+          "Same day as yesterday. We reuse them to save supply.",
+          "My boots are dry. Ask nothing more, you'll spoil it."
+        ],
+        "positive": [
+          "Better now — company that isn't trying to kill us is a luxury.",
+          "Good day. Nobody died and the soup had actual potato. Historic."
+        ]
+      },
+      "aegis": {
+        "negative": [
+          "My shift is fine. My watch list is one name longer. Guess whose.",
+          "Status: on duty. Yours: on notice."
+        ],
+        "neutral": [
+          "Eight hours on, four off, all quiet. Textbook.",
+          "Routine patrol, routine watch. Routine is the goal.",
+          "Day's nominal. Keep it boring for me, will you?"
+        ],
+        "positive": [
+          "Honestly? Quiet watch, good rotation, and now a friendly face. Solid day.",
+          "Green across the board, friend. Days like this make you superstitious."
+        ]
+      },
+      "sarab": {
+        "negative": [
+          "My day is sand and patience. Your visit spends the patience.",
+          "It was quiet. The quiet had better manners than this."
+        ],
+        "neutral": [
+          "The sun rose, the sun will fall. Between them I keep watch. It's enough.",
+          "A day like a date palm — long, thin, some sweetness at the top."
+        ],
+        "positive": [
+          "Sweetened, now. Guests make the tea taste of occasion.",
+          "The shade is cool and my cousins are alive. A rich day, friend."
+        ]
+      }
+    },
+    "greetings_joke": {
+      "vostok": {
+        "negative": [
+          "We have a joke too. It has a punchline made of consequences.",
+          "Funny. The last funny one is on latrine duty forever. Careful."
+        ],
+        "neutral": [
+          "Heh. Not bad. The mud laughed a little.",
+          "Why does the recruit dig two trenches? One is a spare grave. ...We laugh here."
+        ],
+        "positive": [
+          "HA! I'm stealing that for the night watch. They need it.",
+          "Good one. Almost as funny as our supply schedule."
+        ]
+      },
+      "aegis": {
+        "negative": [
+          "Humor from you reads as provocation. Noted.",
+          "Laughter is not on my duty roster today. Neither are you."
+        ],
+        "neutral": [
+          "Registered as humor. Response withheld pending review.",
+          "That's a smile. Off the record it never happened."
+        ],
+        "positive": [
+          "Copy that joke. Retransmitting on the squad net tonight.",
+          "Ha — filing that under morale, subsection unofficial."
+        ]
+      },
+      "sarab": {
+        "negative": [
+          "The hyena laughs too. Ask him how the story ends.",
+          "A jest from a salted tongue still tastes of salt."
+        ],
+        "neutral": [
+          "Mm. The desert's jokes are longer. Some take years to land.",
+          "A smile is a small oasis. I will camp at this one briefly."
+        ],
+        "positive": [
+          "Ha! I will trade you one of ours: what did the dune say to the fortress? 'I have time.'",
+          "You joke like a cousin now. Dangerous. Cousins get chores."
+        ]
+      }
+    },
+    "greetings_morning": {
+      "vostok": {
+        "negative": [
+          "Morning. Another day you're still on our ledger.",
+          "The sun's up. It sees you too."
+        ],
+        "neutral": [
+          "Morning. The line survived the night. Standard miracle.",
+          "It's morning if you call this light. We call it grey shift."
+        ],
+        "positive": [
+          "Morning, friend! Tea's brutal today. Builds character.",
+          "A good morning — frost kept the mud honest overnight."
+        ]
+      },
+      "aegis": {
+        "negative": [
+          "Morning report includes you. That's not a compliment.",
+          "Dawn's here and so are you. State your purpose, keep it short."
+        ],
+        "neutral": [
+          "Morning. Watch change in twenty. Make it quick.",
+          "Good morning, civilian. Sector was quiet overnight. Help it stay that way."
+        ],
+        "positive": [
+          "Morning, friend. Dawn patrol found nothing but dew. Best possible news.",
+          "Good morning. First light was clean — you can see three ridges today."
+        ]
+      },
+      "sarab": {
+        "negative": [
+          "Dawn shows every footprint from the night. Yours included.",
+          "The morning is honest. Be honest with it."
+        ],
+        "neutral": [
+          "Morning is the desert's truce. Even the snakes honor it. Speak.",
+          "The sun is young and merciful yet. State your need before it grows up."
+        ],
+        "positive": [
+          "A blessed dawn, friend. First light was the color of good dates.",
+          "Morning, friend. The night passed like a well-paid guest — quietly."
+        ]
+      }
+    },
+    "greetings_night": {
+      "vostok": {
+        "negative": [
+          "Wandering in the dark near our wire. Bold or stupid. Pick one, fast.",
+          "Night visit. Debt collectors do that too."
+        ],
+        "neutral": [
+          "Night watch. Speak soft. Sound carries and so do arrows.",
+          "It's late. The line sleeps in shifts. I'm the shift."
+        ],
+        "positive": [
+          "Up late too, friend? Sit. The dark is roomier than the day.",
+          "Quiet night. Almost suspiciously nice. Don't spoil it, ha."
+        ]
+      },
+      "aegis": {
+        "negative": [
+          "Night movement by a flagged individual. Be very transparent right now.",
+          "It's dark and you're on my list. Do the math and stay in the light."
+        ],
+        "neutral": [
+          "Night watch, civilian. Stay in the lit lane and state your business.",
+          "You're on my optics. Approach slow, talk normal."
+        ],
+        "positive": [
+          "Evening, friend. Stars are out and the net is quiet. Rare combination.",
+          "Night's calm. Stick to the marked path anyway — trust the tape, not the dark."
+        ]
+      },
+      "sarab": {
+        "negative": [
+          "The night is ours, walker. You borrow it. Borrowers pay.",
+          "Only owls and debtors travel this late. You don't look like an owl."
+        ],
+        "neutral": [
+          "The desert opens at night. Mind what walks out of it.",
+          "Night is when we do our listening. You have our ears — briefly."
+        ],
+        "positive": [
+          "Welcome to the cool hours, friend. This is when the desert tells the truth.",
+          "Sit by the small fire. Night guests bring the best stories."
+        ]
+      }
+    },
+    "greetings_first_meeting": {
+      "vostok": {
+        "negative": [
+          "We haven't met, but your reputation dug in before you did.",
+          "New face, old story. Prove the story wrong."
+        ],
+        "neutral": [
+          "First time at the line? Rule one: don't stand where I do.",
+          "New face. The mud takes all kinds. What do you want?"
+        ],
+        "positive": [
+          "So you're the one the others mentioned. Good things, mostly. Rare.",
+          "First meeting and no one's bleeding. Best introduction this month."
+        ]
+      },
+      "aegis": {
+        "negative": [
+          "No file on you yet. Files start today. Behave accordingly.",
+          "Unknown contact. You get exactly one first impression. Spend it well."
+        ],
+        "neutral": [
+          "First contact logged. Name and business, in that order.",
+          "New to the sector? Read the postings, follow the tape, you'll do fine."
+        ],
+        "positive": [
+          "Word travels ahead of you, friend, and for once it's favorable.",
+          "Fresh face, clean record. Cleanest thing in this sector. Welcome."
+        ]
+      },
+      "sarab": {
+        "negative": [
+          "New to me, not to the sand. It has already sketched you.",
+          "Strangers are unread letters. Some are bills."
+        ],
+        "neutral": [
+          "A first meeting is a blank page. Ink carefully.",
+          "The desert introduces everyone eventually. Today it chose us. Speak."
+        ],
+        "positive": [
+          "The wind spoke of a stranger with good manners. Sit, be the rumor.",
+          "First meetings under good stars. The tea decides if there's a second."
+        ]
+      }
+    },
+    "greetings_killer_wary": {
+      "vostok": {
+        "vengeful": [
+          "Eleven graves and you bring me small talk. Say one more word worth digging for.",
+          "We drew lots for who avenges the eleventh. I lost. Or won. Depends on you."
+        ],
+        "negative": [
+          "You say hello with our blood still in the arithmetic. Careful.",
+          "Talk soft. Half this trench wants your boots as souvenirs.",
+          "The count says eleven. Your mouth says hello. The count is louder."
+        ],
+        "neutral": [
+          "We remember what you did. We also remember worse. Speak.",
+          "You've killed ours. The line notes it and keeps digging. State your business."
+        ],
+        "positive": [
+          "There's blood between us and yet here you stand. That takes something. Talk.",
+          "The old count holds, but so does the new one. Lately you count better."
+        ]
+      },
+      "aegis": {
+        "vengeful": [
+          "Weapons-free is one signature away and my pen is warm. Speak very carefully.",
+          "Your name is read at our memorials — as the cause. Remember that with every word."
+        ],
+        "negative": [
+          "You have confirmed kills on this command. Every word you say is evidence.",
+          "Personnel lost to you are posted on that wall. Look at it while you talk.",
+          "Approach ends at ten paces. The casualties in your file say so."
+        ],
+        "neutral": [
+          "Your record includes our people. It also includes restraint since. Continue.",
+          "We log losses and we log conduct. Both are current. Speak."
+        ],
+        "positive": [
+          "Your file has red pages, friend. It also has commendations after them. Odd read.",
+          "We don't forget our dead. We do read the whole ledger. Yours balances. Barely."
+        ]
+      },
+      "sarab": {
+        "vengeful": [
+          "Our dead have told the sand your stride, your scent, your habit of looking left.",
+          "I have carried your name in my mouth for a season. It tastes of iron."
+        ],
+        "negative": [
+          "You greet us with hands the sand has tasted. It remembers the flavor.",
+          "Our dead drink first at every well you approach. Walk thirsty.",
+          "Hello, says the knife to the wound."
+        ],
+        "neutral": [
+          "Blood dries. Debts don't. But debts can be carried politely. Speak.",
+          "The desert buried what you took from us. It buries grudges slower."
+        ],
+        "positive": [
+          "You took from us once. Since then you give. The scale sways, friend. Keep it swaying.",
+          "Even a storm may become rain. Sit. The tea is not poisoned. A joke. Sit."
+        ]
+      }
+    },
+    "greetings_gate_respect": {
+      "vostok": {
+        "negative": [
+          "You nod at our gate with your history? Nod and keep moving.",
+          "Inside the wire is a privilege. Yours is under review."
+        ],
+        "neutral": [
+          "Nod received. Wipe your boots, don't touch the crates.",
+          "You're inside the wire. Act like it. Slow hands, short visits."
+        ],
+        "positive": [
+          "Come in out of the wind, friend. Mind the third duckboard, it bites.",
+          "The gate knows you now. Almost family. Almost."
+        ]
+      },
+      "aegis": {
+        "negative": [
+          "You're inside a controlled perimeter with a flagged file. Escort is watching.",
+          "Base courtesy extends exactly as far as the exit. Note where it is."
+        ],
+        "neutral": [
+          "Courtesy acknowledged. Stay in the common lanes, off the platforms.",
+          "Visitor protocol applies. Marked paths, no sketching, no souvenirs."
+        ],
+        "positive": [
+          "At ease, friend. Mess tent's open if the smell doesn't scare you.",
+          "Good to have you on the inside for once. Green lanes are all yours."
+        ]
+      },
+      "sarab": {
+        "negative": [
+          "You stand in our shade uninvited. Shade can be withdrawn.",
+          "Guest-right is a rope bridge. Yours is fraying. Step lightly."
+        ],
+        "neutral": [
+          "You are within our tents' shadow. Old rules hold: no blades bared, no lies told.",
+          "Guest-right given, guest-right measured. Sit where the carpets are worn."
+        ],
+        "positive": [
+          "Our fire is your fire, friend. The good cushions, even.",
+          "Enter as family enters — loudly, and headed for the food."
+        ]
+      }
+    },
+    "greetings_trail_meet": {
+      "vostok": {
+        "negative": [
+          "Far from witnesses, the two of us. Lucky for you the quota's filled today.",
+          "Out here the mud keeps secrets. Remember that and be polite."
+        ],
+        "neutral": [
+          "Patrol's a loop. You're a bump in it. A quick bump, yes?",
+          "Long way from the line. Everything out here is either lost or hunting."
+        ],
+        "positive": [
+          "Good to see a friendly face where there's usually only crows.",
+          "Walk a stretch with me, friend. The route's dull and you're not."
+        ]
+      },
+      "aegis": {
+        "negative": [
+          "You're outside my sector and inside my suspicion. Keep the gap.",
+          "No witnesses out here means I log carefully. Very carefully. Proceed."
+        ],
+        "neutral": [
+          "Patrol contact. You're off the common routes. Reason?",
+          "This track's swept but not held. Travel it fast, not at dusk."
+        ],
+        "positive": [
+          "A friendly on the trail — that's a good omen by any doctrine.",
+          "If you're heading north, friend, the ford's washed out. Use the stones east of it."
+        ]
+      },
+      "sarab": {
+        "negative": [
+          "Far from your walls, near to mine. Feel the difference.",
+          "The open desert is our courtroom. Walk like a defendant."
+        ],
+        "neutral": [
+          "Two travelers, one horizon. Pass in peace or don't pass.",
+          "The trail is neutral ground. The trail's opinion can change."
+        ],
+        "positive": [
+          "Well met between wells, friend. Rare and sweet, like rain.",
+          "The path favored us both today. Share dates? They're good this season."
+        ]
+      }
+    },
+    "greetings_officer_formal": {
+      "vostok": {
+        "negative": [
+          "You address an officer of the line. It has a long memory and short patience.",
+          "Formality from you. Noted. My clerk notes everything else."
+        ],
+        "neutral": [
+          "Correct address. Refreshing. State your matter, I have a front to run.",
+          "An officer's minute is rationed like everything here. You have one."
+        ],
+        "positive": [
+          "At ease with me, friend of the line. Formality is for people we distrust.",
+          "You honor the rank; the rank remembers. Sit, my stove works."
+        ]
+      },
+      "aegis": {
+        "negative": [
+          "Your courtesy is registered. So are your incidents. The incidents weigh more.",
+          "Protocol received. Protocol will not shield you from consequence. Proceed."
+        ],
+        "neutral": [
+          "Proper form. Appreciated. You have my attention until my next report is due.",
+          "State your matter with precision and I'll answer in kind."
+        ],
+        "positive": [
+          "Courtesy met with courtesy, friend. My tent flap is open to you.",
+          "You speak like someone I'd commission. What do you need?"
+        ]
+      },
+      "sarab": {
+        "negative": [
+          "You bow to the falcon while robbing its nest. The falcon sees both.",
+          "Fine manners on a dusty ledger. Manners do not settle accounts."
+        ],
+        "neutral": [
+          "You honor the old forms. The old forms honor you back — precisely that far.",
+          "Speak. Rank in the desert means I answer for more graves. I listen carefully."
+        ],
+        "positive": [
+          "Such courtesy, friend. Sit at my right; the shade is deeper there.",
+          "You greet me as the elders taught. For that, my time is yours."
+        ]
+      }
+    },
+    "greetings_nervous_peace": {
+      "vostok": {
+        "negative": [
+          "No trouble, he says. Trouble says that too, at first.",
+          "Passing through. Good. Pass faster.",
+          "You want peace? Cheap to say. Expensive to keep. We'll see."
+        ],
+        "neutral": [
+          "Easy. Nobody's reaching for anything. Say your piece.",
+          "Fine. You're careful. Careful lives longer here."
+        ],
+        "positive": [
+          "Relax, friend. Around us your shoulders can come down from your ears.",
+          "You worry too much. Save it for the siege days."
+        ]
+      },
+      "aegis": {
+        "negative": [
+          "Your caution is appropriate. Maintain it and this stays civil.",
+          "De-escalation acknowledged. You're still being observed.",
+          "Hands visible, voice level. Good instincts. Keep them."
+        ],
+        "neutral": [
+          "No alert's been called. Keep it that way and we're fine.",
+          "Understood. You're compliant, we're professional. Simple."
+        ],
+        "positive": [
+          "Stand easy, friend. You're not the threat picture today.",
+          "No need for formalities. You've got a clean lane here."
+        ]
+      },
+      "sarab": {
+        "negative": [
+          "The nervous goat bleats before the wolf arrives. Which are you?",
+          "You tread as if the sand were glass. Sand remembers weight, not steps.",
+          "Fear is a fair beginning. Wisdom is a better ending."
+        ],
+        "neutral": [
+          "Be calm. If we wished you harm, the harm would not announce itself.",
+          "You may lower your voice's shield. We are only talking."
+        ],
+        "positive": [
+          "Peace, friend, peace. Among us your shadow may sit down.",
+          "No need to walk on eggshells. This tent has thick carpets."
+        ]
+      }
+    },
+    "greetings_familiar_banter": {
+      "vostok": {
+        "negative": [
+          "We're not friends. Friends is a rank you haven't earned.",
+          "Banter is for people whose names aren't on my list."
+        ],
+        "neutral": [
+          "Cheeky. The line tolerates cheeky on Tuesdays.",
+          "Careful, humor is contagious. Then the sergeant catches it and everyone suffers."
+        ],
+        "positive": [
+          "There it is. Say that at the fire tonight — Pyotr owes me a laugh.",
+          "You've been drinking with our lot too long. You sound like us now.",
+          "Ha! Keep that up and we'll issue you a shovel."
+        ]
+      },
+      "aegis": {
+        "negative": [
+          "Familiarity not authorized at your trust level.",
+          "You're chatting like we're friends. Check the record: we're not."
+        ],
+        "neutral": [
+          "Witty. Not procedure, but witty.",
+          "I'd laugh, but I'm on duty. Consider it laughed at eighteen hundred."
+        ],
+        "positive": [
+          "Unauthorized humor detected. Carry on.",
+          "Keep that up, friend, and I'll log you as squad morale equipment.",
+          "You joke like second squad. That's a compliment. Mostly."
+        ]
+      },
+      "sarab": {
+        "negative": [
+          "Jokes between us? The rope must come before the swing, stranger.",
+          "You tease like a cousin. You are not a cousin."
+        ],
+        "neutral": [
+          "Careful with humor. Around here it ripens into obligations.",
+          "Half a smile for that. The other half costs news."
+        ],
+        "positive": [
+          "Ha! You have a desert tongue now — dry and sharp.",
+          "Tell that one to my uncle. He will adopt you on the spot.",
+          "See how you jab, friend? Next you will haggle. Then you are truly one of us."
+        ]
+      }
+    },
+    "greetings_farewell": {
+      "vostok": {
+        "negative": [
+          "Go. Take your history with you.",
+          "Leaving is your best idea today."
+        ],
+        "neutral": [
+          "Off you go. Mind the wire on the way out.",
+          "Right. Back to the digging, then."
+        ],
+        "positive": [
+          "Walk well, friend. Keep your head below the interesting parts of the sky.",
+          "Go on. Bring news next time. Or sausage. News or sausage."
+        ]
+      },
+      "aegis": {
+        "negative": [
+          "Departure noted with approval.",
+          "Exit's that way. Use the whole of it."
+        ],
+        "neutral": [
+          "Copy. Contact terminated. Travel safe.",
+          "Understood. Clear the approach on your way."
+        ],
+        "positive": [
+          "Safe roads, friend. Net's open if you need us.",
+          "Copy that. See you next rotation."
+        ]
+      },
+      "sarab": {
+        "negative": [
+          "The exit forgives faster than we do. Find it.",
+          "Go with the wind. Better yet, go faster than it."
+        ],
+        "neutral": [
+          "Travel in the cool hours. The road repays the patient.",
+          "May you find water where the map shows none."
+        ],
+        "positive": [
+          "Go gently, friend. The shade holds your seat.",
+          "Until the wind crosses our tracks again. Walk well."
+        ]
+      }
+    },
+    "greetings_compliment": {
+      "vostok": {
+        "negative": [
+          "Flattery. The dead were flattered too, probably.",
+          "Save the honey. We eat bread here."
+        ],
+        "neutral": [
+          "The line doesn't run on compliments, but they weigh nothing. Accepted.",
+          "Sturdy? We're what's left. What's left gets called sturdy."
+        ],
+        "positive": [
+          "Ha, keep talking. Morale's cheaper than arrows and you're supplying it.",
+          "Careful, praise makes the recruits march taller. Then they get seen."
+        ]
+      },
+      "aegis": {
+        "negative": [
+          "Compliments from flagged persons are reviewed for motive.",
+          "Noted. Flattery has no effect on assessment. Ever."
+        ],
+        "neutral": [
+          "Feedback logged. Discipline's not pretty, it's just correct.",
+          "Acknowledged. The polish is procedure; the edge is practice."
+        ],
+        "positive": [
+          "Kind words, friend. I'll pass them up the chain — they're rare cargo.",
+          "Appreciated. Say it louder next time, my lieutenant needs the mood."
+        ]
+      },
+      "sarab": {
+        "negative": [
+          "Honey from your jar. We will check it for wasps.",
+          "Pretty words. The desert has heard prettier from thirstier mouths."
+        ],
+        "neutral": [
+          "Praise is a coin. We bite it first — no offense meant.",
+          "You admire the falcon. Good. Admire it from where the talons aren't."
+        ],
+        "positive": [
+          "May your tongue stay this sweet, friend. My cousins will want to hear it.",
+          "You honor us. In return: the west track floods at dusk. Avoid it."
+        ]
+      }
+    },
+    "greetings_rude_insult": {
+      "vostok": {
+        "negative": [
+          "Mouth like that, this close to the wire. Some people dig their own quota.",
+          "Say it again. Slower. I want to remember it at your expense."
+        ],
+        "neutral": [
+          "Rude. The line has heard worse from the sky. Still — watch it.",
+          "That mouth will cost you more than it earns. Free advice."
+        ],
+        "positive": [
+          "Ha! Only a friend insults us that badly and walks. You walk — once.",
+          "Bold words, friend. I'd duck if I were your hat."
+        ]
+      },
+      "aegis": {
+        "negative": [
+          "Verbal aggression logged. You are now a pattern, not an incident.",
+          "That kind of talk moves you up a list you don't want to be on."
+        ],
+        "neutral": [
+          "Disrespect noted for the record. The record is long and patient.",
+          "Say that to the duty officer. I'll wait. I'll enjoy waiting."
+        ],
+        "positive": [
+          "I'll pretend the wind took that one, friend. Wind's taking exactly one today.",
+          "Cute. Your file now says 'comedian'. It's not a promotion."
+        ]
+      },
+      "sarab": {
+        "negative": [
+          "Spit at the desert and it returns to you on the wind. Always.",
+          "Words like broken glass. You will walk back over them barefoot."
+        ],
+        "neutral": [
+          "An insult is a seed. Consider what you want growing on your road.",
+          "The tongue is a blade with no handle. You hold it badly."
+        ],
+        "positive": [
+          "Ha — a friend's insult. Still, feed it to the fire before it grows.",
+          "Between friends, one such arrow is a joke. The second is an arrow."
+        ]
+      }
+    }
+  }
+}

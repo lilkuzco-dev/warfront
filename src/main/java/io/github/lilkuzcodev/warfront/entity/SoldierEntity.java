@@ -380,9 +380,20 @@ public class SoldierEntity extends PathfinderMob {
 				io.github.lilkuzcodev.warfront.systems.BaseManager.onSoldierDeath(serverLevel, baseKey);
 			}
 			if (source.getEntity() instanceof ServerPlayer player && !getFaction().isEmpty()) {
-				WarfrontState.get(serverLevel.getServer()).recordEvent(player.getUUID(), getFaction(),
-						"killed_soldier", WarfrontState.clock(serverLevel));
+				WarfrontState state = WarfrontState.get(serverLevel.getServer());
+				long clock = WarfrontState.clock(serverLevel);
+				state.recordEvent(player.getUUID(), getFaction(), "killed_soldier", clock);
 				io.github.lilkuzcodev.warfront.dialogue.WorkOrders.onSoldierKilled(player, this);
+				// combat aid: factions hostile to the victim with soldiers watching remember the favor
+				java.util.Set<String> witnesses = new java.util.HashSet<>();
+				for (SoldierEntity witness : serverLevel.getEntitiesOfClass(SoldierEntity.class,
+						getBoundingBox().inflate(24), w -> w != this && !w.getFaction().isEmpty()
+								&& "hostile".equals(WarfrontRegistry.relation(w.getFaction(), getFaction())))) {
+					witnesses.add(witness.getFaction());
+				}
+				for (String faction : witnesses) {
+					state.recordEvent(player.getUUID(), faction, "aided_in_combat", clock);
+				}
 			}
 			io.github.lilkuzcodev.warfront.dialogue.DialogueSessions.onSoldierGone(this);
 		}

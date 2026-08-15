@@ -1,0 +1,2063 @@
+{
+  "category": "lore",
+  "options": [
+    {
+      "id": "lore_ask_way_of_war",
+      "text": "How does your side fight its wars?",
+      "response": "lore_doctrine_why",
+      "weight": 15
+    },
+    {
+      "id": "lore_ask_waves",
+      "text": "Why do you attack in waves like that?",
+      "response": "lore_doctrine_why",
+      "conditions": {
+        "faction": [
+          "vostok"
+        ]
+      }
+    },
+    {
+      "id": "lore_ask_attrition_cost",
+      "text": "Doesn't feeding men into a grinder get expensive?",
+      "response": "lore_doctrine_why",
+      "conditions": {
+        "faction": [
+          "vostok"
+        ]
+      }
+    },
+    {
+      "id": "lore_ask_by_the_book",
+      "text": "Why does your army do everything by the book?",
+      "response": "lore_doctrine_why",
+      "conditions": {
+        "faction": [
+          "aegis"
+        ]
+      }
+    },
+    {
+      "id": "lore_ask_combined_arms",
+      "text": "Is it true you never send soldiers in without support from every arm?",
+      "response": "lore_doctrine_why",
+      "conditions": {
+        "faction": [
+          "aegis"
+        ]
+      }
+    },
+    {
+      "id": "lore_ask_ambush_style",
+      "text": "Why fight from ambush instead of meeting your enemy head-on?",
+      "response": "lore_doctrine_why",
+      "conditions": {
+        "faction": [
+          "sarab"
+        ]
+      }
+    },
+    {
+      "id": "lore_ask_hit_and_vanish",
+      "text": "You strike and then you're gone. What's the idea behind that?",
+      "response": "lore_doctrine_why",
+      "conditions": {
+        "faction": [
+          "sarab"
+        ]
+      }
+    },
+    {
+      "id": "lore_ask_one_sentence",
+      "text": "Sum up your way of war in a single sentence.",
+      "response": "lore_doctrine_why"
+    },
+    {
+      "id": "lore_ask_why_fight",
+      "text": "What is it your people are actually fighting for?",
+      "response": "lore_doctrine_why",
+      "weight": 15
+    },
+    {
+      "id": "lore_ask_battle_fear",
+      "text": "What frightens your side on a battlefield?",
+      "response": "lore_doctrine_why"
+    },
+    {
+      "id": "lore_probe_doctrine",
+      "text": "Humor me — what keeps soldiers like you at this war?",
+      "response": "lore_doctrine_why",
+      "conditions": {
+        "disposition": [
+          "negative"
+        ]
+      }
+    },
+    {
+      "id": "lore_probe_method",
+      "text": "I'm trying to understand how your kind makes war. Enlighten me.",
+      "response": "lore_doctrine_why",
+      "conditions": {
+        "disposition": [
+          "negative"
+        ]
+      }
+    },
+    {
+      "id": "lore_trusted_doctrine_truth",
+      "text": "Between us — does the doctrine really work?",
+      "response": "lore_doctrine_why",
+      "conditions": {
+        "disposition": [
+          "positive"
+        ]
+      }
+    },
+    {
+      "id": "lore_trusted_flaw",
+      "text": "Every fighting style has a flaw. Will you tell me yours?",
+      "response": "lore_doctrine_why",
+      "conditions": {
+        "disposition": [
+          "positive"
+        ]
+      }
+    },
+    {
+      "id": "lore_trusted_survival_wisdom",
+      "text": "Any wisdom for someone trying to live through this war?",
+      "response": "lore_doctrine_why",
+      "conditions": {
+        "disposition": [
+          "positive"
+        ]
+      }
+    },
+    {
+      "id": "lore_ask_quota",
+      "text": "Your soldiers keep mentioning 'the quota'. What is that?",
+      "response": "lore_doctrine_why",
+      "conditions": {
+        "faction": [
+          "vostok"
+        ]
+      }
+    },
+    {
+      "id": "lore_officer_teach",
+      "text": "Explain your doctrine the way you'd teach it to a fresh recruit.",
+      "response": "lore_doctrine_officer",
+      "conditions": {
+        "role": [
+          "officer"
+        ]
+      }
+    },
+    {
+      "id": "lore_officer_grand",
+      "text": "What's the grand design behind all this fighting?",
+      "response": "lore_doctrine_officer",
+      "conditions": {
+        "role": [
+          "officer"
+        ]
+      }
+    },
+    {
+      "id": "lore_officer_commit",
+      "text": "How do you decide when to commit your forces?",
+      "response": "lore_doctrine_officer",
+      "conditions": {
+        "role": [
+          "officer"
+        ]
+      }
+    },
+    {
+      "id": "lore_officer_lessons",
+      "text": "What has this war taught your command so far?",
+      "response": "lore_doctrine_officer",
+      "conditions": {
+        "role": [
+          "officer"
+        ]
+      }
+    },
+    {
+      "id": "lore_officer_maps",
+      "text": "When you study a map of this region, what do you see?",
+      "response": "lore_doctrine_officer",
+      "conditions": {
+        "role": [
+          "officer"
+        ]
+      }
+    },
+    {
+      "id": "lore_officer_trusted",
+      "text": "Off the record — what would you change about your own doctrine?",
+      "response": "lore_doctrine_officer",
+      "conditions": {
+        "role": [
+          "officer"
+        ],
+        "disposition": [
+          "positive"
+        ]
+      }
+    },
+    {
+      "id": "lore_officer_probe",
+      "text": "You give the orders here. Justify them to me.",
+      "response": "lore_doctrine_officer",
+      "conditions": {
+        "role": [
+          "officer"
+        ],
+        "disposition": [
+          "negative"
+        ]
+      }
+    },
+    {
+      "id": "lore_ask_founding",
+      "text": "How did your side come to be?",
+      "response": "lore_founding",
+      "weight": 15
+    },
+    {
+      "id": "lore_ask_war_began",
+      "text": "When did this war begin for your people?",
+      "response": "lore_founding"
+    },
+    {
+      "id": "lore_ask_before_war",
+      "text": "What were your people before all the fighting?",
+      "response": "lore_founding"
+    },
+    {
+      "id": "lore_ask_first_battle",
+      "text": "Tell me about the first battle your side ever fought.",
+      "response": "lore_founding"
+    },
+    {
+      "id": "lore_ask_name_origin",
+      "text": "Where does your name come from?",
+      "response": "lore_founding"
+    },
+    {
+      "id": "lore_ask_old_country",
+      "text": "Did your people come from elsewhere, or were you always here?",
+      "response": "lore_founding"
+    },
+    {
+      "id": "lore_probe_founding",
+      "text": "Every army tells itself a story. What's yours?",
+      "response": "lore_founding",
+      "conditions": {
+        "disposition": [
+          "negative"
+        ]
+      }
+    },
+    {
+      "id": "lore_trusted_founding",
+      "text": "Tell me the founding tale the recruiters leave out.",
+      "response": "lore_founding",
+      "conditions": {
+        "disposition": [
+          "positive"
+        ]
+      }
+    },
+    {
+      "id": "lore_ask_elders",
+      "text": "Are any of your founders still living?",
+      "response": "lore_founding"
+    },
+    {
+      "id": "lore_ask_first_blow",
+      "text": "Who struck the first blow in this whole war?",
+      "response": "lore_founding"
+    },
+    {
+      "id": "lore_trusted_story",
+      "text": "Tell me a story from the years before I knew you.",
+      "response": "lore_founding",
+      "conditions": {
+        "disposition": [
+          "positive"
+        ]
+      }
+    },
+    {
+      "id": "lore_ask_who_leads",
+      "text": "Who gives the orders around here?",
+      "response": "lore_leaders",
+      "weight": 15
+    },
+    {
+      "id": "lore_ask_high_command",
+      "text": "Who sits at the very top of your chain of command?",
+      "response": "lore_leaders"
+    },
+    {
+      "id": "lore_ask_commander_like",
+      "text": "What's your commander actually like?",
+      "response": "lore_leaders"
+    },
+    {
+      "id": "lore_ask_obey",
+      "text": "Would you follow your leaders absolutely anywhere?",
+      "response": "lore_leaders"
+    },
+    {
+      "id": "lore_ask_promotion",
+      "text": "How does a soldier rise through your ranks?",
+      "response": "lore_leaders"
+    },
+    {
+      "id": "lore_probe_leaders",
+      "text": "Do the people above you even know what happens out here?",
+      "response": "lore_leaders",
+      "conditions": {
+        "disposition": [
+          "negative"
+        ]
+      }
+    },
+    {
+      "id": "lore_trusted_leaders",
+      "text": "Honestly — do you trust your own leadership?",
+      "response": "lore_leaders",
+      "conditions": {
+        "disposition": [
+          "positive"
+        ]
+      }
+    },
+    {
+      "id": "lore_ask_officers",
+      "text": "What sets your officers apart from the rank and file?",
+      "response": "lore_leaders"
+    },
+    {
+      "id": "lore_ask_refuse_order",
+      "text": "What happens when someone refuses an order?",
+      "response": "lore_leaders"
+    },
+    {
+      "id": "lore_probe_leader_name",
+      "text": "Give me the name of whoever commands this front.",
+      "response": "lore_leaders",
+      "conditions": {
+        "disposition": [
+          "negative"
+        ]
+      }
+    },
+    {
+      "id": "lore_ask_death_belief",
+      "text": "What do your people believe happens to a soldier who dies?",
+      "response": "lore_death"
+    },
+    {
+      "id": "lore_ask_honor_fallen",
+      "text": "How do you honor your fallen?",
+      "response": "lore_death"
+    },
+    {
+      "id": "lore_ask_fear_death",
+      "text": "Are you afraid of dying out here?",
+      "response": "lore_death"
+    },
+    {
+      "id": "lore_ask_graves",
+      "text": "Where do your dead get buried?",
+      "response": "lore_death"
+    },
+    {
+      "id": "lore_ask_mourning",
+      "text": "Is there time to mourn, or does the war not allow it?",
+      "response": "lore_death"
+    },
+    {
+      "id": "lore_probe_lost_friends",
+      "text": "How many friends has this war taken from you?",
+      "response": "lore_death",
+      "conditions": {
+        "disposition": [
+          "negative"
+        ]
+      }
+    },
+    {
+      "id": "lore_trusted_own_death",
+      "text": "When your time comes, how would you want it to happen?",
+      "response": "lore_death",
+      "conditions": {
+        "disposition": [
+          "positive"
+        ]
+      }
+    },
+    {
+      "id": "lore_ask_roll_of_names",
+      "text": "Do you keep the names of the dead written somewhere?",
+      "response": "lore_death"
+    },
+    {
+      "id": "lore_ask_ghosts",
+      "text": "Do the dead ever visit you out here?",
+      "response": "lore_death",
+      "weight": 5
+    },
+    {
+      "id": "lore_probe_deathcount",
+      "text": "How many has your side lost this season? Roughly.",
+      "response": "lore_death",
+      "conditions": {
+        "disposition": [
+          "negative"
+        ]
+      }
+    },
+    {
+      "id": "lore_ask_why_here",
+      "text": "Why does your side hold this ground in particular?",
+      "response": "lore_land"
+    },
+    {
+      "id": "lore_ask_worth_blood",
+      "text": "Is this land truly worth what it costs in blood?",
+      "response": "lore_land"
+    },
+    {
+      "id": "lore_ask_home_posting",
+      "text": "Is this home to you, or just a posting?",
+      "response": "lore_land"
+    },
+    {
+      "id": "lore_ask_borders",
+      "text": "Where exactly does your territory end?",
+      "response": "lore_land"
+    },
+    {
+      "id": "lore_ask_ever_leave",
+      "text": "Would your people ever simply pack up and go?",
+      "response": "lore_land"
+    },
+    {
+      "id": "lore_probe_dirt",
+      "text": "What's so precious about this dirt that you'd die on it?",
+      "response": "lore_land",
+      "conditions": {
+        "disposition": [
+          "negative"
+        ]
+      }
+    },
+    {
+      "id": "lore_trusted_stay",
+      "text": "If the war ended tomorrow, would you stay here?",
+      "response": "lore_land",
+      "conditions": {
+        "disposition": [
+          "positive"
+        ]
+      }
+    },
+    {
+      "id": "lore_ask_terrain",
+      "text": "How does the land itself shape the way you fight?",
+      "response": "lore_land"
+    },
+    {
+      "id": "lore_ask_before_armies",
+      "text": "Were there folk living here before the armies came?",
+      "response": "lore_land"
+    },
+    {
+      "id": "lore_ask_desert_survival",
+      "text": "How do you people survive out in that desert at all?",
+      "response": "lore_land",
+      "conditions": {
+        "faction": [
+          "sarab"
+        ]
+      }
+    },
+    {
+      "id": "lore_ask_wells",
+      "text": "Your folk guard wells like they were treasure vaults. Why?",
+      "response": "lore_land",
+      "conditions": {
+        "faction": [
+          "sarab"
+        ]
+      }
+    },
+    {
+      "id": "lore_ask_gear",
+      "text": "Tell me about the gear your soldiers carry.",
+      "response": "lore_gear",
+      "weight": 15
+    },
+    {
+      "id": "lore_ask_iron_flood",
+      "text": "Your side fields mountains of plain iron. Why not finer steel?",
+      "response": "lore_gear",
+      "conditions": {
+        "faction": [
+          "vostok"
+        ]
+      }
+    },
+    {
+      "id": "lore_ask_matched_kit",
+      "text": "Every one of your soldiers is kitted out identically. Deliberate?",
+      "response": "lore_gear",
+      "conditions": {
+        "faction": [
+          "aegis"
+        ]
+      }
+    },
+    {
+      "id": "lore_ask_light_kit",
+      "text": "Your fighters carry next to nothing. How do you manage?",
+      "response": "lore_gear",
+      "conditions": {
+        "faction": [
+          "sarab"
+        ]
+      }
+    },
+    {
+      "id": "lore_ask_smiths",
+      "text": "Who forges your weapons and armor?",
+      "response": "lore_gear"
+    },
+    {
+      "id": "lore_ask_good_armor",
+      "text": "What makes a piece of armor worth wearing, in your eyes?",
+      "response": "lore_gear"
+    },
+    {
+      "id": "lore_qm_loadout",
+      "text": "What does a properly supplied soldier of yours take into a fight?",
+      "response": "lore_gear",
+      "conditions": {
+        "role": [
+          "quartermaster"
+        ]
+      }
+    },
+    {
+      "id": "lore_qm_scarce",
+      "text": "What's the hardest thing to keep on the shelves out here?",
+      "response": "lore_gear",
+      "conditions": {
+        "role": [
+          "quartermaster"
+        ]
+      }
+    },
+    {
+      "id": "lore_probe_carrying",
+      "text": "Show me what you're carrying. I'm curious.",
+      "response": "lore_gear",
+      "conditions": {
+        "disposition": [
+          "negative"
+        ]
+      }
+    },
+    {
+      "id": "lore_trusted_kit_advice",
+      "text": "Any advice on kit for someone who walks these frontlines?",
+      "response": "lore_gear",
+      "conditions": {
+        "disposition": [
+          "positive"
+        ]
+      }
+    },
+    {
+      "id": "lore_ask_banner_meaning",
+      "text": "What does your banner actually stand for?",
+      "response": "lore_banners"
+    },
+    {
+      "id": "lore_ask_colors",
+      "text": "Why those colors and no others?",
+      "response": "lore_banners"
+    },
+    {
+      "id": "lore_ask_symbol_story",
+      "text": "The symbol your soldiers wear — what's the story behind it?",
+      "response": "lore_banners"
+    },
+    {
+      "id": "lore_ask_oath",
+      "text": "Do you swear your oath to the flag, or to something else?",
+      "response": "lore_banners"
+    },
+    {
+      "id": "lore_probe_cloth",
+      "text": "It's cloth on a pole. Why die for it?",
+      "response": "lore_banners",
+      "conditions": {
+        "disposition": [
+          "negative"
+        ]
+      }
+    },
+    {
+      "id": "lore_trusted_first_banner",
+      "text": "What did you feel the first time you stood beneath your banner?",
+      "response": "lore_banners",
+      "conditions": {
+        "disposition": [
+          "positive"
+        ]
+      }
+    },
+    {
+      "id": "lore_ask_songs",
+      "text": "Do your soldiers have marching songs?",
+      "response": "lore_banners"
+    },
+    {
+      "id": "lore_ask_scratched_marks",
+      "text": "I've seen marks scratched near your positions. What do they mean?",
+      "response": "lore_banners"
+    },
+    {
+      "id": "lore_ask_victory_look",
+      "text": "What would winning this war even look like?",
+      "response": "lore_victory",
+      "weight": 15
+    },
+    {
+      "id": "lore_ask_how_ends",
+      "text": "How do you imagine all of this ends?",
+      "response": "lore_victory"
+    },
+    {
+      "id": "lore_ask_peace_possible",
+      "text": "Could your people ever make peace with the other two sides?",
+      "response": "lore_victory"
+    },
+    {
+      "id": "lore_ask_after_war",
+      "text": "What will your soldiers do when the fighting finally stops?",
+      "response": "lore_victory"
+    },
+    {
+      "id": "lore_probe_cant_win",
+      "text": "You can't honestly believe your side wins this.",
+      "response": "lore_victory",
+      "conditions": {
+        "disposition": [
+          "negative"
+        ]
+      }
+    },
+    {
+      "id": "lore_trusted_see_end",
+      "text": "Truthfully — do you expect to live to see the end?",
+      "response": "lore_victory",
+      "conditions": {
+        "disposition": [
+          "positive"
+        ]
+      }
+    },
+    {
+      "id": "lore_ask_if_lose",
+      "text": "What becomes of your people if you lose?",
+      "response": "lore_victory"
+    },
+    {
+      "id": "lore_ask_price_refuse",
+      "text": "Is there a price for victory you'd refuse to pay?",
+      "response": "lore_victory"
+    },
+    {
+      "id": "lore_probe_losing",
+      "text": "Admit it — your side is losing, isn't it?",
+      "response": "lore_victory",
+      "conditions": {
+        "disposition": [
+          "negative"
+        ]
+      }
+    },
+    {
+      "id": "lore_ask_join_how",
+      "text": "How does someone come to wear your colors?",
+      "response": "lore_recruits"
+    },
+    {
+      "id": "lore_ask_volunteers",
+      "text": "Are your soldiers volunteers, or were they taken?",
+      "response": "lore_recruits"
+    },
+    {
+      "id": "lore_ask_families_send",
+      "text": "Do families send their young to you willingly?",
+      "response": "lore_recruits"
+    },
+    {
+      "id": "lore_ask_outsiders",
+      "text": "Would your people ever take in an outsider like me?",
+      "response": "lore_recruits"
+    },
+    {
+      "id": "lore_ask_why_joined",
+      "text": "Why did you personally join up?",
+      "response": "lore_recruits"
+    },
+    {
+      "id": "lore_probe_bodies",
+      "text": "Where do you keep finding bodies to feed this war?",
+      "response": "lore_recruits",
+      "conditions": {
+        "disposition": [
+          "negative"
+        ]
+      }
+    },
+    {
+      "id": "lore_trusted_earn_place",
+      "text": "If I wanted to earn a place among your people, where would I begin?",
+      "response": "lore_recruits",
+      "conditions": {
+        "disposition": [
+          "positive"
+        ]
+      }
+    },
+    {
+      "id": "lore_ask_deserters",
+      "text": "What happens to those who desert?",
+      "response": "lore_recruits"
+    },
+    {
+      "id": "lore_ask_oldest_soldier",
+      "text": "Who's the longest-serving soldier in your camp?",
+      "response": "lore_recruits"
+    },
+    {
+      "id": "lore_probe_muster",
+      "text": "How strong is your muster, roughly? Hundreds? Thousands?",
+      "response": "lore_recruits",
+      "conditions": {
+        "disposition": [
+          "negative"
+        ]
+      }
+    },
+    {
+      "id": "lore_ask_training",
+      "text": "What does your training actually involve?",
+      "response": "lore_training"
+    },
+    {
+      "id": "lore_ask_first_lesson",
+      "text": "What's the very first thing a recruit is taught?",
+      "response": "lore_training"
+    },
+    {
+      "id": "lore_ask_hardest_part",
+      "text": "What's the hardest part of becoming one of you?",
+      "response": "lore_training"
+    },
+    {
+      "id": "lore_ask_drills",
+      "text": "I've watched your drills from a distance. What are they for?",
+      "response": "lore_training"
+    },
+    {
+      "id": "lore_ask_washouts",
+      "text": "What becomes of recruits who can't keep pace?",
+      "response": "lore_training"
+    },
+    {
+      "id": "lore_probe_half_trained",
+      "text": "Your recruits look half-trained to me.",
+      "response": "lore_training",
+      "conditions": {
+        "disposition": [
+          "negative"
+        ]
+      }
+    },
+    {
+      "id": "lore_trusted_teach_me",
+      "text": "Teach me one thing your training taught you.",
+      "response": "lore_training",
+      "conditions": {
+        "disposition": [
+          "positive"
+        ]
+      }
+    },
+    {
+      "id": "lore_ask_spot_veteran",
+      "text": "How can you tell a veteran from a fresh face?",
+      "response": "lore_training"
+    },
+    {
+      "id": "lore_ask_night_drills",
+      "text": "Do you drill in the dark as well?",
+      "response": "lore_training",
+      "conditions": {
+        "time": [
+          "night"
+        ]
+      }
+    },
+    {
+      "id": "lore_probe_train_where",
+      "text": "Where do you train the fresh ones? I might visit.",
+      "response": "lore_training",
+      "conditions": {
+        "disposition": [
+          "negative"
+        ]
+      }
+    },
+    {
+      "id": "lore_ask_terse_talk",
+      "text": "Why do your people talk like every word costs coin?",
+      "response": "lore_training",
+      "conditions": {
+        "faction": [
+          "aegis"
+        ]
+      }
+    },
+    {
+      "id": "lore_ask_war_rules",
+      "text": "Are there rules to how you make war?",
+      "response": "lore_roe"
+    },
+    {
+      "id": "lore_ask_prisoners",
+      "text": "Do you take prisoners?",
+      "response": "lore_roe"
+    },
+    {
+      "id": "lore_ask_traveler_rules",
+      "text": "What are your rules for travelers and traders caught between the lines?",
+      "response": "lore_roe"
+    },
+    {
+      "id": "lore_ask_forbidden",
+      "text": "Is anything forbidden to your soldiers in battle?",
+      "response": "lore_roe"
+    },
+    {
+      "id": "lore_probe_rules_joke",
+      "text": "Rules in a war. That's a joke, surely?",
+      "response": "lore_roe",
+      "conditions": {
+        "disposition": [
+          "negative"
+        ]
+      }
+    },
+    {
+      "id": "lore_trusted_broke_rules",
+      "text": "Have you ever broken your own rules of war?",
+      "response": "lore_roe",
+      "conditions": {
+        "disposition": [
+          "positive"
+        ]
+      }
+    },
+    {
+      "id": "lore_ask_truces",
+      "text": "Do the sides ever call truces — to gather the dead, say?",
+      "response": "lore_roe"
+    },
+    {
+      "id": "lore_ask_white_flag",
+      "text": "If I walked between your lines under a white flag, would it be honored?",
+      "response": "lore_roe"
+    },
+    {
+      "id": "lore_ask_ledgers",
+      "text": "I'm told your command writes down every favor and every offense. Everything?",
+      "response": "lore_roe",
+      "conditions": {
+        "faction": [
+          "aegis"
+        ]
+      }
+    },
+    {
+      "id": "lore_ask_camps_tour",
+      "text": "Tell me about your camps — the small ones and the great ones.",
+      "response": "lore_bases",
+      "weight": 15
+    },
+    {
+      "id": "lore_ask_watch_posts",
+      "text": "What's the purpose of those little watch posts on the fringes?",
+      "response": "lore_bases"
+    },
+    {
+      "id": "lore_ask_middle_camps",
+      "text": "The middling camps with all the wagon traffic — what goes on there?",
+      "response": "lore_bases"
+    },
+    {
+      "id": "lore_ask_great_camp",
+      "text": "What's it like inside one of your great camps?",
+      "response": "lore_bases"
+    },
+    {
+      "id": "lore_ask_camp_defense",
+      "text": "How do you keep a camp from being overrun?",
+      "response": "lore_bases"
+    },
+    {
+      "id": "lore_ask_who_builds",
+      "text": "Who builds all of this? Soldiers, or hired hands?",
+      "response": "lore_bases"
+    },
+    {
+      "id": "lore_probe_headcount",
+      "text": "How many of you are stationed at this camp?",
+      "response": "lore_bases",
+      "conditions": {
+        "disposition": [
+          "negative"
+        ]
+      }
+    },
+    {
+      "id": "lore_trusted_shelter",
+      "text": "Could I shelter at one of your camps if a storm caught me out?",
+      "response": "lore_bases",
+      "conditions": {
+        "disposition": [
+          "positive"
+        ]
+      }
+    },
+    {
+      "id": "lore_ask_position_age",
+      "text": "How long has this particular position been standing?",
+      "response": "lore_bases",
+      "conditions": {
+        "location": [
+          "in_base"
+        ]
+      }
+    },
+    {
+      "id": "lore_ask_feed_far_posts",
+      "text": "How do you keep the far posts fed and supplied?",
+      "response": "lore_bases"
+    },
+    {
+      "id": "lore_probe_main_camp",
+      "text": "Point me toward your main camp. I'd love to see it.",
+      "response": "lore_bases",
+      "conditions": {
+        "disposition": [
+          "negative"
+        ]
+      }
+    },
+    {
+      "id": "lore_probe_supply_road",
+      "text": "Which road do your supply wagons come in by?",
+      "response": "lore_bases",
+      "conditions": {
+        "disposition": [
+          "negative"
+        ]
+      }
+    },
+    {
+      "id": "lore_probe_watch_change",
+      "text": "When does your watch change?",
+      "response": "lore_bases",
+      "conditions": {
+        "disposition": [
+          "negative"
+        ]
+      }
+    },
+    {
+      "id": "lore_ask_scouts",
+      "text": "Who patrols the ground between your camps?",
+      "response": "lore_bases"
+    },
+    {
+      "id": "lore_ask_why_sandbags",
+      "text": "Why sandbags everywhere instead of proper stone walls?",
+      "response": "lore_sandbags"
+    },
+    {
+      "id": "lore_ask_bag_fill",
+      "text": "What do you actually fill those sacks with?",
+      "response": "lore_sandbags",
+      "conditions": {
+        "location": [
+          "in_base"
+        ]
+      }
+    },
+    {
+      "id": "lore_ask_stacking_art",
+      "text": "Is there an art to stacking a sandbag wall?",
+      "response": "lore_sandbags"
+    },
+    {
+      "id": "lore_ask_bags_hold",
+      "text": "Can a wall of sacks really stop a determined charge?",
+      "response": "lore_sandbags"
+    },
+    {
+      "id": "lore_probe_sack_walls",
+      "text": "Those little sack walls of yours wouldn't slow me down.",
+      "response": "lore_sandbags",
+      "conditions": {
+        "disposition": [
+          "negative"
+        ]
+      }
+    },
+    {
+      "id": "lore_trusted_emplacement",
+      "text": "Show me how you'd build a proper emplacement.",
+      "response": "lore_sandbags",
+      "conditions": {
+        "disposition": [
+          "positive"
+        ]
+      }
+    },
+    {
+      "id": "lore_ask_wall_menders",
+      "text": "Who mends the walls after an attack?",
+      "response": "lore_sandbags",
+      "conditions": {
+        "location": [
+          "in_base"
+        ]
+      }
+    },
+    {
+      "id": "lore_probe_weak_side",
+      "text": "Every camp has a weak side. Which is this one's?",
+      "response": "lore_sandbags",
+      "conditions": {
+        "disposition": [
+          "negative"
+        ]
+      }
+    },
+    {
+      "id": "lore_ask_always_digging",
+      "text": "Why is your side forever digging?",
+      "response": "lore_sandbags",
+      "conditions": {
+        "faction": [
+          "vostok"
+        ]
+      }
+    },
+    {
+      "id": "lore_ask_bunkhouse",
+      "text": "What's life like in the bunkhouse?",
+      "response": "lore_barracks"
+    },
+    {
+      "id": "lore_ask_sleep",
+      "text": "Do you actually manage to sleep out here?",
+      "response": "lore_barracks"
+    },
+    {
+      "id": "lore_ask_food",
+      "text": "What do they feed you people?",
+      "response": "lore_barracks"
+    },
+    {
+      "id": "lore_ask_between_battles",
+      "text": "What do soldiers do between battles?",
+      "response": "lore_barracks"
+    },
+    {
+      "id": "lore_ask_word_from_home",
+      "text": "Does word from home ever reach you?",
+      "response": "lore_barracks"
+    },
+    {
+      "id": "lore_ask_cold_nights",
+      "text": "How do you get through the cold nights?",
+      "response": "lore_barracks",
+      "conditions": {
+        "time": [
+          "night"
+        ]
+      }
+    },
+    {
+      "id": "lore_probe_why_stay",
+      "text": "Cramped bunks, bad food, endless watches. Why stay?",
+      "response": "lore_barracks",
+      "conditions": {
+        "disposition": [
+          "negative"
+        ]
+      }
+    },
+    {
+      "id": "lore_trusted_save_bunk",
+      "text": "Save me a bunk sometime?",
+      "response": "lore_barracks",
+      "conditions": {
+        "disposition": [
+          "positive"
+        ]
+      }
+    },
+    {
+      "id": "lore_ask_camp_cat",
+      "text": "I saw a cat by the cook tent. One of yours?",
+      "response": "lore_barracks",
+      "conditions": {
+        "location": [
+          "in_base"
+        ]
+      },
+      "weight": 5
+    },
+    {
+      "id": "lore_trusted_scar",
+      "text": "That scar — which battle gave you it?",
+      "response": "lore_barracks",
+      "conditions": {
+        "disposition": [
+          "positive"
+        ]
+      }
+    },
+    {
+      "id": "lore_trusted_dreams",
+      "text": "What do you dream about, when the war lets you sleep?",
+      "response": "lore_barracks",
+      "conditions": {
+        "disposition": [
+          "positive"
+        ]
+      }
+    },
+    {
+      "id": "lore_ask_bitter_season",
+      "text": "How do your people fare when the season turns bitter?",
+      "response": "lore_barracks"
+    },
+    {
+      "id": "lore_ask_medics",
+      "text": "Who patches you up when things go wrong?",
+      "response": "lore_barracks"
+    },
+    {
+      "id": "lore_ask_tea_ritual",
+      "text": "What's with the tea ceremony before anyone will talk business?",
+      "response": "lore_barracks",
+      "conditions": {
+        "faction": [
+          "sarab"
+        ]
+      }
+    },
+    {
+      "id": "lore_ask_wet_trenches",
+      "text": "Your trenches are half water. How do you bear it?",
+      "response": "lore_barracks",
+      "conditions": {
+        "faction": [
+          "vostok"
+        ]
+      }
+    },
+    {
+      "id": "lore_ask_callsigns",
+      "text": "Do your soldiers use names, or only call-signs?",
+      "response": "lore_barracks",
+      "conditions": {
+        "faction": [
+          "aegis"
+        ]
+      }
+    },
+    {
+      "id": "lore_rude_doctrine",
+      "text": "Your whole way of war is just slow suicide with extra steps.",
+      "response": "lore_scoff",
+      "effects": [
+        {
+          "type": "disposition",
+          "event": "insulted"
+        }
+      ],
+      "weight": 5
+    },
+    {
+      "id": "lore_rude_banner",
+      "text": "That banner of yours would make a fine dish rag.",
+      "response": "lore_scoff",
+      "effects": [
+        {
+          "type": "disposition",
+          "event": "insulted"
+        }
+      ],
+      "weight": 5
+    },
+    {
+      "id": "lore_exit_thanks",
+      "text": "Thanks for the history lesson.",
+      "response": "lore_exit",
+      "effects": [
+        {
+          "type": "end"
+        }
+      ],
+      "exit": true,
+      "weight": 8
+    },
+    {
+      "id": "lore_exit_stories",
+      "text": "That's enough war stories for one day.",
+      "response": "lore_exit",
+      "effects": [
+        {
+          "type": "end"
+        }
+      ],
+      "exit": true,
+      "weight": 8
+    },
+    {
+      "id": "lore_exit_chew",
+      "text": "You've given me plenty to chew on. I'll go.",
+      "response": "lore_exit",
+      "effects": [
+        {
+          "type": "end"
+        }
+      ],
+      "exit": true,
+      "weight": 6
+    },
+    {
+      "id": "lore_exit_watch",
+      "text": "I'll leave you to your watch.",
+      "response": "lore_exit",
+      "effects": [
+        {
+          "type": "end"
+        }
+      ],
+      "exit": true,
+      "weight": 8
+    }
+  ],
+  "responses": {
+    "lore_doctrine_why": {
+      "vostok": {
+        "negative": [
+          "Our way of war? You will meet it soon enough if you keep asking.",
+          "Doctrine is for us to know and you to trip over.",
+          "We fight the way we bury: often, and without speeches."
+        ],
+        "neutral": [
+          "Numbers, patience, shovels. Wars are won by whoever runs out of men last. We don't run out.",
+          "We trade blood for ground. The rate is bad. The ground stays.",
+          "First wave finds them. Second wave tires them. Third wave is arithmetic."
+        ],
+        "positive": [
+          "Simple, friend. The line advances until the enemy is tired of killing it. Then we accept his surrender.",
+          "They call it cruel. We call it Tuesday. The line holds because there is always more line.",
+          "Steel breaks, men break. The quota does not break. That is our whole book of war."
+        ]
+      },
+      "aegis": {
+        "negative": [
+          "Doctrine is classified. Your curiosity is logged.",
+          "You want our playbook? Request denied. Move along.",
+          "I don't brief hostiles. That is the doctrine."
+        ],
+        "neutral": [
+          "Combined arms. Every element covered by another element. No one fights alone.",
+          "We commit nothing without support. Shield up, then strike. In that order.",
+          "Precision beats mass when precision holds formation. We hold formation."
+        ],
+        "positive": [
+          "Short version: never trade lives for ground when you can trade planning for both.",
+          "Every action rehearsed, every flank assigned. Improvisation is for people who skipped the briefing.",
+          "The doctrine is boring on purpose, friend. Boring wins."
+        ]
+      },
+      "sarab": {
+        "negative": [
+          "You ask a mirage to explain water. Walk on.",
+          "Our way is written in sand. By the time you read it, the wind has answered for me.",
+          "The snake does not lecture the mouse."
+        ],
+        "neutral": [
+          "We do not fight the armies. We fight their patience. Patience always surrenders first.",
+          "Strike where they are not, be gone before they are. The desert does the rest.",
+          "Heavy armies dig graves for themselves. We only wait by the graveside."
+        ],
+        "positive": [
+          "Come, the truth: we are few, so the land fights for us. Sun, thirst, doubt — all our soldiers.",
+          "A blade in the dark spends less blood than a wall of shields at noon. We prefer thrift.",
+          "We win the hour before the battle, friend. The battle itself is just the receipt."
+        ]
+      }
+    },
+    "lore_doctrine_officer": {
+      "vostok": {
+        "negative": [
+          "An officer explains doctrine to soldiers. You are not one of mine.",
+          "My cadets earn the lecture with blisters. You have earned nothing."
+        ],
+        "neutral": [
+          "Doctrine, in full: mass decides. Everything else — morale, weather, genius — is decoration.",
+          "I spend men the way a smith spends coal. Ugly? Yes. The forge does not care."
+        ],
+        "positive": [
+          "Listen, then. War is a scale. We pile our dead on one side until it tips. No one likes the answer. It stays the answer.",
+          "I tell recruits this: you are not a hero, you are weight. Be weight where the line needs weight."
+        ]
+      },
+      "aegis": {
+        "negative": [
+          "Command briefings are not entertainment for flagged civilians.",
+          "You are asking an officer to leak doctrine. That question goes in my report."
+        ],
+        "neutral": [
+          "We synchronize. Infantry fixes, shields break, signals bind it together. Tempo is the weapon.",
+          "Commit criteria: superiority confirmed, withdrawal route secured, objective priced. No price, no fight."
+        ],
+        "positive": [
+          "Between us: doctrine is a promise. Every soldier knows exactly who covers them. That promise wins wars.",
+          "The grand design? Hold the hinge points, let the other two bleed each other, arrive fresh at the end."
+        ]
+      },
+      "sarab": {
+        "negative": [
+          "The desert has officers too. You are speaking to one. That is all you learn today.",
+          "You ask for the map of the wind. Even my own do not carry that."
+        ],
+        "neutral": [
+          "I command by absence. My fighters know where not to be, and when. The rest arranges itself.",
+          "We commit when the enemy is certain of himself. Certainty is the softest armor."
+        ],
+        "positive": [
+          "Since you sit with us: my art is choosing which battles never happen. The unfought war is the won war.",
+          "I read their supply trails like poetry, friend. Every wagon tells me where they will be weak in ten days."
+        ]
+      }
+    },
+    "lore_founding": {
+      "vostok": {
+        "negative": [
+          "Our story is ours. You get the ending if you keep pushing.",
+          "History lesson? For you? The past is the one thing we don't spend on strangers.",
+          "We were born in a retreat. That is all a stranger needs."
+        ],
+        "neutral": [
+          "We started as the ones nobody fed. We learned to hold ground because there was nowhere behind us.",
+          "Old soldiers of a dead country. The country fell. The line did not.",
+          "First there was a winter. Then there were those who dug. The diggers became Vostok."
+        ],
+        "positive": [
+          "Sit, friend. We began as leftovers — broken units, one shared pot. The pot is still shared. That's the whole secret.",
+          "Grandfathers of the line held a bridge nobody remembers for a country that no longer exists. We keep holding it.",
+          "Born from a rout, raised on rations, married to the mud. A poor family, but a big one."
+        ]
+      },
+      "aegis": {
+        "negative": [
+          "Founding records are archived. Access denied.",
+          "Our origin is not your business. End of briefing.",
+          "You collect histories the way scouts collect maps. I see it. No."
+        ],
+        "neutral": [
+          "Formed from officers who watched two armies waste themselves and wrote down every mistake.",
+          "We began as a study group, believe it or not. The study was: why do armies die? Then we stopped dying.",
+          "Founded on a signature, not a battlefield. Charter first, swords after."
+        ],
+        "positive": [
+          "The honest version? Survivors of a massacre who swore the next massacre would be scheduled by us.",
+          "Our founders were quartermasters and signalers — the people armies ignore. Turns out they were the army.",
+          "It began with a ledger of the dead and a vow: never again without a plan. We kept the ledger. And the vow."
+        ]
+      },
+      "sarab": {
+        "negative": [
+          "Ask the dunes who made them. They will answer you as I do.",
+          "Our beginning is buried where you will never dig.",
+          "Strangers wrote three histories of us already. All wrong. Yours would be the fourth."
+        ],
+        "neutral": [
+          "We were the people the empires marched past. They took the wells and left the sand. The sand proved loyal.",
+          "No founding day, no charter. One night the desert had teeth. It has had them since.",
+          "We began when the first caravan guard refused to kneel and vanished into the heat. The heat kept him."
+        ],
+        "positive": [
+          "Then hear it properly: we are children of the driven-out. The soft lands were taken, so we married the hard one.",
+          "Our founding is a story told backward — first the wrong, then the wandering, then the vow. The vow is still warm.",
+          "Three wells, nine families, one oath under a cold moon. Everything since is commentary."
+        ]
+      }
+    },
+    "lore_leaders": {
+      "vostok": {
+        "negative": [
+          "Names of commanders? So they can be hunted? Clever. No.",
+          "Who leads us is above your ears, stranger."
+        ],
+        "neutral": [
+          "The Marshal commands. We do not see the Marshal. We see the quota. Same thing.",
+          "Sergeants run the war. Everyone above sergeant runs the paperwork."
+        ],
+        "positive": [
+          "Our Marshal counts every loss personally, friend. They say the ledger is longer than scripture. He reads it nightly.",
+          "Officers here eat last and dig with us. The ones who didn't are gone. The mud sorts leadership honestly."
+        ]
+      },
+      "aegis": {
+        "negative": [
+          "Chain of command is restricted information. Obviously.",
+          "You are asking who to target. Denied, and noted."
+        ],
+        "neutral": [
+          "High command rotates by council. No single head to cut off. That is deliberate.",
+          "Orders come down signed and countersigned. Authority is a procedure here, not a person."
+        ],
+        "positive": [
+          "The Directorate is five chairs. Any three can act. No throne, no succession crisis, no cult. It's elegant.",
+          "My commander once delayed an offensive to recover two bodies. The ranks have not forgotten. That is leadership."
+        ]
+      },
+      "sarab": {
+        "negative": [
+          "You seek a head for the spear. The desert has no head.",
+          "Our leaders are like water underground. Felt everywhere, found nowhere."
+        ],
+        "neutral": [
+          "Elders counsel, captains decide, the desert overrules everyone.",
+          "Each band follows its own voice. The voices meet at the wells and agree more often than you'd think."
+        ],
+        "positive": [
+          "The one we heed most calls himself the Last Host — every guest under his shade is owed protection. Even, sometimes, you.",
+          "Leadership here is a debt, friend. Whoever owes the people most, leads. Our best captain is the most indebted man alive."
+        ]
+      }
+    },
+    "lore_death": {
+      "vostok": {
+        "negative": [
+          "You ask about our dead with our dead on your slate? Bold.",
+          "Death is our trade secret. Keep asking and we'll demonstrate.",
+          "Count your own dead. Ours are counted."
+        ],
+        "neutral": [
+          "A soldier dies. The line closes the gap. That is the whole funeral.",
+          "We believe dying is like weather. Complaining doesn't change the forecast.",
+          "Every name goes in the roll. The roll is read once a year, all night. Nobody sleeps that night."
+        ],
+        "positive": [
+          "We think the dead stay in the line, friend. One pace back. On the worst nights you can hear them keeping step.",
+          "When it's my turn: write my name, share my vodka, fill my place by morning. Perfect system. I approve of it.",
+          "Death owes us nothing and we owe it everything. That's the joke. Someday I'll laugh."
+        ]
+      },
+      "aegis": {
+        "negative": [
+          "Casualty doctrine is not shared with people who cause casualties.",
+          "Our dead are logged. So are their causes. Think about that.",
+          "You want to know how we grieve? Watch what happens to those who give us reason."
+        ],
+        "neutral": [
+          "Every loss gets a file: cause, lesson, correction. Grief is data here. It has to be.",
+          "We hold a review after every death. Not to blame. To make it the last of its kind.",
+          "Fallen are listed as 'detached duty'. Sentimental, for us. Don't tell anyone."
+        ],
+        "positive": [
+          "There's a wall at the great camp with every name since founding. New officers memorize a row before first command.",
+          "We believe a death you learn nothing from is the only true defeat. So we learn. Every single time.",
+          "When I go, I'll be a line in the ledger and a correction in the manual. That's immortality, friend. The useful kind."
+        ]
+      },
+      "sarab": {
+        "negative": [
+          "The dead do not gossip. Learn from them.",
+          "You have sent people to the sand and now ask what the sand does with them. It remembers. So do we.",
+          "Ask your own shadow about death. It stands closer to you than I do."
+        ],
+        "neutral": [
+          "We say the desert lends us our bodies and calls in the loan without anger. Water returns to the well.",
+          "No graves you can find. The dunes hold our fallen, and dunes wander. So do our dead.",
+          "Mourning lasts until the next moonrise. Then the name joins the wind. The wind keeps everything."
+        ],
+        "positive": [
+          "Since you ask kindly: we believe the dead become the cool hour before dawn. They visit daily. It is enough.",
+          "My brother fell three summers back. When the wind moves the tent at night, I pour him tea. Some cups empty by morning.",
+          "Death is the one guest who needs no invitation, friend. So we keep the tent tidy and the debts paid."
+        ]
+      }
+    },
+    "lore_land": {
+      "vostok": {
+        "negative": [
+          "Why we hold it is our concern. That we hold it is yours.",
+          "The ground under your boots is spoken for. Remember that."
+        ],
+        "neutral": [
+          "This dirt has our dead in it. You do not walk away from a bank holding your savings.",
+          "Somebody must hold ground or the war is just tourism. We hold ground."
+        ],
+        "positive": [
+          "Truth? The land is poor, the water worse, and we love it the way you love an ugly dog. It's ours.",
+          "Every meter here cost a name from the roll. Abandoning it would make the roll a list of accidents. Never."
+        ]
+      },
+      "aegis": {
+        "negative": [
+          "Territorial rationale is strategic information. Refused.",
+          "Why we hold it matters less to you than what happens when it's crossed."
+        ],
+        "neutral": [
+          "This ground commands the roads, the ridge, and the water. Control those, control the tempo.",
+          "We hold what is defensible and drop what is not. No romance, just geometry."
+        ],
+        "positive": [
+          "Look at a map sometime, friend — every route worth taking bends through here. We didn't choose it. Arithmetic did.",
+          "Home is wherever the perimeter is green. But I'll admit the sunrise over this ridge has grown on me."
+        ]
+      },
+      "sarab": {
+        "negative": [
+          "You ask why the scorpion keeps the rock it sleeps under. Move along.",
+          "The desert is not held. It permits. You are not among the permitted."
+        ],
+        "neutral": [
+          "The others see empty land. We see the only honest country left — it starves liars and flatters no one.",
+          "Every well here has a name older than any army. We stay so the names are not forgotten."
+        ],
+        "positive": [
+          "This sand raised us when the green lands turned us out, friend. You do not leave the mother who fed you last.",
+          "Stay till dusk and watch the dunes turn gold. Then ask again why we would die here. You won't need to."
+        ]
+      }
+    },
+    "lore_gear": {
+      "vostok": {
+        "negative": [
+          "Inventory questions from you? That's called scouting. Try elsewhere.",
+          "What we carry is what you'd meet. Leave it at that."
+        ],
+        "neutral": [
+          "Iron, and lots of it. A dead man's fancy sword arms no one. A crate of plain spears arms a platoon.",
+          "Our kit is cheap because our doctrine is honest. Anything shiny gets buried with its owner anyway."
+        ],
+        "positive": [
+          "The quartermaster's motto: heavy, ugly, plentiful. A Vostok blade won't win a duel, friend. It doesn't fight duels.",
+          "Good boots first, then a shovel, then a weapon. In that order of importance. I'm serious about the boots."
+        ]
+      },
+      "aegis": {
+        "negative": [
+          "Equipment specifications are restricted. Your interest is noted in the log.",
+          "Asking about our kit gets you a file, not an answer."
+        ],
+        "neutral": [
+          "Standard issue, interchangeable parts, inspection twice daily. A weapon you can't maintain is a decoration.",
+          "Matched kit means any soldier can resupply any other in the dark. That wins more fights than sharpness."
+        ],
+        "positive": [
+          "Here's the philosophy, friend: gear is a promise to the soldier beside you. We keep promises polished.",
+          "Nothing we field is the finest. Everything we field works every time. Reliability is the luxury."
+        ]
+      },
+      "sarab": {
+        "negative": [
+          "You count our blades with your questions. The count will be wrong.",
+          "We carry enough. How much is enough? You may find out."
+        ],
+        "neutral": [
+          "Light kit, long patience. What we do not carry, the desert hides for us along the way.",
+          "A heavy soldier is a slow soldier, and a slow soldier in the desert is a landmark."
+        ],
+        "positive": [
+          "Our craft is caches, friend. The dunes are one long armory if you buried it yourself. We have been burying for years.",
+          "One waterskin, one blade, one length of rope. The rest is knowing. Knowing weighs nothing."
+        ]
+      }
+    },
+    "lore_banners": {
+      "vostok": {
+        "negative": [
+          "Our colors mean stop walking toward them. Lesson over.",
+          "You'd learn the banner's meaning fastest by charging it. Not recommended."
+        ],
+        "neutral": [
+          "Grey field, red bar. The grey is everyone. The red is what everyone pays.",
+          "The banner is old, patched, and refuses to fall over. So it's a portrait."
+        ],
+        "positive": [
+          "The red bar was a ration stripe first, friend — the mark on the last bread crate of the first winter. We kept it.",
+          "New flags are sewn from old uniforms. You might say the dead carry it with us. We do say that, actually."
+        ]
+      },
+      "aegis": {
+        "negative": [
+          "Insignia questions from a flagged individual. Wonderful. No.",
+          "The symbol means we're organized and you're observed."
+        ],
+        "neutral": [
+          "The shield sigil is literal. We are the thing between order and the alternative.",
+          "Colors are standardized for recognition at distance. Meaning is secondary to function. Mostly."
+        ],
+        "positive": [
+          "Look closely at the shield's border — a chain of small links. Each link is a founding company. None have broken.",
+          "The oath is to the charter, not the cloth. Cloth burns. The charter is memorized."
+        ]
+      },
+      "sarab": {
+        "negative": [
+          "We fly no banner for strangers to aim at. Think on why.",
+          "Our symbol is the empty horizon. Study it on your way out."
+        ],
+        "neutral": [
+          "Our mark is the crescent of a moon you only see in the deep desert. Those who know it, know.",
+          "We sew no flags. We cut our sign into the wind — you have walked past it a dozen times unknowing."
+        ],
+        "positive": [
+          "The marks by the wells, friend — three cuts, one hollow. It means a guest drank here and was safe. Oldest law we have.",
+          "Our banner is carried in the mind, where rain and conquest cannot reach it. Every child learns to draw it blindfolded."
+        ]
+      }
+    },
+    "lore_victory": {
+      "vostok": {
+        "negative": [
+          "Victory looks like your column of the ledger closing. Next question.",
+          "We'll describe winning to you after. There's always an after for us."
+        ],
+        "neutral": [
+          "Winning means the last line standing is ours. We are very practiced at standing.",
+          "Victory is when the quota finally reads zero. Nobody alive has seen that number."
+        ],
+        "positive": [
+          "Honestly, friend? Victory is a boring harvest, a fat winter, and shovels used for potatoes. We fight for boredom.",
+          "The day we win, the roll of names gets read one last time, start to finish. Then we plant over the trenches. That's the plan."
+        ]
+      },
+      "aegis": {
+        "negative": [
+          "End-state criteria are classified. Your speculation is noted.",
+          "Victory conditions? Fewer people like you inside the perimeter. We're working toward it."
+        ],
+        "neutral": [
+          "Victory is defined: secure borders, open roads, verified disarmament of both rivals. Measurable or meaningless.",
+          "We don't need a triumph. We need a stable equilibrium with us holding the pivot."
+        ],
+        "positive": [
+          "Between us: winning means checkpoints become toll booths and sentries die of boredom. I dream of paperwork.",
+          "The war ends when order is cheaper than raiding for everyone involved. We're pricing it that way, deliberately."
+        ]
+      },
+      "sarab": {
+        "negative": [
+          "Our victory will not be announced. You will simply notice the silence.",
+          "Ask the sand what winning looks like. It has beaten every army yet."
+        ],
+        "neutral": [
+          "Victory is when the caravans cross unguarded and pay respect at the wells, not tribute.",
+          "We do not need their surrender. We need their exhaustion. It ripens on its own."
+        ],
+        "positive": [
+          "Winning, friend, is a night market under torches, open to all, safe without one drawn blade. My grandmother saw one. I will.",
+          "When the last army leaves the desert to the desert, we will have won. Armies always leave. We only stay."
+        ]
+      }
+    },
+    "lore_recruits": {
+      "vostok": {
+        "negative": [
+          "Where we find soldiers is not for someone who unfinds them.",
+          "Recruitment? The line feeds itself. Don't ask how."
+        ],
+        "neutral": [
+          "People come hungry, we feed them, they dig. By spring they're Vostok. It's not complicated.",
+          "Volunteers, mostly. Winter is our best recruiter. It has no rival."
+        ],
+        "positive": [
+          "I joined for the soup, friend, stayed for the brothers. Most honest army alive — we don't even promise you'll survive.",
+          "We take anyone who can lift a shovel and share a pot. The pot part matters more."
+        ]
+      },
+      "aegis": {
+        "negative": [
+          "Recruitment pipelines are protected information. Standard reasons.",
+          "You're not applying. You're mapping. Application denied either way."
+        ],
+        "neutral": [
+          "Selection, assessment, probation, oath. Half wash out at assessment. That half keeps our standard.",
+          "We recruit clerks, farmers, smiths — then build the soldier on top. Character first, skills install later."
+        ],
+        "positive": [
+          "You'd stand a chance, friend. We prize people who ask questions before drawing blades. Rarer than courage.",
+          "My village burned while two armies argued right of way. Aegis was the one that came back with a plan. So I signed."
+        ]
+      },
+      "sarab": {
+        "negative": [
+          "The desert chooses its own. It has not mentioned you.",
+          "We do not recruit. We recognize. You are not recognized."
+        ],
+        "neutral": [
+          "No one signs anything. You share water, you share risk, and one day you notice you belong.",
+          "Families mostly, and the desert's strays. The dunes deliver us the stubborn ones."
+        ],
+        "positive": [
+          "I was a caravan boy who watched raiders spare our well for an old mark, friend. I wanted to be the mark. Now I am.",
+          "Prove yourself? Carry water to a stranger. Someone is always watching here. That is our welcome and our warning."
+        ]
+      }
+    },
+    "lore_training": {
+      "vostok": {
+        "negative": [
+          "Our training is watching. Yours is being watched.",
+          "Half-trained, are we? The line will tutor you personally someday."
+        ],
+        "neutral": [
+          "Training is digging until digging is dreaming. Then formation drill until you turn in your sleep.",
+          "First lesson: hold. Second lesson: hold anyway. Third lesson: there is no third lesson."
+        ],
+        "positive": [
+          "They trained us to be boring, friend. Panic is interesting. Corpses are interesting. We aim for dull and alive.",
+          "You spot a veteran by the boots and the silence before dawn. The fresh ones chatter. Dawn cures it."
+        ]
+      },
+      "aegis": {
+        "negative": [
+          "Training standards are internal. Your assessment of our recruits is filed under humor.",
+          "Curriculum details? To you? Negative."
+        ],
+        "neutral": [
+          "Twelve weeks basic, then specialization. A soldier drills their role until improvisation feels like error.",
+          "First lesson is signal discipline. A quiet soldier who reports well outlives a brilliant one who doesn't."
+        ],
+        "positive": [
+          "One thing training gave me, friend: the checklist. Doubt the mood, trust the checklist. It works on farms too.",
+          "We rehearse retreats more than attacks. Anyone can advance. Leaving well is the professional's art."
+        ]
+      },
+      "sarab": {
+        "negative": [
+          "Our training is invisible. Its results are not. You may meet the results.",
+          "We train in the dark, stranger. That answer is complete."
+        ],
+        "neutral": [
+          "A recruit's first task: cross the flats unseen by three watchers. Some take a season. The desert grades honestly.",
+          "We teach stillness first. Anyone can move. The desert only forgives those who know when not to."
+        ],
+        "positive": [
+          "My first lesson, friend: bury a date pit, find it a year later. Memory is our armory — the blade part comes quick.",
+          "Night drills under no moon, steering by wind on the cheek. You'd be surprised what a face can see."
+        ]
+      }
+    },
+    "lore_roe": {
+      "vostok": {
+        "negative": [
+          "Rules? Here's one: enemies who ask about rules are testing them.",
+          "Our rules of war are none of your business and all of your future."
+        ],
+        "neutral": [
+          "Rules exist. Prisoners fed, wells left clean, no fire to homes. Winter makes enough orphans without help.",
+          "A truce for the dead is honored. Even them. Even us. Some things are not spent."
+        ],
+        "positive": [
+          "The ledgers call us brutes, friend, but ask around: Vostok never poisoned a well. We plan to drink from all of them.",
+          "We keep the old rules. Not from softness — a war without rules never ends, and we intend to finish this one."
+        ]
+      },
+      "aegis": {
+        "negative": [
+          "Asking about our engagement rules sounds like planning around them. Flagged.",
+          "The rule that concerns you: approach identified, warned, then handled. You're at 'warned'."
+        ],
+        "neutral": [
+          "Engagement requires identification, warning where feasible, force proportional. Deviations get investigated. Truly.",
+          "White flags are honored and logged. Abuse one and the log follows you forever."
+        ],
+        "positive": [
+          "Our rules exist so young soldiers don't carry home choices no one should carry, friend. The paperwork is mercy.",
+          "Yes — even now, a parley flag gets you an escort, not a blade. Test it before you doubt it. Others have."
+        ]
+      },
+      "sarab": {
+        "negative": [
+          "The desert's rules are older than mercy. Do not audition for exceptions.",
+          "Rules of war? The sand accepts everyone. That is the only rule we're sure you'll meet."
+        ],
+        "neutral": [
+          "Guests are sacred, wells are sacred, the dead belong to the desert. Everything else is negotiable at blade's length.",
+          "We take captives, treat them as guests, and ransom them fat. Ask around — our hospitality is famous both ways."
+        ],
+        "positive": [
+          "Hear the oldest law, friend: who shares your salt cannot be your prey for a year and a day. We keep it. Strictly.",
+          "A truce here is sworn on water, not paper. Paper burns. Thirst is forever. No one breaks a water-oath twice."
+        ]
+      }
+    },
+    "lore_bases": {
+      "vostok": {
+        "negative": [
+          "Our camps' business is our business. Yours is walking away from them.",
+          "Counting positions, are we? The wire counts back.",
+          "How many, where, how strong — three questions that end conversations here."
+        ],
+        "neutral": [
+          "Watch posts on the edge, work camps behind, the big camp behind those. Mud arranged in order of importance.",
+          "The small posts watch, the middle camps feed the line, the great camp feeds the middle. Everything walks forward.",
+          "This position stands because the last one fell. That's the usual founding story."
+        ],
+        "positive": [
+          "The great camp, friend? Warm soup, dry bunks, a floor that isn't weather. We tell recruits it's a myth so they don't pine.",
+          "Storm shelter? For you we'd find a corner by the stove. The line remembers its friends when the sky turns.",
+          "Every wall here was built twice — once wrong, once after the sergeant saw it. All good camps are built that way."
+        ]
+      },
+      "aegis": {
+        "negative": [
+          "Installation details are restricted. That covers headcounts, layouts, and your next three questions.",
+          "Our main camp's location is need-to-know. You need to go.",
+          "Perimeter questions from outside the perimeter. Textbook probe. Logged."
+        ],
+        "neutral": [
+          "Outposts observe, forward bases project, the headquarters coordinates. Tiered, like everything we do.",
+          "A forward base is mostly warehouse and signal mast. Unglamorous. Decisive.",
+          "Positions follow a standard plan. Any soldier can find the infirmary in any camp blindfolded. On purpose."
+        ],
+        "positive": [
+          "The headquarters is quieter than you'd expect, friend. Maps, wire, low voices. Wars are loud; winning is quiet.",
+          "Caught in weather, come to the gate and say so plainly. Shelter for civilians is written policy, not charity.",
+          "This post has stood four years, rebuilt twice, never abandoned. The rebuild plans predate the first attack. Naturally."
+        ]
+      },
+      "sarab": {
+        "negative": [
+          "You look for our camps. The desert applauds your ambition.",
+          "Our positions? The horizon. All of it. Sleep well.",
+          "Even our own do not know every camp. Guess how much you will."
+        ],
+        "neutral": [
+          "Small fires far apart, and one deep place under the rock where the water lives. That is our whole architecture.",
+          "Our forward camps move with the moon. What you found last month is now only warm stones.",
+          "The big camp exists. It has a roof of stars and walls of distance. Directions are unavailable."
+        ],
+        "positive": [
+          "Since you are a friend: the deep camp is cool, carved, and older than all three armies. We are only its latest guests.",
+          "If a storm catches you near our fires, call out 'guest of the well' and stand still. You will be gathered in.",
+          "Our camps have no gates, friend. A guest is inside the moment we decide he is. You have been inside for some time."
+        ]
+      }
+    },
+    "lore_sandbags": {
+      "vostok": {
+        "negative": [
+          "The sacks stop blades and questions alike. Test neither.",
+          "Wouldn't slow you down? The last confident man is under one of them."
+        ],
+        "neutral": [
+          "Sand is free, stone is not, and a burst sack is mended by breakfast. Poor man's fortress, rich man's results.",
+          "There is an art: header, stretcher, tamp, repeat. The sergeant lectures on it for an hour. Don't ask him."
+        ],
+        "positive": [
+          "Filled with whatever loses arguments with a spade, friend — sand, clay, once a load of frozen turnips. It held.",
+          "A good bag wall drinks a charge like bread drinks soup. Ugly, patient, replaceable. Now you understand our whole army."
+        ]
+      },
+      "aegis": {
+        "negative": [
+          "Fortification specifics are restricted. The wall's performance you may take on faith.",
+          "Asking what stops a charge, are you. Planning one? Noted."
+        ],
+        "neutral": [
+          "Sandbags absorb impact and settle under it. A rigid wall cracks once; a soft wall argues indefinitely.",
+          "Standard revetment: two bags thick, cross-laid, inspected each watch. Repairs are logged before sunrise."
+        ],
+        "positive": [
+          "The manual gives nine pages to bag walls, friend. Page one: 'The wall is the soldier's patience made visible.' Good line.",
+          "Come by in daylight and I'll show you the cross-lay pattern. Ten minutes of stacking will save your homestead someday."
+        ]
+      },
+      "sarab": {
+        "negative": [
+          "Walls interest you. Interesting people study walls. We study interesting people.",
+          "Our defenses are not stacked in bags, stranger. They are stacked in years."
+        ],
+        "neutral": [
+          "We borrow the idea at the wells — sand holding sand. The desert finds it amusing enough to allow.",
+          "A bag wall is a dune with discipline. We prefer our dunes wild, but a well must be held."
+        ],
+        "positive": [
+          "Truth, friend: we fill ours where we stand, empty them when we leave, and the desert never misses a handful.",
+          "The proper emplacement is one the wind rebuilds for you. Stack low, curve into the gale, let the sand volunteer."
+        ]
+      }
+    },
+    "lore_barracks": {
+      "vostok": {
+        "negative": [
+          "Our bunks are counted and none are yours. Move along.",
+          "Why stay, he asks. Where were you planning to seat us at your table?"
+        ],
+        "neutral": [
+          "Bunkhouse life: snoring in four languages, one stove, cards until the candle dies. You'd hate it. We manage.",
+          "The soup is grey, the bread is brave, and complaints go in the suggestion pit. The pit is bottomless."
+        ],
+        "positive": [
+          "Cold nights we push the bunks together, stoke the stove, and the sergeant ignores the vodka. Good system, friend.",
+          "The cat by the cook tent is Comrade Boots. Outranks me. Eats better too. We're all very proud of him."
+        ]
+      },
+      "aegis": {
+        "negative": [
+          "Barracks arrangements are internal matters. The tour is cancelled indefinitely.",
+          "Our off-duty hours are not your reconnaissance window."
+        ],
+        "neutral": [
+          "Bunks inspected daily, lights out by bell, mail twice a month if the roads hold. Routine is the comfort.",
+          "Rations are balanced, portioned, and beige. Nobody enlists for the food. Reenlistment cooking is a theory of mine."
+        ],
+        "positive": [
+          "Between rotations there's a chess ladder, friend. The signals section cheats with hand codes. We let them think we don't know.",
+          "Letters from home get read aloud by the stove if you're willing. Mine always are. It keeps the home real."
+        ]
+      },
+      "sarab": {
+        "negative": [
+          "Where we sleep is a question with teeth. Withdraw it.",
+          "Our nights are our own, stranger. Yours, out here, may not be."
+        ],
+        "neutral": [
+          "We sleep in turns, in shade, lightly. A tent is pitched in minutes and mourned by no one.",
+          "Meals are dates, flatbread, and whatever the night patrol brings back with a story attached."
+        ],
+        "positive": [
+          "Evenings there is tea, someone's grandmother's songs, and stars past counting. Cramped? The sky is our barracks, friend.",
+          "The kettle is never empty and never quite yours — it moves down the fire circle. By the third cup you know everyone's sorrows."
+        ]
+      }
+    },
+    "lore_scoff": {
+      "vostok": {
+        "negative": [
+          "Careful. The pit crew is bored today.",
+          "Say it again. Slower. My shovel is listening."
+        ],
+        "neutral": [
+          "Heh. The mouth works. Let's see if the legs are as quick.",
+          "Insulting the line. Original. Get in the queue."
+        ],
+        "positive": [
+          "Ha! Only friends may talk like that, and you're spending the privilege fast.",
+          "Careful, friend. The last wit here got latrine detail. He's still funny. Down there."
+        ]
+      },
+      "aegis": {
+        "negative": [
+          "Verbal provocation, logged. Escalation would be unwise.",
+          "That remark just moved your file to a worse drawer."
+        ],
+        "neutral": [
+          "Noted for the record. The record is unimpressed.",
+          "Opinion received. Filed under irrelevant."
+        ],
+        "positive": [
+          "I'll pretend the wind garbled that transmission. Once.",
+          "Bold words inside our response radius, friend. Retract, and we'll laugh it off."
+        ]
+      },
+      "sarab": {
+        "negative": [
+          "The desert hears everything and forgets nothing. Neither do we.",
+          "Words are wind. Some winds strip flesh from bone. Choose yours."
+        ],
+        "neutral": [
+          "A guest who spits in the well drinks downstream of his manners.",
+          "We collect insults like the dunes collect bones. Quietly."
+        ],
+        "positive": [
+          "Ah, the friend has thorns today. Sit, drink, and sheathe them before someone less fond of you hears.",
+          "Even a rude bird sings, friend. But sing softer near the hawks."
+        ]
+      }
+    },
+    "lore_exit": {
+      "vostok": {
+        "negative": [
+          "Go. Take the questions with you.",
+          "Done? Good. The gate remembers your face."
+        ],
+        "neutral": [
+          "Off you go. Mind the wire on the left. The left is our joke.",
+          "History lesson's over. Homework is staying alive."
+        ],
+        "positive": [
+          "Come back for soup night, friend. Bring bread; we'll supply the regrets.",
+          "Walk well. The line will hear if you don't."
+        ]
+      },
+      "aegis": {
+        "negative": [
+          "Conversation terminated. Depart along the marked path.",
+          "Briefing over. Exit is that way, under observation."
+        ],
+        "neutral": [
+          "Copy. Departing contact, one, no escort required.",
+          "Acknowledged. Roads are patrolled through dusk. Plan accordingly."
+        ],
+        "positive": [
+          "Safe roads, friend. Flash a light twice at our towers if trouble follows you.",
+          "Copy that. The gate log will read 'friendly departure'. Rare stamp. Keep earning it."
+        ]
+      },
+      "sarab": {
+        "negative": [
+          "Leave with the sun on your right and your curiosity behind.",
+          "Go. The sand will tell us how far."
+        ],
+        "neutral": [
+          "May the road be downhill and the questions lighter next time.",
+          "Travel between the winds, stranger. It's cooler and wiser."
+        ],
+        "positive": [
+          "Go gently, friend. There is tea unfinished here whenever you circle back.",
+          "The stars keep the road for you. Walk it while they're generous."
+        ]
+      }
+    }
+  }
+}
