@@ -44,3 +44,28 @@
 
 ### Version
 - Bumped to `0.2.0-dev`.
+
+## v0.2.0 — Stage 5: rendering fixes (2026-08-15)
+
+### Hand/arm model fix (root cause)
+- Phase 1's `SoldierRenderer` baked `ModelLayers.PLAYER` (which includes the skin
+  overlay parts — sleeves/jacket/pants) into a plain `HumanoidModel`. Since the render
+  refactor the whole part tree renders, but only `PlayerModel` copies limb poses onto
+  the overlay parts → overlay cubes rendered frozen at origin while limbs animated
+  (detached "ghost limb" shells). **Fixed**: renderer now uses `PlayerModel` with an
+  `AvatarRenderState`-based soldier state; overlay layers are hidden (uniforms are flat
+  recolors), hat layer kept for hair depth. In-camera before/after screenshots land in
+  the Stage 6 client session.
+
+### "M1911 backwards rendering"
+- Re-confirmed after Stage 5: **no M1911 or any firearm item exists in the managed
+  pack** (see Stage 0 notes). Nothing to fix under that name; the visible soldier
+  defect was the arm/overlay issue above.
+
+### Item model transform audit
+- All Warfront item models audited for display-transform mistakes:
+  - `sandbag_station` — `minecraft:block/cube_all` parent → vanilla block transforms ✓
+  - `bunk` — custom elements model with `minecraft:block/block` parent → vanilla block
+    transforms ✓
+- Warfront ships no handheld/custom-transform items; soldiers wield vanilla swords
+  (vanilla transforms). Audit clean.
