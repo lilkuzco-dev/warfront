@@ -1,0 +1,157 @@
+{
+ "classes": {
+  "greet": {
+   "vostok": {
+    "vengeful": [
+     "dialogue.warfront.resp.greet.vostok.vengeful.1",
+     "dialogue.warfront.resp.greet.vostok.vengeful.2",
+     "dialogue.warfront.resp.greet.vostok.vengeful.3"
+    ],
+    "negative": [
+     "dialogue.warfront.resp.greet.vostok.negative.1",
+     "dialogue.warfront.resp.greet.vostok.negative.2",
+     "dialogue.warfront.resp.greet.vostok.negative.3"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.greet.vostok.neutral.1",
+     "dialogue.warfront.resp.greet.vostok.neutral.2",
+     "dialogue.warfront.resp.greet.vostok.neutral.3"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.greet.vostok.positive.1",
+     "dialogue.warfront.resp.greet.vostok.positive.2",
+     "dialogue.warfront.resp.greet.vostok.positive.3"
+    ]
+   },
+   "aegis": {
+    "vengeful": [
+     "dialogue.warfront.resp.greet.aegis.vengeful.1",
+     "dialogue.warfront.resp.greet.aegis.vengeful.2",
+     "dialogue.warfront.resp.greet.aegis.vengeful.3"
+    ],
+    "negative": [
+     "dialogue.warfront.resp.greet.aegis.negative.1",
+     "dialogue.warfront.resp.greet.aegis.negative.2",
+     "dialogue.warfront.resp.greet.aegis.negative.3"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.greet.aegis.neutral.1",
+     "dialogue.warfront.resp.greet.aegis.neutral.2",
+     "dialogue.warfront.resp.greet.aegis.neutral.3"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.greet.aegis.positive.1",
+     "dialogue.warfront.resp.greet.aegis.positive.2",
+     "dialogue.warfront.resp.greet.aegis.positive.3"
+    ]
+   },
+   "sarab": {
+    "vengeful": [
+     "dialogue.warfront.resp.greet.sarab.vengeful.1",
+     "dialogue.warfront.resp.greet.sarab.vengeful.2",
+     "dialogue.warfront.resp.greet.sarab.vengeful.3"
+    ],
+    "negative": [
+     "dialogue.warfront.resp.greet.sarab.negative.1",
+     "dialogue.warfront.resp.greet.sarab.negative.2",
+     "dialogue.warfront.resp.greet.sarab.negative.3"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.greet.sarab.neutral.1",
+     "dialogue.warfront.resp.greet.sarab.neutral.2",
+     "dialogue.warfront.resp.greet.sarab.neutral.3"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.greet.sarab.positive.1",
+     "dialogue.warfront.resp.greet.sarab.positive.2",
+     "dialogue.warfront.resp.greet.sarab.positive.3"
+    ]
+   }
+  },
+  "farewell": {
+   "vostok": {
+    "negative": [
+     "dialogue.warfront.resp.farewell.vostok.negative.1",
+     "dialogue.warfront.resp.farewell.vostok.negative.2"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.farewell.vostok.neutral.1",
+     "dialogue.warfront.resp.farewell.vostok.neutral.2"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.farewell.vostok.positive.1",
+     "dialogue.warfront.resp.farewell.vostok.positive.2"
+    ]
+   },
+   "aegis": {
+    "negative": [
+     "dialogue.warfront.resp.farewell.aegis.negative.1",
+     "dialogue.warfront.resp.farewell.aegis.negative.2"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.farewell.aegis.neutral.1",
+     "dialogue.warfront.resp.farewell.aegis.neutral.2"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.farewell.aegis.positive.1",
+     "dialogue.warfront.resp.farewell.aegis.positive.2"
+    ]
+   },
+   "sarab": {
+    "negative": [
+     "dialogue.warfront.resp.farewell.sarab.negative.1",
+     "dialogue.warfront.resp.farewell.sarab.negative.2"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.farewell.sarab.neutral.1",
+     "dialogue.warfront.resp.farewell.sarab.neutral.2"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.farewell.sarab.positive.1",
+     "dialogue.warfront.resp.farewell.sarab.positive.2"
+    ]
+   }
+  },
+  "farewell_curt": {
+   "vostok": {
+    "negative": [
+     "dialogue.warfront.resp.farewell_curt.vostok.negative.1",
+     "dialogue.warfront.resp.farewell_curt.vostok.negative.2"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.farewell_curt.vostok.neutral.1",
+     "dialogue.warfront.resp.farewell_curt.vostok.neutral.2"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.farewell_curt.vostok.positive.1"
+    ]
+   },
+   "aegis": {
+    "negative": [
+     "dialogue.warfront.resp.farewell_curt.aegis.negative.1",
+     "dialogue.warfront.resp.farewell_curt.aegis.negative.2"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.farewell_curt.aegis.neutral.1",
+     "dialogue.warfront.resp.farewell_curt.aegis.neutral.2"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.farewell_curt.aegis.positive.1"
+    ]
+   },
+   "sarab": {
+    "negative": [
+     "dialogue.warfront.resp.farewell_curt.sarab.negative.1",
+     "dialogue.warfront.resp.farewell_curt.sarab.negative.2"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.farewell_curt.sarab.neutral.1",
+     "dialogue.warfront.resp.farewell_curt.sarab.neutral.2"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.farewell_curt.sarab.positive.1"
+    ]
+   }
+  }
+ }
+}

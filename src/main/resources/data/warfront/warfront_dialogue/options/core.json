@@ -1,0 +1,53 @@
+{
+ "category": "core",
+ "options": [
+  {
+   "id": "core_leave_polite",
+   "text": "dialogue.warfront.opt.core_leave_polite",
+   "response": "farewell",
+   "effects": [
+    {
+     "type": "end"
+    }
+   ],
+   "exit": true,
+   "weight": 8
+  },
+  {
+   "id": "core_leave_nod",
+   "text": "dialogue.warfront.opt.core_leave_nod",
+   "response": "farewell",
+   "effects": [
+    {
+     "type": "end"
+    }
+   ],
+   "exit": true,
+   "weight": 8
+  },
+  {
+   "id": "core_leave_silent",
+   "text": "dialogue.warfront.opt.core_leave_silent",
+   "response": "farewell_curt",
+   "effects": [
+    {
+     "type": "end"
+    }
+   ],
+   "exit": true,
+   "weight": 6
+  },
+  {
+   "id": "core_leave_later",
+   "text": "dialogue.warfront.opt.core_leave_later",
+   "response": "farewell",
+   "effects": [
+    {
+     "type": "end"
+    }
+   ],
+   "exit": true,
+   "weight": 6
+  }
+ ]
+}

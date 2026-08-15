@@ -1,0 +1,141 @@
+{
+  "category": "core",
+  "options": [
+    {
+      "id": "core_leave_polite",
+      "text": "I'll be on my way.",
+      "response": "farewell",
+      "effects": [{ "type": "end" }],
+      "exit": true,
+      "weight": 8
+    },
+    {
+      "id": "core_leave_nod",
+      "text": "That's all I needed.",
+      "response": "farewell",
+      "effects": [{ "type": "end" }],
+      "exit": true,
+      "weight": 8
+    },
+    {
+      "id": "core_leave_silent",
+      "text": "Never mind.",
+      "response": "farewell_curt",
+      "effects": [{ "type": "end" }],
+      "exit": true,
+      "weight": 6
+    },
+    {
+      "id": "core_leave_later",
+      "text": "I'll come back another time.",
+      "response": "farewell",
+      "effects": [{ "type": "end" }],
+      "exit": true,
+      "weight": 6
+    }
+  ],
+  "responses": {
+    "greet": {
+      "vostok": {
+        "vengeful": [
+          "You. We count eleven names because of you. Say your piece and count your steps.",
+          "Blood-debtor. The line remembers what you took from it.",
+          "You walk in here with our dead on your hands. Brave. Stupid, but brave."
+        ],
+        "negative": [
+          "We know your face. Keep your hands where the line can see them.",
+          "You again. State it fast.",
+          "No sudden moves. The quota has room for one more."
+        ],
+        "neutral": [
+          "Civilian. Keep clear of the wire.",
+          "Say it quick. The line doesn't watch itself.",
+          "You lost? This is a working front."
+        ],
+        "positive": [
+          "Ha — the friend of the line returns. Come, stand in the warm mud with us.",
+          "Good boots, good timing. What do you need, friend?",
+          "The line knows you. That is worth more than medals."
+        ]
+      },
+      "aegis": {
+        "vengeful": [
+          "Contact flagged. You are one incident from weapons-free. Choose words carefully.",
+          "Your file is red, civilian. Every word is being logged.",
+          "Halt. You have active infractions against this command. Make this brief."
+        ],
+        "negative": [
+          "Halt. You're flagged in the log. State your business.",
+          "Eyes on you, civilian. Keep the hands visible.",
+          "This sector is monitored. Your record precedes you."
+        ],
+        "neutral": [
+          "Copy. State your business.",
+          "Civilian contact, logged. What do you need?",
+          "Sector's green. Keep it that way. Go ahead."
+        ],
+        "positive": [
+          "Friendly contact confirmed. Good to see you operational.",
+          "You're cleared, friend. What does the day require?",
+          "Asset on site. What can Aegis do for you?"
+        ]
+      },
+      "sarab": {
+        "vengeful": [
+          "The sand keeps what it is given. It has been given your name.",
+          "Sit if you dare. The tea is hot and the debt is older than the kettle.",
+          "You cast a long shadow here, killer. Shadows are our trade."
+        ],
+        "negative": [
+          "The desert remembers footprints longer than the walker does.",
+          "You come thirsty to a well you salted. Speak.",
+          "We watch. We have watched you for some time."
+        ],
+        "neutral": [
+          "Peace on the road, stranger. What brings you to our shade?",
+          "The wind said someone was coming. It did not say why.",
+          "Sit lightly. Speak plainly."
+        ],
+        "positive": [
+          "Ah — the friend of the dunes. The shade is yours, sit.",
+          "Twice welcome. The kettle remembers you kindly.",
+          "The night speaks well of you. What do you need?"
+        ]
+      }
+    },
+    "farewell": {
+      "vostok": {
+        "negative": ["Walk straight. Don't look back.", "Go. The count stands."],
+        "neutral": ["Go on. Stay off the wire.", "The line watches. Walk safe."],
+        "positive": ["Walk well, friend of the line.", "Come back with news or vodka. Either helps."]
+      },
+      "aegis": {
+        "negative": ["Movement logged. Clear the sector.", "Leave the perimeter. Slowly."],
+        "neutral": ["Copy. Clear the approach on your way out.", "Acknowledged. Stay off the flight line."],
+        "positive": ["Safe travels. Sector will keep an eye out for you.", "Copy that. Door's open next rotation."]
+      },
+      "sarab": {
+        "negative": ["Go with the wind. Do not return against it.", "The path out is shorter than the path in. Use it."],
+        "neutral": ["May your road be shaded.", "Go well. The desert is patient with the careful."],
+        "positive": ["Travel with the cool hours, friend.", "The dunes will remember your kindness. Go well."]
+      }
+    },
+    "farewell_curt": {
+      "vostok": {
+        "negative": ["Hm.", "Smart."],
+        "neutral": ["Suit yourself.", "As you were, then."],
+        "positive": ["Ha. Come back when the words find you."]
+      },
+      "aegis": {
+        "negative": ["Noted.", "Logged."],
+        "neutral": ["Copy. Nothing further.", "Understood."],
+        "positive": ["No worries. Channel's open."]
+      },
+      "sarab": {
+        "negative": ["The silence speaks for you.", "Wise."],
+        "neutral": ["Some questions ripen late. Go well.", "The wind also changes its mind."],
+        "positive": ["Then sit a while anyway. Or go — the shade forgives."]
+      }
+    }
+  }
+}
