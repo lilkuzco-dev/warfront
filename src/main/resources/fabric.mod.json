@@ -10,7 +10,7 @@
 	"contact": {
 		"sources": "https://github.com/lilkuzco-dev"
 	},
-	"license": "CC0-1.0",
+	"license": "LGPL-3.0-or-later",
 	"icon": "assets/warfront/icon.png",
 	"environment": "*",
 	"entrypoints": {

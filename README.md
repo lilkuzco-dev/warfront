@@ -42,3 +42,7 @@ Requires Fabric Loader 0.19.3+ and Fabric API for 26.2.
 ## Development
 
 Fabric Loom, Mojang mappings, JDK 25. `./gradlew build`; structure templates regenerate via `node tools/gen-structures.js`, uniform/block textures via `node tools/gen-textures.js` (soldier skins are recolors of the vanilla player skin — clothing regions only).
+
+## License
+
+As of v0.2.0 Warfront is licensed **LGPL-3.0-or-later** (previously CC0-1.0, the Fabric template default). The change was made so the mod can import and adapt structure NBTs from LGPL-licensed open-source mods (notably [Repurposed Structures](https://github.com/TelepathicGrunt/RepurposedStructures) by TelepathicGrunt, whose license permits reuse as long as the using mod is open source). See `CREDITS.md` for full attribution of every imported asset and `structures/SOURCES.md` for per-file provenance.
