@@ -1,0 +1,350 @@
+{
+  "category": "apology",
+  "options": [
+    { "id": "apology_verbal_sorry", "text": "I'm sorry for what I did.", "response": "apology_verbal", "conditions": { "disposition": ["negative"] }, "effects": [{ "type": "standing", "amount": 1 }], "weight": 10, "cooldown_minutes": 60 },
+    { "id": "apology_verbal_owe", "text": "I owe you an apology.", "response": "apology_verbal", "conditions": { "disposition": ["negative"] }, "effects": [{ "type": "standing", "amount": 1 }], "weight": 9, "cooldown_minutes": 60 },
+    { "id": "apology_verbal_was_wrong", "text": "I came to say I was wrong.", "response": "apology_verbal", "conditions": { "disposition": ["negative"] }, "effects": [{ "type": "standing", "amount": 1 }], "weight": 8, "cooldown_minutes": 60 },
+    { "id": "apology_verbal_know_it", "text": "What I did to your people was wrong, and I know it.", "response": "apology_verbal", "conditions": { "disposition": ["negative"] }, "effects": [{ "type": "standing", "amount": 1 }], "weight": 8, "cooldown_minutes": 60 },
+    { "id": "apology_verbal_plain", "text": "I apologize. Plainly and honestly.", "response": "apology_verbal", "conditions": { "disposition": ["negative"] }, "effects": [{ "type": "standing", "amount": 1 }], "weight": 8, "cooldown_minutes": 60 },
+    { "id": "apology_verbal_no_excuses", "text": "No excuses. I did wrong by you.", "response": "apology_verbal", "conditions": { "disposition": ["negative"] }, "effects": [{ "type": "standing", "amount": 1 }], "weight": 8, "cooldown_minutes": 60 },
+    { "id": "apology_verbal_regret", "text": "I regret what happened between us.", "response": "apology_verbal", "conditions": { "disposition": ["negative"] }, "effects": [{ "type": "standing", "amount": 1 }], "weight": 7, "cooldown_minutes": 60 },
+    { "id": "apology_verbal_own_mistakes", "text": "I've come to own my mistakes.", "response": "apology_verbal", "conditions": { "disposition": ["negative"] }, "effects": [{ "type": "standing", "amount": 1 }], "weight": 7, "cooldown_minutes": 60 },
+    { "id": "apology_verbal_deserved_better", "text": "You deserved better from me. I'm sorry.", "response": "apology_verbal", "conditions": { "disposition": ["negative"] }, "effects": [{ "type": "standing", "amount": 1 }], "weight": 7, "cooldown_minutes": 60 },
+    { "id": "apology_verbal_straight", "text": "Let me say it straight: I was in the wrong.", "response": "apology_verbal", "conditions": { "disposition": ["negative"] }, "effects": [{ "type": "standing", "amount": 1 }], "weight": 7, "cooldown_minutes": 60 },
+    { "id": "apology_verbal_admit", "text": "I wronged your side, and I'm here to admit it.", "response": "apology_verbal", "conditions": { "disposition": ["negative"] }, "effects": [{ "type": "standing", "amount": 1 }], "weight": 7, "cooldown_minutes": 60 },
+    { "id": "apology_verbal_thinking", "text": "I keep thinking about what I did. I'm sorry for it.", "response": "apology_verbal", "conditions": { "disposition": ["negative"] }, "effects": [{ "type": "standing", "amount": 1 }], "weight": 6, "cooldown_minutes": 60 },
+    { "id": "apology_verbal_no_defense", "text": "There's no defending what I did. So I won't.", "response": "apology_verbal", "conditions": { "disposition": ["negative"] }, "effects": [{ "type": "standing", "amount": 1 }], "weight": 6, "cooldown_minutes": 60 },
+    { "id": "apology_verbal_face_to_face", "text": "I wanted to apologize face to face.", "response": "apology_verbal", "conditions": { "disposition": ["negative"] }, "effects": [{ "type": "standing", "amount": 1 }], "weight": 6, "cooldown_minutes": 60 },
+    { "id": "apology_verbal_reckless", "text": "I was reckless, and your people paid for it. I'm sorry.", "response": "apology_verbal", "conditions": { "disposition": ["negative"] }, "effects": [{ "type": "standing", "amount": 1 }], "weight": 6, "cooldown_minutes": 60 },
+    { "id": "apology_verbal_late", "text": "Consider this an apology, late but honest.", "response": "apology_verbal", "conditions": { "disposition": ["negative"] }, "effects": [{ "type": "standing", "amount": 1 }], "weight": 6, "cooldown_minutes": 60 },
+    { "id": "apology_verbal_shameful", "text": "My behavior was shameful. I'm here to say so.", "response": "apology_verbal", "conditions": { "disposition": ["negative"] }, "effects": [{ "type": "standing", "amount": 1 }], "weight": 6, "cooldown_minutes": 60 },
+    { "id": "apology_verbal_pardon", "text": "I ask your pardon for what I've done.", "response": "apology_verbal", "conditions": { "disposition": ["negative"] }, "effects": [{ "type": "standing", "amount": 1 }], "weight": 6, "cooldown_minutes": 60 },
+    { "id": "apology_deep_whole_camp", "text": "I'll say it in front of the whole camp if that helps: I was wrong.", "response": "apology_verbal_deep", "conditions": { "disposition": ["negative"] }, "effects": [{ "type": "standing", "amount": 2 }], "weight": 7, "cooldown_minutes": 180 },
+    { "id": "apology_deep_carried", "text": "I've carried this a long way to say: forgive me.", "response": "apology_verbal_deep", "conditions": { "disposition": ["negative"] }, "effects": [{ "type": "standing", "amount": 2 }], "weight": 7, "cooldown_minutes": 180 },
+    { "id": "apology_deep_not_leaving", "text": "I'm not leaving until you hear my apology properly.", "response": "apology_verbal_deep", "conditions": { "disposition": ["negative"] }, "effects": [{ "type": "standing", "amount": 2 }], "weight": 6, "cooldown_minutes": 180 },
+    { "id": "apology_deep_failed_you", "text": "Whatever it costs me to say it: I failed you, and I'm sorry.", "response": "apology_verbal_deep", "conditions": { "disposition": ["negative"] }, "effects": [{ "type": "standing", "amount": 2 }], "weight": 6, "cooldown_minutes": 180 },
+    { "id": "apology_deep_in_the_eye", "text": "Look me in the eye. I wronged you, and I'm ashamed of it.", "response": "apology_verbal_deep", "conditions": { "disposition": ["negative"] }, "effects": [{ "type": "standing", "amount": 2 }], "weight": 6, "cooldown_minutes": 180 },
+    { "id": "apology_deep_rehearsed", "text": "I've rehearsed this apology for days. Every word is meant.", "response": "apology_verbal_deep", "conditions": { "disposition": ["negative"] }, "effects": [{ "type": "standing", "amount": 2 }], "weight": 5, "cooldown_minutes": 180 },
+    { "id": "apology_deep_punish", "text": "Punish me if you want, but hear me first: I am truly sorry.", "response": "apology_verbal_deep", "conditions": { "disposition": ["negative"] }, "effects": [{ "type": "standing", "amount": 2 }], "weight": 5, "cooldown_minutes": 180 },
+    { "id": "apology_deep_honor", "text": "On my honor, such as it is: I repent what I did to your people.", "response": "apology_verbal_deep", "conditions": { "disposition": ["negative"] }, "effects": [{ "type": "standing", "amount": 2 }], "weight": 5, "cooldown_minutes": 180 },
+    { "id": "apology_light_business", "text": "Sorry about all that business before.", "response": "apology_dismissed", "conditions": { "disposition": ["negative"] }, "weight": 7 },
+    { "id": "apology_light_no_hard_feelings", "text": "Hey, no hard feelings about everything, right?", "response": "apology_dismissed", "conditions": { "disposition": ["negative"] }, "weight": 7 },
+    { "id": "apology_light_past_behind", "text": "Can we just put the past behind us?", "response": "apology_dismissed", "conditions": { "disposition": ["negative"] }, "weight": 7 },
+    { "id": "apology_light_bygones", "text": "Let bygones be bygones, yeah?", "response": "apology_dismissed", "conditions": { "disposition": ["negative"] }, "weight": 6 },
+    { "id": "apology_light_said_already", "text": "I said sorry already. Doesn't that count?", "response": "apology_dismissed", "conditions": { "disposition": ["negative"] }, "weight": 6 },
+    { "id": "apology_light_mistakes", "text": "Come on, everyone makes mistakes.", "response": "apology_dismissed", "conditions": { "disposition": ["negative"] }, "weight": 6 },
+    { "id": "apology_light_not_personal", "text": "It wasn't personal, you know.", "response": "apology_dismissed", "conditions": { "disposition": ["negative"] }, "weight": 6 },
+    { "id": "apology_light_bridge", "text": "Water under the bridge, surely?", "response": "apology_dismissed", "conditions": { "disposition": ["negative"] }, "weight": 6 },
+    { "id": "apology_ask_make_right", "text": "What would it take to make things right?", "response": "apology_what_take", "conditions": { "disposition": ["negative"] }, "weight": 10 },
+    { "id": "apology_ask_fix_this", "text": "How do I fix this between us?", "response": "apology_what_take", "conditions": { "disposition": ["negative"] }, "weight": 9 },
+    { "id": "apology_ask_price_forgiveness", "text": "Tell me the price of forgiveness.", "response": "apology_what_take", "conditions": { "disposition": ["negative"] }, "weight": 8 },
+    { "id": "apology_ask_goods_work_blood", "text": "What do you want from me — goods, work, blood?", "response": "apology_what_take", "conditions": { "disposition": ["negative"] }, "weight": 7 },
+    { "id": "apology_ask_earn_back", "text": "How does someone earn their way back with your side?", "response": "apology_what_take", "conditions": { "disposition": ["negative"] }, "weight": 8 },
+    { "id": "apology_ask_name_amends", "text": "Name the amends. I'll pay them.", "response": "apology_what_take", "conditions": { "disposition": ["negative"] }, "weight": 7 },
+    { "id": "apology_ask_some_way", "text": "There must be some way to square this.", "response": "apology_what_take", "conditions": { "disposition": ["negative"] }, "weight": 7 },
+    { "id": "apology_ask_officers_accept", "text": "What would your officers accept as repayment?", "response": "apology_what_take", "conditions": { "disposition": ["negative"] }, "weight": 6 },
+    { "id": "apology_ask_clean_slate", "text": "If I wanted a clean slate, where would I start?", "response": "apology_what_take", "conditions": { "disposition": ["negative"] }, "weight": 7 },
+    { "id": "apology_ask_debt_settled", "text": "Walk me through how a debt like mine gets settled.", "response": "apology_what_take", "conditions": { "disposition": ["negative"] }, "weight": 6 },
+    { "id": "apology_ask_path_back", "text": "Is there a path back for someone like me?", "response": "apology_what_take", "conditions": { "disposition": ["negative"] }, "weight": 7 },
+    { "id": "apology_ask_tribute_soften", "text": "What tribute would soften your people?", "response": "apology_what_take", "conditions": { "disposition": ["negative"] }, "weight": 6 },
+    { "id": "apology_ask_hole_dug", "text": "How deep is the hole I've dug, and what fills it?", "response": "apology_what_take", "conditions": { "disposition": ["negative"] }, "weight": 6 },
+    { "id": "apology_tribute_iron_harm", "text": "Eight iron ingots, for the harm I caused. Take them.", "response": "apology_tribute_minor", "conditions": { "disposition": ["negative"], "requires_item": "minecraft:iron_ingot", "requires_count": 8 }, "effects": [{ "type": "take_items", "item": "minecraft:iron_ingot", "count": 8 }, { "type": "disposition", "event": "apology_tribute_paid" }], "weight": 8 },
+    { "id": "apology_tribute_iron_amends", "text": "I brought iron as amends. A full stack of eight.", "response": "apology_tribute_minor", "conditions": { "disposition": ["negative"], "requires_item": "minecraft:iron_ingot", "requires_count": 8 }, "effects": [{ "type": "take_items", "item": "minecraft:iron_ingot", "count": 8 }, { "type": "disposition", "event": "apology_tribute_paid" }], "weight": 7 },
+    { "id": "apology_tribute_iron_speak", "text": "Let this iron speak where my words failed — eight bars.", "response": "apology_tribute_minor", "conditions": { "disposition": ["negative"], "requires_item": "minecraft:iron_ingot", "requires_count": 8 }, "effects": [{ "type": "take_items", "item": "minecraft:iron_ingot", "count": 8 }, { "type": "disposition", "event": "apology_tribute_paid" }], "weight": 6 },
+    { "id": "apology_tribute_iron_smiths", "text": "Iron for your smiths, offered in apology.", "response": "apology_tribute_minor", "conditions": { "disposition": ["negative"], "requires_item": "minecraft:iron_ingot", "requires_count": 8 }, "effects": [{ "type": "take_items", "item": "minecraft:iron_ingot", "count": 8 }, { "type": "disposition", "event": "apology_tribute_paid" }], "weight": 6 },
+    { "id": "apology_tribute_iron_first_payment", "text": "Take these eight ingots as a first payment on my debt.", "response": "apology_tribute_minor", "conditions": { "disposition": ["negative"], "requires_item": "minecraft:iron_ingot", "requires_count": 8 }, "effects": [{ "type": "take_items", "item": "minecraft:iron_ingot", "count": 8 }, { "type": "disposition", "event": "apology_tribute_paid" }], "weight": 6 },
+    { "id": "apology_tribute_iron_this_time", "text": "My apology comes with iron this time. Eight pieces.", "response": "apology_tribute_minor", "conditions": { "disposition": ["negative"], "requires_item": "minecraft:iron_ingot", "requires_count": 8 }, "effects": [{ "type": "take_items", "item": "minecraft:iron_ingot", "count": 8 }, { "type": "disposition", "event": "apology_tribute_paid" }], "weight": 6 },
+    { "id": "apology_tribute_em3_mend", "text": "Three emeralds, offered to mend what I broke.", "response": "apology_tribute_minor", "conditions": { "disposition": ["negative"], "requires_item": "minecraft:emerald", "requires_count": 3 }, "effects": [{ "type": "take_items", "item": "minecraft:emerald", "count": 3 }, { "type": "disposition", "event": "apology_tribute_paid" }], "weight": 8 },
+    { "id": "apology_tribute_em3_brought", "text": "I brought emeralds as an apology. Three of them.", "response": "apology_tribute_minor", "conditions": { "disposition": ["negative"], "requires_item": "minecraft:emerald", "requires_count": 3 }, "effects": [{ "type": "take_items", "item": "minecraft:emerald", "count": 3 }, { "type": "disposition", "event": "apology_tribute_paid" }], "weight": 7 },
+    { "id": "apology_tribute_em3_toward", "text": "Take these three gems toward my debt.", "response": "apology_tribute_minor", "conditions": { "disposition": ["negative"], "requires_item": "minecraft:emerald", "requires_count": 3 }, "effects": [{ "type": "take_items", "item": "minecraft:emerald", "count": 3 }, { "type": "disposition", "event": "apology_tribute_paid" }], "weight": 6 },
+    { "id": "apology_tribute_em3_wronged", "text": "Emeralds for the wronged. Three, and my regret with them.", "response": "apology_tribute_minor", "conditions": { "disposition": ["negative"], "requires_item": "minecraft:emerald", "requires_count": 3 }, "effects": [{ "type": "take_items", "item": "minecraft:emerald", "count": 3 }, { "type": "disposition", "event": "apology_tribute_paid" }], "weight": 6 },
+    { "id": "apology_tribute_em3_have_it", "text": "A tribute of three emeralds, if your people will have it.", "response": "apology_tribute_minor", "conditions": { "disposition": ["negative"], "requires_item": "minecraft:emerald", "requires_count": 3 }, "effects": [{ "type": "take_items", "item": "minecraft:emerald", "count": 3 }, { "type": "disposition", "event": "apology_tribute_paid" }], "weight": 6 },
+    { "id": "apology_tribute_em3_start_paying", "text": "Let three green stones start paying for my mistakes.", "response": "apology_tribute_minor", "conditions": { "disposition": ["negative"], "requires_item": "minecraft:emerald", "requires_count": 3 }, "effects": [{ "type": "take_items", "item": "minecraft:emerald", "count": 3 }, { "type": "disposition", "event": "apology_tribute_paid" }], "weight": 6 },
+    { "id": "apology_tribute_em6_real", "text": "Six emeralds. A real tribute for real harm.", "response": "apology_tribute_major", "conditions": { "disposition": ["negative"], "requires_item": "minecraft:emerald", "requires_count": 6 }, "effects": [{ "type": "take_items", "item": "minecraft:emerald", "count": 6 }, { "type": "disposition", "event": "apology_tribute_paid" }], "weight": 7 },
+    { "id": "apology_tribute_em6_saved", "text": "I've saved six emeralds to put toward what I owe you.", "response": "apology_tribute_major", "conditions": { "disposition": ["negative"], "requires_item": "minecraft:emerald", "requires_count": 6 }, "effects": [{ "type": "take_items", "item": "minecraft:emerald", "count": 6 }, { "type": "disposition", "event": "apology_tribute_paid" }], "weight": 6 },
+    { "id": "apology_tribute_em6_purse", "text": "This purse holds six gems. Take it as serious amends.", "response": "apology_tribute_major", "conditions": { "disposition": ["negative"], "requires_item": "minecraft:emerald", "requires_count": 6 }, "effects": [{ "type": "take_items", "item": "minecraft:emerald", "count": 6 }, { "type": "disposition", "event": "apology_tribute_paid" }], "weight": 6 },
+    { "id": "apology_tribute_em6_weight", "text": "Six emeralds — the weight of my apology in stone.", "response": "apology_tribute_major", "conditions": { "disposition": ["negative"], "requires_item": "minecraft:emerald", "requires_count": 6 }, "effects": [{ "type": "take_items", "item": "minecraft:emerald", "count": 6 }, { "type": "disposition", "event": "apology_tribute_paid" }], "weight": 6 },
+    { "id": "apology_tribute_em6_count_them", "text": "For the damage done, six emeralds. Count them.", "response": "apology_tribute_major", "conditions": { "disposition": ["negative"], "requires_item": "minecraft:emerald", "requires_count": 6 }, "effects": [{ "type": "take_items", "item": "minecraft:emerald", "count": 6 }, { "type": "disposition", "event": "apology_tribute_paid" }], "weight": 6 },
+    { "id": "apology_tribute_diamond_hardest", "text": "A diamond. The hardest thing I own, for the hardest debt I owe.", "response": "apology_tribute_major", "conditions": { "disposition": ["vengeful"], "requires_item": "minecraft:diamond", "requires_count": 1 }, "effects": [{ "type": "take_items", "item": "minecraft:diamond", "count": 1 }, { "type": "disposition", "event": "apology_tribute_paid" }], "weight": 7 },
+    { "id": "apology_tribute_diamond_undo", "text": "I brought a diamond. Let it answer for everything I can't undo.", "response": "apology_tribute_major", "conditions": { "disposition": ["vengeful"], "requires_item": "minecraft:diamond", "requires_count": 1 }, "effects": [{ "type": "take_items", "item": "minecraft:diamond", "count": 1 }, { "type": "disposition", "event": "apology_tribute_paid" }], "weight": 6 },
+    { "id": "apology_tribute_diamond_worst", "text": "One diamond, for the worst of what I did.", "response": "apology_tribute_major", "conditions": { "disposition": ["vengeful"], "requires_item": "minecraft:diamond", "requires_count": 1 }, "effects": [{ "type": "take_items", "item": "minecraft:diamond", "count": 1 }, { "type": "disposition", "event": "apology_tribute_paid" }], "weight": 6 },
+    { "id": "apology_tribute_diamond_blood_price", "text": "Take this diamond as blood-price. I know words won't do.", "response": "apology_tribute_major", "conditions": { "disposition": ["vengeful"], "requires_item": "minecraft:diamond", "requires_count": 1 }, "effects": [{ "type": "take_items", "item": "minecraft:diamond", "count": 1 }, { "type": "disposition", "event": "apology_tribute_paid" }], "weight": 6 },
+    { "id": "apology_tribute_diamond_not_enough", "text": "A diamond for your dead. It's not enough. Nothing is. But take it.", "response": "apology_tribute_major", "conditions": { "disposition": ["vengeful"], "requires_item": "minecraft:diamond", "requires_count": 1 }, "effects": [{ "type": "take_items", "item": "minecraft:diamond", "count": 1 }, { "type": "disposition", "event": "apology_tribute_paid" }], "weight": 6 },
+    { "id": "apology_plea_hear_me", "text": "I know you'd rather kill me than hear me. Hear me anyway.", "response": "apology_vengeful_plea", "conditions": { "disposition": ["vengeful"] }, "weight": 8 },
+    { "id": "apology_plea_betrayed", "text": "I betrayed you. I'm not here to deny it — I'm here to face it.", "response": "apology_vengeful_plea", "conditions": { "disposition": ["vengeful"] }, "weight": 7 },
+    { "id": "apology_plea_name_worth", "text": "Is there anything left of my name here worth saving?", "response": "apology_vengeful_plea", "conditions": { "disposition": ["vengeful"] }, "weight": 7 },
+    { "id": "apology_plea_unarmed", "text": "I'll wait here unarmed until someone accepts my apology.", "response": "apology_vengeful_plea", "conditions": { "disposition": ["vengeful"] }, "weight": 6 },
+    { "id": "apology_plea_curse_me", "text": "Curse me if you need to. Then tell me how to begin repaying you.", "response": "apology_vengeful_plea", "conditions": { "disposition": ["vengeful"] }, "effects": [{ "type": "standing", "amount": 1 }], "weight": 6, "cooldown_minutes": 120 },
+    { "id": "apology_plea_unforgivable", "text": "What I did was unforgivable. I'm asking anyway.", "response": "apology_vengeful_plea", "conditions": { "disposition": ["vengeful"] }, "weight": 7 },
+    { "id": "apology_plea_every_right", "text": "You have every right to hate me. I came regardless.", "response": "apology_vengeful_plea", "conditions": { "disposition": ["vengeful"] }, "effects": [{ "type": "standing", "amount": 1 }], "weight": 6, "cooldown_minutes": 120 },
+    { "id": "apology_plea_blame_me", "text": "If your side needs someone to blame, blame me to my face.", "response": "apology_vengeful_plea", "conditions": { "disposition": ["vengeful"] }, "weight": 6 },
+    { "id": "apology_plea_earn_asking", "text": "I don't ask for trust. I ask for a chance to earn the asking.", "response": "apology_vengeful_plea", "conditions": { "disposition": ["vengeful"] }, "weight": 6 },
+    { "id": "apology_plea_kneel", "text": "Even the guilty get to kneel. So here I am.", "response": "apology_vengeful_plea", "conditions": { "disposition": ["vengeful"] }, "weight": 5 },
+    { "id": "apology_promise_wont_happen", "text": "It won't happen again. You have my word.", "response": "apology_promise", "conditions": { "disposition": ["negative"] }, "weight": 8 },
+    { "id": "apology_promise_changed", "text": "I've changed. Give me the chance to prove it.", "response": "apology_promise", "conditions": { "disposition": ["negative"] }, "weight": 7 },
+    { "id": "apology_promise_nothing_to_fear", "text": "From today, your people have nothing to fear from me.", "response": "apology_promise", "conditions": { "disposition": ["negative"] }, "weight": 7 },
+    { "id": "apology_promise_swear_off", "text": "I swear off everything I did to earn your anger.", "response": "apology_promise", "conditions": { "disposition": ["negative"] }, "effects": [{ "type": "standing", "amount": 1 }], "weight": 6, "cooldown_minutes": 120 },
+    { "id": "apology_promise_watch_me", "text": "Watch me. My conduct will speak from here on.", "response": "apology_promise", "conditions": { "disposition": ["negative"] }, "weight": 6 },
+    { "id": "apology_promise_be_better", "text": "I promise to be better to your side than I was.", "response": "apology_promise", "conditions": { "disposition": ["negative"] }, "weight": 6 },
+    { "id": "apology_promise_whats_left", "text": "The person who wronged you is done. I'm what's left.", "response": "apology_promise", "conditions": { "disposition": ["negative"] }, "effects": [{ "type": "standing", "amount": 1 }], "weight": 6, "cooldown_minutes": 120 },
+    { "id": "apology_promise_opposite", "text": "Whatever I was to you before, I intend to be the opposite.", "response": "apology_promise", "conditions": { "disposition": ["negative"] }, "weight": 6 },
+    { "id": "apology_blood_answer", "text": "I killed your people. I want to answer for it.", "response": "apology_confess_blood", "conditions": { "has_killed_this_faction": true, "disposition": ["negative"] }, "effects": [{ "type": "standing", "amount": 1 }], "weight": 9, "cooldown_minutes": 120 },
+    { "id": "apology_blood_hands", "text": "There's blood on my hands. Your blood. I'm here about that.", "response": "apology_confess_blood", "conditions": { "has_killed_this_faction": true, "disposition": ["negative"] }, "weight": 8 },
+    { "id": "apology_blood_took_lives", "text": "I took lives from your side. I won't pretend otherwise.", "response": "apology_confess_blood", "conditions": { "has_killed_this_faction": true, "disposition": ["negative"] }, "weight": 7 },
+    { "id": "apology_blood_my_doing", "text": "Your dead are my doing. Tell me what I owe.", "response": "apology_confess_blood", "conditions": { "has_killed_this_faction": true, "disposition": ["negative"] }, "effects": [{ "type": "standing", "amount": 1 }], "weight": 7, "cooldown_minutes": 120 },
+    { "id": "apology_blood_confess", "text": "I've come to confess: I cut down your soldiers.", "response": "apology_confess_blood", "conditions": { "has_killed_this_faction": true, "disposition": ["negative"] }, "weight": 7 },
+    { "id": "apology_blood_didnt_come_home", "text": "Some of your people didn't come home because of me. I know it.", "response": "apology_confess_blood", "conditions": { "has_killed_this_faction": true, "disposition": ["negative"] }, "weight": 7 },
+    { "id": "apology_blood_colors", "text": "I killed soldiers who wore your colors. I carry every one.", "response": "apology_confess_blood", "conditions": { "has_killed_this_faction": true, "disposition": ["negative"] }, "weight": 6 },
+    { "id": "apology_blood_graves", "text": "The graves on your side — some are mine to answer for.", "response": "apology_confess_blood", "conditions": { "has_killed_this_faction": true, "disposition": ["negative"] }, "weight": 6 },
+    { "id": "apology_blood_wont_hide", "text": "I won't hide it. I've spilled your blood, and I regret it.", "response": "apology_confess_blood", "conditions": { "has_killed_this_faction": true, "disposition": ["negative"] }, "effects": [{ "type": "standing", "amount": 1 }], "weight": 6, "cooldown_minutes": 120 },
+    { "id": "apology_blood_name_dead", "text": "Name your dead, and I'll tell you which ones I owe you for.", "response": "apology_confess_blood", "conditions": { "has_killed_this_faction": true, "disposition": ["negative"] }, "weight": 5 },
+    { "id": "apology_blood_some_fell", "text": "I fought your people and some fell. I'm here to face their friends.", "response": "apology_confess_blood", "conditions": { "has_killed_this_faction": true, "disposition": ["negative"] }, "weight": 6 },
+    { "id": "apology_blood_justice", "text": "Whatever justice your side wants for its dead, I'm listening.", "response": "apology_confess_blood", "conditions": { "has_killed_this_faction": true, "disposition": ["negative"] }, "weight": 6 },
+    { "id": "apology_nice_bad_blood", "text": "I hope there's no bad blood between us.", "response": "apology_nicety", "conditions": { "disposition": ["neutral", "warm", "friendly", "devoted"] }, "weight": 7 },
+    { "id": "apology_nice_toes", "text": "If I've ever stepped on your toes, I apologize.", "response": "apology_nicety", "conditions": { "disposition": ["neutral", "warm", "friendly", "devoted"] }, "weight": 6 },
+    { "id": "apology_nice_still_square", "text": "Just making sure we're still square.", "response": "apology_nicety", "conditions": { "disposition": ["neutral", "warm", "friendly", "devoted"] }, "weight": 6 },
+    { "id": "apology_nice_are_we_good", "text": "Are we good, you and I?", "response": "apology_nicety", "conditions": { "disposition": ["neutral", "warm", "friendly", "devoted"] }, "weight": 7 },
+    { "id": "apology_nice_good_graces", "text": "I try to stay in your people's good graces. How am I doing?", "response": "apology_nicety", "conditions": { "disposition": ["neutral", "warm", "friendly", "devoted"] }, "weight": 6 },
+    { "id": "apology_nice_offense", "text": "If I ever gave offense, it was never meant.", "response": "apology_nicety", "conditions": { "disposition": ["neutral", "warm", "friendly", "devoted"] }, "weight": 5 },
+    { "id": "apology_nice_name_holds", "text": "I value my name with your side. Tell me it still holds.", "response": "apology_nicety", "conditions": { "disposition": ["neutral", "warm", "friendly", "devoted"] }, "weight": 5 },
+    { "id": "apology_nice_grievances", "text": "No grievances between us that I should know about?", "response": "apology_nicety", "conditions": { "disposition": ["neutral", "warm", "friendly", "devoted"] }, "weight": 6 }
+  ],
+  "responses": {
+    "apology_verbal": {
+      "vostok": {
+        "negative": [
+          "Words. Lighter than snow, and snow buries men. But we heard it. The ledger softens a hair.",
+          "Sorry doesn't fill graves. It fills silence. Fine — the silence needed filling.",
+          "An apology, spine straight, sober. That's more than most manage. One small mark in your favor."
+        ],
+        "neutral": [
+          "Apology heard. The line moves on. Mostly it just moves.",
+          "Fine. Words logged in the general direction of forgiveness."
+        ],
+        "positive": [
+          "Bah, you apologize like it's a funeral. We're past it, friend. Mostly past it.",
+          "Heard and shelved. Friends fight, friends dig, friends drink. Order varies."
+        ]
+      },
+      "aegis": {
+        "negative": [
+          "Statement received and appended to your file. Sentiment noted. Balance barely moved.",
+          "A verbal apology adjusts perception, not the record. Both matter. One just moved slightly.",
+          "Acknowledged. Contrition is a data point. Continue generating better ones."
+        ],
+        "neutral": [
+          "Apology logged. No open grievances at this time.",
+          "Received. The file reflects a cooperative posture. Maintain it."
+        ],
+        "positive": [
+          "Unnecessary but appreciated, friend. The ledger between us reads clean.",
+          "Apology accepted and honestly overkill. We're square."
+        ]
+      },
+      "sarab": {
+        "negative": [
+          "Words are wind. But some winds cool the tea. We felt this one. Slightly.",
+          "An apology walks in front of amends like a herald. We will see if the procession follows.",
+          "You water dry ground with speech. It takes much speech. This was a cup of it."
+        ],
+        "neutral": [
+          "The words are received. The desert files them under weather.",
+          "Heard. A small stone moves from one side of the scale."
+        ],
+        "positive": [
+          "Friend, your apology arrives to a table already set for you. Sit.",
+          "It is heard, and it was already forgiven. The tea did the forgiving yesterday."
+        ]
+      }
+    },
+    "apology_verbal_deep": {
+      "vostok": {
+        "negative": [
+          "Loud sorrow, public sorrow. Takes a spine. The line respects spine even in enemies. Two marks.",
+          "You said it like a soldier reporting losses. Honest. Heavy. It counts.",
+          "That apology had weight. We weigh things here. It registered."
+        ],
+        "neutral": [
+          "A full apology for a thin grievance. Take the credit anyway.",
+          "Strong words, properly meant. The line nods once."
+        ],
+        "positive": [
+          "Friend, you apologize harder than we grudge. Stop before you owe us nothing at all.",
+          "All that ceremony for us? The stove's warm side is yours tonight."
+        ]
+      },
+      "aegis": {
+        "negative": [
+          "Formal contrition, delivered under scrutiny, on the record. This materially amends your file.",
+          "That was a complete statement of responsibility. Rare. Logged with weight.",
+          "Accountability without prompting. The board will note it. I already have."
+        ],
+        "neutral": [
+          "Comprehensive apology, no deflection. Registered favorably.",
+          "Statement exceeds what the situation called for. Noted in your favor."
+        ],
+        "positive": [
+          "At ease, friend. That level of formality is for tribunals. We're well past tribunal.",
+          "Filed under: unnecessary but honorable. The unit appreciates the gesture."
+        ]
+      },
+      "sarab": {
+        "negative": [
+          "You bare the throat to the blade and speak on. The desert respects what does not flinch. It moved us.",
+          "A deep bow in hostile shade. That is not nothing. The scale feels it.",
+          "Such words cost water. You paid them anyway. The camp saw."
+        ],
+        "neutral": [
+          "A long apology for a short debt. The extra goes into the well.",
+          "Spoken like one who means to be believed. So we believe, a little more."
+        ],
+        "positive": [
+          "Friend, you bring a feast of words to a table of friends. Eat with us instead.",
+          "The fire heard it all and warmed accordingly. Enough now. Sit."
+        ]
+      }
+    },
+    "apology_dismissed": {
+      "vostok": {
+        "negative": [
+          "No hard feelings, he says. Feelings, no. Ledgers, yes. Ledgers are very hard.",
+          "The past is behind us, yes. Directly behind us. Breathing on our neck.",
+          "Bygones. Ha. We name our shovels after bygones."
+        ],
+        "neutral": [
+          "Cheap words for a cheap peace. Fine. It holds until it doesn't.",
+          "Sure, sure. The past is past. It writes, though. It writes."
+        ],
+        "positive": [
+          "Friend, you apologize for weather. Sit down, all is long settled.",
+          "Nothing to forgive that a drink didn't already dissolve."
+        ]
+      },
+      "aegis": {
+        "negative": [
+          "Putting it behind us is an amendment to records. Records take amends, not slogans.",
+          "That was an apology-shaped noise. The file recognizes only substance.",
+          "Informal remorse received. Formal debt unchanged. Do the arithmetic."
+        ],
+        "neutral": [
+          "No open incident calls for this. Logged as courtesy.",
+          "Acknowledged. Sentimentality is not actionable, but it's not a violation either."
+        ],
+        "positive": [
+          "We're square, friend. Have been since the last audit.",
+          "Nothing outstanding on my board. Carry on."
+        ]
+      },
+      "sarab": {
+        "negative": [
+          "You wave at the debt like a fly. It is not a fly. It is a well you must refill.",
+          "Light words float. Debts sink and wait at the bottom, patient as stones.",
+          "The bridge you speak of — the water under it is ours, and it remembers."
+        ],
+        "neutral": [
+          "Peace offered lightly is accepted lightly. Balanced, as things should be.",
+          "The desert holds no grudge it wasn't paid to hold. We are fine, stranger."
+        ],
+        "positive": [
+          "There is nothing behind us but road, friend. Walk forward with us.",
+          "The past drank its tea and left. Only friends at this fire now."
+        ]
+      }
+    },
+    "apology_what_take": {
+      "vostok": {
+        "negative": [
+          "Iron, sweat, or time. The ledger takes all three currencies. Words alone bounce.",
+          "Bring tribute the line can use, or take the penance work. Sorrow with weight, not just sound.",
+          "The count came from taking. It shrinks from giving. Iron, gems, labor. Pick."
+        ],
+        "neutral": [
+          "Nothing owed, nothing needed. Keep your nose clean and your boots useful.",
+          "Your slate's shallow. A good deed or two clears it faster than a speech."
+        ],
+        "positive": [
+          "Make right? Friend, you're in credit. Come drink your dividend.",
+          "The only debt between us is who buys next. It's you, but that's tradition."
+        ]
+      },
+      "aegis": {
+        "negative": [
+          "Restitution paths: material tribute, logged and receipted, or remediation work through an officer. Both amend the file.",
+          "The process exists. Tribute in goods, or labor under supervision. Sentiment optional, receipts mandatory.",
+          "Your file specifies the debit. Iron or emeralds move it fastest. Work moves it deepest."
+        ],
+        "neutral": [
+          "No corrective action needed. Maintain current conduct.",
+          "The file is level. Keep it level — that's the whole procedure."
+        ],
+        "positive": [
+          "Nothing to repair, friend. If you're feeling generous, the unit fund exists.",
+          "You're past making right and into making better. Different program, better coffee."
+        ]
+      },
+      "sarab": {
+        "negative": [
+          "The well you emptied refills three ways: gifts poured in, work carried out, and long, careful time.",
+          "Bring what the camp can drink, wear, or trade — or bend your back to our errands. The sand counts both.",
+          "Forgiveness here is bought like water in drought: dearly, gratefully, and in full view."
+        ],
+        "neutral": [
+          "The scales sit level. Add nothing, take nothing, and they sing quietly.",
+          "Nothing is owed. Generosity now would simply be planting shade for later."
+        ],
+        "positive": [
+          "Between friends the only debt is visits. Yours are paid in advance.",
+          "Make right? You are the example we point to, friend. Rest easy."
+        ]
+      }
+    },
+    "apology_tribute_minor": {
+      "vostok": {
+        "negative": [
+          "Tribute counted and taken. The ledger loosens one buckle. One.",
+          "Metal where words were. Good. The line trusts weight. Debt shrinks, doesn't die.",
+          "Accepted into stores. The count comes down a step. Steps add up. Keep stepping."
+        ],
+        "neutral": [
+          "Amends received for a small debt. Balance restored. Done.",
+          "Paid and squared. The pot even votes we forget it entirely."
+        ],
+        "positive": [
+          "Friend, you're paying debts you don't have. We'll bank it against future stupidity. Yours or ours.",
+          "Tribute from a clean ledger? That's called a gift. Taken as one, twice thanked."
+        ]
+      },
+      "aegis": {
+        "negative": [
+          "Tribute received, weighed, receipted. Your debit shrinks accordingly. Continue this pattern.",
+          "Material amends logged against your infractions. The math improved. You still owe math.",
+          "Accepted per restitution protocol. The file thaws by one degree."
+        ],
+        "neutral": [
+          "Restitution processed for a minor entry. Ledger clear.",
+          "Received and applied. Balance: acceptable."
+        ],
+        "positive": [
+          "You're overpaying a paid account, friend. Entered as a donation with honors.",
+          "Applied to nothing, because nothing was owed. The fund thanks you."
+        ]
+      },
+      "sarab": {
+        "negative": [
+          "The first water returns to the well. It echoes at the bottom. More must follow, but this was heard.",
+          "Tribute taken with a level face. The debt bends. It does not yet break.",
+          "You pour, we measure. Today the measure was honest. The sand notes it."
+        ],
+        "neutral": [
+          "A small mend for a small tear. The cloth holds. Finished.",
+          "Given and taken in balance. The matter closes like a tent flap."
+        ],
+        "positive": [
+          "Friend, you bring payment to a fire that owes you supper. It becomes a gift and doubles.",
+          "The camp accepts, confused and touched. Your credit grows past your shadow."
+        ]
+      }
+    },
+    "__PENDING2__": { "x": true }
+  }
+}

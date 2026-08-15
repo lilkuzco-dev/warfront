@@ -23,6 +23,14 @@ loom {
 			sourceSet sourceSets.client
 		}
 	}
+
+	runs {
+		gametest {
+			inherit client
+			vmArg "-Dfabric.client.gametest"
+			runDir "build/run-gametest"
+		}
+	}
 }
 
 dependencies {

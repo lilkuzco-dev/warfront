@@ -1,0 +1,664 @@
+{
+  "category": "orders",
+  "options": [
+    { "id": "orders_ask_any_work", "text": "Got any work for me?", "response": "orders_offer", "conditions": { "role": ["officer", "quartermaster"], "active_contract": ["none"] }, "effects": [{ "type": "offer_order", "pool": "standard" }], "weight": 10 },
+    { "id": "orders_ask_contract", "text": "I'm looking for a contract.", "response": "orders_offer", "conditions": { "role": ["officer", "quartermaster"], "active_contract": ["none"] }, "effects": [{ "type": "offer_order", "pool": "standard" }], "weight": 10 },
+    { "id": "orders_ask_put_to_use", "text": "Put me to use. What needs doing?", "response": "orders_offer", "conditions": { "role": ["officer", "quartermaster"], "active_contract": ["none"] }, "effects": [{ "type": "offer_order", "pool": "standard" }], "weight": 8 },
+    { "id": "orders_ask_outsider_jobs", "text": "Any jobs going for an outsider?", "response": "orders_offer", "conditions": { "role": ["officer", "quartermaster"], "active_contract": ["none"] }, "effects": [{ "type": "offer_order", "pool": "standard" }], "weight": 8 },
+    { "id": "orders_ask_strong_back", "text": "I've got time and a strong back. Need anything done?", "response": "orders_offer", "conditions": { "role": ["officer", "quartermaster"], "active_contract": ["none"] }, "effects": [{ "type": "offer_order", "pool": "standard" }], "weight": 7 },
+    { "id": "orders_ask_board", "text": "What's on the board today?", "response": "orders_offer", "conditions": { "role": ["officer", "quartermaster"], "active_contract": ["none"] }, "effects": [{ "type": "offer_order", "pool": "standard" }], "weight": 8 },
+    { "id": "orders_ask_task_price", "text": "Give me a task and a price.", "response": "orders_offer", "conditions": { "role": ["officer", "quartermaster"], "active_contract": ["none"] }, "effects": [{ "type": "offer_order", "pool": "standard" }], "weight": 7 },
+    { "id": "orders_ask_honest_work", "text": "I hear your side pays for honest work.", "response": "orders_offer", "conditions": { "role": ["officer", "quartermaster"], "active_contract": ["none"] }, "effects": [{ "type": "offer_order", "pool": "standard" }], "weight": 7 },
+    { "id": "orders_ask_extra_hands", "text": "Need an extra pair of hands?", "response": "orders_offer", "conditions": { "role": ["officer", "quartermaster"], "active_contract": ["none"] }, "effects": [{ "type": "offer_order", "pool": "standard" }], "weight": 8 },
+    { "id": "orders_ask_fetch_haul_hit", "text": "Anything that needs fetching, hauling, or hitting?", "response": "orders_offer", "conditions": { "role": ["officer", "quartermaster"], "active_contract": ["none"] }, "effects": [{ "type": "offer_order", "pool": "standard" }], "weight": 7 },
+    { "id": "orders_ask_mouth_shut", "text": "I work fast and I keep my mouth shut. Interested?", "response": "orders_offer", "conditions": { "role": ["officer", "quartermaster"], "active_contract": ["none"] }, "effects": [{ "type": "offer_order", "pool": "standard" }], "weight": 6 },
+    { "id": "orders_ask_earn_coin", "text": "Let me earn some coin off you.", "response": "orders_offer", "conditions": { "role": ["officer", "quartermaster"], "active_contract": ["none"] }, "effects": [{ "type": "offer_order", "pool": "standard" }], "weight": 7 },
+    { "id": "orders_ask_pay_to_handle", "text": "What would you pay me to handle?", "response": "orders_offer", "conditions": { "role": ["officer", "quartermaster"], "active_contract": ["none"] }, "effects": [{ "type": "offer_order", "pool": "standard" }], "weight": 6 },
+    { "id": "orders_ask_between_jobs", "text": "I'm between jobs. Change that.", "response": "orders_offer", "conditions": { "role": ["officer", "quartermaster"], "active_contract": ["none"] }, "effects": [{ "type": "offer_order", "pool": "standard" }], "weight": 6 },
+    { "id": "orders_ask_short_handed", "text": "You look short-handed. I'm available.", "response": "orders_offer", "conditions": { "role": ["officer", "quartermaster"], "active_contract": ["none"] }, "effects": [{ "type": "offer_order", "pool": "standard" }], "weight": 6 },
+    { "id": "orders_ask_point_problem", "text": "Point me at a problem.", "response": "orders_offer", "conditions": { "role": ["officer", "quartermaster"], "active_contract": ["none"] }, "effects": [{ "type": "offer_order", "pool": "standard" }], "weight": 7 },
+    { "id": "orders_ask_errands", "text": "Any errands the soldiers won't do?", "response": "orders_offer", "conditions": { "role": ["officer", "quartermaster"], "active_contract": ["none"] }, "effects": [{ "type": "offer_order", "pool": "standard" }], "weight": 6 },
+    { "id": "orders_ask_carry_scout_fight", "text": "I can carry, scout, or fight. Pick one.", "response": "orders_offer", "conditions": { "role": ["officer", "quartermaster"], "active_contract": ["none"] }, "effects": [{ "type": "offer_order", "pool": "standard" }], "weight": 7 },
+    { "id": "orders_ask_name_on_it", "text": "Is there a contract with my name on it?", "response": "orders_offer", "conditions": { "role": ["officer", "quartermaster"], "active_contract": ["none"] }, "effects": [{ "type": "offer_order", "pool": "standard" }], "weight": 6 },
+    { "id": "orders_ask_hire_me", "text": "Hire me for something.", "response": "orders_offer", "conditions": { "role": ["officer", "quartermaster"], "active_contract": ["none"] }, "effects": [{ "type": "offer_order", "pool": "standard" }], "weight": 7 },
+    { "id": "orders_ask_dirtiest", "text": "What's the dirtiest job on your list? I'll take it.", "response": "orders_offer", "conditions": { "role": ["officer", "quartermaster"], "active_contract": ["none"] }, "effects": [{ "type": "offer_order", "pool": "standard" }], "weight": 5 },
+    { "id": "orders_ask_beats_farming", "text": "Got anything that pays better than farming?", "response": "orders_offer", "conditions": { "role": ["officer", "quartermaster"], "active_contract": ["none"] }, "effects": [{ "type": "offer_order", "pool": "standard" }], "weight": 6 },
+    { "id": "orders_ask_need_coin", "text": "I need coin. What do you need done?", "response": "orders_offer", "conditions": { "role": ["officer", "quartermaster"], "active_contract": ["none"] }, "effects": [{ "type": "offer_order", "pool": "standard" }], "weight": 7 },
+    { "id": "orders_ask_something_useful", "text": "Give me something useful to do out here.", "response": "orders_offer", "conditions": { "role": ["officer", "quartermaster"], "active_contract": ["none"] }, "effects": [{ "type": "offer_order", "pool": "standard" }], "weight": 6 },
+    { "id": "orders_penance_work_off", "text": "I want to work off what I did.", "response": "orders_offer_penance", "conditions": { "role": ["officer", "quartermaster"], "active_contract": ["none"], "disposition": ["negative"] }, "effects": [{ "type": "offer_order", "pool": "penance" }], "weight": 9 },
+    { "id": "orders_penance_sweat", "text": "Let me sweat for my mistakes.", "response": "orders_offer_penance", "conditions": { "role": ["officer", "quartermaster"], "active_contract": ["none"], "disposition": ["negative"] }, "effects": [{ "type": "offer_order", "pool": "penance" }], "weight": 7 },
+    { "id": "orders_penance_nobody_wants", "text": "Give me the jobs nobody wants. I've earned them.", "response": "orders_offer_penance", "conditions": { "role": ["officer", "quartermaster"], "active_contract": ["none"], "disposition": ["negative"] }, "effects": [{ "type": "offer_order", "pool": "penance" }], "weight": 7 },
+    { "id": "orders_penance_pay_in_labor", "text": "I owe you. Let me pay it in labor.", "response": "orders_offer_penance", "conditions": { "role": ["officer", "quartermaster"], "active_contract": ["none"], "disposition": ["negative"] }, "effects": [{ "type": "offer_order", "pool": "penance" }], "weight": 8 },
+    { "id": "orders_penance_square_us", "text": "There must be work that would square us.", "response": "orders_offer_penance", "conditions": { "role": ["officer", "quartermaster"], "active_contract": ["none"], "disposition": ["negative"] }, "effects": [{ "type": "offer_order", "pool": "penance" }], "weight": 7 },
+    { "id": "orders_penance_ugly_jobs", "text": "Put my debt to use. I'll do the ugly jobs.", "response": "orders_offer_penance", "conditions": { "role": ["officer", "quartermaster"], "active_contract": ["none"], "disposition": ["negative"] }, "effects": [{ "type": "offer_order", "pool": "penance" }], "weight": 6 },
+    { "id": "orders_penance_earn_back", "text": "I'd rather earn my way back than beg.", "response": "orders_offer_penance", "conditions": { "role": ["officer", "quartermaster"], "active_contract": ["none"], "disposition": ["negative"] }, "effects": [{ "type": "offer_order", "pool": "penance" }], "weight": 7 },
+    { "id": "orders_penance_hard_task", "text": "Name a task hard enough to matter, and I'll do it.", "response": "orders_offer_penance", "conditions": { "role": ["officer", "quartermaster"], "active_contract": ["none"], "disposition": ["negative"] }, "effects": [{ "type": "offer_order", "pool": "penance" }], "weight": 6 },
+    { "id": "orders_penance_hands_apologize", "text": "Let my hands apologize, since my words won't.", "response": "orders_offer_penance", "conditions": { "role": ["officer", "quartermaster"], "active_contract": ["none"], "disposition": ["negative"] }, "effects": [{ "type": "offer_order", "pool": "penance" }], "weight": 6 },
+    { "id": "orders_penance_fix_this", "text": "Whatever needs doing to fix this, I'll do it.", "response": "orders_offer_penance", "conditions": { "role": ["officer", "quartermaster"], "active_contract": ["none"], "disposition": ["negative"] }, "effects": [{ "type": "offer_order", "pool": "penance" }], "weight": 7 },
+    { "id": "orders_grunt_tasks", "text": "Hey, got any tasks for me?", "response": "orders_redirect", "conditions": { "role": ["grunt"] }, "weight": 8 },
+    { "id": "orders_grunt_personal", "text": "Can I do a job for you personally?", "response": "orders_redirect", "conditions": { "role": ["grunt"] }, "weight": 6 },
+    { "id": "orders_grunt_hiring", "text": "Who's hiring around here?", "response": "orders_redirect", "conditions": { "role": ["grunt"] }, "weight": 8 },
+    { "id": "orders_grunt_chores", "text": "You must have chores you'd pay to skip.", "response": "orders_redirect", "conditions": { "role": ["grunt"] }, "weight": 6 },
+    { "id": "orders_grunt_shift", "text": "Need someone to cover your shift?", "response": "orders_redirect", "conditions": { "role": ["grunt"] }, "weight": 5 },
+    { "id": "orders_grunt_few_emeralds", "text": "Any way I can earn a few emeralds off you?", "response": "orders_redirect", "conditions": { "role": ["grunt"] }, "weight": 7 },
+    { "id": "orders_grunt_for_hire", "text": "I'm for hire. Know anyone who's buying?", "response": "orders_redirect", "conditions": { "role": ["grunt"] }, "weight": 6 },
+    { "id": "orders_grunt_camp_work", "text": "What work does the camp need done?", "response": "orders_redirect", "conditions": { "role": ["grunt"] }, "weight": 7 },
+    { "id": "orders_grunt_hand", "text": "Could you use a hand with anything?", "response": "orders_redirect", "conditions": { "role": ["grunt"] }, "weight": 7 },
+    { "id": "orders_grunt_sign_up", "text": "Where do I sign up for paid work?", "response": "orders_redirect", "conditions": { "role": ["grunt"] }, "weight": 7 },
+    { "id": "orders_pay_what", "text": "What's it pay?", "response": "orders_pay", "conditions": { "active_contract": ["offered"] }, "weight": 10 },
+    { "id": "orders_pay_money_first", "text": "Let's talk about the money first.", "response": "orders_pay", "conditions": { "active_contract": ["offered"] }, "weight": 8 },
+    { "id": "orders_pay_how_many", "text": "How many emeralds are we talking?", "response": "orders_pay", "conditions": { "active_contract": ["offered"] }, "weight": 8 },
+    { "id": "orders_pay_worth_time", "text": "Is the pay worth my time?", "response": "orders_pay", "conditions": { "active_contract": ["offered"] }, "weight": 7 },
+    { "id": "orders_pay_what_get", "text": "What do I get out of this?", "response": "orders_pay", "conditions": { "active_contract": ["offered"] }, "weight": 7 },
+    { "id": "orders_pay_up_front", "text": "Payment up front or on delivery?", "response": "orders_pay", "conditions": { "active_contract": ["offered"] }, "weight": 6 },
+    { "id": "orders_pay_bonus", "text": "Does the job come with a bonus?", "response": "orders_pay", "conditions": { "active_contract": ["offered"] }, "weight": 5 },
+    { "id": "orders_pay_reward", "text": "And the reward would be...?", "response": "orders_pay", "conditions": { "active_contract": ["offered"] }, "weight": 6 },
+    { "id": "orders_details_walk_through", "text": "Walk me through the job.", "response": "orders_details", "conditions": { "active_contract": ["offered"] }, "weight": 9 },
+    { "id": "orders_details_exactly", "text": "What exactly needs doing?", "response": "orders_details", "conditions": { "active_contract": ["offered"] }, "weight": 9 },
+    { "id": "orders_details_before_decide", "text": "Give me the details before I decide.", "response": "orders_details", "conditions": { "active_contract": ["offered"] }, "weight": 8 },
+    { "id": "orders_details_where", "text": "Where would this take me?", "response": "orders_details", "conditions": { "active_contract": ["offered"] }, "weight": 7 },
+    { "id": "orders_details_how_long", "text": "How long should this take?", "response": "orders_details", "conditions": { "active_contract": ["offered"] }, "weight": 6 },
+    { "id": "orders_details_fine_print", "text": "Any fine print I should know about?", "response": "orders_details", "conditions": { "active_contract": ["offered"] }, "weight": 6 },
+    { "id": "orders_details_why_not_own", "text": "Why hasn't one of your own done it?", "response": "orders_details", "conditions": { "active_contract": ["offered"] }, "weight": 6 },
+    { "id": "orders_details_catch", "text": "What's the catch?", "response": "orders_details", "conditions": { "active_contract": ["offered"] }, "weight": 7 },
+    { "id": "orders_risk_dangerous", "text": "How dangerous is it?", "response": "orders_risk", "conditions": { "active_contract": ["offered"] }, "weight": 8 },
+    { "id": "orders_risk_killed", "text": "Am I likely to get killed doing this?", "response": "orders_risk", "conditions": { "active_contract": ["offered"] }, "weight": 7 },
+    { "id": "orders_risk_kill_me", "text": "Will anyone be trying to kill me out there?", "response": "orders_risk", "conditions": { "active_contract": ["offered"] }, "weight": 6 },
+    { "id": "orders_risk_bring", "text": "What should I bring to survive this?", "response": "orders_risk", "conditions": { "active_contract": ["offered"] }, "weight": 6 },
+    { "id": "orders_risk_rate", "text": "Rate the danger for me, one to ten.", "response": "orders_risk", "conditions": { "active_contract": ["offered"] }, "weight": 5 },
+    { "id": "orders_risk_died", "text": "Has anyone died doing this job?", "response": "orders_risk", "conditions": { "active_contract": ["offered"] }, "weight": 5 },
+    { "id": "orders_accept_take_job", "text": "I'll take the job.", "response": "orders_accept", "conditions": { "active_contract": ["offered"] }, "effects": [{ "type": "accept_order" }], "weight": 10 },
+    { "id": "orders_accept_deal_done", "text": "Deal. Consider it done.", "response": "orders_accept", "conditions": { "active_contract": ["offered"] }, "effects": [{ "type": "accept_order" }], "weight": 9 },
+    { "id": "orders_accept_count_in", "text": "Count me in.", "response": "orders_accept", "conditions": { "active_contract": ["offered"] }, "effects": [{ "type": "accept_order" }], "weight": 9 },
+    { "id": "orders_accept_hired_worker", "text": "You've hired yourself a worker.", "response": "orders_accept", "conditions": { "active_contract": ["offered"] }, "effects": [{ "type": "accept_order" }], "weight": 7 },
+    { "id": "orders_accept_where_start", "text": "I accept. Where do I start?", "response": "orders_accept", "conditions": { "active_contract": ["offered"] }, "effects": [{ "type": "accept_order" }], "weight": 8 },
+    { "id": "orders_accept_on_it", "text": "Fine, I'm on it.", "response": "orders_accept", "conditions": { "active_contract": ["offered"] }, "effects": [{ "type": "accept_order" }], "weight": 8 },
+    { "id": "orders_accept_say_no_more", "text": "Say no more. I'll handle it.", "response": "orders_accept", "conditions": { "active_contract": ["offered"] }, "effects": [{ "type": "accept_order" }], "weight": 7 },
+    { "id": "orders_accept_contract_mine", "text": "The contract is mine.", "response": "orders_accept", "conditions": { "active_contract": ["offered"] }, "effects": [{ "type": "accept_order" }], "weight": 6 },
+    { "id": "orders_accept_talked_into", "text": "Alright, you talked me into it.", "response": "orders_accept", "conditions": { "active_contract": ["offered"] }, "effects": [{ "type": "accept_order" }], "weight": 6 },
+    { "id": "orders_accept_before_miss", "text": "I'll get it done before you miss me.", "response": "orders_accept", "conditions": { "active_contract": ["offered"] }, "effects": [{ "type": "accept_order" }], "weight": 5 },
+    { "id": "orders_accept_shake", "text": "Shake on it, then.", "response": "orders_accept", "conditions": { "active_contract": ["offered"] }, "effects": [{ "type": "accept_order" }], "weight": 6 },
+    { "id": "orders_accept_moving", "text": "Done deal. I'm moving.", "response": "orders_accept", "conditions": { "active_contract": ["offered"] }, "effects": [{ "type": "accept_order" }], "weight": 6 },
+    { "id": "orders_decline_pass", "text": "Not this one. Pass.", "response": "orders_decline", "conditions": { "active_contract": ["offered"] }, "effects": [{ "type": "decline_order" }], "weight": 9 },
+    { "id": "orders_decline_sit_out", "text": "I'll sit this job out.", "response": "orders_decline", "conditions": { "active_contract": ["offered"] }, "effects": [{ "type": "decline_order" }], "weight": 8 },
+    { "id": "orders_decline_not_for_me", "text": "That's not work for me.", "response": "orders_decline", "conditions": { "active_contract": ["offered"] }, "effects": [{ "type": "decline_order" }], "weight": 7 },
+    { "id": "orders_decline_someone_else", "text": "Find someone else for that.", "response": "orders_decline", "conditions": { "active_contract": ["offered"] }, "effects": [{ "type": "decline_order" }], "weight": 7 },
+    { "id": "orders_decline_trouble", "text": "The pay doesn't cover the trouble.", "response": "orders_decline", "conditions": { "active_contract": ["offered"] }, "effects": [{ "type": "decline_order" }], "weight": 6 },
+    { "id": "orders_decline_trap", "text": "No thanks — that job smells like a trap.", "response": "orders_decline", "conditions": { "active_contract": ["offered"] }, "effects": [{ "type": "decline_order" }], "weight": 5 },
+    { "id": "orders_decline_rather_not", "text": "I'd rather not, honestly.", "response": "orders_decline", "conditions": { "active_contract": ["offered"] }, "effects": [{ "type": "decline_order" }], "weight": 6 },
+    { "id": "orders_decline_another_time", "text": "Another time, maybe. Not today.", "response": "orders_decline", "conditions": { "active_contract": ["offered"] }, "effects": [{ "type": "decline_order" }], "weight": 6 },
+    { "id": "orders_decline_sweeten", "text": "You'll have to sweeten it a lot before I'd touch that.", "response": "orders_decline", "conditions": { "active_contract": ["offered"] }, "effects": [{ "type": "decline_order" }], "weight": 5 },
+    { "id": "orders_decline_hard_pass", "text": "Hard pass on that one.", "response": "orders_decline", "conditions": { "active_contract": ["offered"] }, "effects": [{ "type": "decline_order" }], "weight": 6 },
+    { "id": "orders_turnin_collect", "text": "Job's done. I'm here to collect.", "response": "orders_turn_in", "conditions": { "active_contract": ["complete_ready"] }, "effects": [{ "type": "turn_in_order" }], "weight": 10 },
+    { "id": "orders_turnin_handled", "text": "It's handled. Pay up.", "response": "orders_turn_in", "conditions": { "active_contract": ["complete_ready"] }, "effects": [{ "type": "turn_in_order" }], "weight": 8 },
+    { "id": "orders_turnin_dusted", "text": "Done and dusted. Where's my reward?", "response": "orders_turn_in", "conditions": { "active_contract": ["complete_ready"] }, "effects": [{ "type": "turn_in_order" }], "weight": 7 },
+    { "id": "orders_turnin_promised", "text": "The work is finished, as promised.", "response": "orders_turn_in", "conditions": { "active_contract": ["complete_ready"] }, "effects": [{ "type": "turn_in_order" }], "weight": 8 },
+    { "id": "orders_turnin_solved", "text": "Consider your problem solved.", "response": "orders_turn_in", "conditions": { "active_contract": ["complete_ready"] }, "effects": [{ "type": "turn_in_order" }], "weight": 7 },
+    { "id": "orders_turnin_settle", "text": "Mission accomplished. Settle the contract.", "response": "orders_turn_in", "conditions": { "active_contract": ["complete_ready"] }, "effects": [{ "type": "turn_in_order" }], "weight": 7 },
+    { "id": "orders_turnin_every_bit", "text": "I did what you asked. Every bit of it.", "response": "orders_turn_in", "conditions": { "active_contract": ["complete_ready"] }, "effects": [{ "type": "turn_in_order" }], "weight": 7 },
+    { "id": "orders_turnin_enjoyed", "text": "Finished. And I even enjoyed parts of it.", "response": "orders_turn_in", "conditions": { "active_contract": ["complete_ready"] }, "effects": [{ "type": "turn_in_order" }], "weight": 6 },
+    { "id": "orders_turnin_pockets", "text": "Your job is complete. My pockets are empty. Fix one of those.", "response": "orders_turn_in", "conditions": { "active_contract": ["complete_ready"] }, "effects": [{ "type": "turn_in_order" }], "weight": 6 },
+    { "id": "orders_turnin_inspect", "text": "All done. Inspect it if you like.", "response": "orders_turn_in", "conditions": { "active_contract": ["complete_ready"] }, "effects": [{ "type": "turn_in_order" }], "weight": 6 },
+    { "id": "orders_turnin_history", "text": "That task you gave me? History.", "response": "orders_turn_in", "conditions": { "active_contract": ["complete_ready"] }, "effects": [{ "type": "turn_in_order" }], "weight": 6 },
+    { "id": "orders_turnin_delivered", "text": "Delivered as ordered. Now the coin.", "response": "orders_turn_in", "conditions": { "active_contract": ["complete_ready"] }, "effects": [{ "type": "turn_in_order" }], "weight": 7 },
+    { "id": "orders_turnin_hard_cost", "text": "It's done, but it cost me. Never again.", "response": "orders_turn_in_hard", "conditions": { "active_contract": ["complete_ready"] }, "effects": [{ "type": "turn_in_order" }], "weight": 6 },
+    { "id": "orders_turnin_hard_barely", "text": "Finished the job. Barely walked away from it.", "response": "orders_turn_in_hard", "conditions": { "active_contract": ["complete_ready"] }, "effects": [{ "type": "turn_in_order" }], "weight": 6 },
+    { "id": "orders_turnin_hard_undersold", "text": "Done. You undersold how ugly that was.", "response": "orders_turn_in_hard", "conditions": { "active_contract": ["complete_ready"] }, "effects": [{ "type": "turn_in_order" }], "weight": 6 },
+    { "id": "orders_turnin_hard_scars", "text": "The work's complete. I've got the scars to prove it.", "response": "orders_turn_in_hard", "conditions": { "active_contract": ["complete_ready"] }, "effects": [{ "type": "turn_in_order" }], "weight": 6 },
+    { "id": "orders_turnin_hard_worse", "text": "That was worse than you said. It's done anyway.", "response": "orders_turn_in_hard", "conditions": { "active_contract": ["complete_ready"] }, "effects": [{ "type": "turn_in_order" }], "weight": 6 },
+    { "id": "orders_turnin_hard_warn", "text": "Job's finished. Next time, warn me properly.", "response": "orders_turn_in_hard", "conditions": { "active_contract": ["complete_ready"] }, "effects": [{ "type": "turn_in_order" }], "weight": 5 },
+    { "id": "orders_status_still_working", "text": "Still working on that job of yours.", "response": "orders_status", "conditions": { "active_contract": ["active"] }, "weight": 9 },
+    { "id": "orders_status_checking_in", "text": "Checking in. The contract's in progress.", "response": "orders_status", "conditions": { "active_contract": ["active"] }, "weight": 8 },
+    { "id": "orders_status_not_forgotten", "text": "Haven't forgotten the work. It's coming along.", "response": "orders_status", "conditions": { "active_contract": ["active"] }, "weight": 7 },
+    { "id": "orders_status_underway", "text": "The job's underway. Just reporting in.", "response": "orders_status", "conditions": { "active_contract": ["active"] }, "weight": 7 },
+    { "id": "orders_status_half_done", "text": "Your task is half done. Thought you'd want to know.", "response": "orders_status", "conditions": { "active_contract": ["active"] }, "weight": 6 },
+    { "id": "orders_status_take_time", "text": "I'm on it. These things take time.", "response": "orders_status", "conditions": { "active_contract": ["active"] }, "weight": 7 },
+    { "id": "orders_status_slow_moving", "text": "Progress report: slow but moving.", "response": "orders_status", "conditions": { "active_contract": ["active"] }, "weight": 6 },
+    { "id": "orders_status_advice", "text": "The work continues. Any advice?", "response": "orders_status", "conditions": { "active_contract": ["active"] }, "weight": 6 },
+    { "id": "orders_status_still_alive", "text": "Still alive, still on the job.", "response": "orders_status", "conditions": { "active_contract": ["active"] }, "weight": 7 },
+    { "id": "orders_status_not_slipped", "text": "Don't worry, the contract hasn't slipped my mind.", "response": "orders_status", "conditions": { "active_contract": ["active"] }, "weight": 6 },
+    { "id": "orders_status_passing", "text": "Just passing through. The job's not done yet.", "response": "orders_status", "conditions": { "active_contract": ["active"] }, "weight": 6 },
+    { "id": "orders_status_rush", "text": "Working on it. What's the rush?", "response": "orders_status", "conditions": { "active_contract": ["active"] }, "weight": 5 },
+    { "id": "orders_abandon_dropping", "text": "I'm dropping the job. Sorry.", "response": "orders_abandon", "conditions": { "active_contract": ["active"] }, "effects": [{ "type": "abandon_order" }], "weight": 8 },
+    { "id": "orders_abandon_quit", "text": "I can't finish this contract. I quit.", "response": "orders_abandon", "conditions": { "active_contract": ["active"] }, "effects": [{ "type": "abandon_order" }], "weight": 7 },
+    { "id": "orders_abandon_beyond_me", "text": "The work's beyond me. I'm out.", "response": "orders_abandon", "conditions": { "active_contract": ["active"] }, "effects": [{ "type": "abandon_order" }], "weight": 6 },
+    { "id": "orders_abandon_take_back", "text": "Take the job back. It's not happening.", "response": "orders_abandon", "conditions": { "active_contract": ["active"] }, "effects": [{ "type": "abandon_order" }], "weight": 6 },
+    { "id": "orders_abandon_worst", "text": "I give up on the task. Do your worst.", "response": "orders_abandon", "conditions": { "active_contract": ["active"] }, "effects": [{ "type": "abandon_order" }], "weight": 5 },
+    { "id": "orders_abandon_unfinished", "text": "This contract and I are done. Unfinished.", "response": "orders_abandon", "conditions": { "active_contract": ["active"] }, "effects": [{ "type": "abandon_order" }], "weight": 5 },
+    { "id": "orders_abandon_keep_pay", "text": "I'm walking away from the job. Keep the pay.", "response": "orders_abandon", "conditions": { "active_contract": ["active"] }, "effects": [{ "type": "abandon_order" }], "weight": 6 },
+    { "id": "orders_abandon_cancel", "text": "Cancel my contract. I've had enough.", "response": "orders_abandon", "conditions": { "active_contract": ["active"] }, "effects": [{ "type": "abandon_order" }], "weight": 6 }
+  ],
+  "responses": {
+    "orders_offer": {
+      "vostok": {
+        "negative": [
+          "Work? From us? First the ledger, then the labor. That's the order of things.",
+          "We give shovels to the trusted and distance to the rest. Guess your prize."
+        ],
+        "neutral": [
+          "There's always digging, hauling, bleeding. Pick a shift, get a chit.",
+          "The front makes work faster than we make hands. Terms are simple, pay is real."
+        ],
+        "positive": [
+          "For you? The board's open, friend. Take the job before the sergeant invents a worse one.",
+          "The line has work and you have shoulders. A marriage made in mud."
+        ]
+      },
+      "aegis": {
+        "negative": [
+          "Tasking flagged individuals requires oversight. Lucky for you, oversight is bored today.",
+          "There is work. There is also your file. They are in tension."
+        ],
+        "neutral": [
+          "Contracts are posted, scoped, and paid on completion. Interested parties sign here.",
+          "We contract civilians for approved taskings. Terms are non-negotiable, payment is prompt."
+        ],
+        "positive": [
+          "Good timing, friend. A tasking just cleared for outside hands. Priority one, paperwork zero.",
+          "For a proven asset the board opens early. Take your pick of the day sheet."
+        ]
+      },
+      "sarab": {
+        "negative": [
+          "Work binds two names together. Yours is not yet a name we tie to ours lightly.",
+          "The desert has errands, yes. It prefers messengers it has not been burned by."
+        ],
+        "neutral": [
+          "There is always a task the wind cannot do alone. Sit, and hear it.",
+          "The camp has needs the camp cannot leave to do. Perhaps your feet will serve."
+        ],
+        "positive": [
+          "For a friend the good errands surface, like water under the right stone.",
+          "The camp trusts your feet and your silence. Both are hired, if you wish."
+        ]
+      }
+    },
+    "orders_offer_penance": {
+      "vostok": {
+        "negative": [
+          "Work off the debt? Good. Shovels don't forgive, but they do subtract.",
+          "The ledger shrinks for sweat. Slowly. Start today, finish maybe never.",
+          "You broke it, you dig for it. That's older than any army."
+        ],
+        "neutral": [
+          "Debt work is for debtors. Your ledger is clean enough. Take normal wages.",
+          "No debt on the books for you. Ask for honest work instead."
+        ],
+        "positive": [
+          "Penance? Friend, you owe us nothing but your usual nonsense. Take paid work.",
+          "Ha! Your slate is clean. Save the guilt for someone who earned it."
+        ]
+      },
+      "aegis": {
+        "negative": [
+          "Restitution through labor is provisioned. Completion reduces your infractions. Failure compounds them.",
+          "There is a remediation track. It is unpleasant by design. Sign or leave.",
+          "Your file has a debit column. Work orders can amend it. Begin immediately."
+        ],
+        "neutral": [
+          "No open infractions to work off. Normal contracts are available instead.",
+          "Remediation applies to flagged files. Yours is not. Ask for normal tasking."
+        ],
+        "positive": [
+          "Your record is green, friend. There is nothing to atone for. Take the good contracts.",
+          "Penance requires guilt on file. You have commendations instead. Different queue."
+        ]
+      },
+      "sarab": {
+        "negative": [
+          "You wish to carry water back to the well you salted. Good. The bucket is heavy. Begin.",
+          "Debt walked in on your feet. It can walk out the same way, one errand at a time.",
+          "The sand accepts labor where it will not accept words. We will watch you sweat."
+        ],
+        "neutral": [
+          "You owe the camp nothing that work would repay. Take an honest task instead.",
+          "Penance without sin is theater. The desert dislikes theater. Ask for plain work."
+        ],
+        "positive": [
+          "What debt, friend? The fire speaks well of you. Work for wages, not forgiveness.",
+          "Your shadow is welcome here. Save your penance for harder rooms."
+        ]
+      }
+    },
+    "orders_redirect": {
+      "vostok": {
+        "negative": [
+          "I don't hand out work. I barely hand out words to you.",
+          "Ask the officer. Bring a helmet — his mood throws things."
+        ],
+        "neutral": [
+          "Not mine to give. The officer holds the chits.",
+          "Work comes from the top. I just do it. Try the command tent."
+        ],
+        "positive": [
+          "If I hired you, the sergeant would hire my hide. Officer's tent, friend.",
+          "Ha — I'd pay you my whole wage, all three buttons of it. See the officer."
+        ]
+      },
+      "aegis": {
+        "negative": [
+          "Tasking authority sits above my rank and your reputation. Move along.",
+          "I don't issue contracts. I especially don't issue them to flagged files."
+        ],
+        "neutral": [
+          "Contracts come from officers or supply. I'm neither. Follow the chain.",
+          "Above my authorization. The duty officer handles civilian tasking."
+        ],
+        "positive": [
+          "Wish I could hire you myself, friend. Chain of command says see the lieutenant.",
+          "I can vouch, not hire. Take my good word to the duty officer."
+        ]
+      },
+      "sarab": {
+        "negative": [
+          "The hand that pays is not this hand. Ask elsewhere, and softly.",
+          "I keep watch, not purses. And on you, I keep more watch than most."
+        ],
+        "neutral": [
+          "Errands flow from the elder tents. I am only a rope in the well.",
+          "Ask the one who keeps the seal. My work is watching horizons."
+        ],
+        "positive": [
+          "For hiring, seek the keeper of the seal, friend. Tell them the night watch smiled on you.",
+          "My purse is thin as morning shade. The elder tent has the fat one."
+        ]
+      }
+    },
+    "orders_pay": {
+      "vostok": {
+        "negative": [
+          "It pays in fewer people scowling at you. Also some coin.",
+          "The rate is posted. The grudge discount comes off your end, not ours."
+        ],
+        "neutral": [
+          "Emeralds on completion, no advances, no widows' fund for outsiders.",
+          "It pays enough to complain about. Payment on delivery, always."
+        ],
+        "positive": [
+          "Fair coin and first pull at the stew pot, friend. The stew is the real wage.",
+          "It pays honest, plus the sergeant forgets one thing you owe him. Negotiable which thing."
+        ]
+      },
+      "aegis": {
+        "negative": [
+          "Compensation is scale rate minus your risk premium. The premium is you.",
+          "Payment is on the sheet. Consider being offered work at all a concession."
+        ],
+        "neutral": [
+          "Rate is fixed per the tasking sheet. Emeralds on verified completion.",
+          "Compensation posted with the contract. No completion, no disbursement."
+        ],
+        "positive": [
+          "Full scale plus the allied bonus, friend. Finance grumbled. I insisted.",
+          "Top rate for you, and I'll expedite the disbursement paperwork myself."
+        ]
+      },
+      "sarab": {
+        "negative": [
+          "It pays what the desert pays: enough to reach the next well. For you, barely that.",
+          "Coin at the end, and the end only. Trust is not part of the wage."
+        ],
+        "neutral": [
+          "The purse is fair and opens on completion. The desert honors finished things.",
+          "Payment waits at the end of the errand, like shade at the end of a road."
+        ],
+        "positive": [
+          "For you the purse opens generously, friend. The elders remember who runs well.",
+          "Good coin, and a place by the fire when it's done. The second is worth more."
+        ]
+      }
+    },
+    "orders_details": {
+      "vostok": {
+        "negative": [
+          "Details are for the trusted. You get the shape: go there, do it, come back changed or don't.",
+          "The job is simple. Watching you attempt it will be the entertainment."
+        ],
+        "neutral": [
+          "It's on the chit: what, where, when. The why is above both of us.",
+          "Simple work, ugly conditions. Everything here is that sentence."
+        ],
+        "positive": [
+          "Sit, friend. Here's the map, the names, the shortcut the sergeant pretends is secret.",
+          "Full picture, no varnish. You've earned the honest briefing."
+        ]
+      },
+      "aegis": {
+        "negative": [
+          "You receive the minimum brief. Operational context is need-to-know. You need to go.",
+          "Specifics on acceptance. Your clearance covers the destination and the deadline. Nothing else."
+        ],
+        "neutral": [
+          "Brief is on the sheet: objective, boundary, timeline. Deviations void payment.",
+          "Scope is defined and non-negotiable. Read twice, sign once."
+        ],
+        "positive": [
+          "I'll walk you through the full annex, friend. Including the part command marked optional-to-share.",
+          "Here's the brief plus the field notes from last attempt. Learn from the last man's afternoon."
+        ]
+      },
+      "sarab": {
+        "negative": [
+          "You will know the road when you are on it. Before that, knowing is a privilege.",
+          "The errand explains itself to those who begin it. Begin, or leave."
+        ],
+        "neutral": [
+          "The task is a story with three parts: the going, the doing, the returning. Hear them in order.",
+          "Details are water. We pour when the cup is held steady. Hold steady."
+        ],
+        "positive": [
+          "Come close, friend. I will draw the whole road in the sand, wells and dangers both.",
+          "For you, the story has no missing verses. Ask anything twice if you need."
+        ]
+      }
+    },
+    "orders_risk": {
+      "vostok": {
+        "negative": [
+          "Dangerous? Everything here kills something. Mostly time. Sometimes visitors.",
+          "You might die. We won't. That's the risk summary."
+        ],
+        "neutral": [
+          "Risk is weather. Dress for it. Bring bandages and low expectations.",
+          "Somebody's done it before. Somebody's also not come back. Averages out."
+        ],
+        "positive": [
+          "Honest, friend? It bites. Pack iron, walk loud, and you'll outlive it.",
+          "The job's survivable. I'd send my brother. I don't like my brother, but still."
+        ]
+      },
+      "aegis": {
+        "negative": [
+          "Threat assessment is classified. Your survival probability is your own project.",
+          "Risk exists. Mitigation is available to personnel. You are not personnel."
+        ],
+        "neutral": [
+          "Threat level moderate, mapped, and printed on the sheet. Read the sheet.",
+          "Normal field risk. Casualty history: within tolerances. Yours may vary."
+        ],
+        "positive": [
+          "Straight answer, friend: two known threats, one bad crossing. I've marked all three.",
+          "Manageable if you move at dusk and keep the ridge. That's free intel, don't spend it all."
+        ]
+      },
+      "sarab": {
+        "negative": [
+          "The desert is always hungry. Whether it eats you is between you and the desert.",
+          "Danger walks that road, yes. It may recognize you as kin and pass by."
+        ],
+        "neutral": [
+          "Every errand has teeth. This one's are small, but it has many.",
+          "The road is safe as roads go. Roads go badly sometimes."
+        ],
+        "positive": [
+          "I will not send a friend blind. There is one viper on that path — here is where it sleeps.",
+          "Small danger, well-mapped. Walk the cold hours and it will miss you, friend."
+        ]
+      }
+    },
+    "orders_accept": {
+      "vostok": {
+        "negative": [
+          "Taken, then. Fail and the ledger grows teeth.",
+          "Good. Work hard. We'll count the result, not the effort."
+        ],
+        "neutral": [
+          "Chit's yours. Come back done or don't come back confused.",
+          "Signed and shouldered. The front thanks you in advance, quietly."
+        ],
+        "positive": [
+          "Ha, that's the spirit! Go, and bring the good news before the bad weather.",
+          "Knew you'd take it, friend. The stew will wait for you."
+        ]
+      },
+      "aegis": {
+        "negative": [
+          "Contract logged. Deadlines are enforced. Excuses are not processed.",
+          "Accepted and flagged for monitoring. Perform accordingly."
+        ],
+        "neutral": [
+          "Contract is active. Report on completion for verification and payment.",
+          "Acknowledged. Tasking is yours. The clock is running."
+        ],
+        "positive": [
+          "Outstanding. Tasking assigned to our best available civilian. That's you, friend.",
+          "Logged and cleared, friend. Radio silence means you're winning."
+        ]
+      },
+      "sarab": {
+        "negative": [
+          "So the errand has your name now. Names and errands return together, or not at all.",
+          "Go. The task watches you now, as we do."
+        ],
+        "neutral": [
+          "It is agreed. The road knows you're coming. Walk it well.",
+          "The errand is yours. Return with it finished and the fire will be warm."
+        ],
+        "positive": [
+          "Good, friend. May the wind push your back and the sun forget your face.",
+          "The camp sleeps easier with this in your hands. Go gently and swift."
+        ]
+      }
+    },
+    "orders_decline": {
+      "vostok": {
+        "negative": [
+          "Refusing work. Noted in the big sad book of you.",
+          "Fine. The trench misses no one."
+        ],
+        "neutral": [
+          "Suit yourself. The job won't cry. Jobs never do.",
+          "Declined, then. It'll still be here, uglier, tomorrow."
+        ],
+        "positive": [
+          "Ha, smart. That job smelled bad to me too. There'll be better.",
+          "No harm, friend. The board refills like a bad well."
+        ]
+      },
+      "aegis": {
+        "negative": [
+          "Declination recorded. Availability rating adjusted downward.",
+          "Copy. Removing you from consideration. Some lists you want to be on. This was one."
+        ],
+        "neutral": [
+          "Understood. Contract returns to the pool.",
+          "Declined and logged. No penalty, no pay, no problem."
+        ],
+        "positive": [
+          "Fair call, friend. Not every tasking deserves you.",
+          "No stress. First refusal on the next one is still yours."
+        ]
+      },
+      "sarab": {
+        "negative": [
+          "You refuse. The desert shrugs. The desert has a long memory for shrugs.",
+          "As you wish. Some doors close softly. Listen how softly."
+        ],
+        "neutral": [
+          "Then the errand waits for other feet. Peace on yours.",
+          "A task refused is a story unwritten. Go find your other story."
+        ],
+        "positive": [
+          "Wise to know your roads, friend. Another errand will suit you better.",
+          "No shadow falls from an honest no. Sit, drink, choose again another day."
+        ]
+      }
+    },
+    "orders_turn_in": {
+      "vostok": {
+        "negative": [
+          "Done? Checked. Adequate. The ledger moves one grudging notch.",
+          "It's done, yes. So is the arithmetic. Payment, minus nothing, plus nothing."
+        ],
+        "neutral": [
+          "Verified. Coin's counted twice, take it once.",
+          "Work confirmed. The front notices done things. Briefly, but it notices."
+        ],
+        "positive": [
+          "Look at that — finished clean! Coin, stew, and the good bench by the stove, friend.",
+          "Done like a Vostok veteran. Take the pay and the compliment. Both are rare."
+        ]
+      },
+      "aegis": {
+        "negative": [
+          "Completion verified. Payment disbursed. This improves your ledger, not my mood.",
+          "Confirmed done. Transaction closed. Punctuality noted despite priors."
+        ],
+        "neutral": [
+          "Deliverable verified against the sheet. Payment released. Clean work.",
+          "Objective confirmed complete. Disbursing now. Aegis honors its contracts."
+        ],
+        "positive": [
+          "Textbook execution, friend. Full pay plus the performance rider. Signed happily.",
+          "Verified, exemplary, filed. If you ever want a uniform, I know a recruiter."
+        ]
+      },
+      "sarab": {
+        "negative": [
+          "The errand returned finished. The purse opens exactly as far as promised. Exactly.",
+          "Done is done. Coin is coin. The rest of the ledger is a different afternoon."
+        ],
+        "neutral": [
+          "The task came home whole. The purse honors it. Well walked.",
+          "Finished as promised. The desert respects a kept word. So do we."
+        ],
+        "positive": [
+          "Beautifully done, friend. Coin, dates, and the story told at the fire tonight — you're in it.",
+          "The errand sings your praise. Take the purse and the shade both."
+        ]
+      }
+    },
+    "orders_turn_in_hard": {
+      "vostok": {
+        "negative": [
+          "It cost you? Everything costs. Welcome to the economy. Here's the pay.",
+          "Scars are receipts. Keep them, spend the emeralds."
+        ],
+        "neutral": [
+          "Rough jobs make short stories and long drinks. Pay's all there.",
+          "You look like the job won on points. But you finished it. That's the whole test."
+        ],
+        "positive": [
+          "You went through it, friend. Sit. Stew first, coin second, complaining all night — earned.",
+          "Ugly work done well. The line drinks to exactly that. You're the toast tonight."
+        ]
+      },
+      "aegis": {
+        "negative": [
+          "Field conditions exceeded the brief. Regrettable. Compensation unchanged. Also regrettable.",
+          "Hardship acknowledged. Payment is per contract. Sympathy is not a line item."
+        ],
+        "neutral": [
+          "Brief underestimated the threat. That feedback goes up the chain. Payment goes to you.",
+          "Noted for the after-action: conditions severe. Disbursing full rate."
+        ],
+        "positive": [
+          "That tasking went sideways and you still delivered. Hazard bonus approved, friend.",
+          "You brought it home through the worst of it. Full pay, my respect, and the medic — any order you like."
+        ]
+      },
+      "sarab": {
+        "negative": [
+          "The road bit you. Roads do. The purse is the same size regardless of teeth.",
+          "You bled for it. The desert drank. The contract is still just a contract."
+        ],
+        "neutral": [
+          "Hard roads make honest messengers. The coin is yours, the ache is also yours.",
+          "The errand took its toll at the gate. All errands have gates. Payment in full."
+        ],
+        "positive": [
+          "You gave the road blood and it gave you passage. Sit, friend — salve, supper, and the full purse.",
+          "The fire heard the road was cruel. It saved you the warm side. Coin's in the pouch, double-knotted."
+        ]
+      }
+    },
+    "orders_status": {
+      "vostok": {
+        "negative": [
+          "Still unfinished? The ledger yawns. Finish.",
+          "In progress is a place between useful and useless. Move."
+        ],
+        "neutral": [
+          "Good. Work slow, work sure, work done. Pick two.",
+          "Progress noted. The front's still here. So is the deadline."
+        ],
+        "positive": [
+          "Take the time it takes, friend. Done right beats done twice.",
+          "Steady on. The stew keeps. The job shouldn't, but the stew keeps."
+        ]
+      },
+      "aegis": {
+        "negative": [
+          "Status logged. Reminder: contracts age poorly. So do second chances.",
+          "In progress, acknowledged. The deadline does not share your patience."
+        ],
+        "neutral": [
+          "Status received. Continue per the brief. Report at completion.",
+          "Copy your progress. No changes to the tasking."
+        ],
+        "positive": [
+          "Good copy, friend. Need anything from our end — maps, rations, a kind word?",
+          "Progress logged with a green mark. Carry on and stay off the skyline."
+        ]
+      },
+      "sarab": {
+        "negative": [
+          "The errand is still walking, then. Errands that walk too long start to wander.",
+          "We hear you. The task also hears you. It is waiting to be finished."
+        ],
+        "neutral": [
+          "The road is long, we know. Walk it to the end and the end will pay.",
+          "A task in the hand ripens. Do not let it rot."
+        ],
+        "positive": [
+          "No hurry, friend. The desert finishes nothing in a day but the dead.",
+          "Walk it at your pace. The fire keeps a place and the purse keeps its weight."
+        ]
+      }
+    },
+    "orders_abandon": {
+      "vostok": {
+        "negative": [
+          "Quitting. Of course. The ledger writes it in the heavy ink.",
+          "Dropped like a cold shovel. We'll remember who dug and who didn't."
+        ],
+        "neutral": [
+          "Abandoned, then. The job returns to the pile. Your name returns to ordinary.",
+          "Fine. Some backs aren't built for some loads. Noted without ceremony."
+        ],
+        "positive": [
+          "Eh, it happens, friend. Better a dropped job than a dropped body. Next one's better.",
+          "The line forgives a quit faster than a lie. You told it straight. Good enough."
+        ]
+      },
+      "aegis": {
+        "negative": [
+          "Contract voided. Reliability rating amended. The amendment is unflattering.",
+          "Abandonment processed. Future taskings will reflect this datapoint."
+        ],
+        "neutral": [
+          "Contract returned to the pool. No payment, a routine notation, nothing personal.",
+          "Voided as you asked. The paperwork forgives faster than the officers."
+        ],
+        "positive": [
+          "Voiding it clean, friend. Your record holds. Everyone drops one.",
+          "Understood. I'll mark it weather-related. Weather takes many forms."
+        ]
+      },
+      "sarab": {
+        "negative": [
+          "You set the burden down in the open desert. Someone must fetch it now. That is remembered.",
+          "An errand released midway is a bird with one wing. Ugly thing to leave behind."
+        ],
+        "neutral": [
+          "The task returns to the camp unfinished. The camp sighs and carries on.",
+          "So the road refused you, or you refused it. Either way, it ends here."
+        ],
+        "positive": [
+          "Set it down, friend. Some loads argue with the shoulder. No shame at this fire.",
+          "The errand goes back to the pile, your name stays warm. Rest, then try a kinder road."
+        ]
+      }
+    }
+  }
+}

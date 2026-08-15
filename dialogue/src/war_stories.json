@@ -1,0 +1,1066 @@
+{
+  "category": "war_stories",
+  "options": [
+    { "id": "war_stories_battle_biggest", "text": "What's the biggest battle you've been in?", "response": "war_stories_battle_tale", "cooldown_minutes": 30, "weight": 12 },
+    { "id": "war_stories_battle_unforgettable", "text": "Tell me about a battle you'll never forget.", "response": "war_stories_battle_tale", "cooldown_minutes": 30, "weight": 10 },
+    { "id": "war_stories_battle_seen_much", "text": "Seen much real fighting?", "response": "war_stories_battle_tale", "cooldown_minutes": 20, "weight": 10 },
+    { "id": "war_stories_battle_first", "text": "What was your first battle like?", "response": "war_stories_battle_tale", "cooldown_minutes": 30, "weight": 9 },
+    { "id": "war_stories_battle_siege", "text": "Ever been through a proper siege?", "response": "war_stories_battle_tale", "cooldown_minutes": 30, "weight": 8 },
+    { "id": "war_stories_battle_hardest_won", "text": "What's the hardest fight you've ever won?", "response": "war_stories_battle_tale", "cooldown_minutes": 30, "weight": 9 },
+    { "id": "war_stories_battle_lost", "text": "Tell me about a fight your side lost.", "response": "war_stories_battle_tale", "cooldown_minutes": 45, "weight": 7 },
+    { "id": "war_stories_battle_feel", "text": "What does a battle actually feel like?", "response": "war_stories_battle_tale", "cooldown_minutes": 20, "weight": 9 },
+    { "id": "war_stories_battle_any", "text": "Any battle stories worth a listen?", "response": "war_stories_battle_tale", "cooldown_minutes": 20, "weight": 10 },
+    { "id": "war_stories_battle_famous", "text": "Were you at any of the engagements people sing about?", "response": "war_stories_battle_tale", "cooldown_minutes": 30, "weight": 7 },
+    { "id": "war_stories_battle_longest", "text": "What's the longest you've fought without rest?", "response": "war_stories_battle_tale", "cooldown_minutes": 30, "weight": 8 },
+    { "id": "war_stories_battle_charge", "text": "Tell me about the worst charge you ever faced.", "response": "war_stories_battle_tale", "cooldown_minutes": 30, "weight": 8 },
+    { "id": "war_stories_battle_survive_first", "text": "How did you survive your first real combat?", "response": "war_stories_battle_tale", "cooldown_minutes": 30, "weight": 8 },
+    { "id": "war_stories_battle_sleepless", "text": "Which fight still keeps you up at night?", "response": "war_stories_battle_tale", "cooldown_minutes": 45, "weight": 7 },
+    { "id": "war_stories_close_dying", "text": "What's the closest you've come to dying?", "response": "war_stories_close_call", "cooldown_minutes": 30, "weight": 10 },
+    { "id": "war_stories_close_near_miss", "text": "Ever have a really near miss?", "response": "war_stories_close_call", "cooldown_minutes": 20, "weight": 10 },
+    { "id": "war_stories_close_brush", "text": "Any brushes with death lately?", "response": "war_stories_close_call", "cooldown_minutes": 20, "weight": 9 },
+    { "id": "war_stories_close_lucky", "text": "What's the luckiest escape you've ever had?", "response": "war_stories_close_call", "cooldown_minutes": 20, "weight": 9 },
+    { "id": "war_stories_close_left_for_dead", "text": "Ever been left for dead?", "response": "war_stories_close_call", "cooldown_minutes": 30, "weight": 7 },
+    { "id": "war_stories_close_number_up", "text": "Ever think your number was up?", "response": "war_stories_close_call", "cooldown_minutes": 20, "weight": 8 },
+    { "id": "war_stories_close_lives", "text": "How many lives have you burned through, you reckon?", "response": "war_stories_close_call", "cooldown_minutes": 20, "weight": 7 },
+    { "id": "war_stories_close_saved", "text": "What saved you when nothing should have?", "response": "war_stories_close_call", "cooldown_minutes": 30, "weight": 7 },
+    { "id": "war_stories_close_cornered", "text": "Ever been buried, trapped, cornered — that sort of thing?", "response": "war_stories_close_call", "cooldown_minutes": 30, "weight": 8 },
+    { "id": "war_stories_close_almost", "text": "Tell me about a time you almost didn't make it.", "response": "war_stories_close_call", "cooldown_minutes": 30, "weight": 9 },
+    { "id": "war_stories_fallen_lost_people", "text": "Have you lost people close to you?", "response": "war_stories_fallen_comrades", "cooldown_minutes": 60, "weight": 8 },
+    { "id": "war_stories_fallen_friend", "text": "Tell me about a friend who didn't make it.", "response": "war_stories_fallen_comrades", "cooldown_minutes": 60, "weight": 8 },
+    { "id": "war_stories_fallen_honor", "text": "How do your people honor the dead?", "response": "war_stories_fallen_comrades", "cooldown_minutes": 45, "weight": 9 },
+    { "id": "war_stories_fallen_miss_most", "text": "Who do you miss the most?", "response": "war_stories_fallen_comrades", "once_per": "day", "weight": 7 },
+    { "id": "war_stories_fallen_graves", "text": "Do you ever visit the graves?", "response": "war_stories_fallen_comrades", "cooldown_minutes": 60, "weight": 7 },
+    { "id": "war_stories_fallen_things", "text": "What happens to a fallen comrade's belongings?", "response": "war_stories_fallen_comrades", "cooldown_minutes": 45, "weight": 7 },
+    { "id": "war_stories_fallen_name", "text": "Is it true every soldier carries a name they can't say aloud?", "response": "war_stories_fallen_comrades", "cooldown_minutes": 60, "weight": 6 },
+    { "id": "war_stories_fallen_keep_going", "text": "How do you keep going after losing friends?", "response": "war_stories_fallen_comrades", "cooldown_minutes": 60, "weight": 7 },
+    { "id": "war_stories_fallen_saved_you", "text": "Was there someone who saved you and paid for it?", "response": "war_stories_fallen_comrades", "once_per": "day", "weight": 6 },
+    { "id": "war_stories_fallen_remember", "text": "Do you remember all of them?", "response": "war_stories_fallen_comrades", "cooldown_minutes": 60, "weight": 6 },
+    { "id": "war_stories_bored_all_day", "text": "What do you actually do all day out here?", "response": "war_stories_garrison_boredom", "cooldown_minutes": 15, "weight": 10 },
+    { "id": "war_stories_bored_waiting", "text": "Doesn't the waiting drive you mad?", "response": "war_stories_garrison_boredom", "cooldown_minutes": 15, "weight": 9 },
+    { "id": "war_stories_bored_garrison", "text": "What's garrison life really like?", "response": "war_stories_garrison_boredom", "cooldown_minutes": 15, "weight": 9 },
+    { "id": "war_stories_bored_slow_hours", "text": "How do you pass the slow hours?", "response": "war_stories_garrison_boredom", "cooldown_minutes": 15, "weight": 9 },
+    { "id": "war_stories_bored_mostly", "text": "Is soldiering mostly boredom, like they say?", "response": "war_stories_garrison_boredom", "cooldown_minutes": 15, "weight": 8 },
+    { "id": "war_stories_bored_games", "text": "Any games you play to kill time?", "response": "war_stories_garrison_boredom", "cooldown_minutes": 15, "weight": 8 },
+    { "id": "war_stories_bored_dull_post", "text": "What's the dullest posting you've ever pulled?", "response": "war_stories_garrison_boredom", "cooldown_minutes": 20, "weight": 7 },
+    { "id": "war_stories_bored_hobby", "text": "What's the strangest hobby in your camp?", "response": "war_stories_garrison_boredom", "cooldown_minutes": 20, "weight": 7 },
+    { "id": "war_stories_enlist_why", "text": "Why did you join up?", "response": "war_stories_why_enlisted", "cooldown_minutes": 30, "weight": 10 },
+    { "id": "war_stories_enlist_choice", "text": "Did you choose this life, or did it choose you?", "response": "war_stories_why_enlisted", "cooldown_minutes": 30, "weight": 8 },
+    { "id": "war_stories_enlist_made", "text": "What made you enlist?", "response": "war_stories_why_enlisted", "cooldown_minutes": 30, "weight": 9 },
+    { "id": "war_stories_enlist_again", "text": "Would you sign on again, knowing what you know now?", "response": "war_stories_why_enlisted", "cooldown_minutes": 45, "weight": 7 },
+    { "id": "war_stories_enlist_family", "text": "Was joining a family tradition?", "response": "war_stories_why_enlisted", "cooldown_minutes": 30, "weight": 7 },
+    { "id": "war_stories_enlist_promised", "text": "Did they promise you anything to sign?", "response": "war_stories_why_enlisted", "cooldown_minutes": 30, "weight": 7 },
+    { "id": "war_stories_enlist_age", "text": "How old were you when you took the oath?", "response": "war_stories_why_enlisted", "cooldown_minutes": 30, "weight": 7 },
+    { "id": "war_stories_enlist_family_said", "text": "What did your family say when you joined?", "response": "war_stories_why_enlisted", "cooldown_minutes": 30, "weight": 7 },
+    { "id": "war_stories_enlist_regret", "text": "Ever regret enlisting?", "response": "war_stories_why_enlisted", "cooldown_minutes": 45, "weight": 7 },
+    { "id": "war_stories_home_miss_most", "text": "What do you miss most from home?", "response": "war_stories_missing_home", "cooldown_minutes": 30, "weight": 10 },
+    { "id": "war_stories_home_where", "text": "Where's home for you?", "response": "war_stories_missing_home", "cooldown_minutes": 30, "weight": 9 },
+    { "id": "war_stories_home_letters", "text": "Do you get letters from home?", "response": "war_stories_missing_home", "cooldown_minutes": 30, "weight": 8 },
+    { "id": "war_stories_home_dream", "text": "Do you dream about home much?", "response": "war_stories_missing_home", "cooldown_minutes": 30, "weight": 7 },
+    { "id": "war_stories_home_waiting", "text": "Anyone waiting for you back there?", "response": "war_stories_missing_home", "cooldown_minutes": 45, "weight": 7 },
+    { "id": "war_stories_home_how_long", "text": "How long since you've been home?", "response": "war_stories_missing_home", "cooldown_minutes": 30, "weight": 8 },
+    { "id": "war_stories_home_smell", "text": "What does home smell like? Mine's woodsmoke.", "response": "war_stories_missing_home", "cooldown_minutes": 30, "weight": 6 },
+    { "id": "war_stories_home_grew_up", "text": "Tell me about the place you grew up.", "response": "war_stories_missing_home", "cooldown_minutes": 30, "weight": 8 },
+    { "id": "war_stories_home_anywhere", "text": "If you could be anywhere else right now, where?", "response": "war_stories_missing_home", "cooldown_minutes": 30, "weight": 7 },
+    { "id": "war_stories_worst_night_ask", "text": "What's the worst night you've ever had out here?", "response": "war_stories_worst_night", "once_per": "day", "weight": 8 },
+    { "id": "war_stories_worst_story", "text": "Everyone has one terrible story. What's yours?", "response": "war_stories_worst_night", "cooldown_minutes": 60, "weight": 7 },
+    { "id": "war_stories_worst_darkest", "text": "What was your darkest hour?", "response": "war_stories_worst_night", "once_per": "day", "weight": 7 },
+    { "id": "war_stories_worst_wrong", "text": "Ever have a night where everything went wrong at once?", "response": "war_stories_worst_night", "cooldown_minutes": 60, "weight": 7 },
+    { "id": "war_stories_worst_breaking", "text": "What came closest to breaking you?", "response": "war_stories_worst_night", "once_per": "day", "weight": 6 },
+    { "id": "war_stories_worst_unexpected", "text": "Tell me something the war did to you that you didn't expect.", "response": "war_stories_worst_night", "cooldown_minutes": 60, "weight": 6 },
+    { "id": "war_stories_worst_nightmares", "text": "What still gives you nightmares?", "response": "war_stories_worst_night", "cooldown_minutes": 60, "weight": 6 },
+    { "id": "war_stories_worst_afraid", "text": "When were you last truly afraid?", "response": "war_stories_worst_night", "cooldown_minutes": 60, "weight": 7 },
+    { "id": "war_stories_meal_best", "text": "What's the best meal you've had in service?", "response": "war_stories_best_meal", "cooldown_minutes": 15, "weight": 10 },
+    { "id": "war_stories_meal_food", "text": "How's the food in your outfit, honestly?", "response": "war_stories_best_meal", "cooldown_minutes": 15, "weight": 9 },
+    { "id": "war_stories_meal_feast", "text": "What passes for a feast around here?", "response": "war_stories_best_meal", "cooldown_minutes": 15, "weight": 8 },
+    { "id": "war_stories_meal_weird", "text": "Weirdest thing you've ever eaten in the field?", "response": "war_stories_best_meal", "cooldown_minutes": 15, "weight": 8 },
+    { "id": "war_stories_meal_cook", "text": "Who's the best cook in your camp?", "response": "war_stories_best_meal", "cooldown_minutes": 15, "weight": 7 },
+    { "id": "war_stories_meal_trade", "text": "What would you trade a day's pay to eat right now?", "response": "war_stories_best_meal", "cooldown_minutes": 15, "weight": 7 },
+    { "id": "war_stories_meal_rations", "text": "Are the rations any good, or do you all just pretend?", "response": "war_stories_best_meal", "cooldown_minutes": 15, "weight": 7 },
+    { "id": "war_stories_superstition_true", "text": "Are soldiers really as superstitious as they say?", "response": "war_stories_superstitions", "cooldown_minutes": 20, "weight": 9 },
+    { "id": "war_stories_superstition_charm", "text": "Got a lucky charm on you?", "response": "war_stories_superstitions", "cooldown_minutes": 20, "weight": 9 },
+    { "id": "war_stories_superstition_ritual", "text": "Any rituals before a fight?", "response": "war_stories_superstitions", "cooldown_minutes": 20, "weight": 8 },
+    { "id": "war_stories_superstition_bad_luck", "text": "What's considered bad luck around here?", "response": "war_stories_superstitions", "cooldown_minutes": 20, "weight": 8 },
+    { "id": "war_stories_superstition_omens", "text": "Do you believe in omens?", "response": "war_stories_superstitions", "cooldown_minutes": 20, "weight": 7 },
+    { "id": "war_stories_superstition_never", "text": "Anything you'd never do before a battle?", "response": "war_stories_superstitions", "cooldown_minutes": 20, "weight": 7 },
+    { "id": "war_stories_superstition_unit", "text": "What's the strangest belief in your unit?", "response": "war_stories_superstitions", "cooldown_minutes": 20, "weight": 7 },
+    { "id": "war_stories_superstition_carry", "text": "Is there something you always carry with you?", "response": "war_stories_superstitions", "cooldown_minutes": 20, "weight": 8 },
+    { "id": "war_stories_cmdr_think", "text": "What do you make of your commanders?", "response": "war_stories_commanders", "cooldown_minutes": 30, "weight": 9 },
+    { "id": "war_stories_cmdr_good", "text": "Is your commander any good?", "response": "war_stories_commanders", "cooldown_minutes": 30, "weight": 8 },
+    { "id": "war_stories_cmdr_trust", "text": "Do you trust the people giving the orders?", "response": "war_stories_commanders", "cooldown_minutes": 30, "weight": 8 },
+    { "id": "war_stories_cmdr_best", "text": "Who's the best officer you've served under?", "response": "war_stories_commanders", "cooldown_minutes": 30, "weight": 8 },
+    { "id": "war_stories_cmdr_hated_order", "text": "Ever been given an order you hated?", "response": "war_stories_commanders", "cooldown_minutes": 45, "weight": 7 },
+    { "id": "war_stories_cmdr_makes_good", "text": "What makes a good commander, in your book?", "response": "war_stories_commanders", "cooldown_minutes": 30, "weight": 7 },
+    { "id": "war_stories_cmdr_higher_ups", "text": "Do the higher-ups know what it's like down here?", "response": "war_stories_commanders", "cooldown_minutes": 30, "weight": 7 },
+    { "id": "war_stories_cmdr_die_for", "text": "Any leaders worth following into the dark?", "response": "war_stories_commanders", "cooldown_minutes": 30, "weight": 7 },
+    { "id": "war_stories_after_over", "text": "What will you do when the war's over?", "response": "war_stories_after_the_war", "cooldown_minutes": 30, "weight": 10 },
+    { "id": "war_stories_after_dreams", "text": "Got any dreams for after all this?", "response": "war_stories_after_the_war", "cooldown_minutes": 30, "weight": 9 },
+    { "id": "war_stories_after_ten_years", "text": "Where do you see yourself in ten years?", "response": "war_stories_after_the_war", "cooldown_minutes": 30, "weight": 7 },
+    { "id": "war_stories_after_first_thing", "text": "What's the first thing you'll do when peace comes?", "response": "war_stories_after_the_war", "cooldown_minutes": 30, "weight": 8 },
+    { "id": "war_stories_after_life", "text": "Do you ever think about life after soldiering?", "response": "war_stories_after_the_war", "cooldown_minutes": 30, "weight": 8 },
+    { "id": "war_stories_after_stay", "text": "Will you stay a soldier when it ends?", "response": "war_stories_after_the_war", "cooldown_minutes": 30, "weight": 7 },
+    { "id": "war_stories_after_fighting_for", "text": "What are you fighting for, at the end of the day?", "response": "war_stories_after_the_war", "cooldown_minutes": 45, "weight": 7 },
+    { "id": "war_stories_after_tomorrow", "text": "If peace came tomorrow, what would you do with it?", "response": "war_stories_after_the_war", "cooldown_minutes": 30, "weight": 7 },
+    { "id": "war_stories_after_kind_of_life", "text": "What kind of life do you want after this?", "response": "war_stories_after_the_war", "cooldown_minutes": 30, "weight": 7 },
+    { "id": "war_stories_strat_cleverest", "text": "What's the cleverest operation you've ever run?", "response": "war_stories_officer_strategy", "conditions": { "role": ["officer"] }, "cooldown_minutes": 45, "weight": 8 },
+    { "id": "war_stories_strat_command_view", "text": "Tell me about a campaign from the commander's chair.", "response": "war_stories_officer_strategy", "conditions": { "role": ["officer"] }, "cooldown_minutes": 45, "weight": 8 },
+    { "id": "war_stories_strat_hard_order", "text": "What's the hardest order you've ever given?", "response": "war_stories_officer_strategy", "conditions": { "role": ["officer"] }, "cooldown_minutes": 60, "weight": 7 },
+    { "id": "war_stories_strat_planning", "text": "How do you actually plan a battle?", "response": "war_stories_officer_strategy", "conditions": { "role": ["officer"] }, "cooldown_minutes": 45, "weight": 8 },
+    { "id": "war_stories_strat_not_taught", "text": "What do they never teach about command?", "response": "war_stories_officer_strategy", "conditions": { "role": ["officer"] }, "cooldown_minutes": 45, "weight": 7 },
+    { "id": "war_stories_strat_perfect", "text": "Tell me about a plan that worked perfectly.", "response": "war_stories_officer_strategy", "conditions": { "role": ["officer"] }, "cooldown_minutes": 45, "weight": 7 },
+    { "id": "war_stories_strat_fell_apart", "text": "Tell me about a plan that fell apart.", "response": "war_stories_officer_strategy", "conditions": { "role": ["officer"] }, "cooldown_minutes": 45, "weight": 7 },
+    { "id": "war_stories_ghost_know_any", "text": "Know any ghost stories?", "response": "war_stories_ghost_tale", "conditions": { "time": ["night"] }, "cooldown_minutes": 30, "weight": 9 },
+    { "id": "war_stories_ghost_dark", "text": "It's the right kind of dark for a frightening tale.", "response": "war_stories_ghost_tale", "conditions": { "time": ["night"] }, "cooldown_minutes": 30, "weight": 8 },
+    { "id": "war_stories_ghost_unexplained", "text": "Ever seen something out here you couldn't explain?", "response": "war_stories_ghost_tale", "conditions": { "time": ["night"] }, "cooldown_minutes": 30, "weight": 8 },
+    { "id": "war_stories_ghost_dead_walk", "text": "Do the dead ever walk this ground?", "response": "war_stories_ghost_tale", "conditions": { "time": ["night"] }, "cooldown_minutes": 30, "weight": 7 },
+    { "id": "war_stories_ghost_eerie", "text": "What's the eeriest thing that's happened on your watch?", "response": "war_stories_ghost_tale", "conditions": { "time": ["night"] }, "cooldown_minutes": 30, "weight": 8 },
+    { "id": "war_stories_ghost_haunted", "text": "Any haunted places near here?", "response": "war_stories_ghost_tale", "conditions": { "time": ["night"] }, "cooldown_minutes": 30, "weight": 7 },
+    { "id": "war_stories_ghost_keep_up", "text": "Tell me something that'll keep me up tonight.", "response": "war_stories_ghost_tale", "conditions": { "time": ["night"] }, "cooldown_minutes": 30, "weight": 7 },
+    { "id": "war_stories_adren_alright", "text": "That fight just now — are you alright?", "response": "war_stories_fresh_fight", "conditions": { "recent_combat": true }, "weight": 10 },
+    { "id": "war_stories_adren_saw", "text": "I caught the tail end of that skirmish. What happened?", "response": "war_stories_fresh_fight", "conditions": { "recent_combat": true }, "weight": 9 },
+    { "id": "war_stories_adren_shaking", "text": "Your hands are shaking. Rough one?", "response": "war_stories_fresh_fight", "conditions": { "recent_combat": true }, "weight": 8 },
+    { "id": "war_stories_adren_come_down", "text": "How do you come down after a fight like that?", "response": "war_stories_fresh_fight", "conditions": { "recent_combat": true }, "weight": 8 },
+    { "id": "war_stories_adren_blood", "text": "Fresh marks on the ground out there. Close one?", "response": "war_stories_fresh_fight", "conditions": { "recent_combat": true }, "weight": 7 },
+    { "id": "war_stories_adren_tell", "text": "That was quite a scrap. Tell me everything.", "response": "war_stories_fresh_fight", "conditions": { "recent_combat": true }, "weight": 8 },
+    { "id": "war_stories_adren_upright", "text": "Still upright after that? Impressive.", "response": "war_stories_fresh_fight", "conditions": { "recent_combat": true }, "weight": 7 },
+    { "id": "war_stories_warn_one_story", "text": "Come on, surely you've got one story for me.", "response": "war_stories_pointed_warning", "conditions": { "disposition": ["negative"] }, "cooldown_minutes": 20, "weight": 9 },
+    { "id": "war_stories_warn_enemies_swap", "text": "Even enemies swap stories sometimes. Got one?", "response": "war_stories_pointed_warning", "conditions": { "disposition": ["negative"] }, "cooldown_minutes": 20, "weight": 8 },
+    { "id": "war_stories_warn_any_story", "text": "Tell me a story. Any story.", "response": "war_stories_pointed_warning", "conditions": { "disposition": ["negative"] }, "cooldown_minutes": 20, "weight": 8 },
+    { "id": "war_stories_warn_dislike", "text": "What happens to people your side takes against?", "response": "war_stories_pointed_warning", "conditions": { "disposition": ["negative"] }, "cooldown_minutes": 30, "weight": 7 },
+    { "id": "war_stories_warn_crossed", "text": "Got any tales about folk who crossed you?", "response": "war_stories_pointed_warning", "conditions": { "disposition": ["negative"] }, "cooldown_minutes": 30, "weight": 7 },
+    { "id": "war_stories_warn_moral", "text": "Tell me a story with a moral, then.", "response": "war_stories_pointed_warning", "conditions": { "disposition": ["negative"] }, "cooldown_minutes": 20, "weight": 7 },
+    { "id": "war_stories_warn_humor", "text": "Humor me with one tale and I'll leave you be.", "response": "war_stories_pointed_warning", "conditions": { "disposition": ["negative"] }, "cooldown_minutes": 20, "weight": 7 },
+    { "id": "war_stories_warn_enemies", "text": "What do your people do with their enemies, exactly?", "response": "war_stories_pointed_warning", "conditions": { "disposition": ["negative"] }, "cooldown_minutes": 30, "weight": 7 },
+    { "id": "war_stories_warn_advice", "text": "Any advice for someone on your bad side?", "response": "war_stories_pointed_warning", "conditions": { "disposition": ["negative"] }, "cooldown_minutes": 30, "weight": 7 },
+    { "id": "war_stories_warn_last_person", "text": "Tell me about the last person who stood right here.", "response": "war_stories_pointed_warning", "conditions": { "disposition": ["negative"] }, "cooldown_minutes": 30, "weight": 6 },
+    { "id": "war_stories_warn_worst_done", "text": "What's the worst your side has done to someone like me?", "response": "war_stories_pointed_warning", "conditions": { "disposition": ["negative"] }, "cooldown_minutes": 30, "weight": 6 },
+    { "id": "war_stories_warn_how_ends", "text": "If I keep coming around, how does that story end?", "response": "war_stories_pointed_warning", "conditions": { "disposition": ["negative"] }, "cooldown_minutes": 30, "weight": 6 },
+    { "id": "war_stories_conf_real_version", "text": "You can tell me the real version. I keep secrets.", "response": "war_stories_confidence", "conditions": { "disposition": ["positive"] }, "cooldown_minutes": 30, "weight": 8 },
+    { "id": "war_stories_conf_never_told", "text": "What's something you've never told your squad?", "response": "war_stories_confidence", "conditions": { "disposition": ["positive"] }, "cooldown_minutes": 45, "weight": 7 },
+    { "id": "war_stories_conf_afraid", "text": "Between us — what are you most afraid of?", "response": "war_stories_confidence", "conditions": { "disposition": ["positive"] }, "cooldown_minutes": 45, "weight": 7 },
+    { "id": "war_stories_conf_true", "text": "Tell me something true. Not the campfire version.", "response": "war_stories_confidence", "conditions": { "disposition": ["positive"] }, "cooldown_minutes": 30, "weight": 8 },
+    { "id": "war_stories_conf_watch_thoughts", "text": "What do you think about on watch, honestly?", "response": "war_stories_confidence", "conditions": { "disposition": ["positive"] }, "cooldown_minutes": 30, "weight": 8 },
+    { "id": "war_stories_conf_before", "text": "Who were you before the war?", "response": "war_stories_confidence", "conditions": { "disposition": ["positive"] }, "cooldown_minutes": 30, "weight": 8 },
+    { "id": "war_stories_conf_doubt", "text": "Do you ever doubt all this?", "response": "war_stories_confidence", "conditions": { "disposition": ["positive"] }, "cooldown_minutes": 45, "weight": 6 },
+    { "id": "war_stories_conf_kindest", "text": "What's the kindest thing you've seen in this war?", "response": "war_stories_confidence", "conditions": { "disposition": ["positive"] }, "cooldown_minutes": 30, "weight": 7 },
+    { "id": "war_stories_conf_real_story", "text": "What's your real story? Not the one you tell recruits.", "response": "war_stories_confidence", "conditions": { "disposition": ["positive"] }, "cooldown_minutes": 45, "weight": 7 },
+    { "id": "war_stories_conf_disobeyed", "text": "Have you ever disobeyed an order for someone?", "response": "war_stories_confidence", "conditions": { "disposition": ["friendly", "devoted"] }, "cooldown_minutes": 60, "weight": 6 },
+    { "id": "war_stories_conf_mother", "text": "What would your mother make of who you've become?", "response": "war_stories_confidence", "conditions": { "disposition": ["friendly", "devoted"] }, "cooldown_minutes": 60, "weight": 6 },
+    { "id": "war_stories_conf_take_back", "text": "Is there anything you'd take back, if you could?", "response": "war_stories_confidence", "conditions": { "disposition": ["positive"] }, "cooldown_minutes": 60, "weight": 6 },
+    { "id": "war_stories_scar_that_one", "text": "How did you get that scar?", "response": "war_stories_scar_story", "cooldown_minutes": 20, "weight": 10 },
+    { "id": "war_stories_scar_mark", "text": "That's quite a mark. What's the story behind it?", "response": "war_stories_scar_story", "cooldown_minutes": 20, "weight": 8 },
+    { "id": "war_stories_scar_pick", "text": "Every scar has a tale. Pick one.", "response": "war_stories_scar_story", "cooldown_minutes": 20, "weight": 8 },
+    { "id": "war_stories_scar_best", "text": "Which of your scars has the best story?", "response": "war_stories_scar_story", "cooldown_minutes": 20, "weight": 8 },
+    { "id": "war_stories_scar_worst", "text": "Which wound hurt worst to earn?", "response": "war_stories_scar_story", "cooldown_minutes": 20, "weight": 7 },
+    { "id": "war_stories_scar_proud", "text": "Any scars you're actually proud of?", "response": "war_stories_scar_story", "cooldown_minutes": 20, "weight": 7 },
+    { "id": "war_stories_scar_embarrassing", "text": "Any scars from something embarrassing? Be honest.", "response": "war_stories_scar_story", "cooldown_minutes": 20, "weight": 6 },
+    { "id": "war_stories_scar_trade", "text": "Show me a scar and I'll show you mine.", "response": "war_stories_scar_story", "cooldown_minutes": 20, "weight": 6 },
+    { "id": "war_stories_bye_thanks", "text": "Thanks for the stories. I'd best move on.", "response": "war_stories_farewell", "effects": [{ "type": "end" }], "exit": true, "weight": 8 },
+    { "id": "war_stories_bye_enough", "text": "That's enough war for one day. Goodbye.", "response": "war_stories_farewell", "effects": [{ "type": "end" }], "exit": true, "weight": 8 },
+    { "id": "war_stories_bye_carry", "text": "I've heard all I can carry. Take care.", "response": "war_stories_farewell", "conditions": { "disposition": ["positive"] }, "effects": [{ "type": "end" }], "exit": true, "weight": 7 },
+    { "id": "war_stories_bye_sorry", "text": "I shouldn't have asked. Forget I did.", "response": "war_stories_farewell", "conditions": { "disposition": ["negative"] }, "effects": [{ "type": "end" }], "exit": true, "weight": 6 },
+    { "id": "war_stories_bye_next_time", "text": "Save the rest for next time.", "response": "war_stories_farewell", "conditions": { "disposition": ["positive"] }, "effects": [{ "type": "end" }], "exit": true, "weight": 7 },
+    { "id": "war_stories_bye_late", "text": "It's getting late. I'll go.", "response": "war_stories_farewell", "effects": [{ "type": "end" }], "exit": true, "weight": 8 }
+  ],
+  "responses": {
+    "war_stories_battle_tale": {
+      "vostok": {
+        "negative": [
+          "You want battle stories? Ask your conscience. It was there for some of ours.",
+          "Our battles are lists of names. You've added to the lists. No stories for you."
+        ],
+        "neutral": [
+          "Ridge 9. Three days, no sleep, spades and teeth. We kept the ridge. It kept forty of us.",
+          "They came at dawn, all brass and banners. By noon the banners were bandages. We held.",
+          "A battle is loud boredom. Hours of nothing, then ninety seconds you never stop hearing."
+        ],
+        "positive": [
+          "Sit. The marsh assault — nobody tells it right but me, because I was the one face-down in it.",
+          "We once held a farmhouse with six men and a stubborn goat. The goat got a medal. Sort of.",
+          "I'll tell you about the night charge. Slowly. It deserves a slow telling."
+        ]
+      },
+      "aegis": {
+        "negative": [
+          "After-action reports aren't entertainment for people with your record.",
+          "Our engagements are filed, not performed. Access denied."
+        ],
+        "neutral": [
+          "Hill 12: textbook envelopment until rain killed visibility. Then knives and nerve. We adapted.",
+          "One bridge, two companies, nine hours. We rehearsed it forty times. The fight only counted once.",
+          "Combat is checklists until it isn't. The gap between is where soldiers are made."
+        ],
+        "positive": [
+          "Off the record: the relief of Outpost 4. Fourteen of us, one signal mirror, perfect timing. My proudest shift.",
+          "The canal crossing, friend. Doctrine failed at minute ten. Sergeant Vale improvised. We drill her improvisation now.",
+          "I'll walk you through the quarry ambush sometime. Bring something to take notes with. It's that good."
+        ]
+      },
+      "sarab": {
+        "negative": [
+          "Our battles are not stories. They are debts being repaid. Yours accrues.",
+          "The lion does not narrate the hunt to the prey."
+        ],
+        "neutral": [
+          "There was a caravan of soldiers, proud as noon. The desert opened, then closed. We were the closing.",
+          "We fought at the dry river. They arrived a thousand; they left a rumor.",
+          "Battles? We prefer arithmetic done in advance. The fighting is only the receipt."
+        ],
+        "positive": [
+          "Come close. The night of the red moon — three of us, a hundred of them, and the dune that walked. All true. Mostly.",
+          "I will tell you of the well that swallowed an army's courage. It cost me a scar and a cousin, so listen well.",
+          "For you, the story of the whistling pass. When I finish you will hear it in every wind."
+        ]
+      }
+    },
+    "war_stories_close_call": {
+      "vostok": {
+        "negative": [
+          "Closest I came to dying? Might be right now, depending how this chat goes.",
+          "I survive things. Remember that on your way out."
+        ],
+        "neutral": [
+          "A cave-in buried me once. The line dug me out because I still owed Pyotr money. Debt saves lives.",
+          "An arrow parted my hair at the wire. The barber's been out of work since.",
+          "Fell through ice hauling timber. The cold spat me back. Even the cold has quotas."
+        ],
+        "positive": [
+          "Friend, I've been dead twice on paper. The clerk apologizes every time we meet.",
+          "A blade this close. THIS close. My collar button died a hero.",
+          "The trench collapsed on me and I dreamed of my grandmother's stove. Then the shovels came. I still hate stoves."
+        ]
+      },
+      "aegis": {
+        "negative": [
+          "My close calls are logged. So is the cause of the latest ones. Care to guess?",
+          "I don't discuss vulnerabilities with threats."
+        ],
+        "neutral": [
+          "Rope gave out on the cliff descent. Second anchor held. That's why doctrine says two of everything.",
+          "A spear took my pack off my shoulders instead of my head. I now walk half a step to the left, always.",
+          "The signal tower took lightning while I was on it. I finished the transmission first. Priorities."
+        ],
+        "positive": [
+          "Between us: I froze once. Whole squad passed me on the ladder. Sergeant covered for me. I owe her my career.",
+          "A trap under the floorboards. I heard the click and just... waited. Longest four seconds of my life, friend.",
+          "Ambush at the ford — went under twice with full kit. Kept the ledger dry, though. Quartermaster still toasts me."
+        ]
+      },
+      "sarab": {
+        "negative": [
+          "The scorpion under my pillow was tame compared to present company.",
+          "I have survived storms, sieges, and betrayals. You are none of the three. Yet."
+        ],
+        "neutral": [
+          "A sandstorm ate my patrol's tracks and nearly ate me. I walked home by the taste of the wind.",
+          "Once I drank from the wrong well. Three days of fever, one very honest conversation with the moon.",
+          "A blade found my ribs at the pass. My ribs, praise them, argued back."
+        ],
+        "positive": [
+          "Friend, I fell into a slot canyon at midnight and landed on the one ledge in a hundred feet. The desert keeps favorites.",
+          "I hid from a search party inside a camel's shadow for an hour. The camel never told. Camels are honorable.",
+          "A viper chose my boot for a house. We negotiated. I went barefoot; the boot went to the viper. Fair terms."
+        ]
+      }
+    },
+    "war_stories_fallen_comrades": {
+      "vostok": {
+        "negative": [
+          "Our dead have names and your face sits next to some of them. Ask me nothing about the fallen.",
+          "You want to hear about our dead? Buy a shovel. Help dig for the next ones."
+        ],
+        "neutral": [
+          "We don't say 'lost'. Nothing's lost. They're in the line still, just very quiet.",
+          "Marta carried the cook pot and the jokes. The pot survived. Some trades the war forces on you.",
+          "We carve the names on the duckboards. You walk on them. They'd like that — still useful."
+        ],
+        "positive": [
+          "I'll tell you about Osip. Loudest laugh, worst singer, best friend. The line is quieter and worse fed without him.",
+          "My brother's in the eastern field, third row. I tell him the soup news weekly. He always liked the soup news.",
+          "We drink the first cup to them, always. Tonight you can hold a cup too, friend."
+        ]
+      },
+      "aegis": {
+        "negative": [
+          "Casualty records are sealed. Especially from those who authored entries.",
+          "You don't get to mourn ours. That privilege is earned in the opposite direction."
+        ],
+        "neutral": [
+          "We read the roll on the first of each month. Every name, full rank, no abbreviations. It takes as long as it takes.",
+          "Specialist Iri held the relay alone for six hours. The relay stands. We maintain it like a grave, because it is one.",
+          "Losses are processed by procedure. Grief is processed off duty. Both get done, civilian."
+        ],
+        "positive": [
+          "Her name was Corporal Denn. She checked everyone's knots twice. Mine held on the cliff because of her. Hers didn't.",
+          "My bunkmate logged the weather every dawn, even under attack. I keep the habit now. It's him I'm writing down, really.",
+          "We lost Lieutenant Maro covering a withdrawal she ordered against orders. Court papers and a medal came the same week."
+        ]
+      },
+      "sarab": {
+        "negative": [
+          "Our dead are seeds in the sand. Do not ask what grows from them. You may find out.",
+          "Name our fallen? Their names are being saved for a better listener."
+        ],
+        "neutral": [
+          "We do not bury our dead. The desert adopts them. It is a larger family than yours.",
+          "My cousin Naila walks ahead of every patrol now, in her way. The desert lets the dead keep working.",
+          "For each one taken, we plant a stone in a dry place. There are gardens of them now. Quiet gardens."
+        ],
+        "positive": [
+          "I will say his name because you ask kindly: Tarek. He taught me to read wind. Every dawn I read it and he is there.",
+          "My sister fell at the salt flats. On still nights the salt shines like her laugh. I patrol there gladly.",
+          "We tell the dead the news at the fire's last ember. Stay tonight, friend, and you may tell them something too."
+        ]
+      }
+    },
+    "war_stories_garrison_boredom": {
+      "vostok": {
+        "negative": [
+          "Boredom? With you around, the watch stays interesting. Not a compliment.",
+          "Dull days are for people without your history. Ours end."
+        ],
+        "neutral": [
+          "Garrison life is soup, mud, cards, mud, inspection, mud. The mud rotates.",
+          "We rate the days by boot-dryness. Today is a two. Yesterday was a one. Exciting times.",
+          "Boredom is the good stuff. Boredom means the wire held and nobody's crying."
+        ],
+        "positive": [
+          "Want the truth, friend? I've memorized every knot in that beam. I've named six of them.",
+          "We hold lice races. My champion is called General. Undefeated, like all generals — on paper.",
+          "The card deck's down to 41 cards. We play anyway. New rules every week. It's basically culture now."
+        ]
+      },
+      "aegis": {
+        "negative": [
+          "Quiet shifts would be quieter without flagged persons making conversation.",
+          "Downtime is for maintenance, not for entertaining you."
+        ],
+        "neutral": [
+          "Garrison rhythm: inspect, drill, log, rotate. Repetition is the point. Sharp edges are made by repetition.",
+          "Boredom is a readiness state. We train it like everything else.",
+          "A slow watch means the deterrence is working. I can live with slow."
+        ],
+        "positive": [
+          "Confession, friend: I alphabetize the supply shelves for fun now. Twice. By two different systems.",
+          "We run signal-flag poetry contests off shift. Command pretends not to know. Command took second place last month.",
+          "I've counted the fence posts. 214. If it's ever 213, I'll be the fastest-moving bored man alive."
+        ]
+      },
+      "sarab": {
+        "negative": [
+          "You mistake stillness for boredom. The trap is also still.",
+          "Our quiet is occupied. Mostly with accounts like yours."
+        ],
+        "neutral": [
+          "The desert has no boring days, only slow ones. Slow is where the thinking gets done.",
+          "We watch. Watching looks like idleness the way a bowstring looks like rope.",
+          "Garrison? Our garrison is the horizon. It never needs sweeping and never lets you rest."
+        ],
+        "positive": [
+          "Friend, I have spent nine days watching one pass. I know every lizard by temperament now. Rashid is the moody one.",
+          "In the slow weeks we hold poetry duels. I lost to my aunt last month. The wound is deep.",
+          "I taught a raven three words this season. All complaints. He fits right in."
+        ]
+      }
+    },
+    "war_stories_why_enlisted": {
+      "vostok": {
+        "negative": [
+          "Why I enlisted is mine. Why I stay gets clearer every time you visit.",
+          "I joined to protect people from types like you turned out to be."
+        ],
+        "neutral": [
+          "The line came through my village going one direction. Easier to join than to be behind it.",
+          "Three brothers, one farm. The arithmetic sent me here. Someone digs, someone inherits.",
+          "The recruiter promised boots and bread. He was half right. I forget which half."
+        ],
+        "positive": [
+          "Truth? A girl. She married a baker instead. The baker's dead, the bakery's ash. The line goes on. So do I.",
+          "My mother said: better a shovel in the line than a plow behind it. Mothers know.",
+          "I joined for the winter coat, friend. Fourteen years ago. It's a good coat."
+        ]
+      },
+      "aegis": {
+        "negative": [
+          "My reasons for service are on file. Your reasons for asking concern me more.",
+          "I serve so people like you meet people like me at a wall instead of a village. Next question."
+        ],
+        "neutral": [
+          "Scholarship program. Signals training in exchange for service years. The math held up.",
+          "My town flooded twice with no plan. Aegis had a plan. I wanted to be part of something that plans.",
+          "Aptitude testing routed me here. The system knew me better than I did. It usually does."
+        ],
+        "positive": [
+          "Honestly? I saw a formation drill at fourteen. All that order in a broken world. I never wanted anything else.",
+          "My father served, and his mother before him. The uniform's practically a family heirloom with sleeves.",
+          "I enlisted angry, friend. The discipline gave the anger somewhere useful to live. Saved my life, probably."
+        ]
+      },
+      "sarab": {
+        "negative": [
+          "Why does the thorn grow on the fruit tree? Ask the ones who kept picking.",
+          "I was recruited by consequences. Some of them resembled you."
+        ],
+        "neutral": [
+          "No one enlists in the desert. The desert enlists you, then negotiates.",
+          "My village needed eyes on the horizon. I had eyes. It is not more complicated.",
+          "The sand took my herd in one storm. The brotherhood shares water. Simple as thirst."
+        ],
+        "positive": [
+          "My grandmother traded a stranger shade for water once. That stranger was Sarab. We have been kin since.",
+          "I joined for my brother, who joined for his friend, who joined for a girl. Wars run on such strings, friend.",
+          "As a boy I watched raiders take our well. Sarab took it back by dawn. I followed them out of gratitude and never stopped."
+        ]
+      }
+    },
+    "war_stories_missing_home": {
+      "vostok": {
+        "negative": [
+          "What do I miss? Days before I knew your name.",
+          "Home talk is for friends. We are colleagues in mutual suspicion at best."
+        ],
+        "neutral": [
+          "I miss floors. Real floors. Wood, dry, flat. You people with floors don't know your wealth.",
+          "The smell of my mother's rye bread. The mud has a smell too. It is not rye bread.",
+          "Bathhouses. A proper steam. First thing after the war: I boil myself for a week."
+        ],
+        "positive": [
+          "My daughter's terrible violin, friend. Awful sound. I'd give a month's rations to hear it out of tune again.",
+          "The dog. I miss the dog most. Don't tell my wife the order I said that in.",
+          "Sunday pierogi and arguments about nothing. We argue here too, but the stakes ruin it."
+        ]
+      },
+      "aegis": {
+        "negative": [
+          "Personal details are not shared at this trust level. Miss whatever you like on my behalf.",
+          "Home is what I keep people like you away from. That's all you get."
+        ],
+        "neutral": [
+          "Hot water on demand. You stop noticing marvels until you're rationing them.",
+          "Streetlights. A lit street with no tactical significance. Just light, for walking.",
+          "My own bed and exactly zero snoring bunkmates. The brochure never mentioned snoring."
+        ],
+        "positive": [
+          "My sister's kids, friend. They think my signal mirror is magic. I let them. It is, a little.",
+          "There's a bakery on Copper Street that opens at five. I've been on watch at five for years. The nose remembers.",
+          "Rain on a roof I'm not responsible for defending. That specific sound. I'd trade a promotion for a night of it."
+        ]
+      },
+      "sarab": {
+        "negative": [
+          "What I miss was taken. Some of the taking had faces like yours.",
+          "The homesick tell their wells, not their watchers."
+        ],
+        "neutral": [
+          "I miss the sea I have never seen. The desert teaches you to miss forward as well as back.",
+          "My mother's courtyard had a fig tree. I measure all shade against it. All shade loses.",
+          "The sound of many cousins arguing over one pot. Silence is useful, but it is not that."
+        ],
+        "positive": [
+          "Friend, I miss being unimportant. A boy with a stick and a goat and no name worth watching. Sweet, unimportant days.",
+          "My wife sings to the bread so it rises. Two years since I heard fresh bread. Ration bread is sung to by no one.",
+          "The night market at home — lamps, dates, ten liars telling one story. When the war ends, I will be the eleventh."
+        ]
+      }
+    },
+    "war_stories_worst_night": {
+      "vostok": {
+        "negative": [
+          "My worst night made me patient. You are spending that patience.",
+          "The worst nights make lists. I told you we count. That is all I will say."
+        ],
+        "neutral": [
+          "The night the river froze wrong. We heard the ice all night. Not everything we heard was ice.",
+          "Flood in the trenches, winter of the long push. We held the wire till dawn. Some sat down in it. Don't sit.",
+          "Worst night was quiet. All quiet. Then the signal fire, and by morning the platoon was half a platoon."
+        ],
+        "positive": [
+          "The night we lost the forward sap. I held Osip's hand and lied about the medic. He knew. He let me lie. That was kindness.",
+          "I'll tell you mine if you never repeat it: I cried into a ration tin so the recruits wouldn't hear. It rained anyway.",
+          "Second winter. We burned the chess set for warmth. Grown men mourned a wooden horse. I include battles when I rank it."
+        ]
+      },
+      "aegis": {
+        "negative": [
+          "My worst night involved counting our dead. Some ledgers you've seen from the other side.",
+          "Nights like that are classified. So is my patience tonight."
+        ],
+        "neutral": [
+          "Comms blackout, storm, and a breach alarm all in one watch. Procedure held. Barely. We rewrote it after.",
+          "The night the relay chain failed, every post was an island. You learn what silence costs when it's sold by the hour.",
+          "We lost a supply column to a washed-out road. No enemy involved. The worst nights are often just weather and arithmetic."
+        ],
+        "positive": [
+          "Between us: the retreat from the north wall. I gave a wrong grid under pressure. Two hours to fix. I re-check everything now.",
+          "Holding a dying man's hand while reciting the evac checklist — the only calm I had to offer. It worked. For me, I mean.",
+          "The flood watch, year two. We saved the equipment first. Doctrine said to. I still hear the man doctrine didn't save."
+        ]
+      },
+      "sarab": {
+        "negative": [
+          "My worst night is patient. It waits in me. Do not knock on that door.",
+          "Some nights are knives that keep their sheaths. Be glad this is one."
+        ],
+        "neutral": [
+          "The night of the black wind. We tied ourselves to stones. Not everyone knots well. The desert kept its tax.",
+          "A guide sold our route once. The night that followed taught us new prices for trust.",
+          "The wells went bitter one summer night — all of them, together. Nature does not do that. We learned who could."
+        ],
+        "positive": [
+          "For you: the night my brother did not come back from the dune line. I still leave the tent flap loose. Habits of hope, friend.",
+          "The worst night had no enemy. Fever in the camp, me with two hands and forty thirsty. I ration my mercy better now.",
+          "Once I sat all night with a dying rival, trading stories till dawn took him. Worst night. Best stories. The desert is like that."
+        ]
+      }
+    },
+    "war_stories_best_meal": {
+      "vostok": {
+        "negative": [
+          "The best meals are eaten with people we trust. So: nothing to report.",
+          "Why, planning to poison one? The soup guards itself."
+        ],
+        "neutral": [
+          "A potato. Whole, unshared, hot. Year one, after the bridge. Emperors have eaten worse and bragged more.",
+          "Horse sausage after the thaw. Ask no questions of the sausage. The sausage earned respect.",
+          "Captured enemy rations once. Excellent tin. Whoever supplies them, they fight for good biscuits."
+        ],
+        "positive": [
+          "Friend, once the cook cried into the soup and it was the best seasoning all winter. We never told him why we asked for more.",
+          "My best meal was half a dumpling. Marta had the other half. It's the company that cooks, you understand.",
+          "New Year, year three. Real butter appeared. Nobody asked from where. The quartermaster smiled for a week. A WEEK."
+        ]
+      },
+      "aegis": {
+        "negative": [
+          "Meal records are logistics data. Denied, with seasoning.",
+          "I don't break bread with flagged persons, even in conversation."
+        ],
+        "neutral": [
+          "Field ration type C, heated correctly for once. Preparation matters more than ingredients. Kitchen doctrine.",
+          "The mess hall on inspection day. Coincidence? Nothing in Aegis is coincidence, including the gravy.",
+          "A hot meal delivered on time under attack is a logistics miracle. I've had three. I remember each convoy's number."
+        ],
+        "positive": [
+          "Winter solstice, the cooks did a night feast on the wall. Steam in the torchlight, the watch singing quiet. Best duty meal ever.",
+          "My sergeant's unauthorized stew. The recipe is a court-martial waiting to happen. Worth it. I said what I said, friend.",
+          "After the quarry op, someone's mother had sent honey cakes. Eight soldiers, one tin, full ceremony. We ate like a treaty was signed."
+        ]
+      },
+      "sarab": {
+        "negative": [
+          "You ask about our table with your history? Bold. The answer is: guarded.",
+          "The best meal is one eaten without watching the door. With you nearby, no such meal exists."
+        ],
+        "neutral": [
+          "Dates, salt bread, and shade at the right hour. The desert's whole cookbook is timing.",
+          "Rain-water tea after the long dry. Water you have waited months for has a taste money never buys.",
+          "A hare, a fire, a pass held safely behind us. Plain food after unplain work is the recipe."
+        ],
+        "positive": [
+          "My aunt's lamb with seven spices, eaten the night before my first patrol. I have marched four years on that memory, friend.",
+          "A stranger once split his last figs with my patrol, not knowing us. His flock has been the safest in the desert since.",
+          "Festival of the first star — the whole camp cooks, every pot is everyone's. Taste one spoon of that and you understand us."
+        ]
+      }
+    },
+    "war_stories_superstitions": {
+      "vostok": {
+        "negative": [
+          "I believe unlucky people bring their luck with them. It's why I'm watching you.",
+          "Superstition? Counting is my superstition. Yours is coming out even. It doesn't."
+        ],
+        "neutral": [
+          "Never whistle in the trench. The trench whistles back. This is fact, not superstition.",
+          "Third flame is bad luck — light two pipes, then snuff it and dig a hole for it. Don't ask. Dig.",
+          "New boots before a push? Someone else will wear them after. Everyone patches instead."
+        ],
+        "positive": [
+          "I keep a button from my first coat, friend. Fourteen years, never lost a fight while it's sewn on. It stays sewn.",
+          "We salute the crows. They skipped our trench in the bad winter. Respect is owed. The crows know.",
+          "Our stove has a name and a temper. You feed it the first knuckle of every loaf or the week goes wrong. House rules."
+        ]
+      },
+      "aegis": {
+        "negative": [
+          "Aegis doesn't do superstition. We do risk assessment. You assess poorly.",
+          "The only omen I track is your presence. The correlation's been bad."
+        ],
+        "neutral": [
+          "Officially, none. Unofficially, nobody says a patrol is 'routine' out loud. Nobody. Twice was enough.",
+          "We don't repaint post 13. It's fine as it is. It will stay as it is. Next topic.",
+          "Checklists are our ritual. The difference between ritual and procedure is whether it works. Ours works."
+        ],
+        "positive": [
+          "Between us: I tap the gate twice going out, once coming in. Every soldier does something. Mine's just quieter than most.",
+          "There's a lucky signal flag — the old torn one. It flew through the worst siege we've had. It retires when I do, friend.",
+          "My squad won't rotate without saying 'see you at debrief'. Not goodbye. Never goodbye. Words are load-bearing, it turns out."
+        ]
+      },
+      "sarab": {
+        "negative": [
+          "We have one superstition: those who spill guest-blood carry a wind behind them. Feel your neck? That.",
+          "Ask instead what the omens say about you. No — you would not sleep."
+        ],
+        "neutral": [
+          "Never count your water out loud. The sun hears. The sun is greedy.",
+          "A snake crossing right to left blesses the journey. Left to right, camp early and check your boots twice.",
+          "We do not speak the names of sandstorms. Named things visit."
+        ],
+        "positive": [
+          "I carry sand from my birth-dune in a pouch, friend. When I cannot sleep, I hold it and I am a boy with a goat again.",
+          "Pour the first drop of tea to the ground, always. The desert drinks first. It has never let me down when paid on time.",
+          "My grandmother swore the stars rearrange for the honest. I have checked, friend. Some nights, for some people, they do."
+        ]
+      }
+    },
+    "war_stories_commanders": {
+      "vostok": {
+        "negative": [
+          "My opinion of command is my business. My opinion of you is public record.",
+          "You'd like us divided from our officers, wouldn't you. Dig elsewhere."
+        ],
+        "neutral": [
+          "The colonel counts like we count. That's all we ask of the high seats. He counts honestly.",
+          "Officers come in two kinds: ones who've dug and ones who point. Ours mostly dug. You can tell by the shoulders.",
+          "Command is far away. The sergeant is near. We follow the near thing. It has kept us alive."
+        ],
+        "positive": [
+          "Our captain once carried a wounded man's pack for nine miles and filed it as 'training'. That's the whole review, friend.",
+          "The old major shares his tobacco when the count comes back bad. Small thing. It is not a small thing.",
+          "I'd complain about command like any soldier, but ours eats last. Hard to sharpen a knife for a man who eats last."
+        ]
+      },
+      "aegis": {
+        "negative": [
+          "Chain-of-command assessments are internal. Interest in them from you reads as reconnaissance.",
+          "You want gossip about my officers? File a request. It will be denied with full courtesy."
+        ],
+        "neutral": [
+          "Command is competent. That sounds cold. In a war, 'competent' is the highest compliment with witnesses.",
+          "Our commander reads every after-action to the last line. Decisions improve when someone actually reads. They read.",
+          "Orders arrive clear, resupply arrives on time. I don't need to love the chain. I need it to hold. It holds."
+        ],
+        "positive": [
+          "Commander Ashe once halted a whole operation over one bad weather report. Career risk against forty lives. We remember.",
+          "My lieutenant asks 'what am I missing?' at every briefing. Out loud. In front of everyone. That habit has saved us twice.",
+          "Between us, the sector chief plays terrible cards and pays her losses instantly. You learn a lot about command from that."
+        ]
+      },
+      "sarab": {
+        "negative": [
+          "You ask who leads us. The wind asked the dune the same. It is still asking.",
+          "Our leaders' names are wells we do not show strangers. Especially thirsty ones."
+        ],
+        "neutral": [
+          "We follow the one who reads the desert best that season. Titles are for people with paper to spare.",
+          "Our elders lead by asking questions until the answer is obvious. Slow. Annoying. Correct.",
+          "Command with us is a loose rein. The desert punishes tight ones."
+        ],
+        "positive": [
+          "Old Yusra has led us through nine dry years. She speaks little. When she points, water is there. Every time, friend.",
+          "My captain once walked us AROUND a winnable fight. 'We are not here to win fights,' he said, 'but to win afterwards.'",
+          "The one who leads my band carried me on his back across the glass flats. I would follow him into the noon sun. I have."
+        ]
+      }
+    },
+    "war_stories_after_the_war": {
+      "vostok": {
+        "negative": [
+          "After the war I'll have time for old accounts. Yours is bookmarked.",
+          "Dreams are rationed too. None to spare for this conversation."
+        ],
+        "neutral": [
+          "After? A floor, a stove, a door that locks from the inside. I keep my ambitions load-bearing.",
+          "They say the land will need rebuilding. Good. We know how to dig. We'll dig gardens for a change.",
+          "First: sleep for a month. Second: eat something with a color. Third — there's no third. Two is plenty."
+        ],
+        "positive": [
+          "Friend, I'm going to grow potatoes and complain about small things. SMALL things. A leaky bucket. I dream of a leaky bucket.",
+          "Me and Pyotr are opening a bathhouse. He can't build and I can't count money. It will be glorious or it will be a story.",
+          "I'll teach my daughter to fish where the river isn't a border. Same river, you understand. Just no longer a border."
+        ]
+      },
+      "aegis": {
+        "negative": [
+          "Post-war planning is above your clearance and beneath my patience.",
+          "After the war there will still be walls and lists. Mind which side of both you're on."
+        ],
+        "neutral": [
+          "The service will need surveyors, signalers, planners. Peace is a logistics problem too. I'll have work.",
+          "Retrain, most likely. The discipline transfers. Aegis people run half the granaries and every decent bridge crew already.",
+          "A pension, a workshop, and no night watches. Modest objectives, achievable timeline."
+        ],
+        "positive": [
+          "Honestly, friend? I want to teach. Signals school. Hand the kids everything the war taught me, minus the worst of it.",
+          "There's a lighthouse posting on the coast. One keeper, big lamp, no tactical anything. I've already applied. Twice.",
+          "I'm going to marry the baker on Copper Street, if the war ever lets me finish the sentence I started in that shop."
+        ]
+      },
+      "sarab": {
+        "negative": [
+          "After the war, the desert remains, and so do its memories. You are in them.",
+          "My dreams are not for sale, least of all to buyers of our misfortune."
+        ],
+        "neutral": [
+          "After the war we do what sand does after wind: settle, hold what we hold, wait for the next wind.",
+          "There will be trade routes again. We know every pass. Perhaps the passes will finally pay in coin instead of blood.",
+          "The desert has no 'after'. Only 'meanwhile'. We are good at meanwhile."
+        ],
+        "positive": [
+          "I will plant a fig tree in my mother's courtyard, friend, and argue with my cousins about nothing until arguing is a feast.",
+          "When it ends, I will guide travelers instead of hunting them. Same skills. Better tips. Fewer regrets.",
+          "There is a girl in the northern oasis who keeps bees. After the war I intend to know a great deal more about bees."
+        ]
+      }
+    },
+    "war_stories_officer_strategy": {
+      "vostok": {
+        "negative": [
+          "Strategy talk with you? I'd sooner publish our maps in the town square.",
+          "An officer's stories are half doctrine. You've earned access to neither half."
+        ],
+        "neutral": [
+          "The southern salient, two winters back. We traded ground for time, then charged them rent on the ground. Attrition is a landlord.",
+          "Strategy at our level: know your losses in advance, then make the enemy exceed theirs. It reads cold. It is.",
+          "I once ordered a retreat that looked like a rout on purpose. The pursuit met our reserve. Appearances are ammunition."
+        ],
+        "positive": [
+          "Sit, friend — the encirclement at Kraev Marsh. My best work and my worst month, and I'll tell you why they're the same story.",
+          "I'll teach you the one rule they leave out of manuals: plan for your soldiers' fear as carefully as the enemy's strength.",
+          "The bridge feint, in full, since you ask well: it cost three carts of turnips and won a valley. Best turnips ever spent."
+        ]
+      },
+      "aegis": {
+        "negative": [
+          "Operational art is not shared with liabilities. That term is in your file, by the way.",
+          "You're asking a commander to narrate doctrine to a flagged civilian. Admire the nerve. Decline the request."
+        ],
+        "neutral": [
+          "Campaign design is tempo control: act faster than the enemy decides. Everything else is footnotes with casualties.",
+          "The eastern pocket taught us to plan the retreat before the advance. Ugly lesson, elegant doctrine.",
+          "I rehearse each operation backwards from the worst outcome. Morbid, effective. The staff hates and thanks me."
+        ],
+        "positive": [
+          "The coastal deception, friend — three phantom battalions built from lanterns, dust, and a bored drum corps. Still proud.",
+          "I'll share the ridge campaign, since you listen properly. We won it in the supply ledgers a month before the first arrow.",
+          "A real lesson: I once won a sector by sending the enemy commander accurate weather reports. Trust is also terrain."
+        ]
+      },
+      "sarab": {
+        "negative": [
+          "You ask the falcon to explain the dive while you're in the field below. No.",
+          "Our strategies are wells. Shown only to those who will not spit."
+        ],
+        "neutral": [
+          "Strategy is choosing which fights evaporate before they happen. The unfought battle costs nothing and teaches fear.",
+          "We won the pass campaign by moving wells. No map shows it. The maps' silence was the victory.",
+          "The desert war is a war of appointments. We simply decline the ones we would lose."
+        ],
+        "positive": [
+          "Come, listener. The year of the two moons — we let an army chase seventeen of us in circles until it drank itself hollow.",
+          "I will teach you our oldest doctrine, friend: the dune wins not by striking but by being everywhere the foot falls.",
+          "My finest season: we defeated a siege with rumors, three drums, and patience. The drums were the extravagance."
+        ]
+      }
+    },
+    "war_stories_ghost_tale": {
+      "vostok": {
+        "negative": [
+          "The dead walk the wire some nights. Ours know your face. Sleep well.",
+          "Ghost stories? You bring your own. They follow you around here."
+        ],
+        "neutral": [
+          "Some nights the picket hears digging past the wire. Old digging. We do not investigate. It's someone's shift, not ours.",
+          "There's a stretch of trench nobody sleeps in. It's warmer than the rest. That is exactly the problem.",
+          "In the flooded sector you can hear roll call on still nights. Old names. Nobody answers. You don't answer either."
+        ],
+        "positive": [
+          "Come close, friend. The Grey Sapper — he patches wire on the worst nights. Torn gloves by morning, and none were issued.",
+          "Once, in white fog, a column marched past our post in perfect step. No mud sound. Old uniforms. We saluted. What else?",
+          "The stove in the old dugout lights itself some midnights. We leave tobacco on it now. The stove has earned tobacco."
+        ]
+      },
+      "aegis": {
+        "negative": [
+          "Night visits from you interest our sentries more than any ghost.",
+          "The only haunting in this sector is your record. It follows you closer than any spirit."
+        ],
+        "neutral": [
+          "Relay 7 sends at three past midnight some nights. Dead channel, retired code. We log it and do not reply. Logging is enough.",
+          "An extra man shows in the night count sometimes. Always the far rank, always gone by lamplight. The count holds anyway.",
+          "Official position: there are no ghosts. The unofficial position is on watch at tower four and won't work alone."
+        ],
+        "positive": [
+          "A lamp signals from the drowned outpost on foggy nights. Correct code, retired code. We answer 'stand down'. It rests then.",
+          "The stairwell in the old tower counts one extra footstep after you stop. Always one. Polite, punctual. Very Aegis, honestly.",
+          "My first post had a sentry everyone met and no one had enlisted. Gave excellent warnings. HQ marked the file 'retain'."
+        ]
+      },
+      "sarab": {
+        "negative": [
+          "The desert dead are patient and partisan. Guess whose side they take.",
+          "At night the sand repeats what it has swallowed. Your name comes up."
+        ],
+        "neutral": [
+          "There is a caravan that crosses the flats with no tracks and no thirst. Trade nothing to it. Keep your name in your mouth.",
+          "Some dunes sing. One dune answers. We do not camp at the one that answers.",
+          "Lights walk the wadi on moonless nights. Old lanterns look for old owners. Let them look. Do not be findable."
+        ],
+        "positive": [
+          "Sit close, friend. On such nights the Pale Herdsman crosses, counting flocks no living eye sees. Greet him. Water stays sweet.",
+          "My grandmother traded a song to the ghost caravan for a skin that never empties. She cannot recall that song now. Fair, she says.",
+          "I slept in a ruin once and woke with my boots mended and a stranger's prayer beads in my hand. I keep them oiled. Debts accrue."
+        ]
+      }
+    },
+    "war_stories_fresh_fight": {
+      "vostok": {
+        "negative": [
+          "Fresh from a fight and straight to chatting with me. My hands are still deciding.",
+          "Blood's up. Bad time to be on my list. You're on my list."
+        ],
+        "neutral": [
+          "Just now? We held. That's the whole story until my ears stop ringing.",
+          "Ask me tomorrow. Today the hands shake and the count isn't final.",
+          "The mud's still settling. So am I. Short version: they came, they left fewer."
+        ],
+        "positive": [
+          "HA! Did you see? The wire held, the line held, and Pyotr fell in the latrine mid-charge. We lived AND we got a comedy.",
+          "Feel that, friend? Still shaking. The first hour after is the most alive a man gets. Then you find the samovar and go mortal.",
+          "We just held them with shovels and spite. SHOVELS. I love this stupid unbreakable line, friend. Have a biscuit."
+        ]
+      },
+      "aegis": {
+        "negative": [
+          "Post-engagement protocol is in effect and you are a known variable. Give me distance.",
+          "We just took casualties and your file is your file. Walk away now."
+        ],
+        "neutral": [
+          "Contact resolved. Adrenaline is a resource; I'm spending mine on inventory. Talk fast.",
+          "The engagement's over, the sweep's not. Debrief in an hour. You get one minute.",
+          "Situation contained. Heart rate pending. Standard interval."
+        ],
+        "positive": [
+          "Still buzzing, friend. Textbook response, zero friendly losses — the drills paid the whole bill today. THIS is why we rehearse.",
+          "You should've seen second squad's flanking work just now. Art. I'd frame it if you could frame a maneuver.",
+          "We just turned an ambush inside out in ninety seconds. I'll be insufferable about it for a week. Starting now, with you."
+        ]
+      },
+      "sarab": {
+        "negative": [
+          "The blade is just wiped and you approach. Courage and foolishness pour from one jug.",
+          "We have just fed the sand. It stays hungry. Step back from the edge of that."
+        ],
+        "neutral": [
+          "It is done. The wind is already smoothing the marks. Give me a moment to be smoothed as well.",
+          "The fight was brief. The stillness after is where we live. You are inside it.",
+          "Do not ask for the tale while the dust hangs. Stories need settled dust."
+        ],
+        "positive": [
+          "Ha — feel my hand, friend. Steady as stone. It lies. Inside, drums.",
+          "We struck like the proverb: the viper is a rumor until it is a fact. Just now we were a fact. Sit, the tea is earned today.",
+          "They walked into our shadow just now, whole and confident. They left neither. Tonight the camp sings quietly. You may listen."
+        ]
+      }
+    },
+    "war_stories_pointed_warning": {
+      "vostok": {
+        "negative": [
+          "Story? Fine. A man kept visiting a trench he'd wronged. One day the trench was closer than he thought. Short story.",
+          "Once there was a clever one who thought counting was a bluff. The count is never a bluff. The end.",
+          "There was a fox that liked our wire. Bold fox. Beautiful coat. The coat's on the sergeant's bunk now."
+        ],
+        "neutral": [
+          "A recruit skipped the duckboards to save ten steps. The mud taught him about shortcuts. We pulled him out — mostly laughing.",
+          "One winter a man traded his shovel for extra bread. Rich for a week, digging with a spoon by spring. Keep the shovel."
+        ],
+        "positive": [
+          "A friendly warning story: never accept 'quiet sector' as a compliment. Quiet is a debt with interest, friend.",
+          "We had a lucky man once. Truly lucky. He relaxed. The lesson isn't about luck, friend. It's about relaxing."
+        ]
+      },
+      "aegis": {
+        "negative": [
+          "Here's one: an unauthorized person kept probing a perimeter's patience. The patience was policy. Policy ran out.",
+          "A civilian once mistook courtesy for tolerance. The distinction is in his file now. Closed file.",
+          "We tracked a poacher on the wire for a season. He thought unnoticed meant unwatched. The season ended."
+        ],
+        "neutral": [
+          "Cautionary tale from the manual, page one: assumptions travel faster than confirmation and arrive dead wrong.",
+          "A merchant skipped the checkpoint queue once. Once. The paperwork he generated is still taught as a horror story."
+        ],
+        "positive": [
+          "Friendly advisory, friend: a scout skipped one comm check to save time. One. We drill her rescue as a lesson now. Check in.",
+          "Story with a moral: the sector that never drilled its worst case met its worst case. Rehearse the ugly stuff. That's the tale."
+        ]
+      },
+      "sarab": {
+        "negative": [
+          "A tale: a jackal drank at our well nightly, sure of its speed. The well is still there. The speed is a rumor now.",
+          "There was a man who mistook the desert's silence for absence. He is part of the silence now.",
+          "Listen: a scorpion asked a fire for warmth twice. There is no third asking. This story has room for one more character."
+        ],
+        "neutral": [
+          "A traveler once mocked the old paths and took the straight road. The straight road is straight because nothing survives to bend it.",
+          "They tell of a rich man who bought a map of our wells. Accurate the day it sold. Wells move. Sellers don't say."
+        ],
+        "positive": [
+          "A kind warning wrapped in a story, friend: even the guest of honor checks his boots in the morning. Every morning.",
+          "Old tale: the sparrow that fed with falcons grew bold with everyone else. Be bold here, be careful everywhere else."
+        ]
+      }
+    },
+    "war_stories_confidence": {
+      "vostok": {
+        "negative": [
+          "You want confessions? Earn ears first.",
+          "My secrets are for the line. You are not the line."
+        ],
+        "neutral": [
+          "Some things I only say to the stove. The stove doesn't repeat and neither do I.",
+          "Ask me again when we've shared a bad week. Words like that need mud under them."
+        ],
+        "positive": [
+          "Between us and the mud: I still can't sleep before a push. Fourteen years. I fold and refold my blanket like my mother did.",
+          "Don't repeat this, friend: I write letters to my village and never send them. A full crate now. The writing holds me together.",
+          "You I'll tell: I froze solid my first fight. Osip stepped in front of me like it was nothing. Everything since repays that."
+        ],
+        "devoted": [
+          "Listen. When I go, my coat button goes to my daughter. I'm asking you to carry it. Now you know my whole will, friend.",
+          "You're on the short list I count as ours. There are five names. Two are dead. Guard yourself."
+        ]
+      },
+      "aegis": {
+        "negative": [
+          "Personal disclosures require trust. Insufficient balance. Denied.",
+          "You're fishing for soft spots. Professionals notice."
+        ],
+        "neutral": [
+          "That would be off the record, and there is no off the record at this trust level.",
+          "I keep the personal file thin on purpose. Thin files survive."
+        ],
+        "positive": [
+          "Between us: I'm sick before every operation. Every one. Then the checklist starts and I'm fine. That's why I love the checklist.",
+          "Don't log this anywhere: I nearly resigned in year two. Stayed for my squad. Command thinks it was the pension. Let them.",
+          "Here's a real one, friend: I can't recall my mother's voice anymore, but I remember every dead comrade's. What do I do with that?"
+        ],
+        "devoted": [
+          "I'd put myself between you and a breach without orders. Don't quote me — that's insubordination — but know it.",
+          "My personal cipher, friend — the one for family traffic. Learn it. If the towers ever go silent, listen for me on it."
+        ]
+      },
+      "sarab": {
+        "negative": [
+          "You dig for my soft places with a borrowed shovel. The desert sees the borrowing.",
+          "Secrets are water. Yours leak. Mine will not join them."
+        ],
+        "neutral": [
+          "The heart is a deep well with a guarded rope. Today the rope stays coiled.",
+          "Some truths I tell only to the night wind. You are not the night wind. No offense — it is a high post."
+        ],
+        "positive": [
+          "For your ears and the sand's: I fear the open sky. A desert man, afraid of sky. I became a night fighter to hide from noon.",
+          "A confidence, friend: I still pray in my mother's dialect, wrong words and all. The old prayers fit my mouth better.",
+          "Only you and the fire hear this: I once let an enemy walk away because he sang my village's lullaby. The desert forgave me. Slowly."
+        ],
+        "devoted": [
+          "I have told the desert you are mine to protect. It listens to me. Walk anywhere.",
+          "If ever you are lost in the dunes, sing that same lullaby. Someone will come. We have arranged it, friend."
+        ]
+      }
+    },
+    "war_stories_scar_story": {
+      "vostok": {
+        "negative": [
+          "Which scar? Some are from people who asked too many questions. Old joke. Half joke.",
+          "My scars are receipts. Don't make me itemize yours."
+        ],
+        "neutral": [
+          "This one? Wire, winter, hurry. Pick any two and you get a scar like this.",
+          "Splinters from the bridge. The bridge lost worse. We're even.",
+          "Dog bite, actually. Our dog. The war makes everyone jumpy."
+        ],
+        "positive": [
+          "Ha, this beauty? Sled accident. SLED. Survived three offensives and got carved by a hill and a dare. Tell no one.",
+          "This one on the arm — I punched through ice to pull Marta out. She hits harder than the ice, by the way. Different story.",
+          "The eyebrow? Osip's elbow, celebrating too hard when the relief column arrived. Best scar I own. It's a happy scar."
+        ]
+      },
+      "aegis": {
+        "negative": [
+          "Injury records are restricted. Causes doubly so. Some causes resemble your associates.",
+          "My scars are debriefed, filed, and none of your business."
+        ],
+        "neutral": [
+          "Training accident, rope tower. The tower got a redesign, I got a stripe of humility. Fair exchange.",
+          "Perimeter breach, year three. The scar is the shape of my own mistake. I keep it visible on purpose.",
+          "Burn from signal compounds. Handling procedures exist because of arms like mine."
+        ],
+        "positive": [
+          "This one, friend? Shielded a mapcase with my forearm in an ambush. The maps got twelve people home. Best trade my skin made.",
+          "The knee? Jumped from the tower during the flood to catch a drowning kid. Doctrine says never jump. The kid disagrees. So do I.",
+          "This little one's from my niece's wooden fort. Collapsed on me during 'inspection'. My most honest engineering review to date."
+        ]
+      },
+      "sarab": {
+        "negative": [
+          "Each scar is a name. Recite them? Some names bite the tongue that says them.",
+          "The marked ask the marked carefully. You are asking carelessly."
+        ],
+        "neutral": [
+          "Thorn fence, moonless night, borrowed goats. The rest of the story belongs to the goats.",
+          "A blade at the pass. The one who gave it carries one of mine. The ledger rests.",
+          "Sun-cracked skin from the glass flats. The desert signs its favorites. Roughly."
+        ],
+        "positive": [
+          "This crescent? A hawk I raised from a chick, the day she chose the wild. A good scar, friend. Doors should mark you closing.",
+          "The long one is from carrying my brother over the salt. He lived. When it aches in cold, I visit and complain. He laughs.",
+          "Ah, this? I fell out of the fig tree in my mother's courtyard — last month, on leave. Warrior of the dunes, defeated by breakfast."
+        ]
+      }
+    },
+    "war_stories_farewell": {
+      "vostok": {
+        "negative": [
+          "Done listening? Good. Doors work both ways. Use yours.",
+          "Story time's over. Walk while the mood holds."
+        ],
+        "neutral": [
+          "That's all the telling for today. The trench doesn't dig itself.",
+          "Enough words. Words don't fill sandbags."
+        ],
+        "positive": [
+          "Go on then, friend. Come back for the chapter about the goat.",
+          "The rest costs vodka. Fair price. Off you go, then."
+        ]
+      },
+      "aegis": {
+        "negative": [
+          "This concludes the courtesy. Exit's marked.",
+          "End of transmission. Don't make me repeat it."
+        ],
+        "neutral": [
+          "That's the releasable portion. Safe travels.",
+          "Story's filed. So are you. Move along politely."
+        ],
+        "positive": [
+          "Next installment after my rotation, friend. Hold my place.",
+          "Copy. Come find me off shift — the good versions have gestures."
+        ]
+      },
+      "sarab": {
+        "negative": [
+          "The story ends where your welcome does. Both just did.",
+          "Go. Some tales follow the listener home. Walk quickly."
+        ],
+        "neutral": [
+          "The teller rests, the tale continues elsewhere. Go well.",
+          "Enough. Stories are salt — a little seasons, too much thirsts."
+        ],
+        "positive": [
+          "The next story needs a moon. Come back when it's full, friend.",
+          "Go gently. I will save the ending for your return. It is a good ending."
+        ]
+      }
+    }
+  }
+}

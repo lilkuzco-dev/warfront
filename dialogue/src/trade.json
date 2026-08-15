@@ -108,5 +108,637 @@
     { "id": "trade_quality_best_made", "text": "What's the best-made thing you carry?", "response": "trade_quality", "weight": 6 },
     { "id": "trade_quality_guarantee", "text": "Does anything you sell come with a guarantee?", "response": "trade_quality", "weight": 5 }
   ],
-  "responses": { "__PENDING__": true }
+  "responses": {
+    "trade_open": {
+      "vostok": {
+        "negative": [
+          "Fine. Coin first, complaints never. Touch nothing you can't pay for.",
+          "The crates are open. My eyes are too.",
+          "We sell to you because supply doesn't care. Don't make me care."
+        ],
+        "neutral": [
+          "Surplus is what survives the front. Take your pick.",
+          "Crates on the left survived the winter. Start there.",
+          "Buy something or make room for someone who will."
+        ],
+        "positive": [
+          "For you? The good crates. The ones we don't show the inspectors.",
+          "Come, friend. The line eats first, but you eat second.",
+          "Take a look. Prices soft as spring mud today."
+        ]
+      },
+      "aegis": {
+        "negative": [
+          "Transaction authorized. Barely. All sales are final and on the record.",
+          "You may purchase. You may not linger. Manifest is posted.",
+          "The supply window is open. Your file stays open with it."
+        ],
+        "neutral": [
+          "Manifest is current as of this morning. Name what you need.",
+          "Approved goods only. Payment on receipt. Proceed.",
+          "Stores are open. Queue is you. Go ahead."
+        ],
+        "positive": [
+          "Cleared for the full manifest, friend. Including the second page.",
+          "Good timing — resupply landed at dawn. Take your pick.",
+          "For you the window stays open past hours. What do you need?"
+        ]
+      },
+      "sarab": {
+        "negative": [
+          "The cloth comes off the wares, but my hand stays near the knife. Browse.",
+          "Buy quickly. Hospitality has hours, and yours are short.",
+          "Even a salted well sells water to the desperate. Look, then."
+        ],
+        "neutral": [
+          "Sit. What is under the cloth is for sale. What is under the sand is not.",
+          "The caravan was kind this month. See what it left.",
+          "Look with your eyes first. Hands are a later privilege."
+        ],
+        "positive": [
+          "For you the cloth comes all the way off. Even the corner pile.",
+          "The best of the caravan waits for friends. It has waited for you.",
+          "Choose slowly. The shade is free and so is my patience today."
+        ]
+      }
+    },
+    "trade_redirect": {
+      "vostok": {
+        "negative": [
+          "I dig and I hold. I don't sell. And to you I wouldn't even dig.",
+          "My kit is the line's kit. Ask the quartermaster, if he'll have you."
+        ],
+        "neutral": [
+          "Not my crates. Quartermaster handles trade. I handle mud.",
+          "You want the quartermaster. Fat tent, thin patience."
+        ],
+        "positive": [
+          "Ha, if I sold my boots I'd die barefoot. Quartermaster's tent, friend.",
+          "Everything I own is on my back and half is the army's. See the quartermaster."
+        ]
+      },
+      "aegis": {
+        "negative": [
+          "Negative. Sales go through supply, and supply reads the flag on your file.",
+          "I am not authorized to trade. You are barely authorized to be here."
+        ],
+        "neutral": [
+          "Trade runs through the quartermaster. Follow the crates.",
+          "Not my lane. Supply handles transactions."
+        ],
+        "positive": [
+          "Wish I could help, but supply owns the ledgers. Quartermaster's that way, friend.",
+          "Above my pay grade to sell you anything. Supply will sort you out."
+        ]
+      },
+      "sarab": {
+        "negative": [
+          "A scorpion does not carry a purse. Ask the keeper of wares, if you must.",
+          "I hold nothing you can buy, and trust nothing you can offer."
+        ],
+        "neutral": [
+          "The one who keeps the wares sits by the water. I only keep watch.",
+          "My hands carry a blade, not a scale. Seek the merchant of the camp."
+        ],
+        "positive": [
+          "If it were mine, friend, it would be yours. It is not. The keeper of wares will smile at you.",
+          "I own my shadow and my patience. For goods, seek the one with the carpets."
+        ]
+      }
+    },
+    "trade_browse": {
+      "vostok": {
+        "negative": [
+          "We deal in what winters leave behind. None of it is for you at kind prices.",
+          "Surplus, salvage, spite. Guess which one you get."
+        ],
+        "neutral": [
+          "Boots, timber, iron, bread. Army things. Nothing pretty, everything tested.",
+          "Whatever survives the front twice gets sold once."
+        ],
+        "positive": [
+          "For friends? Tools, iron, warm things. The line shares what it can spare.",
+          "Rations that don't crawl, blades that don't bend. Best market in the mud."
+        ]
+      },
+      "aegis": {
+        "negative": [
+          "Approved surplus only. The interesting stock needs clearance you will never hold.",
+          "There is a market. Your access to it is under review."
+        ],
+        "neutral": [
+          "Surplus rotation covers hardware, textiles, field provisions. All logged.",
+          "Supply sells decommissioned stock on schedule. Quartermaster posts the list."
+        ],
+        "positive": [
+          "Between rotations we clear good hardware. Friends hear about it first.",
+          "The manifest is dull, but the margins are honest. Ask supply for the fresh page."
+        ]
+      },
+      "sarab": {
+        "negative": [
+          "We sell shade to the sun-struck and rope to the drowning. What do you drown in?",
+          "The market is a well. Some are welcome to drink. Some are the reason it is guarded."
+        ],
+        "neutral": [
+          "Cloth, water, dates, patience. The caravan brings the rest when it pleases.",
+          "What the dunes swallow, we sometimes sell back. Ask the keeper of wares."
+        ],
+        "positive": [
+          "For friends the caravan has a longer memory and a deeper bag.",
+          "We trade what the desert gives: hides, salt, secrets. The first two have prices."
+        ]
+      }
+    },
+    "trade_needs": {
+      "vostok": {
+        "negative": [
+          "We need nothing a debtor carries.",
+          "The line needs bodies and bread. You've cost us one. Start with the other."
+        ],
+        "neutral": [
+          "Bread, iron, leather. The front eats all three.",
+          "Timber for the trench, grain for the pot. Always. Forever."
+        ],
+        "positive": [
+          "Iron, friend. The line chews through iron like black bread.",
+          "Bring boots or bring bread. Either makes you family."
+        ]
+      },
+      "aegis": {
+        "negative": [
+          "Deliveries from you require vetting. Deliver first. Trust maybe later.",
+          "The list exists. Your name is not cleared to read it."
+        ],
+        "neutral": [
+          "Current shortfalls: iron stock, cured leather, field rations. Fair rates on delivery.",
+          "Supply posts its shortfalls weekly. Iron and provisions top the sheet."
+        ],
+        "positive": [
+          "Off the record: lens-grade glass and good leather. Bring either and supply will smile.",
+          "Iron before winter, friend. Deliver and the ledger remembers."
+        ]
+      },
+      "sarab": {
+        "negative": [
+          "We need the debt paid. After that, ask again.",
+          "From you? Distance. Bring us distance."
+        ],
+        "neutral": [
+          "Water finds us. String, cloth, and iron must be found. Bring those.",
+          "The desert provides patience. Everything else, the caravan buys."
+        ],
+        "positive": [
+          "Bring string for the snares and cloth for the night, friend. The camp will bless your name.",
+          "What we lack is small and light: string, salt, good thread. Carry some and be doubly welcome."
+        ]
+      }
+    },
+    "trade_haggle": {
+      "vostok": {
+        "negative": [
+          "The price is the price, and for you it grows when you argue.",
+          "Haggle harder and I add a grief tax."
+        ],
+        "neutral": [
+          "Everything costs what it costs. The war did the negotiating already.",
+          "You can haggle with me or with winter. I'm the softer one, barely."
+        ],
+        "positive": [
+          "Ha! For you I pretend to argue, then I give the real price. Done.",
+          "You bargain like a supply sergeant. Fine, fine — a little off the top."
+        ]
+      },
+      "aegis": {
+        "negative": [
+          "Rates are fixed and your discount is revoked. Next item.",
+          "Negotiation denied. Pricing reflects risk. You are the risk."
+        ],
+        "neutral": [
+          "Pricing is set by supply, not sentiment. I can note your objection.",
+          "The rate card is posted. I don't argue with laminate."
+        ],
+        "positive": [
+          "For a known friendly I can apply the field adjustment. Quietly.",
+          "I'll round in your favor and call it a rounding error. Once."
+        ]
+      },
+      "sarab": {
+        "negative": [
+          "You bargain like a man buying his own rope. The price holds.",
+          "Haggling is a dance. You have stepped on too many feet to dance here."
+        ],
+        "neutral": [
+          "Every price in the desert is a conversation. Sit, and we will converse.",
+          "The first price is for strangers. Stay long enough to hear the second."
+        ],
+        "positive": [
+          "Ah, you know the game. For friends, the third price — the true one.",
+          "For you we skip the theater. Here is the friend's number."
+        ]
+      }
+    },
+    "trade_gift_food": {
+      "vostok": {
+        "negative": [
+          "Bread from your hands. The pot doesn't ask where flour came from. We'll count it anyway.",
+          "The mess takes it. The ledger notes it. Nothing is forgiven for loaves, but nothing is wasted either."
+        ],
+        "neutral": [
+          "Bread is bread. The pot thanks you, and the pot speaks for all of us.",
+          "Warm loaves at the front. Someone pinch me."
+        ],
+        "positive": [
+          "Fresh bread and a friendly face. Today the line eats like officers.",
+          "You feed the line, the line remembers your plate. Sit, tear a piece with us."
+        ]
+      },
+      "aegis": {
+        "negative": [
+          "Provisions accepted and inspected. Goodwill noted, trust pending.",
+          "Donation logged. It buys calories, not clearance."
+        ],
+        "neutral": [
+          "Provisions received. Entered in the ledger as goodwill. Appreciated.",
+          "The mess sergeant will be pleased. Logged and thanks."
+        ],
+        "positive": [
+          "Fresh bread beats field crackers every deployment. The unit thanks you, friend.",
+          "Donation received with actual enthusiasm. Rare event. Noted twice."
+        ]
+      },
+      "sarab": {
+        "negative": [
+          "Bread offered by a shadowed hand. We eat it in daylight and remember the hand.",
+          "The camp accepts the loaf. The debt sits apart from it, untouched."
+        ],
+        "neutral": [
+          "Bread shared on the road is a small treaty. The camp accepts.",
+          "You give, we receive, the desert witnesses. Kindly done."
+        ],
+        "positive": [
+          "Warm bread from a warm hand. The tents will speak your name at supper.",
+          "A guest who brings bread is halfway to family. Sit, eat your own gift with us."
+        ]
+      }
+    },
+    "trade_gift_metal": {
+      "vostok": {
+        "negative": [
+          "Iron from you. The forge doesn't care. The forge is smarter than we are.",
+          "We'll beat it into wire and spikes. Your gift will guard the trench against you if it must."
+        ],
+        "neutral": [
+          "Good iron. The smith will stop complaining for one hour. A record.",
+          "Iron for the line. Practical. We respect practical."
+        ],
+        "positive": [
+          "Iron! Now this is a gift, friend. The smith may even smile. Don't stare — it frightens him.",
+          "The line runs on iron and stubbornness. You just doubled our supply of one."
+        ]
+      },
+      "aegis": {
+        "negative": [
+          "Materiel accepted into stores. This changes inventory, not your file.",
+          "Iron logged in receiving. Motive logged elsewhere."
+        ],
+        "neutral": [
+          "Iron stock received and weighed. Supply appreciates accurate donations.",
+          "Four ingots into stores. The armorer says thank you. I'm paraphrasing."
+        ],
+        "positive": [
+          "Quality ingots, friend. The armorer owes you a fitting now.",
+          "Iron on hand means bolts in racks. Solid contribution. Logged with a star."
+        ]
+      },
+      "sarab": {
+        "negative": [
+          "Iron from your hand. We will make hooks of it and hope they never need your name.",
+          "The forge takes all metal, even metal with a history."
+        ],
+        "neutral": [
+          "Iron is rare as rain here. The camp accepts with both hands.",
+          "Metal given freely cuts deeper than metal sold. In the good way. Our thanks."
+        ],
+        "positive": [
+          "Iron for the smiths of the sand. Your name will ring on the anvil, friend.",
+          "You bring the desert what it cannot grow. That is remembered longest."
+        ]
+      }
+    },
+    "trade_gift_leather": {
+      "vostok": {
+        "negative": [
+          "Hides from you. Boots don't ask who tanned them. Lucky boots.",
+          "Leather taken. Winter doesn't check the giver's ledger, so we won't today either."
+        ],
+        "neutral": [
+          "Leather. Straps, boots, patience. All three wear out here. Thanks.",
+          "The cobbler will drink to your health. He drinks to everything, but still."
+        ],
+        "positive": [
+          "Good hides, friend! Half the line walks on hope and rag. Not this month.",
+          "Leather from a friend keeps feet dry and grudges away. The line thanks you."
+        ]
+      },
+      "aegis": {
+        "negative": [
+          "Cured hides accepted into stores. Goodwill entry: provisional.",
+          "Leather received. Trust is a different material."
+        ],
+        "neutral": [
+          "Hides logged into supply. The riggers needed these. Acknowledged.",
+          "Leather received in fair condition. Entered as donation. Thank you."
+        ],
+        "positive": [
+          "The riggers have been splicing scraps for weeks. You just made their month, friend.",
+          "Prime hides. Supply will sing. Off-key, but sincerely."
+        ]
+      },
+      "sarab": {
+        "negative": [
+          "Hides from a hard hand. The desert cures all leather and some men. We accept.",
+          "We take the gift. The sand takes note."
+        ],
+        "neutral": [
+          "Leather travels well and lies little. The camp thanks you.",
+          "Good hides. The saddler will bless a stranger tonight."
+        ],
+        "positive": [
+          "Soft hides from a soft-hearted friend. The tents will wear your kindness.",
+          "Leather for the straps, friendship for the road. Both hold. Our thanks."
+        ]
+      }
+    },
+    "trade_gift_gem": {
+      "vostok": {
+        "negative": [
+          "Emeralds. The line can't eat them, but the ledger enjoys the shine.",
+          "Green stones from a red ledger. We take them. The count continues."
+        ],
+        "neutral": [
+          "Emeralds for the fund. The men vote vodka. The sergeant votes socks. Socks will win.",
+          "Shiny. Useful. Accepted. Three words, all true."
+        ],
+        "positive": [
+          "Emeralds from a friend! Tonight the line toasts you with the good water.",
+          "Green stones, warm gesture. The fund grows and so does your name here."
+        ]
+      },
+      "aegis": {
+        "negative": [
+          "Currency accepted into the unit fund. This is a receipt, not a thaw.",
+          "Emeralds logged. Generosity noted, provenance assumed complicated."
+        ],
+        "neutral": [
+          "Contribution entered into the unit fund. Correct and appreciated.",
+          "Two emeralds, unit fund, logged. Efficient generosity. My favorite kind."
+        ],
+        "positive": [
+          "Into the fund, friend. The mess gets real coffee this month because of you.",
+          "Generous, with zero strings attached. You're becoming my favorite civilian."
+        ]
+      },
+      "sarab": {
+        "negative": [
+          "Green stones catch the light. So do knives. We accept the first and keep the second close.",
+          "The gift enters the tent. The giver waits outside a while longer."
+        ],
+        "neutral": [
+          "Emeralds shine like water at dusk. The camp accepts your kindness.",
+          "Two green stones, freely given. The desert notices what is done without asking."
+        ],
+        "positive": [
+          "Gems from a friend gleam twice. Once in the hand, once in the telling.",
+          "The camp will trade these for what the sand cannot give. Your kindness travels far, friend."
+        ]
+      }
+    },
+    "trade_gouge": {
+      "vostok": {
+        "negative": [
+          "Double? Count again. For you it's triple. Arithmetic is our love language.",
+          "You pay the grief rate. Every name on it is one of ours.",
+          "The price of goods is low. The price of forgetting is high. You're buying both."
+        ],
+        "neutral": [
+          "Fair is a place, not a price. But fine, the number can breathe a little.",
+          "Everyone pays the war tax. You just notice it more."
+        ],
+        "positive": [
+          "Gouge a friend? Never. Overcharge one gently? Only on Tuesdays.",
+          "Relax. For you the scale is honest and the thumb stays off it."
+        ]
+      },
+      "aegis": {
+        "negative": [
+          "Pricing includes a risk surcharge. You are the risk. It's itemized.",
+          "The rate reflects your file. Improve the file, improve the rate.",
+          "Complaint noted, filed, and priced in."
+        ],
+        "neutral": [
+          "Rates are uniform. Perception of unfairness is not an invoice error.",
+          "The margin covers convoy losses. Argue with the ambushes, not with me."
+        ],
+        "positive": [
+          "You're on the friendly rate already. It goes lower only if you enlist.",
+          "Check the card again, friend. You're paying less than my own captain."
+        ]
+      },
+      "sarab": {
+        "negative": [
+          "The thirsty pay in coin. The unwelcome pay in coin and apology. You count only the coin.",
+          "Salt your neighbor's well and even water costs like honey.",
+          "The number offends you? It carries your history in it. History is heavy."
+        ],
+        "neutral": [
+          "Prices drift like dunes. Today the wind is against you. Tomorrow, who knows.",
+          "The souk has moods. Argue sweetly and it may soften."
+        ],
+        "positive": [
+          "For you the price sheds its cloak. See? Smaller underneath.",
+          "A friend pays the true number. Strangers subsidize your tea."
+        ]
+      }
+    },
+    "trade_cold_shoulder": {
+      "vostok": {
+        "negative": [
+          "Your coin spends. Your welcome doesn't. Buy fast.",
+          "We sell to you like we shovel in the rain. Necessary, joyless, quick.",
+          "Business, yes. Trust, no. Hands where the sentry likes them."
+        ],
+        "neutral": [
+          "Nobody banned you. The market has no feelings. The people around it do.",
+          "Trade is trade. Just don't expect the tea."
+        ],
+        "positive": [
+          "Banned? Friend, we'd sooner ban bread. Come, buy, gossip.",
+          "The market loves you like the quota loves numbers. Deeply."
+        ]
+      },
+      "aegis": {
+        "negative": [
+          "Commerce with flagged individuals is permitted under supervision. You are supervised.",
+          "Your currency clears. Your reputation does not. Transactions only.",
+          "You may trade. Terms: cash, daylight, witnesses."
+        ],
+        "neutral": [
+          "No restriction on record. Normal terms apply.",
+          "You're cleared for commerce. Everything else is a separate form."
+        ],
+        "positive": [
+          "Restricted? You're practically on the vendor list, friend.",
+          "Your account's in good order. Better than most enlisted, honestly."
+        ]
+      },
+      "sarab": {
+        "negative": [
+          "We trade with the storm too, when it leaves us no choice. Wait in the doorway. Do not come in.",
+          "Your coin is welcome the way rain is welcome in the flood.",
+          "Buy what you need. Need nothing twice."
+        ],
+        "neutral": [
+          "The market refuses no one with clean hands and quick feet.",
+          "Trade is older than grudges. Older, not stronger. Mind both."
+        ],
+        "positive": [
+          "The stalls open for you like morning, friend. Who told you otherwise?",
+          "Coin from your hand is doubly good. It arrives with a smile."
+        ]
+      }
+    },
+    "trade_discount": {
+      "vostok": {
+        "negative": [
+          "A discount? You owe more than the shelf is worth.",
+          "The friendly rate died with our friends. Full price."
+        ],
+        "neutral": [
+          "Discounts are for the line. Sleep in enough mud and we'll talk.",
+          "The loyalty rate exists. Yours is still being earned. Come back with history."
+        ],
+        "positive": [
+          "For you, the soldier's price. Don't tell the soldiers — they pay more.",
+          "Ha, the friend of the line pays like family. Grumbling included, free."
+        ]
+      },
+      "aegis": {
+        "negative": [
+          "Preferred pricing requires preferred status. You are the opposite of preferred.",
+          "Discount denied. Your ledger is in arrears where it counts."
+        ],
+        "neutral": [
+          "Adjustments require documented service to this command. Bring documentation.",
+          "The rate card has one tier for civilians. You're on it."
+        ],
+        "positive": [
+          "Applying the allied rate, friend. Signed, stamped, slightly illegal.",
+          "Loyalty documented, discount applied. The system works occasionally."
+        ]
+      },
+      "sarab": {
+        "negative": [
+          "Kind prices grow from kind soil. You planted salt.",
+          "First mend the well. Then ask the water to be cheap."
+        ],
+        "neutral": [
+          "The friend's price is real. So is the road that leads to it. Walk it.",
+          "Generosity is a harvest. Sow a season first."
+        ],
+        "positive": [
+          "For you the price bows, friend. It has heard about you from the fire.",
+          "Take the friend's number and tell no one. Envy sours tea."
+        ]
+      }
+    },
+    "trade_special": {
+      "vostok": {
+        "negative": [
+          "The back room? For you the front room is a courtesy.",
+          "The good crates hide from people like you. Smart crates."
+        ],
+        "neutral": [
+          "Special stock goes to special names. Yours is still ordinary ink.",
+          "What's in the back is spoken for. By people who bled for it."
+        ],
+        "positive": [
+          "Come around the crates. What the inspectors don't see keeps morale alive.",
+          "For the line's friend? There's a box under the box. Look twice."
+        ]
+      },
+      "aegis": {
+        "negative": [
+          "Restricted inventory stays restricted. Asking is itself noted.",
+          "There is no back shelf. Officially. For you, also actually."
+        ],
+        "neutral": [
+          "Non-standard stock needs authorization above mine. And above yours.",
+          "The interesting shelf exists behind paperwork. Thick paperwork."
+        ],
+        "positive": [
+          "Between us: a crate fell off a manifest. Undamaged. Interested?",
+          "For cleared friends the second manifest exists. Read fast, it's shy."
+        ]
+      },
+      "sarab": {
+        "negative": [
+          "What is hidden is hidden from someone. Today, from you.",
+          "The best wares sleep. Your voice would wake them badly."
+        ],
+        "neutral": [
+          "Everything has a beneath. Beneath is earned, not sold.",
+          "The caravan keeps its pearls for faces it has seen thrice."
+        ],
+        "positive": [
+          "Lean close, friend. Under the third carpet — things the sun has never priced.",
+          "The hidden shelf knows your name now. Ask it sweetly."
+        ]
+      }
+    },
+    "trade_quality": {
+      "vostok": {
+        "negative": [
+          "Good enough to outlive you. That's the only warranty here.",
+          "Our gear survives winters. Whether you do is your business."
+        ],
+        "neutral": [
+          "Nothing shines. Everything works. That's the Vostok promise.",
+          "Tested by mud, approved by mud. Mud is honest."
+        ],
+        "positive": [
+          "The gear is ugly, friend, and it will never, ever quit on you. Like us.",
+          "Every blade here has an opinion and a body count. Good steel."
+        ]
+      },
+      "aegis": {
+        "negative": [
+          "Our equipment meets spec. Discussion of spec is not available to you.",
+          "Quality assured. Buyer scrutiny logged."
+        ],
+        "neutral": [
+          "All stock passes inspection twice. Once by regs, once by sergeants. The sergeants are stricter.",
+          "Materiel is rated, tagged, and traceable. Failures get autopsies."
+        ],
+        "positive": [
+          "Honest answer, friend? The export table is fine. The unit table is better. You're now export-plus.",
+          "I stake my cert on every item here. The cert took me six years."
+        ]
+      },
+      "sarab": {
+        "negative": [
+          "Our goods endure the desert. The desert endures everything. Draw your conclusions.",
+          "Quality is proven in silence, not promised in speech. Buy or don't."
+        ],
+        "neutral": [
+          "The desert eats the flimsy first. What we sell, it hasn't eaten.",
+          "Ask the dunes how our rope holds. They have tested every span."
+        ],
+        "positive": [
+          "For you I will say what the seller never says: this piece — yes. That one — walk past.",
+          "The good thread sings when you pull it. Here — listen, friend."
+        ]
+      }
+    }
+  }
 }

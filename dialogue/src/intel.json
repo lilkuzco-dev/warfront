@@ -1,0 +1,901 @@
+{
+  "category": "intel",
+  "options": [
+    { "id": "intel_base_where_home", "text": "Where do you all bunk down?", "response": "intel_ask_own_base", "conditions": { "disposition": ["positive"] }, "effects": [{ "type": "intel", "kind": "nearest_base" }], "weight": 8, "cooldown_minutes": 30 },
+    { "id": "intel_base_point_me", "text": "Point me toward your base? I've got trade in mind.", "response": "intel_ask_own_base", "conditions": { "disposition": ["positive"] }, "effects": [{ "type": "intel", "kind": "nearest_base" }], "weight": 8, "cooldown_minutes": 30 },
+    { "id": "intel_base_nearest_camp", "text": "Where's the nearest camp of yours?", "response": "intel_ask_own_base", "conditions": { "disposition": ["positive"] }, "effects": [{ "type": "intel", "kind": "nearest_base" }], "weight": 8, "cooldown_minutes": 30 },
+    { "id": "intel_base_visit_people", "text": "I'd like to visit your people. Which way do I go?", "response": "intel_ask_own_base", "conditions": { "disposition": ["positive"] }, "effects": [{ "type": "intel", "kind": "nearest_base" }], "weight": 7, "cooldown_minutes": 30 },
+    { "id": "intel_base_shelter_walls", "text": "If I ever need walls around me, where are yours?", "response": "intel_ask_own_base", "conditions": { "disposition": ["positive"] }, "effects": [{ "type": "intel", "kind": "nearest_base" }], "weight": 6, "cooldown_minutes": 30 },
+    { "id": "intel_base_directions_post", "text": "Give me directions to your post?", "response": "intel_ask_own_base", "conditions": { "disposition": ["positive"] }, "effects": [{ "type": "intel", "kind": "nearest_base" }], "weight": 7, "cooldown_minutes": 30 },
+    { "id": "intel_base_command_sits", "text": "Where does your command sit?", "response": "intel_ask_own_base", "conditions": { "disposition": ["positive"] }, "effects": [{ "type": "intel", "kind": "nearest_base" }], "weight": 6, "cooldown_minutes": 30 },
+    { "id": "intel_base_mark_map", "text": "Mark my map — where's home for you?", "response": "intel_ask_own_base", "conditions": { "disposition": ["positive"] }, "effects": [{ "type": "intel", "kind": "nearest_base" }], "weight": 7, "cooldown_minutes": 30 },
+    { "id": "intel_base_follow_smoke", "text": "If I follow your cook-smoke, where do I end up?", "response": "intel_ask_own_base", "conditions": { "disposition": ["positive"] }, "effects": [{ "type": "intel", "kind": "nearest_base" }], "weight": 5, "cooldown_minutes": 30 },
+    { "id": "intel_base_which_gates", "text": "Which way to your gates?", "response": "intel_ask_own_base", "conditions": { "disposition": ["positive"] }, "effects": [{ "type": "intel", "kind": "nearest_base" }], "weight": 7, "cooldown_minutes": 30 },
+    { "id": "intel_base_travelers", "text": "Do any of your camps take travelers for the night?", "response": "intel_ask_own_base", "conditions": { "disposition": ["positive"] }, "effects": [{ "type": "intel", "kind": "nearest_base" }], "weight": 5, "cooldown_minutes": 30 },
+    { "id": "intel_base_officer_post", "text": "Your command post — where do I find it?", "response": "intel_ask_own_base", "conditions": { "role": ["officer"], "disposition": ["positive"] }, "effects": [{ "type": "intel", "kind": "nearest_base" }], "weight": 6, "cooldown_minutes": 30 },
+    { "id": "intel_stonewall_hq", "text": "Where's your headquarters?", "response": "intel_stonewall_base", "conditions": { "disposition": ["negative"] }, "weight": 7 },
+    { "id": "intel_stonewall_camp", "text": "Tell me where your camp is.", "response": "intel_stonewall_base", "conditions": { "disposition": ["negative"] }, "weight": 7 },
+    { "id": "intel_stonewall_weak_walls", "text": "Where are your walls weakest?", "response": "intel_stonewall_base", "conditions": { "disposition": ["negative"] }, "weight": 4 },
+    { "id": "intel_stonewall_garrison", "text": "How many of you are garrisoned near here?", "response": "intel_stonewall_base", "conditions": { "disposition": ["negative"] }, "weight": 5 },
+    { "id": "intel_stonewall_stores", "text": "Where do you keep your stores?", "response": "intel_stonewall_base", "conditions": { "disposition": ["negative"] }, "weight": 5 },
+    { "id": "intel_stonewall_gate_road", "text": "Which road leads to your gate?", "response": "intel_stonewall_base", "conditions": { "disposition": ["negative"] }, "weight": 6 },
+    { "id": "intel_stonewall_positions", "text": "Show me your positions on a map.", "response": "intel_stonewall_base", "conditions": { "disposition": ["negative"] }, "weight": 4 },
+    { "id": "intel_stonewall_commander", "text": "Where can I find your commander?", "response": "intel_stonewall_base", "conditions": { "disposition": ["negative"] }, "weight": 6 },
+    { "id": "intel_stonewall_sleep", "text": "Where do your soldiers sleep?", "response": "intel_stonewall_base", "conditions": { "disposition": ["negative"] }, "weight": 4 },
+    { "id": "intel_stonewall_water", "text": "Where does your water come from?", "response": "intel_stonewall_base", "conditions": { "disposition": ["negative"] }, "weight": 5 },
+    { "id": "intel_stonewall_back_way", "text": "Every fort has a back way in. Where's yours?", "response": "intel_stonewall_base", "conditions": { "disposition": ["negative"] }, "weight": 3 },
+    { "id": "intel_stonewall_signals", "text": "What do your signal fires mean?", "response": "intel_stonewall_base", "conditions": { "disposition": ["negative"] }, "weight": 5 },
+    { "id": "intel_vague_settlements", "text": "Any settlements near here?", "response": "intel_vague_directions", "conditions": { "disposition": ["neutral"] }, "weight": 8 },
+    { "id": "intel_vague_land_holder", "text": "Who holds this stretch of land?", "response": "intel_vague_directions", "conditions": { "disposition": ["neutral"] }, "weight": 8 },
+    { "id": "intel_vague_lost", "text": "I'm a little lost. Where am I, exactly?", "response": "intel_vague_directions", "conditions": { "disposition": ["neutral"] }, "weight": 7 },
+    { "id": "intel_vague_shelter", "text": "Where could a traveler shelter around here?", "response": "intel_vague_directions", "conditions": { "disposition": ["neutral"] }, "weight": 7 },
+    { "id": "intel_vague_trade_where", "text": "Where do people trade in these parts?", "response": "intel_vague_directions", "conditions": { "disposition": ["neutral"] }, "weight": 7 },
+    { "id": "intel_vague_landmark", "text": "What's the biggest landmark around?", "response": "intel_vague_directions", "conditions": { "disposition": ["neutral"] }, "weight": 6 },
+    { "id": "intel_vague_river_road", "text": "Does this road follow the river?", "response": "intel_vague_directions", "conditions": { "disposition": ["neutral"] }, "weight": 5 },
+    { "id": "intel_vague_roof", "text": "How far to anything with a roof?", "response": "intel_vague_directions", "conditions": { "disposition": ["neutral"] }, "weight": 6 },
+    { "id": "intel_vague_borders", "text": "Where does your territory end?", "response": "intel_vague_directions", "conditions": { "disposition": ["neutral"] }, "weight": 6 },
+    { "id": "intel_vague_who_else", "text": "Who else is out here besides you?", "response": "intel_vague_directions", "conditions": { "disposition": ["neutral"] }, "weight": 7 },
+    { "id": "intel_vague_road_leads", "text": "Where does this road lead?", "response": "intel_vague_directions", "conditions": { "disposition": ["neutral"] }, "weight": 8 },
+    { "id": "intel_vague_camp_close", "text": "Are you camped close by?", "response": "intel_vague_directions", "conditions": { "disposition": ["neutral"] }, "weight": 6 },
+    { "id": "intel_rival_dug_in", "text": "Where are your enemies dug in?", "response": "intel_rival_base", "conditions": { "disposition": ["friendly", "devoted"] }, "effects": [{ "type": "intel", "kind": "rival_base" }], "weight": 8, "cooldown_minutes": 45 },
+    { "id": "intel_rival_hurt_them", "text": "If I wanted to hurt your rivals, where would I start?", "response": "intel_rival_base", "conditions": { "disposition": ["friendly", "devoted"] }, "effects": [{ "type": "intel", "kind": "rival_base" }], "weight": 7, "cooldown_minutes": 45 },
+    { "id": "intel_rival_steer_clear", "text": "Where should I steer clear of, enemy-wise?", "response": "intel_rival_base", "conditions": { "disposition": ["friendly", "devoted"] }, "effects": [{ "type": "intel", "kind": "rival_base" }], "weight": 7, "cooldown_minutes": 45 },
+    { "id": "intel_rival_other_side", "text": "You know where the other side camps?", "response": "intel_rival_base", "conditions": { "disposition": ["friendly", "devoted"] }, "effects": [{ "type": "intel", "kind": "rival_base" }], "weight": 7, "cooldown_minutes": 45 },
+    { "id": "intel_rival_mark_enemy", "text": "Mark the enemy's position for me.", "response": "intel_rival_base", "conditions": { "disposition": ["friendly", "devoted"] }, "effects": [{ "type": "intel", "kind": "rival_base" }], "weight": 6, "cooldown_minutes": 45 },
+    { "id": "intel_rival_scouts_found", "text": "What did your scouts find out there?", "response": "intel_rival_base", "conditions": { "disposition": ["friendly", "devoted"] }, "effects": [{ "type": "intel", "kind": "rival_base" }], "weight": 6, "cooldown_minutes": 45 },
+    { "id": "intel_rival_thin", "text": "Where's the enemy stretched thin?", "response": "intel_rival_base", "conditions": { "disposition": ["friendly", "devoted"] }, "effects": [{ "type": "intel", "kind": "rival_base" }], "weight": 5, "cooldown_minutes": 45 },
+    { "id": "intel_rival_neighbor", "text": "Who's your nearest hostile neighbor, and where?", "response": "intel_rival_base", "conditions": { "disposition": ["friendly", "devoted"] }, "effects": [{ "type": "intel", "kind": "rival_base" }], "weight": 6, "cooldown_minutes": 45 },
+    { "id": "intel_rival_same_hunt", "text": "I'm hunting the same people you are. Where do I look?", "response": "intel_rival_base", "conditions": { "disposition": ["friendly", "devoted"] }, "effects": [{ "type": "intel", "kind": "rival_base" }], "weight": 6, "cooldown_minutes": 45 },
+    { "id": "intel_rival_news_trade", "text": "I'll trade you news for news. Where's the enemy?", "response": "intel_rival_base", "conditions": { "disposition": ["friendly", "devoted"] }, "effects": [{ "type": "intel", "kind": "rival_base" }], "weight": 5, "cooldown_minutes": 45 },
+    { "id": "intel_rival_watchfires", "text": "Whose watchfires are those on the horizon?", "response": "intel_rival_base", "conditions": { "disposition": ["friendly", "devoted"] }, "effects": [{ "type": "intel", "kind": "rival_base" }], "weight": 6, "cooldown_minutes": 45 },
+    { "id": "intel_rival_unfinished", "text": "I have unfinished business with your rivals. Point me at them.", "response": "intel_rival_base", "conditions": { "disposition": ["friendly", "devoted"] }, "effects": [{ "type": "intel", "kind": "rival_base" }], "weight": 6, "cooldown_minutes": 45 },
+    { "id": "intel_officer_enemy_lines", "text": "You're an officer. Where do the enemy lines run?", "response": "intel_rival_officer", "conditions": { "role": ["officer"], "disposition": ["positive"] }, "effects": [{ "type": "intel", "kind": "rival_base" }], "weight": 6, "cooldown_minutes": 45 },
+    { "id": "intel_officer_briefing", "text": "Give me the briefing you'd give your own scouts.", "response": "intel_rival_officer", "conditions": { "role": ["officer"], "disposition": ["positive"] }, "effects": [{ "type": "intel", "kind": "rival_base" }], "weight": 5, "cooldown_minutes": 45 },
+    { "id": "intel_officer_next_press", "text": "Where will the enemy press next?", "response": "intel_rival_officer", "conditions": { "role": ["officer"], "disposition": ["positive"] }, "effects": [{ "type": "intel", "kind": "rival_base" }], "weight": 5, "cooldown_minutes": 45 },
+    { "id": "intel_officer_campaign_map", "text": "Share your campaign map with me.", "response": "intel_rival_officer", "conditions": { "role": ["officer"], "disposition": ["positive"] }, "effects": [{ "type": "intel", "kind": "rival_base" }], "weight": 4, "cooldown_minutes": 45 },
+    { "id": "intel_officer_real_front", "text": "Where does the real front run these days?", "response": "intel_rival_officer", "conditions": { "role": ["officer"], "disposition": ["positive"] }, "effects": [{ "type": "intel", "kind": "rival_base" }], "weight": 5, "cooldown_minutes": 45 },
+    { "id": "intel_officer_trouble_where", "text": "Where's the enemy making trouble for you?", "response": "intel_rival_officer", "conditions": { "role": ["officer"], "disposition": ["positive"] }, "effects": [{ "type": "intel", "kind": "rival_base" }], "weight": 6, "cooldown_minutes": 45 },
+    { "id": "intel_rivalref_at_war", "text": "Who are you at war with?", "response": "intel_rival_refused", "conditions": { "disposition": ["neutral"] }, "weight": 8 },
+    { "id": "intel_rivalref_fighting", "text": "Where's the fighting these days?", "response": "intel_rival_refused", "conditions": { "disposition": ["neutral"] }, "weight": 7 },
+    { "id": "intel_rivalref_enemy_camp", "text": "Where's the enemy camped?", "response": "intel_rival_refused", "conditions": { "disposition": ["neutral"] }, "weight": 6 },
+    { "id": "intel_rivalref_winning", "text": "Which side is winning out here?", "response": "intel_rival_refused", "conditions": { "disposition": ["neutral"] }, "weight": 7 },
+    { "id": "intel_rivalref_pay", "text": "I'd pay good coin for enemy positions.", "response": "intel_rival_refused", "conditions": { "disposition": ["neutral"] }, "weight": 5 },
+    { "id": "intel_rivalref_battlefield", "text": "Where did the last battle happen?", "response": "intel_rival_refused", "conditions": { "disposition": ["neutral"] }, "weight": 6 },
+    { "id": "intel_rivalref_maps_taken", "text": "Any enemy maps you've captured?", "response": "intel_rival_refused", "conditions": { "disposition": ["negative"] }, "weight": 4 },
+    { "id": "intel_rivalref_prisoners", "text": "Taken any prisoners who talked?", "response": "intel_rival_refused", "conditions": { "disposition": ["negative"] }, "weight": 4 },
+    { "id": "intel_rivalref_spies", "text": "Do you have spies in the other camps?", "response": "intel_rival_refused", "conditions": { "disposition": ["negative"] }, "weight": 3 },
+    { "id": "intel_rivalref_next_raid", "text": "When's your next raid, and where?", "response": "intel_rival_refused", "conditions": { "disposition": ["negative"] }, "weight": 3 },
+    { "id": "intel_rivalref_front_news", "text": "What's the latest from the front?", "response": "intel_rival_refused", "conditions": { "disposition": ["negative"] }, "weight": 5 },
+    { "id": "intel_rivalref_thin_them", "text": "Point me at your enemies and I'll thin them out for you.", "response": "intel_rival_refused", "conditions": { "disposition": ["negative"] }, "weight": 4 },
+    { "id": "intel_patrol_changeover", "text": "When do your patrols change over?", "response": "intel_patrol_schedule", "conditions": { "disposition": ["neutral", "positive"] }, "effects": [{ "type": "intel", "kind": "patrol_hint" }], "weight": 8 },
+    { "id": "intel_patrol_rounds", "text": "How often do your rounds pass this way?", "response": "intel_patrol_schedule", "conditions": { "disposition": ["neutral", "positive"] }, "effects": [{ "type": "intel", "kind": "patrol_hint" }], "weight": 7 },
+    { "id": "intel_patrol_next_due", "text": "When's the next patrol due through here?", "response": "intel_patrol_schedule", "conditions": { "disposition": ["neutral", "positive"] }, "effects": [{ "type": "intel", "kind": "patrol_hint" }], "weight": 7 },
+    { "id": "intel_patrol_shift_length", "text": "How long is a watch shift for you?", "response": "intel_patrol_schedule", "conditions": { "disposition": ["neutral", "positive"] }, "effects": [{ "type": "intel", "kind": "patrol_hint" }], "weight": 6 },
+    { "id": "intel_patrol_after_dark", "text": "Do your patrols keep walking after dark?", "response": "intel_patrol_schedule", "conditions": { "disposition": ["neutral", "positive"] }, "effects": [{ "type": "intel", "kind": "patrol_hint" }], "weight": 6 },
+    { "id": "intel_patrol_route_run", "text": "What route do your patrols run?", "response": "intel_patrol_schedule", "conditions": { "disposition": ["positive"] }, "effects": [{ "type": "intel", "kind": "patrol_hint" }], "weight": 6 },
+    { "id": "intel_patrol_gap", "text": "Is there ever a gap between patrols?", "response": "intel_patrol_schedule", "conditions": { "disposition": ["positive"] }, "effects": [{ "type": "intel", "kind": "patrol_hint" }], "weight": 4 },
+    { "id": "intel_patrol_watched_roads", "text": "Which roads do you watch closest?", "response": "intel_patrol_schedule", "conditions": { "disposition": ["neutral", "positive"] }, "effects": [{ "type": "intel", "kind": "patrol_hint" }], "weight": 6 },
+    { "id": "intel_patrol_relief_when", "text": "When does your relief arrive?", "response": "intel_patrol_schedule", "conditions": { "disposition": ["neutral", "positive"] }, "effects": [{ "type": "intel", "kind": "patrol_hint" }], "weight": 5 },
+    { "id": "intel_patrol_range_out", "text": "How far out do your patrols range?", "response": "intel_patrol_schedule", "conditions": { "disposition": ["neutral", "positive"] }, "effects": [{ "type": "intel", "kind": "patrol_hint" }], "weight": 6 },
+    { "id": "intel_patrol_safe_hour", "text": "When's the safest hour to travel your roads?", "response": "intel_patrol_schedule", "conditions": { "disposition": ["neutral", "positive"] }, "effects": [{ "type": "intel", "kind": "patrol_hint" }], "weight": 6 },
+    { "id": "intel_patrol_horn_mean", "text": "If I hear your horn, what does it mean?", "response": "intel_patrol_schedule", "conditions": { "disposition": ["neutral", "positive"] }, "effects": [{ "type": "intel", "kind": "patrol_hint" }], "weight": 5 },
+    { "id": "intel_patrolref_schedule", "text": "What's your patrol schedule?", "response": "intel_patrol_refused", "conditions": { "disposition": ["negative"] }, "weight": 6 },
+    { "id": "intel_patrolref_watch_tonight", "text": "Who's on watch tonight?", "response": "intel_patrol_refused", "conditions": { "disposition": ["negative"] }, "weight": 5 },
+    { "id": "intel_patrolref_blind_spots", "text": "Where are your blind spots?", "response": "intel_patrol_refused", "conditions": { "disposition": ["negative"] }, "weight": 3 },
+    { "id": "intel_patrolref_rotation", "text": "When does the watch rotate?", "response": "intel_patrol_refused", "conditions": { "disposition": ["negative"] }, "weight": 5 },
+    { "id": "intel_patrolref_numbers", "text": "How many walk each patrol?", "response": "intel_patrol_refused", "conditions": { "disposition": ["negative"] }, "weight": 4 },
+    { "id": "intel_patrolref_skipped_paths", "text": "Which paths do your patrols skip?", "response": "intel_patrol_refused", "conditions": { "disposition": ["negative"] }, "weight": 3 },
+    { "id": "intel_patrolref_sentries", "text": "How many sentries stand your wall?", "response": "intel_patrol_refused", "conditions": { "disposition": ["negative"] }, "weight": 4 },
+    { "id": "intel_patrolref_alarm", "text": "How fast can you raise an alarm?", "response": "intel_patrol_refused", "conditions": { "disposition": ["negative"] }, "weight": 3 },
+    { "id": "intel_patrolref_midnight", "text": "Do you even watch the roads after midnight?", "response": "intel_patrol_refused", "conditions": { "disposition": ["negative"] }, "weight": 4 },
+    { "id": "intel_patrolref_thin_lately", "text": "Your patrols look thin lately. Short-handed?", "response": "intel_patrol_refused", "conditions": { "disposition": ["negative"] }, "weight": 4 },
+    { "id": "intel_road_whose", "text": "Whose road is this?", "response": "intel_road_watch", "conditions": { "disposition": ["neutral", "positive"] }, "effects": [{ "type": "intel", "kind": "patrol_hint" }], "weight": 8 },
+    { "id": "intel_road_watchers", "text": "Who watches this road?", "response": "intel_road_watch", "conditions": { "disposition": ["neutral", "positive"] }, "effects": [{ "type": "intel", "kind": "patrol_hint" }], "weight": 7 },
+    { "id": "intel_road_stopped_again", "text": "Will I be stopped again if I keep walking this road?", "response": "intel_road_watch", "conditions": { "disposition": ["neutral", "positive"] }, "weight": 6 },
+    { "id": "intel_road_tolls", "text": "Anyone charging tolls out here?", "response": "intel_road_watch", "conditions": { "disposition": ["neutral", "positive"] }, "weight": 6 },
+    { "id": "intel_road_bandits", "text": "Any bandits working this stretch?", "response": "intel_road_watch", "conditions": { "disposition": ["neutral", "positive"] }, "weight": 7 },
+    { "id": "intel_road_checkpoints", "text": "Any checkpoints ahead?", "response": "intel_road_watch", "conditions": { "disposition": ["neutral", "positive"] }, "effects": [{ "type": "intel", "kind": "patrol_hint" }], "weight": 7 },
+    { "id": "intel_road_traffic", "text": "Much traffic come through here?", "response": "intel_road_watch", "conditions": { "disposition": ["neutral", "positive"] }, "weight": 5 },
+    { "id": "intel_road_last_trouble", "text": "When was the last trouble on this road?", "response": "intel_road_watch", "conditions": { "disposition": ["neutral", "positive"] }, "weight": 6 },
+    { "id": "intel_road_night_use", "text": "Does anyone use this road at night?", "response": "intel_road_watch", "conditions": { "disposition": ["neutral", "positive"] }, "weight": 5 },
+    { "id": "intel_road_carts", "text": "Do traders' carts still run this way?", "response": "intel_road_watch", "conditions": { "disposition": ["neutral", "positive"] }, "weight": 5 },
+    { "id": "intel_terrain_ridge", "text": "What's over that ridge?", "response": "intel_terrain", "weight": 8 },
+    { "id": "intel_terrain_forest", "text": "What's in the forest beyond here?", "response": "intel_terrain", "weight": 7 },
+    { "id": "intel_terrain_ruins", "text": "I saw ruins to the east. Know anything about them?", "response": "intel_terrain", "weight": 6 },
+    { "id": "intel_terrain_caves", "text": "Any caves worth knowing about nearby?", "response": "intel_terrain", "weight": 6 },
+    { "id": "intel_terrain_valley", "text": "What's down in the valley?", "response": "intel_terrain", "weight": 6 },
+    { "id": "intel_terrain_smoke", "text": "I saw smoke over the hills. Yours?", "response": "intel_terrain", "weight": 6 },
+    { "id": "intel_terrain_water", "text": "Where's good water around here?", "response": "intel_terrain", "weight": 7 },
+    { "id": "intel_terrain_high_ground", "text": "What's the highest ground around?", "response": "intel_terrain", "weight": 5 },
+    { "id": "intel_terrain_swamp", "text": "Is there a way around the swamp?", "response": "intel_terrain", "weight": 5 },
+    { "id": "intel_terrain_pass", "text": "Is the mountain pass open?", "response": "intel_terrain", "weight": 6 },
+    { "id": "intel_terrain_coast", "text": "How far to the coast from here?", "response": "intel_terrain", "weight": 5 },
+    { "id": "intel_terrain_bites", "text": "Anything out here that bites worse than soldiers?", "response": "intel_terrain", "weight": 5 },
+    { "id": "intel_route_east", "text": "What's the safest way east?", "response": "intel_safe_route", "weight": 7 },
+    { "id": "intel_route_avoid", "text": "Which routes should I avoid?", "response": "intel_safe_route", "weight": 8 },
+    { "id": "intel_route_dark_travel", "text": "Is it safe to travel after dark?", "response": "intel_safe_route", "weight": 6 },
+    { "id": "intel_route_shortcut", "text": "Any shortcuts through this territory?", "response": "intel_safe_route", "weight": 6 },
+    { "id": "intel_route_crossing", "text": "Where's the best river crossing?", "response": "intel_safe_route", "weight": 6 },
+    { "id": "intel_route_caravans", "text": "Which way do the caravans go?", "response": "intel_safe_route", "weight": 5 },
+    { "id": "intel_route_fewest_questions", "text": "Which road gets me through with the fewest questions?", "response": "intel_safe_route", "weight": 5 },
+    { "id": "intel_route_hauling", "text": "I'm hauling goods. Which road won't get them taken?", "response": "intel_safe_route", "conditions": { "disposition": ["positive"] }, "effects": [{ "type": "intel", "kind": "patrol_hint" }], "weight": 5 },
+    { "id": "intel_route_west", "text": "Best way west without trouble?", "response": "intel_safe_route", "conditions": { "disposition": ["positive"] }, "effects": [{ "type": "intel", "kind": "patrol_hint" }], "weight": 6 },
+    { "id": "intel_route_quiet_paths", "text": "Which paths stay quiet these days?", "response": "intel_safe_route", "conditions": { "disposition": ["positive"] }, "effects": [{ "type": "intel", "kind": "patrol_hint" }], "weight": 5 },
+    { "id": "intel_night_avoid", "text": "What should I avoid out here at night?", "response": "intel_night_hazards", "conditions": { "time": ["night"] }, "weight": 8 },
+    { "id": "intel_night_comes_out", "text": "What comes out after dark in these parts?", "response": "intel_night_hazards", "conditions": { "time": ["night"] }, "weight": 7 },
+    { "id": "intel_night_whose_fires", "text": "Whose fires are those out in the dark?", "response": "intel_night_hazards", "conditions": { "time": ["night"] }, "weight": 6 },
+    { "id": "intel_night_keep_walking", "text": "Is it madness to keep walking tonight?", "response": "intel_night_hazards", "conditions": { "time": ["night"] }, "weight": 6 },
+    { "id": "intel_night_sound", "text": "What was that sound just now?", "response": "intel_night_hazards", "conditions": { "time": ["night"] }, "weight": 6 },
+    { "id": "intel_night_watchword", "text": "What should I call out so your sentries don't jump me in the dark?", "response": "intel_night_hazards", "conditions": { "time": ["night"] }, "weight": 5 },
+    { "id": "intel_night_safe_fire", "text": "Where's the nearest safe fire tonight?", "response": "intel_night_hazards", "conditions": { "time": ["night"] }, "weight": 6 },
+    { "id": "intel_night_moon_raids", "text": "Do raids come with the full moon out here?", "response": "intel_night_hazards", "conditions": { "time": ["night"] }, "weight": 4 },
+    { "id": "intel_night_bad_roads", "text": "Which roads go bad after sundown?", "response": "intel_night_hazards", "conditions": { "time": ["night"] }, "weight": 6 },
+    { "id": "intel_night_first_light", "text": "How long until first light?", "response": "intel_night_hazards", "conditions": { "time": ["night"] }, "weight": 5 },
+    { "id": "intel_blood_still_need", "text": "I know we've traded blows. I still need directions.", "response": "intel_blood_ask", "conditions": { "has_killed_this_faction": true }, "weight": 6 },
+    { "id": "intel_blood_market_road", "text": "Business is business. Where's the nearest market road?", "response": "intel_blood_ask", "conditions": { "has_killed_this_faction": true }, "weight": 5 },
+    { "id": "intel_blood_blind", "text": "You'd rather I wander your lands blind? Tell me what's ahead.", "response": "intel_blood_ask", "conditions": { "has_killed_this_faction": true }, "weight": 5 },
+    { "id": "intel_blood_humor_me", "text": "Humor me — where's your base?", "response": "intel_blood_ask", "conditions": { "has_killed_this_faction": true }, "effects": [{ "type": "standing", "amount": -2 }], "weight": 3 },
+    { "id": "intel_blood_truce_minute", "text": "Truce for a minute. What's down this road?", "response": "intel_blood_ask", "conditions": { "has_killed_this_faction": true }, "weight": 5 },
+    { "id": "intel_blood_forget", "text": "Forget what happened between us. Who patrols this stretch?", "response": "intel_blood_ask", "conditions": { "has_killed_this_faction": true }, "weight": 4 },
+    { "id": "intel_blood_coin", "text": "My coin spends the same as anyone's. What's out east?", "response": "intel_blood_ask", "conditions": { "has_killed_this_faction": true }, "weight": 4 },
+    { "id": "intel_blood_missing_me", "text": "Your patrols keep missing me. Where will the next one be?", "response": "intel_blood_ask", "conditions": { "has_killed_this_faction": true }, "effects": [{ "type": "standing", "amount": -3 }], "weight": 2 },
+    { "id": "intel_field_far_out", "text": "What brings your patrol this far out?", "response": "intel_field_talk", "conditions": { "location": ["patrol", "wilderness"] }, "weight": 7 },
+    { "id": "intel_field_seen_anyone", "text": "Seen anyone else on this road today?", "response": "intel_field_talk", "conditions": { "location": ["patrol", "wilderness"] }, "weight": 7 },
+    { "id": "intel_field_tracks", "text": "I crossed fresh tracks back there. Yours?", "response": "intel_field_talk", "conditions": { "location": ["patrol", "wilderness"] }, "weight": 6 },
+    { "id": "intel_field_lost_who", "text": "Are you lot lost, or am I?", "response": "intel_field_talk", "conditions": { "location": ["patrol", "wilderness"] }, "weight": 5 },
+    { "id": "intel_field_camp_tonight", "text": "Where will you camp tonight?", "response": "intel_field_talk", "conditions": { "location": ["patrol", "wilderness"] }, "weight": 5 },
+    { "id": "intel_field_ground_runs", "text": "How far does your ground run out here?", "response": "intel_field_talk", "conditions": { "location": ["patrol", "wilderness"] }, "weight": 5 },
+    { "id": "intel_field_trail_ahead", "text": "Anything I should know about the trail ahead?", "response": "intel_field_talk", "conditions": { "location": ["patrol", "wilderness"] }, "weight": 7 },
+    { "id": "intel_field_water_days", "text": "Is there water enough out here for two more days' walking?", "response": "intel_field_talk", "conditions": { "location": ["wilderness"] }, "weight": 5 },
+    { "id": "intel_field_walk_along", "text": "Mind if I walk with your patrol a stretch?", "response": "intel_field_talk", "conditions": { "location": ["patrol"] }, "weight": 5 },
+    { "id": "intel_field_home_far", "text": "You're a long way from home.", "response": "intel_field_talk", "conditions": { "location": ["patrol", "wilderness"] }, "weight": 6 },
+    { "id": "intel_supply_come_from", "text": "Where do your supplies come in from?", "response": "intel_supply_lines", "conditions": { "role": ["quartermaster"] }, "weight": 6 },
+    { "id": "intel_supply_short_of", "text": "What are you short of these days?", "response": "intel_supply_lines", "conditions": { "role": ["quartermaster"] }, "weight": 6 },
+    { "id": "intel_supply_next_run", "text": "When does the next supply run arrive?", "response": "intel_supply_lines", "conditions": { "role": ["quartermaster"] }, "weight": 5 },
+    { "id": "intel_supply_surplus", "text": "Can I buy off your surplus?", "response": "intel_supply_lines", "conditions": { "role": ["quartermaster"] }, "weight": 6 },
+    { "id": "intel_supply_bring_goods", "text": "If I brought goods to sell, which road should I use?", "response": "intel_supply_lines", "conditions": { "role": ["quartermaster"] }, "weight": 5 },
+    { "id": "intel_supply_grain", "text": "What's grain fetching out here?", "response": "intel_supply_lines", "conditions": { "role": ["quartermaster"] }, "weight": 5 },
+    { "id": "intel_supply_stores_deep", "text": "How deep are your stores running?", "response": "intel_supply_lines", "conditions": { "role": ["quartermaster"] }, "weight": 4 },
+    { "id": "intel_supply_guard_work", "text": "Which routes need guarding? I might take the work.", "response": "intel_supply_lines", "conditions": { "role": ["quartermaster"] }, "weight": 5 }
+  ],
+  "responses": {
+    "intel_ask_own_base": {
+      "vostok": {
+        "negative": [
+          "Our walls are for us. You get the wire.",
+          "You want the line's address? Earn it or dig for it."
+        ],
+        "neutral": [
+          "There's a camp. It has a direction. That's all you get today.",
+          "The line sits where the digging is. You'll know it by the mud."
+        ],
+        "positive": [
+          "Follow the trench-smoke north till your boots sink. Knock loud, walk slow.",
+          "Home is where the shovels are. Head that way — tell them the line sent you.",
+          "You've earned the walk. Warm food, cold bunks, honest mud. Go on."
+        ]
+      },
+      "aegis": {
+        "negative": [
+          "Base locations are restricted. Move along.",
+          "That information is above your clearance. It will stay there."
+        ],
+        "neutral": [
+          "Installations are need-to-know. You don't need to know.",
+          "Follow the marked road and you'll be met before you're lost."
+        ],
+        "positive": [
+          "Cleared for release. Bearing's on your map — announce yourself at the outer marker.",
+          "Forward operating site is a short march out. Gate staff will have your name.",
+          "Take the maintained road. If a sentry stops you, say you're logged as friendly."
+        ]
+      },
+      "sarab": {
+        "negative": [
+          "Our tents move. Your questions do not catch them.",
+          "Ask the dunes. They keep our address better than I do."
+        ],
+        "neutral": [
+          "Where do the swallows sleep? Somewhere out of the wind. So do we.",
+          "The camp finds its guests. Guests do not find the camp."
+        ],
+        "positive": [
+          "Walk toward the evening star until you smell cardamom. The fires will rise to meet you.",
+          "The path is under the third ridge, where the shadow pools at dusk. You are expected.",
+          "Follow the camel tracks that vanish. Where they end, we begin."
+        ]
+      }
+    },
+    "intel_stonewall_base": {
+      "vostok": {
+        "negative": [
+          "Ha. Write your question down, roll it tight, eat it.",
+          "You ask where we sleep? Closer than you'd like, friend.",
+          "The only map you get is the road out. It's behind you."
+        ],
+        "neutral": [
+          "Curious one, aren't you. Curiosity fills trenches.",
+          "That's line business. Yours is walking."
+        ],
+        "positive": [
+          "Even for you, some doors stay shut. Nothing personal — everything's personal, actually.",
+          "Ask me about the weather instead. The weather won't get us shelled."
+        ]
+      },
+      "aegis": {
+        "negative": [
+          "Denied. And the request itself is now in your file.",
+          "That question is a threat indicator. Ask another.",
+          "You are fishing in a restricted pond, civilian."
+        ],
+        "neutral": [
+          "Negative. Operational security is not a courtesy I can waive.",
+          "Request denied. Standard procedure, nothing personal."
+        ],
+        "positive": [
+          "Even friendlies don't get that one. Doctrine before friendship.",
+          "Can't release it. What I can do is walk you somewhere safer to stand."
+        ]
+      },
+      "sarab": {
+        "negative": [
+          "You ask the mirage for its house. Enjoy the search.",
+          "A knife asks the sheath where it lives. The sheath smiles.",
+          "Dig anywhere. You will find sand, and sand, and then us — too late."
+        ],
+        "neutral": [
+          "The desert has many rooms and lends none of them.",
+          "Some questions are doors. That one is a wall."
+        ],
+        "positive": [
+          "Friend, do not carry that answer. It is heavy, and men die of the weight.",
+          "Even the tea does not know where the kettle sleeps."
+        ]
+      }
+    },
+    "intel_vague_directions": {
+      "vostok": {
+        "negative": [
+          "There's mud in every direction. Pick one.",
+          "Somewhere out there. Walk until someone shouts."
+        ],
+        "neutral": [
+          "There's a road east. It goes east. That's its whole trick.",
+          "Settlements come and go out here. Mostly go.",
+          "Follow the ruts. Carts are smarter than people about where to walk."
+        ],
+        "positive": [
+          "Keep the sunrise on your left shoulder and you'll hit the trade track by noon.",
+          "There's a hamlet past the burned mill. They'll sell you bread if you don't mention us."
+        ]
+      },
+      "aegis": {
+        "negative": [
+          "Consult a map. Not mine.",
+          "Navigation assistance is not on offer today."
+        ],
+        "neutral": [
+          "General bearings only: settlement traffic runs the east road. Beyond that, ask there.",
+          "You're inside our operating area. Edges are a day's walk in most directions.",
+          "The river road is maintained. The rest I wouldn't certify."
+        ],
+        "positive": [
+          "Marked route east, two klicks, then follow the cairns. You'll raise a village by dusk.",
+          "Stay on the graded road and you'll pass two of our markers before any trouble."
+        ]
+      },
+      "sarab": {
+        "negative": [
+          "Every direction is far, walker. Start early.",
+          "The land belongs to whoever the land is currently eating."
+        ],
+        "neutral": [
+          "Roads here are like promises. Some are kept.",
+          "There is a well two ridges over. Where there is water, there are people. Sometimes kind ones.",
+          "Walk with the wind at your back and you will arrive somewhere. The desert decides where."
+        ],
+        "positive": [
+          "Past the white rocks there is a market that asks no names. Mention the shade and pay less.",
+          "Follow the old riverbed. Dead rivers still know the way to towns."
+        ]
+      }
+    },
+    "intel_rival_base": {
+      "vostok": {
+        "negative": [
+          "Give you our enemy's door? You haven't even earned ours.",
+          "No. You'd sell it to them by supper."
+        ],
+        "neutral": [
+          "That arithmetic isn't for strangers.",
+          "The enemy is that way. The details cost more than you've paid."
+        ],
+        "positive": [
+          "Lean in. Their camp squats past the ridge — hit it at dawn and count for us.",
+          "We've bled for this map. You've bled with us, so look: there. Bring back their banner.",
+          "Their walls are where our shells land. Follow the thunder, friend."
+        ]
+      },
+      "aegis": {
+        "negative": [
+          "Hostile positions are classified. Especially from you.",
+          "You don't have the clearance, and frankly you don't have the trust."
+        ],
+        "neutral": [
+          "Target data is restricted. Assistance in earning access is available.",
+          "Negative. That release requires a standing relationship you don't have yet."
+        ],
+        "positive": [
+          "Releasing hostile grid to a verified friendly. Copy it once, burn nothing, tell no one.",
+          "Enemy encampment plotted at the marked bearing. If you act on it, we never spoke.",
+          "You've earned target access. Coordinates follow. Advise you strike with the sun behind you."
+        ]
+      },
+      "sarab": {
+        "negative": [
+          "You hunt with wolves you have not fed. No.",
+          "Our enemies' names are not coins for your purse."
+        ],
+        "neutral": [
+          "The scorpion does not point out the other scorpion. Professional courtesy.",
+          "Patience. Trust ripens slower than dates."
+        ],
+        "positive": [
+          "Their fires burn beyond the salt flat. Go in the cold hours; their sentries dream of home.",
+          "The vipers nest where the two hills kiss. Strike while the shadow is longest, friend.",
+          "We have watched them a season. Now you may borrow our eyes. There — where the crows circle."
+        ]
+      }
+    },
+    "intel_rival_officer": {
+      "vostok": {
+        "negative": [
+          "An officer's map is paid for in casualties. Yours isn't the currency.",
+          "I brief my line, not strangers with opinions."
+        ],
+        "neutral": [
+          "Briefings are for people who dig when told. You don't dig.",
+          "I've buried men for guessing at this. I won't hand it to you free."
+        ],
+        "positive": [
+          "Fine. Officer to irregular: their strength sits past the ford. Numbers favor us. They always do, eventually.",
+          "Here's the picture I give my sergeants: enemy there, us here, mud everywhere. Memorize it.",
+          "You've carried weight for the line, so carry this: their forward camp, one valley over."
+        ]
+      },
+      "aegis": {
+        "negative": [
+          "You're asking a commissioned officer to commit a breach. Bold. Denied.",
+          "My scouts earn their briefings. You've earned an escort out."
+        ],
+        "neutral": [
+          "That briefing has a distribution list. You're not on it.",
+          "I don't freelance intelligence, civilian. Chain of command exists for a reason."
+        ],
+        "positive": [
+          "Command assessment, verbal only: hostile axis runs the low ground. Their camp anchors it. Marked.",
+          "I'll authorize a one-time release. Enemy laager at the plotted point. Use it before it goes stale.",
+          "Consider yourself a deputized asset. The opposing force masses beyond the tree line — there."
+        ]
+      },
+      "sarab": {
+        "negative": [
+          "The falcon does not report to the field mouse.",
+          "I lead by knowing what others do not. I will keep leading."
+        ],
+        "neutral": [
+          "A captain's knowledge is his tent pole. Pull it and everything falls.",
+          "Ask me for water, for bread, for shade. Not for this."
+        ],
+        "positive": [
+          "Come, look at the sand table. This wadi — their camp. This hour — their weakness. Go quietly.",
+          "I will tell you what my riders know: the enemy sleeps fat behind the gap in the hills.",
+          "You have kept faith with the shade, so the shade opens its hand: their position, there."
+        ]
+      }
+    },
+    "intel_rival_refused": {
+      "vostok": {
+        "negative": [
+          "Our wars are our own. Yours is finding the road out.",
+          "You ask about our enemies like you aren't one. Funny.",
+          "The front doesn't send news. It sends stretchers."
+        ],
+        "neutral": [
+          "There's a war. It's around. Specifics are for people in it.",
+          "Who's winning? The flies. The flies are always winning.",
+          "You want battle news, enlist. We issue shovels same day."
+        ],
+        "positive": [
+          "Careful, friend. Names of enemies are heavier than they look.",
+          "Not yet. Ask me again when your boots have more of our mud on them."
+        ]
+      },
+      "aegis": {
+        "negative": [
+          "Hostile force data is classified, and you're closer to hostile than force.",
+          "Your interest in our enemies is noted. And filed.",
+          "No comment, and the asking cost you nothing only this once."
+        ],
+        "neutral": [
+          "Ongoing operations are not discussed with unaffiliated persons.",
+          "There is a conflict. Its particulars are managed. That's your briefing.",
+          "I can neither confirm nor locate anything for you today."
+        ],
+        "positive": [
+          "Soon, maybe. Trust accrues like interest, and yours is still maturing.",
+          "That's one clearance level above where we stand, friend. Keep standing with us."
+        ]
+      },
+      "sarab": {
+        "negative": [
+          "You ask who we fight. Today, perhaps whoever asks too much.",
+          "Our quarrels are old and private, like family debts.",
+          "The desert eats armies. Which one is not your concern."
+        ],
+        "neutral": [
+          "Wars here are like wind. Always somewhere, never where you point.",
+          "Who is winning? The sand. The sand is undefeated.",
+          "When the tea has been shared more times, perhaps the names will pour too."
+        ],
+        "positive": [
+          "Patience, friend of the shade. Fruit picked green sours the whole basket.",
+          "Walk with us a while longer. Then we will speak of vipers and where they nest."
+        ]
+      }
+    },
+    "intel_patrol_schedule": {
+      "vostok": {
+        "negative": [
+          "The patrol comes when it comes. Usually right behind you.",
+          "Our rounds are our business. Being found by them is yours."
+        ],
+        "neutral": [
+          "Rounds pass often enough. Often enough for what? Exactly.",
+          "Shifts change when the relief stops complaining and starts walking.",
+          "The line walks its wire at all hours. Sleep is a rumor."
+        ],
+        "positive": [
+          "Next sweep loops the east track before dusk. Wave early, wave big.",
+          "Relief column moves at first light. Travel behind it and you'll have quiet roads.",
+          "We double the wire watch after bad nights. Last night was bad. Walk loud today."
+        ]
+      },
+      "aegis": {
+        "negative": [
+          "Patrol timings are classified. Persisting will classify you.",
+          "That's operational tempo. Not yours to know."
+        ],
+        "neutral": [
+          "Rotations occur on schedule. The schedule is the part you don't get.",
+          "Coverage is continuous. Treat every road as watched and you'll be accurate enough.",
+          "Patrols are frequent by design. Design is classified."
+        ],
+        "positive": [
+          "Between you and the gatepost: south leg turns over at dusk. Cross before, not after.",
+          "Next foot patrol sweeps the ridge road within the hour. Friendly faces, if yours stays friendly.",
+          "Our long-range element is out two days. Roads west are thinner than usual. Plan accordingly."
+        ]
+      },
+      "sarab": {
+        "negative": [
+          "We pass when the shadow passes. Try to time a shadow.",
+          "Ask the moon when we walk. She keeps our diary."
+        ],
+        "neutral": [
+          "The watch changes as the wind changes. You will feel it, not see it.",
+          "We are behind you more often than ahead of you. Let that schedule your day.",
+          "Patrols? We prefer to say the desert strolls, and sometimes we stroll with it."
+        ],
+        "positive": [
+          "The riders swing wide of the salt pan until the heat breaks. Travel it at midday, friend.",
+          "Our walkers rest at the old cistern near sundown. Pass there and you pass among friends.",
+          "Tonight the watch is thick to the north. Keep south of the ridge and the road is yours."
+        ]
+      }
+    },
+    "intel_patrol_refused": {
+      "vostok": {
+        "negative": [
+          "Asking about our watch is how people end up counted by it.",
+          "Blind spots? We're standing in one. Just you and me. Think about that.",
+          "Short-handed, sure. Never too short to handle you."
+        ],
+        "neutral": [
+          "That question has barbed wire around it.",
+          "Watch business stays inside the watch."
+        ],
+        "positive": [
+          "Even friends don't get the roster. The roster is how we stay alive.",
+          "Ha — you sound like an inspector. Inspectors get shown the nice trench only."
+        ]
+      },
+      "aegis": {
+        "negative": [
+          "That is exactly the question an infiltrator asks. Noted, timestamped, remembered.",
+          "Sentry counts are classified. Your interest in them is now also on file.",
+          "Keep probing our watch and the watch will probe back."
+        ],
+        "neutral": [
+          "Security posture isn't shared. Standing order, no exceptions.",
+          "Negative on all of that. The perimeter answers to no questionnaire."
+        ],
+        "positive": [
+          "Friend or not, the watch bill stays sealed. It protects you too, believe it.",
+          "If our coverage worried me, I'd fix it, not discuss it. It doesn't worry me."
+        ]
+      },
+      "sarab": {
+        "negative": [
+          "You count our sentries? Count the stars instead. Same use, longer life.",
+          "The night has holes only for those we allow to fall through them.",
+          "Ask again about our watch and you will meet it personally."
+        ],
+        "neutral": [
+          "The tent does not show its stitching to the wind.",
+          "We watch what needs watching. Currently, that includes you."
+        ],
+        "positive": [
+          "Even to a friend, the pattern of the watch is a bride's face. Veiled.",
+          "Why count our eyes, friend? Enough are open. Always enough."
+        ]
+      }
+    },
+    "intel_road_watch": {
+      "vostok": {
+        "negative": [
+          "This road belongs to whoever holds it. Today: us. Keep moving.",
+          "Watched enough to catch you. That's the number that matters."
+        ],
+        "neutral": [
+          "It's the line's road. We sweep it when the mud allows.",
+          "Bandits tried this stretch once. The ditch remembers them.",
+          "Carts pass on quota days. Otherwise it's boots and crows."
+        ],
+        "positive": [
+          "Our section walks it twice a day, more when the guns get chatty. You're covered till the fork.",
+          "Road's ours and it's quiet. The tolls died with the last toll-takers.",
+          "Stay on it till the burned oak, then you're past our wire and into luck."
+        ]
+      },
+      "aegis": {
+        "negative": [
+          "This is a controlled route. You're the current control problem.",
+          "Who watches it? You're talking to him. Move along."
+        ],
+        "neutral": [
+          "Route is under regular observation. Conduct yourself accordingly.",
+          "Checkpoint ahead at the bridge. Have your business ready to state.",
+          "Bandit activity is suppressed on this corridor. We keep it that way."
+        ],
+        "positive": [
+          "Corridor's green through the crossroads. Past that, our coverage thins — stay alert.",
+          "You'll hit one checkpoint at the mill. Give them your name; it's in the friendly log.",
+          "We run this road on a tight loop. Trouble finds you, hold position — response is fast."
+        ]
+      },
+      "sarab": {
+        "negative": [
+          "The road is watched. Mostly, right now, you are the thing watched.",
+          "Whose road? The road of whoever wakes up still holding it."
+        ],
+        "neutral": [
+          "Many eyes rest on this road. Not all of them blink.",
+          "Tolls, no. Debts, sometimes. The road keeps its own ledger.",
+          "Night traffic exists. It prefers not to be discussed."
+        ],
+        "positive": [
+          "The road is under our shade to the twin palms. Beyond that, walk like a stranger again.",
+          "Trouble avoids this stretch, friend. Trouble knows who it belongs to.",
+          "Carts pass on market days under our eye. Join one; company shortens miles."
+        ]
+      }
+    },
+    "intel_terrain": {
+      "vostok": {
+        "negative": [
+          "Over the ridge? More war. Under it too, if you dig.",
+          "Terrain questions from you make my trigger finger philosophical."
+        ],
+        "neutral": [
+          "Ridge hides a dead village. Everything useful was carried off, including the roofs.",
+          "The valley floods, the forest hides deserters, the caves eat lanterns. Charming country.",
+          "Good water at the shattered well, if you boil it and your standards are low."
+        ],
+        "positive": [
+          "Past the ridge is a meadow the shells missed. Prettiest thing for miles. Enjoy it for us.",
+          "The caves north are dry and deep. We stashed matches there once. Might still be some.",
+          "That smoke is ours — cook fires, not signal fires. Somebody finally shot a boar."
+        ]
+      },
+      "aegis": {
+        "negative": [
+          "Terrain data supports operations. You're not an operation. Yet.",
+          "Ask the ridge yourself. Take your time up there in the open."
+        ],
+        "neutral": [
+          "High ground east is surveyed. Low ground floods seasonal. Plan around both.",
+          "The ruins predate all three banners. Structurally unsound, occasionally occupied.",
+          "The pass is open but unimproved. Rockfall risk after rain."
+        ],
+        "positive": [
+          "Over the ridge: open farmland, one abandoned watchtower, decent sightlines. Safe in daylight.",
+          "Reliable water at the spring by the split boulder. We test it monthly. It passes.",
+          "Coast is three days on the river road. Two if you don't stop to admire our engineering."
+        ]
+      },
+      "sarab": {
+        "negative": [
+          "Beyond the ridge is more of what is behind you. Disappointment.",
+          "The land answers politely to polite guests. You are neither, yet."
+        ],
+        "neutral": [
+          "The valley holds an old orchard gone wild. The fruit is bitter and the shade is sweet.",
+          "Those ruins were a proud town once. Pride is poor mortar.",
+          "The swamp can be skirted on the deer paths. Deer are honest guides."
+        ],
+        "positive": [
+          "Beyond the ridge a spring hides under the fig roots. Drink deep and thank the tree, friend.",
+          "The caves keep cool even at noon. We have slept there; the sand inside tells no tales.",
+          "That smoke is a wedding, not a war. This week, at least, the hills celebrate."
+        ]
+      }
+    },
+    "intel_safe_route": {
+      "vostok": {
+        "negative": [
+          "Safest way is away. All roads qualify.",
+          "Routes are safe until they aren't. You'll find the boundary fast."
+        ],
+        "neutral": [
+          "East road is dull, which is the best thing a road can be.",
+          "Avoid the ford after rain and the tavern after payday.",
+          "Caravans hug the ridgeline. Slower, but caravans still exist, so."
+        ],
+        "positive": [
+          "Take the sunken lane, friend. Ugly walking, but nobody ambushes a ditch they can't see into.",
+          "Go west by the quarry track. Our guns overlook it the whole way. Best escort money can't buy.",
+          "Cross the river at the cattle ford, not the bridge. Bridges collect the wrong crowd."
+        ]
+      },
+      "aegis": {
+        "negative": [
+          "Route planning services are for cleared personnel. Walk where you like. Carefully.",
+          "The safest route for you is out of my sector. Any bearing."
+        ],
+        "neutral": [
+          "Main east road is patrolled and posted. Secondary tracks are travel-at-own-risk.",
+          "After dark, movement is discouraged. That's guidance, not a threat.",
+          "The river crossing at the mill is inspected and stable. Use that one."
+        ],
+        "positive": [
+          "Recommended routing: east road to the crossroads, then the marked trail. Both under watch.",
+          "Hauling cargo? Take the convoy road on supply days. Nobody touches what moves with us.",
+          "West passage is clean this week. Our patrols just swept it end to end."
+        ]
+      },
+      "sarab": {
+        "negative": [
+          "Every road is safe until the sand shifts. The sand is shifting.",
+          "Ask me tomorrow. Tonight, no road would forgive you."
+        ],
+        "neutral": [
+          "Travel with the cool hours and the busy birds. Both avoid trouble professionally.",
+          "The shortcut exists. It is shorter in distance and longer in regret.",
+          "Cross the river where the women wash clothes. Danger avoids witnesses."
+        ],
+        "positive": [
+          "Walk the shepherd trail at dawn, friend. It is watched by kind eyes the whole way.",
+          "The quiet paths run behind the dunes. Quiet because we keep them so. They are yours today.",
+          "Go with the salt caravan when it passes. Its guides owe us shade and will owe you courtesy."
+        ]
+      }
+    },
+    "intel_night_hazards": {
+      "vostok": {
+        "negative": [
+          "At night, avoid us. There. Free advice.",
+          "The dark hides wolves, deserters, and worse: sentries who startle."
+        ],
+        "neutral": [
+          "Avoid lights that move and silences that don't.",
+          "Night belongs to whoever's most tired of living. Don't compete.",
+          "That sound? Wire on wind. Probably. The line finds out at dawn."
+        ],
+        "positive": [
+          "Stay near our wire tonight, friend. Shout 'shovels' at the sentry and he'll wave you close.",
+          "Our fire's the low red one by the berm. Cold night's shorter with company.",
+          "Dawn's maybe four hours off. Sit with the reserve squad; they brew something almost like tea."
+        ]
+      },
+      "aegis": {
+        "negative": [
+          "After dark, unidentified movement gets one challenge. Sometimes.",
+          "Night protocol is strict. You're one silhouette away from learning it."
+        ],
+        "neutral": [
+          "Avoid the perimeter approaches at night. Sentries challenge once, per doctrine.",
+          "Unlit roads are uncontrolled roads. Govern yourself accordingly.",
+          "That sound was an animal or a problem. We're paid to assume the problem."
+        ],
+        "positive": [
+          "Call out 'traveler, friendly' at any post and hold still. You're in the log; you'll be fine.",
+          "Safest fire tonight is our forward picket. Announce early — night watch likes warnings.",
+          "First light in five hours. Shelter at the signal tower; the crew expects stragglers."
+        ]
+      },
+      "sarab": {
+        "negative": [
+          "The night here has our manners. Do not test its patience.",
+          "What comes out after dark? We do. You have your answer and your warning."
+        ],
+        "neutral": [
+          "Avoid still water and still men. Both drown travelers.",
+          "The fires you see are stories. Some welcome guests. Some collect them.",
+          "Walk loud if you must walk. The night mistakes quiet men for prey — or rivals."
+        ],
+        "positive": [
+          "Sleep near the tamarisk, friend. Our night walkers pass it twice and will pass over you kindly.",
+          "The moon is with you tonight. Keep her on your right and you keep our blessing.",
+          "Come to the low fire with the copper kettle. Night tea is bitter and the company gentle."
+        ]
+      }
+    },
+    "intel_blood_ask": {
+      "vostok": {
+        "vengeful": [
+          "Directions? To your grave, gladly. It's nearby and we dug it personally.",
+          "Eleven names, and you want a map. The nerve is almost admirable. Almost."
+        ],
+        "negative": [
+          "You spilled our blood and want directions. The road out. Fast.",
+          "The only thing I'll point at you is already pointed."
+        ],
+        "neutral": [
+          "You've cost us, and you know it. Ask small questions and walk smaller.",
+          "Truce, he says. The dead don't sign truces. But fine — the road's clear to the fork. Go."
+        ],
+        "positive": [
+          "You settled some of what you owed, so: east track's safe. We're square until you make us not.",
+          "The line remembers your sins and your service both. Today the service wins. Barely. Head south."
+        ]
+      },
+      "aegis": {
+        "vengeful": [
+          "You have confirmed kills on this command and questions in your mouth. Astonishing. Leave.",
+          "Weapons-free is one order away. Your directions are: anywhere else."
+        ],
+        "negative": [
+          "You're red-flagged with casualties attached. No information will be released.",
+          "Your record includes our dead. This conversation is over-generous already."
+        ],
+        "neutral": [
+          "Given your history, cooperation is limited: road's open east. That's all you get.",
+          "You've cost this command personnel. I'll answer nothing that helps you cost us more."
+        ],
+        "positive": [
+          "Your ledger with us is complicated. Balance says: market road's two klicks south. Don't reset it.",
+          "Restitution is noted, casualties are not forgotten. Travel east. Stay visible while you do."
+        ]
+      },
+      "sarab": {
+        "vengeful": [
+          "You come to the well you filled with blood, asking to drink. Poetic. Fatal, but poetic.",
+          "The sand under your feet holds our brothers. It is listening for your last step."
+        ],
+        "negative": [
+          "Directions, from us, for you? The vulture gives better ones. Follow him.",
+          "Your hands are red and your tongue is bold. One of these will shorten your road."
+        ],
+        "neutral": [
+          "We remember what you took. Still — the road east is open. Even debts respect the road.",
+          "Bold, to ask. The market track runs past the dry well. Walk it owing us, and walk quickly."
+        ],
+        "positive": [
+          "Blood dries, friend, when enough kindness rains on it. East, past the cairns. Go in peace, this once.",
+          "The scales between us tremble. I will steady them: safe road south. Do not touch the scales again."
+        ]
+      }
+    },
+    "intel_field_talk": {
+      "vostok": {
+        "negative": [
+          "Far from our walls, close to our patience's end. State your business.",
+          "Out here there's no wire between us. Remember that."
+        ],
+        "neutral": [
+          "We walk where the line needs eyes. Today it needs them here.",
+          "Seen nobody but crows and you. The crows were better company.",
+          "Tracks are ours. If they weren't, we'd be running, not talking."
+        ],
+        "positive": [
+          "Long way from home, sure. Home is where the shovel lands. Tonight, that hollow there.",
+          "Trail ahead is clear to the second ridge. After that, keep your head on a swivel, friend.",
+          "Walk with us to the stream if you like. The pace is miserable and the jokes are worse."
+        ]
+      },
+      "aegis": {
+        "negative": [
+          "This patrol is tasked. You're an unplanned contact. Don't become an unplanned incident.",
+          "Distance from base means nothing. Reach is doctrine."
+        ],
+        "neutral": [
+          "Routine reconnaissance. That's the whole answer you're cleared for.",
+          "Negative contacts today besides yourself. Keep it a quiet log.",
+          "Trail ahead is unassessed past the creek. Treat it as such."
+        ],
+        "positive": [
+          "We're sweeping the far arc — long walk, good boots. Road behind us is clean, use it.",
+          "You can move with the patrol to the waypoint. Stay in file, don't wander off the track.",
+          "Fresh water's cached at the leaning pine. Take a fair share and leave the cache covered."
+        ]
+      },
+      "sarab": {
+        "negative": [
+          "Far from walls, yes. We never had walls. You are far from yours.",
+          "The patrol you see is the smallest part of the patrol you don't."
+        ],
+        "neutral": [
+          "We go where the sand goes. It has been going here lately.",
+          "The only tracks that matter are the ones you did not notice.",
+          "The trail ahead is honest until the black rocks. After that, it starts telling stories."
+        ],
+        "positive": [
+          "Walk with us to the well, friend. The desert is smaller with company and larger with none.",
+          "We camp where the wind forgets to look. Tonight, that gully. There is room by the fire.",
+          "Ahead the trail is swept and safe. We swept it. Consider it our gift to your boots."
+        ]
+      }
+    },
+    "intel_supply_lines": {
+      "vostok": {
+        "negative": [
+          "Stores are counted, crates are counted, you are counted. Move along.",
+          "Supply questions from strangers end up in the wrong ledgers."
+        ],
+        "neutral": [
+          "Supplies come from sacrifice and a road I won't name. Mostly sacrifice.",
+          "We're short of everything except mud and resolve. Standing order.",
+          "Grain fetches whatever hungry men pay. So: everything."
+        ],
+        "positive": [
+          "Between us — the column comes up the north road on quota days. Sell to me before it arrives, prices are kinder.",
+          "Short on salt, nails, and reasons to smile. Bring any of the three and we'll talk numbers.",
+          "There's escort work on the ration road if your arm's strong and your questions are few."
+        ]
+      },
+      "aegis": {
+        "negative": [
+          "Logistics data is more classified than the war itself. File your curiosity elsewhere.",
+          "Asking a quartermaster about supply lines is asking to be inventoried. Don't."
+        ],
+        "neutral": [
+          "Procurement is centralized, distribution is scheduled, and neither is your business.",
+          "Shortages exist. Their specifics are managed above your involvement.",
+          "Market rates are posted at the trade point. Consult the board, not me."
+        ],
+        "positive": [
+          "Resupply convoy runs the graded road twice weekly. Vendors get right of way if they're on the ledger — you are.",
+          "Current shortfalls: binding wire, lamp oil, dried fruit. Deliver any and invoice me directly.",
+          "Route security contracts are open. Standard rates, paid on delivery confirmation. Interested?"
+        ]
+      },
+      "sarab": {
+        "negative": [
+          "Where does our water come from? The sky. Complain to it.",
+          "You count our sacks and I will count your steps. Neither ends well."
+        ],
+        "neutral": [
+          "Supplies arrive the way dew arrives. Quietly, and gone by the time you ask.",
+          "What are we short of? Rain. Always rain. The rest we manage.",
+          "Prices here follow the wind. Today the wind is moderate."
+        ],
+        "positive": [
+          "The caravans slip in by the old salt path, friend. Meet them at the cistern and trade under our shade.",
+          "Bring dates, rope, or good cloth and the camp will open its purse to you gladly.",
+          "We pay well for quiet guards on the water road. Quieter the guard, heavier the purse."
+        ]
+      }
+    }
+  }
+}

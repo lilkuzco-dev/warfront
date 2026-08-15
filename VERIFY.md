@@ -120,5 +120,11 @@ overrides only; garrison ranges untouched).
   multiplier), server log: `Betrayal: … was friendly with sarab; killed_soldier weight
   x2.0`. ✅
 
+- Roaming despawn / entity leak: at battery cadence (20 s @ 100%) roamers accumulated
+  to 19; after their chunks sat unloaded past the (shortened) despawn deadline and were
+  reloaded, the sweep discarded them — count fell to 4, all of them fresh spawns from
+  the still-running fast cadence. No leak; production cadence (240 s @ 50%, cap-gated)
+  keeps steady-state far lower. ✅
+
 Deferred to the post-corpus session: dialogue UI tests (#7–#9 options/reroll/locks),
-quartermaster loop, screenshots, 10-min unload despawn, client render check.
+quartermaster loop, screenshots, client render check.

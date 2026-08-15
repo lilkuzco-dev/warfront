@@ -1,0 +1,1564 @@
+{
+  "category": "rumors",
+  "options": [
+    {
+      "id": "rumors_vostok_word",
+      "text": "What's the word on the iron-line men?",
+      "response": "rumors_about_vostok",
+      "conditions": {
+        "faction": [
+          "aegis",
+          "sarab"
+        ]
+      },
+      "weight": 15
+    },
+    {
+      "id": "rumors_vostok_waves",
+      "text": "Is it true the trench army attacks in waves until your arms give out?",
+      "response": "rumors_about_vostok",
+      "conditions": {
+        "faction": [
+          "aegis",
+          "sarab"
+        ]
+      }
+    },
+    {
+      "id": "rumors_vostok_numbers",
+      "text": "How many soldiers can the diggers actually put in the field?",
+      "response": "rumors_about_vostok",
+      "conditions": {
+        "faction": [
+          "aegis",
+          "sarab"
+        ]
+      }
+    },
+    {
+      "id": "rumors_vostok_break",
+      "text": "Do the men in the mud ever break and run?",
+      "response": "rumors_about_vostok",
+      "conditions": {
+        "faction": [
+          "aegis",
+          "sarab"
+        ]
+      }
+    },
+    {
+      "id": "rumors_vostok_quota",
+      "text": "I keep hearing about a 'quota' in the trenches across the way. Know anything?",
+      "response": "rumors_about_vostok",
+      "conditions": {
+        "faction": [
+          "aegis",
+          "sarab"
+        ]
+      }
+    },
+    {
+      "id": "rumors_vostok_winter",
+      "text": "They say the cold itself fights for the trench folk. True?",
+      "response": "rumors_about_vostok",
+      "conditions": {
+        "faction": [
+          "aegis",
+          "sarab"
+        ]
+      }
+    },
+    {
+      "id": "rumors_vostok_respect",
+      "text": "Do you respect the diggers? Even a little?",
+      "response": "rumors_about_vostok",
+      "conditions": {
+        "faction": [
+          "aegis",
+          "sarab"
+        ]
+      }
+    },
+    {
+      "id": "rumors_vostok_weakness",
+      "text": "If the trench army has a weakness, what would it be?",
+      "response": "rumors_about_vostok",
+      "conditions": {
+        "faction": [
+          "aegis",
+          "sarab"
+        ]
+      }
+    },
+    {
+      "id": "rumors_vostok_commander",
+      "text": "Who commands those wave assaults?",
+      "response": "rumors_about_vostok",
+      "conditions": {
+        "faction": [
+          "aegis",
+          "sarab"
+        ]
+      }
+    },
+    {
+      "id": "rumors_vostok_bargain",
+      "text": "Would your side ever strike a bargain with the shovel men?",
+      "response": "rumors_about_vostok",
+      "conditions": {
+        "faction": [
+          "aegis",
+          "sarab"
+        ]
+      }
+    },
+    {
+      "id": "rumors_vostok_earthworks",
+      "text": "I passed their earthworks yesterday. They're spreading.",
+      "response": "rumors_about_vostok",
+      "conditions": {
+        "faction": [
+          "aegis",
+          "sarab"
+        ]
+      }
+    },
+    {
+      "id": "rumors_vostok_singing",
+      "text": "Their singing carries across the valley after dark. Ever heard it?",
+      "response": "rumors_about_vostok",
+      "conditions": {
+        "faction": [
+          "aegis",
+          "sarab"
+        ],
+        "time": [
+          "night"
+        ]
+      }
+    },
+    {
+      "id": "rumors_vostok_losses",
+      "text": "Rumor says the mud soldiers lost a whole company last week.",
+      "response": "rumors_about_vostok",
+      "conditions": {
+        "faction": [
+          "aegis",
+          "sarab"
+        ]
+      }
+    },
+    {
+      "id": "rumors_vostok_feared",
+      "text": "Are your own soldiers scared of the men in the trenches?",
+      "response": "rumors_about_vostok",
+      "conditions": {
+        "faction": [
+          "aegis",
+          "sarab"
+        ]
+      }
+    },
+    {
+      "id": "rumors_vostok_prisoners",
+      "text": "What do the trench men do with their prisoners, do you know?",
+      "response": "rumors_about_vostok",
+      "conditions": {
+        "faction": [
+          "aegis",
+          "sarab"
+        ]
+      }
+    },
+    {
+      "id": "rumors_vostok_unmoved",
+      "text": "Why hasn't anyone pushed the diggers off this front yet?",
+      "response": "rumors_about_vostok",
+      "conditions": {
+        "faction": [
+          "aegis",
+          "sarab"
+        ]
+      }
+    },
+    {
+      "id": "rumors_vostok_soup",
+      "text": "Is it true the trench army eats the same grey soup every single day?",
+      "response": "rumors_about_vostok",
+      "conditions": {
+        "faction": [
+          "aegis",
+          "sarab"
+        ]
+      },
+      "weight": 5
+    },
+    {
+      "id": "rumors_aegis_word",
+      "text": "Any news of the precision army?",
+      "response": "rumors_about_aegis",
+      "conditions": {
+        "faction": [
+          "vostok",
+          "sarab"
+        ]
+      },
+      "weight": 15
+    },
+    {
+      "id": "rumors_aegis_untouchable",
+      "text": "Are the drill-perfect types as untouchable as they claim?",
+      "response": "rumors_about_aegis",
+      "conditions": {
+        "faction": [
+          "vostok",
+          "sarab"
+        ]
+      }
+    },
+    {
+      "id": "rumors_aegis_signals",
+      "text": "They say the disciplined ones can speak across miles in moments. How?",
+      "response": "rumors_about_aegis",
+      "conditions": {
+        "faction": [
+          "vostok",
+          "sarab"
+        ]
+      }
+    },
+    {
+      "id": "rumors_aegis_convoys",
+      "text": "Their supply columns run like clockwork, I'm told.",
+      "response": "rumors_about_aegis",
+      "conditions": {
+        "faction": [
+          "vostok",
+          "sarab"
+        ]
+      }
+    },
+    {
+      "id": "rumors_aegis_crack",
+      "text": "Do the parade-ground soldiers ever crack?",
+      "response": "rumors_about_aegis",
+      "conditions": {
+        "faction": [
+          "vostok",
+          "sarab"
+        ]
+      }
+    },
+    {
+      "id": "rumors_aegis_envy",
+      "text": "Be honest — is their discipline something you envy?",
+      "response": "rumors_about_aegis",
+      "conditions": {
+        "faction": [
+          "vostok",
+          "sarab"
+        ]
+      }
+    },
+    {
+      "id": "rumors_aegis_rust",
+      "text": "Where does the clockwork army rust?",
+      "response": "rumors_about_aegis",
+      "conditions": {
+        "faction": [
+          "vostok",
+          "sarab"
+        ]
+      }
+    },
+    {
+      "id": "rumors_aegis_orders",
+      "text": "Who writes all their precious orders?",
+      "response": "rumors_about_aegis",
+      "conditions": {
+        "faction": [
+          "vostok",
+          "sarab"
+        ]
+      }
+    },
+    {
+      "id": "rumors_aegis_table",
+      "text": "Could your people ever sit at a table with the shield-bearers?",
+      "response": "rumors_about_aegis",
+      "conditions": {
+        "faction": [
+          "vostok",
+          "sarab"
+        ]
+      }
+    },
+    {
+      "id": "rumors_aegis_drill_watch",
+      "text": "I watched them drill this morning. Not one step out of place.",
+      "response": "rumors_about_aegis",
+      "conditions": {
+        "faction": [
+          "vostok",
+          "sarab"
+        ]
+      }
+    },
+    {
+      "id": "rumors_aegis_ledger",
+      "text": "Word is they keep a ledger of every favor and every slight.",
+      "response": "rumors_about_aegis",
+      "conditions": {
+        "faction": [
+          "vostok",
+          "sarab"
+        ]
+      }
+    },
+    {
+      "id": "rumors_aegis_after_dark",
+      "text": "Do the by-the-book soldiers fight after dark, or is that off the schedule?",
+      "response": "rumors_about_aegis",
+      "conditions": {
+        "faction": [
+          "vostok",
+          "sarab"
+        ],
+        "time": [
+          "night"
+        ]
+      }
+    },
+    {
+      "id": "rumors_aegis_lost_patrol",
+      "text": "I heard one of their patrols never made it home.",
+      "response": "rumors_about_aegis",
+      "conditions": {
+        "faction": [
+          "vostok",
+          "sarab"
+        ]
+      }
+    },
+    {
+      "id": "rumors_aegis_worry",
+      "text": "Does the steel-and-drill crowd worry your side?",
+      "response": "rumors_about_aegis",
+      "conditions": {
+        "faction": [
+          "vostok",
+          "sarab"
+        ]
+      }
+    },
+    {
+      "id": "rumors_aegis_captives",
+      "text": "How do the rulebook soldiers treat their captives?",
+      "response": "rumors_about_aegis",
+      "conditions": {
+        "faction": [
+          "vostok",
+          "sarab"
+        ]
+      }
+    },
+    {
+      "id": "rumors_aegis_towers",
+      "text": "Their watchtowers keep multiplying. Have you noticed?",
+      "response": "rumors_about_aegis",
+      "conditions": {
+        "faction": [
+          "vostok",
+          "sarab"
+        ]
+      }
+    },
+    {
+      "id": "rumors_aegis_credit",
+      "text": "Do the precise ones really pay their soldiers in written credit?",
+      "response": "rumors_about_aegis",
+      "conditions": {
+        "faction": [
+          "vostok",
+          "sarab"
+        ]
+      },
+      "weight": 5
+    },
+    {
+      "id": "rumors_sarab_word",
+      "text": "What do you make of the desert fighters?",
+      "response": "rumors_about_sarab",
+      "conditions": {
+        "faction": [
+          "vostok",
+          "aegis"
+        ]
+      },
+      "weight": 15
+    },
+    {
+      "id": "rumors_sarab_vanish",
+      "text": "Do the desert people really vanish at night?",
+      "response": "rumors_about_sarab",
+      "conditions": {
+        "faction": [
+          "vostok",
+          "aegis"
+        ]
+      }
+    },
+    {
+      "id": "rumors_sarab_count",
+      "text": "How many of the dune folk are there, truly?",
+      "response": "rumors_about_sarab",
+      "conditions": {
+        "faction": [
+          "vostok",
+          "aegis"
+        ]
+      }
+    },
+    {
+      "id": "rumors_sarab_well_debt",
+      "text": "They say whoever drinks from a marked well owes the sand people a debt.",
+      "response": "rumors_about_sarab",
+      "conditions": {
+        "faction": [
+          "vostok",
+          "aegis"
+        ]
+      }
+    },
+    {
+      "id": "rumors_sarab_shadows",
+      "text": "Your sentries whisper about shadows walking the wire. The dune folk?",
+      "response": "rumors_about_sarab",
+      "conditions": {
+        "faction": [
+          "vostok",
+          "aegis"
+        ]
+      }
+    },
+    {
+      "id": "rumors_sarab_respect",
+      "text": "Any grudging respect for the ambushers? At all?",
+      "response": "rumors_about_sarab",
+      "conditions": {
+        "faction": [
+          "vostok",
+          "aegis"
+        ]
+      }
+    },
+    {
+      "id": "rumors_sarab_soft_spot",
+      "text": "The mirage folk must have a soft spot somewhere.",
+      "response": "rumors_about_sarab",
+      "conditions": {
+        "faction": [
+          "vostok",
+          "aegis"
+        ]
+      }
+    },
+    {
+      "id": "rumors_sarab_leader",
+      "text": "Does anyone actually lead the desert bands?",
+      "response": "rumors_about_sarab",
+      "conditions": {
+        "faction": [
+          "vostok",
+          "aegis"
+        ]
+      }
+    },
+    {
+      "id": "rumors_sarab_bargain",
+      "text": "Would your side ever bargain with the dune raiders?",
+      "response": "rumors_about_sarab",
+      "conditions": {
+        "faction": [
+          "vostok",
+          "aegis"
+        ]
+      }
+    },
+    {
+      "id": "rumors_sarab_empty_dunes",
+      "text": "I crossed the dunes and saw nothing at all. Somehow that worried me more.",
+      "response": "rumors_about_sarab",
+      "conditions": {
+        "faction": [
+          "vostok",
+          "aegis"
+        ]
+      }
+    },
+    {
+      "id": "rumors_sarab_storms",
+      "text": "People claim sandstorms follow their war parties.",
+      "response": "rumors_about_sarab",
+      "conditions": {
+        "faction": [
+          "vostok",
+          "aegis"
+        ]
+      }
+    },
+    {
+      "id": "rumors_sarab_sleepless",
+      "text": "Is it true no one has ever caught one of the sand people sleeping?",
+      "response": "rumors_about_sarab",
+      "conditions": {
+        "faction": [
+          "vostok",
+          "aegis"
+        ]
+      }
+    },
+    {
+      "id": "rumors_sarab_ridge_losses",
+      "text": "Someone told me the desert bands took losses at the ridge.",
+      "response": "rumors_about_sarab",
+      "conditions": {
+        "faction": [
+          "vostok",
+          "aegis"
+        ]
+      }
+    },
+    {
+      "id": "rumors_sarab_feared",
+      "text": "Do your soldiers fear the quiet ones?",
+      "response": "rumors_about_sarab",
+      "conditions": {
+        "faction": [
+          "vostok",
+          "aegis"
+        ]
+      }
+    },
+    {
+      "id": "rumors_sarab_taken",
+      "text": "What happens to soldiers the sand people carry off?",
+      "response": "rumors_about_sarab",
+      "conditions": {
+        "faction": [
+          "vostok",
+          "aegis"
+        ]
+      }
+    },
+    {
+      "id": "rumors_sarab_wells_siege",
+      "text": "Couldn't you just starve them out by seizing the wells?",
+      "response": "rumors_about_sarab",
+      "conditions": {
+        "faction": [
+          "vostok",
+          "aegis"
+        ]
+      }
+    },
+    {
+      "id": "rumors_sarab_tea_ambush",
+      "text": "I heard even their ambushes wait politely until the tea is finished.",
+      "response": "rumors_about_sarab",
+      "conditions": {
+        "faction": [
+          "vostok",
+          "aegis"
+        ]
+      },
+      "weight": 5
+    },
+    {
+      "id": "rumors_ask_front_news",
+      "text": "Any news from the front?",
+      "response": "rumors_skirmish",
+      "weight": 15
+    },
+    {
+      "id": "rumors_ask_worst_fighting",
+      "text": "Where's the worst of the fighting right now?",
+      "response": "rumors_skirmish"
+    },
+    {
+      "id": "rumors_ask_steel_ringing",
+      "text": "I heard steel ringing beyond the hill this morning. What happened?",
+      "response": "rumors_skirmish"
+    },
+    {
+      "id": "rumors_ask_raids_lately",
+      "text": "Has anyone raided lately?",
+      "response": "rumors_skirmish"
+    },
+    {
+      "id": "rumors_ask_ridge_whispers",
+      "text": "What happened at the ridge? Everyone keeps whispering about it.",
+      "response": "rumors_skirmish"
+    },
+    {
+      "id": "rumors_ask_bloody_clash",
+      "text": "Was last week's clash as bloody as they say?",
+      "response": "rumors_skirmish"
+    },
+    {
+      "id": "rumors_ask_too_quiet",
+      "text": "It's been quiet lately. Does that worry you?",
+      "response": "rumors_skirmish"
+    },
+    {
+      "id": "rumors_ask_next_fight",
+      "text": "Where do you reckon the fighting moves next?",
+      "response": "rumors_skirmish"
+    },
+    {
+      "id": "rumors_ask_post_changed_hands",
+      "text": "Somebody said a border post changed hands. True?",
+      "response": "rumors_skirmish"
+    },
+    {
+      "id": "rumors_ask_fresh_from_fight",
+      "text": "You look like you've just come from a fight. What happened?",
+      "response": "rumors_skirmish",
+      "conditions": {
+        "recent_combat": true
+      }
+    },
+    {
+      "id": "rumors_ask_wounded_men",
+      "text": "I passed wounded men on the road. Whose were they?",
+      "response": "rumors_skirmish"
+    },
+    {
+      "id": "rumors_ask_dawn_smoke",
+      "text": "There was smoke on the horizon at dawn. Yours, or theirs?",
+      "response": "rumors_skirmish"
+    },
+    {
+      "id": "rumors_ask_spooked_traders",
+      "text": "The traders on the road are spooked. What have they seen?",
+      "response": "rumors_skirmish"
+    },
+    {
+      "id": "rumors_ask_season_kind",
+      "text": "Is this fighting season or waiting season?",
+      "response": "rumors_skirmish"
+    },
+    {
+      "id": "rumors_ask_supply_state",
+      "text": "How are supplies holding up on this front?",
+      "response": "rumors_supply"
+    },
+    {
+      "id": "rumors_ask_short_rations",
+      "text": "I hear rations are short everywhere. Here too?",
+      "response": "rumors_supply"
+    },
+    {
+      "id": "rumors_ask_good_price",
+      "text": "What's scarce enough right now to fetch a good price?",
+      "response": "rumors_supply"
+    },
+    {
+      "id": "rumors_qm_trader_tip",
+      "text": "What would a trader do well to bring to this front?",
+      "response": "rumors_supply",
+      "conditions": {
+        "role": [
+          "quartermaster"
+        ]
+      }
+    },
+    {
+      "id": "rumors_ask_lost_convoy",
+      "text": "Did a supply convoy really go missing last week?",
+      "response": "rumors_supply"
+    },
+    {
+      "id": "rumors_ask_hunger",
+      "text": "Is any of the three sides actually going hungry?",
+      "response": "rumors_supply"
+    },
+    {
+      "id": "rumors_ask_iron_scarce",
+      "text": "Word is iron's getting hard to come by.",
+      "response": "rumors_supply"
+    },
+    {
+      "id": "rumors_ask_timber_out",
+      "text": "They say timber for the walls is running out.",
+      "response": "rumors_supply"
+    },
+    {
+      "id": "rumors_ask_clean_water",
+      "text": "Is anyone short of clean water?",
+      "response": "rumors_supply"
+    },
+    {
+      "id": "rumors_ask_smugglers",
+      "text": "Is there a quiet trade running between the lines? Smugglers?",
+      "response": "rumors_supply"
+    },
+    {
+      "id": "rumors_qm_rival_pay",
+      "text": "Do the other quartermasters pay better than yours do?",
+      "response": "rumors_supply",
+      "conditions": {
+        "role": [
+          "quartermaster"
+        ]
+      }
+    },
+    {
+      "id": "rumors_ask_winter_stores",
+      "text": "Will the stores last through the cold season?",
+      "response": "rumors_supply"
+    },
+    {
+      "id": "rumors_ask_weather_omens",
+      "text": "The old folk say the weather carries omens. Do you believe it?",
+      "response": "rumors_omens"
+    },
+    {
+      "id": "rumors_ask_red_sky",
+      "text": "That red sky last evening — do soldiers read anything into it?",
+      "response": "rumors_omens"
+    },
+    {
+      "id": "rumors_ask_silent_birds",
+      "text": "The birds all went silent yesterday. Did your sentries notice?",
+      "response": "rumors_omens"
+    },
+    {
+      "id": "rumors_ask_storm_sign",
+      "text": "There's a storm building. Good sign or bad?",
+      "response": "rumors_omens"
+    },
+    {
+      "id": "rumors_ask_full_moon",
+      "text": "Full moon coming. Does that change anything out here?",
+      "response": "rumors_omens"
+    },
+    {
+      "id": "rumors_ask_charms",
+      "text": "Do your soldiers carry charms? Believe in luck?",
+      "response": "rumors_omens"
+    },
+    {
+      "id": "rumors_ask_shared_nightmare",
+      "text": "Three sentries, the same nightmare, the same night. Heard that one?",
+      "response": "rumors_omens",
+      "weight": 5
+    },
+    {
+      "id": "rumors_ask_strange_fog",
+      "text": "This fog rolled in strangely fast. Natural, you think?",
+      "response": "rumors_omens"
+    },
+    {
+      "id": "rumors_ask_worst_omen",
+      "text": "What's the worst omen a soldier can see before a battle?",
+      "response": "rumors_omens"
+    },
+    {
+      "id": "rumors_ask_land_knows",
+      "text": "People say the land itself knows when a battle is coming.",
+      "response": "rumors_omens"
+    },
+    {
+      "id": "rumors_ask_dark_movers",
+      "text": "Who moves out there after dark?",
+      "response": "rumors_night",
+      "conditions": {
+        "time": [
+          "night"
+        ]
+      }
+    },
+    {
+      "id": "rumors_ask_valley_lights",
+      "text": "I saw lights crossing the valley last night. Whose were they?",
+      "response": "rumors_night"
+    },
+    {
+      "id": "rumors_ask_night_raids",
+      "text": "Do the raids mostly come at night?",
+      "response": "rumors_night"
+    },
+    {
+      "id": "rumors_ask_sentry_talk",
+      "text": "What do the night sentries talk about?",
+      "response": "rumors_night",
+      "conditions": {
+        "time": [
+          "night"
+        ]
+      }
+    },
+    {
+      "id": "rumors_ask_underground_digging",
+      "text": "Someone told me you can hear digging under the ground at night.",
+      "response": "rumors_night"
+    },
+    {
+      "id": "rumors_ask_expecting",
+      "text": "It's dark and you're wide awake. Expecting something?",
+      "response": "rumors_night",
+      "conditions": {
+        "time": [
+          "night"
+        ]
+      }
+    },
+    {
+      "id": "rumors_ask_ridge_flashes",
+      "text": "Those colored flashes on the ridgeline after sunset — signals?",
+      "response": "rumors_night"
+    },
+    {
+      "id": "rumors_ask_midnight_sound",
+      "text": "What's that sound the wind carries after midnight?",
+      "response": "rumors_night",
+      "conditions": {
+        "time": [
+          "night"
+        ]
+      }
+    },
+    {
+      "id": "rumors_ask_dawn_attacks",
+      "text": "Is it true attacks come at dawn more than any other hour?",
+      "response": "rumors_night"
+    },
+    {
+      "id": "rumors_ask_slip_lines",
+      "text": "Could someone slip between the lines in the dark?",
+      "response": "rumors_night"
+    },
+    {
+      "id": "rumors_ask_more_campfires",
+      "text": "I counted more campfires than usual across the valley.",
+      "response": "rumors_night"
+    },
+    {
+      "id": "rumors_ask_cursed_hour",
+      "text": "Is there an hour when even soldiers won't step beyond the wire?",
+      "response": "rumors_night"
+    },
+    {
+      "id": "rumors_ask_whos_winning",
+      "text": "So who's actually winning this war?",
+      "response": "rumors_winning",
+      "weight": 15
+    },
+    {
+      "id": "rumors_ask_most_ground",
+      "text": "If it all ended today, who'd hold the most ground?",
+      "response": "rumors_winning"
+    },
+    {
+      "id": "rumors_ask_your_chances",
+      "text": "Honestly — what are your side's chances?",
+      "response": "rumors_winning"
+    },
+    {
+      "id": "rumors_ask_outlast",
+      "text": "Which of the three sides can last the longest?",
+      "response": "rumors_winning"
+    },
+    {
+      "id": "rumors_ask_soldiers_bet",
+      "text": "Do soldiers bet on how this all ends?",
+      "response": "rumors_winning"
+    },
+    {
+      "id": "rumors_ask_stalemate",
+      "text": "Looks like a stalemate from where I'm standing.",
+      "response": "rumors_winning"
+    },
+    {
+      "id": "rumors_ask_turning_point",
+      "text": "Was there ever a moment the war turned, one way or another?",
+      "response": "rumors_winning"
+    },
+    {
+      "id": "rumors_ask_no_winner",
+      "text": "Travelers say no side can win this thing. Are they wrong?",
+      "response": "rumors_winning"
+    },
+    {
+      "id": "rumors_ask_outside_balance",
+      "text": "Could someone from outside tip the balance?",
+      "response": "rumors_winning"
+    },
+    {
+      "id": "rumors_ask_end_year",
+      "text": "Give me a year. When does it end?",
+      "response": "rumors_winning"
+    },
+    {
+      "id": "rumors_ask_histories",
+      "text": "How will the histories tell this war, do you think?",
+      "response": "rumors_winning"
+    },
+    {
+      "id": "rumors_ask_worth_it",
+      "text": "Whoever wins — will any of it have been worth it?",
+      "response": "rumors_winning"
+    },
+    {
+      "id": "rumors_ask_deserter_claim",
+      "text": "A deserter in a tavern told me all three camps are on their last legs.",
+      "response": "rumors_winning",
+      "weight": 5
+    },
+    {
+      "id": "rumors_ask_my_name",
+      "text": "What do people out here say about me?",
+      "response": "rumors_reputation"
+    },
+    {
+      "id": "rumors_ask_what_they_call_me",
+      "text": "Go on, say it. What do your people call me?",
+      "response": "rumors_reputation",
+      "conditions": {
+        "disposition": [
+          "negative"
+        ]
+      }
+    },
+    {
+      "id": "rumors_ask_am_i_watched",
+      "text": "Am I watched when I travel these roads?",
+      "response": "rumors_reputation",
+      "conditions": {
+        "standing": [
+          "hostile",
+          "wary",
+          "neutral"
+        ]
+      }
+    },
+    {
+      "id": "rumors_ask_camp_grudge",
+      "text": "I've crossed blades with your people. Does the camp talk about it?",
+      "response": "rumors_reputation",
+      "conditions": {
+        "has_killed_this_faction": true
+      }
+    },
+    {
+      "id": "rumors_ask_way_back",
+      "text": "Is there a way back once a name goes bad with your side?",
+      "response": "rumors_reputation",
+      "conditions": {
+        "disposition": [
+          "negative"
+        ]
+      }
+    },
+    {
+      "id": "rumors_ask_wild_stories",
+      "text": "Any wild stories going around about me?",
+      "response": "rumors_reputation"
+    },
+    {
+      "id": "rumors_ask_head_price",
+      "text": "Is there a price on my head anywhere?",
+      "response": "rumors_reputation",
+      "conditions": {
+        "disposition": [
+          "negative"
+        ]
+      }
+    },
+    {
+      "id": "rumors_ask_other_camps_me",
+      "text": "Do the other camps ever ask about me?",
+      "response": "rumors_reputation"
+    },
+    {
+      "id": "rumors_ask_fair_dealing",
+      "text": "I've tried to deal fairly out here. Does anyone notice?",
+      "response": "rumors_reputation",
+      "conditions": {
+        "disposition": [
+          "positive"
+        ]
+      }
+    },
+    {
+      "id": "rumors_ask_first_impression",
+      "text": "What did your side make of me when I first turned up?",
+      "response": "rumors_reputation"
+    },
+    {
+      "id": "rumors_rude_fishwives",
+      "text": "You lot gossip like fishwives. Is any of it ever true?",
+      "response": "rumors_scoff",
+      "effects": [
+        {
+          "type": "disposition",
+          "event": "insulted"
+        }
+      ],
+      "weight": 5
+    },
+    {
+      "id": "rumors_exit_off",
+      "text": "Enough gossip. I'm off.",
+      "response": "rumors_exit",
+      "effects": [
+        {
+          "type": "end"
+        }
+      ],
+      "exit": true,
+      "weight": 8
+    },
+    {
+      "id": "rumors_exit_ears",
+      "text": "I'll keep my ears open elsewhere.",
+      "response": "rumors_exit",
+      "effects": [
+        {
+          "type": "end"
+        }
+      ],
+      "exit": true,
+      "weight": 6
+    },
+    {
+      "id": "rumors_exit_road",
+      "text": "The road's calling. Keep the rumors warm for me.",
+      "response": "rumors_exit",
+      "effects": [
+        {
+          "type": "end"
+        }
+      ],
+      "exit": true,
+      "weight": 6
+    },
+    {
+      "id": "rumors_exit_forget",
+      "text": "Forget I asked. Take care.",
+      "response": "rumors_exit",
+      "effects": [
+        {
+          "type": "end"
+        }
+      ],
+      "exit": true,
+      "weight": 8
+    }
+  ],
+  "responses": {
+    "rumors_about_vostok": {
+      "vostok": {
+        "negative": [
+          "Asking us about us. Testing the echo? Move on.",
+          "The line describes itself in person. Wait around."
+        ],
+        "neutral": [
+          "What's said about us? That we're endless. Half true. The other half is also endless.",
+          "We're the ones still here. That is the entire rumor and the entire truth."
+        ],
+        "positive": [
+          "They say we're made of mud and stubbornness, friend. Flattery. There's also soup.",
+          "Rumors about the line come and go. The line stays. Draw your conclusion."
+        ]
+      },
+      "aegis": {
+        "negative": [
+          "Intel on Vostok? From you? Amusing. Half our Vostok files mention you.",
+          "You'd enjoy our assessment of the trench army. Flagged individuals get no assessments.",
+          "Ask them yourself. You seem practiced at making their acquaintance."
+        ],
+        "neutral": [
+          "Assessment: unlimited patience, limited imagination. They absorb losses that would break a doctrine-led force.",
+          "Their wave assaults are predictable to the minute. Stopping them anyway costs more than the prediction is worth.",
+          "We track their quota cycles. When their command needs numbers, the front gets loud. It's due soon."
+        ],
+        "positive": [
+          "Off the record, friend: their entrenching speed is genuinely impressive. We timed it. Then we doubled our estimate.",
+          "Between us, Vostok's weakness is roads. Their whole mass moves at soup-wagon speed. File that away.",
+          "One of their sergeants held a flooded trench six days straight. It's cited in our own training file. Don't repeat that."
+        ]
+      },
+      "sarab": {
+        "negative": [
+          "You ask about the iron line with their blood still drying on your name. Bold nose, short whiskers.",
+          "The diggers can speak for themselves. To you, they mostly have, I hear.",
+          "Why share our reading of the trench men with someone the wind distrusts?"
+        ],
+        "neutral": [
+          "The trench people are a flood — slow, loud, and honest about where it's going. One respects a flood. From a dune.",
+          "They dig, they hold, they endure. Sand does the same, and asks no rations. We prefer our method.",
+          "Their strength is that they do not tire of dying. Their weakness is the same sentence."
+        ],
+        "positive": [
+          "Truth over tea, friend: of the two armies, the diggers frighten us more. Precision sleeps at night. Stubbornness doesn't.",
+          "Their columns cannot cross the deep sand — too heavy, too thirsty. So we sleep well. Mostly.",
+          "One winter they fed a stranded caravan of ours rather than seize it. We remember. It will not blunt our blades. But we remember."
+        ]
+      }
+    },
+    "rumors_about_aegis": {
+      "vostok": {
+        "negative": [
+          "The clipboard army? Ask someone who owes you an answer. We count what you owe first.",
+          "Our thoughts on the polished ones are for allies. You are inventory.",
+          "Why would we brief you on anyone? You're on our slate already."
+        ],
+        "neutral": [
+          "The polished ones fight like clockmakers. Beautiful. Clocks stop when you apply enough hammer.",
+          "Their patrols run to the minute. Convenient. We set our watches by their mistakes.",
+          "They log everything. Somewhere there's a form for being overrun. We intend to see it filed."
+        ],
+        "positive": [
+          "Between us, friend, their signal towers are the real weapon. Blades we match. The talking-at-distance we envy.",
+          "Their supply columns are fat and punctual. The line drools a little. Don't tell them.",
+          "Give the polished ones this: they collect their wounded under fire, every time. Even we nod at that."
+        ]
+      },
+      "aegis": {
+        "negative": [
+          "Fishing for our own file. That's a new approach. Denied.",
+          "Curious what we say about ourselves? The recruitment poster is public. Start there."
+        ],
+        "neutral": [
+          "What's said about us tends to be accurate. We issue corrections otherwise.",
+          "The claims about us are audited. Untouchable, no. Prepared, yes."
+        ],
+        "positive": [
+          "The rumor I like best says we plan our victories a season ahead. We let that one circulate.",
+          "They say our sentries never sleep. False. They sleep on schedule, friend."
+        ]
+      },
+      "sarab": {
+        "negative": [
+          "The shield-men keep a thick file on you, I hear. Perhaps ask what they say about you instead.",
+          "You want gossip about the orderly ones? Buy it with trust. Yours is counterfeit here.",
+          "The wind does not discuss one hunter with another. Especially one so bloodied."
+        ],
+        "neutral": [
+          "The orderly ones fear one thing: surprise. So we serve it seasonally, like fruit.",
+          "Their walls are strong, their schedules stronger. A schedule is a map of where a man will be. Think on that.",
+          "Untouchable, they claim. The desert has touched them twice this year. Quietly. They logged it as weather."
+        ],
+        "positive": [
+          "Their discipline is real, friend. Break one plan and they simply unfold another. Like fighting a patient river.",
+          "We admire their water discipline, of all things. An army that rations well plans to live. Watch them.",
+          "A secret for the tea you shared: their far posts change watch at the same hour everywhere. Uniformity is a lovely gift."
+        ]
+      }
+    },
+    "rumors_about_sarab": {
+      "vostok": {
+        "negative": [
+          "The sand people? Worry about the people in front of you. We're closer and you're owing.",
+          "We don't trade words about the dune folk with someone whose count is red.",
+          "Ask the desert yourself. You're halfway to being buried in it as far as we're concerned."
+        ],
+        "neutral": [
+          "The dune folk fight like mosquitoes. Laugh if you want. Mosquitoes empty a man eventually.",
+          "They vanish at night, yes. So does our patience. One morning the line will be standing on their wells.",
+          "You can't dig a trench against smoke. So we dig deeper and post more eyes. Expensive smoke, that lot."
+        ],
+        "positive": [
+          "Honest talk, friend: the desert ones spooked our recruits so badly we now drill against 'noises'. An entire drill. Noises.",
+          "Their trick is thirst — they let the desert besiege you for them. Respect from us, and we respect almost nothing.",
+          "One of ours wandered the flats three days. Woke with a full waterskin and a warning knotted in his laces. Make of that what you will."
+        ]
+      },
+      "aegis": {
+        "negative": [
+          "Intelligence on the desert bands is compartmentalized. Your compartment is 'outside'.",
+          "The ambushers' file stays shut for you. Half its recent pages involve people like you anyway.",
+          "You ask about ghosts while trailing your own. Settle your ledger first."
+        ],
+        "neutral": [
+          "Threat assessment: small numbers, outsized effect. They attack schedules, not soldiers. It works more than we report.",
+          "They do vanish at night. Heat discipline, terrain memory, and nerve. We can model two of the three.",
+          "Every convoy through the dry sector budgets a loss percentage. That percentage has a name, and it's theirs."
+        ],
+        "positive": [
+          "Candidly, friend: our doctrine struggles with them. You cannot combine arms against an enemy who declines to be found.",
+          "Their well markings are a functioning law code. We honor them on patrol. Command never wrote it down, but we all do it.",
+          "A desert guide once walked our lost patrol to water and vanished before thanks. The debt is logged. Aegis pays its ledgers."
+        ]
+      },
+      "sarab": {
+        "negative": [
+          "You ask the mirage about the mirage. Enjoy the answer you get.",
+          "What are we? The last thing several curious people wondered."
+        ],
+        "neutral": [
+          "The stories about us are wrong in useful ways. We leave them uncorrected.",
+          "Do we vanish at night? The night is big and we are polite guests in it."
+        ],
+        "positive": [
+          "Most rumors about us we started ourselves, friend. The frightening ones are the cheapest sentries we own.",
+          "They say we are ghosts. Ghosts need no water. We are thirstier and more patient than any ghost."
+        ]
+      }
+    },
+    "rumors_skirmish": {
+      "vostok": {
+        "negative": [
+          "Front news travels to friends. You're a different column in the book.",
+          "The recent fighting? You'll get the tour, not the telling, if you linger."
+        ],
+        "neutral": [
+          "Steel at the ridge two nights back. Their push, our mud, the usual score: nobody happy, everybody digging.",
+          "A border post changed hands twice this week. By now it's mostly splinters with a flag."
+        ],
+        "positive": [
+          "You missed a loud one, friend. Their line came singing confidence and left carrying quiet. The mud keeps the details.",
+          "News? Third company found a cellar of preserves in the ruins. Strategically, nothing. For morale, a historic victory."
+        ]
+      },
+      "aegis": {
+        "negative": [
+          "Operational updates are for cleared personnel. You are the opposite of cleared.",
+          "Recent contacts are under review. Your interest in them is itself under review."
+        ],
+        "neutral": [
+          "Two skirmishes this week, both probing actions, both repelled. Pattern suggests a larger push is being priced.",
+          "The smoke you saw was a supply cache denied to the enemy. Controlled burn. Mostly controlled."
+        ],
+        "positive": [
+          "Situation for your ears, friend: the eastern approach went quiet, which we distrust. Move west if you value calm.",
+          "Last night's flare-up was ours — a probe met early and turned around. Textbook. I get to say that maybe twice a year."
+        ]
+      },
+      "sarab": {
+        "negative": [
+          "News of battles finds friends first, strangers late, and enemies mid-battle. Guess your delivery time.",
+          "The fighting is wherever you keep walking without asking. Shall I not spoil it?"
+        ],
+        "neutral": [
+          "Blades spoke at the dry ford, briefly. The river now has opinions about both armies.",
+          "There was a raid; there was a reply; the vultures adjudicated. The verdict favored no banner."
+        ],
+        "positive": [
+          "For your ears at this fire, friend: the two heavy armies mauled each other by the ridge, and we watched. Almost peaceful.",
+          "The road you came by hosted an ambush at dusk yesterday. Not ours. Sloppy work. You have luck — spend it slowly."
+        ]
+      }
+    },
+    "rumors_supply": {
+      "vostok": {
+        "negative": [
+          "Our stores are counted by people who count strangers too. Walk on.",
+          "Shortages? Ask your own pockets how they got so full."
+        ],
+        "neutral": [
+          "Rations are thin, boots thinner, complaints plentiful. So, a normal year.",
+          "Iron comes slow lately. The forges upline blame the roads. The roads blame the war. The war says nothing."
+        ],
+        "positive": [
+          "Friend, bring salt or thread next visit and the cooks will make you a legend. Coin is paper here; salt is government.",
+          "The convoy that vanished last week? Found. Driver drunk in a hayloft, cargo intact. Best news of the month, honestly."
+        ]
+      },
+      "aegis": {
+        "negative": [
+          "Logistics questions from outside the chain read as targeting data. This exchange is over.",
+          "Supply status is classified above your existence."
+        ],
+        "neutral": [
+          "Supply holds at acceptable margins. The margin's exact width stays our business.",
+          "Scarce right now: lamp oil, bandage linen, patience. Trade the first two well and you'll do fine."
+        ],
+        "positive": [
+          "Vendor tip, friend: bring timber and canvas to any of our posts and the quartermasters will outbid each other. Not a rumor.",
+          "Between us, the cold season stores are already secured. Someone upstream did their sums beautifully. Sleep easy."
+        ]
+      },
+      "sarab": {
+        "negative": [
+          "Our hunger and our plenty are twins we introduce to no one.",
+          "You ask what we lack. Company we trust. The shortage stands."
+        ],
+        "neutral": [
+          "The desert's stores are the desert's secret. Traders find our terms fair and our inventories invisible.",
+          "Water is measured, dates are counted, and both outlast every siege so far attempted."
+        ],
+        "positive": [
+          "Bring cloth dyes and honest steel needles, friend, and the fires will fight to host you. The dunes are hard on thread.",
+          "A quiet trade crosses the lines, yes. Everyone denies it. Everyone drinks the same smuggled tea. Politics is wonderful."
+        ]
+      }
+    },
+    "rumors_omens": {
+      "vostok": {
+        "negative": [
+          "Omens? Here's one: strangers who ask many questions have short winters.",
+          "The sky is grey, like always. Read your own fortune elsewhere."
+        ],
+        "neutral": [
+          "Red sky means weather. Quiet birds mean weather. Out here everything means weather, and weather means digging.",
+          "Soldiers keep charms, sure. A button, a coin, a sister's ribbon. The charm works until it doesn't. Like armor."
+        ],
+        "positive": [
+          "The cook swears three crows on the mess tent means an inspection, friend. Right twice now. We fear crows.",
+          "Bad omens we ignore; the quota arrives regardless. Good omens we drink to. It averages out to soup."
+        ]
+      },
+      "aegis": {
+        "negative": [
+          "Superstition is not intelligence. Neither is this conversation.",
+          "Omens are unverified data. So are you."
+        ],
+        "neutral": [
+          "The red sky correlates with a wind shift, nothing more. We log weather, not prophecy.",
+          "Sentries reporting identical nightmares get a rest rotation, not an exorcism. Fatigue writes strange reports."
+        ],
+        "positive": [
+          "Officially there are no omens, friend. Unofficially, nobody schedules an offensive on a fog moon. Nobody.",
+          "The signals crew keeps a lucky kettle. It has outlived three towers. Its service record is hard to argue with."
+        ]
+      },
+      "sarab": {
+        "negative": [
+          "The signs are speaking, yes. About you. We are still translating.",
+          "When the birds go silent, something is walking. This time it was you."
+        ],
+        "neutral": [
+          "A ringed moon means wind from the deep desert in three days. Call it omen or forecast; pack your tent either way.",
+          "The land does know when battle comes. The beetles cross the road east. They have crossed east all week."
+        ],
+        "positive": [
+          "For you, friend: when dawn is green at the rim, stay off the flats. Old wisdom, no explanation, never yet wrong.",
+          "Storms follow our war parties, they say. Sometimes. Sometimes we follow the storm. It is an old partnership."
+        ]
+      }
+    },
+    "rumors_night": {
+      "vostok": {
+        "negative": [
+          "What moves at night? Patrols, wolves, and people we no longer discuss. Pick your category soon.",
+          "Night questions from a stranger. The dark here is spoken for."
+        ],
+        "neutral": [
+          "After dark it's ration runners and wire menders, mostly. The heroic secret of night war: maintenance.",
+          "Dawn attacks are real. Dawn is when sentries dream of breakfast. Every army knows it; every army does it anyway."
+        ],
+        "positive": [
+          "The digging sounds at night, friend? Sappers, ours or theirs, arguing underground in shovel language. Almost music.",
+          "The valley lights were ours — a wager over who could relay a lantern signal fastest. The loser is peeling roots."
+        ]
+      },
+      "aegis": {
+        "negative": [
+          "Night movement inquiries are a red flag stacked on your other red flags.",
+          "After-dark operations are not a topic. Your presence after dark is becoming one."
+        ],
+        "neutral": [
+          "Night belongs to whoever has better discipline. We rotate double watches and hold our sectors till dawn.",
+          "Those ridge flashes are signal traffic. Encoded, so enjoy the pretty colors and nothing else."
+        ],
+        "positive": [
+          "Watch the tower lights sometime, friend: three slow pulses means all quiet. Oddly comforting once you can read it.",
+          "Crossing between lines in the dark is possible. Surviving both sets of sentries is the advanced course. Not recommended."
+        ]
+      },
+      "sarab": {
+        "negative": [
+          "The night is our house. You are describing noises in our house.",
+          "Who moves in the dark? Tonight, mostly us, and one loud visitor. Hello."
+        ],
+        "neutral": [
+          "The howl past midnight is wind through the bone-hollows. Mostly wind. The hollows earned their name honestly.",
+          "Campfires multiplying means one army wants to look bigger. Count the fires without cooks. Those are theater."
+        ],
+        "positive": [
+          "The truth of night crossings, friend: follow the cold air, it pools along the safe low ground. The dead learned the hot paths.",
+          "Yes, we vanish at night. Into blankets, mostly. Even shadows must sleep. Keep that quiet — reputations feed families."
+        ]
+      }
+    },
+    "rumors_winning": {
+      "vostok": {
+        "negative": [
+          "Who's winning? Not you, if the questions continue.",
+          "The score is kept in our ledger and you're a debit. That's your whole scoreboard."
+        ],
+        "neutral": [
+          "Who's winning? Whoever buried fewer this month. Get me the burial lists and I'll do the sums.",
+          "Stalemate is a city word. Out here we call it holding, and holding is our export."
+        ],
+        "positive": [
+          "Between us, friend: nobody is winning, and we're built for exactly that. The line's patience compounds like interest.",
+          "The war turned once — the winter of the long quota. Ask all three armies who won that winter; enjoy three silences."
+        ]
+      },
+      "aegis": {
+        "negative": [
+          "Strategic outlooks are not shared with liabilities.",
+          "The balance of the war is above your clearance and beneath your conduct."
+        ],
+        "neutral": [
+          "Current assessment: contested equilibrium. Two sides trade mass, one trades shadows, nobody banks a decisive gain.",
+          "Betting on the outcome is against regulations. The odds pool in the signals tent is therefore hypothetical."
+        ],
+        "positive": [
+          "Candid forecast, friend: attrition favors the diggers, terrain favors the dunes, time favors whoever wastes least. We waste least.",
+          "How will history tell it? Cleanly, if we write it. We keep the better records. That's half the battle for history."
+        ]
+      },
+      "sarab": {
+        "negative": [
+          "Who wins? The sand is ahead by several thousand years. You are not gaining on it.",
+          "You ask about victory while accumulating defeats here. Curious bookkeeping."
+        ],
+        "neutral": [
+          "The heavy armies wrestle; the desert keeps score; the score is secret. That is the war in one breath.",
+          "No side can win, say the travelers. Half right. No side can win quickly. Slowness is a country, and we are its citizens."
+        ],
+        "positive": [
+          "For your ears, friend: each season the two great camps stand closer to each other and further from us. Let them.",
+          "When it ends, the histories will disagree, the wells will remain, and whoever keeps the wells keeps the ending."
+        ]
+      }
+    },
+    "rumors_reputation": {
+      "vostok": {
+        "negative": [
+          "What do we say about you? We say numbers. Yours grows in the wrong direction.",
+          "Your name comes up at the count, stranger. Never in the good column."
+        ],
+        "neutral": [
+          "Your name gets mentioned. Tone varies by tent. Keep your boots clean and it may settle.",
+          "First impression of you? 'Another wanderer.' The line was half right so far."
+        ],
+        "positive": [
+          "The tents speak well of you, friend. One story has you carrying our wounded. It grows a little each telling. Let it.",
+          "The other camps ask about you, actually. We shrug and undersell. Consider it a courtesy between friends."
+        ]
+      },
+      "aegis": {
+        "negative": [
+          "Your file is thick, unflattering, and current. That is the word on you.",
+          "A way back for your name? There's a process. It starts with stopping. You haven't."
+        ],
+        "neutral": [
+          "Assessment on record: unaffiliated, unpredictable, watch-listed. Improve two of three and the road gets smoother.",
+          "Yes, you're observed on the roads. Everyone is. You slightly more."
+        ],
+        "positive": [
+          "Your record reads well, friend: fair dealing, no incidents, two commendable mentions. Yes, we track commendable.",
+          "Word moves between our posts faster than you walk. Lately the word on you is good. Sentries argue less when you approach."
+        ]
+      },
+      "sarab": {
+        "negative": [
+          "The fires say your name with a hiss lately. Fires are honest.",
+          "What do we call you? The polite version: 'the debt that walks.'"
+        ],
+        "neutral": [
+          "The wind carries your name occasionally. It has not yet decided what it thinks.",
+          "Stories about you? A few. Wild? Mild. Give the fires something better or something quieter."
+        ],
+        "positive": [
+          "By the fires you are called 'the one who shares the road', friend. Such names are wells — deep, and hard to poison.",
+          "The children ask if you will visit again. That is the whole report, and better than any medal we could forge you."
+        ]
+      }
+    },
+    "rumors_scoff": {
+      "vostok": {
+        "negative": [
+          "Fishwives, is it. The last man who mocked the line's talk now assists with laundry. Permanently.",
+          "Careful. Gossip is the one ration we never run short of. Neither are shovels."
+        ],
+        "neutral": [
+          "Rumors are half true, like rations are half food. You learn to chew both.",
+          "Mock the gossip, miss the warning inside it. Your funeral. Literally, sometimes."
+        ],
+        "positive": [
+          "Ha! True enough, friend. But our fishwives called last month's raid to the hour, so respect the net.",
+          "Laugh, but the rumor pot fed you today. You are drinking gossip soup right now."
+        ]
+      },
+      "aegis": {
+        "negative": [
+          "Dismiss our reporting again and you can test its accuracy from the wrong side of the wire.",
+          "That contempt is logged next to the intelligence you'll wish you'd had."
+        ],
+        "neutral": [
+          "Rumor is unprocessed signal. We filter. You'd be surprised what survives filtering.",
+          "Some of it is noise. The rest saved lives twice this season. We tolerate the noise."
+        ],
+        "positive": [
+          "Fair hit, friend. Even so, our 'gossip' has a source-grading system. The fishwives here hold clearances.",
+          "Mock away — but when you want the road report that's actually true, you'll queue like everyone else."
+        ]
+      },
+      "sarab": {
+        "negative": [
+          "The idle talk you mock has buried quicker tongues than yours.",
+          "We gossip like the wind gossips. Look what the wind does to mountains."
+        ],
+        "neutral": [
+          "In the desert, rumor is water: some brackish, some sweet, all of it carried carefully.",
+          "True or not, a story that keeps a traveler off the wrong dune is truer than facts."
+        ],
+        "positive": [
+          "Ha — yes, we are terrible gossips, friend. It is the desert's oldest entertainment. Stay; be gossiped about fondly.",
+          "Half of it is invention. Guess which half correctly, though, and you will live to be old and interesting."
+        ]
+      }
+    },
+    "rumors_exit": {
+      "vostok": {
+        "negative": [
+          "Leaving is your best rumor yet. Confirm it.",
+          "Go spread word somewhere the wire isn't watching you."
+        ],
+        "neutral": [
+          "Off with you. If you hear anything about the eastern road, it's worth soup.",
+          "Gossip closes with the kitchen. Both reopen at dawn."
+        ],
+        "positive": [
+          "Walk safe, friend. Bring back a rumor worth the stove seat.",
+          "Go on. We'll save your seat and the worst of the news."
+        ]
+      },
+      "aegis": {
+        "negative": [
+          "Exchange concluded. Your departure will be corroborated.",
+          "Go. The rumor mill logs its visitors too."
+        ],
+        "neutral": [
+          "Copy. If you pass the south tower, tell them their relief is late.",
+          "Acknowledged. Treat everything you heard as unconfirmed. We do."
+        ],
+        "positive": [
+          "Safe travels, friend. First rumor's free next time; bring one to trade after that.",
+          "Copy that. If the road tells you anything worth logging, our gate hears fairly."
+        ]
+      },
+      "sarab": {
+        "negative": [
+          "Take your questions to the horizon. It is patient with strangers.",
+          "Go. The fires will discuss you honestly in your absence."
+        ],
+        "neutral": [
+          "May the news you carry stay lighter than your waterskin.",
+          "The road gossips too. Listen to it more than you talk."
+        ],
+        "positive": [
+          "Go well, friend. The fire will keep a story warm for your return.",
+          "Travel softly. Bring us a rumor with sugar in it next time."
+        ]
+      }
+    }
+  }
+}
