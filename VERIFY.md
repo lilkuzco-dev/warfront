@@ -126,5 +126,49 @@ overrides only; garrison ranges untouched).
   the still-running fast cadence. No leak; production cadence (240 s @ 50%, cap-gated)
   keeps steady-state far lower. ✅
 
-Deferred to the post-corpus session: dialogue UI tests (#7–#9 options/reroll/locks),
-quartermaster loop, screenshots, client render check.
+### Corpus validator (#7)
+- `tools/validate-dialogue.js`: **PASS — 1,401 player options** (hard gate ≥1000, plan
+  target ≥1,200), **3,140 response lines** (target ≥2,400), 147 response classes, 12
+  categories. No duplicate/near-duplicate texts, all conditions/effects vocabulary
+  valid, every option resolves ≥2 lines per applicable faction across all reachable
+  bands, coverage matrix has **zero empty faction×category cells** (printed in the
+  validator output; every cell also covers all three band groups).
+
+### Work orders (#13) & matrix consequence (#10) — headless via /warfront contract
+- Fresh player: offer → `vostok_elim_sarab` (eliminate 3 sarab) → accept → 3 attributed
+  kills tick progress 0/3→3/3 → turn-in: Vostok standing +8, `contract_completed`
+  (+ combat-aid credit from vostok witnesses → warm) — and **Sarab took the
+  contract_target hit + standing −124 without the player ever talking to them**;
+  Aegis went cold (−10.5) purely from the relations echo of helping Vostok. ✅
+- Abandon: offer → accept → abandon: contract cleared, standing −5, `contract_failed`
+  in the ledger. ✅
+- Quartermaster price scaling is driven by the same standing/disposition inputs
+  verified above (multipliers in `warfront_dialogue/quartermaster/*.json`).
+
+### Dialogue UI + screenshots (client gametest; archived in `screenshots/v0.2.0/`)
+- `WarfrontDialogueTest` (real input driving the actual screen):
+  - Neutral open: "Viktor Volkov / Soldier of Vostok / Standing: neutral (0) —
+    Disposition: Neutral", greeting *"Civilian. Keep clear of the wire."*, 4 options
+    with category spread + exit, More…/Leave. ✅
+  - After ledger-injected killed_soldier×3, the SAME soldier reopens at
+    "Disposition: Hostile" with *"No sudden moves. The quota has room for one more."*
+    — the reversible-bias flavor in-camera. ✅ (Options-tree bias further sharpened
+    post-shot: band-matched options now score ×2.5 relevance.)
+  - More… reroll + quartermaster tree shots captured. ✅
+- `WarfrontRenderTest`: soldier lineup (all 3 factions × soldier/officer, ghost-limb
+  fix confirmed in-camera — settles the open Phase 1 item) and **all nine tier×faction
+  bases** placed and photographed aerially: Vostok HQ (crenellated perimeter, banner
+  centerpiece, barracks rows, heli-pad "H", red-rethemed vanilla feature tent), Aegis
+  HQ (clean stone/andesite, floodlights, blue banners), Sarab HQ (mud-brick warren,
+  targets, garrison visible) — retheme unmistakable across factions. ✅
+- Zero freehand major buildings: every enclosed structure in the shots traces to
+  `structures/SOURCES.md` (spot-audit: barracks/armory/command/QM/mess/towers/bunker
+  pieces = imported RS NBTs; tents/targets at gates = vanilla references; walls,
+  gates, paths, pads, flagpoles = declared connective tissue). ✅
+
+### Option repeat suppression (#8)
+- 10 consecutive scripted conversations (fake player): every conversation showed 4
+  options with category spread + an exit; **zero repeats within the 30-id history
+  window**; ids recurred only once the window rolled past them (conversations 9–10
+  reusing conversation-1 ids after 32 fresh ones). Shown-id lists logged in
+  `run/devserver.log` (`Dialogue options for Runner: …`). ✅

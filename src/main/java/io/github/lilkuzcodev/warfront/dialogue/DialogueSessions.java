@@ -233,6 +233,8 @@ public final class DialogueSessions {
 		List<String> ids = picked.stream().map(DialogueOption::id).toList();
 		session.shownThisConvo.addAll(ids);
 		state.markShown(player.getUUID(), ids, DialogueEngine.SHOWN_HISTORY_CAP);
+		Warfront.LOGGER.info("Dialogue options for {} ({} {} {}): {}", player.getName().getString(),
+				session.faction, ctx.band(), ctx.standing(), ids);
 
 		String line = "dialogue.warfront.resp.silent";
 		List<String> lines = responseClass == null ? List.of()

@@ -132,7 +132,18 @@ public final class DialogueEngine {
 					&& now - last < option.cooldownMinutes() * 1200L) {
 				continue;
 			}
-			double score = option.weight() * (recent.contains(option.id()) ? NOVELTY_PENALTY : 1.0)
+			// context relevance: options written FOR this band/situation outrank generic
+			// chatter (a vengeful-band grunt leads with warnings, not small talk)
+			double relevance = 1.0;
+			DialogueOption.Conditions c = option.conditions();
+			if (!c.dispositions().isEmpty()) {
+				relevance *= 2.5;
+			}
+			if (!c.locations().isEmpty() || !c.times().isEmpty() || c.recentCombat() != null
+					|| c.hasKilledThisFaction() != null || !c.contractStates().isEmpty()) {
+				relevance *= 1.5;
+			}
+			double score = option.weight() * relevance * (recent.contains(option.id()) ? NOVELTY_PENALTY : 1.0)
 					* (0.75 + random.nextDouble() * 0.5);
 			eligible.add(new Scored(option, score));
 		}

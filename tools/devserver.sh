@@ -30,7 +30,10 @@ start)
 stop)
   node "$DIR/tools/rcon.js" 25576 wartest "stop" 2>/dev/null | head -2 || true
   sleep 5
-  pkill -f devlaunchinjector 2>/dev/null || true
+  # kill only the dev SERVER — never a running client gametest
+  for pid in $(pgrep -f devlaunchinjector 2>/dev/null); do
+    ps -o command= -p "$pid" | grep -q "fabric.client.gametest" || kill "$pid" 2>/dev/null || true
+  done
   echo "stopped"
   ;;
 log)

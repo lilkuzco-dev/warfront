@@ -54,6 +54,11 @@ public final class WarfrontCommands {
 										.then(Commands.argument("event", StringArgumentType.word())
 												.executes(ctx -> ledger(ctx.getSource(), StringArgumentType.getString(ctx, "faction"),
 														StringArgumentType.getString(ctx, "event"))))))
+						.then(Commands.literal("contract").requires(Commands.hasPermission(Commands.LEVEL_GAMEMASTERS))
+								.then(Commands.argument("faction", StringArgumentType.word())
+										.then(Commands.argument("action", StringArgumentType.word())
+												.executes(ctx -> contract(ctx.getSource(), StringArgumentType.getString(ctx, "faction"),
+														StringArgumentType.getString(ctx, "action"))))))
 						.then(Commands.literal("patrol").requires(Commands.hasPermission(Commands.LEVEL_GAMEMASTERS))
 								.then(Commands.argument("faction", StringArgumentType.word())
 										.executes(ctx -> patrol(ctx.getSource(), StringArgumentType.getString(ctx, "faction")))))));
@@ -144,6 +149,47 @@ public final class WarfrontCommands {
 		WarfrontState state = WarfrontState.get(source.getServer());
 		float applied = state.recordEvent(player.getUUID(), faction, event, WarfrontState.clock(source.getLevel()));
 		source.sendSuccess(() -> Component.literal(String.format("Recorded %s -> %s (weight %.1f)", event, faction, applied)), true);
+		return 1;
+	}
+
+	/** Test/debug: drive the work-order lifecycle without the dialogue UI. */
+	private static int contract(CommandSourceStack source, String faction, String action) {
+		if (!(source.getEntity() instanceof net.minecraft.server.level.ServerPlayer player)) {
+			source.sendFailure(Component.literal("Run as a player"));
+			return 0;
+		}
+		WarfrontState state = WarfrontState.get(source.getServer());
+		switch (action) {
+			case "offer" -> {
+				var order = io.github.lilkuzcodev.warfront.dialogue.WorkOrders.offer(player, faction, false);
+				source.sendSuccess(() -> Component.literal(order == null ? "no order offered (one active already?)"
+						: "offered " + order.id()), true);
+			}
+			case "penance" -> {
+				var order = io.github.lilkuzcodev.warfront.dialogue.WorkOrders.offer(player, faction, true);
+				source.sendSuccess(() -> Component.literal(order == null ? "no penance order offered"
+						: "offered " + order.id()), true);
+			}
+			case "accept" -> {
+				io.github.lilkuzcodev.warfront.dialogue.WorkOrders.accept(player, faction);
+				source.sendSuccess(() -> Component.literal("accepted"), true);
+			}
+			case "turnin" -> {
+				boolean ok = io.github.lilkuzcodev.warfront.dialogue.WorkOrders.turnIn(player, faction);
+				source.sendSuccess(() -> Component.literal(ok ? "turned in" : "not complete"), true);
+			}
+			case "abandon" -> {
+				io.github.lilkuzcodev.warfront.dialogue.WorkOrders.abandon(player, faction);
+				source.sendSuccess(() -> Component.literal("abandoned"), true);
+			}
+			default -> {
+				var contract = state.contract(player.getUUID(), faction);
+				source.sendSuccess(() -> Component.literal(contract == null ? "no contract"
+						: String.format("%s %s target=%s item=%s %d/%d state=%s penance=%s", contract.orderId(),
+								contract.type(), contract.targetFaction(), contract.item(), contract.progress(),
+								contract.count(), contract.state(), contract.penance())), false);
+			}
+		}
 		return 1;
 	}
 

@@ -27,6 +27,7 @@ public class WarfrontRenderTest implements FabricClientGameTest {
 			var server = world.getServer();
 			server.runCommand("time set noon");
 			server.runCommand("gamerule mob_spawning false");
+			server.runCommand("gamerule doMobSpawning false");
 			server.runCommand("gamemode creative @p");
 
 			// --- soldier lineup: 3 factions x soldier/officer, arms/overlays in-camera ---
@@ -72,16 +73,27 @@ public class WarfrontRenderTest implements FabricClientGameTest {
 	private void shootStructure(ClientGameTestContext context, TestSingleplayerContext world,
 			String structureId, String shotName, int x, int height) {
 		var server = world.getServer();
+		// the placement clearance check needs the full max_distance_from_center radius
+		// loaded, so forceload a 160-block halo (two adds — 256-chunk command limit)
+		server.runCommand("forceload add " + (x - 160) + " -160 " + (x + 160) + " -1");
+		server.runCommand("forceload add " + (x - 160) + " 0 " + (x + 160) + " 160");
 		server.runCommand("tp @p " + x + " 0 0");
-		context.waitTicks(150);
-		server.runCommand("place structure " + structureId + " " + x + " -70 0");
-		context.waitTicks(80);
-		// /place rotates the compound into an arbitrary quadrant off the anchor, so
-		// shoot straight down from above the anchor corner — any quadrant shows
-		// (flat world surface is y=-60, so the camera sits height blocks above it)
-		server.runCommand("tp @p " + x + " " + (-60 + height) + " 0 -45 90");
-		context.waitTicks(120);
-		context.takeScreenshot(shotName);
+		context.waitTicks(200);
+		server.runCommand("place structure " + structureId + " " + x + " 0 0");
+		context.waitTicks(60);
+		// /place rotates the compound into an arbitrary quadrant off the anchor;
+		// shoot straight down over all four quadrant centers — one of them frames it
+		int half = height / 2;
+		int shot = 1;
+		for (int[] q : new int[][] { { half, half }, { -half, half }, { half, -half }, { -half, -half } }) {
+			server.runCommand("spreadplayers " + (x + q[0]) + " " + q[1] + " 0 2 false @p");
+			context.waitTicks(10);
+			server.runCommand("execute at @p run tp @p ~ ~" + height + " ~ -45 90");
+			context.waitTicks(60);
+			context.takeScreenshot(shotName + "_q" + shot);
+			shot++;
+		}
+		server.runCommand("forceload remove all");
 		server.runCommand("kill @e[type=warfront:soldier]");
 	}
 }
