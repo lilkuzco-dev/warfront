@@ -1,8 +1,47 @@
 # Warfront
 
-Modern military factions for Minecraft 26.2 (Fabric) — Phase 1 skeleton. Three doctrine-driven factions (Vostok: mass and attrition; Aegis: combined-arms precision; Sarab: asymmetric ambush) with soldiers, bases, tech progression, and the order pipeline every future phase builds on.
+Modern military factions for Minecraft 26.2 (Fabric). Three doctrine-driven factions (Vostok: mass and attrition; Aegis: combined-arms precision; Sarab: asymmetric ambush) with soldiers, bases, tech progression, and the order pipeline every future phase builds on.
 
 Requires Fabric Loader 0.19.3+ and Fabric API for 26.2.
+
+## v0.2.0 — the Garrison Update
+
+- **Population**: bases now carry real garrisons — tier-scaled counts per faction
+  (Vostok masses, Aegis fields small elite crews, Sarab disperses), lazy-hydrated as
+  you approach, respawning **one soldier per `warfront:bunk` block** per interval
+  (destroy the barracks and the base stops recovering; reinforcement pauses while
+  enemies are inside the wire). Roaming squads shuttle between friendly bases:
+  Vostok road-march columns, Aegis cross-country teams, Sarab night pairs. A global
+  per-player soldier cap keeps TPS honest. Tuning: `population` block in each faction
+  JSON + `warfront_config/population.json`.
+- **Bases, rebuilt from real builds**: three tiers — outposts (rebuilt, bigger),
+  forward bases, and rare headquarters (~1,500–2,000 block spacing). Every enclosed
+  building is adapted from license-cleared open-source structures (Repurposed
+  Structures, LGPL — see `CREDITS.md` and `structures/SOURCES.md`) or referenced
+  vanilla pieces rethemed at generation; freehand geometry is limited to walls,
+  gates, paths, trenches, and pads. One sourced build ships in three faction skins
+  via `tools/retheme-structure.js`. Guaranteed anatomy per tier (towers manned,
+  gates guarded, furnished interiors, faction loot). **New tiers generate in newly
+  generated chunks only.**
+- **Dialogue**: right-click a non-hostile soldier. **1,401 authored player options**
+  (3,140 soldier response lines) surfaced four at a time by context — faction,
+  standing, disposition, rank, location, time of day, your recent deeds. Soldiers
+  remember: a per-player event ledger (attacks, kills, sabotage, trades, gifts,
+  contracts, tributes) with slow-fading violence and faster-fading kindness drives a
+  disposition band from *vengeful* to *devoted*. Kill a faction's soldiers and every
+  member greets you accordingly until you claw back through apology tributes,
+  penance work orders, trade, or fighting at their side — and a betrayal after
+  friendship cuts twice as deep. Helping one faction echoes against its enemies.
+  Quartermasters trade through dialogue (standing-gated stock, prices scale with
+  standing *and* disposition); officers offer work orders (eliminate / supply /
+  recon) with matrix consequences. Chat-fallback UI via
+  `config/warfront-client.json`.
+- **Fixes**: soldier "ghost limb" rendering fixed at the root (player-model overlay
+  parts now posed); item model transform audit clean. (No M1911 exists in this mod
+  or the managed pack — the reported gun-rendering bug was this arm issue.)
+- **License**: relicensed **LGPL-3.0-or-later** (from the template's CC0) to carry
+  the imported LGPL structures correctly. Full verification log: `VERIFY.md`;
+  screenshots: `screenshots/v0.2.0/`.
 
 ## What's in Phase 1
 
