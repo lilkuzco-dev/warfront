@@ -383,6 +383,9 @@ public class SoldierEntity extends PathfinderMob {
 				WarfrontState state = WarfrontState.get(serverLevel.getServer());
 				long clock = WarfrontState.clock(serverLevel);
 				state.recordEvent(player.getUUID(), getFaction(), "killed_soldier", clock);
+				// the killing blow doesn't fire AFTER_DAMAGE, so the standing penalty
+				// for the kill itself lands here (one-shot kills must not be free)
+				state.addStanding(player.getUUID(), getFaction(), WarfrontRegistry.standing().attackPenalty());
 				io.github.lilkuzcodev.warfront.dialogue.WorkOrders.onSoldierKilled(player, this);
 				// combat aid: factions hostile to the victim with soldiers watching remember the favor
 				java.util.Set<String> witnesses = new java.util.HashSet<>();

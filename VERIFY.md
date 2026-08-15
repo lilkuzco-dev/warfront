@@ -69,3 +69,56 @@
     transforms ✓
 - Warfront ships no handheld/custom-transform items; soldiers wield vanilla swords
   (vanilla transforms). Audit clean.
+
+## v0.2.0 — Stage 6 battery (headless dev server, carpet fake players; 2026-08-15)
+
+Setup: `tools/devserver.sh`, fake players Watcher/Ranger/Scout, battery datapack in
+`run/warfront-test/datapacks/battery` (reinforce 0.5 min, roam 20 s @ 100% — speed
+overrides only; garrison ranges untouched).
+
+### Worldgen & bases
+- Datapack loads with zero registry errors; all 9 tier×faction structures `/locate`
+  successfully (outposts near spawn; HQs ~3,000 blocks out at the 112-chunk spacing). ✅
+- `/place structure` assembles plates + jigsaw sprawl and spawns seed soldiers (17 for
+  an outpost + FB pair) — but vanilla `/place` writes no chunk references, so
+  command-placed bases are never *discovered*; discovery verified on naturally
+  generated bases. ✅ (noted in BaseManager)
+- Natural sarab outpost: seed soldiers adopt on first tick → base registered
+  (`sarab outpost garrison=9`), dispersed across sub-compounds; hydration flag flips on
+  the next cycle when a player is in radius. Second outpost registered the same way. ✅
+
+### Population (test base: natural sarab outpost, target rolled 6 ∈ [5,8])
+- Ledger == live entity count at every step (9=9, 4=4, 6=6). ✅
+- Kill 5 → garrison 9→4 → reinforcement +2/cycle (bunk-limited: 2 bunks) back to the
+  tier target, then stops at target. ✅
+- All bunks destroyed → garrison stays below target across cycles (no bunks = no
+  reinforcement). ✅
+- Hostile-faction soldier within 32 → reinforcement paused; enemy removed → recovers
+  to target next cycle. ✅
+- Inter-base roaming: two sarab outposts 210 blocks apart, night forced → exactly one
+  **pair** (doctrine size 2) with `warfront_roaming:1b` spawned; none spawned during
+  day (night gate). ✅
+- TPS with hydrated bases + fake players: 2.9 ms avg / P95 4.3 ms (target 50). ✅
+- `/warfront order sarab assault …` → General selects `infantry_assault`, aborts
+  cleanly on unloaded chunks — pipeline unregressed. ✅
+
+### Disposition ledger (the Emperor's scenario, via `/damage … by <fakeplayer>`)
+- Baseline all-neutral → kill 3 sarab: disposition −45 (hostile), 3 killed_soldier
+  events; +1 non-lethal hit: attacked_soldier recorded, standing −40 (hostile label),
+  disposition −60.9 → **vengeful**. ✅
+- Found+fixed: the killing blow doesn't fire AFTER_DAMAGE, so one-shot kills skipped
+  the standing penalty — standing hit now also applied in `die()`. ✅
+- Decay: `/time add 72000` (3 game days = violence half-life): −60.9 → −35.2 (ledger
+  sum exactly halved); +6 more days → −16.2 (cold). Ledger runs on the overworld day
+  clock, so sleeping//time genuinely age memories; decay clamped against backward
+  /time set. ✅
+- Combat aid: Ranger kills 4 aegis in view of sarab soldiers → sarab +40 (friendly,
+  4× aided_in_combat). ✅
+- **Relations echo**: the same aid leaked −14 to Vostok (cold) — a faction Ranger has
+  never met. ✅
+- **Betrayal**: friendly-band Ranger kills one sarab → 40.0 → 9.9 (−30 = killed × 2.0
+  multiplier), server log: `Betrayal: … was friendly with sarab; killed_soldier weight
+  x2.0`. ✅
+
+Deferred to the post-corpus session: dialogue UI tests (#7–#9 options/reroll/locks),
+quartermaster loop, screenshots, 10-min unload despawn, client render check.
