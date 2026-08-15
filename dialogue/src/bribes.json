@@ -1,0 +1,425 @@
+{
+  "category": "bribes",
+  "options": [
+    { "id": "bribes_feeler_hypothetical", "text": "Hypothetically, could an officer be persuaded to bend a rule?", "response": "bribe_feeler", "conditions": { "role": ["officer"] }, "weight": 8 },
+    { "id": "bribes_feeler_off_books", "text": "How do things really get done around here, off the books?", "response": "bribe_feeler", "conditions": { "role": ["officer"] }, "weight": 7 },
+    { "id": "bribes_feeler_arrangements", "text": "I've heard officers have... flexible arrangements sometimes.", "response": "bribe_feeler", "conditions": { "role": ["officer"] }, "weight": 7 },
+    { "id": "bribes_feeler_rank", "text": "Surely rank comes with certain, let's say, opportunities?", "response": "bribe_feeler", "conditions": { "role": ["officer"] }, "weight": 6 },
+    { "id": "bribes_feeler_doors", "text": "I'm told coin opens doors that keys can't.", "response": "bribe_feeler", "conditions": { "role": ["officer"] }, "weight": 7 },
+    { "id": "bribes_feeler_private_page", "text": "Between us — does your ledger have a private page?", "response": "bribe_feeler", "conditions": { "role": ["officer"] }, "weight": 6 },
+    { "id": "bribes_feeler_generous_friend", "text": "Would a generous friend find life easier around your camp?", "response": "bribe_feeler", "conditions": { "role": ["officer"] }, "weight": 7 },
+    { "id": "bribes_bold_everyone_price", "text": "Everyone has a price. What's yours?", "response": "bribe_feeler_bold", "conditions": { "role": ["officer"] }, "weight": 8 },
+    { "id": "bribes_bold_practical", "text": "You strike me as a practical sort. Practically speaking, are you buyable?", "response": "bribe_feeler_bold", "conditions": { "role": ["officer"] }, "weight": 6 },
+    { "id": "bribes_bold_discretion", "text": "What does discretion cost in this camp?", "response": "bribe_feeler_bold", "conditions": { "role": ["officer"] }, "weight": 6 },
+    { "id": "bribes_bold_loyalty", "text": "Is your loyalty as fixed as they say, or just expensive?", "response": "bribe_feeler_bold", "conditions": { "role": ["officer"] }, "weight": 6 },
+    { "id": "bribes_bold_forget_me", "text": "What would it take for you to forget you saw me sometime?", "response": "bribe_feeler_bold", "conditions": { "role": ["officer"] }, "weight": 6 },
+    { "id": "bribes_price_look_other_way", "text": "How much to look the other way, generally speaking?", "response": "bribe_price_talk", "conditions": { "role": ["officer"] }, "weight": 7 },
+    { "id": "bribes_price_small_blindness", "text": "Give me a number for a small blindness.", "response": "bribe_price_talk", "conditions": { "role": ["officer"] }, "weight": 6 },
+    { "id": "bribes_price_silence_rate", "text": "What's the going rate for an officer's silence?", "response": "bribe_price_talk", "conditions": { "role": ["officer"] }, "weight": 6 },
+    { "id": "bribes_price_patrol", "text": "If I needed a patrol rerouted, what would that cost?", "response": "bribe_price_talk", "conditions": { "role": ["officer"] }, "weight": 6 },
+    { "id": "bribes_price_one_gate", "text": "Price me a favor: one gate, one night, nothing said.", "response": "bribe_price_talk", "conditions": { "role": ["officer"] }, "weight": 5 },
+    { "id": "bribes_price_sealed_lips", "text": "What do sealed lips weigh in emeralds?", "response": "bribe_price_talk", "conditions": { "role": ["officer"] }, "weight": 5 },
+    { "id": "bribes_price_report_missing", "text": "Say I needed a report to go missing. Cost?", "response": "bribe_price_talk", "conditions": { "role": ["officer"] }, "weight": 5 },
+    { "id": "bribes_price_donation_schedule", "text": "Could a donation adjust a schedule, and at what rate?", "response": "bribe_price_talk", "conditions": { "role": ["officer"] }, "weight": 5 },
+    { "id": "bribes_intel_rivals_camp", "text": "Eight emeralds says you know where your rivals camp.", "response": "bribe_intel_paid", "conditions": { "role": ["officer"], "requires_item": "minecraft:emerald", "requires_count": 8 }, "effects": [{ "type": "take_items", "item": "minecraft:emerald", "count": 8 }, { "type": "disposition", "event": "bribed" }, { "type": "intel", "kind": "rival_base" }], "weight": 7, "cooldown_minutes": 180 },
+    { "id": "bribes_intel_enemy_base", "text": "Ten emeralds for the location of your enemy's base.", "response": "bribe_intel_paid", "conditions": { "role": ["officer"], "requires_item": "minecraft:emerald", "requires_count": 10 }, "effects": [{ "type": "take_items", "item": "minecraft:emerald", "count": 10 }, { "type": "disposition", "event": "bribed" }, { "type": "intel", "kind": "rival_base" }], "weight": 7, "cooldown_minutes": 180 },
+    { "id": "bribes_intel_rivals_door", "text": "Six emeralds. Point me at your rivals' door.", "response": "bribe_intel_paid", "conditions": { "role": ["officer"], "requires_item": "minecraft:emerald", "requires_count": 6 }, "effects": [{ "type": "take_items", "item": "minecraft:emerald", "count": 6 }, { "type": "disposition", "event": "bribed" }, { "type": "intel", "kind": "rival_base" }], "weight": 7, "cooldown_minutes": 180 },
+    { "id": "bribes_intel_mark_map", "text": "There's eight emeralds here for a mark on my map.", "response": "bribe_intel_paid", "conditions": { "role": ["officer"], "requires_item": "minecraft:emerald", "requires_count": 8 }, "effects": [{ "type": "take_items", "item": "minecraft:emerald", "count": 8 }, { "type": "disposition", "event": "bribed" }, { "type": "intel", "kind": "rival_base" }], "weight": 6, "cooldown_minutes": 180 },
+    { "id": "bribes_intel_scouts_know", "text": "I'll pay ten for what your scouts know about the other side.", "response": "bribe_intel_paid", "conditions": { "role": ["officer"], "requires_item": "minecraft:emerald", "requires_count": 10 }, "effects": [{ "type": "take_items", "item": "minecraft:emerald", "count": 10 }, { "type": "disposition", "event": "bribed" }, { "type": "intel", "kind": "rival_base" }], "weight": 6, "cooldown_minutes": 180 },
+    { "id": "bribes_intel_where_sleep", "text": "Six green reasons to share where your enemies sleep.", "response": "bribe_intel_paid", "conditions": { "role": ["officer"], "requires_item": "minecraft:emerald", "requires_count": 6 }, "effects": [{ "type": "take_items", "item": "minecraft:emerald", "count": 6 }, { "type": "disposition", "event": "bribed" }, { "type": "intel", "kind": "rival_base" }], "weight": 6, "cooldown_minutes": 180 },
+    { "id": "bribes_intel_position", "text": "Sell me the enemy's position. Eight emeralds, now.", "response": "bribe_intel_paid", "conditions": { "role": ["officer"], "requires_item": "minecraft:emerald", "requires_count": 8 }, "effects": [{ "type": "take_items", "item": "minecraft:emerald", "count": 8 }, { "type": "disposition", "event": "bribed" }, { "type": "intel", "kind": "rival_base" }], "weight": 6, "cooldown_minutes": 180 },
+    { "id": "bribes_intel_coordinates", "text": "Ten emeralds buys their coordinates, yes?", "response": "bribe_intel_paid", "conditions": { "role": ["officer"], "requires_item": "minecraft:emerald", "requires_count": 10 }, "effects": [{ "type": "take_items", "item": "minecraft:emerald", "count": 10 }, { "type": "disposition", "event": "bribed" }, { "type": "intel", "kind": "rival_base" }], "weight": 6, "cooldown_minutes": 180 },
+    { "id": "bribes_intel_draw_camp", "text": "Take these six and draw me the rival camp.", "response": "bribe_intel_paid", "conditions": { "role": ["officer"], "requires_item": "minecraft:emerald", "requires_count": 6 }, "effects": [{ "type": "take_items", "item": "minecraft:emerald", "count": 6 }, { "type": "disposition", "event": "bribed" }, { "type": "intel", "kind": "rival_base" }], "weight": 6, "cooldown_minutes": 180 },
+    { "id": "bribes_intel_honest_arrow", "text": "Eight gems for one honest arrow on a chart.", "response": "bribe_intel_paid", "conditions": { "role": ["officer"], "requires_item": "minecraft:emerald", "requires_count": 8 }, "effects": [{ "type": "take_items", "item": "minecraft:emerald", "count": 8 }, { "type": "disposition", "event": "bribed" }, { "type": "intel", "kind": "rival_base" }], "weight": 5, "cooldown_minutes": 180 },
+    { "id": "bribes_intel_other_flag", "text": "For ten emeralds, whisper me where the other flag flies.", "response": "bribe_intel_paid", "conditions": { "role": ["officer"], "requires_item": "minecraft:emerald", "requires_count": 10 }, "effects": [{ "type": "take_items", "item": "minecraft:emerald", "count": 10 }, { "type": "disposition", "event": "bribed" }, { "type": "intel", "kind": "rival_base" }], "weight": 5, "cooldown_minutes": 180 },
+    { "id": "bribes_intel_buying_today", "text": "I'm buying enemy intel today. Eight emeralds on the table.", "response": "bribe_intel_paid", "conditions": { "role": ["officer"], "requires_item": "minecraft:emerald", "requires_count": 8 }, "effects": [{ "type": "take_items", "item": "minecraft:emerald", "count": 8 }, { "type": "disposition", "event": "bribed" }, { "type": "intel", "kind": "rival_base" }], "weight": 6, "cooldown_minutes": 180 },
+    { "id": "bribes_intel_their_gates", "text": "Ten in green stone for the path to their gates.", "response": "bribe_intel_paid", "conditions": { "role": ["officer"], "requires_item": "minecraft:emerald", "requires_count": 10 }, "effects": [{ "type": "take_items", "item": "minecraft:emerald", "count": 10 }, { "type": "disposition", "event": "bribed" }, { "type": "intel", "kind": "rival_base" }], "weight": 5, "cooldown_minutes": 180 },
+    { "id": "bribes_grease_remember_kindly", "text": "Five emeralds to remember me kindly.", "response": "bribe_grease", "conditions": { "role": ["officer"], "requires_item": "minecraft:emerald", "requires_count": 5 }, "effects": [{ "type": "take_items", "item": "minecraft:emerald", "count": 5 }, { "type": "disposition", "event": "bribed" }, { "type": "standing", "amount": 2 }], "weight": 7, "cooldown_minutes": 120 },
+    { "id": "bribes_grease_smooth_things", "text": "A little something to smooth things between us. Four emeralds.", "response": "bribe_grease", "conditions": { "role": ["officer"], "requires_item": "minecraft:emerald", "requires_count": 4 }, "effects": [{ "type": "take_items", "item": "minecraft:emerald", "count": 4 }, { "type": "disposition", "event": "bribed" }, { "type": "standing", "amount": 2 }], "weight": 7, "cooldown_minutes": 120 },
+    { "id": "bribes_grease_reports", "text": "Six emeralds, and maybe my name sounds nicer in your reports.", "response": "bribe_grease", "conditions": { "role": ["officer"], "requires_item": "minecraft:emerald", "requires_count": 6 }, "effects": [{ "type": "take_items", "item": "minecraft:emerald", "count": 6 }, { "type": "disposition", "event": "bribed" }, { "type": "standing", "amount": 2 }], "weight": 6, "cooldown_minutes": 120 },
+    { "id": "bribes_grease_goodwill", "text": "Take five for your trouble. And your goodwill.", "response": "bribe_grease", "conditions": { "role": ["officer"], "requires_item": "minecraft:emerald", "requires_count": 5 }, "effects": [{ "type": "take_items", "item": "minecraft:emerald", "count": 5 }, { "type": "disposition", "event": "bribed" }, { "type": "standing", "amount": 2 }], "weight": 6, "cooldown_minutes": 120 },
+    { "id": "bribes_grease_friendlier", "text": "Four emeralds toward a friendlier arrangement.", "response": "bribe_grease", "conditions": { "role": ["officer"], "requires_item": "minecraft:emerald", "requires_count": 4 }, "effects": [{ "type": "take_items", "item": "minecraft:emerald", "count": 4 }, { "type": "disposition", "event": "bribed" }, { "type": "standing", "amount": 2 }], "weight": 6, "cooldown_minutes": 120 },
+    { "id": "bribes_grease_career", "text": "Here's six. Consider me a supporter of your career.", "response": "bribe_grease", "conditions": { "role": ["officer"], "requires_item": "minecraft:emerald", "requires_count": 6 }, "effects": [{ "type": "take_items", "item": "minecraft:emerald", "count": 6 }, { "type": "disposition", "event": "bribed" }, { "type": "standing", "amount": 2 }], "weight": 5, "cooldown_minutes": 120 },
+    { "id": "bribes_grease_pleasant", "text": "Five gems to keep our dealings pleasant.", "response": "bribe_grease", "conditions": { "role": ["officer"], "requires_item": "minecraft:emerald", "requires_count": 5 }, "effects": [{ "type": "take_items", "item": "minecraft:emerald", "count": 5 }, { "type": "disposition", "event": "bribed" }, { "type": "standing", "amount": 2 }], "weight": 6, "cooldown_minutes": 120 },
+    { "id": "bribes_grease_gratuity", "text": "A gratuity, officer. Four emeralds' worth.", "response": "bribe_grease", "conditions": { "role": ["officer"], "requires_item": "minecraft:emerald", "requires_count": 4 }, "effects": [{ "type": "take_items", "item": "minecraft:emerald", "count": 4 }, { "type": "disposition", "event": "bribed" }, { "type": "standing", "amount": 2 }], "weight": 6, "cooldown_minutes": 120 },
+    { "id": "bribes_grease_no_receipt", "text": "Six emeralds, no receipt necessary.", "response": "bribe_grease", "conditions": { "role": ["officer"], "requires_item": "minecraft:emerald", "requires_count": 6 }, "effects": [{ "type": "take_items", "item": "minecraft:emerald", "count": 6 }, { "type": "disposition", "event": "bribed" }, { "type": "standing", "amount": 2 }], "weight": 5, "cooldown_minutes": 120 },
+    { "id": "bribes_grease_how_welcome", "text": "Five for the officer who decides how welcome I am.", "response": "bribe_grease", "conditions": { "role": ["officer"], "requires_item": "minecraft:emerald", "requires_count": 5 }, "effects": [{ "type": "take_items", "item": "minecraft:emerald", "count": 5 }, { "type": "disposition", "event": "bribed" }, { "type": "standing", "amount": 2 }], "weight": 5, "cooldown_minutes": 120 },
+    { "id": "bribes_lookaway_soften_file", "text": "Seven emeralds to soften what your file says about me.", "response": "bribe_lookaway", "conditions": { "role": ["officer"], "disposition": ["negative"], "requires_item": "minecraft:emerald", "requires_count": 7 }, "effects": [{ "type": "take_items", "item": "minecraft:emerald", "count": 7 }, { "type": "disposition", "event": "bribed" }, { "type": "standing", "amount": 2 }], "weight": 7, "cooldown_minutes": 120 },
+    { "id": "bribes_lookaway_past_stays", "text": "Five emeralds and my past stays in the past, yes?", "response": "bribe_lookaway", "conditions": { "role": ["officer"], "disposition": ["negative"], "requires_item": "minecraft:emerald", "requires_count": 5 }, "effects": [{ "type": "take_items", "item": "minecraft:emerald", "count": 5 }, { "type": "disposition", "event": "bribed" }, { "type": "standing", "amount": 2 }], "weight": 6, "cooldown_minutes": 120 },
+    { "id": "bribes_lookaway_kind_edit", "text": "Six for a kind edit to my reputation here.", "response": "bribe_lookaway", "conditions": { "role": ["officer"], "disposition": ["negative"], "requires_item": "minecraft:emerald", "requires_count": 6 }, "effects": [{ "type": "take_items", "item": "minecraft:emerald", "count": 6 }, { "type": "disposition", "event": "bribed" }, { "type": "standing", "amount": 2 }], "weight": 6, "cooldown_minutes": 120 },
+    { "id": "bribes_lookaway_complaint", "text": "Take seven and lose whatever complaint has my name on it.", "response": "bribe_lookaway", "conditions": { "role": ["officer"], "disposition": ["negative"], "requires_item": "minecraft:emerald", "requires_count": 7 }, "effects": [{ "type": "take_items", "item": "minecraft:emerald", "count": 7 }, { "type": "disposition", "event": "bribed" }, { "type": "standing", "amount": 2 }], "weight": 6, "cooldown_minutes": 120 },
+    { "id": "bribes_lookaway_never_seen", "text": "Five emeralds says my last mistake was never seen.", "response": "bribe_lookaway", "conditions": { "role": ["officer"], "disposition": ["negative"], "requires_item": "minecraft:emerald", "requires_count": 5 }, "effects": [{ "type": "take_items", "item": "minecraft:emerald", "count": 5 }, { "type": "disposition", "event": "bribed" }, { "type": "standing", "amount": 2 }], "weight": 6, "cooldown_minutes": 120 },
+    { "id": "bribes_lookaway_list_of_sins", "text": "Six emeralds to shorten my list of sins. Officially.", "response": "bribe_lookaway", "conditions": { "role": ["officer"], "disposition": ["negative"], "requires_item": "minecraft:emerald", "requires_count": 6 }, "effects": [{ "type": "take_items", "item": "minecraft:emerald", "count": 6 }, { "type": "disposition", "event": "bribed" }, { "type": "standing", "amount": 2 }], "weight": 5, "cooldown_minutes": 120 },
+    { "id": "bribes_lookaway_blind_eye", "text": "Seven gems for a blind eye on my next visit.", "response": "bribe_lookaway", "conditions": { "role": ["officer"], "disposition": ["negative"], "requires_item": "minecraft:emerald", "requires_count": 7 }, "effects": [{ "type": "take_items", "item": "minecraft:emerald", "count": 7 }, { "type": "disposition", "event": "bribed" }, { "type": "standing", "amount": 2 }], "weight": 5, "cooldown_minutes": 120 },
+    { "id": "bribes_lookaway_reclassify", "text": "Five to reclassify me from problem to guest.", "response": "bribe_lookaway", "conditions": { "role": ["officer"], "disposition": ["negative"], "requires_item": "minecraft:emerald", "requires_count": 5 }, "effects": [{ "type": "take_items", "item": "minecraft:emerald", "count": 5 }, { "type": "disposition", "event": "bribed" }, { "type": "standing", "amount": 2 }], "weight": 5, "cooldown_minutes": 120 },
+    { "id": "bribes_pocket_whatever_favors", "text": "Eight emeralds for whatever favors you're selling.", "response": "bribe_pocketed", "conditions": { "role": ["officer"], "requires_item": "minecraft:emerald", "requires_count": 8 }, "effects": [{ "type": "take_items", "item": "minecraft:emerald", "count": 8 }, { "type": "disposition", "event": "insulted" }], "weight": 6 },
+    { "id": "bribes_pocket_surprise_me", "text": "Here's six up front. Surprise me with the favor.", "response": "bribe_pocketed", "conditions": { "role": ["officer"], "requires_item": "minecraft:emerald", "requires_count": 6 }, "effects": [{ "type": "take_items", "item": "minecraft:emerald", "count": 6 }, { "type": "disposition", "event": "insulted" }], "weight": 6 },
+    { "id": "bribes_pocket_owe_me", "text": "Four emeralds. Just take them and owe me one.", "response": "bribe_pocketed", "conditions": { "role": ["officer"], "requires_item": "minecraft:emerald", "requires_count": 4 }, "effects": [{ "type": "take_items", "item": "minecraft:emerald", "count": 4 }, { "type": "disposition", "event": "insulted" }], "weight": 6 },
+    { "id": "bribes_pocket_ask_nothing", "text": "Seven for you, and I ask nothing more. Deal?", "response": "bribe_pocketed", "conditions": { "role": ["officer"], "requires_item": "minecraft:emerald", "requires_count": 7 }, "effects": [{ "type": "take_items", "item": "minecraft:emerald", "count": 7 }, { "type": "disposition", "event": "insulted" }], "weight": 5 },
+    { "id": "bribes_pocket_terms_flexible", "text": "An open bribe, officer: five emeralds, terms flexible.", "response": "bribe_pocketed", "conditions": { "role": ["officer"], "requires_item": "minecraft:emerald", "requires_count": 5 }, "effects": [{ "type": "take_items", "item": "minecraft:emerald", "count": 5 }, { "type": "disposition", "event": "insulted" }], "weight": 5 },
+    { "id": "bribes_pocket_you_decide", "text": "Eight gems, and you decide what they buy.", "response": "bribe_pocketed", "conditions": { "role": ["officer"], "requires_item": "minecraft:emerald", "requires_count": 8 }, "effects": [{ "type": "take_items", "item": "minecraft:emerald", "count": 8 }, { "type": "disposition", "event": "insulted" }], "weight": 5 },
+    { "id": "bribes_pocket_good_faith", "text": "Six emeralds on good faith. Don't disappoint me.", "response": "bribe_pocketed", "conditions": { "role": ["officer"], "requires_item": "minecraft:emerald", "requires_count": 6 }, "effects": [{ "type": "take_items", "item": "minecraft:emerald", "count": 6 }, { "type": "disposition", "event": "insulted" }], "weight": 5 },
+    { "id": "bribes_pocket_settle_later", "text": "Take four now; we'll settle the details later.", "response": "bribe_pocketed", "conditions": { "role": ["officer"], "requires_item": "minecraft:emerald", "requires_count": 4 }, "effects": [{ "type": "take_items", "item": "minecraft:emerald", "count": 4 }, { "type": "disposition", "event": "insulted" }], "weight": 5 },
+    { "id": "bribes_provoke_name_it", "text": "Let's not pretend you're honest. Name your bribe or I'll name it for you.", "response": "bribe_provoked", "conditions": { "role": ["officer"] }, "effects": [{ "type": "provoke" }], "weight": 4 },
+    { "id": "bribes_provoke_skims", "text": "Every officer skims. Take the emeralds and drop the act.", "response": "bribe_provoked", "conditions": { "role": ["officer"], "requires_item": "minecraft:emerald", "requires_count": 6 }, "effects": [{ "type": "provoke" }], "weight": 4 },
+    { "id": "bribes_provoke_costume", "text": "Your integrity is a costume. I've got ten emeralds that say so.", "response": "bribe_provoked", "conditions": { "role": ["officer"], "requires_item": "minecraft:emerald", "requires_count": 10 }, "effects": [{ "type": "provoke" }], "weight": 4 },
+    { "id": "bribes_provoke_tell_command", "text": "Take the payoff, or I'll tell your command you already did.", "response": "bribe_provoked", "conditions": { "role": ["officer"] }, "effects": [{ "type": "provoke" }], "weight": 4 }
+  ],
+  "responses": {
+    "bribe_feeler": {
+      "vostok": {
+        "negative": [
+          "My price? Higher than your life savings and lower than my patience. Move on.",
+          "You probe like a bad sapper. Loudly. Dig elsewhere."
+        ],
+        "neutral": [
+          "Everyone bends, yes. Mine is denominated in things you don't carry.",
+          "Careful words get careful answers. That was neither."
+        ],
+        "positive": [
+          "Ha! Friend, buy me a drink like a normal person and stop auditioning for a court-martial.",
+          "My price is vodka and victory. You can afford one. Bring it openly."
+        ]
+      },
+      "aegis": {
+        "negative": [
+          "This conversation is approaching a reportable offense. Choose your next sentence like it's evidence.",
+          "I log solicitation attempts. I am currently deciding whether that's what this was."
+        ],
+        "neutral": [
+          "Rules don't take nights off here. Neither do I. Rephrase or move along.",
+          "If that was a test of integrity, mark it passed. If it wasn't, mark yourself lucky."
+        ],
+        "positive": [
+          "Friend, the answer is no, and I'm choosing to believe you were joking. Confirm my belief.",
+          "My arrangement is with the flag. It pays badly and I keep it anyway. That's your answer."
+        ]
+      },
+      "sarab": {
+        "negative": [
+          "You fish in a dry well with a bright hook. The desert sees the hook. So do I.",
+          "Some words are knives shown handle-first. I see the blade anyway."
+        ],
+        "neutral": [
+          "In the desert, every gift has a shadow. Show me the gift and I will read its shadow.",
+          "You ask the way a jackal circles. Sit like a guest or circle elsewhere."
+        ],
+        "positive": [
+          "Friend, between us things are given, not priced. Learn the difference and you'll need no purse.",
+          "The dance of gifts has steps, and asking the cost is not one of them. Watch, then dance."
+        ]
+      }
+    },
+    "bribe_feeler_bold": {
+      "vostok": {
+        "negative": [
+          "Say price again and discover mine is paid in teeth.",
+          "The last man who called us buyable is holding a shovel somewhere very cold."
+        ],
+        "neutral": [
+          "Bold mouth. The quota has a slot for bold mouths.",
+          "That line earns most people a ditch. You get a warning. Once."
+        ],
+        "positive": [
+          "Ha! Big words, little wallet. Sit down, comedian, before the sergeant hears.",
+          "Friend, my honor is cheap but my temper is free. Don't shop for either."
+        ]
+      },
+      "aegis": {
+        "negative": [
+          "That statement is now in the log verbatim. Its consequences are pending your next word.",
+          "Accusing an officer of corruption is itself an incident. You are one incident over budget."
+        ],
+        "neutral": [
+          "Watch your phrasing, civilian. My memory has excellent retention and a filing habit.",
+          "You mistake courtesy for availability. Correct that before I file it."
+        ],
+        "positive": [
+          "Even from you, friend, that lands badly. Retract it and we'll blame the heat.",
+          "I'll pretend the wind said that, and remind the wind that I report everything else."
+        ]
+      },
+      "sarab": {
+        "negative": [
+          "Loud offers wake the wrong sleepers. Some of them are mine. Some are worse.",
+          "You shake coins at a viper's hole. The hole has opinions."
+        ],
+        "neutral": [
+          "The desert hears everything twice: once when spoken, once when regretted.",
+          "Bluntness is a northern luxury. Here it costs extra. Speak softer."
+        ],
+        "positive": [
+          "Friend, you wield honesty like a club. Among us it should be a fan. Waft, don't swing.",
+          "Even friendship cannot buy what you just asked for aloud. Ask it quieter or never."
+        ]
+      }
+    },
+    "bribe_price_talk": {
+      "vostok": {
+        "negative": [
+          "Looking away costs more than looking at you is worth. Bad market for you.",
+          "Reroute a patrol? The patrol would notice. Patrols hate math errors that bleed."
+        ],
+        "neutral": [
+          "There's no menu, and if there were, you couldn't read it without joining.",
+          "Officially: no rate exists. Unofficially: also no rate. The war ate it."
+        ],
+        "positive": [
+          "Friend, my silence is free — I'm too tired to gossip. My favors cost sweat, not stones.",
+          "Ha, buy the whole line a hot meal and every eye goes conveniently soft. That's the only rate card."
+        ]
+      },
+      "aegis": {
+        "negative": [
+          "Quoting a price would be a crime. Asking for one already was. We're at one crime. Hold.",
+          "The rate for my silence is your immediate departure. Payable now."
+        ],
+        "neutral": [
+          "No figure exists. This command audits itself for fun. I'm not dying for your errand.",
+          "Schedules move by orders, not donations. That's the entire pricing structure."
+        ],
+        "positive": [
+          "Friend, don't make me choose between liking you and reporting you. The paperwork wins ties.",
+          "I'll give you this for free: whatever you're planning, plan it somewhere unaudited."
+        ]
+      },
+      "sarab": {
+        "negative": [
+          "You price silence like it's cloth. Here silence is water. And you are far from the well.",
+          "The gate you want opened has a keeper. The keeper has a memory. The memory has your face now."
+        ],
+        "neutral": [
+          "In the souk everything has a number. This is not the souk. This is the tent where numbers sleep.",
+          "What you ask is not bought with green stones. It is grown from years. You have brought neither."
+        ],
+        "positive": [
+          "Friend, ask me for the favor plainly, without the purse, and watch what friendship does.",
+          "Keep the emeralds. Bring me a story I haven't heard and we will discuss doors."
+        ]
+      }
+    },
+    "bribe_intel_paid": {
+      "vostok": {
+        "negative": [
+          "Stones first... counted... good. The camp you want sits where my thumb is. Now forget my face harder than I forget yours.",
+          "Sold. Their fires burn there — mark it. This meeting was two ghosts and a rumor."
+        ],
+        "neutral": [
+          "War economics. Their position, your map, my pocket. Everyone leaves educated.",
+          "The line hates them more than it loves rules. There's your mark. Spend it violently."
+        ],
+        "positive": [
+          "For you, half price would've done, friend. There — their gate, their weak wall. Send them our regards, unsigned.",
+          "Ha, coin for what I'd tell you drunk anyway. Their camp. Go make our winter interesting."
+        ]
+      },
+      "aegis": {
+        "negative": [
+          "This exchange is off-log, deniable, and never happening again. Grid follows. Lose my name on the way out.",
+          "Consider this a sanctioned leak, minus the sanction. Coordinates. Go. We never overlapped."
+        ],
+        "neutral": [
+          "Their position is drawn on the back of this supply form. The form never existed. Neither did you.",
+          "I'm rationalizing this as accelerated intelligence sharing. Here's the location. Audit me never."
+        ],
+        "positive": [
+          "Between friends and off any record: they moved their base here. Hit the tents at dawn and thank me by winning.",
+          "Your emeralds fund the unit's blind spots. Their camp — this ridge, this bearing. We spoke of weather only."
+        ]
+      },
+      "sarab": {
+        "negative": [
+          "The stones vanish. So does my memory of you. Their tents darken the wadi east of the split rock. Walk away slowly.",
+          "Coin buys the map; discretion buys your exit. Their camp lies where I have drawn. Use both purchases."
+        ],
+        "neutral": [
+          "Sand tells us where our rivals sleep. Green stones make the sand talkative. Listen: there.",
+          "A fair dance: you gave, I point. Their fires sit beyond the third dune line. The wind saw nothing."
+        ],
+        "positive": [
+          "For a friend the price was theater, but theater keeps us honest. Their camp — here. May your shadow reach it first.",
+          "Take back one emerald for luck. The rest buys this: their walls, their gate, their sleeping hour. Go with the cold wind."
+        ]
+      }
+    },
+    "bribe_grease": {
+      "vostok": {
+        "negative": [
+          "Mm. Heavy pockets, light conscience. Fine — your name grates less today. Buy nothing else.",
+          "Accepted. This buys you less watched, not welcome. Know the difference. It's armed."
+        ],
+        "neutral": [
+          "The stones fall into the boot. The boot forgets things. Your name, gently, among them.",
+          "Practical. The front respects practical. Your file grows a little moss over the sharp parts."
+        ],
+        "positive": [
+          "Ha! Bribing friends — you're becoming one of us. Fine, fine, the good word gets louder.",
+          "Friend, you didn't need to. But the mess fund disagrees, so: gratefully pocketed."
+        ]
+      },
+      "aegis": {
+        "negative": [
+          "This never occurred. Your flag stays, but I'll contextualize it in the briefings. Leave before my integrity reports for duty.",
+          "Confiscated as evidence. Evidence of generosity. Your record reads one shade lighter. Vanish."
+        ],
+        "neutral": [
+          "Logging this as a civilian donation with imprecise routing. Your name earns adjectives. Mild ones.",
+          "Processed into the discretionary fund. Discretion, accordingly, follows. Don't test its range."
+        ],
+        "positive": [
+          "Friend, this is unnecessary and technically several violations. The unit fund and I overrule ourselves. Noted warmly.",
+          "Fine. Filed under morale expenses. Your welcome upgrades from open-door to open-mess."
+        ]
+      },
+      "sarab": {
+        "negative": [
+          "The gift enters the tent, and the tent's opinion of you softens like evening. Do not mistake dusk for friendship.",
+          "Taken, weighed, understood. The knives speak of you more quietly now. Quieter is not silent."
+        ],
+        "neutral": [
+          "Ah, you begin to learn the dance. The gift is graceful, the timing fair. Your name gains a cushion.",
+          "A gift with open eyes. The camp accepts, and the wind carries fewer complaints about you."
+        ],
+        "positive": [
+          "Between friends the gift-dance is pure pleasure. Your steps improve, your welcome deepens. Tea, first.",
+          "You honor the custom, friend. What you gave returns as smoothness in every dealing. So it has always worked."
+        ]
+      }
+    },
+    "bribe_lookaway": {
+      "vostok": {
+        "negative": [
+          "Paid. Your sins don't vanish — they get bored and wander to the back pages.",
+          "Fine. The ledger develops a smudge exactly your shape. Smudges wash off. Behave."
+        ],
+        "neutral": [
+          "The file gains a coffee stain over the interesting parts. Clumsy me.",
+          "Consider your record winterized. Covered, not gone. Spring reveals everything, eventually."
+        ],
+        "positive": [
+          "Friend, your page was nearly clean. Now it's clean and profitable. The war economy thanks you.",
+          "Ha! Paying to erase what we'd already forgiven. Free money. The stove fund salutes."
+        ]
+      },
+      "aegis": {
+        "negative": [
+          "Your complaint file just suffered a filing accident. Accidents recur if funded. Dismissed.",
+          "Amended: hostile individual becomes individual. Editing fees received. Go before I proofread."
+        ],
+        "neutral": [
+          "A clerical review found your record reviewable. It reviewed favorably. Coincidence, officially.",
+          "Your entries are reclassified pending nothing. Enjoy the ambiguity. It's what you paid for."
+        ],
+        "positive": [
+          "Friend, there was nothing to expunge, so I've backdated some praise instead. We're both criminals now. Welcome.",
+          "Paid to polish a clean slate. I'll engrave a commendation on it. Small one. Tasteful."
+        ]
+      },
+      "sarab": {
+        "negative": [
+          "The sand accepts your stones and shifts. What was written of you blurs at the edges. Edges only.",
+          "Bought: one veil across old footprints. Veils are thin. Walk lighter than before."
+        ],
+        "neutral": [
+          "The camp's memory of you grows a merciful haze. Mercy purchased is still mercy. Barely.",
+          "Your history here gains a kind narrator. Narrators can be re-hired by anyone. Remember that."
+        ],
+        "positive": [
+          "Friend, your name needed no washing, so the payment becomes perfume. It travels ahead of you now.",
+          "You paid to be forgiven and were already loved. The stones become gifts for the children. Fitting end."
+        ]
+      }
+    },
+    "bribe_pocketed": {
+      "vostok": {
+        "negative": [
+          "And... gone. Into the boot. What did it buy? The lesson. Lessons here are expensive.",
+          "The line thanks you for the donation. The favor? Never existed. Neither did this conversation. Run along.",
+          "You paid a wolf to owe you. Wolves don't owe. Wolves eat. Today, cheaply."
+        ],
+        "neutral": [
+          "Taken. And in return: nothing, delivered promptly. Vostok efficiency.",
+          "Your emeralds enlisted. They serve the line now. They send no letters home."
+        ],
+        "positive": [
+          "Ha ha! Friend, you handed money to an army and expected change. The stew tonight honors your innocence.",
+          "Pocketed! Consider it tuition. Course title: Never Do That Again. You passed."
+        ]
+      },
+      "aegis": {
+        "negative": [
+          "Contraband confiscated per protocol. The favor you imagined was never on offer. File a complaint. Please. I'll frame it.",
+          "Your bribe has been seized as evidence of your bribe. Elegant, isn't it? Dismissed.",
+          "Assets forfeited. In exchange you receive: continued liberty. Market rate, honestly."
+        ],
+        "neutral": [
+          "Unmarked funds surrendered to the duty officer. That's me. The duty officer thanks you. Nothing further.",
+          "Received, logged as anonymous donation, and spent on your continued disappointment."
+        ],
+        "positive": [
+          "Friend, I warned you once about arrangements. Now the mess has new kettles and you have wisdom. Fair trade.",
+          "Seized with a smile. The favor fairy isn't real, but the unit fund is. You've made it very happy."
+        ]
+      },
+      "sarab": {
+        "negative": [
+          "The desert swallows coins and curiosity alike. You will receive what the desert always returns: silence.",
+          "A gift given foolishly becomes a lesson given free. The stones stay. The lesson is yours to carry.",
+          "You bought smoke. Here is your smoke — see how it slips the fingers? Beautiful. Gone."
+        ],
+        "neutral": [
+          "The stones asked something. The answer is no. The stones stay with the answer's keeper. Custom.",
+          "You watered a mirage. The mirage is grateful, in its way. It waves."
+        ],
+        "positive": [
+          "Ah, friend. You paid the tent and the tent kept it, laughing. Sit — the tea your emeralds bought is excellent.",
+          "Between friends, this is called a joke you funded. We will tell it for years. You may laugh too."
+        ]
+      }
+    },
+    "bribe_provoked": {
+      "vostok": {
+        "negative": [
+          "You call the line bought?! The line buries the buyers! Out — before we show you our currency!",
+          "That was your last insult. The count opens a fresh page with your name at the top. Run."
+        ],
+        "neutral": [
+          "Wrong soldier, wrong day, wrong joke. Now you'll meet the right consequences.",
+          "You shook coins at the line's honor. The line answers in iron. Go — quickly — it's already moving."
+        ],
+        "positive": [
+          "Even friendship has a floor and you just dug through it. Get out before the shovels come back up.",
+          "Friend or not, that word costs blood here. Leave now and bleed elsewhere."
+        ]
+      },
+      "aegis": {
+        "negative": [
+          "Solicitation and slander, logged. Posture upgraded. You have ten seconds of goodwill left. Spend them on distance.",
+          "You accused this command of corruption to its face. Response authorized. Response imminent. Move."
+        ],
+        "neutral": [
+          "That crossed from insult into incident. Incident response is not a conversation. Clear the sector now.",
+          "Integrity test failed — yours. Sound the walk-away alarm in your head and obey it."
+        ],
+        "positive": [
+          "I liked you, and you just made me draft your incident report. Get off my perimeter before I finish it.",
+          "Wrong officer to buy, friend. The word friend is now under review. Go. Now."
+        ]
+      },
+      "sarab": {
+        "negative": [
+          "You offered coin for honor inside our own shade. The shade withdraws. What remains is sun and knives.",
+          "The viper takes no wages and many payments. Yours begins now. Run toward the horizon of your choice."
+        ],
+        "neutral": [
+          "Some words unpitch the tent. Yours just did. The desert between us is no longer neutral ground.",
+          "You mistook patience for a market stall. The error will be corrected in the old way. Flee it."
+        ],
+        "positive": [
+          "Even for a friend there are doors with no other side. You knocked. Now the knives answer. Go.",
+          "The fire you sat at remembers you fondly. The blades do not consult the fire. Leave while they argue."
+        ]
+      }
+    }
+  }
+}
