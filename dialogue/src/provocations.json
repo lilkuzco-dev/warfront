@@ -1,0 +1,679 @@
+{
+  "category": "provocations",
+  "options": [
+    { "id": "provocations_dig_uniform", "text": "Nice uniform. Did you lose a bet?", "response": "provocations_mild_dig", "effects": [{ "type": "disposition", "event": "insulted" }], "weight": 7 },
+    { "id": "provocations_dig_army", "text": "You call this an army?", "response": "provocations_mild_dig", "effects": [{ "type": "disposition", "event": "insulted" }], "weight": 7 },
+    { "id": "provocations_dig_scarecrow", "text": "I've seen scarier scarecrows.", "response": "provocations_mild_dig", "effects": [{ "type": "disposition", "event": "insulted" }], "weight": 6 },
+    { "id": "provocations_dig_scowl", "text": "Do they teach you to scowl like that, or is it natural?", "response": "provocations_mild_dig", "effects": [{ "type": "disposition", "event": "insulted" }], "weight": 6 },
+    { "id": "provocations_dig_boots", "text": "Your boots don't match.", "response": "provocations_mild_dig", "effects": [{ "type": "disposition", "event": "insulted" }], "weight": 5 },
+    { "id": "provocations_dig_shave", "text": "Rough shave this morning?", "response": "provocations_mild_dig", "effects": [{ "type": "disposition", "event": "insulted" }], "weight": 5 },
+    { "id": "provocations_dig_smell", "text": "You smell like a long campaign.", "response": "provocations_mild_dig", "effects": [{ "type": "disposition", "event": "insulted" }], "weight": 6 },
+    { "id": "provocations_dig_helmet", "text": "That helmet's a size too big.", "response": "provocations_mild_dig", "effects": [{ "type": "disposition", "event": "insulted" }], "weight": 5 },
+    { "id": "provocations_dig_standing", "text": "Do you practice standing around, or is it a gift?", "response": "provocations_mild_dig", "effects": [{ "type": "disposition", "event": "insulted" }], "weight": 6 },
+    { "id": "provocations_dig_sergeant", "text": "Your sergeant must be so proud.", "response": "provocations_mild_dig", "effects": [{ "type": "disposition", "event": "insulted" }], "weight": 5 },
+    { "id": "provocations_dig_guard_dog", "text": "I've met friendlier guard dogs.", "response": "provocations_mild_dig", "effects": [{ "type": "disposition", "event": "insulted" }], "weight": 6 },
+    { "id": "provocations_dig_glamour", "text": "How's the glamorous soldier life treating you?", "response": "provocations_mild_dig", "effects": [{ "type": "disposition", "event": "insulted" }], "weight": 6 },
+    { "id": "provocations_dig_short_straw", "text": "Bet you drew the short straw for this post.", "response": "provocations_mild_dig", "effects": [{ "type": "disposition", "event": "insulted" }], "weight": 5 },
+    { "id": "provocations_dig_bored", "text": "You look bored out of your skull.", "response": "provocations_mild_dig", "effects": [{ "type": "disposition", "event": "insulted" }], "weight": 5 },
+    { "id": "provocations_doc_vostok_change", "text": "Your generals spend men like loose change.", "response": "provocations_doctrine_insult", "conditions": { "faction": ["vostok"] }, "effects": [{ "type": "disposition", "event": "insulted" }, { "type": "standing", "amount": -3 }], "weight": 6 },
+    { "id": "provocations_doc_vostok_holes", "text": "Digging holes and dying in them — that's the whole plan, right?", "response": "provocations_doctrine_insult", "conditions": { "faction": ["vostok"] }, "effects": [{ "type": "disposition", "event": "insulted" }, { "type": "standing", "amount": -3 }], "weight": 6 },
+    { "id": "provocations_doc_vostok_quota", "text": "Your quota's just a butcher's bill with extra steps.", "response": "provocations_doctrine_insult", "conditions": { "faction": ["vostok"] }, "effects": [{ "type": "disposition", "event": "insulted" }, { "type": "standing", "amount": -3 }], "weight": 5 },
+    { "id": "provocations_doc_vostok_run", "text": "The line holds because nobody's smart enough to run.", "response": "provocations_doctrine_insult", "conditions": { "faction": ["vostok"] }, "effects": [{ "type": "disposition", "event": "insulted" }, { "type": "standing", "amount": -3 }], "weight": 5 },
+    { "id": "provocations_doc_vostok_mile", "text": "How many of you die for each mile of mud?", "response": "provocations_doctrine_insult", "conditions": { "faction": ["vostok"] }, "effects": [{ "type": "disposition", "event": "insulted" }, { "type": "standing", "amount": -3 }], "weight": 5 },
+    { "id": "provocations_doc_aegis_bleed", "text": "All your procedures, and you still bleed like everyone else.", "response": "provocations_doctrine_insult", "conditions": { "faction": ["aegis"] }, "effects": [{ "type": "disposition", "event": "insulted" }, { "type": "standing", "amount": -3 }], "weight": 6 },
+    { "id": "provocations_doc_aegis_form", "text": "Do you file a form before you're allowed to think?", "response": "provocations_doctrine_insult", "conditions": { "faction": ["aegis"] }, "effects": [{ "type": "disposition", "event": "insulted" }, { "type": "standing", "amount": -3 }], "weight": 6 },
+    { "id": "provocations_doc_aegis_coward", "text": "Your precious doctrine is just cowardice with paperwork.", "response": "provocations_doctrine_insult", "conditions": { "faction": ["aegis"] }, "effects": [{ "type": "disposition", "event": "insulted" }, { "type": "standing", "amount": -3 }], "weight": 5 },
+    { "id": "provocations_doc_aegis_spine", "text": "Radio discipline, ration discipline — do they ration your spine too?", "response": "provocations_doctrine_insult", "conditions": { "faction": ["aegis"] }, "effects": [{ "type": "disposition", "event": "insulted" }, { "type": "standing", "amount": -3 }], "weight": 5 },
+    { "id": "provocations_doc_aegis_ledger", "text": "Your ledgers won't remember you, you know.", "response": "provocations_doctrine_insult", "conditions": { "faction": ["aegis"] }, "effects": [{ "type": "disposition", "event": "insulted" }, { "type": "standing", "amount": -3 }], "weight": 5 },
+    { "id": "provocations_doc_sarab_hiding", "text": "Hiding in the sand isn't strategy, it's cowardice.", "response": "provocations_doctrine_insult", "conditions": { "faction": ["sarab"] }, "effects": [{ "type": "disposition", "event": "insulted" }, { "type": "standing", "amount": -3 }], "weight": 6 },
+    { "id": "provocations_doc_sarab_proverbs", "text": "All those proverbs, and not one straight answer in your whole camp.", "response": "provocations_doctrine_insult", "conditions": { "faction": ["sarab"] }, "effects": [{ "type": "disposition", "event": "insulted" }, { "type": "standing", "amount": -3 }], "weight": 6 },
+    { "id": "provocations_doc_sarab_patience", "text": "Patience is what you call losing slowly.", "response": "provocations_doctrine_insult", "conditions": { "faction": ["sarab"] }, "effects": [{ "type": "disposition", "event": "insulted" }, { "type": "standing", "amount": -3 }], "weight": 5 },
+    { "id": "provocations_doc_sarab_mirage", "text": "Your mirages don't scare anyone who owns a map.", "response": "provocations_doctrine_insult", "conditions": { "faction": ["sarab"] }, "effects": [{ "type": "disposition", "event": "insulted" }, { "type": "standing", "amount": -3 }], "weight": 5 },
+    { "id": "provocations_doc_sarab_ambush", "text": "Ambush is just a coward's word for murder.", "response": "provocations_doctrine_insult", "conditions": { "faction": ["sarab"] }, "effects": [{ "type": "disposition", "event": "insulted" }, { "type": "standing", "amount": -3 }], "weight": 5 },
+    { "id": "provocations_ser_mother", "text": "You're a disgrace to whatever mother raised you.", "response": "provocations_serious_insult", "effects": [{ "type": "disposition", "event": "insulted" }, { "type": "standing", "amount": -3 }], "weight": 5 },
+    { "id": "provocations_ser_farmer", "text": "Your whole company isn't worth one honest farmer.", "response": "provocations_serious_insult", "effects": [{ "type": "disposition", "event": "insulted" }, { "type": "standing", "amount": -3 }], "weight": 5 },
+    { "id": "provocations_ser_scraped", "text": "I've scraped better soldiers off my boots.", "response": "provocations_serious_insult", "effects": [{ "type": "disposition", "event": "insulted" }, { "type": "standing", "amount": -3 }], "weight": 5 },
+    { "id": "provocations_ser_ashamed", "text": "Your dead comrades would be ashamed of you.", "response": "provocations_serious_insult", "effects": [{ "type": "disposition", "event": "insulted" }, { "type": "standing", "amount": -4 }], "weight": 4 },
+    { "id": "provocations_ser_laughs", "text": "Everyone laughs at your kind behind your back.", "response": "provocations_serious_insult", "effects": [{ "type": "disposition", "event": "insulted" }, { "type": "standing", "amount": -3 }], "weight": 5 },
+    { "id": "provocations_ser_thug", "text": "You're nothing but a hired thug with a flag.", "response": "provocations_serious_insult", "effects": [{ "type": "disposition", "event": "insulted" }, { "type": "standing", "amount": -3 }], "weight": 5 },
+    { "id": "provocations_ser_commander", "text": "Your commander is an idiot and you know it.", "response": "provocations_serious_insult", "effects": [{ "type": "disposition", "event": "insulted" }, { "type": "standing", "amount": -4 }], "weight": 4 },
+    { "id": "provocations_ser_glad_gone", "text": "This land will be glad when your lot is gone.", "response": "provocations_serious_insult", "effects": [{ "type": "disposition", "event": "insulted" }, { "type": "standing", "amount": -3 }], "weight": 5 },
+    { "id": "provocations_ser_scraps", "text": "You fight for scraps and call it honor.", "response": "provocations_serious_insult", "effects": [{ "type": "disposition", "event": "insulted" }, { "type": "standing", "amount": -3 }], "weight": 5 },
+    { "id": "provocations_ser_deserters", "text": "I've seen deserters with more dignity.", "response": "provocations_serious_insult", "effects": [{ "type": "disposition", "event": "insulted" }, { "type": "standing", "amount": -4 }], "weight": 4 },
+    { "id": "provocations_ser_cause_dead", "text": "Your cause died years ago. You're just too dumb to notice.", "response": "provocations_serious_insult", "effects": [{ "type": "disposition", "event": "insulted" }, { "type": "standing", "amount": -4 }], "weight": 4 },
+    { "id": "provocations_ser_cowards_all", "text": "Cowards, all of you, dressed up as soldiers.", "response": "provocations_serious_insult", "effects": [{ "type": "disposition", "event": "insulted" }, { "type": "standing", "amount": -4 }], "weight": 4 },
+    { "id": "provocations_ser_fools", "text": "You take orders from fools and call it duty.", "response": "provocations_serious_insult", "effects": [{ "type": "disposition", "event": "insulted" }, { "type": "standing", "amount": -3 }], "weight": 5 },
+    { "id": "provocations_ser_history", "text": "History won't even bother to forget you.", "response": "provocations_serious_insult", "effects": [{ "type": "disposition", "event": "insulted" }, { "type": "standing", "amount": -3 }], "weight": 4 },
+    { "id": "provocations_ban_floor_rag", "text": "That banner of yours would make a decent floor rag.", "response": "provocations_banner_spit", "effects": [{ "type": "disposition", "event": "insulted" }, { "type": "standing", "amount": -4 }], "weight": 5 },
+    { "id": "provocations_ban_spit_worth", "text": "I'd spit on your flag if it were worth the spit.", "response": "provocations_banner_spit", "effects": [{ "type": "disposition", "event": "insulted" }, { "type": "standing", "amount": -5 }], "weight": 4 },
+    { "id": "provocations_ban_burning", "text": "Your colors look better burning, I'd bet.", "response": "provocations_banner_spit", "effects": [{ "type": "disposition", "event": "insulted" }, { "type": "standing", "amount": -5 }], "weight": 4 },
+    { "id": "provocations_ban_laundry", "text": "That rag on the pole — someone's laundry?", "response": "provocations_banner_spit", "effects": [{ "type": "disposition", "event": "insulted" }, { "type": "standing", "amount": -4 }], "weight": 5 },
+    { "id": "provocations_ban_nose", "text": "I've blown my nose on finer cloth than your banner.", "response": "provocations_banner_spit", "effects": [{ "type": "disposition", "event": "insulted" }, { "type": "standing", "amount": -4 }], "weight": 4 },
+    { "id": "provocations_ban_graves", "text": "Your flag stands for nothing but graves.", "response": "provocations_banner_spit", "effects": [{ "type": "disposition", "event": "insulted" }, { "type": "standing", "amount": -5 }], "weight": 4 },
+    { "id": "provocations_ban_souvenir", "text": "One day I'll take that banner home as a souvenir.", "response": "provocations_banner_spit", "effects": [{ "type": "disposition", "event": "insulted" }, { "type": "standing", "amount": -5 }], "weight": 4 },
+    { "id": "provocations_ban_thread", "text": "Whoever stitched your colors wasted good thread.", "response": "provocations_banner_spit", "effects": [{ "type": "disposition", "event": "insulted" }, { "type": "standing", "amount": -4 }], "weight": 5 },
+    { "id": "provocations_thr_shut_mouth", "text": "Keep talking and I'll shut your mouth for good.", "response": "provocations_threat", "effects": [{ "type": "disposition", "event": "insulted" }, { "type": "standing", "amount": -5 }], "weight": 5 },
+    { "id": "provocations_thr_sleep_light", "text": "You should sleep lightly from now on.", "response": "provocations_threat", "effects": [{ "type": "disposition", "event": "insulted" }, { "type": "standing", "amount": -5 }], "weight": 5 },
+    { "id": "provocations_thr_know_patrols", "text": "I know where your patrols walk. Think about that.", "response": "provocations_threat", "effects": [{ "type": "disposition", "event": "insulted" }, { "type": "standing", "amount": -6 }], "weight": 4 },
+    { "id": "provocations_thr_turn_around", "text": "One day soon you'll turn around and I'll be there.", "response": "provocations_threat", "effects": [{ "type": "disposition", "event": "insulted" }, { "type": "standing", "amount": -5 }], "weight": 4 },
+    { "id": "provocations_thr_walls", "text": "Your walls won't protect you from me.", "response": "provocations_threat", "effects": [{ "type": "disposition", "event": "insulted" }, { "type": "standing", "amount": -5 }], "weight": 5 },
+    { "id": "provocations_thr_buried_tougher", "text": "I've buried tougher men than you.", "response": "provocations_threat", "effects": [{ "type": "disposition", "event": "insulted" }, { "type": "standing", "amount": -5 }], "weight": 5 },
+    { "id": "provocations_thr_count_friends", "text": "Count your friends tonight. The number's going to shrink.", "response": "provocations_threat", "effects": [{ "type": "disposition", "event": "insulted" }, { "type": "standing", "amount": -6 }], "weight": 4 },
+    { "id": "provocations_thr_never_find", "text": "Cross me again and they'll never find you.", "response": "provocations_threat", "effects": [{ "type": "disposition", "event": "insulted" }, { "type": "standing", "amount": -6 }], "weight": 4 },
+    { "id": "provocations_thr_whistling", "text": "I could end you right here and walk away whistling.", "response": "provocations_threat", "effects": [{ "type": "disposition", "event": "insulted" }, { "type": "standing", "amount": -6 }], "weight": 4 },
+    { "id": "provocations_thr_bleed_easy", "text": "Your kind bleeds easy. I've checked.", "response": "provocations_threat", "effects": [{ "type": "disposition", "event": "insulted" }, { "type": "standing", "amount": -6 }], "weight": 4 },
+    { "id": "provocations_thr_list", "text": "Tell your commander he's on my list.", "response": "provocations_threat", "effects": [{ "type": "disposition", "event": "insulted" }, { "type": "standing", "amount": -5 }], "weight": 5 },
+    { "id": "provocations_thr_bring_help", "text": "Next time we meet, bring help. You'll need it.", "response": "provocations_threat", "effects": [{ "type": "disposition", "event": "insulted" }, { "type": "standing", "amount": -5 }], "weight": 5 },
+    { "id": "provocations_thr_pray", "text": "I'm the reason soldiers pray before patrol.", "response": "provocations_threat", "effects": [{ "type": "disposition", "event": "insulted" }, { "type": "standing", "amount": -6 }], "weight": 4 },
+    { "id": "provocations_thr_quiet_days", "text": "Enjoy your last quiet days.", "response": "provocations_threat", "effects": [{ "type": "disposition", "event": "insulted" }, { "type": "standing", "amount": -5 }], "weight": 5 },
+    { "id": "provocations_grv_burn_base", "text": "I'll burn your base down with everyone in it.", "response": "provocations_grave_threat", "effects": [{ "type": "disposition", "event": "insulted" }, { "type": "standing", "amount": -8 }], "weight": 3 },
+    { "id": "provocations_grv_hunt_squad", "text": "I'm going to hunt your squad down one by one.", "response": "provocations_grave_threat", "effects": [{ "type": "disposition", "event": "insulted" }, { "type": "standing", "amount": -7 }], "weight": 3 },
+    { "id": "provocations_grv_bones", "text": "By winter, your whole company will be bones.", "response": "provocations_grave_threat", "effects": [{ "type": "disposition", "event": "insulted" }, { "type": "standing", "amount": -7 }], "weight": 3 },
+    { "id": "provocations_grv_commander_watch", "text": "I'll make your commander watch while I take everything.", "response": "provocations_grave_threat", "effects": [{ "type": "disposition", "event": "insulted" }, { "type": "standing", "amount": -8 }], "weight": 2 },
+    { "id": "provocations_grv_deciding_order", "text": "Every one of you dies. I'm just deciding the order.", "response": "provocations_grave_threat", "effects": [{ "type": "disposition", "event": "insulted" }, { "type": "standing", "amount": -8 }], "weight": 2 },
+    { "id": "provocations_grv_salt_fields", "text": "I'll salt your fields and poison your wells.", "response": "provocations_grave_threat", "effects": [{ "type": "disposition", "event": "insulted" }, { "type": "standing", "amount": -7 }], "weight": 3 },
+    { "id": "provocations_grv_curse_day", "text": "Your people will curse the day they took this land.", "response": "provocations_grave_threat", "effects": [{ "type": "disposition", "event": "insulted" }, { "type": "standing", "amount": -7 }], "weight": 3 },
+    { "id": "provocations_grv_no_names", "text": "When I'm done, no one will remember your names.", "response": "provocations_grave_threat", "effects": [{ "type": "disposition", "event": "insulted" }, { "type": "standing", "amount": -7 }], "weight": 3 },
+    { "id": "provocations_prv_draw_blade", "text": "Enough talk. Draw your blade.", "response": "provocations_provoke", "effects": [{ "type": "provoke" }, { "type": "standing", "amount": -6 }], "exit": true, "weight": 3 },
+    { "id": "provocations_prv_hit_me", "text": "Hit me. I dare you.", "response": "provocations_provoke", "effects": [{ "type": "provoke" }, { "type": "standing", "amount": -5 }], "exit": true, "weight": 3 },
+    { "id": "provocations_prv_settle_now", "text": "Let's settle this right now, you and me.", "response": "provocations_provoke", "effects": [{ "type": "provoke" }, { "type": "standing", "amount": -6 }], "exit": true, "weight": 3 },
+    { "id": "provocations_prv_training_worth", "text": "Come on then. Show me what your training's worth.", "response": "provocations_provoke", "effects": [{ "type": "provoke" }, { "type": "standing", "amount": -6 }], "exit": true, "weight": 3 },
+    { "id": "provocations_prv_first_swing", "text": "I'll give you the first swing. You'll need it.", "response": "provocations_provoke", "effects": [{ "type": "provoke" }, { "type": "standing", "amount": -6 }], "exit": true, "weight": 2 },
+    { "id": "provocations_prv_coward_admit", "text": "Fight me, or admit you're a coward.", "response": "provocations_provoke", "effects": [{ "type": "provoke" }, { "type": "standing", "amount": -6 }], "exit": true, "weight": 3 },
+    { "id": "provocations_prv_all_talk", "text": "Your move. Or are you all talk?", "response": "provocations_provoke", "effects": [{ "type": "provoke" }, { "type": "standing", "amount": -5 }], "exit": true, "weight": 3 },
+    { "id": "provocations_prv_right_here", "text": "Right here, right now. Let's go.", "response": "provocations_provoke", "effects": [{ "type": "provoke" }, { "type": "standing", "amount": -6 }], "exit": true, "weight": 3 },
+    { "id": "provocations_prv_hands_up", "text": "Put your hands up, soldier.", "response": "provocations_provoke", "effects": [{ "type": "provoke" }, { "type": "standing", "amount": -5 }], "exit": true, "weight": 3 },
+    { "id": "provocations_prv_itching", "text": "I've been itching for this all day. Come on.", "response": "provocations_provoke", "effects": [{ "type": "provoke" }, { "type": "standing", "amount": -6 }], "exit": true, "weight": 2 },
+    { "id": "provocations_prv_make_me", "text": "Make me leave. If you can.", "response": "provocations_provoke", "effects": [{ "type": "provoke" }, { "type": "standing", "amount": -5 }], "exit": true, "weight": 3 },
+    { "id": "provocations_sqd_all_at_once", "text": "All of you at once. I'll wait.", "response": "provocations_provoke_squad", "effects": [{ "type": "provoke", "kind": "squad" }, { "type": "standing", "amount": -8 }], "exit": true, "weight": 2 },
+    { "id": "provocations_sqd_fair_fight", "text": "Your whole squad against me. Fair fight, finally.", "response": "provocations_provoke_squad", "effects": [{ "type": "provoke", "kind": "squad" }, { "type": "standing", "amount": -8 }], "exit": true, "weight": 2 },
+    { "id": "provocations_sqd_come_get", "text": "Every one of you cowards, come and get me!", "response": "provocations_provoke_squad", "effects": [{ "type": "provoke", "kind": "squad" }, { "type": "standing", "amount": -8 }], "exit": true, "weight": 2 },
+    { "id": "provocations_sqd_take_apart", "text": "I'll take your whole patrol apart right here.", "response": "provocations_provoke_squad", "effects": [{ "type": "provoke", "kind": "squad" }, { "type": "standing", "amount": -8 }], "exit": true, "weight": 2 },
+    { "id": "provocations_sqd_line_up", "text": "Which of you dies first? Line up.", "response": "provocations_provoke_squad", "effects": [{ "type": "provoke", "kind": "squad" }, { "type": "standing", "amount": -8 }], "exit": true, "weight": 2 },
+    { "id": "provocations_bld_died_easy", "text": "Your friends died easy. You will too.", "response": "provocations_blood_taunt", "conditions": { "has_killed_this_faction": true }, "effects": [{ "type": "disposition", "event": "insulted" }, { "type": "standing", "amount": -6 }], "weight": 3 },
+    { "id": "provocations_bld_begged", "text": "I remember how the last one begged.", "response": "provocations_blood_taunt", "conditions": { "has_killed_this_faction": true }, "effects": [{ "type": "disposition", "event": "insulted" }, { "type": "standing", "amount": -6 }], "weight": 3 },
+    { "id": "provocations_bld_end_up_like", "text": "Want to end up like the others I put down?", "response": "provocations_blood_taunt", "conditions": { "has_killed_this_faction": true }, "effects": [{ "type": "disposition", "event": "insulted" }, { "type": "standing", "amount": -6 }], "weight": 3 },
+    { "id": "provocations_bld_boxes", "text": "How many of yours have I sent home in boxes now?", "response": "provocations_blood_taunt", "conditions": { "has_killed_this_faction": true }, "effects": [{ "type": "disposition", "event": "insulted" }, { "type": "standing", "amount": -6 }], "weight": 3 },
+    { "id": "provocations_bld_widows", "text": "Tell the widows I said hello.", "response": "provocations_blood_taunt", "conditions": { "has_killed_this_faction": true }, "effects": [{ "type": "disposition", "event": "insulted" }, { "type": "standing", "amount": -6 }], "weight": 3 },
+    { "id": "provocations_bld_fought_better", "text": "The ones I killed? They fought better than you look.", "response": "provocations_blood_taunt", "conditions": { "has_killed_this_faction": true }, "effects": [{ "type": "disposition", "event": "insulted" }, { "type": "standing", "amount": -5 }], "weight": 3 },
+    { "id": "provocations_bld_hobby", "text": "I've made a hobby of your people.", "response": "provocations_blood_taunt", "conditions": { "has_killed_this_faction": true }, "effects": [{ "type": "disposition", "event": "insulted" }, { "type": "standing", "amount": -6 }], "weight": 3 },
+    { "id": "provocations_bld_last_patrol", "text": "Careful. You know what happened to the last patrol that annoyed me.", "response": "provocations_blood_taunt", "conditions": { "has_killed_this_faction": true }, "effects": [{ "type": "disposition", "event": "insulted" }, { "type": "standing", "amount": -6 }], "weight": 3 },
+    { "id": "provocations_bld_add_count", "text": "Maybe I'll add you to my count today.", "response": "provocations_blood_taunt", "conditions": { "has_killed_this_faction": true }, "effects": [{ "type": "disposition", "event": "insulted" }, { "type": "standing", "amount": -5 }], "weight": 3 },
+    { "id": "provocations_rank_stripes", "text": "They give stripes to anyone these days, huh?", "response": "provocations_mock_rank", "conditions": { "role": ["officer"] }, "effects": [{ "type": "disposition", "event": "insulted" }, { "type": "standing", "amount": -2 }], "weight": 5 },
+    { "id": "provocations_rank_bribe", "text": "An officer? You? Who did you bribe?", "response": "provocations_mock_rank", "conditions": { "role": ["officer"] }, "effects": [{ "type": "disposition", "event": "insulted" }, { "type": "standing", "amount": -2 }], "weight": 5 },
+    { "id": "provocations_rank_plume", "text": "Does the fancy plume come with a brain?", "response": "provocations_mock_rank", "conditions": { "role": ["officer"] }, "effects": [{ "type": "disposition", "event": "insulted" }, { "type": "standing", "amount": -2 }], "weight": 4 },
+    { "id": "provocations_rank_thinking", "text": "You're a grunt because thinking scared you, right?", "response": "provocations_mock_rank", "conditions": { "role": ["grunt"] }, "effects": [{ "type": "disposition", "event": "insulted" }, { "type": "standing", "amount": -2 }], "weight": 5 },
+    { "id": "provocations_rank_handler", "text": "Do they let the grunts talk, or should I find your handler?", "response": "provocations_mock_rank", "conditions": { "role": ["grunt"] }, "effects": [{ "type": "disposition", "event": "insulted" }, { "type": "standing", "amount": -2 }], "weight": 4 },
+    { "id": "provocations_rank_shopkeeper", "text": "Shopkeeper with a sword. Adorable.", "response": "provocations_mock_rank", "conditions": { "role": ["quartermaster"] }, "effects": [{ "type": "disposition", "event": "insulted" }, { "type": "standing", "amount": -2 }], "weight": 5 },
+    { "id": "provocations_rank_sacks", "text": "Counting sacks — real hero's work.", "response": "provocations_mock_rank", "conditions": { "role": ["quartermaster"] }, "effects": [{ "type": "disposition", "event": "insulted" }, { "type": "standing", "amount": -2 }], "weight": 4 },
+    { "id": "provocations_rank_ledger_war", "text": "How's the war going from behind your ledger?", "response": "provocations_mock_rank", "conditions": { "role": ["quartermaster"] }, "effects": [{ "type": "disposition", "event": "insulted" }, { "type": "standing", "amount": -2 }], "weight": 5 }
+  ],
+  "responses": {
+    "provocations_mild_dig": {
+      "vostok": {
+        "negative": [
+          "Funny. Write it on your ration card. Oh, wait — you don't get one.",
+          "Keep the jokes. You'll want something to say when the mood here turns."
+        ],
+        "neutral": [
+          "The uniform survived three owners. Show respect for the fabric.",
+          "Bored, yes. Boredom out here is the good outcome. Don't fix it.",
+          "Ha. The scarecrows work for us too. Better hours than the infantry."
+        ],
+        "positive": [
+          "From you, friend, I'll allow one joke a day. That was it. Spend tomorrow's wisely.",
+          "The helmet is big so the laughs fit inside. Old army trick.",
+          "My sergeant IS proud. Mostly of my digging. It's a narrow pride."
+        ]
+      },
+      "aegis": {
+        "negative": [
+          "Humor noted. Filed under provocation, minor. The file grows.",
+          "Mockery of personnel is a poor use of your remaining goodwill."
+        ],
+        "neutral": [
+          "The uniform meets specification. Your opinion doesn't alter specification.",
+          "Standing here IS the job. Deterrence looks boring right up until it isn't.",
+          "If that was wit, transmission received. No further response warranted."
+        ],
+        "positive": [
+          "Ha. Log that one under 'friendly banter, tolerated.' Once.",
+          "The scowl is standard issue. The smile costs extra and you haven't paid.",
+          "Careful, friend — I'm allowed exactly one joke per shift and I'm saving mine."
+        ]
+      },
+      "sarab": {
+        "negative": [
+          "The jester walks far from home. Jesters have accidents on long roads.",
+          "Laugh. The desert collects laughter and returns it with interest."
+        ],
+        "neutral": [
+          "The camel also mocks its driver, and still it carries the load. Speak on.",
+          "A dull knife makes noise on the stone. A sharp one is quiet. Consider which you are.",
+          "My boots do not match because the road does not match. Practical, not poor."
+        ],
+        "positive": [
+          "Ah, the friend arrives with thorns today. Sit; we will trade them for figs.",
+          "You smell a long campaign on me? Good nose. It was a very long campaign.",
+          "Teasing is a guest's spice, friend. A pinch flavors. A handful ruins the pot."
+        ]
+      }
+    },
+    "provocations_doctrine_insult": {
+      "vostok": {
+        "vengeful": [
+          "You mock the line with our blood already on you. The count just grew teeth.",
+          "Say 'quota' again. I'll show you where your name fits in it."
+        ],
+        "negative": [
+          "The line buried better critics than you. It has room for reviews.",
+          "We spend men, yes. We're rich in what matters. You're spending something rarer: luck."
+        ],
+        "neutral": [
+          "Every mile of mud costs. We pay. That's why the mud is ours.",
+          "Smart ones run, you say. The runners are dead too, friend. At least ours died facing forward.",
+          "The plan is simple because simple survives shelling. Complicated dies with its author."
+        ],
+        "positive": [
+          "From a stranger, that's spit. From you, friend, it's a bruise. Pick your words like footing.",
+          "You've eaten at our fires and you talk like the enemy's pamphlets. Disappointing.",
+          "Careful. The line forgives its friends much. Not everything."
+        ]
+      },
+      "aegis": {
+        "vengeful": [
+          "Doctrine mockery from a flagged killer. The recommendation on your file just changed.",
+          "Keep talking. You're writing the authorization I've been waiting for."
+        ],
+        "negative": [
+          "The paperwork you mock is why our dead are few and yours will be counted precisely.",
+          "Cowardice with paperwork still holds every crossroads you need. Sit with that."
+        ],
+        "neutral": [
+          "Procedure is what's standing between this conversation and a very different one.",
+          "We bleed, yes. Rarely, and on schedule, and never for free.",
+          "Your critique is noted, unsigned, and unqualified. Dismissed."
+        ],
+        "positive": [
+          "That's beneath you, friend. The doctrine you mock has kept you alive in this sector twice.",
+          "I'd debate you, but insulting the manual to the man holding it is just poor tactics.",
+          "One warning, because I like you: the ledger hears everything. Even jokes."
+        ]
+      },
+      "sarab": {
+        "vengeful": [
+          "You call us cowards with our blood drying on your hands. The sand is done waiting.",
+          "Mock patience once more. Learn how suddenly patience ends."
+        ],
+        "negative": [
+          "The map you own shows where things are. We are never where things are.",
+          "Call it hiding. The ones who called it hiding before you are under the dunes now."
+        ],
+        "neutral": [
+          "The straight answer you want is a straight road. Straight roads are where ambushes live.",
+          "Losing slowly, winning slowly — the desert doesn't rush and neither does its verdict.",
+          "Murder announces itself. The ambush merely arrives. Words matter less than outcomes."
+        ],
+        "positive": [
+          "From a friend, that thorn goes deeper. Pull it back out, and we will call it the wind talking.",
+          "You have sat in our shade and now you spit toward it. The shade notices, friend.",
+          "Even the fig tree drops one bitter fruit. I will assume that was yours."
+        ]
+      }
+    },
+    "provocations_serious_insult": {
+      "vostok": {
+        "vengeful": [
+          "Loud words from a debtor. Your account with the line is overdrawn and collections are near.",
+          "Insulting the dead's comrades, with your record. Even the crows are embarrassed for you."
+        ],
+        "negative": [
+          "Keep going. Every word makes the eventual arithmetic easier to enjoy.",
+          "The line has been called worse by artillery. But artillery could back it up."
+        ],
+        "neutral": [
+          "Hm. Words are cheap. Ours are cheaper: leave.",
+          "You insult a wall. The wall stands. That's the whole exchange.",
+          "Brave mouth, unescorted body. Rare combination. Usually brief."
+        ],
+        "positive": [
+          "That's how you talk to us now? The mud remembers who it warmed, friend.",
+          "The line took you for a friend. Friends get one such sentence free. It's spent."
+        ]
+      },
+      "aegis": {
+        "vengeful": [
+          "Verbal hostility from a red-flagged subject. You are assembling your own case file.",
+          "Every insult is logged. The log is nearly thick enough to act on. Continue."
+        ],
+        "negative": [
+          "Slander of personnel: recorded. Response: pending. Behavior: yours to correct.",
+          "You mistake restraint for weakness. Restraint is a setting. It changes."
+        ],
+        "neutral": [
+          "Opinion registered. Its influence on anything: zero.",
+          "This command has survived sieges. It will survive your vocabulary.",
+          "Insulting the garrison at the garrison. Bold logistics on your part."
+        ],
+        "positive": [
+          "That's a strange way to thank the people who keep your roads open, friend.",
+          "I'll assume a bad day and delete the transmission. Once."
+        ]
+      },
+      "sarab": {
+        "vengeful": [
+          "Loud insults from a marked man. The desert has heard your voice. It can find it again.",
+          "Spend your words, killer. They are the last coins in your purse."
+        ],
+        "negative": [
+          "The dog barks at the caravan. The caravan does not vote on it.",
+          "Your tongue digs quickly. Tongues make poor shovels and worse graves."
+        ],
+        "neutral": [
+          "Wind through a tent flap. Loud, brief, forgotten by morning.",
+          "We are called cowards by everyone we outlive. It is a long, quiet list.",
+          "Honor, scraps — name them as you like. We eat, we endure, we remain."
+        ],
+        "positive": [
+          "A friend's insult cuts with a familiar knife. Sheathe it, and we will drink to forgetting.",
+          "The kettle has poured for you, and this is the toast you bring? Try again, friend."
+        ]
+      }
+    },
+    "provocations_banner_spit": {
+      "vostok": {
+        "vengeful": [
+          "That banner wrapped our dead — the ones you made. Touch it with one more word.",
+          "Mock the colors, blood-debtor, and the quota closes around your name today."
+        ],
+        "negative": [
+          "Men froze holding that rag so you could sneer at it. They'd trade places with you gladly.",
+          "The banner's seen shellfire. Your opinion registers somewhat lower."
+        ],
+        "neutral": [
+          "Careful. Cloth is cheap. What it's soaked in isn't.",
+          "Laundry, ha. It's washed in worse than soap, friend. Walk away from this topic."
+        ],
+        "positive": [
+          "Even in jest, not the banner. That's the one wire you don't test with us.",
+          "The thread you mock stitched shrouds too. Change the subject while it's still changeable."
+        ]
+      },
+      "aegis": {
+        "vengeful": [
+          "Desecration talk from a hostile-flagged subject. You are volunteering for consequences.",
+          "The colors you threaten fly over people authorized to answer threats. Recall that."
+        ],
+        "negative": [
+          "That standard represents the command structure. Contempt for it is contempt logged at the top.",
+          "Souvenir. Noted. Attempts on regimental colors carry the maximum response. All of it."
+        ],
+        "neutral": [
+          "The flag is inventory, the meaning isn't. Insult neither on this ground.",
+          "Colors stay up through worse weather than sarcasm."
+        ],
+        "positive": [
+          "Friend, there are jokes we trade and jokes we don't. The colors head the second list.",
+          "I'd let that pass, but the flag outranks us both. Retract it."
+        ]
+      },
+      "sarab": {
+        "vengeful": [
+          "Our banner shaded the graves you dug for us. Spit, and join what you planted.",
+          "The cloth you mock has your name sewn in it now. Thread pulls both ways."
+        ],
+        "negative": [
+          "The banner survived three empires of better insults. It will outlast your mouth.",
+          "Burn our colors? Fire is our cousin. It knows whose side it sleeps on."
+        ],
+        "neutral": [
+          "The cloth is old because nothing has managed to take it down. Meditate on that.",
+          "You call it a rag. Rags wipe up spills. Ours has wiped up armies."
+        ],
+        "positive": [
+          "Not the banner, friend. Even the shade has bones, and you just stepped on one.",
+          "The weaver of those colors fed you last month. Swallow the joke with her bread."
+        ]
+      }
+    },
+    "provocations_threat": {
+      "vostok": {
+        "vengeful": [
+          "Say it. Give me the excuse. The shovels are already warm.",
+          "Threats, from you, with the count where it stands? The line was hoping you'd say that."
+        ],
+        "negative": [
+          "You threaten a trench system, alone, in the open. Poets die like this too.",
+          "Sleep lightly, he says. We haven't slept since the war started. Your move was pre-owned."
+        ],
+        "neutral": [
+          "Threats are a loan against your future. The line always collects.",
+          "Noted. Filed between the weather and the lice as things that might kill us.",
+          "You know where our patrols walk? Good. They'll know where you sleep. Fair trade."
+        ],
+        "positive": [
+          "Threatening us, friend? The mud between us must mean less to you than it does to us.",
+          "That word choice costs you warmth at our fires. Keep spending and see."
+        ]
+      },
+      "aegis": {
+        "vengeful": [
+          "Threat received from flagged subject. Weapons posture updating. Final chance to retract.",
+          "You just met the threshold. What happens next is procedure, not anger."
+        ],
+        "negative": [
+          "Threat logged verbatim. Response authorization is now one signature away.",
+          "You've threatened a garrisoned force with a knife and confidence. The math is public."
+        ],
+        "neutral": [
+          "That statement meets the definition of a threat. Definitions have consequences here.",
+          "Your list, your promises — all transcribed. Aegis archives outlive their subjects.",
+          "Advisory: threatening a soldier at his post is the fastest downgrade available."
+        ],
+        "positive": [
+          "From a friendly, that's either a bad joke or a worse decision. Clarify. Now.",
+          "I'll mark it as stress and strike it. The second one stands forever."
+        ]
+      },
+      "sarab": {
+        "vengeful": [
+          "Threaten us again. The sand under you is already listening for the fall.",
+          "Good. Announce yourself. The trap prefers informed guests."
+        ],
+        "negative": [
+          "You threaten the desert's own. The desert heard. It is very good at waiting.",
+          "Loud promises travel far here. So do we, and more quietly."
+        ],
+        "neutral": [
+          "Men who tell the scorpion their plans make the scorpion's work simple.",
+          "Your last quiet days, ours — the desert decides whose. It has never once consulted a threat.",
+          "We will not find you, you say? We do not find people. People arrive at us."
+        ],
+        "positive": [
+          "A threat from a friend is a crack in a water jar. Mend it now, while the water remains.",
+          "The shade withdraws from words like those. Feel the sun on your neck? Choose again."
+        ]
+      }
+    },
+    "provocations_grave_threat": {
+      "vostok": {
+        "vengeful": [
+          "Burn our base? You'll be part of the foundation before the first spark.",
+          "The order of who dies is set, debtor. You wrote yourself to the top just now."
+        ],
+        "negative": [
+          "Whole companies have promised us bones. We compost promises out here.",
+          "Salt our fields? We farm mud and casualties. You can't poison what's already bitter."
+        ],
+        "neutral": [
+          "That's not a threat, it's a confession with a delivery date. The line will be waiting.",
+          "Big words. The winter you promise us has tried every year. We're still here to shovel it."
+        ],
+        "positive": [
+          "You'd say that to us? Then the friendship was ration paper. It burns fast.",
+          "The line just moved you from one list to the other. There's no third list."
+        ]
+      },
+      "aegis": {
+        "vengeful": [
+          "Mass-casualty threat, on record, from a known hostile. Restraint is now rescinded.",
+          "You've stated intent to destroy this command. Doctrine has one page for that. Short page."
+        ],
+        "negative": [
+          "That statement upgrades you to a strategic concern. Strategic concerns get resolved.",
+          "Threats against the installation trigger standing orders. They do not expire and do not forgive."
+        ],
+        "neutral": [
+          "You just described a war crime to a witness in uniform. The report writes itself.",
+          "Noted, escalated, and flagged at command level. Your name now briefs generals."
+        ],
+        "positive": [
+          "Whatever trust existed is administratively void. Effective immediately.",
+          "That sentence ends every courtesy this sector owed you. Confirmed and logged."
+        ]
+      },
+      "sarab": {
+        "vengeful": [
+          "Poison our wells? The wells already whisper your name. Water has a long memory.",
+          "Speak of our deaths once more and the dune will speak of yours first."
+        ],
+        "negative": [
+          "You threaten fire in a land of sand. We have hosted fire before. It left hungry.",
+          "Curse the day, curse the land — the desert has swallowed louder curses with its breakfast."
+        ],
+        "neutral": [
+          "No one remembers our names now, walker. That is the entire trick. You threaten smoke.",
+          "Your promise is large. The desert measures men against it while they sleep."
+        ],
+        "positive": [
+          "So the guest burns the tent in his heart. The shade hears, friend, and the shade withdraws.",
+          "Between us there was tea and salt. You have poured out both. What remains is the desert."
+        ]
+      }
+    },
+    "provocations_provoke": {
+      "vostok": {
+        "vengeful": [
+          "Finally. The count settles today.",
+          "You asked. The line answers."
+        ],
+        "negative": [
+          "Fine. One more for the quota.",
+          "Short fight. Long ditch."
+        ],
+        "neutral": [
+          "So be it. Dig your own after.",
+          "The mud takes everyone eventually. You've just volunteered early.",
+          "Wrong trench to spit into."
+        ],
+        "positive": [
+          "So the friend wants the shovel's edge. Grief later. Work now.",
+          "You were one of ours in everything but the ledger. The ledger wins."
+        ]
+      },
+      "aegis": {
+        "vengeful": [
+          "Weapons-free. At last.",
+          "Authorization: granted. By you."
+        ],
+        "negative": [
+          "Contact is now kinetic. Copy.",
+          "You initiated. The report will read exactly that."
+        ],
+        "neutral": [
+          "Compliance failed. Engaging.",
+          "ROE satisfied. Regrettable. Proceeding.",
+          "This was avoidable. Was."
+        ],
+        "positive": [
+          "Friendly status revoked. Engaging under protest — but engaging.",
+          "You forced the one order I hoped to never file on you."
+        ]
+      },
+      "sarab": {
+        "vengeful": [
+          "The debt collects itself now.",
+          "The sand opens. In you go."
+        ],
+        "negative": [
+          "As the fool insists, the desert obliges.",
+          "You called for the storm. It was already behind you."
+        ],
+        "neutral": [
+          "So the moth demands the flame. Granted.",
+          "The blade regrets nothing. Neither shall I.",
+          "You chose the short story. It ends here."
+        ],
+        "positive": [
+          "You break the salt between us. The pieces are sharp. Feel them.",
+          "The shade loved you, friend. The shade will still bury you."
+        ]
+      }
+    },
+    "provocations_provoke_squad": {
+      "vostok": {
+        "vengeful": [
+          "All of us at once — the only prayer of yours we'll answer.",
+          "The whole line heard the debtor volunteer. Take him."
+        ],
+        "negative": [
+          "The whole section? Lads, we've been challenged by a hero. Bury him with honors.",
+          "You counted us and still spoke. Arithmetic was never your friend."
+        ],
+        "neutral": [
+          "Squad — up. The gentleman insists.",
+          "One against the line. The line accepts. The line always accepts."
+        ],
+        "positive": [
+          "You'd raise your hand against all of us who fed you? Then all of us answer.",
+          "The whole line mourns what you were. Briefly. Boys — shovels down, blades out."
+        ]
+      },
+      "aegis": {
+        "vengeful": [
+          "Section: weapons-free on the flagged subject. Execute.",
+          "All units, hostile confirmed by his own transmission. Engage."
+        ],
+        "negative": [
+          "Squad, form on me. The subject has requested a demonstration. Provide it.",
+          "You challenged a fire team, alone. This will be brief and well-documented."
+        ],
+        "neutral": [
+          "All stations: contact initiated by subject. Weapons out. Engage.",
+          "One man, whole squad. Doctrine has a word for this: cleanup."
+        ],
+        "positive": [
+          "Team — former friendly has gone hostile by declaration. Standard response. Go.",
+          "Every courtesy is now void, and every blade here is on duty. You chose the audience."
+        ]
+      },
+      "sarab": {
+        "vengeful": [
+          "Brothers — the marked one calls for us all. The sand agrees. Take him.",
+          "He shouts at the whole desert. Show him how much desert there is."
+        ],
+        "negative": [
+          "You challenge everyone in the shade at once. The shade empties. Behind you.",
+          "Riders — the loud one has invited the entire night. Deliver it."
+        ],
+        "neutral": [
+          "One voice against many knives. The proverb ends the usual way. Come, all of you.",
+          "The whole camp heard the invitation. The whole camp arrives."
+        ],
+        "positive": [
+          "He turns on every hand that poured for him. Then every hand answers. Rise.",
+          "You were a friend to each of us, and you spit at all of us. All of us reply, then."
+        ]
+      }
+    },
+    "provocations_blood_taunt": {
+      "vostok": {
+        "vengeful": [
+          "You joke about our dead to my face. Reach for anything. Please.",
+          "Eleven names, and now comedy. The twelfth entry is standing very close to me."
+        ],
+        "negative": [
+          "The boxes you brag about — we carried them. Remember that when the dark comes for you.",
+          "Keep the widows out of your mouth or lose the mouth."
+        ],
+        "neutral": [
+          "Boasting about our dead is one wire past clever. Step back over it.",
+          "The count between us was cooling. You just blew on the coals. Your funeral. Possibly literally.",
+          "They fought better than I look? They taught me. Come find out how well."
+        ],
+        "positive": [
+          "You'd mock the graves and drink at our fire? Pick one. Forever.",
+          "The line was learning to forget your debt. It just relearned it, word for word."
+        ]
+      },
+      "aegis": {
+        "vengeful": [
+          "You are confessing to casualties, in uniform hearing, with a smile. Perfect testimony.",
+          "One more sentence about our dead and doctrine handles the punctuation."
+        ],
+        "negative": [
+          "Casualty mockery from their killer. The file is now a case. Cases close.",
+          "Names, dates, next of kin — we have them all memorized. Your jokes are evidence."
+        ],
+        "neutral": [
+          "Those personnel had records, families, and comrades on this wall. Choose your next words.",
+          "Bragging about kills to the deceased's unit. Tactically illiterate. Morally worse.",
+          "Your count is accurate. So is ours. Ours includes projections."
+        ],
+        "positive": [
+          "We rebuilt trust over those graves and you dance on them. Rebuild is cancelled.",
+          "That was the sentence that ends the ledger's patience. Logged as final."
+        ]
+      },
+      "sarab": {
+        "vengeful": [
+          "You laugh over our dead. Their sand is under your boots right now. Feel it shifting?",
+          "The begging you remember — the desert remembers differently. Ask it tonight."
+        ],
+        "negative": [
+          "Mock the graves and the graves grow curious about you.",
+          "Every name you took has kin in this shade. You are performing for the bereaved."
+        ],
+        "neutral": [
+          "The dead you count were sons of the dune. The dune counts also, and it is patient.",
+          "Your hobby, as you call it, has a membership fee. The desert is drafting the bill.",
+          "Careful. Grief here does not weep. It sharpens."
+        ],
+        "positive": [
+          "We forgave the blood, friend, and you make songs of it. The forgiveness is leaving the tent.",
+          "You joke about wounds we let heal in your favor. Watch them reopen toward you."
+        ]
+      }
+    },
+    "provocations_mock_rank": {
+      "vostok": {
+        "negative": [
+          "The stripes came off dead men's sleeves. Want to see how they're earned back?",
+          "Mock the rank, meet the rank's job. It involves you regretting things."
+        ],
+        "neutral": [
+          "Stripes mean I count the dead instead of joining them. Promotion of a sort.",
+          "The grunt hears you fine. The grunt outlived three clever talkers this month.",
+          "I keep the sacks counted so the line keeps eating. Insult me after you've missed a meal."
+        ],
+        "positive": [
+          "Ha — bribed with what? Nobody's paid the line since autumn. It's pure stubbornness up here.",
+          "Careful, friend, the ledger and the shovel are the same weight in my hands.",
+          "The plume was my predecessor's. The brain is my own. Both survived him. One will survive you."
+        ]
+      },
+      "aegis": {
+        "negative": [
+          "That rank clears me to make your afternoon procedurally unpleasant. Test it.",
+          "Mocking the chain of command, at a checkpoint, alone. Your risk assessment is broken."
+        ],
+        "neutral": [
+          "The commission is earned through boards and battlefields. Your comedy, through neither.",
+          "Grunts execute the plan. Executing is the part that matters. Note the word.",
+          "Supply is the arm that decides whether the other arms lift. Mind the shopkeeper."
+        ],
+        "positive": [
+          "The plume is regulation, the brain passed selection, and the friend is on thin ice. Ha.",
+          "Careful — this ledger has a line item for 'attitude.' Yours is trending expensive.",
+          "I'll take 'shopkeeper with a sword.' It's accurate, and the sword half is the operative half."
+        ]
+      },
+      "sarab": {
+        "negative": [
+          "You mock the hand that assigns the night watches. Enjoy the watches it assigns you.",
+          "The quartermaster you tease decides who eats. Reflect, hungrily."
+        ],
+        "neutral": [
+          "Rank here is not stripes. It is how many storms you have read correctly. I am owed many.",
+          "The grunt, as you say, is the finger on the desert's hand. Fingers close.",
+          "I count sacks, yes. Also debts, insults, and exits. Three ledgers, one pen."
+        ],
+        "positive": [
+          "Ha — the plume is for the falcon, friend. She outranks us both and knows it.",
+          "Tease gently. The man behind the ledger sets the guest portions, and memory seasons them.",
+          "My stripes are sun-lines and scar-lines. The promotion board was the desert itself."
+        ]
+      }
+    }
+  }
+}

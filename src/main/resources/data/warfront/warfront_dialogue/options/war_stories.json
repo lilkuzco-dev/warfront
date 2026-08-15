@@ -1,0 +1,1369 @@
+{
+ "category": "war_stories",
+ "options": [
+  {
+   "id": "war_stories_battle_biggest",
+   "text": "dialogue.warfront.opt.war_stories_battle_biggest",
+   "response": "war_stories_battle_tale",
+   "cooldown_minutes": 30,
+   "weight": 12
+  },
+  {
+   "id": "war_stories_battle_unforgettable",
+   "text": "dialogue.warfront.opt.war_stories_battle_unforgettable",
+   "response": "war_stories_battle_tale",
+   "cooldown_minutes": 30,
+   "weight": 10
+  },
+  {
+   "id": "war_stories_battle_seen_much",
+   "text": "dialogue.warfront.opt.war_stories_battle_seen_much",
+   "response": "war_stories_battle_tale",
+   "cooldown_minutes": 20,
+   "weight": 10
+  },
+  {
+   "id": "war_stories_battle_first",
+   "text": "dialogue.warfront.opt.war_stories_battle_first",
+   "response": "war_stories_battle_tale",
+   "cooldown_minutes": 30,
+   "weight": 9
+  },
+  {
+   "id": "war_stories_battle_siege",
+   "text": "dialogue.warfront.opt.war_stories_battle_siege",
+   "response": "war_stories_battle_tale",
+   "cooldown_minutes": 30,
+   "weight": 8
+  },
+  {
+   "id": "war_stories_battle_hardest_won",
+   "text": "dialogue.warfront.opt.war_stories_battle_hardest_won",
+   "response": "war_stories_battle_tale",
+   "cooldown_minutes": 30,
+   "weight": 9
+  },
+  {
+   "id": "war_stories_battle_lost",
+   "text": "dialogue.warfront.opt.war_stories_battle_lost",
+   "response": "war_stories_battle_tale",
+   "cooldown_minutes": 45,
+   "weight": 7
+  },
+  {
+   "id": "war_stories_battle_feel",
+   "text": "dialogue.warfront.opt.war_stories_battle_feel",
+   "response": "war_stories_battle_tale",
+   "cooldown_minutes": 20,
+   "weight": 9
+  },
+  {
+   "id": "war_stories_battle_any",
+   "text": "dialogue.warfront.opt.war_stories_battle_any",
+   "response": "war_stories_battle_tale",
+   "cooldown_minutes": 20,
+   "weight": 10
+  },
+  {
+   "id": "war_stories_battle_famous",
+   "text": "dialogue.warfront.opt.war_stories_battle_famous",
+   "response": "war_stories_battle_tale",
+   "cooldown_minutes": 30,
+   "weight": 7
+  },
+  {
+   "id": "war_stories_battle_longest",
+   "text": "dialogue.warfront.opt.war_stories_battle_longest",
+   "response": "war_stories_battle_tale",
+   "cooldown_minutes": 30,
+   "weight": 8
+  },
+  {
+   "id": "war_stories_battle_charge",
+   "text": "dialogue.warfront.opt.war_stories_battle_charge",
+   "response": "war_stories_battle_tale",
+   "cooldown_minutes": 30,
+   "weight": 8
+  },
+  {
+   "id": "war_stories_battle_survive_first",
+   "text": "dialogue.warfront.opt.war_stories_battle_survive_first",
+   "response": "war_stories_battle_tale",
+   "cooldown_minutes": 30,
+   "weight": 8
+  },
+  {
+   "id": "war_stories_battle_sleepless",
+   "text": "dialogue.warfront.opt.war_stories_battle_sleepless",
+   "response": "war_stories_battle_tale",
+   "cooldown_minutes": 45,
+   "weight": 7
+  },
+  {
+   "id": "war_stories_close_dying",
+   "text": "dialogue.warfront.opt.war_stories_close_dying",
+   "response": "war_stories_close_call",
+   "cooldown_minutes": 30,
+   "weight": 10
+  },
+  {
+   "id": "war_stories_close_near_miss",
+   "text": "dialogue.warfront.opt.war_stories_close_near_miss",
+   "response": "war_stories_close_call",
+   "cooldown_minutes": 20,
+   "weight": 10
+  },
+  {
+   "id": "war_stories_close_brush",
+   "text": "dialogue.warfront.opt.war_stories_close_brush",
+   "response": "war_stories_close_call",
+   "cooldown_minutes": 20,
+   "weight": 9
+  },
+  {
+   "id": "war_stories_close_lucky",
+   "text": "dialogue.warfront.opt.war_stories_close_lucky",
+   "response": "war_stories_close_call",
+   "cooldown_minutes": 20,
+   "weight": 9
+  },
+  {
+   "id": "war_stories_close_left_for_dead",
+   "text": "dialogue.warfront.opt.war_stories_close_left_for_dead",
+   "response": "war_stories_close_call",
+   "cooldown_minutes": 30,
+   "weight": 7
+  },
+  {
+   "id": "war_stories_close_number_up",
+   "text": "dialogue.warfront.opt.war_stories_close_number_up",
+   "response": "war_stories_close_call",
+   "cooldown_minutes": 20,
+   "weight": 8
+  },
+  {
+   "id": "war_stories_close_lives",
+   "text": "dialogue.warfront.opt.war_stories_close_lives",
+   "response": "war_stories_close_call",
+   "cooldown_minutes": 20,
+   "weight": 7
+  },
+  {
+   "id": "war_stories_close_saved",
+   "text": "dialogue.warfront.opt.war_stories_close_saved",
+   "response": "war_stories_close_call",
+   "cooldown_minutes": 30,
+   "weight": 7
+  },
+  {
+   "id": "war_stories_close_cornered",
+   "text": "dialogue.warfront.opt.war_stories_close_cornered",
+   "response": "war_stories_close_call",
+   "cooldown_minutes": 30,
+   "weight": 8
+  },
+  {
+   "id": "war_stories_close_almost",
+   "text": "dialogue.warfront.opt.war_stories_close_almost",
+   "response": "war_stories_close_call",
+   "cooldown_minutes": 30,
+   "weight": 9
+  },
+  {
+   "id": "war_stories_fallen_lost_people",
+   "text": "dialogue.warfront.opt.war_stories_fallen_lost_people",
+   "response": "war_stories_fallen_comrades",
+   "cooldown_minutes": 60,
+   "weight": 8
+  },
+  {
+   "id": "war_stories_fallen_friend",
+   "text": "dialogue.warfront.opt.war_stories_fallen_friend",
+   "response": "war_stories_fallen_comrades",
+   "cooldown_minutes": 60,
+   "weight": 8
+  },
+  {
+   "id": "war_stories_fallen_honor",
+   "text": "dialogue.warfront.opt.war_stories_fallen_honor",
+   "response": "war_stories_fallen_comrades",
+   "cooldown_minutes": 45,
+   "weight": 9
+  },
+  {
+   "id": "war_stories_fallen_miss_most",
+   "text": "dialogue.warfront.opt.war_stories_fallen_miss_most",
+   "response": "war_stories_fallen_comrades",
+   "once_per": "day",
+   "weight": 7
+  },
+  {
+   "id": "war_stories_fallen_graves",
+   "text": "dialogue.warfront.opt.war_stories_fallen_graves",
+   "response": "war_stories_fallen_comrades",
+   "cooldown_minutes": 60,
+   "weight": 7
+  },
+  {
+   "id": "war_stories_fallen_things",
+   "text": "dialogue.warfront.opt.war_stories_fallen_things",
+   "response": "war_stories_fallen_comrades",
+   "cooldown_minutes": 45,
+   "weight": 7
+  },
+  {
+   "id": "war_stories_fallen_name",
+   "text": "dialogue.warfront.opt.war_stories_fallen_name",
+   "response": "war_stories_fallen_comrades",
+   "cooldown_minutes": 60,
+   "weight": 6
+  },
+  {
+   "id": "war_stories_fallen_keep_going",
+   "text": "dialogue.warfront.opt.war_stories_fallen_keep_going",
+   "response": "war_stories_fallen_comrades",
+   "cooldown_minutes": 60,
+   "weight": 7
+  },
+  {
+   "id": "war_stories_fallen_saved_you",
+   "text": "dialogue.warfront.opt.war_stories_fallen_saved_you",
+   "response": "war_stories_fallen_comrades",
+   "once_per": "day",
+   "weight": 6
+  },
+  {
+   "id": "war_stories_fallen_remember",
+   "text": "dialogue.warfront.opt.war_stories_fallen_remember",
+   "response": "war_stories_fallen_comrades",
+   "cooldown_minutes": 60,
+   "weight": 6
+  },
+  {
+   "id": "war_stories_bored_all_day",
+   "text": "dialogue.warfront.opt.war_stories_bored_all_day",
+   "response": "war_stories_garrison_boredom",
+   "cooldown_minutes": 15,
+   "weight": 10
+  },
+  {
+   "id": "war_stories_bored_waiting",
+   "text": "dialogue.warfront.opt.war_stories_bored_waiting",
+   "response": "war_stories_garrison_boredom",
+   "cooldown_minutes": 15,
+   "weight": 9
+  },
+  {
+   "id": "war_stories_bored_garrison",
+   "text": "dialogue.warfront.opt.war_stories_bored_garrison",
+   "response": "war_stories_garrison_boredom",
+   "cooldown_minutes": 15,
+   "weight": 9
+  },
+  {
+   "id": "war_stories_bored_slow_hours",
+   "text": "dialogue.warfront.opt.war_stories_bored_slow_hours",
+   "response": "war_stories_garrison_boredom",
+   "cooldown_minutes": 15,
+   "weight": 9
+  },
+  {
+   "id": "war_stories_bored_mostly",
+   "text": "dialogue.warfront.opt.war_stories_bored_mostly",
+   "response": "war_stories_garrison_boredom",
+   "cooldown_minutes": 15,
+   "weight": 8
+  },
+  {
+   "id": "war_stories_bored_games",
+   "text": "dialogue.warfront.opt.war_stories_bored_games",
+   "response": "war_stories_garrison_boredom",
+   "cooldown_minutes": 15,
+   "weight": 8
+  },
+  {
+   "id": "war_stories_bored_dull_post",
+   "text": "dialogue.warfront.opt.war_stories_bored_dull_post",
+   "response": "war_stories_garrison_boredom",
+   "cooldown_minutes": 20,
+   "weight": 7
+  },
+  {
+   "id": "war_stories_bored_hobby",
+   "text": "dialogue.warfront.opt.war_stories_bored_hobby",
+   "response": "war_stories_garrison_boredom",
+   "cooldown_minutes": 20,
+   "weight": 7
+  },
+  {
+   "id": "war_stories_enlist_why",
+   "text": "dialogue.warfront.opt.war_stories_enlist_why",
+   "response": "war_stories_why_enlisted",
+   "cooldown_minutes": 30,
+   "weight": 10
+  },
+  {
+   "id": "war_stories_enlist_choice",
+   "text": "dialogue.warfront.opt.war_stories_enlist_choice",
+   "response": "war_stories_why_enlisted",
+   "cooldown_minutes": 30,
+   "weight": 8
+  },
+  {
+   "id": "war_stories_enlist_made",
+   "text": "dialogue.warfront.opt.war_stories_enlist_made",
+   "response": "war_stories_why_enlisted",
+   "cooldown_minutes": 30,
+   "weight": 9
+  },
+  {
+   "id": "war_stories_enlist_again",
+   "text": "dialogue.warfront.opt.war_stories_enlist_again",
+   "response": "war_stories_why_enlisted",
+   "cooldown_minutes": 45,
+   "weight": 7
+  },
+  {
+   "id": "war_stories_enlist_family",
+   "text": "dialogue.warfront.opt.war_stories_enlist_family",
+   "response": "war_stories_why_enlisted",
+   "cooldown_minutes": 30,
+   "weight": 7
+  },
+  {
+   "id": "war_stories_enlist_promised",
+   "text": "dialogue.warfront.opt.war_stories_enlist_promised",
+   "response": "war_stories_why_enlisted",
+   "cooldown_minutes": 30,
+   "weight": 7
+  },
+  {
+   "id": "war_stories_enlist_age",
+   "text": "dialogue.warfront.opt.war_stories_enlist_age",
+   "response": "war_stories_why_enlisted",
+   "cooldown_minutes": 30,
+   "weight": 7
+  },
+  {
+   "id": "war_stories_enlist_family_said",
+   "text": "dialogue.warfront.opt.war_stories_enlist_family_said",
+   "response": "war_stories_why_enlisted",
+   "cooldown_minutes": 30,
+   "weight": 7
+  },
+  {
+   "id": "war_stories_enlist_regret",
+   "text": "dialogue.warfront.opt.war_stories_enlist_regret",
+   "response": "war_stories_why_enlisted",
+   "cooldown_minutes": 45,
+   "weight": 7
+  },
+  {
+   "id": "war_stories_home_miss_most",
+   "text": "dialogue.warfront.opt.war_stories_home_miss_most",
+   "response": "war_stories_missing_home",
+   "cooldown_minutes": 30,
+   "weight": 10
+  },
+  {
+   "id": "war_stories_home_where",
+   "text": "dialogue.warfront.opt.war_stories_home_where",
+   "response": "war_stories_missing_home",
+   "cooldown_minutes": 30,
+   "weight": 9
+  },
+  {
+   "id": "war_stories_home_letters",
+   "text": "dialogue.warfront.opt.war_stories_home_letters",
+   "response": "war_stories_missing_home",
+   "cooldown_minutes": 30,
+   "weight": 8
+  },
+  {
+   "id": "war_stories_home_dream",
+   "text": "dialogue.warfront.opt.war_stories_home_dream",
+   "response": "war_stories_missing_home",
+   "cooldown_minutes": 30,
+   "weight": 7
+  },
+  {
+   "id": "war_stories_home_waiting",
+   "text": "dialogue.warfront.opt.war_stories_home_waiting",
+   "response": "war_stories_missing_home",
+   "cooldown_minutes": 45,
+   "weight": 7
+  },
+  {
+   "id": "war_stories_home_how_long",
+   "text": "dialogue.warfront.opt.war_stories_home_how_long",
+   "response": "war_stories_missing_home",
+   "cooldown_minutes": 30,
+   "weight": 8
+  },
+  {
+   "id": "war_stories_home_smell",
+   "text": "dialogue.warfront.opt.war_stories_home_smell",
+   "response": "war_stories_missing_home",
+   "cooldown_minutes": 30,
+   "weight": 6
+  },
+  {
+   "id": "war_stories_home_grew_up",
+   "text": "dialogue.warfront.opt.war_stories_home_grew_up",
+   "response": "war_stories_missing_home",
+   "cooldown_minutes": 30,
+   "weight": 8
+  },
+  {
+   "id": "war_stories_home_anywhere",
+   "text": "dialogue.warfront.opt.war_stories_home_anywhere",
+   "response": "war_stories_missing_home",
+   "cooldown_minutes": 30,
+   "weight": 7
+  },
+  {
+   "id": "war_stories_worst_night_ask",
+   "text": "dialogue.warfront.opt.war_stories_worst_night_ask",
+   "response": "war_stories_worst_night",
+   "once_per": "day",
+   "weight": 8
+  },
+  {
+   "id": "war_stories_worst_story",
+   "text": "dialogue.warfront.opt.war_stories_worst_story",
+   "response": "war_stories_worst_night",
+   "cooldown_minutes": 60,
+   "weight": 7
+  },
+  {
+   "id": "war_stories_worst_darkest",
+   "text": "dialogue.warfront.opt.war_stories_worst_darkest",
+   "response": "war_stories_worst_night",
+   "once_per": "day",
+   "weight": 7
+  },
+  {
+   "id": "war_stories_worst_wrong",
+   "text": "dialogue.warfront.opt.war_stories_worst_wrong",
+   "response": "war_stories_worst_night",
+   "cooldown_minutes": 60,
+   "weight": 7
+  },
+  {
+   "id": "war_stories_worst_breaking",
+   "text": "dialogue.warfront.opt.war_stories_worst_breaking",
+   "response": "war_stories_worst_night",
+   "once_per": "day",
+   "weight": 6
+  },
+  {
+   "id": "war_stories_worst_unexpected",
+   "text": "dialogue.warfront.opt.war_stories_worst_unexpected",
+   "response": "war_stories_worst_night",
+   "cooldown_minutes": 60,
+   "weight": 6
+  },
+  {
+   "id": "war_stories_worst_nightmares",
+   "text": "dialogue.warfront.opt.war_stories_worst_nightmares",
+   "response": "war_stories_worst_night",
+   "cooldown_minutes": 60,
+   "weight": 6
+  },
+  {
+   "id": "war_stories_worst_afraid",
+   "text": "dialogue.warfront.opt.war_stories_worst_afraid",
+   "response": "war_stories_worst_night",
+   "cooldown_minutes": 60,
+   "weight": 7
+  },
+  {
+   "id": "war_stories_meal_best",
+   "text": "dialogue.warfront.opt.war_stories_meal_best",
+   "response": "war_stories_best_meal",
+   "cooldown_minutes": 15,
+   "weight": 10
+  },
+  {
+   "id": "war_stories_meal_food",
+   "text": "dialogue.warfront.opt.war_stories_meal_food",
+   "response": "war_stories_best_meal",
+   "cooldown_minutes": 15,
+   "weight": 9
+  },
+  {
+   "id": "war_stories_meal_feast",
+   "text": "dialogue.warfront.opt.war_stories_meal_feast",
+   "response": "war_stories_best_meal",
+   "cooldown_minutes": 15,
+   "weight": 8
+  },
+  {
+   "id": "war_stories_meal_weird",
+   "text": "dialogue.warfront.opt.war_stories_meal_weird",
+   "response": "war_stories_best_meal",
+   "cooldown_minutes": 15,
+   "weight": 8
+  },
+  {
+   "id": "war_stories_meal_cook",
+   "text": "dialogue.warfront.opt.war_stories_meal_cook",
+   "response": "war_stories_best_meal",
+   "cooldown_minutes": 15,
+   "weight": 7
+  },
+  {
+   "id": "war_stories_meal_trade",
+   "text": "dialogue.warfront.opt.war_stories_meal_trade",
+   "response": "war_stories_best_meal",
+   "cooldown_minutes": 15,
+   "weight": 7
+  },
+  {
+   "id": "war_stories_meal_rations",
+   "text": "dialogue.warfront.opt.war_stories_meal_rations",
+   "response": "war_stories_best_meal",
+   "cooldown_minutes": 15,
+   "weight": 7
+  },
+  {
+   "id": "war_stories_superstition_true",
+   "text": "dialogue.warfront.opt.war_stories_superstition_true",
+   "response": "war_stories_superstitions",
+   "cooldown_minutes": 20,
+   "weight": 9
+  },
+  {
+   "id": "war_stories_superstition_charm",
+   "text": "dialogue.warfront.opt.war_stories_superstition_charm",
+   "response": "war_stories_superstitions",
+   "cooldown_minutes": 20,
+   "weight": 9
+  },
+  {
+   "id": "war_stories_superstition_ritual",
+   "text": "dialogue.warfront.opt.war_stories_superstition_ritual",
+   "response": "war_stories_superstitions",
+   "cooldown_minutes": 20,
+   "weight": 8
+  },
+  {
+   "id": "war_stories_superstition_bad_luck",
+   "text": "dialogue.warfront.opt.war_stories_superstition_bad_luck",
+   "response": "war_stories_superstitions",
+   "cooldown_minutes": 20,
+   "weight": 8
+  },
+  {
+   "id": "war_stories_superstition_omens",
+   "text": "dialogue.warfront.opt.war_stories_superstition_omens",
+   "response": "war_stories_superstitions",
+   "cooldown_minutes": 20,
+   "weight": 7
+  },
+  {
+   "id": "war_stories_superstition_never",
+   "text": "dialogue.warfront.opt.war_stories_superstition_never",
+   "response": "war_stories_superstitions",
+   "cooldown_minutes": 20,
+   "weight": 7
+  },
+  {
+   "id": "war_stories_superstition_unit",
+   "text": "dialogue.warfront.opt.war_stories_superstition_unit",
+   "response": "war_stories_superstitions",
+   "cooldown_minutes": 20,
+   "weight": 7
+  },
+  {
+   "id": "war_stories_superstition_carry",
+   "text": "dialogue.warfront.opt.war_stories_superstition_carry",
+   "response": "war_stories_superstitions",
+   "cooldown_minutes": 20,
+   "weight": 8
+  },
+  {
+   "id": "war_stories_cmdr_think",
+   "text": "dialogue.warfront.opt.war_stories_cmdr_think",
+   "response": "war_stories_commanders",
+   "cooldown_minutes": 30,
+   "weight": 9
+  },
+  {
+   "id": "war_stories_cmdr_good",
+   "text": "dialogue.warfront.opt.war_stories_cmdr_good",
+   "response": "war_stories_commanders",
+   "cooldown_minutes": 30,
+   "weight": 8
+  },
+  {
+   "id": "war_stories_cmdr_trust",
+   "text": "dialogue.warfront.opt.war_stories_cmdr_trust",
+   "response": "war_stories_commanders",
+   "cooldown_minutes": 30,
+   "weight": 8
+  },
+  {
+   "id": "war_stories_cmdr_best",
+   "text": "dialogue.warfront.opt.war_stories_cmdr_best",
+   "response": "war_stories_commanders",
+   "cooldown_minutes": 30,
+   "weight": 8
+  },
+  {
+   "id": "war_stories_cmdr_hated_order",
+   "text": "dialogue.warfront.opt.war_stories_cmdr_hated_order",
+   "response": "war_stories_commanders",
+   "cooldown_minutes": 45,
+   "weight": 7
+  },
+  {
+   "id": "war_stories_cmdr_makes_good",
+   "text": "dialogue.warfront.opt.war_stories_cmdr_makes_good",
+   "response": "war_stories_commanders",
+   "cooldown_minutes": 30,
+   "weight": 7
+  },
+  {
+   "id": "war_stories_cmdr_higher_ups",
+   "text": "dialogue.warfront.opt.war_stories_cmdr_higher_ups",
+   "response": "war_stories_commanders",
+   "cooldown_minutes": 30,
+   "weight": 7
+  },
+  {
+   "id": "war_stories_cmdr_die_for",
+   "text": "dialogue.warfront.opt.war_stories_cmdr_die_for",
+   "response": "war_stories_commanders",
+   "cooldown_minutes": 30,
+   "weight": 7
+  },
+  {
+   "id": "war_stories_after_over",
+   "text": "dialogue.warfront.opt.war_stories_after_over",
+   "response": "war_stories_after_the_war",
+   "cooldown_minutes": 30,
+   "weight": 10
+  },
+  {
+   "id": "war_stories_after_dreams",
+   "text": "dialogue.warfront.opt.war_stories_after_dreams",
+   "response": "war_stories_after_the_war",
+   "cooldown_minutes": 30,
+   "weight": 9
+  },
+  {
+   "id": "war_stories_after_ten_years",
+   "text": "dialogue.warfront.opt.war_stories_after_ten_years",
+   "response": "war_stories_after_the_war",
+   "cooldown_minutes": 30,
+   "weight": 7
+  },
+  {
+   "id": "war_stories_after_first_thing",
+   "text": "dialogue.warfront.opt.war_stories_after_first_thing",
+   "response": "war_stories_after_the_war",
+   "cooldown_minutes": 30,
+   "weight": 8
+  },
+  {
+   "id": "war_stories_after_life",
+   "text": "dialogue.warfront.opt.war_stories_after_life",
+   "response": "war_stories_after_the_war",
+   "cooldown_minutes": 30,
+   "weight": 8
+  },
+  {
+   "id": "war_stories_after_stay",
+   "text": "dialogue.warfront.opt.war_stories_after_stay",
+   "response": "war_stories_after_the_war",
+   "cooldown_minutes": 30,
+   "weight": 7
+  },
+  {
+   "id": "war_stories_after_fighting_for",
+   "text": "dialogue.warfront.opt.war_stories_after_fighting_for",
+   "response": "war_stories_after_the_war",
+   "cooldown_minutes": 45,
+   "weight": 7
+  },
+  {
+   "id": "war_stories_after_tomorrow",
+   "text": "dialogue.warfront.opt.war_stories_after_tomorrow",
+   "response": "war_stories_after_the_war",
+   "cooldown_minutes": 30,
+   "weight": 7
+  },
+  {
+   "id": "war_stories_after_kind_of_life",
+   "text": "dialogue.warfront.opt.war_stories_after_kind_of_life",
+   "response": "war_stories_after_the_war",
+   "cooldown_minutes": 30,
+   "weight": 7
+  },
+  {
+   "id": "war_stories_strat_cleverest",
+   "text": "dialogue.warfront.opt.war_stories_strat_cleverest",
+   "response": "war_stories_officer_strategy",
+   "conditions": {
+    "role": [
+     "officer"
+    ]
+   },
+   "cooldown_minutes": 45,
+   "weight": 8
+  },
+  {
+   "id": "war_stories_strat_command_view",
+   "text": "dialogue.warfront.opt.war_stories_strat_command_view",
+   "response": "war_stories_officer_strategy",
+   "conditions": {
+    "role": [
+     "officer"
+    ]
+   },
+   "cooldown_minutes": 45,
+   "weight": 8
+  },
+  {
+   "id": "war_stories_strat_hard_order",
+   "text": "dialogue.warfront.opt.war_stories_strat_hard_order",
+   "response": "war_stories_officer_strategy",
+   "conditions": {
+    "role": [
+     "officer"
+    ]
+   },
+   "cooldown_minutes": 60,
+   "weight": 7
+  },
+  {
+   "id": "war_stories_strat_planning",
+   "text": "dialogue.warfront.opt.war_stories_strat_planning",
+   "response": "war_stories_officer_strategy",
+   "conditions": {
+    "role": [
+     "officer"
+    ]
+   },
+   "cooldown_minutes": 45,
+   "weight": 8
+  },
+  {
+   "id": "war_stories_strat_not_taught",
+   "text": "dialogue.warfront.opt.war_stories_strat_not_taught",
+   "response": "war_stories_officer_strategy",
+   "conditions": {
+    "role": [
+     "officer"
+    ]
+   },
+   "cooldown_minutes": 45,
+   "weight": 7
+  },
+  {
+   "id": "war_stories_strat_perfect",
+   "text": "dialogue.warfront.opt.war_stories_strat_perfect",
+   "response": "war_stories_officer_strategy",
+   "conditions": {
+    "role": [
+     "officer"
+    ]
+   },
+   "cooldown_minutes": 45,
+   "weight": 7
+  },
+  {
+   "id": "war_stories_strat_fell_apart",
+   "text": "dialogue.warfront.opt.war_stories_strat_fell_apart",
+   "response": "war_stories_officer_strategy",
+   "conditions": {
+    "role": [
+     "officer"
+    ]
+   },
+   "cooldown_minutes": 45,
+   "weight": 7
+  },
+  {
+   "id": "war_stories_ghost_know_any",
+   "text": "dialogue.warfront.opt.war_stories_ghost_know_any",
+   "response": "war_stories_ghost_tale",
+   "conditions": {
+    "time": [
+     "night"
+    ]
+   },
+   "cooldown_minutes": 30,
+   "weight": 9
+  },
+  {
+   "id": "war_stories_ghost_dark",
+   "text": "dialogue.warfront.opt.war_stories_ghost_dark",
+   "response": "war_stories_ghost_tale",
+   "conditions": {
+    "time": [
+     "night"
+    ]
+   },
+   "cooldown_minutes": 30,
+   "weight": 8
+  },
+  {
+   "id": "war_stories_ghost_unexplained",
+   "text": "dialogue.warfront.opt.war_stories_ghost_unexplained",
+   "response": "war_stories_ghost_tale",
+   "conditions": {
+    "time": [
+     "night"
+    ]
+   },
+   "cooldown_minutes": 30,
+   "weight": 8
+  },
+  {
+   "id": "war_stories_ghost_dead_walk",
+   "text": "dialogue.warfront.opt.war_stories_ghost_dead_walk",
+   "response": "war_stories_ghost_tale",
+   "conditions": {
+    "time": [
+     "night"
+    ]
+   },
+   "cooldown_minutes": 30,
+   "weight": 7
+  },
+  {
+   "id": "war_stories_ghost_eerie",
+   "text": "dialogue.warfront.opt.war_stories_ghost_eerie",
+   "response": "war_stories_ghost_tale",
+   "conditions": {
+    "time": [
+     "night"
+    ]
+   },
+   "cooldown_minutes": 30,
+   "weight": 8
+  },
+  {
+   "id": "war_stories_ghost_haunted",
+   "text": "dialogue.warfront.opt.war_stories_ghost_haunted",
+   "response": "war_stories_ghost_tale",
+   "conditions": {
+    "time": [
+     "night"
+    ]
+   },
+   "cooldown_minutes": 30,
+   "weight": 7
+  },
+  {
+   "id": "war_stories_ghost_keep_up",
+   "text": "dialogue.warfront.opt.war_stories_ghost_keep_up",
+   "response": "war_stories_ghost_tale",
+   "conditions": {
+    "time": [
+     "night"
+    ]
+   },
+   "cooldown_minutes": 30,
+   "weight": 7
+  },
+  {
+   "id": "war_stories_adren_alright",
+   "text": "dialogue.warfront.opt.war_stories_adren_alright",
+   "response": "war_stories_fresh_fight",
+   "conditions": {
+    "recent_combat": true
+   },
+   "weight": 10
+  },
+  {
+   "id": "war_stories_adren_saw",
+   "text": "dialogue.warfront.opt.war_stories_adren_saw",
+   "response": "war_stories_fresh_fight",
+   "conditions": {
+    "recent_combat": true
+   },
+   "weight": 9
+  },
+  {
+   "id": "war_stories_adren_shaking",
+   "text": "dialogue.warfront.opt.war_stories_adren_shaking",
+   "response": "war_stories_fresh_fight",
+   "conditions": {
+    "recent_combat": true
+   },
+   "weight": 8
+  },
+  {
+   "id": "war_stories_adren_come_down",
+   "text": "dialogue.warfront.opt.war_stories_adren_come_down",
+   "response": "war_stories_fresh_fight",
+   "conditions": {
+    "recent_combat": true
+   },
+   "weight": 8
+  },
+  {
+   "id": "war_stories_adren_blood",
+   "text": "dialogue.warfront.opt.war_stories_adren_blood",
+   "response": "war_stories_fresh_fight",
+   "conditions": {
+    "recent_combat": true
+   },
+   "weight": 7
+  },
+  {
+   "id": "war_stories_adren_tell",
+   "text": "dialogue.warfront.opt.war_stories_adren_tell",
+   "response": "war_stories_fresh_fight",
+   "conditions": {
+    "recent_combat": true
+   },
+   "weight": 8
+  },
+  {
+   "id": "war_stories_adren_upright",
+   "text": "dialogue.warfront.opt.war_stories_adren_upright",
+   "response": "war_stories_fresh_fight",
+   "conditions": {
+    "recent_combat": true
+   },
+   "weight": 7
+  },
+  {
+   "id": "war_stories_warn_one_story",
+   "text": "dialogue.warfront.opt.war_stories_warn_one_story",
+   "response": "war_stories_pointed_warning",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "cooldown_minutes": 20,
+   "weight": 9
+  },
+  {
+   "id": "war_stories_warn_enemies_swap",
+   "text": "dialogue.warfront.opt.war_stories_warn_enemies_swap",
+   "response": "war_stories_pointed_warning",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "cooldown_minutes": 20,
+   "weight": 8
+  },
+  {
+   "id": "war_stories_warn_any_story",
+   "text": "dialogue.warfront.opt.war_stories_warn_any_story",
+   "response": "war_stories_pointed_warning",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "cooldown_minutes": 20,
+   "weight": 8
+  },
+  {
+   "id": "war_stories_warn_dislike",
+   "text": "dialogue.warfront.opt.war_stories_warn_dislike",
+   "response": "war_stories_pointed_warning",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "cooldown_minutes": 30,
+   "weight": 7
+  },
+  {
+   "id": "war_stories_warn_crossed",
+   "text": "dialogue.warfront.opt.war_stories_warn_crossed",
+   "response": "war_stories_pointed_warning",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "cooldown_minutes": 30,
+   "weight": 7
+  },
+  {
+   "id": "war_stories_warn_moral",
+   "text": "dialogue.warfront.opt.war_stories_warn_moral",
+   "response": "war_stories_pointed_warning",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "cooldown_minutes": 20,
+   "weight": 7
+  },
+  {
+   "id": "war_stories_warn_humor",
+   "text": "dialogue.warfront.opt.war_stories_warn_humor",
+   "response": "war_stories_pointed_warning",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "cooldown_minutes": 20,
+   "weight": 7
+  },
+  {
+   "id": "war_stories_warn_enemies",
+   "text": "dialogue.warfront.opt.war_stories_warn_enemies",
+   "response": "war_stories_pointed_warning",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "cooldown_minutes": 30,
+   "weight": 7
+  },
+  {
+   "id": "war_stories_warn_advice",
+   "text": "dialogue.warfront.opt.war_stories_warn_advice",
+   "response": "war_stories_pointed_warning",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "cooldown_minutes": 30,
+   "weight": 7
+  },
+  {
+   "id": "war_stories_warn_last_person",
+   "text": "dialogue.warfront.opt.war_stories_warn_last_person",
+   "response": "war_stories_pointed_warning",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "cooldown_minutes": 30,
+   "weight": 6
+  },
+  {
+   "id": "war_stories_warn_worst_done",
+   "text": "dialogue.warfront.opt.war_stories_warn_worst_done",
+   "response": "war_stories_pointed_warning",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "cooldown_minutes": 30,
+   "weight": 6
+  },
+  {
+   "id": "war_stories_warn_how_ends",
+   "text": "dialogue.warfront.opt.war_stories_warn_how_ends",
+   "response": "war_stories_pointed_warning",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "cooldown_minutes": 30,
+   "weight": 6
+  },
+  {
+   "id": "war_stories_conf_real_version",
+   "text": "dialogue.warfront.opt.war_stories_conf_real_version",
+   "response": "war_stories_confidence",
+   "conditions": {
+    "disposition": [
+     "positive"
+    ]
+   },
+   "cooldown_minutes": 30,
+   "weight": 8
+  },
+  {
+   "id": "war_stories_conf_never_told",
+   "text": "dialogue.warfront.opt.war_stories_conf_never_told",
+   "response": "war_stories_confidence",
+   "conditions": {
+    "disposition": [
+     "positive"
+    ]
+   },
+   "cooldown_minutes": 45,
+   "weight": 7
+  },
+  {
+   "id": "war_stories_conf_afraid",
+   "text": "dialogue.warfront.opt.war_stories_conf_afraid",
+   "response": "war_stories_confidence",
+   "conditions": {
+    "disposition": [
+     "positive"
+    ]
+   },
+   "cooldown_minutes": 45,
+   "weight": 7
+  },
+  {
+   "id": "war_stories_conf_true",
+   "text": "dialogue.warfront.opt.war_stories_conf_true",
+   "response": "war_stories_confidence",
+   "conditions": {
+    "disposition": [
+     "positive"
+    ]
+   },
+   "cooldown_minutes": 30,
+   "weight": 8
+  },
+  {
+   "id": "war_stories_conf_watch_thoughts",
+   "text": "dialogue.warfront.opt.war_stories_conf_watch_thoughts",
+   "response": "war_stories_confidence",
+   "conditions": {
+    "disposition": [
+     "positive"
+    ]
+   },
+   "cooldown_minutes": 30,
+   "weight": 8
+  },
+  {
+   "id": "war_stories_conf_before",
+   "text": "dialogue.warfront.opt.war_stories_conf_before",
+   "response": "war_stories_confidence",
+   "conditions": {
+    "disposition": [
+     "positive"
+    ]
+   },
+   "cooldown_minutes": 30,
+   "weight": 8
+  },
+  {
+   "id": "war_stories_conf_doubt",
+   "text": "dialogue.warfront.opt.war_stories_conf_doubt",
+   "response": "war_stories_confidence",
+   "conditions": {
+    "disposition": [
+     "positive"
+    ]
+   },
+   "cooldown_minutes": 45,
+   "weight": 6
+  },
+  {
+   "id": "war_stories_conf_kindest",
+   "text": "dialogue.warfront.opt.war_stories_conf_kindest",
+   "response": "war_stories_confidence",
+   "conditions": {
+    "disposition": [
+     "positive"
+    ]
+   },
+   "cooldown_minutes": 30,
+   "weight": 7
+  },
+  {
+   "id": "war_stories_conf_real_story",
+   "text": "dialogue.warfront.opt.war_stories_conf_real_story",
+   "response": "war_stories_confidence",
+   "conditions": {
+    "disposition": [
+     "positive"
+    ]
+   },
+   "cooldown_minutes": 45,
+   "weight": 7
+  },
+  {
+   "id": "war_stories_conf_disobeyed",
+   "text": "dialogue.warfront.opt.war_stories_conf_disobeyed",
+   "response": "war_stories_confidence",
+   "conditions": {
+    "disposition": [
+     "friendly",
+     "devoted"
+    ]
+   },
+   "cooldown_minutes": 60,
+   "weight": 6
+  },
+  {
+   "id": "war_stories_conf_mother",
+   "text": "dialogue.warfront.opt.war_stories_conf_mother",
+   "response": "war_stories_confidence",
+   "conditions": {
+    "disposition": [
+     "friendly",
+     "devoted"
+    ]
+   },
+   "cooldown_minutes": 60,
+   "weight": 6
+  },
+  {
+   "id": "war_stories_conf_take_back",
+   "text": "dialogue.warfront.opt.war_stories_conf_take_back",
+   "response": "war_stories_confidence",
+   "conditions": {
+    "disposition": [
+     "positive"
+    ]
+   },
+   "cooldown_minutes": 60,
+   "weight": 6
+  },
+  {
+   "id": "war_stories_scar_that_one",
+   "text": "dialogue.warfront.opt.war_stories_scar_that_one",
+   "response": "war_stories_scar_story",
+   "cooldown_minutes": 20,
+   "weight": 10
+  },
+  {
+   "id": "war_stories_scar_mark",
+   "text": "dialogue.warfront.opt.war_stories_scar_mark",
+   "response": "war_stories_scar_story",
+   "cooldown_minutes": 20,
+   "weight": 8
+  },
+  {
+   "id": "war_stories_scar_pick",
+   "text": "dialogue.warfront.opt.war_stories_scar_pick",
+   "response": "war_stories_scar_story",
+   "cooldown_minutes": 20,
+   "weight": 8
+  },
+  {
+   "id": "war_stories_scar_best",
+   "text": "dialogue.warfront.opt.war_stories_scar_best",
+   "response": "war_stories_scar_story",
+   "cooldown_minutes": 20,
+   "weight": 8
+  },
+  {
+   "id": "war_stories_scar_worst",
+   "text": "dialogue.warfront.opt.war_stories_scar_worst",
+   "response": "war_stories_scar_story",
+   "cooldown_minutes": 20,
+   "weight": 7
+  },
+  {
+   "id": "war_stories_scar_proud",
+   "text": "dialogue.warfront.opt.war_stories_scar_proud",
+   "response": "war_stories_scar_story",
+   "cooldown_minutes": 20,
+   "weight": 7
+  },
+  {
+   "id": "war_stories_scar_embarrassing",
+   "text": "dialogue.warfront.opt.war_stories_scar_embarrassing",
+   "response": "war_stories_scar_story",
+   "cooldown_minutes": 20,
+   "weight": 6
+  },
+  {
+   "id": "war_stories_scar_trade",
+   "text": "dialogue.warfront.opt.war_stories_scar_trade",
+   "response": "war_stories_scar_story",
+   "cooldown_minutes": 20,
+   "weight": 6
+  },
+  {
+   "id": "war_stories_bye_thanks",
+   "text": "dialogue.warfront.opt.war_stories_bye_thanks",
+   "response": "war_stories_farewell",
+   "effects": [
+    {
+     "type": "end"
+    }
+   ],
+   "exit": true,
+   "weight": 8
+  },
+  {
+   "id": "war_stories_bye_enough",
+   "text": "dialogue.warfront.opt.war_stories_bye_enough",
+   "response": "war_stories_farewell",
+   "effects": [
+    {
+     "type": "end"
+    }
+   ],
+   "exit": true,
+   "weight": 8
+  },
+  {
+   "id": "war_stories_bye_carry",
+   "text": "dialogue.warfront.opt.war_stories_bye_carry",
+   "response": "war_stories_farewell",
+   "conditions": {
+    "disposition": [
+     "positive"
+    ]
+   },
+   "effects": [
+    {
+     "type": "end"
+    }
+   ],
+   "exit": true,
+   "weight": 7
+  },
+  {
+   "id": "war_stories_bye_sorry",
+   "text": "dialogue.warfront.opt.war_stories_bye_sorry",
+   "response": "war_stories_farewell",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "effects": [
+    {
+     "type": "end"
+    }
+   ],
+   "exit": true,
+   "weight": 6
+  },
+  {
+   "id": "war_stories_bye_next_time",
+   "text": "dialogue.warfront.opt.war_stories_bye_next_time",
+   "response": "war_stories_farewell",
+   "conditions": {
+    "disposition": [
+     "positive"
+    ]
+   },
+   "effects": [
+    {
+     "type": "end"
+    }
+   ],
+   "exit": true,
+   "weight": 7
+  },
+  {
+   "id": "war_stories_bye_late",
+   "text": "dialogue.warfront.opt.war_stories_bye_late",
+   "response": "war_stories_farewell",
+   "effects": [
+    {
+     "type": "end"
+    }
+   ],
+   "exit": true,
+   "weight": 8
+  }
+ ]
+}

@@ -1,0 +1,2001 @@
+{
+ "category": "intel",
+ "options": [
+  {
+   "id": "intel_base_where_home",
+   "text": "dialogue.warfront.opt.intel_base_where_home",
+   "response": "intel_ask_own_base",
+   "conditions": {
+    "disposition": [
+     "positive"
+    ]
+   },
+   "effects": [
+    {
+     "type": "intel",
+     "kind": "nearest_base"
+    }
+   ],
+   "weight": 8,
+   "cooldown_minutes": 30
+  },
+  {
+   "id": "intel_base_point_me",
+   "text": "dialogue.warfront.opt.intel_base_point_me",
+   "response": "intel_ask_own_base",
+   "conditions": {
+    "disposition": [
+     "positive"
+    ]
+   },
+   "effects": [
+    {
+     "type": "intel",
+     "kind": "nearest_base"
+    }
+   ],
+   "weight": 8,
+   "cooldown_minutes": 30
+  },
+  {
+   "id": "intel_base_nearest_camp",
+   "text": "dialogue.warfront.opt.intel_base_nearest_camp",
+   "response": "intel_ask_own_base",
+   "conditions": {
+    "disposition": [
+     "positive"
+    ]
+   },
+   "effects": [
+    {
+     "type": "intel",
+     "kind": "nearest_base"
+    }
+   ],
+   "weight": 8,
+   "cooldown_minutes": 30
+  },
+  {
+   "id": "intel_base_visit_people",
+   "text": "dialogue.warfront.opt.intel_base_visit_people",
+   "response": "intel_ask_own_base",
+   "conditions": {
+    "disposition": [
+     "positive"
+    ]
+   },
+   "effects": [
+    {
+     "type": "intel",
+     "kind": "nearest_base"
+    }
+   ],
+   "weight": 7,
+   "cooldown_minutes": 30
+  },
+  {
+   "id": "intel_base_shelter_walls",
+   "text": "dialogue.warfront.opt.intel_base_shelter_walls",
+   "response": "intel_ask_own_base",
+   "conditions": {
+    "disposition": [
+     "positive"
+    ]
+   },
+   "effects": [
+    {
+     "type": "intel",
+     "kind": "nearest_base"
+    }
+   ],
+   "weight": 6,
+   "cooldown_minutes": 30
+  },
+  {
+   "id": "intel_base_directions_post",
+   "text": "dialogue.warfront.opt.intel_base_directions_post",
+   "response": "intel_ask_own_base",
+   "conditions": {
+    "disposition": [
+     "positive"
+    ]
+   },
+   "effects": [
+    {
+     "type": "intel",
+     "kind": "nearest_base"
+    }
+   ],
+   "weight": 7,
+   "cooldown_minutes": 30
+  },
+  {
+   "id": "intel_base_command_sits",
+   "text": "dialogue.warfront.opt.intel_base_command_sits",
+   "response": "intel_ask_own_base",
+   "conditions": {
+    "disposition": [
+     "positive"
+    ]
+   },
+   "effects": [
+    {
+     "type": "intel",
+     "kind": "nearest_base"
+    }
+   ],
+   "weight": 6,
+   "cooldown_minutes": 30
+  },
+  {
+   "id": "intel_base_mark_map",
+   "text": "dialogue.warfront.opt.intel_base_mark_map",
+   "response": "intel_ask_own_base",
+   "conditions": {
+    "disposition": [
+     "positive"
+    ]
+   },
+   "effects": [
+    {
+     "type": "intel",
+     "kind": "nearest_base"
+    }
+   ],
+   "weight": 7,
+   "cooldown_minutes": 30
+  },
+  {
+   "id": "intel_base_follow_smoke",
+   "text": "dialogue.warfront.opt.intel_base_follow_smoke",
+   "response": "intel_ask_own_base",
+   "conditions": {
+    "disposition": [
+     "positive"
+    ]
+   },
+   "effects": [
+    {
+     "type": "intel",
+     "kind": "nearest_base"
+    }
+   ],
+   "weight": 5,
+   "cooldown_minutes": 30
+  },
+  {
+   "id": "intel_base_which_gates",
+   "text": "dialogue.warfront.opt.intel_base_which_gates",
+   "response": "intel_ask_own_base",
+   "conditions": {
+    "disposition": [
+     "positive"
+    ]
+   },
+   "effects": [
+    {
+     "type": "intel",
+     "kind": "nearest_base"
+    }
+   ],
+   "weight": 7,
+   "cooldown_minutes": 30
+  },
+  {
+   "id": "intel_base_travelers",
+   "text": "dialogue.warfront.opt.intel_base_travelers",
+   "response": "intel_ask_own_base",
+   "conditions": {
+    "disposition": [
+     "positive"
+    ]
+   },
+   "effects": [
+    {
+     "type": "intel",
+     "kind": "nearest_base"
+    }
+   ],
+   "weight": 5,
+   "cooldown_minutes": 30
+  },
+  {
+   "id": "intel_base_officer_post",
+   "text": "dialogue.warfront.opt.intel_base_officer_post",
+   "response": "intel_ask_own_base",
+   "conditions": {
+    "role": [
+     "officer"
+    ],
+    "disposition": [
+     "positive"
+    ]
+   },
+   "effects": [
+    {
+     "type": "intel",
+     "kind": "nearest_base"
+    }
+   ],
+   "weight": 6,
+   "cooldown_minutes": 30
+  },
+  {
+   "id": "intel_stonewall_hq",
+   "text": "dialogue.warfront.opt.intel_stonewall_hq",
+   "response": "intel_stonewall_base",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "weight": 7
+  },
+  {
+   "id": "intel_stonewall_camp",
+   "text": "dialogue.warfront.opt.intel_stonewall_camp",
+   "response": "intel_stonewall_base",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "weight": 7
+  },
+  {
+   "id": "intel_stonewall_weak_walls",
+   "text": "dialogue.warfront.opt.intel_stonewall_weak_walls",
+   "response": "intel_stonewall_base",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "weight": 4
+  },
+  {
+   "id": "intel_stonewall_garrison",
+   "text": "dialogue.warfront.opt.intel_stonewall_garrison",
+   "response": "intel_stonewall_base",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "weight": 5
+  },
+  {
+   "id": "intel_stonewall_stores",
+   "text": "dialogue.warfront.opt.intel_stonewall_stores",
+   "response": "intel_stonewall_base",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "weight": 5
+  },
+  {
+   "id": "intel_stonewall_gate_road",
+   "text": "dialogue.warfront.opt.intel_stonewall_gate_road",
+   "response": "intel_stonewall_base",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "intel_stonewall_positions",
+   "text": "dialogue.warfront.opt.intel_stonewall_positions",
+   "response": "intel_stonewall_base",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "weight": 4
+  },
+  {
+   "id": "intel_stonewall_commander",
+   "text": "dialogue.warfront.opt.intel_stonewall_commander",
+   "response": "intel_stonewall_base",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "intel_stonewall_sleep",
+   "text": "dialogue.warfront.opt.intel_stonewall_sleep",
+   "response": "intel_stonewall_base",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "weight": 4
+  },
+  {
+   "id": "intel_stonewall_water",
+   "text": "dialogue.warfront.opt.intel_stonewall_water",
+   "response": "intel_stonewall_base",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "weight": 5
+  },
+  {
+   "id": "intel_stonewall_back_way",
+   "text": "dialogue.warfront.opt.intel_stonewall_back_way",
+   "response": "intel_stonewall_base",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "weight": 3
+  },
+  {
+   "id": "intel_stonewall_signals",
+   "text": "dialogue.warfront.opt.intel_stonewall_signals",
+   "response": "intel_stonewall_base",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "weight": 5
+  },
+  {
+   "id": "intel_vague_settlements",
+   "text": "dialogue.warfront.opt.intel_vague_settlements",
+   "response": "intel_vague_directions",
+   "conditions": {
+    "disposition": [
+     "neutral"
+    ]
+   },
+   "weight": 8
+  },
+  {
+   "id": "intel_vague_land_holder",
+   "text": "dialogue.warfront.opt.intel_vague_land_holder",
+   "response": "intel_vague_directions",
+   "conditions": {
+    "disposition": [
+     "neutral"
+    ]
+   },
+   "weight": 8
+  },
+  {
+   "id": "intel_vague_lost",
+   "text": "dialogue.warfront.opt.intel_vague_lost",
+   "response": "intel_vague_directions",
+   "conditions": {
+    "disposition": [
+     "neutral"
+    ]
+   },
+   "weight": 7
+  },
+  {
+   "id": "intel_vague_shelter",
+   "text": "dialogue.warfront.opt.intel_vague_shelter",
+   "response": "intel_vague_directions",
+   "conditions": {
+    "disposition": [
+     "neutral"
+    ]
+   },
+   "weight": 7
+  },
+  {
+   "id": "intel_vague_trade_where",
+   "text": "dialogue.warfront.opt.intel_vague_trade_where",
+   "response": "intel_vague_directions",
+   "conditions": {
+    "disposition": [
+     "neutral"
+    ]
+   },
+   "weight": 7
+  },
+  {
+   "id": "intel_vague_landmark",
+   "text": "dialogue.warfront.opt.intel_vague_landmark",
+   "response": "intel_vague_directions",
+   "conditions": {
+    "disposition": [
+     "neutral"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "intel_vague_river_road",
+   "text": "dialogue.warfront.opt.intel_vague_river_road",
+   "response": "intel_vague_directions",
+   "conditions": {
+    "disposition": [
+     "neutral"
+    ]
+   },
+   "weight": 5
+  },
+  {
+   "id": "intel_vague_roof",
+   "text": "dialogue.warfront.opt.intel_vague_roof",
+   "response": "intel_vague_directions",
+   "conditions": {
+    "disposition": [
+     "neutral"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "intel_vague_borders",
+   "text": "dialogue.warfront.opt.intel_vague_borders",
+   "response": "intel_vague_directions",
+   "conditions": {
+    "disposition": [
+     "neutral"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "intel_vague_who_else",
+   "text": "dialogue.warfront.opt.intel_vague_who_else",
+   "response": "intel_vague_directions",
+   "conditions": {
+    "disposition": [
+     "neutral"
+    ]
+   },
+   "weight": 7
+  },
+  {
+   "id": "intel_vague_road_leads",
+   "text": "dialogue.warfront.opt.intel_vague_road_leads",
+   "response": "intel_vague_directions",
+   "conditions": {
+    "disposition": [
+     "neutral"
+    ]
+   },
+   "weight": 8
+  },
+  {
+   "id": "intel_vague_camp_close",
+   "text": "dialogue.warfront.opt.intel_vague_camp_close",
+   "response": "intel_vague_directions",
+   "conditions": {
+    "disposition": [
+     "neutral"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "intel_rival_dug_in",
+   "text": "dialogue.warfront.opt.intel_rival_dug_in",
+   "response": "intel_rival_base",
+   "conditions": {
+    "disposition": [
+     "friendly",
+     "devoted"
+    ]
+   },
+   "effects": [
+    {
+     "type": "intel",
+     "kind": "rival_base"
+    }
+   ],
+   "weight": 8,
+   "cooldown_minutes": 45
+  },
+  {
+   "id": "intel_rival_hurt_them",
+   "text": "dialogue.warfront.opt.intel_rival_hurt_them",
+   "response": "intel_rival_base",
+   "conditions": {
+    "disposition": [
+     "friendly",
+     "devoted"
+    ]
+   },
+   "effects": [
+    {
+     "type": "intel",
+     "kind": "rival_base"
+    }
+   ],
+   "weight": 7,
+   "cooldown_minutes": 45
+  },
+  {
+   "id": "intel_rival_steer_clear",
+   "text": "dialogue.warfront.opt.intel_rival_steer_clear",
+   "response": "intel_rival_base",
+   "conditions": {
+    "disposition": [
+     "friendly",
+     "devoted"
+    ]
+   },
+   "effects": [
+    {
+     "type": "intel",
+     "kind": "rival_base"
+    }
+   ],
+   "weight": 7,
+   "cooldown_minutes": 45
+  },
+  {
+   "id": "intel_rival_other_side",
+   "text": "dialogue.warfront.opt.intel_rival_other_side",
+   "response": "intel_rival_base",
+   "conditions": {
+    "disposition": [
+     "friendly",
+     "devoted"
+    ]
+   },
+   "effects": [
+    {
+     "type": "intel",
+     "kind": "rival_base"
+    }
+   ],
+   "weight": 7,
+   "cooldown_minutes": 45
+  },
+  {
+   "id": "intel_rival_mark_enemy",
+   "text": "dialogue.warfront.opt.intel_rival_mark_enemy",
+   "response": "intel_rival_base",
+   "conditions": {
+    "disposition": [
+     "friendly",
+     "devoted"
+    ]
+   },
+   "effects": [
+    {
+     "type": "intel",
+     "kind": "rival_base"
+    }
+   ],
+   "weight": 6,
+   "cooldown_minutes": 45
+  },
+  {
+   "id": "intel_rival_scouts_found",
+   "text": "dialogue.warfront.opt.intel_rival_scouts_found",
+   "response": "intel_rival_base",
+   "conditions": {
+    "disposition": [
+     "friendly",
+     "devoted"
+    ]
+   },
+   "effects": [
+    {
+     "type": "intel",
+     "kind": "rival_base"
+    }
+   ],
+   "weight": 6,
+   "cooldown_minutes": 45
+  },
+  {
+   "id": "intel_rival_thin",
+   "text": "dialogue.warfront.opt.intel_rival_thin",
+   "response": "intel_rival_base",
+   "conditions": {
+    "disposition": [
+     "friendly",
+     "devoted"
+    ]
+   },
+   "effects": [
+    {
+     "type": "intel",
+     "kind": "rival_base"
+    }
+   ],
+   "weight": 5,
+   "cooldown_minutes": 45
+  },
+  {
+   "id": "intel_rival_neighbor",
+   "text": "dialogue.warfront.opt.intel_rival_neighbor",
+   "response": "intel_rival_base",
+   "conditions": {
+    "disposition": [
+     "friendly",
+     "devoted"
+    ]
+   },
+   "effects": [
+    {
+     "type": "intel",
+     "kind": "rival_base"
+    }
+   ],
+   "weight": 6,
+   "cooldown_minutes": 45
+  },
+  {
+   "id": "intel_rival_same_hunt",
+   "text": "dialogue.warfront.opt.intel_rival_same_hunt",
+   "response": "intel_rival_base",
+   "conditions": {
+    "disposition": [
+     "friendly",
+     "devoted"
+    ]
+   },
+   "effects": [
+    {
+     "type": "intel",
+     "kind": "rival_base"
+    }
+   ],
+   "weight": 6,
+   "cooldown_minutes": 45
+  },
+  {
+   "id": "intel_rival_news_trade",
+   "text": "dialogue.warfront.opt.intel_rival_news_trade",
+   "response": "intel_rival_base",
+   "conditions": {
+    "disposition": [
+     "friendly",
+     "devoted"
+    ]
+   },
+   "effects": [
+    {
+     "type": "intel",
+     "kind": "rival_base"
+    }
+   ],
+   "weight": 5,
+   "cooldown_minutes": 45
+  },
+  {
+   "id": "intel_rival_watchfires",
+   "text": "dialogue.warfront.opt.intel_rival_watchfires",
+   "response": "intel_rival_base",
+   "conditions": {
+    "disposition": [
+     "friendly",
+     "devoted"
+    ]
+   },
+   "effects": [
+    {
+     "type": "intel",
+     "kind": "rival_base"
+    }
+   ],
+   "weight": 6,
+   "cooldown_minutes": 45
+  },
+  {
+   "id": "intel_rival_unfinished",
+   "text": "dialogue.warfront.opt.intel_rival_unfinished",
+   "response": "intel_rival_base",
+   "conditions": {
+    "disposition": [
+     "friendly",
+     "devoted"
+    ]
+   },
+   "effects": [
+    {
+     "type": "intel",
+     "kind": "rival_base"
+    }
+   ],
+   "weight": 6,
+   "cooldown_minutes": 45
+  },
+  {
+   "id": "intel_officer_enemy_lines",
+   "text": "dialogue.warfront.opt.intel_officer_enemy_lines",
+   "response": "intel_rival_officer",
+   "conditions": {
+    "role": [
+     "officer"
+    ],
+    "disposition": [
+     "positive"
+    ]
+   },
+   "effects": [
+    {
+     "type": "intel",
+     "kind": "rival_base"
+    }
+   ],
+   "weight": 6,
+   "cooldown_minutes": 45
+  },
+  {
+   "id": "intel_officer_briefing",
+   "text": "dialogue.warfront.opt.intel_officer_briefing",
+   "response": "intel_rival_officer",
+   "conditions": {
+    "role": [
+     "officer"
+    ],
+    "disposition": [
+     "positive"
+    ]
+   },
+   "effects": [
+    {
+     "type": "intel",
+     "kind": "rival_base"
+    }
+   ],
+   "weight": 5,
+   "cooldown_minutes": 45
+  },
+  {
+   "id": "intel_officer_next_press",
+   "text": "dialogue.warfront.opt.intel_officer_next_press",
+   "response": "intel_rival_officer",
+   "conditions": {
+    "role": [
+     "officer"
+    ],
+    "disposition": [
+     "positive"
+    ]
+   },
+   "effects": [
+    {
+     "type": "intel",
+     "kind": "rival_base"
+    }
+   ],
+   "weight": 5,
+   "cooldown_minutes": 45
+  },
+  {
+   "id": "intel_officer_campaign_map",
+   "text": "dialogue.warfront.opt.intel_officer_campaign_map",
+   "response": "intel_rival_officer",
+   "conditions": {
+    "role": [
+     "officer"
+    ],
+    "disposition": [
+     "positive"
+    ]
+   },
+   "effects": [
+    {
+     "type": "intel",
+     "kind": "rival_base"
+    }
+   ],
+   "weight": 4,
+   "cooldown_minutes": 45
+  },
+  {
+   "id": "intel_officer_real_front",
+   "text": "dialogue.warfront.opt.intel_officer_real_front",
+   "response": "intel_rival_officer",
+   "conditions": {
+    "role": [
+     "officer"
+    ],
+    "disposition": [
+     "positive"
+    ]
+   },
+   "effects": [
+    {
+     "type": "intel",
+     "kind": "rival_base"
+    }
+   ],
+   "weight": 5,
+   "cooldown_minutes": 45
+  },
+  {
+   "id": "intel_officer_trouble_where",
+   "text": "dialogue.warfront.opt.intel_officer_trouble_where",
+   "response": "intel_rival_officer",
+   "conditions": {
+    "role": [
+     "officer"
+    ],
+    "disposition": [
+     "positive"
+    ]
+   },
+   "effects": [
+    {
+     "type": "intel",
+     "kind": "rival_base"
+    }
+   ],
+   "weight": 6,
+   "cooldown_minutes": 45
+  },
+  {
+   "id": "intel_rivalref_at_war",
+   "text": "dialogue.warfront.opt.intel_rivalref_at_war",
+   "response": "intel_rival_refused",
+   "conditions": {
+    "disposition": [
+     "neutral"
+    ]
+   },
+   "weight": 8
+  },
+  {
+   "id": "intel_rivalref_fighting",
+   "text": "dialogue.warfront.opt.intel_rivalref_fighting",
+   "response": "intel_rival_refused",
+   "conditions": {
+    "disposition": [
+     "neutral"
+    ]
+   },
+   "weight": 7
+  },
+  {
+   "id": "intel_rivalref_enemy_camp",
+   "text": "dialogue.warfront.opt.intel_rivalref_enemy_camp",
+   "response": "intel_rival_refused",
+   "conditions": {
+    "disposition": [
+     "neutral"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "intel_rivalref_winning",
+   "text": "dialogue.warfront.opt.intel_rivalref_winning",
+   "response": "intel_rival_refused",
+   "conditions": {
+    "disposition": [
+     "neutral"
+    ]
+   },
+   "weight": 7
+  },
+  {
+   "id": "intel_rivalref_pay",
+   "text": "dialogue.warfront.opt.intel_rivalref_pay",
+   "response": "intel_rival_refused",
+   "conditions": {
+    "disposition": [
+     "neutral"
+    ]
+   },
+   "weight": 5
+  },
+  {
+   "id": "intel_rivalref_battlefield",
+   "text": "dialogue.warfront.opt.intel_rivalref_battlefield",
+   "response": "intel_rival_refused",
+   "conditions": {
+    "disposition": [
+     "neutral"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "intel_rivalref_maps_taken",
+   "text": "dialogue.warfront.opt.intel_rivalref_maps_taken",
+   "response": "intel_rival_refused",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "weight": 4
+  },
+  {
+   "id": "intel_rivalref_prisoners",
+   "text": "dialogue.warfront.opt.intel_rivalref_prisoners",
+   "response": "intel_rival_refused",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "weight": 4
+  },
+  {
+   "id": "intel_rivalref_spies",
+   "text": "dialogue.warfront.opt.intel_rivalref_spies",
+   "response": "intel_rival_refused",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "weight": 3
+  },
+  {
+   "id": "intel_rivalref_next_raid",
+   "text": "dialogue.warfront.opt.intel_rivalref_next_raid",
+   "response": "intel_rival_refused",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "weight": 3
+  },
+  {
+   "id": "intel_rivalref_front_news",
+   "text": "dialogue.warfront.opt.intel_rivalref_front_news",
+   "response": "intel_rival_refused",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "weight": 5
+  },
+  {
+   "id": "intel_rivalref_thin_them",
+   "text": "dialogue.warfront.opt.intel_rivalref_thin_them",
+   "response": "intel_rival_refused",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "weight": 4
+  },
+  {
+   "id": "intel_patrol_changeover",
+   "text": "dialogue.warfront.opt.intel_patrol_changeover",
+   "response": "intel_patrol_schedule",
+   "conditions": {
+    "disposition": [
+     "neutral",
+     "positive"
+    ]
+   },
+   "effects": [
+    {
+     "type": "intel",
+     "kind": "patrol_hint"
+    }
+   ],
+   "weight": 8
+  },
+  {
+   "id": "intel_patrol_rounds",
+   "text": "dialogue.warfront.opt.intel_patrol_rounds",
+   "response": "intel_patrol_schedule",
+   "conditions": {
+    "disposition": [
+     "neutral",
+     "positive"
+    ]
+   },
+   "effects": [
+    {
+     "type": "intel",
+     "kind": "patrol_hint"
+    }
+   ],
+   "weight": 7
+  },
+  {
+   "id": "intel_patrol_next_due",
+   "text": "dialogue.warfront.opt.intel_patrol_next_due",
+   "response": "intel_patrol_schedule",
+   "conditions": {
+    "disposition": [
+     "neutral",
+     "positive"
+    ]
+   },
+   "effects": [
+    {
+     "type": "intel",
+     "kind": "patrol_hint"
+    }
+   ],
+   "weight": 7
+  },
+  {
+   "id": "intel_patrol_shift_length",
+   "text": "dialogue.warfront.opt.intel_patrol_shift_length",
+   "response": "intel_patrol_schedule",
+   "conditions": {
+    "disposition": [
+     "neutral",
+     "positive"
+    ]
+   },
+   "effects": [
+    {
+     "type": "intel",
+     "kind": "patrol_hint"
+    }
+   ],
+   "weight": 6
+  },
+  {
+   "id": "intel_patrol_after_dark",
+   "text": "dialogue.warfront.opt.intel_patrol_after_dark",
+   "response": "intel_patrol_schedule",
+   "conditions": {
+    "disposition": [
+     "neutral",
+     "positive"
+    ]
+   },
+   "effects": [
+    {
+     "type": "intel",
+     "kind": "patrol_hint"
+    }
+   ],
+   "weight": 6
+  },
+  {
+   "id": "intel_patrol_route_run",
+   "text": "dialogue.warfront.opt.intel_patrol_route_run",
+   "response": "intel_patrol_schedule",
+   "conditions": {
+    "disposition": [
+     "positive"
+    ]
+   },
+   "effects": [
+    {
+     "type": "intel",
+     "kind": "patrol_hint"
+    }
+   ],
+   "weight": 6
+  },
+  {
+   "id": "intel_patrol_gap",
+   "text": "dialogue.warfront.opt.intel_patrol_gap",
+   "response": "intel_patrol_schedule",
+   "conditions": {
+    "disposition": [
+     "positive"
+    ]
+   },
+   "effects": [
+    {
+     "type": "intel",
+     "kind": "patrol_hint"
+    }
+   ],
+   "weight": 4
+  },
+  {
+   "id": "intel_patrol_watched_roads",
+   "text": "dialogue.warfront.opt.intel_patrol_watched_roads",
+   "response": "intel_patrol_schedule",
+   "conditions": {
+    "disposition": [
+     "neutral",
+     "positive"
+    ]
+   },
+   "effects": [
+    {
+     "type": "intel",
+     "kind": "patrol_hint"
+    }
+   ],
+   "weight": 6
+  },
+  {
+   "id": "intel_patrol_relief_when",
+   "text": "dialogue.warfront.opt.intel_patrol_relief_when",
+   "response": "intel_patrol_schedule",
+   "conditions": {
+    "disposition": [
+     "neutral",
+     "positive"
+    ]
+   },
+   "effects": [
+    {
+     "type": "intel",
+     "kind": "patrol_hint"
+    }
+   ],
+   "weight": 5
+  },
+  {
+   "id": "intel_patrol_range_out",
+   "text": "dialogue.warfront.opt.intel_patrol_range_out",
+   "response": "intel_patrol_schedule",
+   "conditions": {
+    "disposition": [
+     "neutral",
+     "positive"
+    ]
+   },
+   "effects": [
+    {
+     "type": "intel",
+     "kind": "patrol_hint"
+    }
+   ],
+   "weight": 6
+  },
+  {
+   "id": "intel_patrol_safe_hour",
+   "text": "dialogue.warfront.opt.intel_patrol_safe_hour",
+   "response": "intel_patrol_schedule",
+   "conditions": {
+    "disposition": [
+     "neutral",
+     "positive"
+    ]
+   },
+   "effects": [
+    {
+     "type": "intel",
+     "kind": "patrol_hint"
+    }
+   ],
+   "weight": 6
+  },
+  {
+   "id": "intel_patrol_horn_mean",
+   "text": "dialogue.warfront.opt.intel_patrol_horn_mean",
+   "response": "intel_patrol_schedule",
+   "conditions": {
+    "disposition": [
+     "neutral",
+     "positive"
+    ]
+   },
+   "effects": [
+    {
+     "type": "intel",
+     "kind": "patrol_hint"
+    }
+   ],
+   "weight": 5
+  },
+  {
+   "id": "intel_patrolref_schedule",
+   "text": "dialogue.warfront.opt.intel_patrolref_schedule",
+   "response": "intel_patrol_refused",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "intel_patrolref_watch_tonight",
+   "text": "dialogue.warfront.opt.intel_patrolref_watch_tonight",
+   "response": "intel_patrol_refused",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "weight": 5
+  },
+  {
+   "id": "intel_patrolref_blind_spots",
+   "text": "dialogue.warfront.opt.intel_patrolref_blind_spots",
+   "response": "intel_patrol_refused",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "weight": 3
+  },
+  {
+   "id": "intel_patrolref_rotation",
+   "text": "dialogue.warfront.opt.intel_patrolref_rotation",
+   "response": "intel_patrol_refused",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "weight": 5
+  },
+  {
+   "id": "intel_patrolref_numbers",
+   "text": "dialogue.warfront.opt.intel_patrolref_numbers",
+   "response": "intel_patrol_refused",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "weight": 4
+  },
+  {
+   "id": "intel_patrolref_skipped_paths",
+   "text": "dialogue.warfront.opt.intel_patrolref_skipped_paths",
+   "response": "intel_patrol_refused",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "weight": 3
+  },
+  {
+   "id": "intel_patrolref_sentries",
+   "text": "dialogue.warfront.opt.intel_patrolref_sentries",
+   "response": "intel_patrol_refused",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "weight": 4
+  },
+  {
+   "id": "intel_patrolref_alarm",
+   "text": "dialogue.warfront.opt.intel_patrolref_alarm",
+   "response": "intel_patrol_refused",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "weight": 3
+  },
+  {
+   "id": "intel_patrolref_midnight",
+   "text": "dialogue.warfront.opt.intel_patrolref_midnight",
+   "response": "intel_patrol_refused",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "weight": 4
+  },
+  {
+   "id": "intel_patrolref_thin_lately",
+   "text": "dialogue.warfront.opt.intel_patrolref_thin_lately",
+   "response": "intel_patrol_refused",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "weight": 4
+  },
+  {
+   "id": "intel_road_whose",
+   "text": "dialogue.warfront.opt.intel_road_whose",
+   "response": "intel_road_watch",
+   "conditions": {
+    "disposition": [
+     "neutral",
+     "positive"
+    ]
+   },
+   "effects": [
+    {
+     "type": "intel",
+     "kind": "patrol_hint"
+    }
+   ],
+   "weight": 8
+  },
+  {
+   "id": "intel_road_watchers",
+   "text": "dialogue.warfront.opt.intel_road_watchers",
+   "response": "intel_road_watch",
+   "conditions": {
+    "disposition": [
+     "neutral",
+     "positive"
+    ]
+   },
+   "effects": [
+    {
+     "type": "intel",
+     "kind": "patrol_hint"
+    }
+   ],
+   "weight": 7
+  },
+  {
+   "id": "intel_road_stopped_again",
+   "text": "dialogue.warfront.opt.intel_road_stopped_again",
+   "response": "intel_road_watch",
+   "conditions": {
+    "disposition": [
+     "neutral",
+     "positive"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "intel_road_tolls",
+   "text": "dialogue.warfront.opt.intel_road_tolls",
+   "response": "intel_road_watch",
+   "conditions": {
+    "disposition": [
+     "neutral",
+     "positive"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "intel_road_bandits",
+   "text": "dialogue.warfront.opt.intel_road_bandits",
+   "response": "intel_road_watch",
+   "conditions": {
+    "disposition": [
+     "neutral",
+     "positive"
+    ]
+   },
+   "weight": 7
+  },
+  {
+   "id": "intel_road_checkpoints",
+   "text": "dialogue.warfront.opt.intel_road_checkpoints",
+   "response": "intel_road_watch",
+   "conditions": {
+    "disposition": [
+     "neutral",
+     "positive"
+    ]
+   },
+   "effects": [
+    {
+     "type": "intel",
+     "kind": "patrol_hint"
+    }
+   ],
+   "weight": 7
+  },
+  {
+   "id": "intel_road_traffic",
+   "text": "dialogue.warfront.opt.intel_road_traffic",
+   "response": "intel_road_watch",
+   "conditions": {
+    "disposition": [
+     "neutral",
+     "positive"
+    ]
+   },
+   "weight": 5
+  },
+  {
+   "id": "intel_road_last_trouble",
+   "text": "dialogue.warfront.opt.intel_road_last_trouble",
+   "response": "intel_road_watch",
+   "conditions": {
+    "disposition": [
+     "neutral",
+     "positive"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "intel_road_night_use",
+   "text": "dialogue.warfront.opt.intel_road_night_use",
+   "response": "intel_road_watch",
+   "conditions": {
+    "disposition": [
+     "neutral",
+     "positive"
+    ]
+   },
+   "weight": 5
+  },
+  {
+   "id": "intel_road_carts",
+   "text": "dialogue.warfront.opt.intel_road_carts",
+   "response": "intel_road_watch",
+   "conditions": {
+    "disposition": [
+     "neutral",
+     "positive"
+    ]
+   },
+   "weight": 5
+  },
+  {
+   "id": "intel_terrain_ridge",
+   "text": "dialogue.warfront.opt.intel_terrain_ridge",
+   "response": "intel_terrain",
+   "weight": 8
+  },
+  {
+   "id": "intel_terrain_forest",
+   "text": "dialogue.warfront.opt.intel_terrain_forest",
+   "response": "intel_terrain",
+   "weight": 7
+  },
+  {
+   "id": "intel_terrain_ruins",
+   "text": "dialogue.warfront.opt.intel_terrain_ruins",
+   "response": "intel_terrain",
+   "weight": 6
+  },
+  {
+   "id": "intel_terrain_caves",
+   "text": "dialogue.warfront.opt.intel_terrain_caves",
+   "response": "intel_terrain",
+   "weight": 6
+  },
+  {
+   "id": "intel_terrain_valley",
+   "text": "dialogue.warfront.opt.intel_terrain_valley",
+   "response": "intel_terrain",
+   "weight": 6
+  },
+  {
+   "id": "intel_terrain_smoke",
+   "text": "dialogue.warfront.opt.intel_terrain_smoke",
+   "response": "intel_terrain",
+   "weight": 6
+  },
+  {
+   "id": "intel_terrain_water",
+   "text": "dialogue.warfront.opt.intel_terrain_water",
+   "response": "intel_terrain",
+   "weight": 7
+  },
+  {
+   "id": "intel_terrain_high_ground",
+   "text": "dialogue.warfront.opt.intel_terrain_high_ground",
+   "response": "intel_terrain",
+   "weight": 5
+  },
+  {
+   "id": "intel_terrain_swamp",
+   "text": "dialogue.warfront.opt.intel_terrain_swamp",
+   "response": "intel_terrain",
+   "weight": 5
+  },
+  {
+   "id": "intel_terrain_pass",
+   "text": "dialogue.warfront.opt.intel_terrain_pass",
+   "response": "intel_terrain",
+   "weight": 6
+  },
+  {
+   "id": "intel_terrain_coast",
+   "text": "dialogue.warfront.opt.intel_terrain_coast",
+   "response": "intel_terrain",
+   "weight": 5
+  },
+  {
+   "id": "intel_terrain_bites",
+   "text": "dialogue.warfront.opt.intel_terrain_bites",
+   "response": "intel_terrain",
+   "weight": 5
+  },
+  {
+   "id": "intel_route_east",
+   "text": "dialogue.warfront.opt.intel_route_east",
+   "response": "intel_safe_route",
+   "weight": 7
+  },
+  {
+   "id": "intel_route_avoid",
+   "text": "dialogue.warfront.opt.intel_route_avoid",
+   "response": "intel_safe_route",
+   "weight": 8
+  },
+  {
+   "id": "intel_route_dark_travel",
+   "text": "dialogue.warfront.opt.intel_route_dark_travel",
+   "response": "intel_safe_route",
+   "weight": 6
+  },
+  {
+   "id": "intel_route_shortcut",
+   "text": "dialogue.warfront.opt.intel_route_shortcut",
+   "response": "intel_safe_route",
+   "weight": 6
+  },
+  {
+   "id": "intel_route_crossing",
+   "text": "dialogue.warfront.opt.intel_route_crossing",
+   "response": "intel_safe_route",
+   "weight": 6
+  },
+  {
+   "id": "intel_route_caravans",
+   "text": "dialogue.warfront.opt.intel_route_caravans",
+   "response": "intel_safe_route",
+   "weight": 5
+  },
+  {
+   "id": "intel_route_fewest_questions",
+   "text": "dialogue.warfront.opt.intel_route_fewest_questions",
+   "response": "intel_safe_route",
+   "weight": 5
+  },
+  {
+   "id": "intel_route_hauling",
+   "text": "dialogue.warfront.opt.intel_route_hauling",
+   "response": "intel_safe_route",
+   "conditions": {
+    "disposition": [
+     "positive"
+    ]
+   },
+   "effects": [
+    {
+     "type": "intel",
+     "kind": "patrol_hint"
+    }
+   ],
+   "weight": 5
+  },
+  {
+   "id": "intel_route_west",
+   "text": "dialogue.warfront.opt.intel_route_west",
+   "response": "intel_safe_route",
+   "conditions": {
+    "disposition": [
+     "positive"
+    ]
+   },
+   "effects": [
+    {
+     "type": "intel",
+     "kind": "patrol_hint"
+    }
+   ],
+   "weight": 6
+  },
+  {
+   "id": "intel_route_quiet_paths",
+   "text": "dialogue.warfront.opt.intel_route_quiet_paths",
+   "response": "intel_safe_route",
+   "conditions": {
+    "disposition": [
+     "positive"
+    ]
+   },
+   "effects": [
+    {
+     "type": "intel",
+     "kind": "patrol_hint"
+    }
+   ],
+   "weight": 5
+  },
+  {
+   "id": "intel_night_avoid",
+   "text": "dialogue.warfront.opt.intel_night_avoid",
+   "response": "intel_night_hazards",
+   "conditions": {
+    "time": [
+     "night"
+    ]
+   },
+   "weight": 8
+  },
+  {
+   "id": "intel_night_comes_out",
+   "text": "dialogue.warfront.opt.intel_night_comes_out",
+   "response": "intel_night_hazards",
+   "conditions": {
+    "time": [
+     "night"
+    ]
+   },
+   "weight": 7
+  },
+  {
+   "id": "intel_night_whose_fires",
+   "text": "dialogue.warfront.opt.intel_night_whose_fires",
+   "response": "intel_night_hazards",
+   "conditions": {
+    "time": [
+     "night"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "intel_night_keep_walking",
+   "text": "dialogue.warfront.opt.intel_night_keep_walking",
+   "response": "intel_night_hazards",
+   "conditions": {
+    "time": [
+     "night"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "intel_night_sound",
+   "text": "dialogue.warfront.opt.intel_night_sound",
+   "response": "intel_night_hazards",
+   "conditions": {
+    "time": [
+     "night"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "intel_night_watchword",
+   "text": "dialogue.warfront.opt.intel_night_watchword",
+   "response": "intel_night_hazards",
+   "conditions": {
+    "time": [
+     "night"
+    ]
+   },
+   "weight": 5
+  },
+  {
+   "id": "intel_night_safe_fire",
+   "text": "dialogue.warfront.opt.intel_night_safe_fire",
+   "response": "intel_night_hazards",
+   "conditions": {
+    "time": [
+     "night"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "intel_night_moon_raids",
+   "text": "dialogue.warfront.opt.intel_night_moon_raids",
+   "response": "intel_night_hazards",
+   "conditions": {
+    "time": [
+     "night"
+    ]
+   },
+   "weight": 4
+  },
+  {
+   "id": "intel_night_bad_roads",
+   "text": "dialogue.warfront.opt.intel_night_bad_roads",
+   "response": "intel_night_hazards",
+   "conditions": {
+    "time": [
+     "night"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "intel_night_first_light",
+   "text": "dialogue.warfront.opt.intel_night_first_light",
+   "response": "intel_night_hazards",
+   "conditions": {
+    "time": [
+     "night"
+    ]
+   },
+   "weight": 5
+  },
+  {
+   "id": "intel_blood_still_need",
+   "text": "dialogue.warfront.opt.intel_blood_still_need",
+   "response": "intel_blood_ask",
+   "conditions": {
+    "has_killed_this_faction": true
+   },
+   "weight": 6
+  },
+  {
+   "id": "intel_blood_market_road",
+   "text": "dialogue.warfront.opt.intel_blood_market_road",
+   "response": "intel_blood_ask",
+   "conditions": {
+    "has_killed_this_faction": true
+   },
+   "weight": 5
+  },
+  {
+   "id": "intel_blood_blind",
+   "text": "dialogue.warfront.opt.intel_blood_blind",
+   "response": "intel_blood_ask",
+   "conditions": {
+    "has_killed_this_faction": true
+   },
+   "weight": 5
+  },
+  {
+   "id": "intel_blood_humor_me",
+   "text": "dialogue.warfront.opt.intel_blood_humor_me",
+   "response": "intel_blood_ask",
+   "conditions": {
+    "has_killed_this_faction": true
+   },
+   "effects": [
+    {
+     "type": "standing",
+     "amount": -2
+    }
+   ],
+   "weight": 3
+  },
+  {
+   "id": "intel_blood_truce_minute",
+   "text": "dialogue.warfront.opt.intel_blood_truce_minute",
+   "response": "intel_blood_ask",
+   "conditions": {
+    "has_killed_this_faction": true
+   },
+   "weight": 5
+  },
+  {
+   "id": "intel_blood_forget",
+   "text": "dialogue.warfront.opt.intel_blood_forget",
+   "response": "intel_blood_ask",
+   "conditions": {
+    "has_killed_this_faction": true
+   },
+   "weight": 4
+  },
+  {
+   "id": "intel_blood_coin",
+   "text": "dialogue.warfront.opt.intel_blood_coin",
+   "response": "intel_blood_ask",
+   "conditions": {
+    "has_killed_this_faction": true
+   },
+   "weight": 4
+  },
+  {
+   "id": "intel_blood_missing_me",
+   "text": "dialogue.warfront.opt.intel_blood_missing_me",
+   "response": "intel_blood_ask",
+   "conditions": {
+    "has_killed_this_faction": true
+   },
+   "effects": [
+    {
+     "type": "standing",
+     "amount": -3
+    }
+   ],
+   "weight": 2
+  },
+  {
+   "id": "intel_field_far_out",
+   "text": "dialogue.warfront.opt.intel_field_far_out",
+   "response": "intel_field_talk",
+   "conditions": {
+    "location": [
+     "patrol",
+     "wilderness"
+    ]
+   },
+   "weight": 7
+  },
+  {
+   "id": "intel_field_seen_anyone",
+   "text": "dialogue.warfront.opt.intel_field_seen_anyone",
+   "response": "intel_field_talk",
+   "conditions": {
+    "location": [
+     "patrol",
+     "wilderness"
+    ]
+   },
+   "weight": 7
+  },
+  {
+   "id": "intel_field_tracks",
+   "text": "dialogue.warfront.opt.intel_field_tracks",
+   "response": "intel_field_talk",
+   "conditions": {
+    "location": [
+     "patrol",
+     "wilderness"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "intel_field_lost_who",
+   "text": "dialogue.warfront.opt.intel_field_lost_who",
+   "response": "intel_field_talk",
+   "conditions": {
+    "location": [
+     "patrol",
+     "wilderness"
+    ]
+   },
+   "weight": 5
+  },
+  {
+   "id": "intel_field_camp_tonight",
+   "text": "dialogue.warfront.opt.intel_field_camp_tonight",
+   "response": "intel_field_talk",
+   "conditions": {
+    "location": [
+     "patrol",
+     "wilderness"
+    ]
+   },
+   "weight": 5
+  },
+  {
+   "id": "intel_field_ground_runs",
+   "text": "dialogue.warfront.opt.intel_field_ground_runs",
+   "response": "intel_field_talk",
+   "conditions": {
+    "location": [
+     "patrol",
+     "wilderness"
+    ]
+   },
+   "weight": 5
+  },
+  {
+   "id": "intel_field_trail_ahead",
+   "text": "dialogue.warfront.opt.intel_field_trail_ahead",
+   "response": "intel_field_talk",
+   "conditions": {
+    "location": [
+     "patrol",
+     "wilderness"
+    ]
+   },
+   "weight": 7
+  },
+  {
+   "id": "intel_field_water_days",
+   "text": "dialogue.warfront.opt.intel_field_water_days",
+   "response": "intel_field_talk",
+   "conditions": {
+    "location": [
+     "wilderness"
+    ]
+   },
+   "weight": 5
+  },
+  {
+   "id": "intel_field_walk_along",
+   "text": "dialogue.warfront.opt.intel_field_walk_along",
+   "response": "intel_field_talk",
+   "conditions": {
+    "location": [
+     "patrol"
+    ]
+   },
+   "weight": 5
+  },
+  {
+   "id": "intel_field_home_far",
+   "text": "dialogue.warfront.opt.intel_field_home_far",
+   "response": "intel_field_talk",
+   "conditions": {
+    "location": [
+     "patrol",
+     "wilderness"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "intel_supply_come_from",
+   "text": "dialogue.warfront.opt.intel_supply_come_from",
+   "response": "intel_supply_lines",
+   "conditions": {
+    "role": [
+     "quartermaster"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "intel_supply_short_of",
+   "text": "dialogue.warfront.opt.intel_supply_short_of",
+   "response": "intel_supply_lines",
+   "conditions": {
+    "role": [
+     "quartermaster"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "intel_supply_next_run",
+   "text": "dialogue.warfront.opt.intel_supply_next_run",
+   "response": "intel_supply_lines",
+   "conditions": {
+    "role": [
+     "quartermaster"
+    ]
+   },
+   "weight": 5
+  },
+  {
+   "id": "intel_supply_surplus",
+   "text": "dialogue.warfront.opt.intel_supply_surplus",
+   "response": "intel_supply_lines",
+   "conditions": {
+    "role": [
+     "quartermaster"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "intel_supply_bring_goods",
+   "text": "dialogue.warfront.opt.intel_supply_bring_goods",
+   "response": "intel_supply_lines",
+   "conditions": {
+    "role": [
+     "quartermaster"
+    ]
+   },
+   "weight": 5
+  },
+  {
+   "id": "intel_supply_grain",
+   "text": "dialogue.warfront.opt.intel_supply_grain",
+   "response": "intel_supply_lines",
+   "conditions": {
+    "role": [
+     "quartermaster"
+    ]
+   },
+   "weight": 5
+  },
+  {
+   "id": "intel_supply_stores_deep",
+   "text": "dialogue.warfront.opt.intel_supply_stores_deep",
+   "response": "intel_supply_lines",
+   "conditions": {
+    "role": [
+     "quartermaster"
+    ]
+   },
+   "weight": 4
+  },
+  {
+   "id": "intel_supply_guard_work",
+   "text": "dialogue.warfront.opt.intel_supply_guard_work",
+   "response": "intel_supply_lines",
+   "conditions": {
+    "role": [
+     "quartermaster"
+    ]
+   },
+   "weight": 5
+  }
+ ]
+}

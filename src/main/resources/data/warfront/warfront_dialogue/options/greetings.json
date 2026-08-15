@@ -1,0 +1,1679 @@
+{
+ "category": "greetings",
+ "options": [
+  {
+   "id": "greetings_hail_plain",
+   "text": "dialogue.warfront.opt.greetings_hail_plain",
+   "response": "greetings_hail",
+   "weight": 12
+  },
+  {
+   "id": "greetings_hail_hey",
+   "text": "dialogue.warfront.opt.greetings_hail_hey",
+   "response": "greetings_hail",
+   "weight": 10
+  },
+  {
+   "id": "greetings_hail_soldier",
+   "text": "dialogue.warfront.opt.greetings_hail_soldier",
+   "response": "greetings_hail",
+   "weight": 12
+  },
+  {
+   "id": "greetings_hail_wave",
+   "text": "dialogue.warfront.opt.greetings_hail_wave",
+   "response": "greetings_hail",
+   "weight": 8
+  },
+  {
+   "id": "greetings_hail_stop_by",
+   "text": "dialogue.warfront.opt.greetings_hail_stop_by",
+   "response": "greetings_hail",
+   "weight": 8
+  },
+  {
+   "id": "greetings_hail_again",
+   "text": "dialogue.warfront.opt.greetings_hail_again",
+   "response": "greetings_hail",
+   "weight": 10
+  },
+  {
+   "id": "greetings_hail_you_there",
+   "text": "dialogue.warfront.opt.greetings_hail_you_there",
+   "response": "greetings_hail",
+   "weight": 8
+  },
+  {
+   "id": "greetings_hail_busy",
+   "text": "dialogue.warfront.opt.greetings_hail_busy",
+   "response": "greetings_hail",
+   "weight": 8
+  },
+  {
+   "id": "greetings_hail_traveler",
+   "text": "dialogue.warfront.opt.greetings_hail_traveler",
+   "response": "greetings_hail",
+   "weight": 7
+  },
+  {
+   "id": "greetings_hail_peace",
+   "text": "dialogue.warfront.opt.greetings_hail_peace",
+   "response": "greetings_hail",
+   "weight": 8
+  },
+  {
+   "id": "greetings_hail_chat",
+   "text": "dialogue.warfront.opt.greetings_hail_chat",
+   "response": "greetings_hail",
+   "weight": 7
+  },
+  {
+   "id": "greetings_hail_stranger",
+   "text": "dialogue.warfront.opt.greetings_hail_stranger",
+   "response": "greetings_hail",
+   "weight": 9
+  },
+  {
+   "id": "greetings_hail_ho",
+   "text": "dialogue.warfront.opt.greetings_hail_ho",
+   "response": "greetings_hail",
+   "weight": 8
+  },
+  {
+   "id": "greetings_hail_soul",
+   "text": "dialogue.warfront.opt.greetings_hail_soul",
+   "response": "greetings_hail",
+   "weight": 7
+  },
+  {
+   "id": "greetings_hail_how_goes",
+   "text": "dialogue.warfront.opt.greetings_hail_how_goes",
+   "response": "greetings_hail",
+   "weight": 10
+  },
+  {
+   "id": "greetings_hail_well_met",
+   "text": "dialogue.warfront.opt.greetings_hail_well_met",
+   "response": "greetings_hail",
+   "weight": 9
+  },
+  {
+   "id": "greetings_weather_nice",
+   "text": "dialogue.warfront.opt.greetings_weather_nice",
+   "response": "greetings_smalltalk_weather",
+   "weight": 10
+  },
+  {
+   "id": "greetings_weather_awful",
+   "text": "dialogue.warfront.opt.greetings_weather_awful",
+   "response": "greetings_smalltalk_weather",
+   "weight": 10
+  },
+  {
+   "id": "greetings_weather_rain",
+   "text": "dialogue.warfront.opt.greetings_weather_rain",
+   "response": "greetings_smalltalk_weather",
+   "weight": 9
+  },
+  {
+   "id": "greetings_weather_cold",
+   "text": "dialogue.warfront.opt.greetings_weather_cold",
+   "response": "greetings_smalltalk_weather",
+   "weight": 9
+  },
+  {
+   "id": "greetings_weather_heat",
+   "text": "dialogue.warfront.opt.greetings_weather_heat",
+   "response": "greetings_smalltalk_weather",
+   "weight": 9
+  },
+  {
+   "id": "greetings_weather_wind",
+   "text": "dialogue.warfront.opt.greetings_weather_wind",
+   "response": "greetings_smalltalk_weather",
+   "weight": 8
+  },
+  {
+   "id": "greetings_weather_storm",
+   "text": "dialogue.warfront.opt.greetings_weather_storm",
+   "response": "greetings_smalltalk_weather",
+   "weight": 8
+  },
+  {
+   "id": "greetings_weather_sky",
+   "text": "dialogue.warfront.opt.greetings_weather_sky",
+   "response": "greetings_smalltalk_weather",
+   "weight": 7
+  },
+  {
+   "id": "greetings_weather_season",
+   "text": "dialogue.warfront.opt.greetings_weather_season",
+   "response": "greetings_smalltalk_weather",
+   "weight": 7
+  },
+  {
+   "id": "greetings_weather_stars",
+   "text": "dialogue.warfront.opt.greetings_weather_stars",
+   "response": "greetings_smalltalk_weather",
+   "conditions": {
+    "time": [
+     "night"
+    ]
+   },
+   "weight": 8
+  },
+  {
+   "id": "greetings_ask_war_going",
+   "text": "dialogue.warfront.opt.greetings_ask_war_going",
+   "response": "greetings_ask_war",
+   "weight": 12
+  },
+  {
+   "id": "greetings_ask_war_winning",
+   "text": "dialogue.warfront.opt.greetings_ask_war_winning",
+   "response": "greetings_ask_war",
+   "weight": 9
+  },
+  {
+   "id": "greetings_ask_war_news",
+   "text": "dialogue.warfront.opt.greetings_ask_war_news",
+   "response": "greetings_ask_war",
+   "weight": 10
+  },
+  {
+   "id": "greetings_ask_war_quiet",
+   "text": "dialogue.warfront.opt.greetings_ask_war_quiet",
+   "response": "greetings_ask_war",
+   "weight": 8
+  },
+  {
+   "id": "greetings_ask_war_end",
+   "text": "dialogue.warfront.opt.greetings_ask_war_end",
+   "response": "greetings_ask_war",
+   "weight": 8
+  },
+  {
+   "id": "greetings_ask_war_cost",
+   "text": "dialogue.warfront.opt.greetings_ask_war_cost",
+   "response": "greetings_ask_war",
+   "weight": 7
+  },
+  {
+   "id": "greetings_ask_war_upper_hand",
+   "text": "dialogue.warfront.opt.greetings_ask_war_upper_hand",
+   "response": "greetings_ask_war",
+   "weight": 8
+  },
+  {
+   "id": "greetings_ask_war_worth",
+   "text": "dialogue.warfront.opt.greetings_ask_war_worth",
+   "response": "greetings_ask_war",
+   "weight": 7
+  },
+  {
+   "id": "greetings_ask_war_rough",
+   "text": "dialogue.warfront.opt.greetings_ask_war_rough",
+   "response": "greetings_ask_war",
+   "weight": 8
+  },
+  {
+   "id": "greetings_ask_war_holding",
+   "text": "dialogue.warfront.opt.greetings_ask_war_holding",
+   "response": "greetings_ask_war",
+   "weight": 8
+  },
+  {
+   "id": "greetings_ask_name",
+   "text": "dialogue.warfront.opt.greetings_ask_name",
+   "response": "greetings_ask_name",
+   "weight": 10
+  },
+  {
+   "id": "greetings_ask_name_call",
+   "text": "dialogue.warfront.opt.greetings_ask_name_call",
+   "response": "greetings_ask_name",
+   "weight": 9
+  },
+  {
+   "id": "greetings_ask_name_who",
+   "text": "dialogue.warfront.opt.greetings_ask_name_who",
+   "response": "greetings_ask_name",
+   "weight": 8
+  },
+  {
+   "id": "greetings_ask_name_catch",
+   "text": "dialogue.warfront.opt.greetings_ask_name_catch",
+   "response": "greetings_ask_name",
+   "weight": 8
+  },
+  {
+   "id": "greetings_ask_name_rank",
+   "text": "dialogue.warfront.opt.greetings_ask_name_rank",
+   "response": "greetings_ask_name",
+   "weight": 6
+  },
+  {
+   "id": "greetings_ask_name_remind",
+   "text": "dialogue.warfront.opt.greetings_ask_name_remind",
+   "response": "greetings_ask_name",
+   "weight": 6
+  },
+  {
+   "id": "greetings_ask_day_going",
+   "text": "dialogue.warfront.opt.greetings_ask_day_going",
+   "response": "greetings_ask_day",
+   "weight": 10
+  },
+  {
+   "id": "greetings_ask_day_holding",
+   "text": "dialogue.warfront.opt.greetings_ask_day_holding",
+   "response": "greetings_ask_day",
+   "weight": 9
+  },
+  {
+   "id": "greetings_ask_day_shift",
+   "text": "dialogue.warfront.opt.greetings_ask_day_shift",
+   "response": "greetings_ask_day",
+   "weight": 9
+  },
+  {
+   "id": "greetings_ask_day_tired",
+   "text": "dialogue.warfront.opt.greetings_ask_day_tired",
+   "response": "greetings_ask_day",
+   "weight": 7
+  },
+  {
+   "id": "greetings_ask_day_alright",
+   "text": "dialogue.warfront.opt.greetings_ask_day_alright",
+   "response": "greetings_ask_day",
+   "weight": 8
+  },
+  {
+   "id": "greetings_ask_day_morale",
+   "text": "dialogue.warfront.opt.greetings_ask_day_morale",
+   "response": "greetings_ask_day",
+   "weight": 8
+  },
+  {
+   "id": "greetings_ask_day_eaten",
+   "text": "dialogue.warfront.opt.greetings_ask_day_eaten",
+   "response": "greetings_ask_day",
+   "weight": 7
+  },
+  {
+   "id": "greetings_ask_day_sleep",
+   "text": "dialogue.warfront.opt.greetings_ask_day_sleep",
+   "response": "greetings_ask_day",
+   "weight": 7
+  },
+  {
+   "id": "greetings_joke_offer",
+   "text": "dialogue.warfront.opt.greetings_joke_offer",
+   "response": "greetings_joke",
+   "weight": 8
+  },
+  {
+   "id": "greetings_joke_rations",
+   "text": "dialogue.warfront.opt.greetings_joke_rations",
+   "response": "greetings_joke",
+   "weight": 6
+  },
+  {
+   "id": "greetings_joke_map",
+   "text": "dialogue.warfront.opt.greetings_joke_map",
+   "response": "greetings_joke",
+   "weight": 6
+  },
+  {
+   "id": "greetings_joke_know_any",
+   "text": "dialogue.warfront.opt.greetings_joke_know_any",
+   "response": "greetings_joke",
+   "weight": 7
+  },
+  {
+   "id": "greetings_joke_laugh",
+   "text": "dialogue.warfront.opt.greetings_joke_laugh",
+   "response": "greetings_joke",
+   "weight": 7
+  },
+  {
+   "id": "greetings_joke_boots",
+   "text": "dialogue.warfront.opt.greetings_joke_boots",
+   "response": "greetings_joke",
+   "weight": 6
+  },
+  {
+   "id": "greetings_joke_soup",
+   "text": "dialogue.warfront.opt.greetings_joke_soup",
+   "response": "greetings_joke",
+   "weight": 6
+  },
+  {
+   "id": "greetings_morning_good",
+   "text": "dialogue.warfront.opt.greetings_morning_good",
+   "response": "greetings_morning",
+   "conditions": {
+    "time": [
+     "day"
+    ]
+   },
+   "weight": 12
+  },
+  {
+   "id": "greetings_morning_early",
+   "text": "dialogue.warfront.opt.greetings_morning_early",
+   "response": "greetings_morning",
+   "conditions": {
+    "time": [
+     "day"
+    ]
+   },
+   "weight": 8
+  },
+  {
+   "id": "greetings_morning_sunrise",
+   "text": "dialogue.warfront.opt.greetings_morning_sunrise",
+   "response": "greetings_morning",
+   "conditions": {
+    "time": [
+     "day"
+    ]
+   },
+   "weight": 8
+  },
+  {
+   "id": "greetings_morning_quiet_night",
+   "text": "dialogue.warfront.opt.greetings_morning_quiet_night",
+   "response": "greetings_morning",
+   "conditions": {
+    "time": [
+     "day"
+    ]
+   },
+   "weight": 8
+  },
+  {
+   "id": "greetings_morning_drink",
+   "text": "dialogue.warfront.opt.greetings_morning_drink",
+   "response": "greetings_morning",
+   "conditions": {
+    "time": [
+     "day"
+    ]
+   },
+   "weight": 7
+  },
+  {
+   "id": "greetings_morning_start",
+   "text": "dialogue.warfront.opt.greetings_morning_start",
+   "response": "greetings_morning",
+   "conditions": {
+    "time": [
+     "day"
+    ]
+   },
+   "weight": 7
+  },
+  {
+   "id": "greetings_morning_walk",
+   "text": "dialogue.warfront.opt.greetings_morning_walk",
+   "response": "greetings_morning",
+   "conditions": {
+    "time": [
+     "day"
+    ]
+   },
+   "weight": 7
+  },
+  {
+   "id": "greetings_night_good",
+   "text": "dialogue.warfront.opt.greetings_night_good",
+   "response": "greetings_night",
+   "conditions": {
+    "time": [
+     "night"
+    ]
+   },
+   "weight": 12
+  },
+  {
+   "id": "greetings_night_late",
+   "text": "dialogue.warfront.opt.greetings_night_late",
+   "response": "greetings_night",
+   "conditions": {
+    "time": [
+     "night"
+    ]
+   },
+   "weight": 8
+  },
+  {
+   "id": "greetings_night_dark",
+   "text": "dialogue.warfront.opt.greetings_night_dark",
+   "response": "greetings_night",
+   "conditions": {
+    "time": [
+     "night"
+    ]
+   },
+   "weight": 8
+  },
+  {
+   "id": "greetings_night_sleepless",
+   "text": "dialogue.warfront.opt.greetings_night_sleepless",
+   "response": "greetings_night",
+   "conditions": {
+    "time": [
+     "night"
+    ]
+   },
+   "weight": 7
+  },
+  {
+   "id": "greetings_night_long",
+   "text": "dialogue.warfront.opt.greetings_night_long",
+   "response": "greetings_night",
+   "conditions": {
+    "time": [
+     "night"
+    ]
+   },
+   "weight": 8
+  },
+  {
+   "id": "greetings_night_moon",
+   "text": "dialogue.warfront.opt.greetings_night_moon",
+   "response": "greetings_night",
+   "conditions": {
+    "time": [
+     "night"
+    ]
+   },
+   "weight": 7
+  },
+  {
+   "id": "greetings_night_air",
+   "text": "dialogue.warfront.opt.greetings_night_air",
+   "response": "greetings_night",
+   "conditions": {
+    "time": [
+     "night"
+    ]
+   },
+   "weight": 7
+  },
+  {
+   "id": "greetings_first_not_met",
+   "text": "dialogue.warfront.opt.greetings_first_not_met",
+   "response": "greetings_first_meeting",
+   "conditions": {
+    "disposition": [
+     "neutral"
+    ]
+   },
+   "weight": 9
+  },
+  {
+   "id": "greetings_first_of_yours",
+   "text": "dialogue.warfront.opt.greetings_first_of_yours",
+   "response": "greetings_first_meeting",
+   "conditions": {
+    "disposition": [
+     "neutral"
+    ]
+   },
+   "weight": 7
+  },
+  {
+   "id": "greetings_first_introduce",
+   "text": "dialogue.warfront.opt.greetings_first_introduce",
+   "response": "greetings_first_meeting",
+   "conditions": {
+    "disposition": [
+     "neutral"
+    ]
+   },
+   "weight": 8
+  },
+  {
+   "id": "greetings_first_banners",
+   "text": "dialogue.warfront.opt.greetings_first_banners",
+   "response": "greetings_first_meeting",
+   "conditions": {
+    "disposition": [
+     "neutral"
+    ]
+   },
+   "weight": 7
+  },
+  {
+   "id": "greetings_first_heard",
+   "text": "dialogue.warfront.opt.greetings_first_heard",
+   "response": "greetings_first_meeting",
+   "conditions": {
+    "disposition": [
+     "neutral"
+    ]
+   },
+   "weight": 7
+  },
+  {
+   "id": "greetings_first_brief",
+   "text": "dialogue.warfront.opt.greetings_first_brief",
+   "response": "greetings_first_meeting",
+   "conditions": {
+    "disposition": [
+     "neutral"
+    ]
+   },
+   "weight": 7
+  },
+  {
+   "id": "greetings_first_region",
+   "text": "dialogue.warfront.opt.greetings_first_region",
+   "response": "greetings_first_meeting",
+   "conditions": {
+    "disposition": [
+     "neutral"
+    ]
+   },
+   "weight": 8
+  },
+  {
+   "id": "greetings_killer_no_fight",
+   "text": "dialogue.warfront.opt.greetings_killer_no_fight",
+   "response": "greetings_killer_wary",
+   "conditions": {
+    "has_killed_this_faction": true,
+    "disposition": [
+     "negative"
+    ]
+   },
+   "weight": 10
+  },
+  {
+   "id": "greetings_killer_know",
+   "text": "dialogue.warfront.opt.greetings_killer_know",
+   "response": "greetings_killer_wary",
+   "conditions": {
+    "has_killed_this_faction": true,
+    "disposition": [
+     "negative"
+    ]
+   },
+   "weight": 9
+  },
+  {
+   "id": "greetings_killer_done",
+   "text": "dialogue.warfront.opt.greetings_killer_done",
+   "response": "greetings_killer_wary",
+   "conditions": {
+    "has_killed_this_faction": true,
+    "disposition": [
+     "negative"
+    ]
+   },
+   "weight": 8
+  },
+  {
+   "id": "greetings_killer_watched",
+   "text": "dialogue.warfront.opt.greetings_killer_watched",
+   "response": "greetings_killer_wary",
+   "conditions": {
+    "has_killed_this_faction": true,
+    "disposition": [
+     "negative"
+    ]
+   },
+   "weight": 8
+  },
+  {
+   "id": "greetings_killer_hands",
+   "text": "dialogue.warfront.opt.greetings_killer_hands",
+   "response": "greetings_killer_wary",
+   "conditions": {
+    "has_killed_this_faction": true,
+    "disposition": [
+     "negative"
+    ]
+   },
+   "weight": 8
+  },
+  {
+   "id": "greetings_killer_regret",
+   "text": "dialogue.warfront.opt.greetings_killer_regret",
+   "response": "greetings_killer_wary",
+   "conditions": {
+    "has_killed_this_faction": true,
+    "disposition": [
+     "negative"
+    ]
+   },
+   "weight": 8
+  },
+  {
+   "id": "greetings_killer_talk",
+   "text": "dialogue.warfront.opt.greetings_killer_talk",
+   "response": "greetings_killer_wary",
+   "conditions": {
+    "has_killed_this_faction": true,
+    "disposition": [
+     "negative"
+    ]
+   },
+   "weight": 8
+  },
+  {
+   "id": "greetings_killer_price",
+   "text": "dialogue.warfront.opt.greetings_killer_price",
+   "response": "greetings_killer_wary",
+   "conditions": {
+    "has_killed_this_faction": true,
+    "disposition": [
+     "negative"
+    ]
+   },
+   "weight": 7
+  },
+  {
+   "id": "greetings_killer_alone",
+   "text": "dialogue.warfront.opt.greetings_killer_alone",
+   "response": "greetings_killer_wary",
+   "conditions": {
+    "has_killed_this_faction": true,
+    "disposition": [
+     "negative"
+    ]
+   },
+   "weight": 7
+  },
+  {
+   "id": "greetings_killer_hear",
+   "text": "dialogue.warfront.opt.greetings_killer_hear",
+   "response": "greetings_killer_wary",
+   "conditions": {
+    "has_killed_this_faction": true,
+    "disposition": [
+     "negative"
+    ]
+   },
+   "weight": 7
+  },
+  {
+   "id": "greetings_killer_visible",
+   "text": "dialogue.warfront.opt.greetings_killer_visible",
+   "response": "greetings_killer_wary",
+   "conditions": {
+    "has_killed_this_faction": true,
+    "disposition": [
+     "negative"
+    ]
+   },
+   "weight": 7
+  },
+  {
+   "id": "greetings_killer_blood",
+   "text": "dialogue.warfront.opt.greetings_killer_blood",
+   "response": "greetings_killer_wary",
+   "conditions": {
+    "has_killed_this_faction": true,
+    "disposition": [
+     "negative"
+    ]
+   },
+   "weight": 7
+  },
+  {
+   "id": "greetings_killer_amends",
+   "text": "dialogue.warfront.opt.greetings_killer_amends",
+   "response": "greetings_killer_wary",
+   "conditions": {
+    "has_killed_this_faction": true
+   },
+   "weight": 7
+  },
+  {
+   "id": "greetings_killer_bold",
+   "text": "dialogue.warfront.opt.greetings_killer_bold",
+   "response": "greetings_killer_wary",
+   "conditions": {
+    "has_killed_this_faction": true
+   },
+   "weight": 6
+  },
+  {
+   "id": "greetings_gate_fine_camp",
+   "text": "dialogue.warfront.opt.greetings_gate_fine_camp",
+   "response": "greetings_gate_respect",
+   "conditions": {
+    "location": [
+     "in_base"
+    ]
+   },
+   "weight": 9
+  },
+  {
+   "id": "greetings_gate_thanks",
+   "text": "dialogue.warfront.opt.greetings_gate_thanks",
+   "response": "greetings_gate_respect",
+   "conditions": {
+    "location": [
+     "in_base"
+    ]
+   },
+   "weight": 8
+  },
+  {
+   "id": "greetings_gate_security",
+   "text": "dialogue.warfront.opt.greetings_gate_security",
+   "response": "greetings_gate_respect",
+   "conditions": {
+    "location": [
+     "in_base"
+    ]
+   },
+   "weight": 8
+  },
+  {
+   "id": "greetings_gate_out_of_way",
+   "text": "dialogue.warfront.opt.greetings_gate_out_of_way",
+   "response": "greetings_gate_respect",
+   "conditions": {
+    "location": [
+     "in_base"
+    ]
+   },
+   "weight": 8
+  },
+  {
+   "id": "greetings_gate_walls",
+   "text": "dialogue.warfront.opt.greetings_gate_walls",
+   "response": "greetings_gate_respect",
+   "conditions": {
+    "location": [
+     "in_base"
+    ]
+   },
+   "weight": 7
+  },
+  {
+   "id": "greetings_gate_home",
+   "text": "dialogue.warfront.opt.greetings_gate_home",
+   "response": "greetings_gate_respect",
+   "conditions": {
+    "location": [
+     "in_base"
+    ]
+   },
+   "weight": 7
+  },
+  {
+   "id": "greetings_gate_respects",
+   "text": "dialogue.warfront.opt.greetings_gate_respects",
+   "response": "greetings_gate_respect",
+   "conditions": {
+    "location": [
+     "in_base"
+    ]
+   },
+   "weight": 7
+  },
+  {
+   "id": "greetings_gate_inside",
+   "text": "dialogue.warfront.opt.greetings_gate_inside",
+   "response": "greetings_gate_respect",
+   "conditions": {
+    "location": [
+     "in_base"
+    ]
+   },
+   "weight": 7
+  },
+  {
+   "id": "greetings_trail_far",
+   "text": "dialogue.warfront.opt.greetings_trail_far",
+   "response": "greetings_trail_meet",
+   "conditions": {
+    "location": [
+     "patrol",
+     "wilderness"
+    ]
+   },
+   "weight": 9
+  },
+  {
+   "id": "greetings_trail_alone",
+   "text": "dialogue.warfront.opt.greetings_trail_alone",
+   "response": "greetings_trail_meet",
+   "conditions": {
+    "location": [
+     "patrol",
+     "wilderness"
+    ]
+   },
+   "weight": 8
+  },
+  {
+   "id": "greetings_trail_road",
+   "text": "dialogue.warfront.opt.greetings_trail_road",
+   "response": "greetings_trail_meet",
+   "conditions": {
+    "location": [
+     "patrol",
+     "wilderness"
+    ]
+   },
+   "weight": 9
+  },
+  {
+   "id": "greetings_trail_unexpected",
+   "text": "dialogue.warfront.opt.greetings_trail_unexpected",
+   "response": "greetings_trail_meet",
+   "conditions": {
+    "location": [
+     "patrol",
+     "wilderness"
+    ]
+   },
+   "weight": 8
+  },
+  {
+   "id": "greetings_trail_patrol",
+   "text": "dialogue.warfront.opt.greetings_trail_patrol",
+   "response": "greetings_trail_meet",
+   "conditions": {
+    "location": [
+     "patrol"
+    ]
+   },
+   "weight": 8
+  },
+  {
+   "id": "greetings_trail_company",
+   "text": "dialogue.warfront.opt.greetings_trail_company",
+   "response": "greetings_trail_meet",
+   "conditions": {
+    "location": [
+     "patrol",
+     "wilderness"
+    ]
+   },
+   "weight": 7
+  },
+  {
+   "id": "greetings_trail_country",
+   "text": "dialogue.warfront.opt.greetings_trail_country",
+   "response": "greetings_trail_meet",
+   "conditions": {
+    "location": [
+     "wilderness"
+    ]
+   },
+   "weight": 8
+  },
+  {
+   "id": "greetings_trail_trouble",
+   "text": "dialogue.warfront.opt.greetings_trail_trouble",
+   "response": "greetings_trail_meet",
+   "conditions": {
+    "location": [
+     "patrol",
+     "wilderness"
+    ]
+   },
+   "weight": 8
+  },
+  {
+   "id": "greetings_officer_respects",
+   "text": "dialogue.warfront.opt.greetings_officer_respects",
+   "response": "greetings_officer_formal",
+   "conditions": {
+    "role": [
+     "officer"
+    ]
+   },
+   "weight": 9
+  },
+  {
+   "id": "greetings_officer_commander",
+   "text": "dialogue.warfront.opt.greetings_officer_commander",
+   "response": "greetings_officer_formal",
+   "conditions": {
+    "role": [
+     "officer"
+    ]
+   },
+   "weight": 9
+  },
+  {
+   "id": "greetings_officer_moment",
+   "text": "dialogue.warfront.opt.greetings_officer_moment",
+   "response": "greetings_officer_formal",
+   "conditions": {
+    "role": [
+     "officer"
+    ]
+   },
+   "weight": 8
+  },
+  {
+   "id": "greetings_officer_in_charge",
+   "text": "dialogue.warfront.opt.greetings_officer_in_charge",
+   "response": "greetings_officer_formal",
+   "conditions": {
+    "role": [
+     "officer"
+    ]
+   },
+   "weight": 8
+  },
+  {
+   "id": "greetings_officer_no_waste",
+   "text": "dialogue.warfront.opt.greetings_officer_no_waste",
+   "response": "greetings_officer_formal",
+   "conditions": {
+    "role": [
+     "officer"
+    ]
+   },
+   "weight": 8
+  },
+  {
+   "id": "greetings_officer_honor",
+   "text": "dialogue.warfront.opt.greetings_officer_honor",
+   "response": "greetings_officer_formal",
+   "conditions": {
+    "role": [
+     "officer"
+    ]
+   },
+   "weight": 7
+  },
+  {
+   "id": "greetings_defer_no_trouble",
+   "text": "dialogue.warfront.opt.greetings_defer_no_trouble",
+   "response": "greetings_nervous_peace",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "weight": 10
+  },
+  {
+   "id": "greetings_defer_passing",
+   "text": "dialogue.warfront.opt.greetings_defer_passing",
+   "response": "greetings_nervous_peace",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "weight": 10
+  },
+  {
+   "id": "greetings_defer_moment",
+   "text": "dialogue.warfront.opt.greetings_defer_moment",
+   "response": "greetings_nervous_peace",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "weight": 8
+  },
+  {
+   "id": "greetings_defer_easy",
+   "text": "dialogue.warfront.opt.greetings_defer_easy",
+   "response": "greetings_nervous_peace",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "weight": 9
+  },
+  {
+   "id": "greetings_defer_distance",
+   "text": "dialogue.warfront.opt.greetings_defer_distance",
+   "response": "greetings_nervous_peace",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "weight": 8
+  },
+  {
+   "id": "greetings_defer_respect",
+   "text": "dialogue.warfront.opt.greetings_defer_respect",
+   "response": "greetings_nervous_peace",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "weight": 8
+  },
+  {
+   "id": "greetings_defer_wrong_foot",
+   "text": "dialogue.warfront.opt.greetings_defer_wrong_foot",
+   "response": "greetings_nervous_peace",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "weight": 8
+  },
+  {
+   "id": "greetings_defer_start_over",
+   "text": "dialogue.warfront.opt.greetings_defer_start_over",
+   "response": "greetings_nervous_peace",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "weight": 8
+  },
+  {
+   "id": "greetings_defer_rules",
+   "text": "dialogue.warfront.opt.greetings_defer_rules",
+   "response": "greetings_nervous_peace",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "weight": 7
+  },
+  {
+   "id": "greetings_defer_quick",
+   "text": "dialogue.warfront.opt.greetings_defer_quick",
+   "response": "greetings_nervous_peace",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "weight": 8
+  },
+  {
+   "id": "greetings_defer_safe",
+   "text": "dialogue.warfront.opt.greetings_defer_safe",
+   "response": "greetings_nervous_peace",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "weight": 8
+  },
+  {
+   "id": "greetings_defer_not_enemy",
+   "text": "dialogue.warfront.opt.greetings_defer_not_enemy",
+   "response": "greetings_nervous_peace",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "weight": 7
+  },
+  {
+   "id": "greetings_defer_word",
+   "text": "dialogue.warfront.opt.greetings_defer_word",
+   "response": "greetings_nervous_peace",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "weight": 7
+  },
+  {
+   "id": "greetings_defer_startle",
+   "text": "dialogue.warfront.opt.greetings_defer_startle",
+   "response": "greetings_nervous_peace",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "weight": 7
+  },
+  {
+   "id": "greetings_defer_good",
+   "text": "dialogue.warfront.opt.greetings_defer_good",
+   "response": "greetings_nervous_peace",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "weight": 7
+  },
+  {
+   "id": "greetings_defer_fix",
+   "text": "dialogue.warfront.opt.greetings_defer_fix",
+   "response": "greetings_nervous_peace",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "weight": 7
+  },
+  {
+   "id": "greetings_defer_watch",
+   "text": "dialogue.warfront.opt.greetings_defer_watch",
+   "response": "greetings_nervous_peace",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "greetings_defer_welcome",
+   "text": "dialogue.warfront.opt.greetings_defer_welcome",
+   "response": "greetings_nervous_peace",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ],
+    "standing": [
+     "wary",
+     "hostile"
+    ]
+   },
+   "weight": 7
+  },
+  {
+   "id": "greetings_defer_alarm",
+   "text": "dialogue.warfront.opt.greetings_defer_alarm",
+   "response": "greetings_nervous_peace",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ],
+    "time": [
+     "night"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "greetings_banter_dragged",
+   "text": "dialogue.warfront.opt.greetings_banter_dragged",
+   "response": "greetings_familiar_banter",
+   "conditions": {
+    "disposition": [
+     "positive"
+    ]
+   },
+   "weight": 9
+  },
+  {
+   "id": "greetings_banter_alive",
+   "text": "dialogue.warfront.opt.greetings_banter_alive",
+   "response": "greetings_familiar_banter",
+   "conditions": {
+    "disposition": [
+     "positive"
+    ]
+   },
+   "weight": 9
+  },
+  {
+   "id": "greetings_banter_uglier",
+   "text": "dialogue.warfront.opt.greetings_banter_uglier",
+   "response": "greetings_familiar_banter",
+   "conditions": {
+    "disposition": [
+     "friendly",
+     "devoted"
+    ]
+   },
+   "weight": 7
+  },
+  {
+   "id": "greetings_banter_miss",
+   "text": "dialogue.warfront.opt.greetings_banter_miss",
+   "response": "greetings_familiar_banter",
+   "conditions": {
+    "disposition": [
+     "positive"
+    ]
+   },
+   "weight": 9
+  },
+  {
+   "id": "greetings_banter_favorite",
+   "text": "dialogue.warfront.opt.greetings_banter_favorite",
+   "response": "greetings_familiar_banter",
+   "conditions": {
+    "disposition": [
+     "positive"
+    ]
+   },
+   "weight": 8
+  },
+  {
+   "id": "greetings_banter_promoted",
+   "text": "dialogue.warfront.opt.greetings_banter_promoted",
+   "response": "greetings_familiar_banter",
+   "conditions": {
+    "disposition": [
+     "positive"
+    ]
+   },
+   "weight": 8
+  },
+  {
+   "id": "greetings_banter_trouble",
+   "text": "dialogue.warfront.opt.greetings_banter_trouble",
+   "response": "greetings_familiar_banter",
+   "conditions": {
+    "disposition": [
+     "positive"
+    ]
+   },
+   "weight": 8
+  },
+  {
+   "id": "greetings_banter_troublemakers",
+   "text": "dialogue.warfront.opt.greetings_banter_troublemakers",
+   "response": "greetings_familiar_banter",
+   "conditions": {
+    "disposition": [
+     "positive"
+    ]
+   },
+   "weight": 8
+  },
+  {
+   "id": "greetings_banter_work",
+   "text": "dialogue.warfront.opt.greetings_banter_work",
+   "response": "greetings_familiar_banter",
+   "conditions": {
+    "disposition": [
+     "positive"
+    ]
+   },
+   "weight": 8
+  },
+  {
+   "id": "greetings_banter_bet",
+   "text": "dialogue.warfront.opt.greetings_banter_bet",
+   "response": "greetings_familiar_banter",
+   "conditions": {
+    "disposition": [
+     "friendly",
+     "devoted"
+    ]
+   },
+   "weight": 7
+  },
+  {
+   "id": "greetings_banter_gossip",
+   "text": "dialogue.warfront.opt.greetings_banter_gossip",
+   "response": "greetings_familiar_banter",
+   "conditions": {
+    "disposition": [
+     "positive"
+    ]
+   },
+   "weight": 8
+  },
+  {
+   "id": "greetings_banter_home_feel",
+   "text": "dialogue.warfront.opt.greetings_banter_home_feel",
+   "response": "greetings_familiar_banter",
+   "conditions": {
+    "disposition": [
+     "positive"
+    ]
+   },
+   "weight": 7
+  },
+  {
+   "id": "greetings_banter_no_dying",
+   "text": "dialogue.warfront.opt.greetings_banter_no_dying",
+   "response": "greetings_familiar_banter",
+   "conditions": {
+    "disposition": [
+     "positive"
+    ]
+   },
+   "weight": 7
+  },
+  {
+   "id": "greetings_banter_round",
+   "text": "dialogue.warfront.opt.greetings_banter_round",
+   "response": "greetings_familiar_banter",
+   "conditions": {
+    "disposition": [
+     "positive"
+    ]
+   },
+   "weight": 7
+  },
+  {
+   "id": "greetings_banter_cant_stay_away",
+   "text": "dialogue.warfront.opt.greetings_banter_cant_stay_away",
+   "response": "greetings_familiar_banter",
+   "conditions": {
+    "disposition": [
+     "positive"
+    ]
+   },
+   "weight": 7
+  },
+  {
+   "id": "greetings_banter_helmet",
+   "text": "dialogue.warfront.opt.greetings_banter_helmet",
+   "response": "greetings_familiar_banter",
+   "conditions": {
+    "disposition": [
+     "positive"
+    ]
+   },
+   "weight": 7
+  },
+  {
+   "id": "greetings_banter_boredom_score",
+   "text": "dialogue.warfront.opt.greetings_banter_boredom_score",
+   "response": "greetings_familiar_banter",
+   "conditions": {
+    "disposition": [
+     "positive"
+    ]
+   },
+   "weight": 7
+  },
+  {
+   "id": "greetings_banter_stories_posts",
+   "text": "dialogue.warfront.opt.greetings_banter_stories_posts",
+   "response": "greetings_familiar_banter",
+   "conditions": {
+    "disposition": [
+     "positive"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "greetings_banter_one_piece",
+   "text": "dialogue.warfront.opt.greetings_banter_one_piece",
+   "response": "greetings_familiar_banter",
+   "conditions": {
+    "disposition": [
+     "positive"
+    ]
+   },
+   "weight": 7
+  },
+  {
+   "id": "greetings_banter_cooking",
+   "text": "dialogue.warfront.opt.greetings_banter_cooking",
+   "response": "greetings_familiar_banter",
+   "conditions": {
+    "disposition": [
+     "positive"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "greetings_banter_mud",
+   "text": "dialogue.warfront.opt.greetings_banter_mud",
+   "response": "greetings_familiar_banter",
+   "conditions": {
+    "faction": [
+     "vostok"
+    ],
+    "disposition": [
+     "positive"
+    ]
+   },
+   "weight": 7
+  },
+  {
+   "id": "greetings_banter_net",
+   "text": "dialogue.warfront.opt.greetings_banter_net",
+   "response": "greetings_familiar_banter",
+   "conditions": {
+    "faction": [
+     "aegis"
+    ],
+    "disposition": [
+     "positive"
+    ]
+   },
+   "weight": 7
+  },
+  {
+   "id": "greetings_banter_kettle",
+   "text": "dialogue.warfront.opt.greetings_banter_kettle",
+   "response": "greetings_familiar_banter",
+   "conditions": {
+    "faction": [
+     "sarab"
+    ],
+    "disposition": [
+     "positive"
+    ]
+   },
+   "weight": 7
+  },
+  {
+   "id": "greetings_banter_holes",
+   "text": "dialogue.warfront.opt.greetings_banter_holes",
+   "response": "greetings_familiar_banter",
+   "conditions": {
+    "faction": [
+     "vostok"
+    ],
+    "disposition": [
+     "positive"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "greetings_banter_sand",
+   "text": "dialogue.warfront.opt.greetings_banter_sand",
+   "response": "greetings_familiar_banter",
+   "conditions": {
+    "faction": [
+     "sarab"
+    ],
+    "disposition": [
+     "positive"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "greetings_banter_reports",
+   "text": "dialogue.warfront.opt.greetings_banter_reports",
+   "response": "greetings_familiar_banter",
+   "conditions": {
+    "faction": [
+     "aegis"
+    ],
+    "disposition": [
+     "positive"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "greetings_bye_care",
+   "text": "dialogue.warfront.opt.greetings_bye_care",
+   "response": "greetings_farewell",
+   "conditions": {
+    "disposition": [
+     "positive"
+    ]
+   },
+   "effects": [
+    {
+     "type": "end"
+    }
+   ],
+   "exit": true,
+   "weight": 8
+  },
+  {
+   "id": "greetings_bye_watch",
+   "text": "dialogue.warfront.opt.greetings_bye_watch",
+   "response": "greetings_farewell",
+   "effects": [
+    {
+     "type": "end"
+    }
+   ],
+   "exit": true,
+   "weight": 8
+  },
+  {
+   "id": "greetings_bye_out_of_way",
+   "text": "dialogue.warfront.opt.greetings_bye_out_of_way",
+   "response": "greetings_farewell",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "effects": [
+    {
+     "type": "end"
+    }
+   ],
+   "exit": true,
+   "weight": 8
+  },
+  {
+   "id": "greetings_bye_around",
+   "text": "dialogue.warfront.opt.greetings_bye_around",
+   "response": "greetings_farewell",
+   "conditions": {
+    "disposition": [
+     "positive"
+    ]
+   },
+   "effects": [
+    {
+     "type": "end"
+    }
+   ],
+   "exit": true,
+   "weight": 8
+  },
+  {
+   "id": "greetings_bye_awkward",
+   "text": "dialogue.warfront.opt.greetings_bye_awkward",
+   "response": "greetings_farewell",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "effects": [
+    {
+     "type": "end"
+    }
+   ],
+   "exit": true,
+   "weight": 6
+  },
+  {
+   "id": "greetings_bye_off",
+   "text": "dialogue.warfront.opt.greetings_bye_off",
+   "response": "greetings_farewell",
+   "effects": [
+    {
+     "type": "end"
+    }
+   ],
+   "exit": true,
+   "weight": 8
+  },
+  {
+   "id": "greetings_compliment_tight",
+   "text": "dialogue.warfront.opt.greetings_compliment_tight",
+   "response": "greetings_compliment",
+   "weight": 8
+  },
+  {
+   "id": "greetings_compliment_guts",
+   "text": "dialogue.warfront.opt.greetings_compliment_guts",
+   "response": "greetings_compliment",
+   "weight": 8
+  },
+  {
+   "id": "greetings_compliment_gear",
+   "text": "dialogue.warfront.opt.greetings_compliment_gear",
+   "response": "greetings_compliment",
+   "weight": 7
+  },
+  {
+   "id": "greetings_compliment_cause",
+   "text": "dialogue.warfront.opt.greetings_compliment_cause",
+   "response": "greetings_compliment",
+   "weight": 7
+  },
+  {
+   "id": "greetings_compliment_tough",
+   "text": "dialogue.warfront.opt.greetings_compliment_tough",
+   "response": "greetings_compliment",
+   "weight": 7
+  },
+  {
+   "id": "greetings_compliment_outfit",
+   "text": "dialogue.warfront.opt.greetings_compliment_outfit",
+   "response": "greetings_compliment",
+   "weight": 6
+  },
+  {
+   "id": "greetings_rude_smell",
+   "text": "dialogue.warfront.opt.greetings_rude_smell",
+   "response": "greetings_rude_insult",
+   "effects": [
+    {
+     "type": "disposition",
+     "event": "insulted"
+    }
+   ],
+   "weight": 5
+  },
+  {
+   "id": "greetings_rude_losing",
+   "text": "dialogue.warfront.opt.greetings_rude_losing",
+   "response": "greetings_rude_insult",
+   "effects": [
+    {
+     "type": "disposition",
+     "event": "insulted"
+    }
+   ],
+   "weight": 5
+  },
+  {
+   "id": "greetings_rude_nervous",
+   "text": "dialogue.warfront.opt.greetings_rude_nervous",
+   "response": "greetings_rude_insult",
+   "effects": [
+    {
+     "type": "disposition",
+     "event": "insulted"
+    }
+   ],
+   "weight": 5
+  }
+ ]
+}

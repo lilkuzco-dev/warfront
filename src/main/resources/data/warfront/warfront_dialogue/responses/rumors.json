@@ -1,0 +1,506 @@
+{
+ "classes": {
+  "rumors_about_vostok": {
+   "vostok": {
+    "negative": [
+     "dialogue.warfront.resp.rumors_about_vostok.vostok.negative.1",
+     "dialogue.warfront.resp.rumors_about_vostok.vostok.negative.2"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.rumors_about_vostok.vostok.neutral.1",
+     "dialogue.warfront.resp.rumors_about_vostok.vostok.neutral.2"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.rumors_about_vostok.vostok.positive.1",
+     "dialogue.warfront.resp.rumors_about_vostok.vostok.positive.2"
+    ]
+   },
+   "aegis": {
+    "negative": [
+     "dialogue.warfront.resp.rumors_about_vostok.aegis.negative.1",
+     "dialogue.warfront.resp.rumors_about_vostok.aegis.negative.2",
+     "dialogue.warfront.resp.rumors_about_vostok.aegis.negative.3"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.rumors_about_vostok.aegis.neutral.1",
+     "dialogue.warfront.resp.rumors_about_vostok.aegis.neutral.2",
+     "dialogue.warfront.resp.rumors_about_vostok.aegis.neutral.3"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.rumors_about_vostok.aegis.positive.1",
+     "dialogue.warfront.resp.rumors_about_vostok.aegis.positive.2",
+     "dialogue.warfront.resp.rumors_about_vostok.aegis.positive.3"
+    ]
+   },
+   "sarab": {
+    "negative": [
+     "dialogue.warfront.resp.rumors_about_vostok.sarab.negative.1",
+     "dialogue.warfront.resp.rumors_about_vostok.sarab.negative.2",
+     "dialogue.warfront.resp.rumors_about_vostok.sarab.negative.3"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.rumors_about_vostok.sarab.neutral.1",
+     "dialogue.warfront.resp.rumors_about_vostok.sarab.neutral.2",
+     "dialogue.warfront.resp.rumors_about_vostok.sarab.neutral.3"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.rumors_about_vostok.sarab.positive.1",
+     "dialogue.warfront.resp.rumors_about_vostok.sarab.positive.2",
+     "dialogue.warfront.resp.rumors_about_vostok.sarab.positive.3"
+    ]
+   }
+  },
+  "rumors_about_aegis": {
+   "vostok": {
+    "negative": [
+     "dialogue.warfront.resp.rumors_about_aegis.vostok.negative.1",
+     "dialogue.warfront.resp.rumors_about_aegis.vostok.negative.2",
+     "dialogue.warfront.resp.rumors_about_aegis.vostok.negative.3"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.rumors_about_aegis.vostok.neutral.1",
+     "dialogue.warfront.resp.rumors_about_aegis.vostok.neutral.2",
+     "dialogue.warfront.resp.rumors_about_aegis.vostok.neutral.3"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.rumors_about_aegis.vostok.positive.1",
+     "dialogue.warfront.resp.rumors_about_aegis.vostok.positive.2",
+     "dialogue.warfront.resp.rumors_about_aegis.vostok.positive.3"
+    ]
+   },
+   "aegis": {
+    "negative": [
+     "dialogue.warfront.resp.rumors_about_aegis.aegis.negative.1",
+     "dialogue.warfront.resp.rumors_about_aegis.aegis.negative.2"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.rumors_about_aegis.aegis.neutral.1",
+     "dialogue.warfront.resp.rumors_about_aegis.aegis.neutral.2"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.rumors_about_aegis.aegis.positive.1",
+     "dialogue.warfront.resp.rumors_about_aegis.aegis.positive.2"
+    ]
+   },
+   "sarab": {
+    "negative": [
+     "dialogue.warfront.resp.rumors_about_aegis.sarab.negative.1",
+     "dialogue.warfront.resp.rumors_about_aegis.sarab.negative.2",
+     "dialogue.warfront.resp.rumors_about_aegis.sarab.negative.3"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.rumors_about_aegis.sarab.neutral.1",
+     "dialogue.warfront.resp.rumors_about_aegis.sarab.neutral.2",
+     "dialogue.warfront.resp.rumors_about_aegis.sarab.neutral.3"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.rumors_about_aegis.sarab.positive.1",
+     "dialogue.warfront.resp.rumors_about_aegis.sarab.positive.2",
+     "dialogue.warfront.resp.rumors_about_aegis.sarab.positive.3"
+    ]
+   }
+  },
+  "rumors_about_sarab": {
+   "vostok": {
+    "negative": [
+     "dialogue.warfront.resp.rumors_about_sarab.vostok.negative.1",
+     "dialogue.warfront.resp.rumors_about_sarab.vostok.negative.2",
+     "dialogue.warfront.resp.rumors_about_sarab.vostok.negative.3"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.rumors_about_sarab.vostok.neutral.1",
+     "dialogue.warfront.resp.rumors_about_sarab.vostok.neutral.2",
+     "dialogue.warfront.resp.rumors_about_sarab.vostok.neutral.3"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.rumors_about_sarab.vostok.positive.1",
+     "dialogue.warfront.resp.rumors_about_sarab.vostok.positive.2",
+     "dialogue.warfront.resp.rumors_about_sarab.vostok.positive.3"
+    ]
+   },
+   "aegis": {
+    "negative": [
+     "dialogue.warfront.resp.rumors_about_sarab.aegis.negative.1",
+     "dialogue.warfront.resp.rumors_about_sarab.aegis.negative.2",
+     "dialogue.warfront.resp.rumors_about_sarab.aegis.negative.3"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.rumors_about_sarab.aegis.neutral.1",
+     "dialogue.warfront.resp.rumors_about_sarab.aegis.neutral.2",
+     "dialogue.warfront.resp.rumors_about_sarab.aegis.neutral.3"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.rumors_about_sarab.aegis.positive.1",
+     "dialogue.warfront.resp.rumors_about_sarab.aegis.positive.2",
+     "dialogue.warfront.resp.rumors_about_sarab.aegis.positive.3"
+    ]
+   },
+   "sarab": {
+    "negative": [
+     "dialogue.warfront.resp.rumors_about_sarab.sarab.negative.1",
+     "dialogue.warfront.resp.rumors_about_sarab.sarab.negative.2"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.rumors_about_sarab.sarab.neutral.1",
+     "dialogue.warfront.resp.rumors_about_sarab.sarab.neutral.2"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.rumors_about_sarab.sarab.positive.1",
+     "dialogue.warfront.resp.rumors_about_sarab.sarab.positive.2"
+    ]
+   }
+  },
+  "rumors_skirmish": {
+   "vostok": {
+    "negative": [
+     "dialogue.warfront.resp.rumors_skirmish.vostok.negative.1",
+     "dialogue.warfront.resp.rumors_skirmish.vostok.negative.2"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.rumors_skirmish.vostok.neutral.1",
+     "dialogue.warfront.resp.rumors_skirmish.vostok.neutral.2"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.rumors_skirmish.vostok.positive.1",
+     "dialogue.warfront.resp.rumors_skirmish.vostok.positive.2"
+    ]
+   },
+   "aegis": {
+    "negative": [
+     "dialogue.warfront.resp.rumors_skirmish.aegis.negative.1",
+     "dialogue.warfront.resp.rumors_skirmish.aegis.negative.2"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.rumors_skirmish.aegis.neutral.1",
+     "dialogue.warfront.resp.rumors_skirmish.aegis.neutral.2"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.rumors_skirmish.aegis.positive.1",
+     "dialogue.warfront.resp.rumors_skirmish.aegis.positive.2"
+    ]
+   },
+   "sarab": {
+    "negative": [
+     "dialogue.warfront.resp.rumors_skirmish.sarab.negative.1",
+     "dialogue.warfront.resp.rumors_skirmish.sarab.negative.2"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.rumors_skirmish.sarab.neutral.1",
+     "dialogue.warfront.resp.rumors_skirmish.sarab.neutral.2"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.rumors_skirmish.sarab.positive.1",
+     "dialogue.warfront.resp.rumors_skirmish.sarab.positive.2"
+    ]
+   }
+  },
+  "rumors_supply": {
+   "vostok": {
+    "negative": [
+     "dialogue.warfront.resp.rumors_supply.vostok.negative.1",
+     "dialogue.warfront.resp.rumors_supply.vostok.negative.2"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.rumors_supply.vostok.neutral.1",
+     "dialogue.warfront.resp.rumors_supply.vostok.neutral.2"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.rumors_supply.vostok.positive.1",
+     "dialogue.warfront.resp.rumors_supply.vostok.positive.2"
+    ]
+   },
+   "aegis": {
+    "negative": [
+     "dialogue.warfront.resp.rumors_supply.aegis.negative.1",
+     "dialogue.warfront.resp.rumors_supply.aegis.negative.2"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.rumors_supply.aegis.neutral.1",
+     "dialogue.warfront.resp.rumors_supply.aegis.neutral.2"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.rumors_supply.aegis.positive.1",
+     "dialogue.warfront.resp.rumors_supply.aegis.positive.2"
+    ]
+   },
+   "sarab": {
+    "negative": [
+     "dialogue.warfront.resp.rumors_supply.sarab.negative.1",
+     "dialogue.warfront.resp.rumors_supply.sarab.negative.2"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.rumors_supply.sarab.neutral.1",
+     "dialogue.warfront.resp.rumors_supply.sarab.neutral.2"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.rumors_supply.sarab.positive.1",
+     "dialogue.warfront.resp.rumors_supply.sarab.positive.2"
+    ]
+   }
+  },
+  "rumors_omens": {
+   "vostok": {
+    "negative": [
+     "dialogue.warfront.resp.rumors_omens.vostok.negative.1",
+     "dialogue.warfront.resp.rumors_omens.vostok.negative.2"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.rumors_omens.vostok.neutral.1",
+     "dialogue.warfront.resp.rumors_omens.vostok.neutral.2"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.rumors_omens.vostok.positive.1",
+     "dialogue.warfront.resp.rumors_omens.vostok.positive.2"
+    ]
+   },
+   "aegis": {
+    "negative": [
+     "dialogue.warfront.resp.rumors_omens.aegis.negative.1",
+     "dialogue.warfront.resp.rumors_omens.aegis.negative.2"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.rumors_omens.aegis.neutral.1",
+     "dialogue.warfront.resp.rumors_omens.aegis.neutral.2"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.rumors_omens.aegis.positive.1",
+     "dialogue.warfront.resp.rumors_omens.aegis.positive.2"
+    ]
+   },
+   "sarab": {
+    "negative": [
+     "dialogue.warfront.resp.rumors_omens.sarab.negative.1",
+     "dialogue.warfront.resp.rumors_omens.sarab.negative.2"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.rumors_omens.sarab.neutral.1",
+     "dialogue.warfront.resp.rumors_omens.sarab.neutral.2"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.rumors_omens.sarab.positive.1",
+     "dialogue.warfront.resp.rumors_omens.sarab.positive.2"
+    ]
+   }
+  },
+  "rumors_night": {
+   "vostok": {
+    "negative": [
+     "dialogue.warfront.resp.rumors_night.vostok.negative.1",
+     "dialogue.warfront.resp.rumors_night.vostok.negative.2"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.rumors_night.vostok.neutral.1",
+     "dialogue.warfront.resp.rumors_night.vostok.neutral.2"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.rumors_night.vostok.positive.1",
+     "dialogue.warfront.resp.rumors_night.vostok.positive.2"
+    ]
+   },
+   "aegis": {
+    "negative": [
+     "dialogue.warfront.resp.rumors_night.aegis.negative.1",
+     "dialogue.warfront.resp.rumors_night.aegis.negative.2"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.rumors_night.aegis.neutral.1",
+     "dialogue.warfront.resp.rumors_night.aegis.neutral.2"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.rumors_night.aegis.positive.1",
+     "dialogue.warfront.resp.rumors_night.aegis.positive.2"
+    ]
+   },
+   "sarab": {
+    "negative": [
+     "dialogue.warfront.resp.rumors_night.sarab.negative.1",
+     "dialogue.warfront.resp.rumors_night.sarab.negative.2"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.rumors_night.sarab.neutral.1",
+     "dialogue.warfront.resp.rumors_night.sarab.neutral.2"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.rumors_night.sarab.positive.1",
+     "dialogue.warfront.resp.rumors_night.sarab.positive.2"
+    ]
+   }
+  },
+  "rumors_winning": {
+   "vostok": {
+    "negative": [
+     "dialogue.warfront.resp.rumors_winning.vostok.negative.1",
+     "dialogue.warfront.resp.rumors_winning.vostok.negative.2"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.rumors_winning.vostok.neutral.1",
+     "dialogue.warfront.resp.rumors_winning.vostok.neutral.2"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.rumors_winning.vostok.positive.1",
+     "dialogue.warfront.resp.rumors_winning.vostok.positive.2"
+    ]
+   },
+   "aegis": {
+    "negative": [
+     "dialogue.warfront.resp.rumors_winning.aegis.negative.1",
+     "dialogue.warfront.resp.rumors_winning.aegis.negative.2"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.rumors_winning.aegis.neutral.1",
+     "dialogue.warfront.resp.rumors_winning.aegis.neutral.2"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.rumors_winning.aegis.positive.1",
+     "dialogue.warfront.resp.rumors_winning.aegis.positive.2"
+    ]
+   },
+   "sarab": {
+    "negative": [
+     "dialogue.warfront.resp.rumors_winning.sarab.negative.1",
+     "dialogue.warfront.resp.rumors_winning.sarab.negative.2"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.rumors_winning.sarab.neutral.1",
+     "dialogue.warfront.resp.rumors_winning.sarab.neutral.2"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.rumors_winning.sarab.positive.1",
+     "dialogue.warfront.resp.rumors_winning.sarab.positive.2"
+    ]
+   }
+  },
+  "rumors_reputation": {
+   "vostok": {
+    "negative": [
+     "dialogue.warfront.resp.rumors_reputation.vostok.negative.1",
+     "dialogue.warfront.resp.rumors_reputation.vostok.negative.2"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.rumors_reputation.vostok.neutral.1",
+     "dialogue.warfront.resp.rumors_reputation.vostok.neutral.2"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.rumors_reputation.vostok.positive.1",
+     "dialogue.warfront.resp.rumors_reputation.vostok.positive.2"
+    ]
+   },
+   "aegis": {
+    "negative": [
+     "dialogue.warfront.resp.rumors_reputation.aegis.negative.1",
+     "dialogue.warfront.resp.rumors_reputation.aegis.negative.2"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.rumors_reputation.aegis.neutral.1",
+     "dialogue.warfront.resp.rumors_reputation.aegis.neutral.2"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.rumors_reputation.aegis.positive.1",
+     "dialogue.warfront.resp.rumors_reputation.aegis.positive.2"
+    ]
+   },
+   "sarab": {
+    "negative": [
+     "dialogue.warfront.resp.rumors_reputation.sarab.negative.1",
+     "dialogue.warfront.resp.rumors_reputation.sarab.negative.2"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.rumors_reputation.sarab.neutral.1",
+     "dialogue.warfront.resp.rumors_reputation.sarab.neutral.2"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.rumors_reputation.sarab.positive.1",
+     "dialogue.warfront.resp.rumors_reputation.sarab.positive.2"
+    ]
+   }
+  },
+  "rumors_scoff": {
+   "vostok": {
+    "negative": [
+     "dialogue.warfront.resp.rumors_scoff.vostok.negative.1",
+     "dialogue.warfront.resp.rumors_scoff.vostok.negative.2"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.rumors_scoff.vostok.neutral.1",
+     "dialogue.warfront.resp.rumors_scoff.vostok.neutral.2"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.rumors_scoff.vostok.positive.1",
+     "dialogue.warfront.resp.rumors_scoff.vostok.positive.2"
+    ]
+   },
+   "aegis": {
+    "negative": [
+     "dialogue.warfront.resp.rumors_scoff.aegis.negative.1",
+     "dialogue.warfront.resp.rumors_scoff.aegis.negative.2"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.rumors_scoff.aegis.neutral.1",
+     "dialogue.warfront.resp.rumors_scoff.aegis.neutral.2"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.rumors_scoff.aegis.positive.1",
+     "dialogue.warfront.resp.rumors_scoff.aegis.positive.2"
+    ]
+   },
+   "sarab": {
+    "negative": [
+     "dialogue.warfront.resp.rumors_scoff.sarab.negative.1",
+     "dialogue.warfront.resp.rumors_scoff.sarab.negative.2"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.rumors_scoff.sarab.neutral.1",
+     "dialogue.warfront.resp.rumors_scoff.sarab.neutral.2"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.rumors_scoff.sarab.positive.1",
+     "dialogue.warfront.resp.rumors_scoff.sarab.positive.2"
+    ]
+   }
+  },
+  "rumors_exit": {
+   "vostok": {
+    "negative": [
+     "dialogue.warfront.resp.rumors_exit.vostok.negative.1",
+     "dialogue.warfront.resp.rumors_exit.vostok.negative.2"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.rumors_exit.vostok.neutral.1",
+     "dialogue.warfront.resp.rumors_exit.vostok.neutral.2"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.rumors_exit.vostok.positive.1",
+     "dialogue.warfront.resp.rumors_exit.vostok.positive.2"
+    ]
+   },
+   "aegis": {
+    "negative": [
+     "dialogue.warfront.resp.rumors_exit.aegis.negative.1",
+     "dialogue.warfront.resp.rumors_exit.aegis.negative.2"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.rumors_exit.aegis.neutral.1",
+     "dialogue.warfront.resp.rumors_exit.aegis.neutral.2"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.rumors_exit.aegis.positive.1",
+     "dialogue.warfront.resp.rumors_exit.aegis.positive.2"
+    ]
+   },
+   "sarab": {
+    "negative": [
+     "dialogue.warfront.resp.rumors_exit.sarab.negative.1",
+     "dialogue.warfront.resp.rumors_exit.sarab.negative.2"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.rumors_exit.sarab.neutral.1",
+     "dialogue.warfront.resp.rumors_exit.sarab.neutral.2"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.rumors_exit.sarab.positive.1",
+     "dialogue.warfront.resp.rumors_exit.sarab.positive.2"
+    ]
+   }
+  }
+ }
+}

@@ -1,0 +1,1060 @@
+{
+ "category": "rumors",
+ "options": [
+  {
+   "id": "rumors_vostok_word",
+   "text": "dialogue.warfront.opt.rumors_vostok_word",
+   "response": "rumors_about_vostok",
+   "conditions": {
+    "faction": [
+     "aegis",
+     "sarab"
+    ]
+   },
+   "weight": 15
+  },
+  {
+   "id": "rumors_vostok_waves",
+   "text": "dialogue.warfront.opt.rumors_vostok_waves",
+   "response": "rumors_about_vostok",
+   "conditions": {
+    "faction": [
+     "aegis",
+     "sarab"
+    ]
+   }
+  },
+  {
+   "id": "rumors_vostok_numbers",
+   "text": "dialogue.warfront.opt.rumors_vostok_numbers",
+   "response": "rumors_about_vostok",
+   "conditions": {
+    "faction": [
+     "aegis",
+     "sarab"
+    ]
+   }
+  },
+  {
+   "id": "rumors_vostok_break",
+   "text": "dialogue.warfront.opt.rumors_vostok_break",
+   "response": "rumors_about_vostok",
+   "conditions": {
+    "faction": [
+     "aegis",
+     "sarab"
+    ]
+   }
+  },
+  {
+   "id": "rumors_vostok_quota",
+   "text": "dialogue.warfront.opt.rumors_vostok_quota",
+   "response": "rumors_about_vostok",
+   "conditions": {
+    "faction": [
+     "aegis",
+     "sarab"
+    ]
+   }
+  },
+  {
+   "id": "rumors_vostok_winter",
+   "text": "dialogue.warfront.opt.rumors_vostok_winter",
+   "response": "rumors_about_vostok",
+   "conditions": {
+    "faction": [
+     "aegis",
+     "sarab"
+    ]
+   }
+  },
+  {
+   "id": "rumors_vostok_respect",
+   "text": "dialogue.warfront.opt.rumors_vostok_respect",
+   "response": "rumors_about_vostok",
+   "conditions": {
+    "faction": [
+     "aegis",
+     "sarab"
+    ]
+   }
+  },
+  {
+   "id": "rumors_vostok_weakness",
+   "text": "dialogue.warfront.opt.rumors_vostok_weakness",
+   "response": "rumors_about_vostok",
+   "conditions": {
+    "faction": [
+     "aegis",
+     "sarab"
+    ]
+   }
+  },
+  {
+   "id": "rumors_vostok_commander",
+   "text": "dialogue.warfront.opt.rumors_vostok_commander",
+   "response": "rumors_about_vostok",
+   "conditions": {
+    "faction": [
+     "aegis",
+     "sarab"
+    ]
+   }
+  },
+  {
+   "id": "rumors_vostok_bargain",
+   "text": "dialogue.warfront.opt.rumors_vostok_bargain",
+   "response": "rumors_about_vostok",
+   "conditions": {
+    "faction": [
+     "aegis",
+     "sarab"
+    ]
+   }
+  },
+  {
+   "id": "rumors_vostok_earthworks",
+   "text": "dialogue.warfront.opt.rumors_vostok_earthworks",
+   "response": "rumors_about_vostok",
+   "conditions": {
+    "faction": [
+     "aegis",
+     "sarab"
+    ]
+   }
+  },
+  {
+   "id": "rumors_vostok_singing",
+   "text": "dialogue.warfront.opt.rumors_vostok_singing",
+   "response": "rumors_about_vostok",
+   "conditions": {
+    "faction": [
+     "aegis",
+     "sarab"
+    ],
+    "time": [
+     "night"
+    ]
+   }
+  },
+  {
+   "id": "rumors_vostok_losses",
+   "text": "dialogue.warfront.opt.rumors_vostok_losses",
+   "response": "rumors_about_vostok",
+   "conditions": {
+    "faction": [
+     "aegis",
+     "sarab"
+    ]
+   }
+  },
+  {
+   "id": "rumors_vostok_feared",
+   "text": "dialogue.warfront.opt.rumors_vostok_feared",
+   "response": "rumors_about_vostok",
+   "conditions": {
+    "faction": [
+     "aegis",
+     "sarab"
+    ]
+   }
+  },
+  {
+   "id": "rumors_vostok_prisoners",
+   "text": "dialogue.warfront.opt.rumors_vostok_prisoners",
+   "response": "rumors_about_vostok",
+   "conditions": {
+    "faction": [
+     "aegis",
+     "sarab"
+    ]
+   }
+  },
+  {
+   "id": "rumors_vostok_unmoved",
+   "text": "dialogue.warfront.opt.rumors_vostok_unmoved",
+   "response": "rumors_about_vostok",
+   "conditions": {
+    "faction": [
+     "aegis",
+     "sarab"
+    ]
+   }
+  },
+  {
+   "id": "rumors_vostok_soup",
+   "text": "dialogue.warfront.opt.rumors_vostok_soup",
+   "response": "rumors_about_vostok",
+   "conditions": {
+    "faction": [
+     "aegis",
+     "sarab"
+    ]
+   },
+   "weight": 5
+  },
+  {
+   "id": "rumors_aegis_word",
+   "text": "dialogue.warfront.opt.rumors_aegis_word",
+   "response": "rumors_about_aegis",
+   "conditions": {
+    "faction": [
+     "vostok",
+     "sarab"
+    ]
+   },
+   "weight": 15
+  },
+  {
+   "id": "rumors_aegis_untouchable",
+   "text": "dialogue.warfront.opt.rumors_aegis_untouchable",
+   "response": "rumors_about_aegis",
+   "conditions": {
+    "faction": [
+     "vostok",
+     "sarab"
+    ]
+   }
+  },
+  {
+   "id": "rumors_aegis_signals",
+   "text": "dialogue.warfront.opt.rumors_aegis_signals",
+   "response": "rumors_about_aegis",
+   "conditions": {
+    "faction": [
+     "vostok",
+     "sarab"
+    ]
+   }
+  },
+  {
+   "id": "rumors_aegis_convoys",
+   "text": "dialogue.warfront.opt.rumors_aegis_convoys",
+   "response": "rumors_about_aegis",
+   "conditions": {
+    "faction": [
+     "vostok",
+     "sarab"
+    ]
+   }
+  },
+  {
+   "id": "rumors_aegis_crack",
+   "text": "dialogue.warfront.opt.rumors_aegis_crack",
+   "response": "rumors_about_aegis",
+   "conditions": {
+    "faction": [
+     "vostok",
+     "sarab"
+    ]
+   }
+  },
+  {
+   "id": "rumors_aegis_envy",
+   "text": "dialogue.warfront.opt.rumors_aegis_envy",
+   "response": "rumors_about_aegis",
+   "conditions": {
+    "faction": [
+     "vostok",
+     "sarab"
+    ]
+   }
+  },
+  {
+   "id": "rumors_aegis_rust",
+   "text": "dialogue.warfront.opt.rumors_aegis_rust",
+   "response": "rumors_about_aegis",
+   "conditions": {
+    "faction": [
+     "vostok",
+     "sarab"
+    ]
+   }
+  },
+  {
+   "id": "rumors_aegis_orders",
+   "text": "dialogue.warfront.opt.rumors_aegis_orders",
+   "response": "rumors_about_aegis",
+   "conditions": {
+    "faction": [
+     "vostok",
+     "sarab"
+    ]
+   }
+  },
+  {
+   "id": "rumors_aegis_table",
+   "text": "dialogue.warfront.opt.rumors_aegis_table",
+   "response": "rumors_about_aegis",
+   "conditions": {
+    "faction": [
+     "vostok",
+     "sarab"
+    ]
+   }
+  },
+  {
+   "id": "rumors_aegis_drill_watch",
+   "text": "dialogue.warfront.opt.rumors_aegis_drill_watch",
+   "response": "rumors_about_aegis",
+   "conditions": {
+    "faction": [
+     "vostok",
+     "sarab"
+    ]
+   }
+  },
+  {
+   "id": "rumors_aegis_ledger",
+   "text": "dialogue.warfront.opt.rumors_aegis_ledger",
+   "response": "rumors_about_aegis",
+   "conditions": {
+    "faction": [
+     "vostok",
+     "sarab"
+    ]
+   }
+  },
+  {
+   "id": "rumors_aegis_after_dark",
+   "text": "dialogue.warfront.opt.rumors_aegis_after_dark",
+   "response": "rumors_about_aegis",
+   "conditions": {
+    "faction": [
+     "vostok",
+     "sarab"
+    ],
+    "time": [
+     "night"
+    ]
+   }
+  },
+  {
+   "id": "rumors_aegis_lost_patrol",
+   "text": "dialogue.warfront.opt.rumors_aegis_lost_patrol",
+   "response": "rumors_about_aegis",
+   "conditions": {
+    "faction": [
+     "vostok",
+     "sarab"
+    ]
+   }
+  },
+  {
+   "id": "rumors_aegis_worry",
+   "text": "dialogue.warfront.opt.rumors_aegis_worry",
+   "response": "rumors_about_aegis",
+   "conditions": {
+    "faction": [
+     "vostok",
+     "sarab"
+    ]
+   }
+  },
+  {
+   "id": "rumors_aegis_captives",
+   "text": "dialogue.warfront.opt.rumors_aegis_captives",
+   "response": "rumors_about_aegis",
+   "conditions": {
+    "faction": [
+     "vostok",
+     "sarab"
+    ]
+   }
+  },
+  {
+   "id": "rumors_aegis_towers",
+   "text": "dialogue.warfront.opt.rumors_aegis_towers",
+   "response": "rumors_about_aegis",
+   "conditions": {
+    "faction": [
+     "vostok",
+     "sarab"
+    ]
+   }
+  },
+  {
+   "id": "rumors_aegis_credit",
+   "text": "dialogue.warfront.opt.rumors_aegis_credit",
+   "response": "rumors_about_aegis",
+   "conditions": {
+    "faction": [
+     "vostok",
+     "sarab"
+    ]
+   },
+   "weight": 5
+  },
+  {
+   "id": "rumors_sarab_word",
+   "text": "dialogue.warfront.opt.rumors_sarab_word",
+   "response": "rumors_about_sarab",
+   "conditions": {
+    "faction": [
+     "vostok",
+     "aegis"
+    ]
+   },
+   "weight": 15
+  },
+  {
+   "id": "rumors_sarab_vanish",
+   "text": "dialogue.warfront.opt.rumors_sarab_vanish",
+   "response": "rumors_about_sarab",
+   "conditions": {
+    "faction": [
+     "vostok",
+     "aegis"
+    ]
+   }
+  },
+  {
+   "id": "rumors_sarab_count",
+   "text": "dialogue.warfront.opt.rumors_sarab_count",
+   "response": "rumors_about_sarab",
+   "conditions": {
+    "faction": [
+     "vostok",
+     "aegis"
+    ]
+   }
+  },
+  {
+   "id": "rumors_sarab_well_debt",
+   "text": "dialogue.warfront.opt.rumors_sarab_well_debt",
+   "response": "rumors_about_sarab",
+   "conditions": {
+    "faction": [
+     "vostok",
+     "aegis"
+    ]
+   }
+  },
+  {
+   "id": "rumors_sarab_shadows",
+   "text": "dialogue.warfront.opt.rumors_sarab_shadows",
+   "response": "rumors_about_sarab",
+   "conditions": {
+    "faction": [
+     "vostok",
+     "aegis"
+    ]
+   }
+  },
+  {
+   "id": "rumors_sarab_respect",
+   "text": "dialogue.warfront.opt.rumors_sarab_respect",
+   "response": "rumors_about_sarab",
+   "conditions": {
+    "faction": [
+     "vostok",
+     "aegis"
+    ]
+   }
+  },
+  {
+   "id": "rumors_sarab_soft_spot",
+   "text": "dialogue.warfront.opt.rumors_sarab_soft_spot",
+   "response": "rumors_about_sarab",
+   "conditions": {
+    "faction": [
+     "vostok",
+     "aegis"
+    ]
+   }
+  },
+  {
+   "id": "rumors_sarab_leader",
+   "text": "dialogue.warfront.opt.rumors_sarab_leader",
+   "response": "rumors_about_sarab",
+   "conditions": {
+    "faction": [
+     "vostok",
+     "aegis"
+    ]
+   }
+  },
+  {
+   "id": "rumors_sarab_bargain",
+   "text": "dialogue.warfront.opt.rumors_sarab_bargain",
+   "response": "rumors_about_sarab",
+   "conditions": {
+    "faction": [
+     "vostok",
+     "aegis"
+    ]
+   }
+  },
+  {
+   "id": "rumors_sarab_empty_dunes",
+   "text": "dialogue.warfront.opt.rumors_sarab_empty_dunes",
+   "response": "rumors_about_sarab",
+   "conditions": {
+    "faction": [
+     "vostok",
+     "aegis"
+    ]
+   }
+  },
+  {
+   "id": "rumors_sarab_storms",
+   "text": "dialogue.warfront.opt.rumors_sarab_storms",
+   "response": "rumors_about_sarab",
+   "conditions": {
+    "faction": [
+     "vostok",
+     "aegis"
+    ]
+   }
+  },
+  {
+   "id": "rumors_sarab_sleepless",
+   "text": "dialogue.warfront.opt.rumors_sarab_sleepless",
+   "response": "rumors_about_sarab",
+   "conditions": {
+    "faction": [
+     "vostok",
+     "aegis"
+    ]
+   }
+  },
+  {
+   "id": "rumors_sarab_ridge_losses",
+   "text": "dialogue.warfront.opt.rumors_sarab_ridge_losses",
+   "response": "rumors_about_sarab",
+   "conditions": {
+    "faction": [
+     "vostok",
+     "aegis"
+    ]
+   }
+  },
+  {
+   "id": "rumors_sarab_feared",
+   "text": "dialogue.warfront.opt.rumors_sarab_feared",
+   "response": "rumors_about_sarab",
+   "conditions": {
+    "faction": [
+     "vostok",
+     "aegis"
+    ]
+   }
+  },
+  {
+   "id": "rumors_sarab_taken",
+   "text": "dialogue.warfront.opt.rumors_sarab_taken",
+   "response": "rumors_about_sarab",
+   "conditions": {
+    "faction": [
+     "vostok",
+     "aegis"
+    ]
+   }
+  },
+  {
+   "id": "rumors_sarab_wells_siege",
+   "text": "dialogue.warfront.opt.rumors_sarab_wells_siege",
+   "response": "rumors_about_sarab",
+   "conditions": {
+    "faction": [
+     "vostok",
+     "aegis"
+    ]
+   }
+  },
+  {
+   "id": "rumors_sarab_tea_ambush",
+   "text": "dialogue.warfront.opt.rumors_sarab_tea_ambush",
+   "response": "rumors_about_sarab",
+   "conditions": {
+    "faction": [
+     "vostok",
+     "aegis"
+    ]
+   },
+   "weight": 5
+  },
+  {
+   "id": "rumors_ask_front_news",
+   "text": "dialogue.warfront.opt.rumors_ask_front_news",
+   "response": "rumors_skirmish",
+   "weight": 15
+  },
+  {
+   "id": "rumors_ask_worst_fighting",
+   "text": "dialogue.warfront.opt.rumors_ask_worst_fighting",
+   "response": "rumors_skirmish"
+  },
+  {
+   "id": "rumors_ask_steel_ringing",
+   "text": "dialogue.warfront.opt.rumors_ask_steel_ringing",
+   "response": "rumors_skirmish"
+  },
+  {
+   "id": "rumors_ask_raids_lately",
+   "text": "dialogue.warfront.opt.rumors_ask_raids_lately",
+   "response": "rumors_skirmish"
+  },
+  {
+   "id": "rumors_ask_ridge_whispers",
+   "text": "dialogue.warfront.opt.rumors_ask_ridge_whispers",
+   "response": "rumors_skirmish"
+  },
+  {
+   "id": "rumors_ask_bloody_clash",
+   "text": "dialogue.warfront.opt.rumors_ask_bloody_clash",
+   "response": "rumors_skirmish"
+  },
+  {
+   "id": "rumors_ask_too_quiet",
+   "text": "dialogue.warfront.opt.rumors_ask_too_quiet",
+   "response": "rumors_skirmish"
+  },
+  {
+   "id": "rumors_ask_next_fight",
+   "text": "dialogue.warfront.opt.rumors_ask_next_fight",
+   "response": "rumors_skirmish"
+  },
+  {
+   "id": "rumors_ask_post_changed_hands",
+   "text": "dialogue.warfront.opt.rumors_ask_post_changed_hands",
+   "response": "rumors_skirmish"
+  },
+  {
+   "id": "rumors_ask_fresh_from_fight",
+   "text": "dialogue.warfront.opt.rumors_ask_fresh_from_fight",
+   "response": "rumors_skirmish",
+   "conditions": {
+    "recent_combat": true
+   }
+  },
+  {
+   "id": "rumors_ask_wounded_men",
+   "text": "dialogue.warfront.opt.rumors_ask_wounded_men",
+   "response": "rumors_skirmish"
+  },
+  {
+   "id": "rumors_ask_dawn_smoke",
+   "text": "dialogue.warfront.opt.rumors_ask_dawn_smoke",
+   "response": "rumors_skirmish"
+  },
+  {
+   "id": "rumors_ask_spooked_traders",
+   "text": "dialogue.warfront.opt.rumors_ask_spooked_traders",
+   "response": "rumors_skirmish"
+  },
+  {
+   "id": "rumors_ask_season_kind",
+   "text": "dialogue.warfront.opt.rumors_ask_season_kind",
+   "response": "rumors_skirmish"
+  },
+  {
+   "id": "rumors_ask_supply_state",
+   "text": "dialogue.warfront.opt.rumors_ask_supply_state",
+   "response": "rumors_supply"
+  },
+  {
+   "id": "rumors_ask_short_rations",
+   "text": "dialogue.warfront.opt.rumors_ask_short_rations",
+   "response": "rumors_supply"
+  },
+  {
+   "id": "rumors_ask_good_price",
+   "text": "dialogue.warfront.opt.rumors_ask_good_price",
+   "response": "rumors_supply"
+  },
+  {
+   "id": "rumors_qm_trader_tip",
+   "text": "dialogue.warfront.opt.rumors_qm_trader_tip",
+   "response": "rumors_supply",
+   "conditions": {
+    "role": [
+     "quartermaster"
+    ]
+   }
+  },
+  {
+   "id": "rumors_ask_lost_convoy",
+   "text": "dialogue.warfront.opt.rumors_ask_lost_convoy",
+   "response": "rumors_supply"
+  },
+  {
+   "id": "rumors_ask_hunger",
+   "text": "dialogue.warfront.opt.rumors_ask_hunger",
+   "response": "rumors_supply"
+  },
+  {
+   "id": "rumors_ask_iron_scarce",
+   "text": "dialogue.warfront.opt.rumors_ask_iron_scarce",
+   "response": "rumors_supply"
+  },
+  {
+   "id": "rumors_ask_timber_out",
+   "text": "dialogue.warfront.opt.rumors_ask_timber_out",
+   "response": "rumors_supply"
+  },
+  {
+   "id": "rumors_ask_clean_water",
+   "text": "dialogue.warfront.opt.rumors_ask_clean_water",
+   "response": "rumors_supply"
+  },
+  {
+   "id": "rumors_ask_smugglers",
+   "text": "dialogue.warfront.opt.rumors_ask_smugglers",
+   "response": "rumors_supply"
+  },
+  {
+   "id": "rumors_qm_rival_pay",
+   "text": "dialogue.warfront.opt.rumors_qm_rival_pay",
+   "response": "rumors_supply",
+   "conditions": {
+    "role": [
+     "quartermaster"
+    ]
+   }
+  },
+  {
+   "id": "rumors_ask_winter_stores",
+   "text": "dialogue.warfront.opt.rumors_ask_winter_stores",
+   "response": "rumors_supply"
+  },
+  {
+   "id": "rumors_ask_weather_omens",
+   "text": "dialogue.warfront.opt.rumors_ask_weather_omens",
+   "response": "rumors_omens"
+  },
+  {
+   "id": "rumors_ask_red_sky",
+   "text": "dialogue.warfront.opt.rumors_ask_red_sky",
+   "response": "rumors_omens"
+  },
+  {
+   "id": "rumors_ask_silent_birds",
+   "text": "dialogue.warfront.opt.rumors_ask_silent_birds",
+   "response": "rumors_omens"
+  },
+  {
+   "id": "rumors_ask_storm_sign",
+   "text": "dialogue.warfront.opt.rumors_ask_storm_sign",
+   "response": "rumors_omens"
+  },
+  {
+   "id": "rumors_ask_full_moon",
+   "text": "dialogue.warfront.opt.rumors_ask_full_moon",
+   "response": "rumors_omens"
+  },
+  {
+   "id": "rumors_ask_charms",
+   "text": "dialogue.warfront.opt.rumors_ask_charms",
+   "response": "rumors_omens"
+  },
+  {
+   "id": "rumors_ask_shared_nightmare",
+   "text": "dialogue.warfront.opt.rumors_ask_shared_nightmare",
+   "response": "rumors_omens",
+   "weight": 5
+  },
+  {
+   "id": "rumors_ask_strange_fog",
+   "text": "dialogue.warfront.opt.rumors_ask_strange_fog",
+   "response": "rumors_omens"
+  },
+  {
+   "id": "rumors_ask_worst_omen",
+   "text": "dialogue.warfront.opt.rumors_ask_worst_omen",
+   "response": "rumors_omens"
+  },
+  {
+   "id": "rumors_ask_land_knows",
+   "text": "dialogue.warfront.opt.rumors_ask_land_knows",
+   "response": "rumors_omens"
+  },
+  {
+   "id": "rumors_ask_dark_movers",
+   "text": "dialogue.warfront.opt.rumors_ask_dark_movers",
+   "response": "rumors_night",
+   "conditions": {
+    "time": [
+     "night"
+    ]
+   }
+  },
+  {
+   "id": "rumors_ask_valley_lights",
+   "text": "dialogue.warfront.opt.rumors_ask_valley_lights",
+   "response": "rumors_night"
+  },
+  {
+   "id": "rumors_ask_night_raids",
+   "text": "dialogue.warfront.opt.rumors_ask_night_raids",
+   "response": "rumors_night"
+  },
+  {
+   "id": "rumors_ask_sentry_talk",
+   "text": "dialogue.warfront.opt.rumors_ask_sentry_talk",
+   "response": "rumors_night",
+   "conditions": {
+    "time": [
+     "night"
+    ]
+   }
+  },
+  {
+   "id": "rumors_ask_underground_digging",
+   "text": "dialogue.warfront.opt.rumors_ask_underground_digging",
+   "response": "rumors_night"
+  },
+  {
+   "id": "rumors_ask_expecting",
+   "text": "dialogue.warfront.opt.rumors_ask_expecting",
+   "response": "rumors_night",
+   "conditions": {
+    "time": [
+     "night"
+    ]
+   }
+  },
+  {
+   "id": "rumors_ask_ridge_flashes",
+   "text": "dialogue.warfront.opt.rumors_ask_ridge_flashes",
+   "response": "rumors_night"
+  },
+  {
+   "id": "rumors_ask_midnight_sound",
+   "text": "dialogue.warfront.opt.rumors_ask_midnight_sound",
+   "response": "rumors_night",
+   "conditions": {
+    "time": [
+     "night"
+    ]
+   }
+  },
+  {
+   "id": "rumors_ask_dawn_attacks",
+   "text": "dialogue.warfront.opt.rumors_ask_dawn_attacks",
+   "response": "rumors_night"
+  },
+  {
+   "id": "rumors_ask_slip_lines",
+   "text": "dialogue.warfront.opt.rumors_ask_slip_lines",
+   "response": "rumors_night"
+  },
+  {
+   "id": "rumors_ask_more_campfires",
+   "text": "dialogue.warfront.opt.rumors_ask_more_campfires",
+   "response": "rumors_night"
+  },
+  {
+   "id": "rumors_ask_cursed_hour",
+   "text": "dialogue.warfront.opt.rumors_ask_cursed_hour",
+   "response": "rumors_night"
+  },
+  {
+   "id": "rumors_ask_whos_winning",
+   "text": "dialogue.warfront.opt.rumors_ask_whos_winning",
+   "response": "rumors_winning",
+   "weight": 15
+  },
+  {
+   "id": "rumors_ask_most_ground",
+   "text": "dialogue.warfront.opt.rumors_ask_most_ground",
+   "response": "rumors_winning"
+  },
+  {
+   "id": "rumors_ask_your_chances",
+   "text": "dialogue.warfront.opt.rumors_ask_your_chances",
+   "response": "rumors_winning"
+  },
+  {
+   "id": "rumors_ask_outlast",
+   "text": "dialogue.warfront.opt.rumors_ask_outlast",
+   "response": "rumors_winning"
+  },
+  {
+   "id": "rumors_ask_soldiers_bet",
+   "text": "dialogue.warfront.opt.rumors_ask_soldiers_bet",
+   "response": "rumors_winning"
+  },
+  {
+   "id": "rumors_ask_stalemate",
+   "text": "dialogue.warfront.opt.rumors_ask_stalemate",
+   "response": "rumors_winning"
+  },
+  {
+   "id": "rumors_ask_turning_point",
+   "text": "dialogue.warfront.opt.rumors_ask_turning_point",
+   "response": "rumors_winning"
+  },
+  {
+   "id": "rumors_ask_no_winner",
+   "text": "dialogue.warfront.opt.rumors_ask_no_winner",
+   "response": "rumors_winning"
+  },
+  {
+   "id": "rumors_ask_outside_balance",
+   "text": "dialogue.warfront.opt.rumors_ask_outside_balance",
+   "response": "rumors_winning"
+  },
+  {
+   "id": "rumors_ask_end_year",
+   "text": "dialogue.warfront.opt.rumors_ask_end_year",
+   "response": "rumors_winning"
+  },
+  {
+   "id": "rumors_ask_histories",
+   "text": "dialogue.warfront.opt.rumors_ask_histories",
+   "response": "rumors_winning"
+  },
+  {
+   "id": "rumors_ask_worth_it",
+   "text": "dialogue.warfront.opt.rumors_ask_worth_it",
+   "response": "rumors_winning"
+  },
+  {
+   "id": "rumors_ask_deserter_claim",
+   "text": "dialogue.warfront.opt.rumors_ask_deserter_claim",
+   "response": "rumors_winning",
+   "weight": 5
+  },
+  {
+   "id": "rumors_ask_my_name",
+   "text": "dialogue.warfront.opt.rumors_ask_my_name",
+   "response": "rumors_reputation"
+  },
+  {
+   "id": "rumors_ask_what_they_call_me",
+   "text": "dialogue.warfront.opt.rumors_ask_what_they_call_me",
+   "response": "rumors_reputation",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   }
+  },
+  {
+   "id": "rumors_ask_am_i_watched",
+   "text": "dialogue.warfront.opt.rumors_ask_am_i_watched",
+   "response": "rumors_reputation",
+   "conditions": {
+    "standing": [
+     "hostile",
+     "wary",
+     "neutral"
+    ]
+   }
+  },
+  {
+   "id": "rumors_ask_camp_grudge",
+   "text": "dialogue.warfront.opt.rumors_ask_camp_grudge",
+   "response": "rumors_reputation",
+   "conditions": {
+    "has_killed_this_faction": true
+   }
+  },
+  {
+   "id": "rumors_ask_way_back",
+   "text": "dialogue.warfront.opt.rumors_ask_way_back",
+   "response": "rumors_reputation",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   }
+  },
+  {
+   "id": "rumors_ask_wild_stories",
+   "text": "dialogue.warfront.opt.rumors_ask_wild_stories",
+   "response": "rumors_reputation"
+  },
+  {
+   "id": "rumors_ask_head_price",
+   "text": "dialogue.warfront.opt.rumors_ask_head_price",
+   "response": "rumors_reputation",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   }
+  },
+  {
+   "id": "rumors_ask_other_camps_me",
+   "text": "dialogue.warfront.opt.rumors_ask_other_camps_me",
+   "response": "rumors_reputation"
+  },
+  {
+   "id": "rumors_ask_fair_dealing",
+   "text": "dialogue.warfront.opt.rumors_ask_fair_dealing",
+   "response": "rumors_reputation",
+   "conditions": {
+    "disposition": [
+     "positive"
+    ]
+   }
+  },
+  {
+   "id": "rumors_ask_first_impression",
+   "text": "dialogue.warfront.opt.rumors_ask_first_impression",
+   "response": "rumors_reputation"
+  },
+  {
+   "id": "rumors_rude_fishwives",
+   "text": "dialogue.warfront.opt.rumors_rude_fishwives",
+   "response": "rumors_scoff",
+   "effects": [
+    {
+     "type": "disposition",
+     "event": "insulted"
+    }
+   ],
+   "weight": 5
+  },
+  {
+   "id": "rumors_exit_off",
+   "text": "dialogue.warfront.opt.rumors_exit_off",
+   "response": "rumors_exit",
+   "effects": [
+    {
+     "type": "end"
+    }
+   ],
+   "exit": true,
+   "weight": 8
+  },
+  {
+   "id": "rumors_exit_ears",
+   "text": "dialogue.warfront.opt.rumors_exit_ears",
+   "response": "rumors_exit",
+   "effects": [
+    {
+     "type": "end"
+    }
+   ],
+   "exit": true,
+   "weight": 6
+  },
+  {
+   "id": "rumors_exit_road",
+   "text": "dialogue.warfront.opt.rumors_exit_road",
+   "response": "rumors_exit",
+   "effects": [
+    {
+     "type": "end"
+    }
+   ],
+   "exit": true,
+   "weight": 6
+  },
+  {
+   "id": "rumors_exit_forget",
+   "text": "dialogue.warfront.opt.rumors_exit_forget",
+   "response": "rumors_exit",
+   "effects": [
+    {
+     "type": "end"
+    }
+   ],
+   "exit": true,
+   "weight": 8
+  }
+ ]
+}

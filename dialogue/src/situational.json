@@ -1,0 +1,1749 @@
+{
+ "category": "situational",
+ "options": [
+  {
+   "id": "situational_long_night",
+   "text": "Long night?",
+   "response": "situational_night_watch",
+   "conditions": {
+    "time": [
+     "night"
+    ]
+   },
+   "weight": 8
+  },
+  {
+   "id": "situational_quiet_watch",
+   "text": "Quiet watch tonight?",
+   "response": "situational_night_watch",
+   "conditions": {
+    "time": [
+     "night"
+    ]
+   },
+   "weight": 7
+  },
+  {
+   "id": "situational_stars",
+   "text": "Clear sky, at least. Good stars.",
+   "response": "situational_night_watch",
+   "conditions": {
+    "time": [
+     "night"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "situational_cold_night",
+   "text": "Cold enough to crack teeth tonight. How do you stand it?",
+   "response": "situational_night_watch",
+   "conditions": {
+    "time": [
+     "night"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "situational_keep_awake",
+   "text": "How do you stay awake out here?",
+   "response": "situational_night_watch",
+   "conditions": {
+    "time": [
+     "night"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "situational_night_company",
+   "text": "Want some company for a bit?",
+   "response": "situational_night_watch",
+   "conditions": {
+    "time": [
+     "night"
+    ],
+    "disposition": [
+     "positive"
+    ]
+   },
+   "weight": 5
+  },
+  {
+   "id": "situational_night_jumpy",
+   "text": "You seem jumpy tonight.",
+   "response": "situational_night_watch",
+   "conditions": {
+    "time": [
+     "night"
+    ]
+   },
+   "weight": 5
+  },
+  {
+   "id": "situational_dark_early",
+   "text": "Dark comes early this season.",
+   "response": "situational_night_watch",
+   "conditions": {
+    "time": [
+     "night"
+    ]
+   },
+   "weight": 5
+  },
+  {
+   "id": "situational_on_till_dawn",
+   "text": "You on till dawn?",
+   "response": "situational_night_watch",
+   "conditions": {
+    "time": [
+     "night"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "situational_night_miss_most",
+   "text": "What do you miss most on nights like this?",
+   "response": "situational_night_watch",
+   "conditions": {
+    "time": [
+     "night"
+    ],
+    "disposition": [
+     "positive"
+    ]
+   },
+   "weight": 5
+  },
+  {
+   "id": "situational_morning_sleep",
+   "text": "Morning. Sleep any?",
+   "response": "situational_day_watch",
+   "conditions": {
+    "time": [
+     "day"
+    ]
+   },
+   "weight": 7
+  },
+  {
+   "id": "situational_hot_day",
+   "text": "Sun's brutal today.",
+   "response": "situational_day_watch",
+   "conditions": {
+    "time": [
+     "day"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "situational_slow_day",
+   "text": "Slow day?",
+   "response": "situational_day_watch",
+   "conditions": {
+    "time": [
+     "day"
+    ]
+   },
+   "weight": 7
+  },
+  {
+   "id": "situational_good_light",
+   "text": "Good light for marching, at least.",
+   "response": "situational_day_watch",
+   "conditions": {
+    "time": [
+     "day"
+    ]
+   },
+   "weight": 5
+  },
+  {
+   "id": "situational_day_drills",
+   "text": "Loud morning. Drills?",
+   "response": "situational_day_watch",
+   "conditions": {
+    "time": [
+     "day"
+    ]
+   },
+   "weight": 5
+  },
+  {
+   "id": "situational_made_it_through",
+   "text": "Made it through another night, then.",
+   "response": "situational_day_watch",
+   "conditions": {
+    "time": [
+     "day"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "situational_day_breakfast",
+   "text": "Had your breakfast yet?",
+   "response": "situational_day_watch",
+   "conditions": {
+    "time": [
+     "day"
+    ]
+   },
+   "weight": 5
+  },
+  {
+   "id": "situational_day_dust",
+   "text": "Dust never settles around here, does it?",
+   "response": "situational_day_watch",
+   "conditions": {
+    "time": [
+     "day"
+    ]
+   },
+   "weight": 5
+  },
+  {
+   "id": "situational_day_birds",
+   "text": "Even the birds sound tired today.",
+   "response": "situational_day_watch",
+   "conditions": {
+    "time": [
+     "day"
+    ]
+   },
+   "weight": 4
+  },
+  {
+   "id": "situational_close_call",
+   "text": "That was close.",
+   "response": "situational_post_combat",
+   "conditions": {
+    "recent_combat": true
+   },
+   "weight": 8
+  },
+  {
+   "id": "situational_still_standing",
+   "text": "Still standing, I see.",
+   "response": "situational_post_combat",
+   "conditions": {
+    "recent_combat": true
+   },
+   "weight": 7
+  },
+  {
+   "id": "situational_you_hurt",
+   "text": "You hurt?",
+   "response": "situational_post_combat",
+   "conditions": {
+    "recent_combat": true
+   },
+   "weight": 7
+  },
+  {
+   "id": "situational_fight_well",
+   "text": "You fight well.",
+   "response": "situational_post_combat",
+   "conditions": {
+    "recent_combat": true
+   },
+   "weight": 6
+  },
+  {
+   "id": "situational_what_happened",
+   "text": "What just happened here?",
+   "response": "situational_post_combat",
+   "conditions": {
+    "recent_combat": true
+   },
+   "weight": 6
+  },
+  {
+   "id": "situational_they_gone",
+   "text": "Are they gone?",
+   "response": "situational_post_combat",
+   "conditions": {
+    "recent_combat": true
+   },
+   "weight": 6
+  },
+  {
+   "id": "situational_more_coming",
+   "text": "Think more are coming?",
+   "response": "situational_post_combat",
+   "conditions": {
+    "recent_combat": true
+   },
+   "weight": 6
+  },
+  {
+   "id": "situational_get_easier",
+   "text": "Does it get easier?",
+   "response": "situational_post_combat",
+   "conditions": {
+    "recent_combat": true
+   },
+   "weight": 5
+  },
+  {
+   "id": "situational_hands_shaking",
+   "text": "Your hands are shaking.",
+   "response": "situational_post_combat",
+   "conditions": {
+    "recent_combat": true
+   },
+   "weight": 4
+  },
+  {
+   "id": "situational_won_counts",
+   "text": "You won. That counts for something.",
+   "response": "situational_post_combat",
+   "conditions": {
+    "recent_combat": true
+   },
+   "weight": 5
+  },
+  {
+   "id": "situational_lose_anyone",
+   "text": "Rough one. Lose anyone?",
+   "response": "situational_post_combat",
+   "conditions": {
+    "recent_combat": true
+   },
+   "weight": 5
+  },
+  {
+   "id": "situational_gate_through",
+   "text": "Mind if I come through?",
+   "response": "situational_gate",
+   "conditions": {
+    "location": [
+     "in_base"
+    ]
+   },
+   "weight": 8
+  },
+  {
+   "id": "situational_gate_visit",
+   "text": "Just visiting. That allowed?",
+   "response": "situational_gate",
+   "conditions": {
+    "location": [
+     "in_base"
+    ]
+   },
+   "weight": 7
+  },
+  {
+   "id": "situational_gate_look_around",
+   "text": "Can I look around?",
+   "response": "situational_gate",
+   "conditions": {
+    "location": [
+     "in_base"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "situational_gate_rules",
+   "text": "Any rules I should know inside?",
+   "response": "situational_gate",
+   "conditions": {
+    "location": [
+     "in_base"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "situational_gate_trade_day",
+   "text": "Is this a trading day?",
+   "response": "situational_gate",
+   "conditions": {
+    "location": [
+     "in_base"
+    ]
+   },
+   "weight": 5
+  },
+  {
+   "id": "situational_gate_bed",
+   "text": "Any chance of a bed tonight?",
+   "response": "situational_gate",
+   "conditions": {
+    "location": [
+     "in_base"
+    ],
+    "disposition": [
+     "positive"
+    ]
+   },
+   "weight": 5
+  },
+  {
+   "id": "situational_gate_solid_walls",
+   "text": "Solid walls. Your work?",
+   "response": "situational_gate",
+   "conditions": {
+    "location": [
+     "in_base"
+    ]
+   },
+   "weight": 5
+  },
+  {
+   "id": "situational_gate_busy_post",
+   "text": "Busy post today.",
+   "response": "situational_gate",
+   "conditions": {
+    "location": [
+     "in_base"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "situational_gate_new_faces",
+   "text": "New faces on the gate. Rotation?",
+   "response": "situational_gate",
+   "conditions": {
+    "location": [
+     "in_base"
+    ]
+   },
+   "weight": 4
+  },
+  {
+   "id": "situational_gate_safe_inside",
+   "text": "Feels safe in here. Rare thing.",
+   "response": "situational_gate",
+   "conditions": {
+    "location": [
+     "in_base"
+    ]
+   },
+   "weight": 5
+  },
+  {
+   "id": "situational_base_food_smell",
+   "text": "Something smells good. Mess tent?",
+   "response": "situational_base_post",
+   "conditions": {
+    "location": [
+     "in_base"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "situational_base_drill_hard",
+   "text": "They drill you hard here?",
+   "response": "situational_base_post",
+   "conditions": {
+    "location": [
+     "in_base"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "situational_base_long_posted",
+   "text": "How long have you been posted here?",
+   "response": "situational_base_post",
+   "conditions": {
+    "location": [
+     "in_base"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "situational_base_between_alarms",
+   "text": "What do you do between alarms?",
+   "response": "situational_base_post",
+   "conditions": {
+    "location": [
+     "in_base"
+    ]
+   },
+   "weight": 5
+  },
+  {
+   "id": "situational_base_ever_home",
+   "text": "Do you ever get home?",
+   "response": "situational_base_post",
+   "conditions": {
+    "location": [
+     "in_base"
+    ],
+    "disposition": [
+     "positive"
+    ]
+   },
+   "weight": 5
+  },
+  {
+   "id": "situational_base_walls_hold",
+   "text": "Think these walls would hold a real push?",
+   "response": "situational_base_post",
+   "conditions": {
+    "location": [
+     "in_base"
+    ]
+   },
+   "weight": 4
+  },
+  {
+   "id": "situational_base_recruits",
+   "text": "The young ones look nervous.",
+   "response": "situational_base_post",
+   "conditions": {
+    "location": [
+     "in_base"
+    ]
+   },
+   "weight": 5
+  },
+  {
+   "id": "situational_base_pay_enough",
+   "text": "They pay you enough for this?",
+   "response": "situational_base_post",
+   "conditions": {
+    "location": [
+     "in_base"
+    ]
+   },
+   "weight": 5
+  },
+  {
+   "id": "situational_base_banner_flown",
+   "text": "That banner's flown through a lot, huh?",
+   "response": "situational_base_post",
+   "conditions": {
+    "location": [
+     "in_base"
+    ]
+   },
+   "weight": 5
+  },
+  {
+   "id": "situational_base_quiet_corner",
+   "text": "Anywhere quiet a traveler can sit a while?",
+   "response": "situational_base_post",
+   "conditions": {
+    "location": [
+     "in_base"
+    ]
+   },
+   "weight": 5
+  },
+  {
+   "id": "situational_patrol_unexpected",
+   "text": "Didn't expect anyone out here.",
+   "response": "situational_patrol_meet",
+   "conditions": {
+    "location": [
+     "patrol"
+    ]
+   },
+   "weight": 8
+  },
+  {
+   "id": "situational_patrol_startled",
+   "text": "You startled me.",
+   "response": "situational_patrol_meet",
+   "conditions": {
+    "location": [
+     "patrol"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "situational_patrol_far_walk",
+   "text": "Long walk today?",
+   "response": "situational_patrol_meet",
+   "conditions": {
+    "location": [
+     "patrol"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "situational_patrol_boots",
+   "text": "How are the boots holding up?",
+   "response": "situational_patrol_meet",
+   "conditions": {
+    "location": [
+     "patrol"
+    ]
+   },
+   "weight": 5
+  },
+  {
+   "id": "situational_patrol_share_fire",
+   "text": "Share a fire if you're stopping?",
+   "response": "situational_patrol_meet",
+   "conditions": {
+    "location": [
+     "patrol"
+    ],
+    "disposition": [
+     "positive"
+    ]
+   },
+   "weight": 5
+  },
+  {
+   "id": "situational_patrol_heavy_packs",
+   "text": "You're carrying heavy for a patrol.",
+   "response": "situational_patrol_meet",
+   "conditions": {
+    "location": [
+     "patrol"
+    ]
+   },
+   "weight": 4
+  },
+  {
+   "id": "situational_patrol_which_way",
+   "text": "Which way are you headed?",
+   "response": "situational_patrol_meet",
+   "conditions": {
+    "location": [
+     "patrol"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "situational_patrol_all_quiet",
+   "text": "All quiet out here?",
+   "response": "situational_patrol_meet",
+   "conditions": {
+    "location": [
+     "patrol"
+    ]
+   },
+   "weight": 7
+  },
+  {
+   "id": "situational_patrol_dog_tired",
+   "text": "You all look dog-tired.",
+   "response": "situational_patrol_meet",
+   "conditions": {
+    "location": [
+     "patrol"
+    ]
+   },
+   "weight": 5
+  },
+  {
+   "id": "situational_patrol_pass_by",
+   "text": "I'll just pass by, if that's fine.",
+   "response": "situational_patrol_meet",
+   "conditions": {
+    "location": [
+     "patrol"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "situational_wild_far_road",
+   "text": "We're a long way from any road.",
+   "response": "situational_wild_meet",
+   "conditions": {
+    "location": [
+     "wilderness"
+    ]
+   },
+   "weight": 7
+  },
+  {
+   "id": "situational_wild_alone",
+   "text": "You out here alone?",
+   "response": "situational_wild_meet",
+   "conditions": {
+    "location": [
+     "wilderness"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "situational_wild_hunting",
+   "text": "Hunting, or hiding?",
+   "response": "situational_wild_meet",
+   "conditions": {
+    "location": [
+     "wilderness"
+    ]
+   },
+   "weight": 5
+  },
+  {
+   "id": "situational_wild_beautiful",
+   "text": "Beautiful country, when nobody's fighting over it.",
+   "response": "situational_wild_meet",
+   "conditions": {
+    "location": [
+     "wilderness"
+    ]
+   },
+   "weight": 5
+  },
+  {
+   "id": "situational_wild_off_path",
+   "text": "You look off your path.",
+   "response": "situational_wild_meet",
+   "conditions": {
+    "location": [
+     "wilderness"
+    ]
+   },
+   "weight": 5
+  },
+  {
+   "id": "situational_wild_camp_share",
+   "text": "My camp's close. You're welcome at the fire.",
+   "response": "situational_wild_meet",
+   "conditions": {
+    "location": [
+     "wilderness"
+    ],
+    "disposition": [
+     "positive"
+    ]
+   },
+   "weight": 5
+  },
+  {
+   "id": "situational_wild_no_witnesses",
+   "text": "Quiet out here. No witnesses to anything.",
+   "response": "situational_wild_meet",
+   "conditions": {
+    "location": [
+     "wilderness"
+    ],
+    "disposition": [
+     "negative"
+    ]
+   },
+   "weight": 3
+  },
+  {
+   "id": "situational_wild_what_brings",
+   "text": "What drags a soldier this deep into nowhere?",
+   "response": "situational_wild_meet",
+   "conditions": {
+    "location": [
+     "wilderness"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "situational_wild_supplies_low",
+   "text": "You look short on supplies.",
+   "response": "situational_wild_meet",
+   "conditions": {
+    "location": [
+     "wilderness"
+    ]
+   },
+   "weight": 4
+  },
+  {
+   "id": "situational_wild_same_direction",
+   "text": "Looks like we're walking the same direction.",
+   "response": "situational_wild_meet",
+   "conditions": {
+    "location": [
+     "wilderness"
+    ]
+   },
+   "weight": 5
+  },
+  {
+   "id": "situational_tension_here_again",
+   "text": "So. Here we are again.",
+   "response": "situational_blood_tension",
+   "conditions": {
+    "has_killed_this_faction": true,
+    "recent_combat": true
+   },
+   "weight": 7
+  },
+  {
+   "id": "situational_tension_no_fight",
+   "text": "I'm not looking for another fight.",
+   "response": "situational_blood_tension",
+   "conditions": {
+    "has_killed_this_faction": true,
+    "recent_combat": true
+   },
+   "weight": 8
+  },
+  {
+   "id": "situational_tension_walk_away",
+   "text": "We can both walk away from this.",
+   "response": "situational_blood_tension",
+   "conditions": {
+    "has_killed_this_faction": true,
+    "recent_combat": true
+   },
+   "weight": 7
+  },
+  {
+   "id": "situational_tension_your_move",
+   "text": "Your move, soldier.",
+   "response": "situational_blood_tension",
+   "conditions": {
+    "has_killed_this_faction": true,
+    "recent_combat": true
+   },
+   "weight": 4
+  },
+  {
+   "id": "situational_tension_sorry",
+   "text": "For what it's worth, I didn't want it to go that way.",
+   "response": "situational_blood_tension",
+   "conditions": {
+    "has_killed_this_faction": true,
+    "recent_combat": true
+   },
+   "weight": 6
+  },
+  {
+   "id": "situational_tension_staring",
+   "text": "You're staring. Say it.",
+   "response": "situational_blood_tension",
+   "conditions": {
+    "has_killed_this_faction": true,
+    "recent_combat": true
+   },
+   "weight": 5
+  },
+  {
+   "id": "situational_tension_even_yet",
+   "text": "Are we even yet, or close?",
+   "response": "situational_blood_tension",
+   "conditions": {
+    "has_killed_this_faction": true,
+    "recent_combat": true
+   },
+   "weight": 5
+  },
+  {
+   "id": "situational_tension_blades_down",
+   "text": "Blades down. I just want to talk.",
+   "response": "situational_blood_tension",
+   "conditions": {
+    "has_killed_this_faction": true,
+    "recent_combat": true
+   },
+   "weight": 6
+  },
+  {
+   "id": "situational_tension_next_time",
+   "text": "Next time might go differently.",
+   "response": "situational_blood_tension",
+   "conditions": {
+    "has_killed_this_faction": true,
+    "recent_combat": true
+   },
+   "weight": 4
+  },
+  {
+   "id": "situational_nf_out_late",
+   "text": "You're out late.",
+   "response": "situational_night_field",
+   "conditions": {
+    "time": [
+     "night"
+    ],
+    "location": [
+     "patrol",
+     "wilderness"
+    ]
+   },
+   "weight": 7
+  },
+  {
+   "id": "situational_nf_cold_watch",
+   "text": "Cold watch to draw, this far out.",
+   "response": "situational_night_field",
+   "conditions": {
+    "time": [
+     "night"
+    ],
+    "location": [
+     "patrol",
+     "wilderness"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "situational_nf_see_moving",
+   "text": "See anything moving tonight?",
+   "response": "situational_night_field",
+   "conditions": {
+    "time": [
+     "night"
+    ],
+    "location": [
+     "patrol",
+     "wilderness"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "situational_nf_no_fire",
+   "text": "No fire? Rough way to spend a night.",
+   "response": "situational_night_field",
+   "conditions": {
+    "time": [
+     "night"
+    ],
+    "location": [
+     "patrol",
+     "wilderness"
+    ]
+   },
+   "weight": 5
+  },
+  {
+   "id": "situational_nf_moonlight",
+   "text": "At least there's moonlight.",
+   "response": "situational_night_field",
+   "conditions": {
+    "time": [
+     "night"
+    ],
+    "location": [
+     "patrol",
+     "wilderness"
+    ]
+   },
+   "weight": 5
+  },
+  {
+   "id": "situational_nf_nearly_walked",
+   "text": "I nearly walked right into you in the dark.",
+   "response": "situational_night_field",
+   "conditions": {
+    "time": [
+     "night"
+    ],
+    "location": [
+     "patrol",
+     "wilderness"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "situational_nf_dark_hours",
+   "text": "Do you always walk the dark hours?",
+   "response": "situational_night_field",
+   "conditions": {
+    "time": [
+     "night"
+    ],
+    "location": [
+     "patrol",
+     "wilderness"
+    ]
+   },
+   "weight": 5
+  },
+  {
+   "id": "situational_nf_sit_up",
+   "text": "I'll sit up with you a while, if you want.",
+   "response": "situational_night_field",
+   "conditions": {
+    "time": [
+     "night"
+    ],
+    "location": [
+     "patrol",
+     "wilderness"
+    ],
+    "disposition": [
+     "positive"
+    ]
+   },
+   "weight": 5
+  },
+  {
+   "id": "situational_nf_wolves",
+   "text": "I heard wolves earlier. Close ones.",
+   "response": "situational_night_field",
+   "conditions": {
+    "time": [
+     "night"
+    ],
+    "location": [
+     "patrol",
+     "wilderness"
+    ]
+   },
+   "weight": 5
+  },
+  {
+   "id": "situational_aid_wounded",
+   "text": "Need a hand with the wounded?",
+   "response": "situational_aftermath_aid",
+   "conditions": {
+    "recent_combat": true
+   },
+   "weight": 7
+  },
+  {
+   "id": "situational_aid_bandages",
+   "text": "I have bandages, if you need them.",
+   "response": "situational_aftermath_aid",
+   "conditions": {
+    "recent_combat": true
+   },
+   "weight": 6
+  },
+  {
+   "id": "situational_aid_food_water",
+   "text": "I can spare food and water.",
+   "response": "situational_aftermath_aid",
+   "conditions": {
+    "recent_combat": true
+   },
+   "weight": 6
+  },
+  {
+   "id": "situational_aid_carry",
+   "text": "I'll help carry, if someone's hurt.",
+   "response": "situational_aftermath_aid",
+   "conditions": {
+    "recent_combat": true
+   },
+   "weight": 5
+  },
+  {
+   "id": "situational_aid_who_attacked",
+   "text": "Who attacked you?",
+   "response": "situational_aftermath_aid",
+   "conditions": {
+    "recent_combat": true
+   },
+   "weight": 6
+  },
+  {
+   "id": "situational_aid_bury",
+   "text": "I'll help you bury them, if it comes to that.",
+   "response": "situational_aftermath_aid",
+   "conditions": {
+    "recent_combat": true
+   },
+   "weight": 4
+  },
+  {
+   "id": "situational_aid_keep_watch",
+   "text": "Rest. I'll keep watch a moment.",
+   "response": "situational_aftermath_aid",
+   "conditions": {
+    "recent_combat": true,
+    "disposition": [
+     "positive"
+    ]
+   },
+   "weight": 5
+  },
+  {
+   "id": "situational_aid_send_word",
+   "text": "Want me to carry word to your people?",
+   "response": "situational_aftermath_aid",
+   "conditions": {
+    "recent_combat": true
+   },
+   "weight": 5
+  },
+  {
+   "id": "situational_aid_handled",
+   "text": "You look like you had it handled.",
+   "response": "situational_aftermath_aid",
+   "conditions": {
+    "recent_combat": true
+   },
+   "weight": 5
+  },
+  {
+   "id": "situational_wx_storm_coming",
+   "text": "Storm's coming. You can smell it.",
+   "response": "situational_weather_wild",
+   "conditions": {
+    "location": [
+     "wilderness"
+    ]
+   },
+   "weight": 7
+  },
+  {
+   "id": "situational_wx_rain_days",
+   "text": "Three days of rain and counting.",
+   "response": "situational_weather_wild",
+   "conditions": {
+    "location": [
+     "wilderness"
+    ]
+   },
+   "weight": 5
+  },
+  {
+   "id": "situational_wx_wind_howl",
+   "text": "That wind's been howling all day.",
+   "response": "situational_weather_wild",
+   "conditions": {
+    "location": [
+     "wilderness"
+    ]
+   },
+   "weight": 5
+  },
+  {
+   "id": "situational_wx_heat_kills",
+   "text": "This heat could kill a man faster than any war.",
+   "response": "situational_weather_wild",
+   "conditions": {
+    "location": [
+     "wilderness"
+    ]
+   },
+   "weight": 5
+  },
+  {
+   "id": "situational_wx_shelter_where",
+   "text": "Where do you shelter when the sky opens out here?",
+   "response": "situational_weather_wild",
+   "conditions": {
+    "location": [
+     "wilderness"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "situational_wx_snow_early",
+   "text": "Early snow this year, isn't it?",
+   "response": "situational_weather_wild",
+   "conditions": {
+    "location": [
+     "wilderness"
+    ]
+   },
+   "weight": 4
+  },
+  {
+   "id": "situational_wx_lightning",
+   "text": "That lightning's getting closer.",
+   "response": "situational_weather_wild",
+   "conditions": {
+    "location": [
+     "wilderness"
+    ]
+   },
+   "weight": 5
+  },
+  {
+   "id": "situational_wx_mud_trails",
+   "text": "The mud's eating the trails whole.",
+   "response": "situational_weather_wild",
+   "conditions": {
+    "location": [
+     "wilderness"
+    ]
+   },
+   "weight": 5
+  },
+  {
+   "id": "situational_wx_break_soon",
+   "text": "Think the weather breaks soon?",
+   "response": "situational_weather_wild",
+   "conditions": {
+    "location": [
+     "wilderness"
+    ]
+   },
+   "weight": 6
+  }
+ ],
+ "responses": {
+  "situational_night_watch": {
+   "vostok": {
+    "negative": [
+     "Long enough. Made longer by visitors.",
+     "The watch is fine. Watching you, mostly."
+    ],
+    "neutral": [
+     "Every night is long. That's what makes them nights.",
+     "Awake? We traded sleep for seniority years ago.",
+     "The cold keeps the sentimental thoughts short. Useful."
+    ],
+    "positive": [
+     "Long, cold, and quiet — my three favorite kinds of boring, friend.",
+     "Stars are good tonight. Somewhere someone's navigating by them toward us. Ha.",
+     "Sit. The thermos is engine-flavored but it's hot."
+    ]
+   },
+   "aegis": {
+    "negative": [
+     "Watch status is nominal. Your presence is the anomaly.",
+     "The night's under control. Stay where the light touches you."
+    ],
+    "neutral": [
+     "All quiet on the net. Intend to keep it that way.",
+     "Shift runs to the dawn bell. Routine, if nothing changes it.",
+     "Alertness is a discipline, not a mood. So: fine."
+    ],
+    "positive": [
+     "Quiet shift so far. Your voice is the loudest thing since sundown — pleasantly so.",
+     "On till first light, then hand over and sleep like the honored dead.",
+     "Company's welcome. Stand left of the lantern so I keep my night eyes."
+    ]
+   },
+   "sarab": {
+    "negative": [
+     "The night is long for those with debts. How is yours passing?",
+     "We do not sleep much. It is a professional advantage."
+    ],
+    "neutral": [
+     "The night is a river. We stand in it and let it pass.",
+     "Cold, yes. The stars pay for their beauty with distance.",
+     "Awake is a habit. The desert teaches it with consequences."
+    ],
+    "positive": [
+     "Sit, friend. The dark is kinder shared, and the kettle is nearly singing.",
+     "What do I miss? Rain on a tent roof. A very small music.",
+     "The stars are gossiping tonight. Stay; I will translate the good parts."
+    ]
+   }
+  },
+  "situational_day_watch": {
+   "vostok": {
+    "negative": [
+     "The day is slow. My patience is slower. Don't race them.",
+     "Slept fine. One eye. The other watched for your sort."
+    ],
+    "neutral": [
+     "Sun, dust, drill, repeat. The war's honest that way.",
+     "Sleep is rationed like everything else. We manage.",
+     "The birds are tired because they nest near artillery. Everyone adapts."
+    ],
+    "positive": [
+     "Another dawn on the right side of the dirt. Small victory, counts double.",
+     "Breakfast was gray and heroic, like everything from our kitchens. Want some?",
+     "Slow day, good day. Excitement out here is always somebody's funeral."
+    ]
+   },
+   "aegis": {
+    "negative": [
+     "The day proceeds on schedule. You're the unscheduled part.",
+     "Rest cycles are adequate. Vigilance cycles are constant. Note that."
+    ],
+    "neutral": [
+     "Morning drills, as scheduled. Noise means readiness.",
+     "Slow is the objective. Every quiet hour is a mission accomplished.",
+     "Conditions are hot but within operating tolerances."
+    ],
+    "positive": [
+     "Slept four hours straight — practically a holiday. What brings you by?",
+     "Good marching light, agreed. The kind of morning that makes the maps look optimistic.",
+     "Mess is still serving. Tell them the gate sent you; the portions improve."
+    ]
+   },
+   "sarab": {
+    "negative": [
+     "The sun sees everything. Today it watches you especially.",
+     "Slow days sharpen knives. Ours are very sharp."
+    ],
+    "neutral": [
+     "The heat is an old landlord. We pay it and it leaves us standing.",
+     "Dust is the desert breathing. You get used to the rhythm.",
+     "Morning came, as it insists on doing. We were awake to greet it."
+    ],
+    "positive": [
+     "Another night survived is a debt the dawn repays, friend. Sit in the shade.",
+     "Breakfast was dates and bread. There are dates left, if your hands are quick.",
+     "Even tired birds sing. That is most of wisdom, honestly."
+    ]
+   }
+  },
+  "situational_post_combat": {
+   "vostok": {
+    "negative": [
+     "Close for them. Closer for you, if you linger.",
+     "We're standing. Standing is the whole job. Move on."
+    ],
+    "neutral": [
+     "Close is the only kind of call the line gets. We're used to the arithmetic.",
+     "Hurt? Bruises are receipts. We keep them filed.",
+     "They're gone. Gone has a habit of coming back with friends, so keep walking."
+    ],
+    "positive": [
+     "Ha — you saw that? The line bends, the line snaps back. Good day for our side.",
+     "Shaking hands just mean the body did its bookkeeping. It passes, friend.",
+     "We lost nobody today. Say that word again slowly: nobody. Best word there is."
+    ]
+   },
+   "aegis": {
+    "negative": [
+     "Engagement concluded. Your proximity to it is being evaluated.",
+     "We're operational. That's all the report you're owed."
+    ],
+    "neutral": [
+     "Contact resolved. Casualties minimal, posture restored.",
+     "Hostiles withdrew. Pursuit was outside our tasking.",
+     "Whether more come is a planning question. We plan for yes."
+    ],
+    "positive": [
+     "Appreciate the concern. Clean engagement — textbook, honestly. The drills pay rent.",
+     "A scratch and a dented pauldron. The armorer will lecture me; I'll deserve it.",
+     "Does it get easier? The work, yes. The after — you learn where to put it."
+    ]
+   },
+   "sarab": {
+    "negative": [
+     "The fight ended as fights end. Do not stand where the next one starts.",
+     "We are whole. The ones who tested us are less so. Walk on."
+    ],
+    "neutral": [
+     "Close, yes. The knife's whisper. We have heard it before.",
+     "They fled into the open ground. The open ground is on our side.",
+     "Wounds we bind. Names we remember. Both quietly."
+    ],
+    "positive": [
+     "You watched us dance, friend. The desert taught the steps; we only follow.",
+     "My hands shake after, always. It is the body praying. Let it finish.",
+     "No graves today. Tonight the tea will taste like victory, which is to say: sweeter."
+    ]
+   }
+  },
+  "situational_gate": {
+   "vostok": {
+    "negative": [
+     "The gate's for the line and its friends. Guess your column.",
+     "Through? No. Around. Far around."
+    ],
+    "neutral": [
+     "Pass, but walk the marked path. The unmarked ones are marked differently, if you follow.",
+     "Trading's at the outer sheds. Inside stays inside.",
+     "Rules: touch nothing, salute nobody, leave by dark."
+    ],
+    "positive": [
+     "Come through, friend. Wipe the boots — the mud inside is domesticated.",
+     "There's a bunk in the transit dugout if the night catches you. First come, first snoring.",
+     "Busy day, aye. Quota inspection. Everyone's suddenly very fond of shovels."
+    ]
+   },
+   "aegis": {
+    "negative": [
+     "Entry denied. Your file doesn't support access.",
+     "This installation is closed to you. The road, however, is open. Use it."
+    ],
+    "neutral": [
+     "Escorted access only. Wait here; an escort will be assigned.",
+     "Visitors keep to the commerce lane. Deviation voids the welcome.",
+     "Trade day is posted on the board. Read the board, not my patience."
+    ],
+    "positive": [
+     "Cleared through, friend. Check in at the shadow of the tower; they'll stamp you.",
+     "Guest billets have space tonight. Quartermaster's tent, mention the gate log.",
+     "Rotation just changed, hence the new faces. The standards rotated in with them."
+    ]
+   },
+   "sarab": {
+    "negative": [
+     "The camp's mouth is closed to you. It has tasted your name.",
+     "Guests are chosen. You were not."
+    ],
+    "neutral": [
+     "Enter as a guest enters: slowly, visibly, and grateful.",
+     "The tents have eyes and the carpets have ears. Behave for both.",
+     "Come for trade? The market rug is by the well. Prices soften at dusk."
+    ],
+    "positive": [
+     "The shade is yours, friend. Duck the rope line and mind the sleeping dog — he outranks us.",
+     "A bed, yes — the guest tent smells of cedar and old stories. Both are free.",
+     "Safe is the word, yes. Safety here is woven, not built. Tread softly on it."
+    ]
+   }
+  },
+  "situational_base_post": {
+   "vostok": {
+    "negative": [
+     "The kitchen's not for you. Neither is the curiosity.",
+     "Posted here long enough to smell trouble. It smells like you."
+    ],
+    "neutral": [
+     "Two winters at this post. The walls and I have an understanding.",
+     "Between alarms we sleep, sharpen, and argue about soup. Rich inner lives.",
+     "Would the walls hold? The walls are the least of what holds."
+    ],
+    "positive": [
+     "That smell is Thursday stew. It has bones in it. Whose, we don't ask. Joking. Mostly.",
+     "Home? The line is home. The other home writes letters and worries. Both are good.",
+     "The nervous young ones live longest, friend. Fear is free armor."
+    ]
+   },
+   "aegis": {
+    "negative": [
+     "Facility questions from flagged persons go in a special report. Congratulations.",
+     "Pay, morale, and defenses are internal matters. You're external."
+    ],
+    "neutral": [
+     "Posting length is standard rotation. Long enough to know every bolt.",
+     "Downtime is maintenance time. Gear first, then people. That's the order.",
+     "Recruits look nervous because training works. Calm comes later, calibrated."
+    ],
+    "positive": [
+     "Eight months on station. I could walk this perimeter blind — occasionally have.",
+     "The pay's fair and the pension's a rumor. We serve for the ledger's other column.",
+     "That banner's been through two sieges and a laundry accident. It stays up."
+    ]
+   },
+   "sarab": {
+    "negative": [
+     "You ask many small questions. Small questions build large suspicions.",
+     "What we do between alarms is prepare for people like you."
+    ],
+    "neutral": [
+     "How long here? The camp moves. Home is the moving, not the here.",
+     "Between alarms we mend nets, tell lies about fish, and watch the horizon.",
+     "The banner is old, yes. Old banners have outlived their doubters."
+    ],
+    "positive": [
+     "Sit by the loom tent, friend — quietest corner we have, and the weaver hums well.",
+     "Home visits come with the pilgrim moons. Twice a year the desert loosens its grip.",
+     "The nervous ones? We give them tea and night duty. The stars finish the training."
+    ]
+   }
+  },
+  "situational_patrol_meet": {
+   "vostok": {
+    "negative": [
+     "Nobody expects us. That's the point. Hands easy.",
+     "We're headed wherever you aren't. Make that simple for us."
+    ],
+    "neutral": [
+     "Long walk, short rations, standard day. Pass on the left.",
+     "Quiet so far. You're the loudest thing since the crows.",
+     "Heavy packs, aye. The line carries its house on its back like a sad snail."
+    ],
+    "positive": [
+     "Ha, startled you? Good — means the boots still know their trade.",
+     "Boots are one march from retirement. Like half the section, honestly.",
+     "We stop at the creek if you're brewing something. Fair trade: fire for gossip."
+    ]
+   },
+   "aegis": {
+    "negative": [
+     "You're an unexpected contact on a planned route. Statistically interesting. Explain.",
+     "Heading and purpose. Yours, not ours."
+    ],
+    "neutral": [
+     "Routine sweep, on schedule. You may pass once we've logged you.",
+     "All quiet, which is how the report will read if nothing changes in the next minute.",
+     "The load-out is standard for extended patrol. Everything has a checklist line."
+    ],
+    "positive": [
+     "Tired, yes — third leg of a long loop. Your face is a welcome change from terrain.",
+     "We push northeast to the marker stone, then home. Walk the first stretch with us if you like.",
+     "Careful passing on the ridge side. Ground's loose. We nearly lost a boot and its officer."
+    ]
+   },
+   "sarab": {
+    "negative": [
+     "No one expects us. Yet here we are, and here you are. Curious arithmetic.",
+     "Where we walk is written nowhere. Where you walk is now noted."
+    ],
+    "neutral": [
+     "The desert told us someone was ahead. It rarely bothers lying.",
+     "Quiet, yes. Quiet is a crop. We tend it.",
+     "We carry heavy because the land lends nothing and charges interest."
+    ],
+    "positive": [
+     "Startled, friend? The sand walks softly and we are its students.",
+     "We drift toward the well country. Your direction and ours braid for a while — walk along.",
+     "Dog-tired is honest work's perfume. Tonight we sleep like buried kings."
+    ]
+   }
+  },
+  "situational_wild_meet": {
+   "vostok": {
+    "negative": [
+     "Far from roads, far from rules. Bad math for you, stranger.",
+     "No witnesses works both directions. Think hard."
+    ],
+    "neutral": [
+     "Alone? The line is never alone. It just spreads out.",
+     "Scouting ground. Somebody has to know where the next trench goes.",
+     "Beautiful country, sure. Beauty out here is just danger resting."
+    ],
+    "positive": [
+     "Deep nowhere, friend, aye — checking springs and counting deer. War fodder, all of it.",
+     "Short on supplies, long on stubbornness. The classic ratio. We'll manage.",
+     "Same direction, is it? Fine. You talk, I'll grunt. Division of labor."
+    ]
+   },
+   "aegis": {
+    "negative": [
+     "Remote contact, no witnesses, flagged individual. You see how this file reads. Behave.",
+     "Off-grid meetings with you are exactly what protocol warns about."
+    ],
+    "neutral": [
+     "Solo reconnaissance. Sanctioned, mapped, and expected back. Note the last part.",
+     "Off my path? Negative. The path is classified; I'm precisely on it.",
+     "This far out, assistance is one signal flare away. For both our reference."
+    ],
+    "positive": [
+     "Surveying ground for a future outpost. You're standing in tomorrow's mess hall, roughly.",
+     "I'd take the fire, friend. Cold rations lose their charm around day three.",
+     "Same heading? Good. Two sets of eyes halve the surprises."
+    ]
+   },
+   "sarab": {
+    "negative": [
+     "Alone is a word for people the desert has not adopted.",
+     "Deep nowhere is our parlor, guest. Mind the furniture."
+    ],
+    "neutral": [
+     "Hunting, hiding — the desert rarely distinguishes. Neither do we.",
+     "The empty land is not empty. It is patient. Different thing.",
+     "My path is where my feet are. I am never off it."
+    ],
+    "positive": [
+     "Your fire is a generous word, friend. I bring tea leaves and one truly excellent lie.",
+     "What drags me out here? The stars are cleaner where no one bleeds. I visit them.",
+     "We walk the same direction because the good water is that way. Wisdom travels in pairs."
+    ]
+   }
+  },
+  "situational_blood_tension": {
+   "vostok": {
+    "vengeful": [
+     "Here we are. You, me, and eleven reasons. Pick your next word like a last meal.",
+     "Even? The ledger has pages left. Pray we never finish the book."
+    ],
+    "negative": [
+     "Again, yes. Every meeting we don't fight is a loan, not a gift.",
+     "Walk away, then. Slowly. The line's mercy has a speed limit.",
+     "Not looking for a fight. Found one before, though, didn't you."
+    ],
+    "neutral": [
+     "Blades down, fine. The count between us stays open, but today can stay quiet.",
+     "You didn't want it that way. Wars are made of things nobody wanted. Go.",
+     "Next time, maybe. This time, walk. The mud's had enough to drink this week."
+    ],
+    "positive": [
+     "The past between us is buried in a marked grave, friend. Leave flowers, not questions.",
+     "We're even enough that I'm talking, not counting. Keep it there."
+    ]
+   },
+   "aegis": {
+    "vengeful": [
+     "Your casualty record with this command is memorized. One motion decides the rest.",
+     "We are one breach from resolution. Choose stillness."
+    ],
+    "negative": [
+     "De-escalation accepted, provisionally. Hands stay visible until you're a dot.",
+     "Walking away is approved. It's the only approved item on your list.",
+     "Your apology is noted for the record. The record is long."
+    ],
+    "neutral": [
+     "Stand down mirrored. This contact stays administrative if you keep it there.",
+     "Even isn't a category we track. Contained is. You're currently contained.",
+     "Talk, then. Two meters of distance and no sudden anything."
+    ],
+    "positive": [
+     "History acknowledged and shelved. You've balanced it since. Don't audit it again.",
+     "We've logged worse men into friends. Keep making that easy."
+    ]
+   },
+   "sarab": {
+    "vengeful": [
+     "The sand between us drinks slowly, killer. It is still swallowing what you spilled.",
+     "Speak softly. The graves you filled are listening with us."
+    ],
+    "negative": [
+     "You wear our blood like a coat you forgot you stole. Walk away in it.",
+     "No fight today, then. The desert schedules these things better than men do.",
+     "Say your peace and step back from it. Some words need distance to cool."
+    ],
+    "neutral": [
+     "We are not even. We are paused. There is grace in a pause; do not spend it all.",
+     "Your regret has a true sound. Keep it tuned. It may yet buy you shade.",
+     "Talk, traveler. The knives will nap, light sleepers though they are."
+    ],
+    "positive": [
+     "What was between us the wind took, friend. Do not chase the wind to ask for it back.",
+     "The scales settled. Sit; scars make the oldest, best stories."
+    ]
+   }
+  },
+  "situational_night_field": {
+   "vostok": {
+    "negative": [
+     "Late for you. Working hours for us. State it and go.",
+     "The dark out here is ours by lease. Your visit isn't on it."
+    ],
+    "neutral": [
+     "No fire, no target. Old trench wisdom, still undefeated.",
+     "Something's always moving at night. The trick is knowing what's allowed to.",
+     "Wolves, aye. They follow armies like gulls follow ships. Professional respect."
+    ],
+    "positive": [
+     "Out late together, then. Sit on the cold side; the wind's rude tonight, friend.",
+     "Moonlight's a mixed ration — you see them, they see you. We take it anyway.",
+     "Sit up with me, sure. First one to fall asleep carries both packs tomorrow."
+    ]
+   },
+   "aegis": {
+    "negative": [
+     "Night movement near a patrol is how misunderstandings get names on them.",
+     "You found us in the dark. Consider how deliberate our finding you was."
+    ],
+    "neutral": [
+     "Night operations are routine. Your being adjacent to one is not. Log it and move.",
+     "Negative contacts since dusk, present company now excepted.",
+     "No fire is doctrine, not hardship. Light discipline keeps rosters full."
+    ],
+    "positive": [
+     "Nearly walked into me? Then the camouflage course finally paid off. Don't tell the instructor.",
+     "The dark hours rotate through everyone. Tonight's mine. The stars make it a fair trade.",
+     "Stay a while, friend. Quiet watch, good company — the report will say 'uneventful' and lie."
+    ]
+   },
+   "sarab": {
+    "negative": [
+     "The night is our workshop. Visitors handle nothing.",
+     "You walk loudly for someone so far from help."
+    ],
+    "neutral": [
+     "We are always out late. Lateness is where our work lives.",
+     "Things move at night that respect us. Be one of them.",
+     "The wolves sang earlier, yes. We answered. It is polite."
+    ],
+    "positive": [
+     "The moon lights the path for friends and the trap for others. You walk the lit part, friend.",
+     "No fire tonight — the dark is warm enough when it trusts you. Sit; it trusts you.",
+     "Sit up with me and I will show you which stars are lying about the way north."
+    ]
+   }
+  },
+  "situational_aftermath_aid": {
+   "vostok": {
+    "negative": [
+     "Our wounded are ours to carry. Your help would cost more than it lifts.",
+     "Keep your bandages. The line stitches itself."
+    ],
+    "neutral": [
+     "The hurt are seen to. But water — water we'd take without ceremony.",
+     "Who attacked? The usual arithmetic in unusual boots. Details travel up, not out.",
+     "We bury our own, with our own shovels. It's the one ritual we're rich in."
+    ],
+    "positive": [
+     "A hand with the stretchers? Take the left pole and match my step, friend.",
+     "Bandages accepted with honors. The medic will kiss you. Fair warning: mustache.",
+     "Watch a moment while we breathe? That's a comrade's offer. The line accepts."
+    ]
+   },
+   "aegis": {
+    "negative": [
+     "Casualty handling is internal. Unverified aid is a vector, not a kindness.",
+     "Step back from the wounded. Assistance requires clearance you lack."
+    ],
+    "neutral": [
+     "Medical response is en route. Your offer is noted and logged as goodwill.",
+     "Attacker identification is pending review. No comment before the review.",
+     "If you're carrying clean water, that we'll accept. Standard containers only."
+    ],
+    "positive": [
+     "Yes — pressure on that wound, right there, while I splint. Good hands. Thank you.",
+     "Carry word to the crossroads post: two litters inbound, one urgent. Run it, friend.",
+     "Your supplies just shortened a bad day. Aegis logs its debts in permanent ink."
+    ]
+   },
+   "sarab": {
+    "negative": [
+     "Our blood is not a stranger's business. Walk wide of it.",
+     "The wounded have kin. You are not kin. It is that simple tonight."
+    ],
+    "neutral": [
+     "The hurt are already in gentler hands than ours. But your offer is heard.",
+     "Who struck us? The answer is being prepared. It will be delivered personally.",
+     "If it comes to graves, the sand digs easily here. We will manage the rest."
+    ],
+    "positive": [
+     "Bring your bandages and sit by the fire, friend. Healing likes witnesses.",
+     "Pour the water slowly for him — small sips, like rain teaching a seed.",
+     "Rest, you say, and you will watch? Then I will rest. That is a gift with weight."
+    ]
+   }
+  },
+  "situational_weather_wild": {
+   "vostok": {
+    "negative": [
+     "Storm's coming, and you're between me and shelter. Fix one of those.",
+     "Weather talk. From you. The rain's more sincere."
+    ],
+    "neutral": [
+     "Rain, mud, wind — the war's oldest veterans. They never rotate out.",
+     "We shelter where the ground says so. The ground is rarely generous.",
+     "It breaks when it breaks. Weather and sieges, same rules."
+    ],
+    "positive": [
+     "Smell it? That's a two-shovel storm, friend. Dig in with us; misery scales well.",
+     "Early snow means short campaigning. Best news the sky's sent all year.",
+     "The mud eats trails, boots, and morale, in that order. We're negotiating."
+    ]
+   },
+   "aegis": {
+    "negative": [
+     "Weather's inbound and my patience is outbound. Conclude your business.",
+     "Storm cover is for personnel. You're weather-exposed by status."
+    ],
+    "neutral": [
+     "Forecast says the front passes by morning. Plan movement after, not during.",
+     "Lightning protocol is simple: low ground, no metal, no heroics.",
+     "The heat's within tolerances. Hydration discipline handles the rest."
+    ],
+    "positive": [
+     "Storm shelter's the overhang past the twin firs. Room for one more, friend.",
+     "Three days of rain means three days of cleaning gear. Morale survives on grumbling.",
+     "The wind's stripping our signal flags bald. Requisition will love that memo."
+    ]
+   },
+   "sarab": {
+    "negative": [
+     "The storm and I have an arrangement. You are not included in it.",
+     "The sky opens for everyone. Shelter opens for fewer."
+    ],
+    "neutral": [
+     "When the sky opens we fold into the rocks, like the land's own thought.",
+     "The wind howls because it remembers. Let it. Memory passes.",
+     "Heat kills the hurried. Walk slow, drink small, arrive alive."
+    ],
+    "positive": [
+     "Come under the lee of the dune, friend. The storm is a guest too; we will host it together.",
+     "Lightning close, yes — the sky sharpening its spears. We are too small for its war. Sit.",
+     "The weather breaks when the desert finishes speaking. It is nearly done; I know the cadence."
+    ]
+   }
+  }
+ }
+}

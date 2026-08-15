@@ -1,0 +1,2001 @@
+{
+ "category": "orders",
+ "options": [
+  {
+   "id": "orders_ask_any_work",
+   "text": "dialogue.warfront.opt.orders_ask_any_work",
+   "response": "orders_offer",
+   "conditions": {
+    "role": [
+     "officer",
+     "quartermaster"
+    ],
+    "active_contract": [
+     "none"
+    ]
+   },
+   "effects": [
+    {
+     "type": "offer_order",
+     "pool": "standard"
+    }
+   ],
+   "weight": 10
+  },
+  {
+   "id": "orders_ask_contract",
+   "text": "dialogue.warfront.opt.orders_ask_contract",
+   "response": "orders_offer",
+   "conditions": {
+    "role": [
+     "officer",
+     "quartermaster"
+    ],
+    "active_contract": [
+     "none"
+    ]
+   },
+   "effects": [
+    {
+     "type": "offer_order",
+     "pool": "standard"
+    }
+   ],
+   "weight": 10
+  },
+  {
+   "id": "orders_ask_put_to_use",
+   "text": "dialogue.warfront.opt.orders_ask_put_to_use",
+   "response": "orders_offer",
+   "conditions": {
+    "role": [
+     "officer",
+     "quartermaster"
+    ],
+    "active_contract": [
+     "none"
+    ]
+   },
+   "effects": [
+    {
+     "type": "offer_order",
+     "pool": "standard"
+    }
+   ],
+   "weight": 8
+  },
+  {
+   "id": "orders_ask_outsider_jobs",
+   "text": "dialogue.warfront.opt.orders_ask_outsider_jobs",
+   "response": "orders_offer",
+   "conditions": {
+    "role": [
+     "officer",
+     "quartermaster"
+    ],
+    "active_contract": [
+     "none"
+    ]
+   },
+   "effects": [
+    {
+     "type": "offer_order",
+     "pool": "standard"
+    }
+   ],
+   "weight": 8
+  },
+  {
+   "id": "orders_ask_strong_back",
+   "text": "dialogue.warfront.opt.orders_ask_strong_back",
+   "response": "orders_offer",
+   "conditions": {
+    "role": [
+     "officer",
+     "quartermaster"
+    ],
+    "active_contract": [
+     "none"
+    ]
+   },
+   "effects": [
+    {
+     "type": "offer_order",
+     "pool": "standard"
+    }
+   ],
+   "weight": 7
+  },
+  {
+   "id": "orders_ask_board",
+   "text": "dialogue.warfront.opt.orders_ask_board",
+   "response": "orders_offer",
+   "conditions": {
+    "role": [
+     "officer",
+     "quartermaster"
+    ],
+    "active_contract": [
+     "none"
+    ]
+   },
+   "effects": [
+    {
+     "type": "offer_order",
+     "pool": "standard"
+    }
+   ],
+   "weight": 8
+  },
+  {
+   "id": "orders_ask_task_price",
+   "text": "dialogue.warfront.opt.orders_ask_task_price",
+   "response": "orders_offer",
+   "conditions": {
+    "role": [
+     "officer",
+     "quartermaster"
+    ],
+    "active_contract": [
+     "none"
+    ]
+   },
+   "effects": [
+    {
+     "type": "offer_order",
+     "pool": "standard"
+    }
+   ],
+   "weight": 7
+  },
+  {
+   "id": "orders_ask_honest_work",
+   "text": "dialogue.warfront.opt.orders_ask_honest_work",
+   "response": "orders_offer",
+   "conditions": {
+    "role": [
+     "officer",
+     "quartermaster"
+    ],
+    "active_contract": [
+     "none"
+    ]
+   },
+   "effects": [
+    {
+     "type": "offer_order",
+     "pool": "standard"
+    }
+   ],
+   "weight": 7
+  },
+  {
+   "id": "orders_ask_extra_hands",
+   "text": "dialogue.warfront.opt.orders_ask_extra_hands",
+   "response": "orders_offer",
+   "conditions": {
+    "role": [
+     "officer",
+     "quartermaster"
+    ],
+    "active_contract": [
+     "none"
+    ]
+   },
+   "effects": [
+    {
+     "type": "offer_order",
+     "pool": "standard"
+    }
+   ],
+   "weight": 8
+  },
+  {
+   "id": "orders_ask_fetch_haul_hit",
+   "text": "dialogue.warfront.opt.orders_ask_fetch_haul_hit",
+   "response": "orders_offer",
+   "conditions": {
+    "role": [
+     "officer",
+     "quartermaster"
+    ],
+    "active_contract": [
+     "none"
+    ]
+   },
+   "effects": [
+    {
+     "type": "offer_order",
+     "pool": "standard"
+    }
+   ],
+   "weight": 7
+  },
+  {
+   "id": "orders_ask_mouth_shut",
+   "text": "dialogue.warfront.opt.orders_ask_mouth_shut",
+   "response": "orders_offer",
+   "conditions": {
+    "role": [
+     "officer",
+     "quartermaster"
+    ],
+    "active_contract": [
+     "none"
+    ]
+   },
+   "effects": [
+    {
+     "type": "offer_order",
+     "pool": "standard"
+    }
+   ],
+   "weight": 6
+  },
+  {
+   "id": "orders_ask_earn_coin",
+   "text": "dialogue.warfront.opt.orders_ask_earn_coin",
+   "response": "orders_offer",
+   "conditions": {
+    "role": [
+     "officer",
+     "quartermaster"
+    ],
+    "active_contract": [
+     "none"
+    ]
+   },
+   "effects": [
+    {
+     "type": "offer_order",
+     "pool": "standard"
+    }
+   ],
+   "weight": 7
+  },
+  {
+   "id": "orders_ask_pay_to_handle",
+   "text": "dialogue.warfront.opt.orders_ask_pay_to_handle",
+   "response": "orders_offer",
+   "conditions": {
+    "role": [
+     "officer",
+     "quartermaster"
+    ],
+    "active_contract": [
+     "none"
+    ]
+   },
+   "effects": [
+    {
+     "type": "offer_order",
+     "pool": "standard"
+    }
+   ],
+   "weight": 6
+  },
+  {
+   "id": "orders_ask_between_jobs",
+   "text": "dialogue.warfront.opt.orders_ask_between_jobs",
+   "response": "orders_offer",
+   "conditions": {
+    "role": [
+     "officer",
+     "quartermaster"
+    ],
+    "active_contract": [
+     "none"
+    ]
+   },
+   "effects": [
+    {
+     "type": "offer_order",
+     "pool": "standard"
+    }
+   ],
+   "weight": 6
+  },
+  {
+   "id": "orders_ask_short_handed",
+   "text": "dialogue.warfront.opt.orders_ask_short_handed",
+   "response": "orders_offer",
+   "conditions": {
+    "role": [
+     "officer",
+     "quartermaster"
+    ],
+    "active_contract": [
+     "none"
+    ]
+   },
+   "effects": [
+    {
+     "type": "offer_order",
+     "pool": "standard"
+    }
+   ],
+   "weight": 6
+  },
+  {
+   "id": "orders_ask_point_problem",
+   "text": "dialogue.warfront.opt.orders_ask_point_problem",
+   "response": "orders_offer",
+   "conditions": {
+    "role": [
+     "officer",
+     "quartermaster"
+    ],
+    "active_contract": [
+     "none"
+    ]
+   },
+   "effects": [
+    {
+     "type": "offer_order",
+     "pool": "standard"
+    }
+   ],
+   "weight": 7
+  },
+  {
+   "id": "orders_ask_errands",
+   "text": "dialogue.warfront.opt.orders_ask_errands",
+   "response": "orders_offer",
+   "conditions": {
+    "role": [
+     "officer",
+     "quartermaster"
+    ],
+    "active_contract": [
+     "none"
+    ]
+   },
+   "effects": [
+    {
+     "type": "offer_order",
+     "pool": "standard"
+    }
+   ],
+   "weight": 6
+  },
+  {
+   "id": "orders_ask_carry_scout_fight",
+   "text": "dialogue.warfront.opt.orders_ask_carry_scout_fight",
+   "response": "orders_offer",
+   "conditions": {
+    "role": [
+     "officer",
+     "quartermaster"
+    ],
+    "active_contract": [
+     "none"
+    ]
+   },
+   "effects": [
+    {
+     "type": "offer_order",
+     "pool": "standard"
+    }
+   ],
+   "weight": 7
+  },
+  {
+   "id": "orders_ask_name_on_it",
+   "text": "dialogue.warfront.opt.orders_ask_name_on_it",
+   "response": "orders_offer",
+   "conditions": {
+    "role": [
+     "officer",
+     "quartermaster"
+    ],
+    "active_contract": [
+     "none"
+    ]
+   },
+   "effects": [
+    {
+     "type": "offer_order",
+     "pool": "standard"
+    }
+   ],
+   "weight": 6
+  },
+  {
+   "id": "orders_ask_hire_me",
+   "text": "dialogue.warfront.opt.orders_ask_hire_me",
+   "response": "orders_offer",
+   "conditions": {
+    "role": [
+     "officer",
+     "quartermaster"
+    ],
+    "active_contract": [
+     "none"
+    ]
+   },
+   "effects": [
+    {
+     "type": "offer_order",
+     "pool": "standard"
+    }
+   ],
+   "weight": 7
+  },
+  {
+   "id": "orders_ask_dirtiest",
+   "text": "dialogue.warfront.opt.orders_ask_dirtiest",
+   "response": "orders_offer",
+   "conditions": {
+    "role": [
+     "officer",
+     "quartermaster"
+    ],
+    "active_contract": [
+     "none"
+    ]
+   },
+   "effects": [
+    {
+     "type": "offer_order",
+     "pool": "standard"
+    }
+   ],
+   "weight": 5
+  },
+  {
+   "id": "orders_ask_beats_farming",
+   "text": "dialogue.warfront.opt.orders_ask_beats_farming",
+   "response": "orders_offer",
+   "conditions": {
+    "role": [
+     "officer",
+     "quartermaster"
+    ],
+    "active_contract": [
+     "none"
+    ]
+   },
+   "effects": [
+    {
+     "type": "offer_order",
+     "pool": "standard"
+    }
+   ],
+   "weight": 6
+  },
+  {
+   "id": "orders_ask_need_coin",
+   "text": "dialogue.warfront.opt.orders_ask_need_coin",
+   "response": "orders_offer",
+   "conditions": {
+    "role": [
+     "officer",
+     "quartermaster"
+    ],
+    "active_contract": [
+     "none"
+    ]
+   },
+   "effects": [
+    {
+     "type": "offer_order",
+     "pool": "standard"
+    }
+   ],
+   "weight": 7
+  },
+  {
+   "id": "orders_ask_something_useful",
+   "text": "dialogue.warfront.opt.orders_ask_something_useful",
+   "response": "orders_offer",
+   "conditions": {
+    "role": [
+     "officer",
+     "quartermaster"
+    ],
+    "active_contract": [
+     "none"
+    ]
+   },
+   "effects": [
+    {
+     "type": "offer_order",
+     "pool": "standard"
+    }
+   ],
+   "weight": 6
+  },
+  {
+   "id": "orders_penance_work_off",
+   "text": "dialogue.warfront.opt.orders_penance_work_off",
+   "response": "orders_offer_penance",
+   "conditions": {
+    "role": [
+     "officer",
+     "quartermaster"
+    ],
+    "active_contract": [
+     "none"
+    ],
+    "disposition": [
+     "negative"
+    ]
+   },
+   "effects": [
+    {
+     "type": "offer_order",
+     "pool": "penance"
+    }
+   ],
+   "weight": 9
+  },
+  {
+   "id": "orders_penance_sweat",
+   "text": "dialogue.warfront.opt.orders_penance_sweat",
+   "response": "orders_offer_penance",
+   "conditions": {
+    "role": [
+     "officer",
+     "quartermaster"
+    ],
+    "active_contract": [
+     "none"
+    ],
+    "disposition": [
+     "negative"
+    ]
+   },
+   "effects": [
+    {
+     "type": "offer_order",
+     "pool": "penance"
+    }
+   ],
+   "weight": 7
+  },
+  {
+   "id": "orders_penance_nobody_wants",
+   "text": "dialogue.warfront.opt.orders_penance_nobody_wants",
+   "response": "orders_offer_penance",
+   "conditions": {
+    "role": [
+     "officer",
+     "quartermaster"
+    ],
+    "active_contract": [
+     "none"
+    ],
+    "disposition": [
+     "negative"
+    ]
+   },
+   "effects": [
+    {
+     "type": "offer_order",
+     "pool": "penance"
+    }
+   ],
+   "weight": 7
+  },
+  {
+   "id": "orders_penance_pay_in_labor",
+   "text": "dialogue.warfront.opt.orders_penance_pay_in_labor",
+   "response": "orders_offer_penance",
+   "conditions": {
+    "role": [
+     "officer",
+     "quartermaster"
+    ],
+    "active_contract": [
+     "none"
+    ],
+    "disposition": [
+     "negative"
+    ]
+   },
+   "effects": [
+    {
+     "type": "offer_order",
+     "pool": "penance"
+    }
+   ],
+   "weight": 8
+  },
+  {
+   "id": "orders_penance_square_us",
+   "text": "dialogue.warfront.opt.orders_penance_square_us",
+   "response": "orders_offer_penance",
+   "conditions": {
+    "role": [
+     "officer",
+     "quartermaster"
+    ],
+    "active_contract": [
+     "none"
+    ],
+    "disposition": [
+     "negative"
+    ]
+   },
+   "effects": [
+    {
+     "type": "offer_order",
+     "pool": "penance"
+    }
+   ],
+   "weight": 7
+  },
+  {
+   "id": "orders_penance_ugly_jobs",
+   "text": "dialogue.warfront.opt.orders_penance_ugly_jobs",
+   "response": "orders_offer_penance",
+   "conditions": {
+    "role": [
+     "officer",
+     "quartermaster"
+    ],
+    "active_contract": [
+     "none"
+    ],
+    "disposition": [
+     "negative"
+    ]
+   },
+   "effects": [
+    {
+     "type": "offer_order",
+     "pool": "penance"
+    }
+   ],
+   "weight": 6
+  },
+  {
+   "id": "orders_penance_earn_back",
+   "text": "dialogue.warfront.opt.orders_penance_earn_back",
+   "response": "orders_offer_penance",
+   "conditions": {
+    "role": [
+     "officer",
+     "quartermaster"
+    ],
+    "active_contract": [
+     "none"
+    ],
+    "disposition": [
+     "negative"
+    ]
+   },
+   "effects": [
+    {
+     "type": "offer_order",
+     "pool": "penance"
+    }
+   ],
+   "weight": 7
+  },
+  {
+   "id": "orders_penance_hard_task",
+   "text": "dialogue.warfront.opt.orders_penance_hard_task",
+   "response": "orders_offer_penance",
+   "conditions": {
+    "role": [
+     "officer",
+     "quartermaster"
+    ],
+    "active_contract": [
+     "none"
+    ],
+    "disposition": [
+     "negative"
+    ]
+   },
+   "effects": [
+    {
+     "type": "offer_order",
+     "pool": "penance"
+    }
+   ],
+   "weight": 6
+  },
+  {
+   "id": "orders_penance_hands_apologize",
+   "text": "dialogue.warfront.opt.orders_penance_hands_apologize",
+   "response": "orders_offer_penance",
+   "conditions": {
+    "role": [
+     "officer",
+     "quartermaster"
+    ],
+    "active_contract": [
+     "none"
+    ],
+    "disposition": [
+     "negative"
+    ]
+   },
+   "effects": [
+    {
+     "type": "offer_order",
+     "pool": "penance"
+    }
+   ],
+   "weight": 6
+  },
+  {
+   "id": "orders_penance_fix_this",
+   "text": "dialogue.warfront.opt.orders_penance_fix_this",
+   "response": "orders_offer_penance",
+   "conditions": {
+    "role": [
+     "officer",
+     "quartermaster"
+    ],
+    "active_contract": [
+     "none"
+    ],
+    "disposition": [
+     "negative"
+    ]
+   },
+   "effects": [
+    {
+     "type": "offer_order",
+     "pool": "penance"
+    }
+   ],
+   "weight": 7
+  },
+  {
+   "id": "orders_grunt_tasks",
+   "text": "dialogue.warfront.opt.orders_grunt_tasks",
+   "response": "orders_redirect",
+   "conditions": {
+    "role": [
+     "grunt"
+    ]
+   },
+   "weight": 8
+  },
+  {
+   "id": "orders_grunt_personal",
+   "text": "dialogue.warfront.opt.orders_grunt_personal",
+   "response": "orders_redirect",
+   "conditions": {
+    "role": [
+     "grunt"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "orders_grunt_hiring",
+   "text": "dialogue.warfront.opt.orders_grunt_hiring",
+   "response": "orders_redirect",
+   "conditions": {
+    "role": [
+     "grunt"
+    ]
+   },
+   "weight": 8
+  },
+  {
+   "id": "orders_grunt_chores",
+   "text": "dialogue.warfront.opt.orders_grunt_chores",
+   "response": "orders_redirect",
+   "conditions": {
+    "role": [
+     "grunt"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "orders_grunt_shift",
+   "text": "dialogue.warfront.opt.orders_grunt_shift",
+   "response": "orders_redirect",
+   "conditions": {
+    "role": [
+     "grunt"
+    ]
+   },
+   "weight": 5
+  },
+  {
+   "id": "orders_grunt_few_emeralds",
+   "text": "dialogue.warfront.opt.orders_grunt_few_emeralds",
+   "response": "orders_redirect",
+   "conditions": {
+    "role": [
+     "grunt"
+    ]
+   },
+   "weight": 7
+  },
+  {
+   "id": "orders_grunt_for_hire",
+   "text": "dialogue.warfront.opt.orders_grunt_for_hire",
+   "response": "orders_redirect",
+   "conditions": {
+    "role": [
+     "grunt"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "orders_grunt_camp_work",
+   "text": "dialogue.warfront.opt.orders_grunt_camp_work",
+   "response": "orders_redirect",
+   "conditions": {
+    "role": [
+     "grunt"
+    ]
+   },
+   "weight": 7
+  },
+  {
+   "id": "orders_grunt_hand",
+   "text": "dialogue.warfront.opt.orders_grunt_hand",
+   "response": "orders_redirect",
+   "conditions": {
+    "role": [
+     "grunt"
+    ]
+   },
+   "weight": 7
+  },
+  {
+   "id": "orders_grunt_sign_up",
+   "text": "dialogue.warfront.opt.orders_grunt_sign_up",
+   "response": "orders_redirect",
+   "conditions": {
+    "role": [
+     "grunt"
+    ]
+   },
+   "weight": 7
+  },
+  {
+   "id": "orders_pay_what",
+   "text": "dialogue.warfront.opt.orders_pay_what",
+   "response": "orders_pay",
+   "conditions": {
+    "active_contract": [
+     "offered"
+    ]
+   },
+   "weight": 10
+  },
+  {
+   "id": "orders_pay_money_first",
+   "text": "dialogue.warfront.opt.orders_pay_money_first",
+   "response": "orders_pay",
+   "conditions": {
+    "active_contract": [
+     "offered"
+    ]
+   },
+   "weight": 8
+  },
+  {
+   "id": "orders_pay_how_many",
+   "text": "dialogue.warfront.opt.orders_pay_how_many",
+   "response": "orders_pay",
+   "conditions": {
+    "active_contract": [
+     "offered"
+    ]
+   },
+   "weight": 8
+  },
+  {
+   "id": "orders_pay_worth_time",
+   "text": "dialogue.warfront.opt.orders_pay_worth_time",
+   "response": "orders_pay",
+   "conditions": {
+    "active_contract": [
+     "offered"
+    ]
+   },
+   "weight": 7
+  },
+  {
+   "id": "orders_pay_what_get",
+   "text": "dialogue.warfront.opt.orders_pay_what_get",
+   "response": "orders_pay",
+   "conditions": {
+    "active_contract": [
+     "offered"
+    ]
+   },
+   "weight": 7
+  },
+  {
+   "id": "orders_pay_up_front",
+   "text": "dialogue.warfront.opt.orders_pay_up_front",
+   "response": "orders_pay",
+   "conditions": {
+    "active_contract": [
+     "offered"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "orders_pay_bonus",
+   "text": "dialogue.warfront.opt.orders_pay_bonus",
+   "response": "orders_pay",
+   "conditions": {
+    "active_contract": [
+     "offered"
+    ]
+   },
+   "weight": 5
+  },
+  {
+   "id": "orders_pay_reward",
+   "text": "dialogue.warfront.opt.orders_pay_reward",
+   "response": "orders_pay",
+   "conditions": {
+    "active_contract": [
+     "offered"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "orders_details_walk_through",
+   "text": "dialogue.warfront.opt.orders_details_walk_through",
+   "response": "orders_details",
+   "conditions": {
+    "active_contract": [
+     "offered"
+    ]
+   },
+   "weight": 9
+  },
+  {
+   "id": "orders_details_exactly",
+   "text": "dialogue.warfront.opt.orders_details_exactly",
+   "response": "orders_details",
+   "conditions": {
+    "active_contract": [
+     "offered"
+    ]
+   },
+   "weight": 9
+  },
+  {
+   "id": "orders_details_before_decide",
+   "text": "dialogue.warfront.opt.orders_details_before_decide",
+   "response": "orders_details",
+   "conditions": {
+    "active_contract": [
+     "offered"
+    ]
+   },
+   "weight": 8
+  },
+  {
+   "id": "orders_details_where",
+   "text": "dialogue.warfront.opt.orders_details_where",
+   "response": "orders_details",
+   "conditions": {
+    "active_contract": [
+     "offered"
+    ]
+   },
+   "weight": 7
+  },
+  {
+   "id": "orders_details_how_long",
+   "text": "dialogue.warfront.opt.orders_details_how_long",
+   "response": "orders_details",
+   "conditions": {
+    "active_contract": [
+     "offered"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "orders_details_fine_print",
+   "text": "dialogue.warfront.opt.orders_details_fine_print",
+   "response": "orders_details",
+   "conditions": {
+    "active_contract": [
+     "offered"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "orders_details_why_not_own",
+   "text": "dialogue.warfront.opt.orders_details_why_not_own",
+   "response": "orders_details",
+   "conditions": {
+    "active_contract": [
+     "offered"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "orders_details_catch",
+   "text": "dialogue.warfront.opt.orders_details_catch",
+   "response": "orders_details",
+   "conditions": {
+    "active_contract": [
+     "offered"
+    ]
+   },
+   "weight": 7
+  },
+  {
+   "id": "orders_risk_dangerous",
+   "text": "dialogue.warfront.opt.orders_risk_dangerous",
+   "response": "orders_risk",
+   "conditions": {
+    "active_contract": [
+     "offered"
+    ]
+   },
+   "weight": 8
+  },
+  {
+   "id": "orders_risk_killed",
+   "text": "dialogue.warfront.opt.orders_risk_killed",
+   "response": "orders_risk",
+   "conditions": {
+    "active_contract": [
+     "offered"
+    ]
+   },
+   "weight": 7
+  },
+  {
+   "id": "orders_risk_kill_me",
+   "text": "dialogue.warfront.opt.orders_risk_kill_me",
+   "response": "orders_risk",
+   "conditions": {
+    "active_contract": [
+     "offered"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "orders_risk_bring",
+   "text": "dialogue.warfront.opt.orders_risk_bring",
+   "response": "orders_risk",
+   "conditions": {
+    "active_contract": [
+     "offered"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "orders_risk_rate",
+   "text": "dialogue.warfront.opt.orders_risk_rate",
+   "response": "orders_risk",
+   "conditions": {
+    "active_contract": [
+     "offered"
+    ]
+   },
+   "weight": 5
+  },
+  {
+   "id": "orders_risk_died",
+   "text": "dialogue.warfront.opt.orders_risk_died",
+   "response": "orders_risk",
+   "conditions": {
+    "active_contract": [
+     "offered"
+    ]
+   },
+   "weight": 5
+  },
+  {
+   "id": "orders_accept_take_job",
+   "text": "dialogue.warfront.opt.orders_accept_take_job",
+   "response": "orders_accept",
+   "conditions": {
+    "active_contract": [
+     "offered"
+    ]
+   },
+   "effects": [
+    {
+     "type": "accept_order"
+    }
+   ],
+   "weight": 10
+  },
+  {
+   "id": "orders_accept_deal_done",
+   "text": "dialogue.warfront.opt.orders_accept_deal_done",
+   "response": "orders_accept",
+   "conditions": {
+    "active_contract": [
+     "offered"
+    ]
+   },
+   "effects": [
+    {
+     "type": "accept_order"
+    }
+   ],
+   "weight": 9
+  },
+  {
+   "id": "orders_accept_count_in",
+   "text": "dialogue.warfront.opt.orders_accept_count_in",
+   "response": "orders_accept",
+   "conditions": {
+    "active_contract": [
+     "offered"
+    ]
+   },
+   "effects": [
+    {
+     "type": "accept_order"
+    }
+   ],
+   "weight": 9
+  },
+  {
+   "id": "orders_accept_hired_worker",
+   "text": "dialogue.warfront.opt.orders_accept_hired_worker",
+   "response": "orders_accept",
+   "conditions": {
+    "active_contract": [
+     "offered"
+    ]
+   },
+   "effects": [
+    {
+     "type": "accept_order"
+    }
+   ],
+   "weight": 7
+  },
+  {
+   "id": "orders_accept_where_start",
+   "text": "dialogue.warfront.opt.orders_accept_where_start",
+   "response": "orders_accept",
+   "conditions": {
+    "active_contract": [
+     "offered"
+    ]
+   },
+   "effects": [
+    {
+     "type": "accept_order"
+    }
+   ],
+   "weight": 8
+  },
+  {
+   "id": "orders_accept_on_it",
+   "text": "dialogue.warfront.opt.orders_accept_on_it",
+   "response": "orders_accept",
+   "conditions": {
+    "active_contract": [
+     "offered"
+    ]
+   },
+   "effects": [
+    {
+     "type": "accept_order"
+    }
+   ],
+   "weight": 8
+  },
+  {
+   "id": "orders_accept_say_no_more",
+   "text": "dialogue.warfront.opt.orders_accept_say_no_more",
+   "response": "orders_accept",
+   "conditions": {
+    "active_contract": [
+     "offered"
+    ]
+   },
+   "effects": [
+    {
+     "type": "accept_order"
+    }
+   ],
+   "weight": 7
+  },
+  {
+   "id": "orders_accept_contract_mine",
+   "text": "dialogue.warfront.opt.orders_accept_contract_mine",
+   "response": "orders_accept",
+   "conditions": {
+    "active_contract": [
+     "offered"
+    ]
+   },
+   "effects": [
+    {
+     "type": "accept_order"
+    }
+   ],
+   "weight": 6
+  },
+  {
+   "id": "orders_accept_talked_into",
+   "text": "dialogue.warfront.opt.orders_accept_talked_into",
+   "response": "orders_accept",
+   "conditions": {
+    "active_contract": [
+     "offered"
+    ]
+   },
+   "effects": [
+    {
+     "type": "accept_order"
+    }
+   ],
+   "weight": 6
+  },
+  {
+   "id": "orders_accept_before_miss",
+   "text": "dialogue.warfront.opt.orders_accept_before_miss",
+   "response": "orders_accept",
+   "conditions": {
+    "active_contract": [
+     "offered"
+    ]
+   },
+   "effects": [
+    {
+     "type": "accept_order"
+    }
+   ],
+   "weight": 5
+  },
+  {
+   "id": "orders_accept_shake",
+   "text": "dialogue.warfront.opt.orders_accept_shake",
+   "response": "orders_accept",
+   "conditions": {
+    "active_contract": [
+     "offered"
+    ]
+   },
+   "effects": [
+    {
+     "type": "accept_order"
+    }
+   ],
+   "weight": 6
+  },
+  {
+   "id": "orders_accept_moving",
+   "text": "dialogue.warfront.opt.orders_accept_moving",
+   "response": "orders_accept",
+   "conditions": {
+    "active_contract": [
+     "offered"
+    ]
+   },
+   "effects": [
+    {
+     "type": "accept_order"
+    }
+   ],
+   "weight": 6
+  },
+  {
+   "id": "orders_decline_pass",
+   "text": "dialogue.warfront.opt.orders_decline_pass",
+   "response": "orders_decline",
+   "conditions": {
+    "active_contract": [
+     "offered"
+    ]
+   },
+   "effects": [
+    {
+     "type": "decline_order"
+    }
+   ],
+   "weight": 9
+  },
+  {
+   "id": "orders_decline_sit_out",
+   "text": "dialogue.warfront.opt.orders_decline_sit_out",
+   "response": "orders_decline",
+   "conditions": {
+    "active_contract": [
+     "offered"
+    ]
+   },
+   "effects": [
+    {
+     "type": "decline_order"
+    }
+   ],
+   "weight": 8
+  },
+  {
+   "id": "orders_decline_not_for_me",
+   "text": "dialogue.warfront.opt.orders_decline_not_for_me",
+   "response": "orders_decline",
+   "conditions": {
+    "active_contract": [
+     "offered"
+    ]
+   },
+   "effects": [
+    {
+     "type": "decline_order"
+    }
+   ],
+   "weight": 7
+  },
+  {
+   "id": "orders_decline_someone_else",
+   "text": "dialogue.warfront.opt.orders_decline_someone_else",
+   "response": "orders_decline",
+   "conditions": {
+    "active_contract": [
+     "offered"
+    ]
+   },
+   "effects": [
+    {
+     "type": "decline_order"
+    }
+   ],
+   "weight": 7
+  },
+  {
+   "id": "orders_decline_trouble",
+   "text": "dialogue.warfront.opt.orders_decline_trouble",
+   "response": "orders_decline",
+   "conditions": {
+    "active_contract": [
+     "offered"
+    ]
+   },
+   "effects": [
+    {
+     "type": "decline_order"
+    }
+   ],
+   "weight": 6
+  },
+  {
+   "id": "orders_decline_trap",
+   "text": "dialogue.warfront.opt.orders_decline_trap",
+   "response": "orders_decline",
+   "conditions": {
+    "active_contract": [
+     "offered"
+    ]
+   },
+   "effects": [
+    {
+     "type": "decline_order"
+    }
+   ],
+   "weight": 5
+  },
+  {
+   "id": "orders_decline_rather_not",
+   "text": "dialogue.warfront.opt.orders_decline_rather_not",
+   "response": "orders_decline",
+   "conditions": {
+    "active_contract": [
+     "offered"
+    ]
+   },
+   "effects": [
+    {
+     "type": "decline_order"
+    }
+   ],
+   "weight": 6
+  },
+  {
+   "id": "orders_decline_another_time",
+   "text": "dialogue.warfront.opt.orders_decline_another_time",
+   "response": "orders_decline",
+   "conditions": {
+    "active_contract": [
+     "offered"
+    ]
+   },
+   "effects": [
+    {
+     "type": "decline_order"
+    }
+   ],
+   "weight": 6
+  },
+  {
+   "id": "orders_decline_sweeten",
+   "text": "dialogue.warfront.opt.orders_decline_sweeten",
+   "response": "orders_decline",
+   "conditions": {
+    "active_contract": [
+     "offered"
+    ]
+   },
+   "effects": [
+    {
+     "type": "decline_order"
+    }
+   ],
+   "weight": 5
+  },
+  {
+   "id": "orders_decline_hard_pass",
+   "text": "dialogue.warfront.opt.orders_decline_hard_pass",
+   "response": "orders_decline",
+   "conditions": {
+    "active_contract": [
+     "offered"
+    ]
+   },
+   "effects": [
+    {
+     "type": "decline_order"
+    }
+   ],
+   "weight": 6
+  },
+  {
+   "id": "orders_turnin_collect",
+   "text": "dialogue.warfront.opt.orders_turnin_collect",
+   "response": "orders_turn_in",
+   "conditions": {
+    "active_contract": [
+     "complete_ready"
+    ]
+   },
+   "effects": [
+    {
+     "type": "turn_in_order"
+    }
+   ],
+   "weight": 10
+  },
+  {
+   "id": "orders_turnin_handled",
+   "text": "dialogue.warfront.opt.orders_turnin_handled",
+   "response": "orders_turn_in",
+   "conditions": {
+    "active_contract": [
+     "complete_ready"
+    ]
+   },
+   "effects": [
+    {
+     "type": "turn_in_order"
+    }
+   ],
+   "weight": 8
+  },
+  {
+   "id": "orders_turnin_dusted",
+   "text": "dialogue.warfront.opt.orders_turnin_dusted",
+   "response": "orders_turn_in",
+   "conditions": {
+    "active_contract": [
+     "complete_ready"
+    ]
+   },
+   "effects": [
+    {
+     "type": "turn_in_order"
+    }
+   ],
+   "weight": 7
+  },
+  {
+   "id": "orders_turnin_promised",
+   "text": "dialogue.warfront.opt.orders_turnin_promised",
+   "response": "orders_turn_in",
+   "conditions": {
+    "active_contract": [
+     "complete_ready"
+    ]
+   },
+   "effects": [
+    {
+     "type": "turn_in_order"
+    }
+   ],
+   "weight": 8
+  },
+  {
+   "id": "orders_turnin_solved",
+   "text": "dialogue.warfront.opt.orders_turnin_solved",
+   "response": "orders_turn_in",
+   "conditions": {
+    "active_contract": [
+     "complete_ready"
+    ]
+   },
+   "effects": [
+    {
+     "type": "turn_in_order"
+    }
+   ],
+   "weight": 7
+  },
+  {
+   "id": "orders_turnin_settle",
+   "text": "dialogue.warfront.opt.orders_turnin_settle",
+   "response": "orders_turn_in",
+   "conditions": {
+    "active_contract": [
+     "complete_ready"
+    ]
+   },
+   "effects": [
+    {
+     "type": "turn_in_order"
+    }
+   ],
+   "weight": 7
+  },
+  {
+   "id": "orders_turnin_every_bit",
+   "text": "dialogue.warfront.opt.orders_turnin_every_bit",
+   "response": "orders_turn_in",
+   "conditions": {
+    "active_contract": [
+     "complete_ready"
+    ]
+   },
+   "effects": [
+    {
+     "type": "turn_in_order"
+    }
+   ],
+   "weight": 7
+  },
+  {
+   "id": "orders_turnin_enjoyed",
+   "text": "dialogue.warfront.opt.orders_turnin_enjoyed",
+   "response": "orders_turn_in",
+   "conditions": {
+    "active_contract": [
+     "complete_ready"
+    ]
+   },
+   "effects": [
+    {
+     "type": "turn_in_order"
+    }
+   ],
+   "weight": 6
+  },
+  {
+   "id": "orders_turnin_pockets",
+   "text": "dialogue.warfront.opt.orders_turnin_pockets",
+   "response": "orders_turn_in",
+   "conditions": {
+    "active_contract": [
+     "complete_ready"
+    ]
+   },
+   "effects": [
+    {
+     "type": "turn_in_order"
+    }
+   ],
+   "weight": 6
+  },
+  {
+   "id": "orders_turnin_inspect",
+   "text": "dialogue.warfront.opt.orders_turnin_inspect",
+   "response": "orders_turn_in",
+   "conditions": {
+    "active_contract": [
+     "complete_ready"
+    ]
+   },
+   "effects": [
+    {
+     "type": "turn_in_order"
+    }
+   ],
+   "weight": 6
+  },
+  {
+   "id": "orders_turnin_history",
+   "text": "dialogue.warfront.opt.orders_turnin_history",
+   "response": "orders_turn_in",
+   "conditions": {
+    "active_contract": [
+     "complete_ready"
+    ]
+   },
+   "effects": [
+    {
+     "type": "turn_in_order"
+    }
+   ],
+   "weight": 6
+  },
+  {
+   "id": "orders_turnin_delivered",
+   "text": "dialogue.warfront.opt.orders_turnin_delivered",
+   "response": "orders_turn_in",
+   "conditions": {
+    "active_contract": [
+     "complete_ready"
+    ]
+   },
+   "effects": [
+    {
+     "type": "turn_in_order"
+    }
+   ],
+   "weight": 7
+  },
+  {
+   "id": "orders_turnin_hard_cost",
+   "text": "dialogue.warfront.opt.orders_turnin_hard_cost",
+   "response": "orders_turn_in_hard",
+   "conditions": {
+    "active_contract": [
+     "complete_ready"
+    ]
+   },
+   "effects": [
+    {
+     "type": "turn_in_order"
+    }
+   ],
+   "weight": 6
+  },
+  {
+   "id": "orders_turnin_hard_barely",
+   "text": "dialogue.warfront.opt.orders_turnin_hard_barely",
+   "response": "orders_turn_in_hard",
+   "conditions": {
+    "active_contract": [
+     "complete_ready"
+    ]
+   },
+   "effects": [
+    {
+     "type": "turn_in_order"
+    }
+   ],
+   "weight": 6
+  },
+  {
+   "id": "orders_turnin_hard_undersold",
+   "text": "dialogue.warfront.opt.orders_turnin_hard_undersold",
+   "response": "orders_turn_in_hard",
+   "conditions": {
+    "active_contract": [
+     "complete_ready"
+    ]
+   },
+   "effects": [
+    {
+     "type": "turn_in_order"
+    }
+   ],
+   "weight": 6
+  },
+  {
+   "id": "orders_turnin_hard_scars",
+   "text": "dialogue.warfront.opt.orders_turnin_hard_scars",
+   "response": "orders_turn_in_hard",
+   "conditions": {
+    "active_contract": [
+     "complete_ready"
+    ]
+   },
+   "effects": [
+    {
+     "type": "turn_in_order"
+    }
+   ],
+   "weight": 6
+  },
+  {
+   "id": "orders_turnin_hard_worse",
+   "text": "dialogue.warfront.opt.orders_turnin_hard_worse",
+   "response": "orders_turn_in_hard",
+   "conditions": {
+    "active_contract": [
+     "complete_ready"
+    ]
+   },
+   "effects": [
+    {
+     "type": "turn_in_order"
+    }
+   ],
+   "weight": 6
+  },
+  {
+   "id": "orders_turnin_hard_warn",
+   "text": "dialogue.warfront.opt.orders_turnin_hard_warn",
+   "response": "orders_turn_in_hard",
+   "conditions": {
+    "active_contract": [
+     "complete_ready"
+    ]
+   },
+   "effects": [
+    {
+     "type": "turn_in_order"
+    }
+   ],
+   "weight": 5
+  },
+  {
+   "id": "orders_status_still_working",
+   "text": "dialogue.warfront.opt.orders_status_still_working",
+   "response": "orders_status",
+   "conditions": {
+    "active_contract": [
+     "active"
+    ]
+   },
+   "weight": 9
+  },
+  {
+   "id": "orders_status_checking_in",
+   "text": "dialogue.warfront.opt.orders_status_checking_in",
+   "response": "orders_status",
+   "conditions": {
+    "active_contract": [
+     "active"
+    ]
+   },
+   "weight": 8
+  },
+  {
+   "id": "orders_status_not_forgotten",
+   "text": "dialogue.warfront.opt.orders_status_not_forgotten",
+   "response": "orders_status",
+   "conditions": {
+    "active_contract": [
+     "active"
+    ]
+   },
+   "weight": 7
+  },
+  {
+   "id": "orders_status_underway",
+   "text": "dialogue.warfront.opt.orders_status_underway",
+   "response": "orders_status",
+   "conditions": {
+    "active_contract": [
+     "active"
+    ]
+   },
+   "weight": 7
+  },
+  {
+   "id": "orders_status_half_done",
+   "text": "dialogue.warfront.opt.orders_status_half_done",
+   "response": "orders_status",
+   "conditions": {
+    "active_contract": [
+     "active"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "orders_status_take_time",
+   "text": "dialogue.warfront.opt.orders_status_take_time",
+   "response": "orders_status",
+   "conditions": {
+    "active_contract": [
+     "active"
+    ]
+   },
+   "weight": 7
+  },
+  {
+   "id": "orders_status_slow_moving",
+   "text": "dialogue.warfront.opt.orders_status_slow_moving",
+   "response": "orders_status",
+   "conditions": {
+    "active_contract": [
+     "active"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "orders_status_advice",
+   "text": "dialogue.warfront.opt.orders_status_advice",
+   "response": "orders_status",
+   "conditions": {
+    "active_contract": [
+     "active"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "orders_status_still_alive",
+   "text": "dialogue.warfront.opt.orders_status_still_alive",
+   "response": "orders_status",
+   "conditions": {
+    "active_contract": [
+     "active"
+    ]
+   },
+   "weight": 7
+  },
+  {
+   "id": "orders_status_not_slipped",
+   "text": "dialogue.warfront.opt.orders_status_not_slipped",
+   "response": "orders_status",
+   "conditions": {
+    "active_contract": [
+     "active"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "orders_status_passing",
+   "text": "dialogue.warfront.opt.orders_status_passing",
+   "response": "orders_status",
+   "conditions": {
+    "active_contract": [
+     "active"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "orders_status_rush",
+   "text": "dialogue.warfront.opt.orders_status_rush",
+   "response": "orders_status",
+   "conditions": {
+    "active_contract": [
+     "active"
+    ]
+   },
+   "weight": 5
+  },
+  {
+   "id": "orders_abandon_dropping",
+   "text": "dialogue.warfront.opt.orders_abandon_dropping",
+   "response": "orders_abandon",
+   "conditions": {
+    "active_contract": [
+     "active"
+    ]
+   },
+   "effects": [
+    {
+     "type": "abandon_order"
+    }
+   ],
+   "weight": 8
+  },
+  {
+   "id": "orders_abandon_quit",
+   "text": "dialogue.warfront.opt.orders_abandon_quit",
+   "response": "orders_abandon",
+   "conditions": {
+    "active_contract": [
+     "active"
+    ]
+   },
+   "effects": [
+    {
+     "type": "abandon_order"
+    }
+   ],
+   "weight": 7
+  },
+  {
+   "id": "orders_abandon_beyond_me",
+   "text": "dialogue.warfront.opt.orders_abandon_beyond_me",
+   "response": "orders_abandon",
+   "conditions": {
+    "active_contract": [
+     "active"
+    ]
+   },
+   "effects": [
+    {
+     "type": "abandon_order"
+    }
+   ],
+   "weight": 6
+  },
+  {
+   "id": "orders_abandon_take_back",
+   "text": "dialogue.warfront.opt.orders_abandon_take_back",
+   "response": "orders_abandon",
+   "conditions": {
+    "active_contract": [
+     "active"
+    ]
+   },
+   "effects": [
+    {
+     "type": "abandon_order"
+    }
+   ],
+   "weight": 6
+  },
+  {
+   "id": "orders_abandon_worst",
+   "text": "dialogue.warfront.opt.orders_abandon_worst",
+   "response": "orders_abandon",
+   "conditions": {
+    "active_contract": [
+     "active"
+    ]
+   },
+   "effects": [
+    {
+     "type": "abandon_order"
+    }
+   ],
+   "weight": 5
+  },
+  {
+   "id": "orders_abandon_unfinished",
+   "text": "dialogue.warfront.opt.orders_abandon_unfinished",
+   "response": "orders_abandon",
+   "conditions": {
+    "active_contract": [
+     "active"
+    ]
+   },
+   "effects": [
+    {
+     "type": "abandon_order"
+    }
+   ],
+   "weight": 5
+  },
+  {
+   "id": "orders_abandon_keep_pay",
+   "text": "dialogue.warfront.opt.orders_abandon_keep_pay",
+   "response": "orders_abandon",
+   "conditions": {
+    "active_contract": [
+     "active"
+    ]
+   },
+   "effects": [
+    {
+     "type": "abandon_order"
+    }
+   ],
+   "weight": 6
+  },
+  {
+   "id": "orders_abandon_cancel",
+   "text": "dialogue.warfront.opt.orders_abandon_cancel",
+   "response": "orders_abandon",
+   "conditions": {
+    "active_contract": [
+     "active"
+    ]
+   },
+   "effects": [
+    {
+     "type": "abandon_order"
+    }
+   ],
+   "weight": 6
+  }
+ ]
+}

@@ -1,0 +1,1185 @@
+{
+ "category": "situational",
+ "options": [
+  {
+   "id": "situational_long_night",
+   "text": "dialogue.warfront.opt.situational_long_night",
+   "response": "situational_night_watch",
+   "conditions": {
+    "time": [
+     "night"
+    ]
+   },
+   "weight": 8
+  },
+  {
+   "id": "situational_quiet_watch",
+   "text": "dialogue.warfront.opt.situational_quiet_watch",
+   "response": "situational_night_watch",
+   "conditions": {
+    "time": [
+     "night"
+    ]
+   },
+   "weight": 7
+  },
+  {
+   "id": "situational_stars",
+   "text": "dialogue.warfront.opt.situational_stars",
+   "response": "situational_night_watch",
+   "conditions": {
+    "time": [
+     "night"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "situational_cold_night",
+   "text": "dialogue.warfront.opt.situational_cold_night",
+   "response": "situational_night_watch",
+   "conditions": {
+    "time": [
+     "night"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "situational_keep_awake",
+   "text": "dialogue.warfront.opt.situational_keep_awake",
+   "response": "situational_night_watch",
+   "conditions": {
+    "time": [
+     "night"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "situational_night_company",
+   "text": "dialogue.warfront.opt.situational_night_company",
+   "response": "situational_night_watch",
+   "conditions": {
+    "time": [
+     "night"
+    ],
+    "disposition": [
+     "positive"
+    ]
+   },
+   "weight": 5
+  },
+  {
+   "id": "situational_night_jumpy",
+   "text": "dialogue.warfront.opt.situational_night_jumpy",
+   "response": "situational_night_watch",
+   "conditions": {
+    "time": [
+     "night"
+    ]
+   },
+   "weight": 5
+  },
+  {
+   "id": "situational_dark_early",
+   "text": "dialogue.warfront.opt.situational_dark_early",
+   "response": "situational_night_watch",
+   "conditions": {
+    "time": [
+     "night"
+    ]
+   },
+   "weight": 5
+  },
+  {
+   "id": "situational_on_till_dawn",
+   "text": "dialogue.warfront.opt.situational_on_till_dawn",
+   "response": "situational_night_watch",
+   "conditions": {
+    "time": [
+     "night"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "situational_night_miss_most",
+   "text": "dialogue.warfront.opt.situational_night_miss_most",
+   "response": "situational_night_watch",
+   "conditions": {
+    "time": [
+     "night"
+    ],
+    "disposition": [
+     "positive"
+    ]
+   },
+   "weight": 5
+  },
+  {
+   "id": "situational_morning_sleep",
+   "text": "dialogue.warfront.opt.situational_morning_sleep",
+   "response": "situational_day_watch",
+   "conditions": {
+    "time": [
+     "day"
+    ]
+   },
+   "weight": 7
+  },
+  {
+   "id": "situational_hot_day",
+   "text": "dialogue.warfront.opt.situational_hot_day",
+   "response": "situational_day_watch",
+   "conditions": {
+    "time": [
+     "day"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "situational_slow_day",
+   "text": "dialogue.warfront.opt.situational_slow_day",
+   "response": "situational_day_watch",
+   "conditions": {
+    "time": [
+     "day"
+    ]
+   },
+   "weight": 7
+  },
+  {
+   "id": "situational_good_light",
+   "text": "dialogue.warfront.opt.situational_good_light",
+   "response": "situational_day_watch",
+   "conditions": {
+    "time": [
+     "day"
+    ]
+   },
+   "weight": 5
+  },
+  {
+   "id": "situational_day_drills",
+   "text": "dialogue.warfront.opt.situational_day_drills",
+   "response": "situational_day_watch",
+   "conditions": {
+    "time": [
+     "day"
+    ]
+   },
+   "weight": 5
+  },
+  {
+   "id": "situational_made_it_through",
+   "text": "dialogue.warfront.opt.situational_made_it_through",
+   "response": "situational_day_watch",
+   "conditions": {
+    "time": [
+     "day"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "situational_day_breakfast",
+   "text": "dialogue.warfront.opt.situational_day_breakfast",
+   "response": "situational_day_watch",
+   "conditions": {
+    "time": [
+     "day"
+    ]
+   },
+   "weight": 5
+  },
+  {
+   "id": "situational_day_dust",
+   "text": "dialogue.warfront.opt.situational_day_dust",
+   "response": "situational_day_watch",
+   "conditions": {
+    "time": [
+     "day"
+    ]
+   },
+   "weight": 5
+  },
+  {
+   "id": "situational_day_birds",
+   "text": "dialogue.warfront.opt.situational_day_birds",
+   "response": "situational_day_watch",
+   "conditions": {
+    "time": [
+     "day"
+    ]
+   },
+   "weight": 4
+  },
+  {
+   "id": "situational_close_call",
+   "text": "dialogue.warfront.opt.situational_close_call",
+   "response": "situational_post_combat",
+   "conditions": {
+    "recent_combat": true
+   },
+   "weight": 8
+  },
+  {
+   "id": "situational_still_standing",
+   "text": "dialogue.warfront.opt.situational_still_standing",
+   "response": "situational_post_combat",
+   "conditions": {
+    "recent_combat": true
+   },
+   "weight": 7
+  },
+  {
+   "id": "situational_you_hurt",
+   "text": "dialogue.warfront.opt.situational_you_hurt",
+   "response": "situational_post_combat",
+   "conditions": {
+    "recent_combat": true
+   },
+   "weight": 7
+  },
+  {
+   "id": "situational_fight_well",
+   "text": "dialogue.warfront.opt.situational_fight_well",
+   "response": "situational_post_combat",
+   "conditions": {
+    "recent_combat": true
+   },
+   "weight": 6
+  },
+  {
+   "id": "situational_what_happened",
+   "text": "dialogue.warfront.opt.situational_what_happened",
+   "response": "situational_post_combat",
+   "conditions": {
+    "recent_combat": true
+   },
+   "weight": 6
+  },
+  {
+   "id": "situational_they_gone",
+   "text": "dialogue.warfront.opt.situational_they_gone",
+   "response": "situational_post_combat",
+   "conditions": {
+    "recent_combat": true
+   },
+   "weight": 6
+  },
+  {
+   "id": "situational_more_coming",
+   "text": "dialogue.warfront.opt.situational_more_coming",
+   "response": "situational_post_combat",
+   "conditions": {
+    "recent_combat": true
+   },
+   "weight": 6
+  },
+  {
+   "id": "situational_get_easier",
+   "text": "dialogue.warfront.opt.situational_get_easier",
+   "response": "situational_post_combat",
+   "conditions": {
+    "recent_combat": true
+   },
+   "weight": 5
+  },
+  {
+   "id": "situational_hands_shaking",
+   "text": "dialogue.warfront.opt.situational_hands_shaking",
+   "response": "situational_post_combat",
+   "conditions": {
+    "recent_combat": true
+   },
+   "weight": 4
+  },
+  {
+   "id": "situational_won_counts",
+   "text": "dialogue.warfront.opt.situational_won_counts",
+   "response": "situational_post_combat",
+   "conditions": {
+    "recent_combat": true
+   },
+   "weight": 5
+  },
+  {
+   "id": "situational_lose_anyone",
+   "text": "dialogue.warfront.opt.situational_lose_anyone",
+   "response": "situational_post_combat",
+   "conditions": {
+    "recent_combat": true
+   },
+   "weight": 5
+  },
+  {
+   "id": "situational_gate_through",
+   "text": "dialogue.warfront.opt.situational_gate_through",
+   "response": "situational_gate",
+   "conditions": {
+    "location": [
+     "in_base"
+    ]
+   },
+   "weight": 8
+  },
+  {
+   "id": "situational_gate_visit",
+   "text": "dialogue.warfront.opt.situational_gate_visit",
+   "response": "situational_gate",
+   "conditions": {
+    "location": [
+     "in_base"
+    ]
+   },
+   "weight": 7
+  },
+  {
+   "id": "situational_gate_look_around",
+   "text": "dialogue.warfront.opt.situational_gate_look_around",
+   "response": "situational_gate",
+   "conditions": {
+    "location": [
+     "in_base"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "situational_gate_rules",
+   "text": "dialogue.warfront.opt.situational_gate_rules",
+   "response": "situational_gate",
+   "conditions": {
+    "location": [
+     "in_base"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "situational_gate_trade_day",
+   "text": "dialogue.warfront.opt.situational_gate_trade_day",
+   "response": "situational_gate",
+   "conditions": {
+    "location": [
+     "in_base"
+    ]
+   },
+   "weight": 5
+  },
+  {
+   "id": "situational_gate_bed",
+   "text": "dialogue.warfront.opt.situational_gate_bed",
+   "response": "situational_gate",
+   "conditions": {
+    "location": [
+     "in_base"
+    ],
+    "disposition": [
+     "positive"
+    ]
+   },
+   "weight": 5
+  },
+  {
+   "id": "situational_gate_solid_walls",
+   "text": "dialogue.warfront.opt.situational_gate_solid_walls",
+   "response": "situational_gate",
+   "conditions": {
+    "location": [
+     "in_base"
+    ]
+   },
+   "weight": 5
+  },
+  {
+   "id": "situational_gate_busy_post",
+   "text": "dialogue.warfront.opt.situational_gate_busy_post",
+   "response": "situational_gate",
+   "conditions": {
+    "location": [
+     "in_base"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "situational_gate_new_faces",
+   "text": "dialogue.warfront.opt.situational_gate_new_faces",
+   "response": "situational_gate",
+   "conditions": {
+    "location": [
+     "in_base"
+    ]
+   },
+   "weight": 4
+  },
+  {
+   "id": "situational_gate_safe_inside",
+   "text": "dialogue.warfront.opt.situational_gate_safe_inside",
+   "response": "situational_gate",
+   "conditions": {
+    "location": [
+     "in_base"
+    ]
+   },
+   "weight": 5
+  },
+  {
+   "id": "situational_base_food_smell",
+   "text": "dialogue.warfront.opt.situational_base_food_smell",
+   "response": "situational_base_post",
+   "conditions": {
+    "location": [
+     "in_base"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "situational_base_drill_hard",
+   "text": "dialogue.warfront.opt.situational_base_drill_hard",
+   "response": "situational_base_post",
+   "conditions": {
+    "location": [
+     "in_base"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "situational_base_long_posted",
+   "text": "dialogue.warfront.opt.situational_base_long_posted",
+   "response": "situational_base_post",
+   "conditions": {
+    "location": [
+     "in_base"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "situational_base_between_alarms",
+   "text": "dialogue.warfront.opt.situational_base_between_alarms",
+   "response": "situational_base_post",
+   "conditions": {
+    "location": [
+     "in_base"
+    ]
+   },
+   "weight": 5
+  },
+  {
+   "id": "situational_base_ever_home",
+   "text": "dialogue.warfront.opt.situational_base_ever_home",
+   "response": "situational_base_post",
+   "conditions": {
+    "location": [
+     "in_base"
+    ],
+    "disposition": [
+     "positive"
+    ]
+   },
+   "weight": 5
+  },
+  {
+   "id": "situational_base_walls_hold",
+   "text": "dialogue.warfront.opt.situational_base_walls_hold",
+   "response": "situational_base_post",
+   "conditions": {
+    "location": [
+     "in_base"
+    ]
+   },
+   "weight": 4
+  },
+  {
+   "id": "situational_base_recruits",
+   "text": "dialogue.warfront.opt.situational_base_recruits",
+   "response": "situational_base_post",
+   "conditions": {
+    "location": [
+     "in_base"
+    ]
+   },
+   "weight": 5
+  },
+  {
+   "id": "situational_base_pay_enough",
+   "text": "dialogue.warfront.opt.situational_base_pay_enough",
+   "response": "situational_base_post",
+   "conditions": {
+    "location": [
+     "in_base"
+    ]
+   },
+   "weight": 5
+  },
+  {
+   "id": "situational_base_banner_flown",
+   "text": "dialogue.warfront.opt.situational_base_banner_flown",
+   "response": "situational_base_post",
+   "conditions": {
+    "location": [
+     "in_base"
+    ]
+   },
+   "weight": 5
+  },
+  {
+   "id": "situational_base_quiet_corner",
+   "text": "dialogue.warfront.opt.situational_base_quiet_corner",
+   "response": "situational_base_post",
+   "conditions": {
+    "location": [
+     "in_base"
+    ]
+   },
+   "weight": 5
+  },
+  {
+   "id": "situational_patrol_unexpected",
+   "text": "dialogue.warfront.opt.situational_patrol_unexpected",
+   "response": "situational_patrol_meet",
+   "conditions": {
+    "location": [
+     "patrol"
+    ]
+   },
+   "weight": 8
+  },
+  {
+   "id": "situational_patrol_startled",
+   "text": "dialogue.warfront.opt.situational_patrol_startled",
+   "response": "situational_patrol_meet",
+   "conditions": {
+    "location": [
+     "patrol"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "situational_patrol_far_walk",
+   "text": "dialogue.warfront.opt.situational_patrol_far_walk",
+   "response": "situational_patrol_meet",
+   "conditions": {
+    "location": [
+     "patrol"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "situational_patrol_boots",
+   "text": "dialogue.warfront.opt.situational_patrol_boots",
+   "response": "situational_patrol_meet",
+   "conditions": {
+    "location": [
+     "patrol"
+    ]
+   },
+   "weight": 5
+  },
+  {
+   "id": "situational_patrol_share_fire",
+   "text": "dialogue.warfront.opt.situational_patrol_share_fire",
+   "response": "situational_patrol_meet",
+   "conditions": {
+    "location": [
+     "patrol"
+    ],
+    "disposition": [
+     "positive"
+    ]
+   },
+   "weight": 5
+  },
+  {
+   "id": "situational_patrol_heavy_packs",
+   "text": "dialogue.warfront.opt.situational_patrol_heavy_packs",
+   "response": "situational_patrol_meet",
+   "conditions": {
+    "location": [
+     "patrol"
+    ]
+   },
+   "weight": 4
+  },
+  {
+   "id": "situational_patrol_which_way",
+   "text": "dialogue.warfront.opt.situational_patrol_which_way",
+   "response": "situational_patrol_meet",
+   "conditions": {
+    "location": [
+     "patrol"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "situational_patrol_all_quiet",
+   "text": "dialogue.warfront.opt.situational_patrol_all_quiet",
+   "response": "situational_patrol_meet",
+   "conditions": {
+    "location": [
+     "patrol"
+    ]
+   },
+   "weight": 7
+  },
+  {
+   "id": "situational_patrol_dog_tired",
+   "text": "dialogue.warfront.opt.situational_patrol_dog_tired",
+   "response": "situational_patrol_meet",
+   "conditions": {
+    "location": [
+     "patrol"
+    ]
+   },
+   "weight": 5
+  },
+  {
+   "id": "situational_patrol_pass_by",
+   "text": "dialogue.warfront.opt.situational_patrol_pass_by",
+   "response": "situational_patrol_meet",
+   "conditions": {
+    "location": [
+     "patrol"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "situational_wild_far_road",
+   "text": "dialogue.warfront.opt.situational_wild_far_road",
+   "response": "situational_wild_meet",
+   "conditions": {
+    "location": [
+     "wilderness"
+    ]
+   },
+   "weight": 7
+  },
+  {
+   "id": "situational_wild_alone",
+   "text": "dialogue.warfront.opt.situational_wild_alone",
+   "response": "situational_wild_meet",
+   "conditions": {
+    "location": [
+     "wilderness"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "situational_wild_hunting",
+   "text": "dialogue.warfront.opt.situational_wild_hunting",
+   "response": "situational_wild_meet",
+   "conditions": {
+    "location": [
+     "wilderness"
+    ]
+   },
+   "weight": 5
+  },
+  {
+   "id": "situational_wild_beautiful",
+   "text": "dialogue.warfront.opt.situational_wild_beautiful",
+   "response": "situational_wild_meet",
+   "conditions": {
+    "location": [
+     "wilderness"
+    ]
+   },
+   "weight": 5
+  },
+  {
+   "id": "situational_wild_off_path",
+   "text": "dialogue.warfront.opt.situational_wild_off_path",
+   "response": "situational_wild_meet",
+   "conditions": {
+    "location": [
+     "wilderness"
+    ]
+   },
+   "weight": 5
+  },
+  {
+   "id": "situational_wild_camp_share",
+   "text": "dialogue.warfront.opt.situational_wild_camp_share",
+   "response": "situational_wild_meet",
+   "conditions": {
+    "location": [
+     "wilderness"
+    ],
+    "disposition": [
+     "positive"
+    ]
+   },
+   "weight": 5
+  },
+  {
+   "id": "situational_wild_no_witnesses",
+   "text": "dialogue.warfront.opt.situational_wild_no_witnesses",
+   "response": "situational_wild_meet",
+   "conditions": {
+    "location": [
+     "wilderness"
+    ],
+    "disposition": [
+     "negative"
+    ]
+   },
+   "weight": 3
+  },
+  {
+   "id": "situational_wild_what_brings",
+   "text": "dialogue.warfront.opt.situational_wild_what_brings",
+   "response": "situational_wild_meet",
+   "conditions": {
+    "location": [
+     "wilderness"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "situational_wild_supplies_low",
+   "text": "dialogue.warfront.opt.situational_wild_supplies_low",
+   "response": "situational_wild_meet",
+   "conditions": {
+    "location": [
+     "wilderness"
+    ]
+   },
+   "weight": 4
+  },
+  {
+   "id": "situational_wild_same_direction",
+   "text": "dialogue.warfront.opt.situational_wild_same_direction",
+   "response": "situational_wild_meet",
+   "conditions": {
+    "location": [
+     "wilderness"
+    ]
+   },
+   "weight": 5
+  },
+  {
+   "id": "situational_tension_here_again",
+   "text": "dialogue.warfront.opt.situational_tension_here_again",
+   "response": "situational_blood_tension",
+   "conditions": {
+    "has_killed_this_faction": true,
+    "recent_combat": true
+   },
+   "weight": 7
+  },
+  {
+   "id": "situational_tension_no_fight",
+   "text": "dialogue.warfront.opt.situational_tension_no_fight",
+   "response": "situational_blood_tension",
+   "conditions": {
+    "has_killed_this_faction": true,
+    "recent_combat": true
+   },
+   "weight": 8
+  },
+  {
+   "id": "situational_tension_walk_away",
+   "text": "dialogue.warfront.opt.situational_tension_walk_away",
+   "response": "situational_blood_tension",
+   "conditions": {
+    "has_killed_this_faction": true,
+    "recent_combat": true
+   },
+   "weight": 7
+  },
+  {
+   "id": "situational_tension_your_move",
+   "text": "dialogue.warfront.opt.situational_tension_your_move",
+   "response": "situational_blood_tension",
+   "conditions": {
+    "has_killed_this_faction": true,
+    "recent_combat": true
+   },
+   "weight": 4
+  },
+  {
+   "id": "situational_tension_sorry",
+   "text": "dialogue.warfront.opt.situational_tension_sorry",
+   "response": "situational_blood_tension",
+   "conditions": {
+    "has_killed_this_faction": true,
+    "recent_combat": true
+   },
+   "weight": 6
+  },
+  {
+   "id": "situational_tension_staring",
+   "text": "dialogue.warfront.opt.situational_tension_staring",
+   "response": "situational_blood_tension",
+   "conditions": {
+    "has_killed_this_faction": true,
+    "recent_combat": true
+   },
+   "weight": 5
+  },
+  {
+   "id": "situational_tension_even_yet",
+   "text": "dialogue.warfront.opt.situational_tension_even_yet",
+   "response": "situational_blood_tension",
+   "conditions": {
+    "has_killed_this_faction": true,
+    "recent_combat": true
+   },
+   "weight": 5
+  },
+  {
+   "id": "situational_tension_blades_down",
+   "text": "dialogue.warfront.opt.situational_tension_blades_down",
+   "response": "situational_blood_tension",
+   "conditions": {
+    "has_killed_this_faction": true,
+    "recent_combat": true
+   },
+   "weight": 6
+  },
+  {
+   "id": "situational_tension_next_time",
+   "text": "dialogue.warfront.opt.situational_tension_next_time",
+   "response": "situational_blood_tension",
+   "conditions": {
+    "has_killed_this_faction": true,
+    "recent_combat": true
+   },
+   "weight": 4
+  },
+  {
+   "id": "situational_nf_out_late",
+   "text": "dialogue.warfront.opt.situational_nf_out_late",
+   "response": "situational_night_field",
+   "conditions": {
+    "time": [
+     "night"
+    ],
+    "location": [
+     "patrol",
+     "wilderness"
+    ]
+   },
+   "weight": 7
+  },
+  {
+   "id": "situational_nf_cold_watch",
+   "text": "dialogue.warfront.opt.situational_nf_cold_watch",
+   "response": "situational_night_field",
+   "conditions": {
+    "time": [
+     "night"
+    ],
+    "location": [
+     "patrol",
+     "wilderness"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "situational_nf_see_moving",
+   "text": "dialogue.warfront.opt.situational_nf_see_moving",
+   "response": "situational_night_field",
+   "conditions": {
+    "time": [
+     "night"
+    ],
+    "location": [
+     "patrol",
+     "wilderness"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "situational_nf_no_fire",
+   "text": "dialogue.warfront.opt.situational_nf_no_fire",
+   "response": "situational_night_field",
+   "conditions": {
+    "time": [
+     "night"
+    ],
+    "location": [
+     "patrol",
+     "wilderness"
+    ]
+   },
+   "weight": 5
+  },
+  {
+   "id": "situational_nf_moonlight",
+   "text": "dialogue.warfront.opt.situational_nf_moonlight",
+   "response": "situational_night_field",
+   "conditions": {
+    "time": [
+     "night"
+    ],
+    "location": [
+     "patrol",
+     "wilderness"
+    ]
+   },
+   "weight": 5
+  },
+  {
+   "id": "situational_nf_nearly_walked",
+   "text": "dialogue.warfront.opt.situational_nf_nearly_walked",
+   "response": "situational_night_field",
+   "conditions": {
+    "time": [
+     "night"
+    ],
+    "location": [
+     "patrol",
+     "wilderness"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "situational_nf_dark_hours",
+   "text": "dialogue.warfront.opt.situational_nf_dark_hours",
+   "response": "situational_night_field",
+   "conditions": {
+    "time": [
+     "night"
+    ],
+    "location": [
+     "patrol",
+     "wilderness"
+    ]
+   },
+   "weight": 5
+  },
+  {
+   "id": "situational_nf_sit_up",
+   "text": "dialogue.warfront.opt.situational_nf_sit_up",
+   "response": "situational_night_field",
+   "conditions": {
+    "time": [
+     "night"
+    ],
+    "location": [
+     "patrol",
+     "wilderness"
+    ],
+    "disposition": [
+     "positive"
+    ]
+   },
+   "weight": 5
+  },
+  {
+   "id": "situational_nf_wolves",
+   "text": "dialogue.warfront.opt.situational_nf_wolves",
+   "response": "situational_night_field",
+   "conditions": {
+    "time": [
+     "night"
+    ],
+    "location": [
+     "patrol",
+     "wilderness"
+    ]
+   },
+   "weight": 5
+  },
+  {
+   "id": "situational_aid_wounded",
+   "text": "dialogue.warfront.opt.situational_aid_wounded",
+   "response": "situational_aftermath_aid",
+   "conditions": {
+    "recent_combat": true
+   },
+   "weight": 7
+  },
+  {
+   "id": "situational_aid_bandages",
+   "text": "dialogue.warfront.opt.situational_aid_bandages",
+   "response": "situational_aftermath_aid",
+   "conditions": {
+    "recent_combat": true
+   },
+   "weight": 6
+  },
+  {
+   "id": "situational_aid_food_water",
+   "text": "dialogue.warfront.opt.situational_aid_food_water",
+   "response": "situational_aftermath_aid",
+   "conditions": {
+    "recent_combat": true
+   },
+   "weight": 6
+  },
+  {
+   "id": "situational_aid_carry",
+   "text": "dialogue.warfront.opt.situational_aid_carry",
+   "response": "situational_aftermath_aid",
+   "conditions": {
+    "recent_combat": true
+   },
+   "weight": 5
+  },
+  {
+   "id": "situational_aid_who_attacked",
+   "text": "dialogue.warfront.opt.situational_aid_who_attacked",
+   "response": "situational_aftermath_aid",
+   "conditions": {
+    "recent_combat": true
+   },
+   "weight": 6
+  },
+  {
+   "id": "situational_aid_bury",
+   "text": "dialogue.warfront.opt.situational_aid_bury",
+   "response": "situational_aftermath_aid",
+   "conditions": {
+    "recent_combat": true
+   },
+   "weight": 4
+  },
+  {
+   "id": "situational_aid_keep_watch",
+   "text": "dialogue.warfront.opt.situational_aid_keep_watch",
+   "response": "situational_aftermath_aid",
+   "conditions": {
+    "recent_combat": true,
+    "disposition": [
+     "positive"
+    ]
+   },
+   "weight": 5
+  },
+  {
+   "id": "situational_aid_send_word",
+   "text": "dialogue.warfront.opt.situational_aid_send_word",
+   "response": "situational_aftermath_aid",
+   "conditions": {
+    "recent_combat": true
+   },
+   "weight": 5
+  },
+  {
+   "id": "situational_aid_handled",
+   "text": "dialogue.warfront.opt.situational_aid_handled",
+   "response": "situational_aftermath_aid",
+   "conditions": {
+    "recent_combat": true
+   },
+   "weight": 5
+  },
+  {
+   "id": "situational_wx_storm_coming",
+   "text": "dialogue.warfront.opt.situational_wx_storm_coming",
+   "response": "situational_weather_wild",
+   "conditions": {
+    "location": [
+     "wilderness"
+    ]
+   },
+   "weight": 7
+  },
+  {
+   "id": "situational_wx_rain_days",
+   "text": "dialogue.warfront.opt.situational_wx_rain_days",
+   "response": "situational_weather_wild",
+   "conditions": {
+    "location": [
+     "wilderness"
+    ]
+   },
+   "weight": 5
+  },
+  {
+   "id": "situational_wx_wind_howl",
+   "text": "dialogue.warfront.opt.situational_wx_wind_howl",
+   "response": "situational_weather_wild",
+   "conditions": {
+    "location": [
+     "wilderness"
+    ]
+   },
+   "weight": 5
+  },
+  {
+   "id": "situational_wx_heat_kills",
+   "text": "dialogue.warfront.opt.situational_wx_heat_kills",
+   "response": "situational_weather_wild",
+   "conditions": {
+    "location": [
+     "wilderness"
+    ]
+   },
+   "weight": 5
+  },
+  {
+   "id": "situational_wx_shelter_where",
+   "text": "dialogue.warfront.opt.situational_wx_shelter_where",
+   "response": "situational_weather_wild",
+   "conditions": {
+    "location": [
+     "wilderness"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "situational_wx_snow_early",
+   "text": "dialogue.warfront.opt.situational_wx_snow_early",
+   "response": "situational_weather_wild",
+   "conditions": {
+    "location": [
+     "wilderness"
+    ]
+   },
+   "weight": 4
+  },
+  {
+   "id": "situational_wx_lightning",
+   "text": "dialogue.warfront.opt.situational_wx_lightning",
+   "response": "situational_weather_wild",
+   "conditions": {
+    "location": [
+     "wilderness"
+    ]
+   },
+   "weight": 5
+  },
+  {
+   "id": "situational_wx_mud_trails",
+   "text": "dialogue.warfront.opt.situational_wx_mud_trails",
+   "response": "situational_weather_wild",
+   "conditions": {
+    "location": [
+     "wilderness"
+    ]
+   },
+   "weight": 5
+  },
+  {
+   "id": "situational_wx_break_soon",
+   "text": "dialogue.warfront.opt.situational_wx_break_soon",
+   "response": "situational_weather_wild",
+   "conditions": {
+    "location": [
+     "wilderness"
+    ]
+   },
+   "weight": 6
+  }
+ ]
+}

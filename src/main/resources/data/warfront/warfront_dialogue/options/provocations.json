@@ -1,0 +1,1792 @@
+{
+ "category": "provocations",
+ "options": [
+  {
+   "id": "provocations_dig_uniform",
+   "text": "dialogue.warfront.opt.provocations_dig_uniform",
+   "response": "provocations_mild_dig",
+   "effects": [
+    {
+     "type": "disposition",
+     "event": "insulted"
+    }
+   ],
+   "weight": 7
+  },
+  {
+   "id": "provocations_dig_army",
+   "text": "dialogue.warfront.opt.provocations_dig_army",
+   "response": "provocations_mild_dig",
+   "effects": [
+    {
+     "type": "disposition",
+     "event": "insulted"
+    }
+   ],
+   "weight": 7
+  },
+  {
+   "id": "provocations_dig_scarecrow",
+   "text": "dialogue.warfront.opt.provocations_dig_scarecrow",
+   "response": "provocations_mild_dig",
+   "effects": [
+    {
+     "type": "disposition",
+     "event": "insulted"
+    }
+   ],
+   "weight": 6
+  },
+  {
+   "id": "provocations_dig_scowl",
+   "text": "dialogue.warfront.opt.provocations_dig_scowl",
+   "response": "provocations_mild_dig",
+   "effects": [
+    {
+     "type": "disposition",
+     "event": "insulted"
+    }
+   ],
+   "weight": 6
+  },
+  {
+   "id": "provocations_dig_boots",
+   "text": "dialogue.warfront.opt.provocations_dig_boots",
+   "response": "provocations_mild_dig",
+   "effects": [
+    {
+     "type": "disposition",
+     "event": "insulted"
+    }
+   ],
+   "weight": 5
+  },
+  {
+   "id": "provocations_dig_shave",
+   "text": "dialogue.warfront.opt.provocations_dig_shave",
+   "response": "provocations_mild_dig",
+   "effects": [
+    {
+     "type": "disposition",
+     "event": "insulted"
+    }
+   ],
+   "weight": 5
+  },
+  {
+   "id": "provocations_dig_smell",
+   "text": "dialogue.warfront.opt.provocations_dig_smell",
+   "response": "provocations_mild_dig",
+   "effects": [
+    {
+     "type": "disposition",
+     "event": "insulted"
+    }
+   ],
+   "weight": 6
+  },
+  {
+   "id": "provocations_dig_helmet",
+   "text": "dialogue.warfront.opt.provocations_dig_helmet",
+   "response": "provocations_mild_dig",
+   "effects": [
+    {
+     "type": "disposition",
+     "event": "insulted"
+    }
+   ],
+   "weight": 5
+  },
+  {
+   "id": "provocations_dig_standing",
+   "text": "dialogue.warfront.opt.provocations_dig_standing",
+   "response": "provocations_mild_dig",
+   "effects": [
+    {
+     "type": "disposition",
+     "event": "insulted"
+    }
+   ],
+   "weight": 6
+  },
+  {
+   "id": "provocations_dig_sergeant",
+   "text": "dialogue.warfront.opt.provocations_dig_sergeant",
+   "response": "provocations_mild_dig",
+   "effects": [
+    {
+     "type": "disposition",
+     "event": "insulted"
+    }
+   ],
+   "weight": 5
+  },
+  {
+   "id": "provocations_dig_guard_dog",
+   "text": "dialogue.warfront.opt.provocations_dig_guard_dog",
+   "response": "provocations_mild_dig",
+   "effects": [
+    {
+     "type": "disposition",
+     "event": "insulted"
+    }
+   ],
+   "weight": 6
+  },
+  {
+   "id": "provocations_dig_glamour",
+   "text": "dialogue.warfront.opt.provocations_dig_glamour",
+   "response": "provocations_mild_dig",
+   "effects": [
+    {
+     "type": "disposition",
+     "event": "insulted"
+    }
+   ],
+   "weight": 6
+  },
+  {
+   "id": "provocations_dig_short_straw",
+   "text": "dialogue.warfront.opt.provocations_dig_short_straw",
+   "response": "provocations_mild_dig",
+   "effects": [
+    {
+     "type": "disposition",
+     "event": "insulted"
+    }
+   ],
+   "weight": 5
+  },
+  {
+   "id": "provocations_dig_bored",
+   "text": "dialogue.warfront.opt.provocations_dig_bored",
+   "response": "provocations_mild_dig",
+   "effects": [
+    {
+     "type": "disposition",
+     "event": "insulted"
+    }
+   ],
+   "weight": 5
+  },
+  {
+   "id": "provocations_doc_vostok_change",
+   "text": "dialogue.warfront.opt.provocations_doc_vostok_change",
+   "response": "provocations_doctrine_insult",
+   "conditions": {
+    "faction": [
+     "vostok"
+    ]
+   },
+   "effects": [
+    {
+     "type": "disposition",
+     "event": "insulted"
+    },
+    {
+     "type": "standing",
+     "amount": -3
+    }
+   ],
+   "weight": 6
+  },
+  {
+   "id": "provocations_doc_vostok_holes",
+   "text": "dialogue.warfront.opt.provocations_doc_vostok_holes",
+   "response": "provocations_doctrine_insult",
+   "conditions": {
+    "faction": [
+     "vostok"
+    ]
+   },
+   "effects": [
+    {
+     "type": "disposition",
+     "event": "insulted"
+    },
+    {
+     "type": "standing",
+     "amount": -3
+    }
+   ],
+   "weight": 6
+  },
+  {
+   "id": "provocations_doc_vostok_quota",
+   "text": "dialogue.warfront.opt.provocations_doc_vostok_quota",
+   "response": "provocations_doctrine_insult",
+   "conditions": {
+    "faction": [
+     "vostok"
+    ]
+   },
+   "effects": [
+    {
+     "type": "disposition",
+     "event": "insulted"
+    },
+    {
+     "type": "standing",
+     "amount": -3
+    }
+   ],
+   "weight": 5
+  },
+  {
+   "id": "provocations_doc_vostok_run",
+   "text": "dialogue.warfront.opt.provocations_doc_vostok_run",
+   "response": "provocations_doctrine_insult",
+   "conditions": {
+    "faction": [
+     "vostok"
+    ]
+   },
+   "effects": [
+    {
+     "type": "disposition",
+     "event": "insulted"
+    },
+    {
+     "type": "standing",
+     "amount": -3
+    }
+   ],
+   "weight": 5
+  },
+  {
+   "id": "provocations_doc_vostok_mile",
+   "text": "dialogue.warfront.opt.provocations_doc_vostok_mile",
+   "response": "provocations_doctrine_insult",
+   "conditions": {
+    "faction": [
+     "vostok"
+    ]
+   },
+   "effects": [
+    {
+     "type": "disposition",
+     "event": "insulted"
+    },
+    {
+     "type": "standing",
+     "amount": -3
+    }
+   ],
+   "weight": 5
+  },
+  {
+   "id": "provocations_doc_aegis_bleed",
+   "text": "dialogue.warfront.opt.provocations_doc_aegis_bleed",
+   "response": "provocations_doctrine_insult",
+   "conditions": {
+    "faction": [
+     "aegis"
+    ]
+   },
+   "effects": [
+    {
+     "type": "disposition",
+     "event": "insulted"
+    },
+    {
+     "type": "standing",
+     "amount": -3
+    }
+   ],
+   "weight": 6
+  },
+  {
+   "id": "provocations_doc_aegis_form",
+   "text": "dialogue.warfront.opt.provocations_doc_aegis_form",
+   "response": "provocations_doctrine_insult",
+   "conditions": {
+    "faction": [
+     "aegis"
+    ]
+   },
+   "effects": [
+    {
+     "type": "disposition",
+     "event": "insulted"
+    },
+    {
+     "type": "standing",
+     "amount": -3
+    }
+   ],
+   "weight": 6
+  },
+  {
+   "id": "provocations_doc_aegis_coward",
+   "text": "dialogue.warfront.opt.provocations_doc_aegis_coward",
+   "response": "provocations_doctrine_insult",
+   "conditions": {
+    "faction": [
+     "aegis"
+    ]
+   },
+   "effects": [
+    {
+     "type": "disposition",
+     "event": "insulted"
+    },
+    {
+     "type": "standing",
+     "amount": -3
+    }
+   ],
+   "weight": 5
+  },
+  {
+   "id": "provocations_doc_aegis_spine",
+   "text": "dialogue.warfront.opt.provocations_doc_aegis_spine",
+   "response": "provocations_doctrine_insult",
+   "conditions": {
+    "faction": [
+     "aegis"
+    ]
+   },
+   "effects": [
+    {
+     "type": "disposition",
+     "event": "insulted"
+    },
+    {
+     "type": "standing",
+     "amount": -3
+    }
+   ],
+   "weight": 5
+  },
+  {
+   "id": "provocations_doc_aegis_ledger",
+   "text": "dialogue.warfront.opt.provocations_doc_aegis_ledger",
+   "response": "provocations_doctrine_insult",
+   "conditions": {
+    "faction": [
+     "aegis"
+    ]
+   },
+   "effects": [
+    {
+     "type": "disposition",
+     "event": "insulted"
+    },
+    {
+     "type": "standing",
+     "amount": -3
+    }
+   ],
+   "weight": 5
+  },
+  {
+   "id": "provocations_doc_sarab_hiding",
+   "text": "dialogue.warfront.opt.provocations_doc_sarab_hiding",
+   "response": "provocations_doctrine_insult",
+   "conditions": {
+    "faction": [
+     "sarab"
+    ]
+   },
+   "effects": [
+    {
+     "type": "disposition",
+     "event": "insulted"
+    },
+    {
+     "type": "standing",
+     "amount": -3
+    }
+   ],
+   "weight": 6
+  },
+  {
+   "id": "provocations_doc_sarab_proverbs",
+   "text": "dialogue.warfront.opt.provocations_doc_sarab_proverbs",
+   "response": "provocations_doctrine_insult",
+   "conditions": {
+    "faction": [
+     "sarab"
+    ]
+   },
+   "effects": [
+    {
+     "type": "disposition",
+     "event": "insulted"
+    },
+    {
+     "type": "standing",
+     "amount": -3
+    }
+   ],
+   "weight": 6
+  },
+  {
+   "id": "provocations_doc_sarab_patience",
+   "text": "dialogue.warfront.opt.provocations_doc_sarab_patience",
+   "response": "provocations_doctrine_insult",
+   "conditions": {
+    "faction": [
+     "sarab"
+    ]
+   },
+   "effects": [
+    {
+     "type": "disposition",
+     "event": "insulted"
+    },
+    {
+     "type": "standing",
+     "amount": -3
+    }
+   ],
+   "weight": 5
+  },
+  {
+   "id": "provocations_doc_sarab_mirage",
+   "text": "dialogue.warfront.opt.provocations_doc_sarab_mirage",
+   "response": "provocations_doctrine_insult",
+   "conditions": {
+    "faction": [
+     "sarab"
+    ]
+   },
+   "effects": [
+    {
+     "type": "disposition",
+     "event": "insulted"
+    },
+    {
+     "type": "standing",
+     "amount": -3
+    }
+   ],
+   "weight": 5
+  },
+  {
+   "id": "provocations_doc_sarab_ambush",
+   "text": "dialogue.warfront.opt.provocations_doc_sarab_ambush",
+   "response": "provocations_doctrine_insult",
+   "conditions": {
+    "faction": [
+     "sarab"
+    ]
+   },
+   "effects": [
+    {
+     "type": "disposition",
+     "event": "insulted"
+    },
+    {
+     "type": "standing",
+     "amount": -3
+    }
+   ],
+   "weight": 5
+  },
+  {
+   "id": "provocations_ser_mother",
+   "text": "dialogue.warfront.opt.provocations_ser_mother",
+   "response": "provocations_serious_insult",
+   "effects": [
+    {
+     "type": "disposition",
+     "event": "insulted"
+    },
+    {
+     "type": "standing",
+     "amount": -3
+    }
+   ],
+   "weight": 5
+  },
+  {
+   "id": "provocations_ser_farmer",
+   "text": "dialogue.warfront.opt.provocations_ser_farmer",
+   "response": "provocations_serious_insult",
+   "effects": [
+    {
+     "type": "disposition",
+     "event": "insulted"
+    },
+    {
+     "type": "standing",
+     "amount": -3
+    }
+   ],
+   "weight": 5
+  },
+  {
+   "id": "provocations_ser_scraped",
+   "text": "dialogue.warfront.opt.provocations_ser_scraped",
+   "response": "provocations_serious_insult",
+   "effects": [
+    {
+     "type": "disposition",
+     "event": "insulted"
+    },
+    {
+     "type": "standing",
+     "amount": -3
+    }
+   ],
+   "weight": 5
+  },
+  {
+   "id": "provocations_ser_ashamed",
+   "text": "dialogue.warfront.opt.provocations_ser_ashamed",
+   "response": "provocations_serious_insult",
+   "effects": [
+    {
+     "type": "disposition",
+     "event": "insulted"
+    },
+    {
+     "type": "standing",
+     "amount": -4
+    }
+   ],
+   "weight": 4
+  },
+  {
+   "id": "provocations_ser_laughs",
+   "text": "dialogue.warfront.opt.provocations_ser_laughs",
+   "response": "provocations_serious_insult",
+   "effects": [
+    {
+     "type": "disposition",
+     "event": "insulted"
+    },
+    {
+     "type": "standing",
+     "amount": -3
+    }
+   ],
+   "weight": 5
+  },
+  {
+   "id": "provocations_ser_thug",
+   "text": "dialogue.warfront.opt.provocations_ser_thug",
+   "response": "provocations_serious_insult",
+   "effects": [
+    {
+     "type": "disposition",
+     "event": "insulted"
+    },
+    {
+     "type": "standing",
+     "amount": -3
+    }
+   ],
+   "weight": 5
+  },
+  {
+   "id": "provocations_ser_commander",
+   "text": "dialogue.warfront.opt.provocations_ser_commander",
+   "response": "provocations_serious_insult",
+   "effects": [
+    {
+     "type": "disposition",
+     "event": "insulted"
+    },
+    {
+     "type": "standing",
+     "amount": -4
+    }
+   ],
+   "weight": 4
+  },
+  {
+   "id": "provocations_ser_glad_gone",
+   "text": "dialogue.warfront.opt.provocations_ser_glad_gone",
+   "response": "provocations_serious_insult",
+   "effects": [
+    {
+     "type": "disposition",
+     "event": "insulted"
+    },
+    {
+     "type": "standing",
+     "amount": -3
+    }
+   ],
+   "weight": 5
+  },
+  {
+   "id": "provocations_ser_scraps",
+   "text": "dialogue.warfront.opt.provocations_ser_scraps",
+   "response": "provocations_serious_insult",
+   "effects": [
+    {
+     "type": "disposition",
+     "event": "insulted"
+    },
+    {
+     "type": "standing",
+     "amount": -3
+    }
+   ],
+   "weight": 5
+  },
+  {
+   "id": "provocations_ser_deserters",
+   "text": "dialogue.warfront.opt.provocations_ser_deserters",
+   "response": "provocations_serious_insult",
+   "effects": [
+    {
+     "type": "disposition",
+     "event": "insulted"
+    },
+    {
+     "type": "standing",
+     "amount": -4
+    }
+   ],
+   "weight": 4
+  },
+  {
+   "id": "provocations_ser_cause_dead",
+   "text": "dialogue.warfront.opt.provocations_ser_cause_dead",
+   "response": "provocations_serious_insult",
+   "effects": [
+    {
+     "type": "disposition",
+     "event": "insulted"
+    },
+    {
+     "type": "standing",
+     "amount": -4
+    }
+   ],
+   "weight": 4
+  },
+  {
+   "id": "provocations_ser_cowards_all",
+   "text": "dialogue.warfront.opt.provocations_ser_cowards_all",
+   "response": "provocations_serious_insult",
+   "effects": [
+    {
+     "type": "disposition",
+     "event": "insulted"
+    },
+    {
+     "type": "standing",
+     "amount": -4
+    }
+   ],
+   "weight": 4
+  },
+  {
+   "id": "provocations_ser_fools",
+   "text": "dialogue.warfront.opt.provocations_ser_fools",
+   "response": "provocations_serious_insult",
+   "effects": [
+    {
+     "type": "disposition",
+     "event": "insulted"
+    },
+    {
+     "type": "standing",
+     "amount": -3
+    }
+   ],
+   "weight": 5
+  },
+  {
+   "id": "provocations_ser_history",
+   "text": "dialogue.warfront.opt.provocations_ser_history",
+   "response": "provocations_serious_insult",
+   "effects": [
+    {
+     "type": "disposition",
+     "event": "insulted"
+    },
+    {
+     "type": "standing",
+     "amount": -3
+    }
+   ],
+   "weight": 4
+  },
+  {
+   "id": "provocations_ban_floor_rag",
+   "text": "dialogue.warfront.opt.provocations_ban_floor_rag",
+   "response": "provocations_banner_spit",
+   "effects": [
+    {
+     "type": "disposition",
+     "event": "insulted"
+    },
+    {
+     "type": "standing",
+     "amount": -4
+    }
+   ],
+   "weight": 5
+  },
+  {
+   "id": "provocations_ban_spit_worth",
+   "text": "dialogue.warfront.opt.provocations_ban_spit_worth",
+   "response": "provocations_banner_spit",
+   "effects": [
+    {
+     "type": "disposition",
+     "event": "insulted"
+    },
+    {
+     "type": "standing",
+     "amount": -5
+    }
+   ],
+   "weight": 4
+  },
+  {
+   "id": "provocations_ban_burning",
+   "text": "dialogue.warfront.opt.provocations_ban_burning",
+   "response": "provocations_banner_spit",
+   "effects": [
+    {
+     "type": "disposition",
+     "event": "insulted"
+    },
+    {
+     "type": "standing",
+     "amount": -5
+    }
+   ],
+   "weight": 4
+  },
+  {
+   "id": "provocations_ban_laundry",
+   "text": "dialogue.warfront.opt.provocations_ban_laundry",
+   "response": "provocations_banner_spit",
+   "effects": [
+    {
+     "type": "disposition",
+     "event": "insulted"
+    },
+    {
+     "type": "standing",
+     "amount": -4
+    }
+   ],
+   "weight": 5
+  },
+  {
+   "id": "provocations_ban_nose",
+   "text": "dialogue.warfront.opt.provocations_ban_nose",
+   "response": "provocations_banner_spit",
+   "effects": [
+    {
+     "type": "disposition",
+     "event": "insulted"
+    },
+    {
+     "type": "standing",
+     "amount": -4
+    }
+   ],
+   "weight": 4
+  },
+  {
+   "id": "provocations_ban_graves",
+   "text": "dialogue.warfront.opt.provocations_ban_graves",
+   "response": "provocations_banner_spit",
+   "effects": [
+    {
+     "type": "disposition",
+     "event": "insulted"
+    },
+    {
+     "type": "standing",
+     "amount": -5
+    }
+   ],
+   "weight": 4
+  },
+  {
+   "id": "provocations_ban_souvenir",
+   "text": "dialogue.warfront.opt.provocations_ban_souvenir",
+   "response": "provocations_banner_spit",
+   "effects": [
+    {
+     "type": "disposition",
+     "event": "insulted"
+    },
+    {
+     "type": "standing",
+     "amount": -5
+    }
+   ],
+   "weight": 4
+  },
+  {
+   "id": "provocations_ban_thread",
+   "text": "dialogue.warfront.opt.provocations_ban_thread",
+   "response": "provocations_banner_spit",
+   "effects": [
+    {
+     "type": "disposition",
+     "event": "insulted"
+    },
+    {
+     "type": "standing",
+     "amount": -4
+    }
+   ],
+   "weight": 5
+  },
+  {
+   "id": "provocations_thr_shut_mouth",
+   "text": "dialogue.warfront.opt.provocations_thr_shut_mouth",
+   "response": "provocations_threat",
+   "effects": [
+    {
+     "type": "disposition",
+     "event": "insulted"
+    },
+    {
+     "type": "standing",
+     "amount": -5
+    }
+   ],
+   "weight": 5
+  },
+  {
+   "id": "provocations_thr_sleep_light",
+   "text": "dialogue.warfront.opt.provocations_thr_sleep_light",
+   "response": "provocations_threat",
+   "effects": [
+    {
+     "type": "disposition",
+     "event": "insulted"
+    },
+    {
+     "type": "standing",
+     "amount": -5
+    }
+   ],
+   "weight": 5
+  },
+  {
+   "id": "provocations_thr_know_patrols",
+   "text": "dialogue.warfront.opt.provocations_thr_know_patrols",
+   "response": "provocations_threat",
+   "effects": [
+    {
+     "type": "disposition",
+     "event": "insulted"
+    },
+    {
+     "type": "standing",
+     "amount": -6
+    }
+   ],
+   "weight": 4
+  },
+  {
+   "id": "provocations_thr_turn_around",
+   "text": "dialogue.warfront.opt.provocations_thr_turn_around",
+   "response": "provocations_threat",
+   "effects": [
+    {
+     "type": "disposition",
+     "event": "insulted"
+    },
+    {
+     "type": "standing",
+     "amount": -5
+    }
+   ],
+   "weight": 4
+  },
+  {
+   "id": "provocations_thr_walls",
+   "text": "dialogue.warfront.opt.provocations_thr_walls",
+   "response": "provocations_threat",
+   "effects": [
+    {
+     "type": "disposition",
+     "event": "insulted"
+    },
+    {
+     "type": "standing",
+     "amount": -5
+    }
+   ],
+   "weight": 5
+  },
+  {
+   "id": "provocations_thr_buried_tougher",
+   "text": "dialogue.warfront.opt.provocations_thr_buried_tougher",
+   "response": "provocations_threat",
+   "effects": [
+    {
+     "type": "disposition",
+     "event": "insulted"
+    },
+    {
+     "type": "standing",
+     "amount": -5
+    }
+   ],
+   "weight": 5
+  },
+  {
+   "id": "provocations_thr_count_friends",
+   "text": "dialogue.warfront.opt.provocations_thr_count_friends",
+   "response": "provocations_threat",
+   "effects": [
+    {
+     "type": "disposition",
+     "event": "insulted"
+    },
+    {
+     "type": "standing",
+     "amount": -6
+    }
+   ],
+   "weight": 4
+  },
+  {
+   "id": "provocations_thr_never_find",
+   "text": "dialogue.warfront.opt.provocations_thr_never_find",
+   "response": "provocations_threat",
+   "effects": [
+    {
+     "type": "disposition",
+     "event": "insulted"
+    },
+    {
+     "type": "standing",
+     "amount": -6
+    }
+   ],
+   "weight": 4
+  },
+  {
+   "id": "provocations_thr_whistling",
+   "text": "dialogue.warfront.opt.provocations_thr_whistling",
+   "response": "provocations_threat",
+   "effects": [
+    {
+     "type": "disposition",
+     "event": "insulted"
+    },
+    {
+     "type": "standing",
+     "amount": -6
+    }
+   ],
+   "weight": 4
+  },
+  {
+   "id": "provocations_thr_bleed_easy",
+   "text": "dialogue.warfront.opt.provocations_thr_bleed_easy",
+   "response": "provocations_threat",
+   "effects": [
+    {
+     "type": "disposition",
+     "event": "insulted"
+    },
+    {
+     "type": "standing",
+     "amount": -6
+    }
+   ],
+   "weight": 4
+  },
+  {
+   "id": "provocations_thr_list",
+   "text": "dialogue.warfront.opt.provocations_thr_list",
+   "response": "provocations_threat",
+   "effects": [
+    {
+     "type": "disposition",
+     "event": "insulted"
+    },
+    {
+     "type": "standing",
+     "amount": -5
+    }
+   ],
+   "weight": 5
+  },
+  {
+   "id": "provocations_thr_bring_help",
+   "text": "dialogue.warfront.opt.provocations_thr_bring_help",
+   "response": "provocations_threat",
+   "effects": [
+    {
+     "type": "disposition",
+     "event": "insulted"
+    },
+    {
+     "type": "standing",
+     "amount": -5
+    }
+   ],
+   "weight": 5
+  },
+  {
+   "id": "provocations_thr_pray",
+   "text": "dialogue.warfront.opt.provocations_thr_pray",
+   "response": "provocations_threat",
+   "effects": [
+    {
+     "type": "disposition",
+     "event": "insulted"
+    },
+    {
+     "type": "standing",
+     "amount": -6
+    }
+   ],
+   "weight": 4
+  },
+  {
+   "id": "provocations_thr_quiet_days",
+   "text": "dialogue.warfront.opt.provocations_thr_quiet_days",
+   "response": "provocations_threat",
+   "effects": [
+    {
+     "type": "disposition",
+     "event": "insulted"
+    },
+    {
+     "type": "standing",
+     "amount": -5
+    }
+   ],
+   "weight": 5
+  },
+  {
+   "id": "provocations_grv_burn_base",
+   "text": "dialogue.warfront.opt.provocations_grv_burn_base",
+   "response": "provocations_grave_threat",
+   "effects": [
+    {
+     "type": "disposition",
+     "event": "insulted"
+    },
+    {
+     "type": "standing",
+     "amount": -8
+    }
+   ],
+   "weight": 3
+  },
+  {
+   "id": "provocations_grv_hunt_squad",
+   "text": "dialogue.warfront.opt.provocations_grv_hunt_squad",
+   "response": "provocations_grave_threat",
+   "effects": [
+    {
+     "type": "disposition",
+     "event": "insulted"
+    },
+    {
+     "type": "standing",
+     "amount": -7
+    }
+   ],
+   "weight": 3
+  },
+  {
+   "id": "provocations_grv_bones",
+   "text": "dialogue.warfront.opt.provocations_grv_bones",
+   "response": "provocations_grave_threat",
+   "effects": [
+    {
+     "type": "disposition",
+     "event": "insulted"
+    },
+    {
+     "type": "standing",
+     "amount": -7
+    }
+   ],
+   "weight": 3
+  },
+  {
+   "id": "provocations_grv_commander_watch",
+   "text": "dialogue.warfront.opt.provocations_grv_commander_watch",
+   "response": "provocations_grave_threat",
+   "effects": [
+    {
+     "type": "disposition",
+     "event": "insulted"
+    },
+    {
+     "type": "standing",
+     "amount": -8
+    }
+   ],
+   "weight": 2
+  },
+  {
+   "id": "provocations_grv_deciding_order",
+   "text": "dialogue.warfront.opt.provocations_grv_deciding_order",
+   "response": "provocations_grave_threat",
+   "effects": [
+    {
+     "type": "disposition",
+     "event": "insulted"
+    },
+    {
+     "type": "standing",
+     "amount": -8
+    }
+   ],
+   "weight": 2
+  },
+  {
+   "id": "provocations_grv_salt_fields",
+   "text": "dialogue.warfront.opt.provocations_grv_salt_fields",
+   "response": "provocations_grave_threat",
+   "effects": [
+    {
+     "type": "disposition",
+     "event": "insulted"
+    },
+    {
+     "type": "standing",
+     "amount": -7
+    }
+   ],
+   "weight": 3
+  },
+  {
+   "id": "provocations_grv_curse_day",
+   "text": "dialogue.warfront.opt.provocations_grv_curse_day",
+   "response": "provocations_grave_threat",
+   "effects": [
+    {
+     "type": "disposition",
+     "event": "insulted"
+    },
+    {
+     "type": "standing",
+     "amount": -7
+    }
+   ],
+   "weight": 3
+  },
+  {
+   "id": "provocations_grv_no_names",
+   "text": "dialogue.warfront.opt.provocations_grv_no_names",
+   "response": "provocations_grave_threat",
+   "effects": [
+    {
+     "type": "disposition",
+     "event": "insulted"
+    },
+    {
+     "type": "standing",
+     "amount": -7
+    }
+   ],
+   "weight": 3
+  },
+  {
+   "id": "provocations_prv_draw_blade",
+   "text": "dialogue.warfront.opt.provocations_prv_draw_blade",
+   "response": "provocations_provoke",
+   "effects": [
+    {
+     "type": "provoke"
+    },
+    {
+     "type": "standing",
+     "amount": -6
+    }
+   ],
+   "exit": true,
+   "weight": 3
+  },
+  {
+   "id": "provocations_prv_hit_me",
+   "text": "dialogue.warfront.opt.provocations_prv_hit_me",
+   "response": "provocations_provoke",
+   "effects": [
+    {
+     "type": "provoke"
+    },
+    {
+     "type": "standing",
+     "amount": -5
+    }
+   ],
+   "exit": true,
+   "weight": 3
+  },
+  {
+   "id": "provocations_prv_settle_now",
+   "text": "dialogue.warfront.opt.provocations_prv_settle_now",
+   "response": "provocations_provoke",
+   "effects": [
+    {
+     "type": "provoke"
+    },
+    {
+     "type": "standing",
+     "amount": -6
+    }
+   ],
+   "exit": true,
+   "weight": 3
+  },
+  {
+   "id": "provocations_prv_training_worth",
+   "text": "dialogue.warfront.opt.provocations_prv_training_worth",
+   "response": "provocations_provoke",
+   "effects": [
+    {
+     "type": "provoke"
+    },
+    {
+     "type": "standing",
+     "amount": -6
+    }
+   ],
+   "exit": true,
+   "weight": 3
+  },
+  {
+   "id": "provocations_prv_first_swing",
+   "text": "dialogue.warfront.opt.provocations_prv_first_swing",
+   "response": "provocations_provoke",
+   "effects": [
+    {
+     "type": "provoke"
+    },
+    {
+     "type": "standing",
+     "amount": -6
+    }
+   ],
+   "exit": true,
+   "weight": 2
+  },
+  {
+   "id": "provocations_prv_coward_admit",
+   "text": "dialogue.warfront.opt.provocations_prv_coward_admit",
+   "response": "provocations_provoke",
+   "effects": [
+    {
+     "type": "provoke"
+    },
+    {
+     "type": "standing",
+     "amount": -6
+    }
+   ],
+   "exit": true,
+   "weight": 3
+  },
+  {
+   "id": "provocations_prv_all_talk",
+   "text": "dialogue.warfront.opt.provocations_prv_all_talk",
+   "response": "provocations_provoke",
+   "effects": [
+    {
+     "type": "provoke"
+    },
+    {
+     "type": "standing",
+     "amount": -5
+    }
+   ],
+   "exit": true,
+   "weight": 3
+  },
+  {
+   "id": "provocations_prv_right_here",
+   "text": "dialogue.warfront.opt.provocations_prv_right_here",
+   "response": "provocations_provoke",
+   "effects": [
+    {
+     "type": "provoke"
+    },
+    {
+     "type": "standing",
+     "amount": -6
+    }
+   ],
+   "exit": true,
+   "weight": 3
+  },
+  {
+   "id": "provocations_prv_hands_up",
+   "text": "dialogue.warfront.opt.provocations_prv_hands_up",
+   "response": "provocations_provoke",
+   "effects": [
+    {
+     "type": "provoke"
+    },
+    {
+     "type": "standing",
+     "amount": -5
+    }
+   ],
+   "exit": true,
+   "weight": 3
+  },
+  {
+   "id": "provocations_prv_itching",
+   "text": "dialogue.warfront.opt.provocations_prv_itching",
+   "response": "provocations_provoke",
+   "effects": [
+    {
+     "type": "provoke"
+    },
+    {
+     "type": "standing",
+     "amount": -6
+    }
+   ],
+   "exit": true,
+   "weight": 2
+  },
+  {
+   "id": "provocations_prv_make_me",
+   "text": "dialogue.warfront.opt.provocations_prv_make_me",
+   "response": "provocations_provoke",
+   "effects": [
+    {
+     "type": "provoke"
+    },
+    {
+     "type": "standing",
+     "amount": -5
+    }
+   ],
+   "exit": true,
+   "weight": 3
+  },
+  {
+   "id": "provocations_sqd_all_at_once",
+   "text": "dialogue.warfront.opt.provocations_sqd_all_at_once",
+   "response": "provocations_provoke_squad",
+   "effects": [
+    {
+     "type": "provoke",
+     "kind": "squad"
+    },
+    {
+     "type": "standing",
+     "amount": -8
+    }
+   ],
+   "exit": true,
+   "weight": 2
+  },
+  {
+   "id": "provocations_sqd_fair_fight",
+   "text": "dialogue.warfront.opt.provocations_sqd_fair_fight",
+   "response": "provocations_provoke_squad",
+   "effects": [
+    {
+     "type": "provoke",
+     "kind": "squad"
+    },
+    {
+     "type": "standing",
+     "amount": -8
+    }
+   ],
+   "exit": true,
+   "weight": 2
+  },
+  {
+   "id": "provocations_sqd_come_get",
+   "text": "dialogue.warfront.opt.provocations_sqd_come_get",
+   "response": "provocations_provoke_squad",
+   "effects": [
+    {
+     "type": "provoke",
+     "kind": "squad"
+    },
+    {
+     "type": "standing",
+     "amount": -8
+    }
+   ],
+   "exit": true,
+   "weight": 2
+  },
+  {
+   "id": "provocations_sqd_take_apart",
+   "text": "dialogue.warfront.opt.provocations_sqd_take_apart",
+   "response": "provocations_provoke_squad",
+   "effects": [
+    {
+     "type": "provoke",
+     "kind": "squad"
+    },
+    {
+     "type": "standing",
+     "amount": -8
+    }
+   ],
+   "exit": true,
+   "weight": 2
+  },
+  {
+   "id": "provocations_sqd_line_up",
+   "text": "dialogue.warfront.opt.provocations_sqd_line_up",
+   "response": "provocations_provoke_squad",
+   "effects": [
+    {
+     "type": "provoke",
+     "kind": "squad"
+    },
+    {
+     "type": "standing",
+     "amount": -8
+    }
+   ],
+   "exit": true,
+   "weight": 2
+  },
+  {
+   "id": "provocations_bld_died_easy",
+   "text": "dialogue.warfront.opt.provocations_bld_died_easy",
+   "response": "provocations_blood_taunt",
+   "conditions": {
+    "has_killed_this_faction": true
+   },
+   "effects": [
+    {
+     "type": "disposition",
+     "event": "insulted"
+    },
+    {
+     "type": "standing",
+     "amount": -6
+    }
+   ],
+   "weight": 3
+  },
+  {
+   "id": "provocations_bld_begged",
+   "text": "dialogue.warfront.opt.provocations_bld_begged",
+   "response": "provocations_blood_taunt",
+   "conditions": {
+    "has_killed_this_faction": true
+   },
+   "effects": [
+    {
+     "type": "disposition",
+     "event": "insulted"
+    },
+    {
+     "type": "standing",
+     "amount": -6
+    }
+   ],
+   "weight": 3
+  },
+  {
+   "id": "provocations_bld_end_up_like",
+   "text": "dialogue.warfront.opt.provocations_bld_end_up_like",
+   "response": "provocations_blood_taunt",
+   "conditions": {
+    "has_killed_this_faction": true
+   },
+   "effects": [
+    {
+     "type": "disposition",
+     "event": "insulted"
+    },
+    {
+     "type": "standing",
+     "amount": -6
+    }
+   ],
+   "weight": 3
+  },
+  {
+   "id": "provocations_bld_boxes",
+   "text": "dialogue.warfront.opt.provocations_bld_boxes",
+   "response": "provocations_blood_taunt",
+   "conditions": {
+    "has_killed_this_faction": true
+   },
+   "effects": [
+    {
+     "type": "disposition",
+     "event": "insulted"
+    },
+    {
+     "type": "standing",
+     "amount": -6
+    }
+   ],
+   "weight": 3
+  },
+  {
+   "id": "provocations_bld_widows",
+   "text": "dialogue.warfront.opt.provocations_bld_widows",
+   "response": "provocations_blood_taunt",
+   "conditions": {
+    "has_killed_this_faction": true
+   },
+   "effects": [
+    {
+     "type": "disposition",
+     "event": "insulted"
+    },
+    {
+     "type": "standing",
+     "amount": -6
+    }
+   ],
+   "weight": 3
+  },
+  {
+   "id": "provocations_bld_fought_better",
+   "text": "dialogue.warfront.opt.provocations_bld_fought_better",
+   "response": "provocations_blood_taunt",
+   "conditions": {
+    "has_killed_this_faction": true
+   },
+   "effects": [
+    {
+     "type": "disposition",
+     "event": "insulted"
+    },
+    {
+     "type": "standing",
+     "amount": -5
+    }
+   ],
+   "weight": 3
+  },
+  {
+   "id": "provocations_bld_hobby",
+   "text": "dialogue.warfront.opt.provocations_bld_hobby",
+   "response": "provocations_blood_taunt",
+   "conditions": {
+    "has_killed_this_faction": true
+   },
+   "effects": [
+    {
+     "type": "disposition",
+     "event": "insulted"
+    },
+    {
+     "type": "standing",
+     "amount": -6
+    }
+   ],
+   "weight": 3
+  },
+  {
+   "id": "provocations_bld_last_patrol",
+   "text": "dialogue.warfront.opt.provocations_bld_last_patrol",
+   "response": "provocations_blood_taunt",
+   "conditions": {
+    "has_killed_this_faction": true
+   },
+   "effects": [
+    {
+     "type": "disposition",
+     "event": "insulted"
+    },
+    {
+     "type": "standing",
+     "amount": -6
+    }
+   ],
+   "weight": 3
+  },
+  {
+   "id": "provocations_bld_add_count",
+   "text": "dialogue.warfront.opt.provocations_bld_add_count",
+   "response": "provocations_blood_taunt",
+   "conditions": {
+    "has_killed_this_faction": true
+   },
+   "effects": [
+    {
+     "type": "disposition",
+     "event": "insulted"
+    },
+    {
+     "type": "standing",
+     "amount": -5
+    }
+   ],
+   "weight": 3
+  },
+  {
+   "id": "provocations_rank_stripes",
+   "text": "dialogue.warfront.opt.provocations_rank_stripes",
+   "response": "provocations_mock_rank",
+   "conditions": {
+    "role": [
+     "officer"
+    ]
+   },
+   "effects": [
+    {
+     "type": "disposition",
+     "event": "insulted"
+    },
+    {
+     "type": "standing",
+     "amount": -2
+    }
+   ],
+   "weight": 5
+  },
+  {
+   "id": "provocations_rank_bribe",
+   "text": "dialogue.warfront.opt.provocations_rank_bribe",
+   "response": "provocations_mock_rank",
+   "conditions": {
+    "role": [
+     "officer"
+    ]
+   },
+   "effects": [
+    {
+     "type": "disposition",
+     "event": "insulted"
+    },
+    {
+     "type": "standing",
+     "amount": -2
+    }
+   ],
+   "weight": 5
+  },
+  {
+   "id": "provocations_rank_plume",
+   "text": "dialogue.warfront.opt.provocations_rank_plume",
+   "response": "provocations_mock_rank",
+   "conditions": {
+    "role": [
+     "officer"
+    ]
+   },
+   "effects": [
+    {
+     "type": "disposition",
+     "event": "insulted"
+    },
+    {
+     "type": "standing",
+     "amount": -2
+    }
+   ],
+   "weight": 4
+  },
+  {
+   "id": "provocations_rank_thinking",
+   "text": "dialogue.warfront.opt.provocations_rank_thinking",
+   "response": "provocations_mock_rank",
+   "conditions": {
+    "role": [
+     "grunt"
+    ]
+   },
+   "effects": [
+    {
+     "type": "disposition",
+     "event": "insulted"
+    },
+    {
+     "type": "standing",
+     "amount": -2
+    }
+   ],
+   "weight": 5
+  },
+  {
+   "id": "provocations_rank_handler",
+   "text": "dialogue.warfront.opt.provocations_rank_handler",
+   "response": "provocations_mock_rank",
+   "conditions": {
+    "role": [
+     "grunt"
+    ]
+   },
+   "effects": [
+    {
+     "type": "disposition",
+     "event": "insulted"
+    },
+    {
+     "type": "standing",
+     "amount": -2
+    }
+   ],
+   "weight": 4
+  },
+  {
+   "id": "provocations_rank_shopkeeper",
+   "text": "dialogue.warfront.opt.provocations_rank_shopkeeper",
+   "response": "provocations_mock_rank",
+   "conditions": {
+    "role": [
+     "quartermaster"
+    ]
+   },
+   "effects": [
+    {
+     "type": "disposition",
+     "event": "insulted"
+    },
+    {
+     "type": "standing",
+     "amount": -2
+    }
+   ],
+   "weight": 5
+  },
+  {
+   "id": "provocations_rank_sacks",
+   "text": "dialogue.warfront.opt.provocations_rank_sacks",
+   "response": "provocations_mock_rank",
+   "conditions": {
+    "role": [
+     "quartermaster"
+    ]
+   },
+   "effects": [
+    {
+     "type": "disposition",
+     "event": "insulted"
+    },
+    {
+     "type": "standing",
+     "amount": -2
+    }
+   ],
+   "weight": 4
+  },
+  {
+   "id": "provocations_rank_ledger_war",
+   "text": "dialogue.warfront.opt.provocations_rank_ledger_war",
+   "response": "provocations_mock_rank",
+   "conditions": {
+    "role": [
+     "quartermaster"
+    ]
+   },
+   "effects": [
+    {
+     "type": "disposition",
+     "event": "insulted"
+    },
+    {
+     "type": "standing",
+     "amount": -2
+    }
+   ],
+   "weight": 5
+  }
+ ]
+}

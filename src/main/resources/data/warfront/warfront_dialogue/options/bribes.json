@@ -1,0 +1,1408 @@
+{
+ "category": "bribes",
+ "options": [
+  {
+   "id": "bribes_feeler_hypothetical",
+   "text": "dialogue.warfront.opt.bribes_feeler_hypothetical",
+   "response": "bribe_feeler",
+   "conditions": {
+    "role": [
+     "officer"
+    ]
+   },
+   "weight": 8
+  },
+  {
+   "id": "bribes_feeler_off_books",
+   "text": "dialogue.warfront.opt.bribes_feeler_off_books",
+   "response": "bribe_feeler",
+   "conditions": {
+    "role": [
+     "officer"
+    ]
+   },
+   "weight": 7
+  },
+  {
+   "id": "bribes_feeler_arrangements",
+   "text": "dialogue.warfront.opt.bribes_feeler_arrangements",
+   "response": "bribe_feeler",
+   "conditions": {
+    "role": [
+     "officer"
+    ]
+   },
+   "weight": 7
+  },
+  {
+   "id": "bribes_feeler_rank",
+   "text": "dialogue.warfront.opt.bribes_feeler_rank",
+   "response": "bribe_feeler",
+   "conditions": {
+    "role": [
+     "officer"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "bribes_feeler_doors",
+   "text": "dialogue.warfront.opt.bribes_feeler_doors",
+   "response": "bribe_feeler",
+   "conditions": {
+    "role": [
+     "officer"
+    ]
+   },
+   "weight": 7
+  },
+  {
+   "id": "bribes_feeler_private_page",
+   "text": "dialogue.warfront.opt.bribes_feeler_private_page",
+   "response": "bribe_feeler",
+   "conditions": {
+    "role": [
+     "officer"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "bribes_feeler_generous_friend",
+   "text": "dialogue.warfront.opt.bribes_feeler_generous_friend",
+   "response": "bribe_feeler",
+   "conditions": {
+    "role": [
+     "officer"
+    ]
+   },
+   "weight": 7
+  },
+  {
+   "id": "bribes_bold_everyone_price",
+   "text": "dialogue.warfront.opt.bribes_bold_everyone_price",
+   "response": "bribe_feeler_bold",
+   "conditions": {
+    "role": [
+     "officer"
+    ]
+   },
+   "weight": 8
+  },
+  {
+   "id": "bribes_bold_practical",
+   "text": "dialogue.warfront.opt.bribes_bold_practical",
+   "response": "bribe_feeler_bold",
+   "conditions": {
+    "role": [
+     "officer"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "bribes_bold_discretion",
+   "text": "dialogue.warfront.opt.bribes_bold_discretion",
+   "response": "bribe_feeler_bold",
+   "conditions": {
+    "role": [
+     "officer"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "bribes_bold_loyalty",
+   "text": "dialogue.warfront.opt.bribes_bold_loyalty",
+   "response": "bribe_feeler_bold",
+   "conditions": {
+    "role": [
+     "officer"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "bribes_bold_forget_me",
+   "text": "dialogue.warfront.opt.bribes_bold_forget_me",
+   "response": "bribe_feeler_bold",
+   "conditions": {
+    "role": [
+     "officer"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "bribes_price_look_other_way",
+   "text": "dialogue.warfront.opt.bribes_price_look_other_way",
+   "response": "bribe_price_talk",
+   "conditions": {
+    "role": [
+     "officer"
+    ]
+   },
+   "weight": 7
+  },
+  {
+   "id": "bribes_price_small_blindness",
+   "text": "dialogue.warfront.opt.bribes_price_small_blindness",
+   "response": "bribe_price_talk",
+   "conditions": {
+    "role": [
+     "officer"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "bribes_price_silence_rate",
+   "text": "dialogue.warfront.opt.bribes_price_silence_rate",
+   "response": "bribe_price_talk",
+   "conditions": {
+    "role": [
+     "officer"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "bribes_price_patrol",
+   "text": "dialogue.warfront.opt.bribes_price_patrol",
+   "response": "bribe_price_talk",
+   "conditions": {
+    "role": [
+     "officer"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "bribes_price_one_gate",
+   "text": "dialogue.warfront.opt.bribes_price_one_gate",
+   "response": "bribe_price_talk",
+   "conditions": {
+    "role": [
+     "officer"
+    ]
+   },
+   "weight": 5
+  },
+  {
+   "id": "bribes_price_sealed_lips",
+   "text": "dialogue.warfront.opt.bribes_price_sealed_lips",
+   "response": "bribe_price_talk",
+   "conditions": {
+    "role": [
+     "officer"
+    ]
+   },
+   "weight": 5
+  },
+  {
+   "id": "bribes_price_report_missing",
+   "text": "dialogue.warfront.opt.bribes_price_report_missing",
+   "response": "bribe_price_talk",
+   "conditions": {
+    "role": [
+     "officer"
+    ]
+   },
+   "weight": 5
+  },
+  {
+   "id": "bribes_price_donation_schedule",
+   "text": "dialogue.warfront.opt.bribes_price_donation_schedule",
+   "response": "bribe_price_talk",
+   "conditions": {
+    "role": [
+     "officer"
+    ]
+   },
+   "weight": 5
+  },
+  {
+   "id": "bribes_intel_rivals_camp",
+   "text": "dialogue.warfront.opt.bribes_intel_rivals_camp",
+   "response": "bribe_intel_paid",
+   "conditions": {
+    "role": [
+     "officer"
+    ],
+    "requires_item": "minecraft:emerald",
+    "requires_count": 8
+   },
+   "effects": [
+    {
+     "type": "take_items",
+     "item": "minecraft:emerald",
+     "count": 8
+    },
+    {
+     "type": "disposition",
+     "event": "bribed"
+    },
+    {
+     "type": "intel",
+     "kind": "rival_base"
+    }
+   ],
+   "weight": 7,
+   "cooldown_minutes": 180
+  },
+  {
+   "id": "bribes_intel_enemy_base",
+   "text": "dialogue.warfront.opt.bribes_intel_enemy_base",
+   "response": "bribe_intel_paid",
+   "conditions": {
+    "role": [
+     "officer"
+    ],
+    "requires_item": "minecraft:emerald",
+    "requires_count": 10
+   },
+   "effects": [
+    {
+     "type": "take_items",
+     "item": "minecraft:emerald",
+     "count": 10
+    },
+    {
+     "type": "disposition",
+     "event": "bribed"
+    },
+    {
+     "type": "intel",
+     "kind": "rival_base"
+    }
+   ],
+   "weight": 7,
+   "cooldown_minutes": 180
+  },
+  {
+   "id": "bribes_intel_rivals_door",
+   "text": "dialogue.warfront.opt.bribes_intel_rivals_door",
+   "response": "bribe_intel_paid",
+   "conditions": {
+    "role": [
+     "officer"
+    ],
+    "requires_item": "minecraft:emerald",
+    "requires_count": 6
+   },
+   "effects": [
+    {
+     "type": "take_items",
+     "item": "minecraft:emerald",
+     "count": 6
+    },
+    {
+     "type": "disposition",
+     "event": "bribed"
+    },
+    {
+     "type": "intel",
+     "kind": "rival_base"
+    }
+   ],
+   "weight": 7,
+   "cooldown_minutes": 180
+  },
+  {
+   "id": "bribes_intel_mark_map",
+   "text": "dialogue.warfront.opt.bribes_intel_mark_map",
+   "response": "bribe_intel_paid",
+   "conditions": {
+    "role": [
+     "officer"
+    ],
+    "requires_item": "minecraft:emerald",
+    "requires_count": 8
+   },
+   "effects": [
+    {
+     "type": "take_items",
+     "item": "minecraft:emerald",
+     "count": 8
+    },
+    {
+     "type": "disposition",
+     "event": "bribed"
+    },
+    {
+     "type": "intel",
+     "kind": "rival_base"
+    }
+   ],
+   "weight": 6,
+   "cooldown_minutes": 180
+  },
+  {
+   "id": "bribes_intel_scouts_know",
+   "text": "dialogue.warfront.opt.bribes_intel_scouts_know",
+   "response": "bribe_intel_paid",
+   "conditions": {
+    "role": [
+     "officer"
+    ],
+    "requires_item": "minecraft:emerald",
+    "requires_count": 10
+   },
+   "effects": [
+    {
+     "type": "take_items",
+     "item": "minecraft:emerald",
+     "count": 10
+    },
+    {
+     "type": "disposition",
+     "event": "bribed"
+    },
+    {
+     "type": "intel",
+     "kind": "rival_base"
+    }
+   ],
+   "weight": 6,
+   "cooldown_minutes": 180
+  },
+  {
+   "id": "bribes_intel_where_sleep",
+   "text": "dialogue.warfront.opt.bribes_intel_where_sleep",
+   "response": "bribe_intel_paid",
+   "conditions": {
+    "role": [
+     "officer"
+    ],
+    "requires_item": "minecraft:emerald",
+    "requires_count": 6
+   },
+   "effects": [
+    {
+     "type": "take_items",
+     "item": "minecraft:emerald",
+     "count": 6
+    },
+    {
+     "type": "disposition",
+     "event": "bribed"
+    },
+    {
+     "type": "intel",
+     "kind": "rival_base"
+    }
+   ],
+   "weight": 6,
+   "cooldown_minutes": 180
+  },
+  {
+   "id": "bribes_intel_position",
+   "text": "dialogue.warfront.opt.bribes_intel_position",
+   "response": "bribe_intel_paid",
+   "conditions": {
+    "role": [
+     "officer"
+    ],
+    "requires_item": "minecraft:emerald",
+    "requires_count": 8
+   },
+   "effects": [
+    {
+     "type": "take_items",
+     "item": "minecraft:emerald",
+     "count": 8
+    },
+    {
+     "type": "disposition",
+     "event": "bribed"
+    },
+    {
+     "type": "intel",
+     "kind": "rival_base"
+    }
+   ],
+   "weight": 6,
+   "cooldown_minutes": 180
+  },
+  {
+   "id": "bribes_intel_coordinates",
+   "text": "dialogue.warfront.opt.bribes_intel_coordinates",
+   "response": "bribe_intel_paid",
+   "conditions": {
+    "role": [
+     "officer"
+    ],
+    "requires_item": "minecraft:emerald",
+    "requires_count": 10
+   },
+   "effects": [
+    {
+     "type": "take_items",
+     "item": "minecraft:emerald",
+     "count": 10
+    },
+    {
+     "type": "disposition",
+     "event": "bribed"
+    },
+    {
+     "type": "intel",
+     "kind": "rival_base"
+    }
+   ],
+   "weight": 6,
+   "cooldown_minutes": 180
+  },
+  {
+   "id": "bribes_intel_draw_camp",
+   "text": "dialogue.warfront.opt.bribes_intel_draw_camp",
+   "response": "bribe_intel_paid",
+   "conditions": {
+    "role": [
+     "officer"
+    ],
+    "requires_item": "minecraft:emerald",
+    "requires_count": 6
+   },
+   "effects": [
+    {
+     "type": "take_items",
+     "item": "minecraft:emerald",
+     "count": 6
+    },
+    {
+     "type": "disposition",
+     "event": "bribed"
+    },
+    {
+     "type": "intel",
+     "kind": "rival_base"
+    }
+   ],
+   "weight": 6,
+   "cooldown_minutes": 180
+  },
+  {
+   "id": "bribes_intel_honest_arrow",
+   "text": "dialogue.warfront.opt.bribes_intel_honest_arrow",
+   "response": "bribe_intel_paid",
+   "conditions": {
+    "role": [
+     "officer"
+    ],
+    "requires_item": "minecraft:emerald",
+    "requires_count": 8
+   },
+   "effects": [
+    {
+     "type": "take_items",
+     "item": "minecraft:emerald",
+     "count": 8
+    },
+    {
+     "type": "disposition",
+     "event": "bribed"
+    },
+    {
+     "type": "intel",
+     "kind": "rival_base"
+    }
+   ],
+   "weight": 5,
+   "cooldown_minutes": 180
+  },
+  {
+   "id": "bribes_intel_other_flag",
+   "text": "dialogue.warfront.opt.bribes_intel_other_flag",
+   "response": "bribe_intel_paid",
+   "conditions": {
+    "role": [
+     "officer"
+    ],
+    "requires_item": "minecraft:emerald",
+    "requires_count": 10
+   },
+   "effects": [
+    {
+     "type": "take_items",
+     "item": "minecraft:emerald",
+     "count": 10
+    },
+    {
+     "type": "disposition",
+     "event": "bribed"
+    },
+    {
+     "type": "intel",
+     "kind": "rival_base"
+    }
+   ],
+   "weight": 5,
+   "cooldown_minutes": 180
+  },
+  {
+   "id": "bribes_intel_buying_today",
+   "text": "dialogue.warfront.opt.bribes_intel_buying_today",
+   "response": "bribe_intel_paid",
+   "conditions": {
+    "role": [
+     "officer"
+    ],
+    "requires_item": "minecraft:emerald",
+    "requires_count": 8
+   },
+   "effects": [
+    {
+     "type": "take_items",
+     "item": "minecraft:emerald",
+     "count": 8
+    },
+    {
+     "type": "disposition",
+     "event": "bribed"
+    },
+    {
+     "type": "intel",
+     "kind": "rival_base"
+    }
+   ],
+   "weight": 6,
+   "cooldown_minutes": 180
+  },
+  {
+   "id": "bribes_intel_their_gates",
+   "text": "dialogue.warfront.opt.bribes_intel_their_gates",
+   "response": "bribe_intel_paid",
+   "conditions": {
+    "role": [
+     "officer"
+    ],
+    "requires_item": "minecraft:emerald",
+    "requires_count": 10
+   },
+   "effects": [
+    {
+     "type": "take_items",
+     "item": "minecraft:emerald",
+     "count": 10
+    },
+    {
+     "type": "disposition",
+     "event": "bribed"
+    },
+    {
+     "type": "intel",
+     "kind": "rival_base"
+    }
+   ],
+   "weight": 5,
+   "cooldown_minutes": 180
+  },
+  {
+   "id": "bribes_grease_remember_kindly",
+   "text": "dialogue.warfront.opt.bribes_grease_remember_kindly",
+   "response": "bribe_grease",
+   "conditions": {
+    "role": [
+     "officer"
+    ],
+    "requires_item": "minecraft:emerald",
+    "requires_count": 5
+   },
+   "effects": [
+    {
+     "type": "take_items",
+     "item": "minecraft:emerald",
+     "count": 5
+    },
+    {
+     "type": "disposition",
+     "event": "bribed"
+    },
+    {
+     "type": "standing",
+     "amount": 2
+    }
+   ],
+   "weight": 7,
+   "cooldown_minutes": 120
+  },
+  {
+   "id": "bribes_grease_smooth_things",
+   "text": "dialogue.warfront.opt.bribes_grease_smooth_things",
+   "response": "bribe_grease",
+   "conditions": {
+    "role": [
+     "officer"
+    ],
+    "requires_item": "minecraft:emerald",
+    "requires_count": 4
+   },
+   "effects": [
+    {
+     "type": "take_items",
+     "item": "minecraft:emerald",
+     "count": 4
+    },
+    {
+     "type": "disposition",
+     "event": "bribed"
+    },
+    {
+     "type": "standing",
+     "amount": 2
+    }
+   ],
+   "weight": 7,
+   "cooldown_minutes": 120
+  },
+  {
+   "id": "bribes_grease_reports",
+   "text": "dialogue.warfront.opt.bribes_grease_reports",
+   "response": "bribe_grease",
+   "conditions": {
+    "role": [
+     "officer"
+    ],
+    "requires_item": "minecraft:emerald",
+    "requires_count": 6
+   },
+   "effects": [
+    {
+     "type": "take_items",
+     "item": "minecraft:emerald",
+     "count": 6
+    },
+    {
+     "type": "disposition",
+     "event": "bribed"
+    },
+    {
+     "type": "standing",
+     "amount": 2
+    }
+   ],
+   "weight": 6,
+   "cooldown_minutes": 120
+  },
+  {
+   "id": "bribes_grease_goodwill",
+   "text": "dialogue.warfront.opt.bribes_grease_goodwill",
+   "response": "bribe_grease",
+   "conditions": {
+    "role": [
+     "officer"
+    ],
+    "requires_item": "minecraft:emerald",
+    "requires_count": 5
+   },
+   "effects": [
+    {
+     "type": "take_items",
+     "item": "minecraft:emerald",
+     "count": 5
+    },
+    {
+     "type": "disposition",
+     "event": "bribed"
+    },
+    {
+     "type": "standing",
+     "amount": 2
+    }
+   ],
+   "weight": 6,
+   "cooldown_minutes": 120
+  },
+  {
+   "id": "bribes_grease_friendlier",
+   "text": "dialogue.warfront.opt.bribes_grease_friendlier",
+   "response": "bribe_grease",
+   "conditions": {
+    "role": [
+     "officer"
+    ],
+    "requires_item": "minecraft:emerald",
+    "requires_count": 4
+   },
+   "effects": [
+    {
+     "type": "take_items",
+     "item": "minecraft:emerald",
+     "count": 4
+    },
+    {
+     "type": "disposition",
+     "event": "bribed"
+    },
+    {
+     "type": "standing",
+     "amount": 2
+    }
+   ],
+   "weight": 6,
+   "cooldown_minutes": 120
+  },
+  {
+   "id": "bribes_grease_career",
+   "text": "dialogue.warfront.opt.bribes_grease_career",
+   "response": "bribe_grease",
+   "conditions": {
+    "role": [
+     "officer"
+    ],
+    "requires_item": "minecraft:emerald",
+    "requires_count": 6
+   },
+   "effects": [
+    {
+     "type": "take_items",
+     "item": "minecraft:emerald",
+     "count": 6
+    },
+    {
+     "type": "disposition",
+     "event": "bribed"
+    },
+    {
+     "type": "standing",
+     "amount": 2
+    }
+   ],
+   "weight": 5,
+   "cooldown_minutes": 120
+  },
+  {
+   "id": "bribes_grease_pleasant",
+   "text": "dialogue.warfront.opt.bribes_grease_pleasant",
+   "response": "bribe_grease",
+   "conditions": {
+    "role": [
+     "officer"
+    ],
+    "requires_item": "minecraft:emerald",
+    "requires_count": 5
+   },
+   "effects": [
+    {
+     "type": "take_items",
+     "item": "minecraft:emerald",
+     "count": 5
+    },
+    {
+     "type": "disposition",
+     "event": "bribed"
+    },
+    {
+     "type": "standing",
+     "amount": 2
+    }
+   ],
+   "weight": 6,
+   "cooldown_minutes": 120
+  },
+  {
+   "id": "bribes_grease_gratuity",
+   "text": "dialogue.warfront.opt.bribes_grease_gratuity",
+   "response": "bribe_grease",
+   "conditions": {
+    "role": [
+     "officer"
+    ],
+    "requires_item": "minecraft:emerald",
+    "requires_count": 4
+   },
+   "effects": [
+    {
+     "type": "take_items",
+     "item": "minecraft:emerald",
+     "count": 4
+    },
+    {
+     "type": "disposition",
+     "event": "bribed"
+    },
+    {
+     "type": "standing",
+     "amount": 2
+    }
+   ],
+   "weight": 6,
+   "cooldown_minutes": 120
+  },
+  {
+   "id": "bribes_grease_no_receipt",
+   "text": "dialogue.warfront.opt.bribes_grease_no_receipt",
+   "response": "bribe_grease",
+   "conditions": {
+    "role": [
+     "officer"
+    ],
+    "requires_item": "minecraft:emerald",
+    "requires_count": 6
+   },
+   "effects": [
+    {
+     "type": "take_items",
+     "item": "minecraft:emerald",
+     "count": 6
+    },
+    {
+     "type": "disposition",
+     "event": "bribed"
+    },
+    {
+     "type": "standing",
+     "amount": 2
+    }
+   ],
+   "weight": 5,
+   "cooldown_minutes": 120
+  },
+  {
+   "id": "bribes_grease_how_welcome",
+   "text": "dialogue.warfront.opt.bribes_grease_how_welcome",
+   "response": "bribe_grease",
+   "conditions": {
+    "role": [
+     "officer"
+    ],
+    "requires_item": "minecraft:emerald",
+    "requires_count": 5
+   },
+   "effects": [
+    {
+     "type": "take_items",
+     "item": "minecraft:emerald",
+     "count": 5
+    },
+    {
+     "type": "disposition",
+     "event": "bribed"
+    },
+    {
+     "type": "standing",
+     "amount": 2
+    }
+   ],
+   "weight": 5,
+   "cooldown_minutes": 120
+  },
+  {
+   "id": "bribes_lookaway_soften_file",
+   "text": "dialogue.warfront.opt.bribes_lookaway_soften_file",
+   "response": "bribe_lookaway",
+   "conditions": {
+    "role": [
+     "officer"
+    ],
+    "disposition": [
+     "negative"
+    ],
+    "requires_item": "minecraft:emerald",
+    "requires_count": 7
+   },
+   "effects": [
+    {
+     "type": "take_items",
+     "item": "minecraft:emerald",
+     "count": 7
+    },
+    {
+     "type": "disposition",
+     "event": "bribed"
+    },
+    {
+     "type": "standing",
+     "amount": 2
+    }
+   ],
+   "weight": 7,
+   "cooldown_minutes": 120
+  },
+  {
+   "id": "bribes_lookaway_past_stays",
+   "text": "dialogue.warfront.opt.bribes_lookaway_past_stays",
+   "response": "bribe_lookaway",
+   "conditions": {
+    "role": [
+     "officer"
+    ],
+    "disposition": [
+     "negative"
+    ],
+    "requires_item": "minecraft:emerald",
+    "requires_count": 5
+   },
+   "effects": [
+    {
+     "type": "take_items",
+     "item": "minecraft:emerald",
+     "count": 5
+    },
+    {
+     "type": "disposition",
+     "event": "bribed"
+    },
+    {
+     "type": "standing",
+     "amount": 2
+    }
+   ],
+   "weight": 6,
+   "cooldown_minutes": 120
+  },
+  {
+   "id": "bribes_lookaway_kind_edit",
+   "text": "dialogue.warfront.opt.bribes_lookaway_kind_edit",
+   "response": "bribe_lookaway",
+   "conditions": {
+    "role": [
+     "officer"
+    ],
+    "disposition": [
+     "negative"
+    ],
+    "requires_item": "minecraft:emerald",
+    "requires_count": 6
+   },
+   "effects": [
+    {
+     "type": "take_items",
+     "item": "minecraft:emerald",
+     "count": 6
+    },
+    {
+     "type": "disposition",
+     "event": "bribed"
+    },
+    {
+     "type": "standing",
+     "amount": 2
+    }
+   ],
+   "weight": 6,
+   "cooldown_minutes": 120
+  },
+  {
+   "id": "bribes_lookaway_complaint",
+   "text": "dialogue.warfront.opt.bribes_lookaway_complaint",
+   "response": "bribe_lookaway",
+   "conditions": {
+    "role": [
+     "officer"
+    ],
+    "disposition": [
+     "negative"
+    ],
+    "requires_item": "minecraft:emerald",
+    "requires_count": 7
+   },
+   "effects": [
+    {
+     "type": "take_items",
+     "item": "minecraft:emerald",
+     "count": 7
+    },
+    {
+     "type": "disposition",
+     "event": "bribed"
+    },
+    {
+     "type": "standing",
+     "amount": 2
+    }
+   ],
+   "weight": 6,
+   "cooldown_minutes": 120
+  },
+  {
+   "id": "bribes_lookaway_never_seen",
+   "text": "dialogue.warfront.opt.bribes_lookaway_never_seen",
+   "response": "bribe_lookaway",
+   "conditions": {
+    "role": [
+     "officer"
+    ],
+    "disposition": [
+     "negative"
+    ],
+    "requires_item": "minecraft:emerald",
+    "requires_count": 5
+   },
+   "effects": [
+    {
+     "type": "take_items",
+     "item": "minecraft:emerald",
+     "count": 5
+    },
+    {
+     "type": "disposition",
+     "event": "bribed"
+    },
+    {
+     "type": "standing",
+     "amount": 2
+    }
+   ],
+   "weight": 6,
+   "cooldown_minutes": 120
+  },
+  {
+   "id": "bribes_lookaway_list_of_sins",
+   "text": "dialogue.warfront.opt.bribes_lookaway_list_of_sins",
+   "response": "bribe_lookaway",
+   "conditions": {
+    "role": [
+     "officer"
+    ],
+    "disposition": [
+     "negative"
+    ],
+    "requires_item": "minecraft:emerald",
+    "requires_count": 6
+   },
+   "effects": [
+    {
+     "type": "take_items",
+     "item": "minecraft:emerald",
+     "count": 6
+    },
+    {
+     "type": "disposition",
+     "event": "bribed"
+    },
+    {
+     "type": "standing",
+     "amount": 2
+    }
+   ],
+   "weight": 5,
+   "cooldown_minutes": 120
+  },
+  {
+   "id": "bribes_lookaway_blind_eye",
+   "text": "dialogue.warfront.opt.bribes_lookaway_blind_eye",
+   "response": "bribe_lookaway",
+   "conditions": {
+    "role": [
+     "officer"
+    ],
+    "disposition": [
+     "negative"
+    ],
+    "requires_item": "minecraft:emerald",
+    "requires_count": 7
+   },
+   "effects": [
+    {
+     "type": "take_items",
+     "item": "minecraft:emerald",
+     "count": 7
+    },
+    {
+     "type": "disposition",
+     "event": "bribed"
+    },
+    {
+     "type": "standing",
+     "amount": 2
+    }
+   ],
+   "weight": 5,
+   "cooldown_minutes": 120
+  },
+  {
+   "id": "bribes_lookaway_reclassify",
+   "text": "dialogue.warfront.opt.bribes_lookaway_reclassify",
+   "response": "bribe_lookaway",
+   "conditions": {
+    "role": [
+     "officer"
+    ],
+    "disposition": [
+     "negative"
+    ],
+    "requires_item": "minecraft:emerald",
+    "requires_count": 5
+   },
+   "effects": [
+    {
+     "type": "take_items",
+     "item": "minecraft:emerald",
+     "count": 5
+    },
+    {
+     "type": "disposition",
+     "event": "bribed"
+    },
+    {
+     "type": "standing",
+     "amount": 2
+    }
+   ],
+   "weight": 5,
+   "cooldown_minutes": 120
+  },
+  {
+   "id": "bribes_pocket_whatever_favors",
+   "text": "dialogue.warfront.opt.bribes_pocket_whatever_favors",
+   "response": "bribe_pocketed",
+   "conditions": {
+    "role": [
+     "officer"
+    ],
+    "requires_item": "minecraft:emerald",
+    "requires_count": 8
+   },
+   "effects": [
+    {
+     "type": "take_items",
+     "item": "minecraft:emerald",
+     "count": 8
+    },
+    {
+     "type": "disposition",
+     "event": "insulted"
+    }
+   ],
+   "weight": 6
+  },
+  {
+   "id": "bribes_pocket_surprise_me",
+   "text": "dialogue.warfront.opt.bribes_pocket_surprise_me",
+   "response": "bribe_pocketed",
+   "conditions": {
+    "role": [
+     "officer"
+    ],
+    "requires_item": "minecraft:emerald",
+    "requires_count": 6
+   },
+   "effects": [
+    {
+     "type": "take_items",
+     "item": "minecraft:emerald",
+     "count": 6
+    },
+    {
+     "type": "disposition",
+     "event": "insulted"
+    }
+   ],
+   "weight": 6
+  },
+  {
+   "id": "bribes_pocket_owe_me",
+   "text": "dialogue.warfront.opt.bribes_pocket_owe_me",
+   "response": "bribe_pocketed",
+   "conditions": {
+    "role": [
+     "officer"
+    ],
+    "requires_item": "minecraft:emerald",
+    "requires_count": 4
+   },
+   "effects": [
+    {
+     "type": "take_items",
+     "item": "minecraft:emerald",
+     "count": 4
+    },
+    {
+     "type": "disposition",
+     "event": "insulted"
+    }
+   ],
+   "weight": 6
+  },
+  {
+   "id": "bribes_pocket_ask_nothing",
+   "text": "dialogue.warfront.opt.bribes_pocket_ask_nothing",
+   "response": "bribe_pocketed",
+   "conditions": {
+    "role": [
+     "officer"
+    ],
+    "requires_item": "minecraft:emerald",
+    "requires_count": 7
+   },
+   "effects": [
+    {
+     "type": "take_items",
+     "item": "minecraft:emerald",
+     "count": 7
+    },
+    {
+     "type": "disposition",
+     "event": "insulted"
+    }
+   ],
+   "weight": 5
+  },
+  {
+   "id": "bribes_pocket_terms_flexible",
+   "text": "dialogue.warfront.opt.bribes_pocket_terms_flexible",
+   "response": "bribe_pocketed",
+   "conditions": {
+    "role": [
+     "officer"
+    ],
+    "requires_item": "minecraft:emerald",
+    "requires_count": 5
+   },
+   "effects": [
+    {
+     "type": "take_items",
+     "item": "minecraft:emerald",
+     "count": 5
+    },
+    {
+     "type": "disposition",
+     "event": "insulted"
+    }
+   ],
+   "weight": 5
+  },
+  {
+   "id": "bribes_pocket_you_decide",
+   "text": "dialogue.warfront.opt.bribes_pocket_you_decide",
+   "response": "bribe_pocketed",
+   "conditions": {
+    "role": [
+     "officer"
+    ],
+    "requires_item": "minecraft:emerald",
+    "requires_count": 8
+   },
+   "effects": [
+    {
+     "type": "take_items",
+     "item": "minecraft:emerald",
+     "count": 8
+    },
+    {
+     "type": "disposition",
+     "event": "insulted"
+    }
+   ],
+   "weight": 5
+  },
+  {
+   "id": "bribes_pocket_good_faith",
+   "text": "dialogue.warfront.opt.bribes_pocket_good_faith",
+   "response": "bribe_pocketed",
+   "conditions": {
+    "role": [
+     "officer"
+    ],
+    "requires_item": "minecraft:emerald",
+    "requires_count": 6
+   },
+   "effects": [
+    {
+     "type": "take_items",
+     "item": "minecraft:emerald",
+     "count": 6
+    },
+    {
+     "type": "disposition",
+     "event": "insulted"
+    }
+   ],
+   "weight": 5
+  },
+  {
+   "id": "bribes_pocket_settle_later",
+   "text": "dialogue.warfront.opt.bribes_pocket_settle_later",
+   "response": "bribe_pocketed",
+   "conditions": {
+    "role": [
+     "officer"
+    ],
+    "requires_item": "minecraft:emerald",
+    "requires_count": 4
+   },
+   "effects": [
+    {
+     "type": "take_items",
+     "item": "minecraft:emerald",
+     "count": 4
+    },
+    {
+     "type": "disposition",
+     "event": "insulted"
+    }
+   ],
+   "weight": 5
+  },
+  {
+   "id": "bribes_provoke_name_it",
+   "text": "dialogue.warfront.opt.bribes_provoke_name_it",
+   "response": "bribe_provoked",
+   "conditions": {
+    "role": [
+     "officer"
+    ]
+   },
+   "effects": [
+    {
+     "type": "provoke"
+    }
+   ],
+   "weight": 4
+  },
+  {
+   "id": "bribes_provoke_skims",
+   "text": "dialogue.warfront.opt.bribes_provoke_skims",
+   "response": "bribe_provoked",
+   "conditions": {
+    "role": [
+     "officer"
+    ],
+    "requires_item": "minecraft:emerald",
+    "requires_count": 6
+   },
+   "effects": [
+    {
+     "type": "provoke"
+    }
+   ],
+   "weight": 4
+  },
+  {
+   "id": "bribes_provoke_costume",
+   "text": "dialogue.warfront.opt.bribes_provoke_costume",
+   "response": "bribe_provoked",
+   "conditions": {
+    "role": [
+     "officer"
+    ],
+    "requires_item": "minecraft:emerald",
+    "requires_count": 10
+   },
+   "effects": [
+    {
+     "type": "provoke"
+    }
+   ],
+   "weight": 4
+  },
+  {
+   "id": "bribes_provoke_tell_command",
+   "text": "dialogue.warfront.opt.bribes_provoke_tell_command",
+   "response": "bribe_provoked",
+   "conditions": {
+    "role": [
+     "officer"
+    ]
+   },
+   "effects": [
+    {
+     "type": "provoke"
+    }
+   ],
+   "weight": 4
+  }
+ ]
+}

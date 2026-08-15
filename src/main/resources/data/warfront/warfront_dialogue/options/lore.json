@@ -1,0 +1,1277 @@
+{
+ "category": "lore",
+ "options": [
+  {
+   "id": "lore_ask_way_of_war",
+   "text": "dialogue.warfront.opt.lore_ask_way_of_war",
+   "response": "lore_doctrine_why",
+   "weight": 15
+  },
+  {
+   "id": "lore_ask_waves",
+   "text": "dialogue.warfront.opt.lore_ask_waves",
+   "response": "lore_doctrine_why",
+   "conditions": {
+    "faction": [
+     "vostok"
+    ]
+   }
+  },
+  {
+   "id": "lore_ask_attrition_cost",
+   "text": "dialogue.warfront.opt.lore_ask_attrition_cost",
+   "response": "lore_doctrine_why",
+   "conditions": {
+    "faction": [
+     "vostok"
+    ]
+   }
+  },
+  {
+   "id": "lore_ask_by_the_book",
+   "text": "dialogue.warfront.opt.lore_ask_by_the_book",
+   "response": "lore_doctrine_why",
+   "conditions": {
+    "faction": [
+     "aegis"
+    ]
+   }
+  },
+  {
+   "id": "lore_ask_combined_arms",
+   "text": "dialogue.warfront.opt.lore_ask_combined_arms",
+   "response": "lore_doctrine_why",
+   "conditions": {
+    "faction": [
+     "aegis"
+    ]
+   }
+  },
+  {
+   "id": "lore_ask_ambush_style",
+   "text": "dialogue.warfront.opt.lore_ask_ambush_style",
+   "response": "lore_doctrine_why",
+   "conditions": {
+    "faction": [
+     "sarab"
+    ]
+   }
+  },
+  {
+   "id": "lore_ask_hit_and_vanish",
+   "text": "dialogue.warfront.opt.lore_ask_hit_and_vanish",
+   "response": "lore_doctrine_why",
+   "conditions": {
+    "faction": [
+     "sarab"
+    ]
+   }
+  },
+  {
+   "id": "lore_ask_one_sentence",
+   "text": "dialogue.warfront.opt.lore_ask_one_sentence",
+   "response": "lore_doctrine_why"
+  },
+  {
+   "id": "lore_ask_why_fight",
+   "text": "dialogue.warfront.opt.lore_ask_why_fight",
+   "response": "lore_doctrine_why",
+   "weight": 15
+  },
+  {
+   "id": "lore_ask_battle_fear",
+   "text": "dialogue.warfront.opt.lore_ask_battle_fear",
+   "response": "lore_doctrine_why"
+  },
+  {
+   "id": "lore_probe_doctrine",
+   "text": "dialogue.warfront.opt.lore_probe_doctrine",
+   "response": "lore_doctrine_why",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   }
+  },
+  {
+   "id": "lore_probe_method",
+   "text": "dialogue.warfront.opt.lore_probe_method",
+   "response": "lore_doctrine_why",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   }
+  },
+  {
+   "id": "lore_trusted_doctrine_truth",
+   "text": "dialogue.warfront.opt.lore_trusted_doctrine_truth",
+   "response": "lore_doctrine_why",
+   "conditions": {
+    "disposition": [
+     "positive"
+    ]
+   }
+  },
+  {
+   "id": "lore_trusted_flaw",
+   "text": "dialogue.warfront.opt.lore_trusted_flaw",
+   "response": "lore_doctrine_why",
+   "conditions": {
+    "disposition": [
+     "positive"
+    ]
+   }
+  },
+  {
+   "id": "lore_trusted_survival_wisdom",
+   "text": "dialogue.warfront.opt.lore_trusted_survival_wisdom",
+   "response": "lore_doctrine_why",
+   "conditions": {
+    "disposition": [
+     "positive"
+    ]
+   }
+  },
+  {
+   "id": "lore_ask_quota",
+   "text": "dialogue.warfront.opt.lore_ask_quota",
+   "response": "lore_doctrine_why",
+   "conditions": {
+    "faction": [
+     "vostok"
+    ]
+   }
+  },
+  {
+   "id": "lore_officer_teach",
+   "text": "dialogue.warfront.opt.lore_officer_teach",
+   "response": "lore_doctrine_officer",
+   "conditions": {
+    "role": [
+     "officer"
+    ]
+   }
+  },
+  {
+   "id": "lore_officer_grand",
+   "text": "dialogue.warfront.opt.lore_officer_grand",
+   "response": "lore_doctrine_officer",
+   "conditions": {
+    "role": [
+     "officer"
+    ]
+   }
+  },
+  {
+   "id": "lore_officer_commit",
+   "text": "dialogue.warfront.opt.lore_officer_commit",
+   "response": "lore_doctrine_officer",
+   "conditions": {
+    "role": [
+     "officer"
+    ]
+   }
+  },
+  {
+   "id": "lore_officer_lessons",
+   "text": "dialogue.warfront.opt.lore_officer_lessons",
+   "response": "lore_doctrine_officer",
+   "conditions": {
+    "role": [
+     "officer"
+    ]
+   }
+  },
+  {
+   "id": "lore_officer_maps",
+   "text": "dialogue.warfront.opt.lore_officer_maps",
+   "response": "lore_doctrine_officer",
+   "conditions": {
+    "role": [
+     "officer"
+    ]
+   }
+  },
+  {
+   "id": "lore_officer_trusted",
+   "text": "dialogue.warfront.opt.lore_officer_trusted",
+   "response": "lore_doctrine_officer",
+   "conditions": {
+    "role": [
+     "officer"
+    ],
+    "disposition": [
+     "positive"
+    ]
+   }
+  },
+  {
+   "id": "lore_officer_probe",
+   "text": "dialogue.warfront.opt.lore_officer_probe",
+   "response": "lore_doctrine_officer",
+   "conditions": {
+    "role": [
+     "officer"
+    ],
+    "disposition": [
+     "negative"
+    ]
+   }
+  },
+  {
+   "id": "lore_ask_founding",
+   "text": "dialogue.warfront.opt.lore_ask_founding",
+   "response": "lore_founding",
+   "weight": 15
+  },
+  {
+   "id": "lore_ask_war_began",
+   "text": "dialogue.warfront.opt.lore_ask_war_began",
+   "response": "lore_founding"
+  },
+  {
+   "id": "lore_ask_before_war",
+   "text": "dialogue.warfront.opt.lore_ask_before_war",
+   "response": "lore_founding"
+  },
+  {
+   "id": "lore_ask_first_battle",
+   "text": "dialogue.warfront.opt.lore_ask_first_battle",
+   "response": "lore_founding"
+  },
+  {
+   "id": "lore_ask_name_origin",
+   "text": "dialogue.warfront.opt.lore_ask_name_origin",
+   "response": "lore_founding"
+  },
+  {
+   "id": "lore_ask_old_country",
+   "text": "dialogue.warfront.opt.lore_ask_old_country",
+   "response": "lore_founding"
+  },
+  {
+   "id": "lore_probe_founding",
+   "text": "dialogue.warfront.opt.lore_probe_founding",
+   "response": "lore_founding",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   }
+  },
+  {
+   "id": "lore_trusted_founding",
+   "text": "dialogue.warfront.opt.lore_trusted_founding",
+   "response": "lore_founding",
+   "conditions": {
+    "disposition": [
+     "positive"
+    ]
+   }
+  },
+  {
+   "id": "lore_ask_elders",
+   "text": "dialogue.warfront.opt.lore_ask_elders",
+   "response": "lore_founding"
+  },
+  {
+   "id": "lore_ask_first_blow",
+   "text": "dialogue.warfront.opt.lore_ask_first_blow",
+   "response": "lore_founding"
+  },
+  {
+   "id": "lore_trusted_story",
+   "text": "dialogue.warfront.opt.lore_trusted_story",
+   "response": "lore_founding",
+   "conditions": {
+    "disposition": [
+     "positive"
+    ]
+   }
+  },
+  {
+   "id": "lore_ask_who_leads",
+   "text": "dialogue.warfront.opt.lore_ask_who_leads",
+   "response": "lore_leaders",
+   "weight": 15
+  },
+  {
+   "id": "lore_ask_high_command",
+   "text": "dialogue.warfront.opt.lore_ask_high_command",
+   "response": "lore_leaders"
+  },
+  {
+   "id": "lore_ask_commander_like",
+   "text": "dialogue.warfront.opt.lore_ask_commander_like",
+   "response": "lore_leaders"
+  },
+  {
+   "id": "lore_ask_obey",
+   "text": "dialogue.warfront.opt.lore_ask_obey",
+   "response": "lore_leaders"
+  },
+  {
+   "id": "lore_ask_promotion",
+   "text": "dialogue.warfront.opt.lore_ask_promotion",
+   "response": "lore_leaders"
+  },
+  {
+   "id": "lore_probe_leaders",
+   "text": "dialogue.warfront.opt.lore_probe_leaders",
+   "response": "lore_leaders",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   }
+  },
+  {
+   "id": "lore_trusted_leaders",
+   "text": "dialogue.warfront.opt.lore_trusted_leaders",
+   "response": "lore_leaders",
+   "conditions": {
+    "disposition": [
+     "positive"
+    ]
+   }
+  },
+  {
+   "id": "lore_ask_officers",
+   "text": "dialogue.warfront.opt.lore_ask_officers",
+   "response": "lore_leaders"
+  },
+  {
+   "id": "lore_ask_refuse_order",
+   "text": "dialogue.warfront.opt.lore_ask_refuse_order",
+   "response": "lore_leaders"
+  },
+  {
+   "id": "lore_probe_leader_name",
+   "text": "dialogue.warfront.opt.lore_probe_leader_name",
+   "response": "lore_leaders",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   }
+  },
+  {
+   "id": "lore_ask_death_belief",
+   "text": "dialogue.warfront.opt.lore_ask_death_belief",
+   "response": "lore_death"
+  },
+  {
+   "id": "lore_ask_honor_fallen",
+   "text": "dialogue.warfront.opt.lore_ask_honor_fallen",
+   "response": "lore_death"
+  },
+  {
+   "id": "lore_ask_fear_death",
+   "text": "dialogue.warfront.opt.lore_ask_fear_death",
+   "response": "lore_death"
+  },
+  {
+   "id": "lore_ask_graves",
+   "text": "dialogue.warfront.opt.lore_ask_graves",
+   "response": "lore_death"
+  },
+  {
+   "id": "lore_ask_mourning",
+   "text": "dialogue.warfront.opt.lore_ask_mourning",
+   "response": "lore_death"
+  },
+  {
+   "id": "lore_probe_lost_friends",
+   "text": "dialogue.warfront.opt.lore_probe_lost_friends",
+   "response": "lore_death",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   }
+  },
+  {
+   "id": "lore_trusted_own_death",
+   "text": "dialogue.warfront.opt.lore_trusted_own_death",
+   "response": "lore_death",
+   "conditions": {
+    "disposition": [
+     "positive"
+    ]
+   }
+  },
+  {
+   "id": "lore_ask_roll_of_names",
+   "text": "dialogue.warfront.opt.lore_ask_roll_of_names",
+   "response": "lore_death"
+  },
+  {
+   "id": "lore_ask_ghosts",
+   "text": "dialogue.warfront.opt.lore_ask_ghosts",
+   "response": "lore_death",
+   "weight": 5
+  },
+  {
+   "id": "lore_probe_deathcount",
+   "text": "dialogue.warfront.opt.lore_probe_deathcount",
+   "response": "lore_death",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   }
+  },
+  {
+   "id": "lore_ask_why_here",
+   "text": "dialogue.warfront.opt.lore_ask_why_here",
+   "response": "lore_land"
+  },
+  {
+   "id": "lore_ask_worth_blood",
+   "text": "dialogue.warfront.opt.lore_ask_worth_blood",
+   "response": "lore_land"
+  },
+  {
+   "id": "lore_ask_home_posting",
+   "text": "dialogue.warfront.opt.lore_ask_home_posting",
+   "response": "lore_land"
+  },
+  {
+   "id": "lore_ask_borders",
+   "text": "dialogue.warfront.opt.lore_ask_borders",
+   "response": "lore_land"
+  },
+  {
+   "id": "lore_ask_ever_leave",
+   "text": "dialogue.warfront.opt.lore_ask_ever_leave",
+   "response": "lore_land"
+  },
+  {
+   "id": "lore_probe_dirt",
+   "text": "dialogue.warfront.opt.lore_probe_dirt",
+   "response": "lore_land",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   }
+  },
+  {
+   "id": "lore_trusted_stay",
+   "text": "dialogue.warfront.opt.lore_trusted_stay",
+   "response": "lore_land",
+   "conditions": {
+    "disposition": [
+     "positive"
+    ]
+   }
+  },
+  {
+   "id": "lore_ask_terrain",
+   "text": "dialogue.warfront.opt.lore_ask_terrain",
+   "response": "lore_land"
+  },
+  {
+   "id": "lore_ask_before_armies",
+   "text": "dialogue.warfront.opt.lore_ask_before_armies",
+   "response": "lore_land"
+  },
+  {
+   "id": "lore_ask_desert_survival",
+   "text": "dialogue.warfront.opt.lore_ask_desert_survival",
+   "response": "lore_land",
+   "conditions": {
+    "faction": [
+     "sarab"
+    ]
+   }
+  },
+  {
+   "id": "lore_ask_wells",
+   "text": "dialogue.warfront.opt.lore_ask_wells",
+   "response": "lore_land",
+   "conditions": {
+    "faction": [
+     "sarab"
+    ]
+   }
+  },
+  {
+   "id": "lore_ask_gear",
+   "text": "dialogue.warfront.opt.lore_ask_gear",
+   "response": "lore_gear",
+   "weight": 15
+  },
+  {
+   "id": "lore_ask_iron_flood",
+   "text": "dialogue.warfront.opt.lore_ask_iron_flood",
+   "response": "lore_gear",
+   "conditions": {
+    "faction": [
+     "vostok"
+    ]
+   }
+  },
+  {
+   "id": "lore_ask_matched_kit",
+   "text": "dialogue.warfront.opt.lore_ask_matched_kit",
+   "response": "lore_gear",
+   "conditions": {
+    "faction": [
+     "aegis"
+    ]
+   }
+  },
+  {
+   "id": "lore_ask_light_kit",
+   "text": "dialogue.warfront.opt.lore_ask_light_kit",
+   "response": "lore_gear",
+   "conditions": {
+    "faction": [
+     "sarab"
+    ]
+   }
+  },
+  {
+   "id": "lore_ask_smiths",
+   "text": "dialogue.warfront.opt.lore_ask_smiths",
+   "response": "lore_gear"
+  },
+  {
+   "id": "lore_ask_good_armor",
+   "text": "dialogue.warfront.opt.lore_ask_good_armor",
+   "response": "lore_gear"
+  },
+  {
+   "id": "lore_qm_loadout",
+   "text": "dialogue.warfront.opt.lore_qm_loadout",
+   "response": "lore_gear",
+   "conditions": {
+    "role": [
+     "quartermaster"
+    ]
+   }
+  },
+  {
+   "id": "lore_qm_scarce",
+   "text": "dialogue.warfront.opt.lore_qm_scarce",
+   "response": "lore_gear",
+   "conditions": {
+    "role": [
+     "quartermaster"
+    ]
+   }
+  },
+  {
+   "id": "lore_probe_carrying",
+   "text": "dialogue.warfront.opt.lore_probe_carrying",
+   "response": "lore_gear",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   }
+  },
+  {
+   "id": "lore_trusted_kit_advice",
+   "text": "dialogue.warfront.opt.lore_trusted_kit_advice",
+   "response": "lore_gear",
+   "conditions": {
+    "disposition": [
+     "positive"
+    ]
+   }
+  },
+  {
+   "id": "lore_ask_banner_meaning",
+   "text": "dialogue.warfront.opt.lore_ask_banner_meaning",
+   "response": "lore_banners"
+  },
+  {
+   "id": "lore_ask_colors",
+   "text": "dialogue.warfront.opt.lore_ask_colors",
+   "response": "lore_banners"
+  },
+  {
+   "id": "lore_ask_symbol_story",
+   "text": "dialogue.warfront.opt.lore_ask_symbol_story",
+   "response": "lore_banners"
+  },
+  {
+   "id": "lore_ask_oath",
+   "text": "dialogue.warfront.opt.lore_ask_oath",
+   "response": "lore_banners"
+  },
+  {
+   "id": "lore_probe_cloth",
+   "text": "dialogue.warfront.opt.lore_probe_cloth",
+   "response": "lore_banners",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   }
+  },
+  {
+   "id": "lore_trusted_first_banner",
+   "text": "dialogue.warfront.opt.lore_trusted_first_banner",
+   "response": "lore_banners",
+   "conditions": {
+    "disposition": [
+     "positive"
+    ]
+   }
+  },
+  {
+   "id": "lore_ask_songs",
+   "text": "dialogue.warfront.opt.lore_ask_songs",
+   "response": "lore_banners"
+  },
+  {
+   "id": "lore_ask_scratched_marks",
+   "text": "dialogue.warfront.opt.lore_ask_scratched_marks",
+   "response": "lore_banners"
+  },
+  {
+   "id": "lore_ask_victory_look",
+   "text": "dialogue.warfront.opt.lore_ask_victory_look",
+   "response": "lore_victory",
+   "weight": 15
+  },
+  {
+   "id": "lore_ask_how_ends",
+   "text": "dialogue.warfront.opt.lore_ask_how_ends",
+   "response": "lore_victory"
+  },
+  {
+   "id": "lore_ask_peace_possible",
+   "text": "dialogue.warfront.opt.lore_ask_peace_possible",
+   "response": "lore_victory"
+  },
+  {
+   "id": "lore_ask_after_war",
+   "text": "dialogue.warfront.opt.lore_ask_after_war",
+   "response": "lore_victory"
+  },
+  {
+   "id": "lore_probe_cant_win",
+   "text": "dialogue.warfront.opt.lore_probe_cant_win",
+   "response": "lore_victory",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   }
+  },
+  {
+   "id": "lore_trusted_see_end",
+   "text": "dialogue.warfront.opt.lore_trusted_see_end",
+   "response": "lore_victory",
+   "conditions": {
+    "disposition": [
+     "positive"
+    ]
+   }
+  },
+  {
+   "id": "lore_ask_if_lose",
+   "text": "dialogue.warfront.opt.lore_ask_if_lose",
+   "response": "lore_victory"
+  },
+  {
+   "id": "lore_ask_price_refuse",
+   "text": "dialogue.warfront.opt.lore_ask_price_refuse",
+   "response": "lore_victory"
+  },
+  {
+   "id": "lore_probe_losing",
+   "text": "dialogue.warfront.opt.lore_probe_losing",
+   "response": "lore_victory",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   }
+  },
+  {
+   "id": "lore_ask_join_how",
+   "text": "dialogue.warfront.opt.lore_ask_join_how",
+   "response": "lore_recruits"
+  },
+  {
+   "id": "lore_ask_volunteers",
+   "text": "dialogue.warfront.opt.lore_ask_volunteers",
+   "response": "lore_recruits"
+  },
+  {
+   "id": "lore_ask_families_send",
+   "text": "dialogue.warfront.opt.lore_ask_families_send",
+   "response": "lore_recruits"
+  },
+  {
+   "id": "lore_ask_outsiders",
+   "text": "dialogue.warfront.opt.lore_ask_outsiders",
+   "response": "lore_recruits"
+  },
+  {
+   "id": "lore_ask_why_joined",
+   "text": "dialogue.warfront.opt.lore_ask_why_joined",
+   "response": "lore_recruits"
+  },
+  {
+   "id": "lore_probe_bodies",
+   "text": "dialogue.warfront.opt.lore_probe_bodies",
+   "response": "lore_recruits",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   }
+  },
+  {
+   "id": "lore_trusted_earn_place",
+   "text": "dialogue.warfront.opt.lore_trusted_earn_place",
+   "response": "lore_recruits",
+   "conditions": {
+    "disposition": [
+     "positive"
+    ]
+   }
+  },
+  {
+   "id": "lore_ask_deserters",
+   "text": "dialogue.warfront.opt.lore_ask_deserters",
+   "response": "lore_recruits"
+  },
+  {
+   "id": "lore_ask_oldest_soldier",
+   "text": "dialogue.warfront.opt.lore_ask_oldest_soldier",
+   "response": "lore_recruits"
+  },
+  {
+   "id": "lore_probe_muster",
+   "text": "dialogue.warfront.opt.lore_probe_muster",
+   "response": "lore_recruits",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   }
+  },
+  {
+   "id": "lore_ask_training",
+   "text": "dialogue.warfront.opt.lore_ask_training",
+   "response": "lore_training"
+  },
+  {
+   "id": "lore_ask_first_lesson",
+   "text": "dialogue.warfront.opt.lore_ask_first_lesson",
+   "response": "lore_training"
+  },
+  {
+   "id": "lore_ask_hardest_part",
+   "text": "dialogue.warfront.opt.lore_ask_hardest_part",
+   "response": "lore_training"
+  },
+  {
+   "id": "lore_ask_drills",
+   "text": "dialogue.warfront.opt.lore_ask_drills",
+   "response": "lore_training"
+  },
+  {
+   "id": "lore_ask_washouts",
+   "text": "dialogue.warfront.opt.lore_ask_washouts",
+   "response": "lore_training"
+  },
+  {
+   "id": "lore_probe_half_trained",
+   "text": "dialogue.warfront.opt.lore_probe_half_trained",
+   "response": "lore_training",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   }
+  },
+  {
+   "id": "lore_trusted_teach_me",
+   "text": "dialogue.warfront.opt.lore_trusted_teach_me",
+   "response": "lore_training",
+   "conditions": {
+    "disposition": [
+     "positive"
+    ]
+   }
+  },
+  {
+   "id": "lore_ask_spot_veteran",
+   "text": "dialogue.warfront.opt.lore_ask_spot_veteran",
+   "response": "lore_training"
+  },
+  {
+   "id": "lore_ask_night_drills",
+   "text": "dialogue.warfront.opt.lore_ask_night_drills",
+   "response": "lore_training",
+   "conditions": {
+    "time": [
+     "night"
+    ]
+   }
+  },
+  {
+   "id": "lore_probe_train_where",
+   "text": "dialogue.warfront.opt.lore_probe_train_where",
+   "response": "lore_training",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   }
+  },
+  {
+   "id": "lore_ask_terse_talk",
+   "text": "dialogue.warfront.opt.lore_ask_terse_talk",
+   "response": "lore_training",
+   "conditions": {
+    "faction": [
+     "aegis"
+    ]
+   }
+  },
+  {
+   "id": "lore_ask_war_rules",
+   "text": "dialogue.warfront.opt.lore_ask_war_rules",
+   "response": "lore_roe"
+  },
+  {
+   "id": "lore_ask_prisoners",
+   "text": "dialogue.warfront.opt.lore_ask_prisoners",
+   "response": "lore_roe"
+  },
+  {
+   "id": "lore_ask_traveler_rules",
+   "text": "dialogue.warfront.opt.lore_ask_traveler_rules",
+   "response": "lore_roe"
+  },
+  {
+   "id": "lore_ask_forbidden",
+   "text": "dialogue.warfront.opt.lore_ask_forbidden",
+   "response": "lore_roe"
+  },
+  {
+   "id": "lore_probe_rules_joke",
+   "text": "dialogue.warfront.opt.lore_probe_rules_joke",
+   "response": "lore_roe",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   }
+  },
+  {
+   "id": "lore_trusted_broke_rules",
+   "text": "dialogue.warfront.opt.lore_trusted_broke_rules",
+   "response": "lore_roe",
+   "conditions": {
+    "disposition": [
+     "positive"
+    ]
+   }
+  },
+  {
+   "id": "lore_ask_truces",
+   "text": "dialogue.warfront.opt.lore_ask_truces",
+   "response": "lore_roe"
+  },
+  {
+   "id": "lore_ask_white_flag",
+   "text": "dialogue.warfront.opt.lore_ask_white_flag",
+   "response": "lore_roe"
+  },
+  {
+   "id": "lore_ask_ledgers",
+   "text": "dialogue.warfront.opt.lore_ask_ledgers",
+   "response": "lore_roe",
+   "conditions": {
+    "faction": [
+     "aegis"
+    ]
+   }
+  },
+  {
+   "id": "lore_ask_camps_tour",
+   "text": "dialogue.warfront.opt.lore_ask_camps_tour",
+   "response": "lore_bases",
+   "weight": 15
+  },
+  {
+   "id": "lore_ask_watch_posts",
+   "text": "dialogue.warfront.opt.lore_ask_watch_posts",
+   "response": "lore_bases"
+  },
+  {
+   "id": "lore_ask_middle_camps",
+   "text": "dialogue.warfront.opt.lore_ask_middle_camps",
+   "response": "lore_bases"
+  },
+  {
+   "id": "lore_ask_great_camp",
+   "text": "dialogue.warfront.opt.lore_ask_great_camp",
+   "response": "lore_bases"
+  },
+  {
+   "id": "lore_ask_camp_defense",
+   "text": "dialogue.warfront.opt.lore_ask_camp_defense",
+   "response": "lore_bases"
+  },
+  {
+   "id": "lore_ask_who_builds",
+   "text": "dialogue.warfront.opt.lore_ask_who_builds",
+   "response": "lore_bases"
+  },
+  {
+   "id": "lore_probe_headcount",
+   "text": "dialogue.warfront.opt.lore_probe_headcount",
+   "response": "lore_bases",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   }
+  },
+  {
+   "id": "lore_trusted_shelter",
+   "text": "dialogue.warfront.opt.lore_trusted_shelter",
+   "response": "lore_bases",
+   "conditions": {
+    "disposition": [
+     "positive"
+    ]
+   }
+  },
+  {
+   "id": "lore_ask_position_age",
+   "text": "dialogue.warfront.opt.lore_ask_position_age",
+   "response": "lore_bases",
+   "conditions": {
+    "location": [
+     "in_base"
+    ]
+   }
+  },
+  {
+   "id": "lore_ask_feed_far_posts",
+   "text": "dialogue.warfront.opt.lore_ask_feed_far_posts",
+   "response": "lore_bases"
+  },
+  {
+   "id": "lore_probe_main_camp",
+   "text": "dialogue.warfront.opt.lore_probe_main_camp",
+   "response": "lore_bases",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   }
+  },
+  {
+   "id": "lore_probe_supply_road",
+   "text": "dialogue.warfront.opt.lore_probe_supply_road",
+   "response": "lore_bases",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   }
+  },
+  {
+   "id": "lore_probe_watch_change",
+   "text": "dialogue.warfront.opt.lore_probe_watch_change",
+   "response": "lore_bases",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   }
+  },
+  {
+   "id": "lore_ask_scouts",
+   "text": "dialogue.warfront.opt.lore_ask_scouts",
+   "response": "lore_bases"
+  },
+  {
+   "id": "lore_ask_why_sandbags",
+   "text": "dialogue.warfront.opt.lore_ask_why_sandbags",
+   "response": "lore_sandbags"
+  },
+  {
+   "id": "lore_ask_bag_fill",
+   "text": "dialogue.warfront.opt.lore_ask_bag_fill",
+   "response": "lore_sandbags",
+   "conditions": {
+    "location": [
+     "in_base"
+    ]
+   }
+  },
+  {
+   "id": "lore_ask_stacking_art",
+   "text": "dialogue.warfront.opt.lore_ask_stacking_art",
+   "response": "lore_sandbags"
+  },
+  {
+   "id": "lore_ask_bags_hold",
+   "text": "dialogue.warfront.opt.lore_ask_bags_hold",
+   "response": "lore_sandbags"
+  },
+  {
+   "id": "lore_probe_sack_walls",
+   "text": "dialogue.warfront.opt.lore_probe_sack_walls",
+   "response": "lore_sandbags",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   }
+  },
+  {
+   "id": "lore_trusted_emplacement",
+   "text": "dialogue.warfront.opt.lore_trusted_emplacement",
+   "response": "lore_sandbags",
+   "conditions": {
+    "disposition": [
+     "positive"
+    ]
+   }
+  },
+  {
+   "id": "lore_ask_wall_menders",
+   "text": "dialogue.warfront.opt.lore_ask_wall_menders",
+   "response": "lore_sandbags",
+   "conditions": {
+    "location": [
+     "in_base"
+    ]
+   }
+  },
+  {
+   "id": "lore_probe_weak_side",
+   "text": "dialogue.warfront.opt.lore_probe_weak_side",
+   "response": "lore_sandbags",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   }
+  },
+  {
+   "id": "lore_ask_always_digging",
+   "text": "dialogue.warfront.opt.lore_ask_always_digging",
+   "response": "lore_sandbags",
+   "conditions": {
+    "faction": [
+     "vostok"
+    ]
+   }
+  },
+  {
+   "id": "lore_ask_bunkhouse",
+   "text": "dialogue.warfront.opt.lore_ask_bunkhouse",
+   "response": "lore_barracks"
+  },
+  {
+   "id": "lore_ask_sleep",
+   "text": "dialogue.warfront.opt.lore_ask_sleep",
+   "response": "lore_barracks"
+  },
+  {
+   "id": "lore_ask_food",
+   "text": "dialogue.warfront.opt.lore_ask_food",
+   "response": "lore_barracks"
+  },
+  {
+   "id": "lore_ask_between_battles",
+   "text": "dialogue.warfront.opt.lore_ask_between_battles",
+   "response": "lore_barracks"
+  },
+  {
+   "id": "lore_ask_word_from_home",
+   "text": "dialogue.warfront.opt.lore_ask_word_from_home",
+   "response": "lore_barracks"
+  },
+  {
+   "id": "lore_ask_cold_nights",
+   "text": "dialogue.warfront.opt.lore_ask_cold_nights",
+   "response": "lore_barracks",
+   "conditions": {
+    "time": [
+     "night"
+    ]
+   }
+  },
+  {
+   "id": "lore_probe_why_stay",
+   "text": "dialogue.warfront.opt.lore_probe_why_stay",
+   "response": "lore_barracks",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   }
+  },
+  {
+   "id": "lore_trusted_save_bunk",
+   "text": "dialogue.warfront.opt.lore_trusted_save_bunk",
+   "response": "lore_barracks",
+   "conditions": {
+    "disposition": [
+     "positive"
+    ]
+   }
+  },
+  {
+   "id": "lore_ask_camp_cat",
+   "text": "dialogue.warfront.opt.lore_ask_camp_cat",
+   "response": "lore_barracks",
+   "conditions": {
+    "location": [
+     "in_base"
+    ]
+   },
+   "weight": 5
+  },
+  {
+   "id": "lore_trusted_scar",
+   "text": "dialogue.warfront.opt.lore_trusted_scar",
+   "response": "lore_barracks",
+   "conditions": {
+    "disposition": [
+     "positive"
+    ]
+   }
+  },
+  {
+   "id": "lore_trusted_dreams",
+   "text": "dialogue.warfront.opt.lore_trusted_dreams",
+   "response": "lore_barracks",
+   "conditions": {
+    "disposition": [
+     "positive"
+    ]
+   }
+  },
+  {
+   "id": "lore_ask_bitter_season",
+   "text": "dialogue.warfront.opt.lore_ask_bitter_season",
+   "response": "lore_barracks"
+  },
+  {
+   "id": "lore_ask_medics",
+   "text": "dialogue.warfront.opt.lore_ask_medics",
+   "response": "lore_barracks"
+  },
+  {
+   "id": "lore_ask_tea_ritual",
+   "text": "dialogue.warfront.opt.lore_ask_tea_ritual",
+   "response": "lore_barracks",
+   "conditions": {
+    "faction": [
+     "sarab"
+    ]
+   }
+  },
+  {
+   "id": "lore_ask_wet_trenches",
+   "text": "dialogue.warfront.opt.lore_ask_wet_trenches",
+   "response": "lore_barracks",
+   "conditions": {
+    "faction": [
+     "vostok"
+    ]
+   }
+  },
+  {
+   "id": "lore_ask_callsigns",
+   "text": "dialogue.warfront.opt.lore_ask_callsigns",
+   "response": "lore_barracks",
+   "conditions": {
+    "faction": [
+     "aegis"
+    ]
+   }
+  },
+  {
+   "id": "lore_rude_doctrine",
+   "text": "dialogue.warfront.opt.lore_rude_doctrine",
+   "response": "lore_scoff",
+   "effects": [
+    {
+     "type": "disposition",
+     "event": "insulted"
+    }
+   ],
+   "weight": 5
+  },
+  {
+   "id": "lore_rude_banner",
+   "text": "dialogue.warfront.opt.lore_rude_banner",
+   "response": "lore_scoff",
+   "effects": [
+    {
+     "type": "disposition",
+     "event": "insulted"
+    }
+   ],
+   "weight": 5
+  },
+  {
+   "id": "lore_exit_thanks",
+   "text": "dialogue.warfront.opt.lore_exit_thanks",
+   "response": "lore_exit",
+   "effects": [
+    {
+     "type": "end"
+    }
+   ],
+   "exit": true,
+   "weight": 8
+  },
+  {
+   "id": "lore_exit_stories",
+   "text": "dialogue.warfront.opt.lore_exit_stories",
+   "response": "lore_exit",
+   "effects": [
+    {
+     "type": "end"
+    }
+   ],
+   "exit": true,
+   "weight": 8
+  },
+  {
+   "id": "lore_exit_chew",
+   "text": "dialogue.warfront.opt.lore_exit_chew",
+   "response": "lore_exit",
+   "effects": [
+    {
+     "type": "end"
+    }
+   ],
+   "exit": true,
+   "weight": 6
+  },
+  {
+   "id": "lore_exit_watch",
+   "text": "dialogue.warfront.opt.lore_exit_watch",
+   "response": "lore_exit",
+   "effects": [
+    {
+     "type": "end"
+    }
+   ],
+   "exit": true,
+   "weight": 8
+  }
+ ]
+}

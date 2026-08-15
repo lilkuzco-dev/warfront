@@ -1,0 +1,570 @@
+{
+ "classes": {
+  "provocations_mild_dig": {
+   "vostok": {
+    "negative": [
+     "dialogue.warfront.resp.provocations_mild_dig.vostok.negative.1",
+     "dialogue.warfront.resp.provocations_mild_dig.vostok.negative.2"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.provocations_mild_dig.vostok.neutral.1",
+     "dialogue.warfront.resp.provocations_mild_dig.vostok.neutral.2",
+     "dialogue.warfront.resp.provocations_mild_dig.vostok.neutral.3"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.provocations_mild_dig.vostok.positive.1",
+     "dialogue.warfront.resp.provocations_mild_dig.vostok.positive.2",
+     "dialogue.warfront.resp.provocations_mild_dig.vostok.positive.3"
+    ]
+   },
+   "aegis": {
+    "negative": [
+     "dialogue.warfront.resp.provocations_mild_dig.aegis.negative.1",
+     "dialogue.warfront.resp.provocations_mild_dig.aegis.negative.2"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.provocations_mild_dig.aegis.neutral.1",
+     "dialogue.warfront.resp.provocations_mild_dig.aegis.neutral.2",
+     "dialogue.warfront.resp.provocations_mild_dig.aegis.neutral.3"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.provocations_mild_dig.aegis.positive.1",
+     "dialogue.warfront.resp.provocations_mild_dig.aegis.positive.2",
+     "dialogue.warfront.resp.provocations_mild_dig.aegis.positive.3"
+    ]
+   },
+   "sarab": {
+    "negative": [
+     "dialogue.warfront.resp.provocations_mild_dig.sarab.negative.1",
+     "dialogue.warfront.resp.provocations_mild_dig.sarab.negative.2"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.provocations_mild_dig.sarab.neutral.1",
+     "dialogue.warfront.resp.provocations_mild_dig.sarab.neutral.2",
+     "dialogue.warfront.resp.provocations_mild_dig.sarab.neutral.3"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.provocations_mild_dig.sarab.positive.1",
+     "dialogue.warfront.resp.provocations_mild_dig.sarab.positive.2",
+     "dialogue.warfront.resp.provocations_mild_dig.sarab.positive.3"
+    ]
+   }
+  },
+  "provocations_doctrine_insult": {
+   "vostok": {
+    "vengeful": [
+     "dialogue.warfront.resp.provocations_doctrine_insult.vostok.vengeful.1",
+     "dialogue.warfront.resp.provocations_doctrine_insult.vostok.vengeful.2"
+    ],
+    "negative": [
+     "dialogue.warfront.resp.provocations_doctrine_insult.vostok.negative.1",
+     "dialogue.warfront.resp.provocations_doctrine_insult.vostok.negative.2"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.provocations_doctrine_insult.vostok.neutral.1",
+     "dialogue.warfront.resp.provocations_doctrine_insult.vostok.neutral.2",
+     "dialogue.warfront.resp.provocations_doctrine_insult.vostok.neutral.3"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.provocations_doctrine_insult.vostok.positive.1",
+     "dialogue.warfront.resp.provocations_doctrine_insult.vostok.positive.2",
+     "dialogue.warfront.resp.provocations_doctrine_insult.vostok.positive.3"
+    ]
+   },
+   "aegis": {
+    "vengeful": [
+     "dialogue.warfront.resp.provocations_doctrine_insult.aegis.vengeful.1",
+     "dialogue.warfront.resp.provocations_doctrine_insult.aegis.vengeful.2"
+    ],
+    "negative": [
+     "dialogue.warfront.resp.provocations_doctrine_insult.aegis.negative.1",
+     "dialogue.warfront.resp.provocations_doctrine_insult.aegis.negative.2"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.provocations_doctrine_insult.aegis.neutral.1",
+     "dialogue.warfront.resp.provocations_doctrine_insult.aegis.neutral.2",
+     "dialogue.warfront.resp.provocations_doctrine_insult.aegis.neutral.3"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.provocations_doctrine_insult.aegis.positive.1",
+     "dialogue.warfront.resp.provocations_doctrine_insult.aegis.positive.2",
+     "dialogue.warfront.resp.provocations_doctrine_insult.aegis.positive.3"
+    ]
+   },
+   "sarab": {
+    "vengeful": [
+     "dialogue.warfront.resp.provocations_doctrine_insult.sarab.vengeful.1",
+     "dialogue.warfront.resp.provocations_doctrine_insult.sarab.vengeful.2"
+    ],
+    "negative": [
+     "dialogue.warfront.resp.provocations_doctrine_insult.sarab.negative.1",
+     "dialogue.warfront.resp.provocations_doctrine_insult.sarab.negative.2"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.provocations_doctrine_insult.sarab.neutral.1",
+     "dialogue.warfront.resp.provocations_doctrine_insult.sarab.neutral.2",
+     "dialogue.warfront.resp.provocations_doctrine_insult.sarab.neutral.3"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.provocations_doctrine_insult.sarab.positive.1",
+     "dialogue.warfront.resp.provocations_doctrine_insult.sarab.positive.2",
+     "dialogue.warfront.resp.provocations_doctrine_insult.sarab.positive.3"
+    ]
+   }
+  },
+  "provocations_serious_insult": {
+   "vostok": {
+    "vengeful": [
+     "dialogue.warfront.resp.provocations_serious_insult.vostok.vengeful.1",
+     "dialogue.warfront.resp.provocations_serious_insult.vostok.vengeful.2"
+    ],
+    "negative": [
+     "dialogue.warfront.resp.provocations_serious_insult.vostok.negative.1",
+     "dialogue.warfront.resp.provocations_serious_insult.vostok.negative.2"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.provocations_serious_insult.vostok.neutral.1",
+     "dialogue.warfront.resp.provocations_serious_insult.vostok.neutral.2",
+     "dialogue.warfront.resp.provocations_serious_insult.vostok.neutral.3"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.provocations_serious_insult.vostok.positive.1",
+     "dialogue.warfront.resp.provocations_serious_insult.vostok.positive.2"
+    ]
+   },
+   "aegis": {
+    "vengeful": [
+     "dialogue.warfront.resp.provocations_serious_insult.aegis.vengeful.1",
+     "dialogue.warfront.resp.provocations_serious_insult.aegis.vengeful.2"
+    ],
+    "negative": [
+     "dialogue.warfront.resp.provocations_serious_insult.aegis.negative.1",
+     "dialogue.warfront.resp.provocations_serious_insult.aegis.negative.2"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.provocations_serious_insult.aegis.neutral.1",
+     "dialogue.warfront.resp.provocations_serious_insult.aegis.neutral.2",
+     "dialogue.warfront.resp.provocations_serious_insult.aegis.neutral.3"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.provocations_serious_insult.aegis.positive.1",
+     "dialogue.warfront.resp.provocations_serious_insult.aegis.positive.2"
+    ]
+   },
+   "sarab": {
+    "vengeful": [
+     "dialogue.warfront.resp.provocations_serious_insult.sarab.vengeful.1",
+     "dialogue.warfront.resp.provocations_serious_insult.sarab.vengeful.2"
+    ],
+    "negative": [
+     "dialogue.warfront.resp.provocations_serious_insult.sarab.negative.1",
+     "dialogue.warfront.resp.provocations_serious_insult.sarab.negative.2"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.provocations_serious_insult.sarab.neutral.1",
+     "dialogue.warfront.resp.provocations_serious_insult.sarab.neutral.2",
+     "dialogue.warfront.resp.provocations_serious_insult.sarab.neutral.3"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.provocations_serious_insult.sarab.positive.1",
+     "dialogue.warfront.resp.provocations_serious_insult.sarab.positive.2"
+    ]
+   }
+  },
+  "provocations_banner_spit": {
+   "vostok": {
+    "vengeful": [
+     "dialogue.warfront.resp.provocations_banner_spit.vostok.vengeful.1",
+     "dialogue.warfront.resp.provocations_banner_spit.vostok.vengeful.2"
+    ],
+    "negative": [
+     "dialogue.warfront.resp.provocations_banner_spit.vostok.negative.1",
+     "dialogue.warfront.resp.provocations_banner_spit.vostok.negative.2"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.provocations_banner_spit.vostok.neutral.1",
+     "dialogue.warfront.resp.provocations_banner_spit.vostok.neutral.2"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.provocations_banner_spit.vostok.positive.1",
+     "dialogue.warfront.resp.provocations_banner_spit.vostok.positive.2"
+    ]
+   },
+   "aegis": {
+    "vengeful": [
+     "dialogue.warfront.resp.provocations_banner_spit.aegis.vengeful.1",
+     "dialogue.warfront.resp.provocations_banner_spit.aegis.vengeful.2"
+    ],
+    "negative": [
+     "dialogue.warfront.resp.provocations_banner_spit.aegis.negative.1",
+     "dialogue.warfront.resp.provocations_banner_spit.aegis.negative.2"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.provocations_banner_spit.aegis.neutral.1",
+     "dialogue.warfront.resp.provocations_banner_spit.aegis.neutral.2"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.provocations_banner_spit.aegis.positive.1",
+     "dialogue.warfront.resp.provocations_banner_spit.aegis.positive.2"
+    ]
+   },
+   "sarab": {
+    "vengeful": [
+     "dialogue.warfront.resp.provocations_banner_spit.sarab.vengeful.1",
+     "dialogue.warfront.resp.provocations_banner_spit.sarab.vengeful.2"
+    ],
+    "negative": [
+     "dialogue.warfront.resp.provocations_banner_spit.sarab.negative.1",
+     "dialogue.warfront.resp.provocations_banner_spit.sarab.negative.2"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.provocations_banner_spit.sarab.neutral.1",
+     "dialogue.warfront.resp.provocations_banner_spit.sarab.neutral.2"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.provocations_banner_spit.sarab.positive.1",
+     "dialogue.warfront.resp.provocations_banner_spit.sarab.positive.2"
+    ]
+   }
+  },
+  "provocations_threat": {
+   "vostok": {
+    "vengeful": [
+     "dialogue.warfront.resp.provocations_threat.vostok.vengeful.1",
+     "dialogue.warfront.resp.provocations_threat.vostok.vengeful.2"
+    ],
+    "negative": [
+     "dialogue.warfront.resp.provocations_threat.vostok.negative.1",
+     "dialogue.warfront.resp.provocations_threat.vostok.negative.2"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.provocations_threat.vostok.neutral.1",
+     "dialogue.warfront.resp.provocations_threat.vostok.neutral.2",
+     "dialogue.warfront.resp.provocations_threat.vostok.neutral.3"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.provocations_threat.vostok.positive.1",
+     "dialogue.warfront.resp.provocations_threat.vostok.positive.2"
+    ]
+   },
+   "aegis": {
+    "vengeful": [
+     "dialogue.warfront.resp.provocations_threat.aegis.vengeful.1",
+     "dialogue.warfront.resp.provocations_threat.aegis.vengeful.2"
+    ],
+    "negative": [
+     "dialogue.warfront.resp.provocations_threat.aegis.negative.1",
+     "dialogue.warfront.resp.provocations_threat.aegis.negative.2"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.provocations_threat.aegis.neutral.1",
+     "dialogue.warfront.resp.provocations_threat.aegis.neutral.2",
+     "dialogue.warfront.resp.provocations_threat.aegis.neutral.3"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.provocations_threat.aegis.positive.1",
+     "dialogue.warfront.resp.provocations_threat.aegis.positive.2"
+    ]
+   },
+   "sarab": {
+    "vengeful": [
+     "dialogue.warfront.resp.provocations_threat.sarab.vengeful.1",
+     "dialogue.warfront.resp.provocations_threat.sarab.vengeful.2"
+    ],
+    "negative": [
+     "dialogue.warfront.resp.provocations_threat.sarab.negative.1",
+     "dialogue.warfront.resp.provocations_threat.sarab.negative.2"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.provocations_threat.sarab.neutral.1",
+     "dialogue.warfront.resp.provocations_threat.sarab.neutral.2",
+     "dialogue.warfront.resp.provocations_threat.sarab.neutral.3"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.provocations_threat.sarab.positive.1",
+     "dialogue.warfront.resp.provocations_threat.sarab.positive.2"
+    ]
+   }
+  },
+  "provocations_grave_threat": {
+   "vostok": {
+    "vengeful": [
+     "dialogue.warfront.resp.provocations_grave_threat.vostok.vengeful.1",
+     "dialogue.warfront.resp.provocations_grave_threat.vostok.vengeful.2"
+    ],
+    "negative": [
+     "dialogue.warfront.resp.provocations_grave_threat.vostok.negative.1",
+     "dialogue.warfront.resp.provocations_grave_threat.vostok.negative.2"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.provocations_grave_threat.vostok.neutral.1",
+     "dialogue.warfront.resp.provocations_grave_threat.vostok.neutral.2"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.provocations_grave_threat.vostok.positive.1",
+     "dialogue.warfront.resp.provocations_grave_threat.vostok.positive.2"
+    ]
+   },
+   "aegis": {
+    "vengeful": [
+     "dialogue.warfront.resp.provocations_grave_threat.aegis.vengeful.1",
+     "dialogue.warfront.resp.provocations_grave_threat.aegis.vengeful.2"
+    ],
+    "negative": [
+     "dialogue.warfront.resp.provocations_grave_threat.aegis.negative.1",
+     "dialogue.warfront.resp.provocations_grave_threat.aegis.negative.2"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.provocations_grave_threat.aegis.neutral.1",
+     "dialogue.warfront.resp.provocations_grave_threat.aegis.neutral.2"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.provocations_grave_threat.aegis.positive.1",
+     "dialogue.warfront.resp.provocations_grave_threat.aegis.positive.2"
+    ]
+   },
+   "sarab": {
+    "vengeful": [
+     "dialogue.warfront.resp.provocations_grave_threat.sarab.vengeful.1",
+     "dialogue.warfront.resp.provocations_grave_threat.sarab.vengeful.2"
+    ],
+    "negative": [
+     "dialogue.warfront.resp.provocations_grave_threat.sarab.negative.1",
+     "dialogue.warfront.resp.provocations_grave_threat.sarab.negative.2"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.provocations_grave_threat.sarab.neutral.1",
+     "dialogue.warfront.resp.provocations_grave_threat.sarab.neutral.2"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.provocations_grave_threat.sarab.positive.1",
+     "dialogue.warfront.resp.provocations_grave_threat.sarab.positive.2"
+    ]
+   }
+  },
+  "provocations_provoke": {
+   "vostok": {
+    "vengeful": [
+     "dialogue.warfront.resp.provocations_provoke.vostok.vengeful.1",
+     "dialogue.warfront.resp.provocations_provoke.vostok.vengeful.2"
+    ],
+    "negative": [
+     "dialogue.warfront.resp.provocations_provoke.vostok.negative.1",
+     "dialogue.warfront.resp.provocations_provoke.vostok.negative.2"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.provocations_provoke.vostok.neutral.1",
+     "dialogue.warfront.resp.provocations_provoke.vostok.neutral.2",
+     "dialogue.warfront.resp.provocations_provoke.vostok.neutral.3"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.provocations_provoke.vostok.positive.1",
+     "dialogue.warfront.resp.provocations_provoke.vostok.positive.2"
+    ]
+   },
+   "aegis": {
+    "vengeful": [
+     "dialogue.warfront.resp.provocations_provoke.aegis.vengeful.1",
+     "dialogue.warfront.resp.provocations_provoke.aegis.vengeful.2"
+    ],
+    "negative": [
+     "dialogue.warfront.resp.provocations_provoke.aegis.negative.1",
+     "dialogue.warfront.resp.provocations_provoke.aegis.negative.2"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.provocations_provoke.aegis.neutral.1",
+     "dialogue.warfront.resp.provocations_provoke.aegis.neutral.2",
+     "dialogue.warfront.resp.provocations_provoke.aegis.neutral.3"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.provocations_provoke.aegis.positive.1",
+     "dialogue.warfront.resp.provocations_provoke.aegis.positive.2"
+    ]
+   },
+   "sarab": {
+    "vengeful": [
+     "dialogue.warfront.resp.provocations_provoke.sarab.vengeful.1",
+     "dialogue.warfront.resp.provocations_provoke.sarab.vengeful.2"
+    ],
+    "negative": [
+     "dialogue.warfront.resp.provocations_provoke.sarab.negative.1",
+     "dialogue.warfront.resp.provocations_provoke.sarab.negative.2"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.provocations_provoke.sarab.neutral.1",
+     "dialogue.warfront.resp.provocations_provoke.sarab.neutral.2",
+     "dialogue.warfront.resp.provocations_provoke.sarab.neutral.3"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.provocations_provoke.sarab.positive.1",
+     "dialogue.warfront.resp.provocations_provoke.sarab.positive.2"
+    ]
+   }
+  },
+  "provocations_provoke_squad": {
+   "vostok": {
+    "vengeful": [
+     "dialogue.warfront.resp.provocations_provoke_squad.vostok.vengeful.1",
+     "dialogue.warfront.resp.provocations_provoke_squad.vostok.vengeful.2"
+    ],
+    "negative": [
+     "dialogue.warfront.resp.provocations_provoke_squad.vostok.negative.1",
+     "dialogue.warfront.resp.provocations_provoke_squad.vostok.negative.2"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.provocations_provoke_squad.vostok.neutral.1",
+     "dialogue.warfront.resp.provocations_provoke_squad.vostok.neutral.2"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.provocations_provoke_squad.vostok.positive.1",
+     "dialogue.warfront.resp.provocations_provoke_squad.vostok.positive.2"
+    ]
+   },
+   "aegis": {
+    "vengeful": [
+     "dialogue.warfront.resp.provocations_provoke_squad.aegis.vengeful.1",
+     "dialogue.warfront.resp.provocations_provoke_squad.aegis.vengeful.2"
+    ],
+    "negative": [
+     "dialogue.warfront.resp.provocations_provoke_squad.aegis.negative.1",
+     "dialogue.warfront.resp.provocations_provoke_squad.aegis.negative.2"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.provocations_provoke_squad.aegis.neutral.1",
+     "dialogue.warfront.resp.provocations_provoke_squad.aegis.neutral.2"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.provocations_provoke_squad.aegis.positive.1",
+     "dialogue.warfront.resp.provocations_provoke_squad.aegis.positive.2"
+    ]
+   },
+   "sarab": {
+    "vengeful": [
+     "dialogue.warfront.resp.provocations_provoke_squad.sarab.vengeful.1",
+     "dialogue.warfront.resp.provocations_provoke_squad.sarab.vengeful.2"
+    ],
+    "negative": [
+     "dialogue.warfront.resp.provocations_provoke_squad.sarab.negative.1",
+     "dialogue.warfront.resp.provocations_provoke_squad.sarab.negative.2"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.provocations_provoke_squad.sarab.neutral.1",
+     "dialogue.warfront.resp.provocations_provoke_squad.sarab.neutral.2"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.provocations_provoke_squad.sarab.positive.1",
+     "dialogue.warfront.resp.provocations_provoke_squad.sarab.positive.2"
+    ]
+   }
+  },
+  "provocations_blood_taunt": {
+   "vostok": {
+    "vengeful": [
+     "dialogue.warfront.resp.provocations_blood_taunt.vostok.vengeful.1",
+     "dialogue.warfront.resp.provocations_blood_taunt.vostok.vengeful.2"
+    ],
+    "negative": [
+     "dialogue.warfront.resp.provocations_blood_taunt.vostok.negative.1",
+     "dialogue.warfront.resp.provocations_blood_taunt.vostok.negative.2"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.provocations_blood_taunt.vostok.neutral.1",
+     "dialogue.warfront.resp.provocations_blood_taunt.vostok.neutral.2",
+     "dialogue.warfront.resp.provocations_blood_taunt.vostok.neutral.3"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.provocations_blood_taunt.vostok.positive.1",
+     "dialogue.warfront.resp.provocations_blood_taunt.vostok.positive.2"
+    ]
+   },
+   "aegis": {
+    "vengeful": [
+     "dialogue.warfront.resp.provocations_blood_taunt.aegis.vengeful.1",
+     "dialogue.warfront.resp.provocations_blood_taunt.aegis.vengeful.2"
+    ],
+    "negative": [
+     "dialogue.warfront.resp.provocations_blood_taunt.aegis.negative.1",
+     "dialogue.warfront.resp.provocations_blood_taunt.aegis.negative.2"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.provocations_blood_taunt.aegis.neutral.1",
+     "dialogue.warfront.resp.provocations_blood_taunt.aegis.neutral.2",
+     "dialogue.warfront.resp.provocations_blood_taunt.aegis.neutral.3"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.provocations_blood_taunt.aegis.positive.1",
+     "dialogue.warfront.resp.provocations_blood_taunt.aegis.positive.2"
+    ]
+   },
+   "sarab": {
+    "vengeful": [
+     "dialogue.warfront.resp.provocations_blood_taunt.sarab.vengeful.1",
+     "dialogue.warfront.resp.provocations_blood_taunt.sarab.vengeful.2"
+    ],
+    "negative": [
+     "dialogue.warfront.resp.provocations_blood_taunt.sarab.negative.1",
+     "dialogue.warfront.resp.provocations_blood_taunt.sarab.negative.2"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.provocations_blood_taunt.sarab.neutral.1",
+     "dialogue.warfront.resp.provocations_blood_taunt.sarab.neutral.2",
+     "dialogue.warfront.resp.provocations_blood_taunt.sarab.neutral.3"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.provocations_blood_taunt.sarab.positive.1",
+     "dialogue.warfront.resp.provocations_blood_taunt.sarab.positive.2"
+    ]
+   }
+  },
+  "provocations_mock_rank": {
+   "vostok": {
+    "negative": [
+     "dialogue.warfront.resp.provocations_mock_rank.vostok.negative.1",
+     "dialogue.warfront.resp.provocations_mock_rank.vostok.negative.2"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.provocations_mock_rank.vostok.neutral.1",
+     "dialogue.warfront.resp.provocations_mock_rank.vostok.neutral.2",
+     "dialogue.warfront.resp.provocations_mock_rank.vostok.neutral.3"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.provocations_mock_rank.vostok.positive.1",
+     "dialogue.warfront.resp.provocations_mock_rank.vostok.positive.2",
+     "dialogue.warfront.resp.provocations_mock_rank.vostok.positive.3"
+    ]
+   },
+   "aegis": {
+    "negative": [
+     "dialogue.warfront.resp.provocations_mock_rank.aegis.negative.1",
+     "dialogue.warfront.resp.provocations_mock_rank.aegis.negative.2"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.provocations_mock_rank.aegis.neutral.1",
+     "dialogue.warfront.resp.provocations_mock_rank.aegis.neutral.2",
+     "dialogue.warfront.resp.provocations_mock_rank.aegis.neutral.3"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.provocations_mock_rank.aegis.positive.1",
+     "dialogue.warfront.resp.provocations_mock_rank.aegis.positive.2",
+     "dialogue.warfront.resp.provocations_mock_rank.aegis.positive.3"
+    ]
+   },
+   "sarab": {
+    "negative": [
+     "dialogue.warfront.resp.provocations_mock_rank.sarab.negative.1",
+     "dialogue.warfront.resp.provocations_mock_rank.sarab.negative.2"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.provocations_mock_rank.sarab.neutral.1",
+     "dialogue.warfront.resp.provocations_mock_rank.sarab.neutral.2",
+     "dialogue.warfront.resp.provocations_mock_rank.sarab.neutral.3"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.provocations_mock_rank.sarab.positive.1",
+     "dialogue.warfront.resp.provocations_mock_rank.sarab.positive.2",
+     "dialogue.warfront.resp.provocations_mock_rank.sarab.positive.3"
+    ]
+   }
+  }
+ }
+}

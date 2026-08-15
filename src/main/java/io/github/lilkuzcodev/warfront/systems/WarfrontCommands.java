@@ -49,6 +49,11 @@ public final class WarfrontCommands {
 						.then(Commands.literal("standing").executes(ctx -> standing(ctx.getSource())))
 						.then(Commands.literal("bases").requires(Commands.hasPermission(Commands.LEVEL_GAMEMASTERS)).executes(ctx -> bases(ctx.getSource())))
 						.then(Commands.literal("adopt").requires(Commands.hasPermission(Commands.LEVEL_GAMEMASTERS)).executes(ctx -> adoptDebug(ctx.getSource())))
+						.then(Commands.literal("ledger").requires(Commands.hasPermission(Commands.LEVEL_GAMEMASTERS))
+								.then(Commands.argument("faction", StringArgumentType.word())
+										.then(Commands.argument("event", StringArgumentType.word())
+												.executes(ctx -> ledger(ctx.getSource(), StringArgumentType.getString(ctx, "faction"),
+														StringArgumentType.getString(ctx, "event"))))))
 						.then(Commands.literal("patrol").requires(Commands.hasPermission(Commands.LEVEL_GAMEMASTERS))
 								.then(Commands.argument("faction", StringArgumentType.word())
 										.executes(ctx -> patrol(ctx.getSource(), StringArgumentType.getString(ctx, "faction")))))));
@@ -127,6 +132,18 @@ public final class WarfrontCommands {
 		if (all.isEmpty()) {
 			source.sendSuccess(() -> Component.literal("no structure references at " + pos.toShortString()), false);
 		}
+		return 1;
+	}
+
+	/** Test/debug: inject a ledger event for the executing player (drives bias scenarios). */
+	private static int ledger(CommandSourceStack source, String faction, String event) {
+		if (!(source.getEntity() instanceof net.minecraft.server.level.ServerPlayer player)) {
+			source.sendFailure(Component.literal("Run as a player"));
+			return 0;
+		}
+		WarfrontState state = WarfrontState.get(source.getServer());
+		float applied = state.recordEvent(player.getUUID(), faction, event, WarfrontState.clock(source.getLevel()));
+		source.sendSuccess(() -> Component.literal(String.format("Recorded %s -> %s (weight %.1f)", event, faction, applied)), true);
 		return 1;
 	}
 

@@ -1,0 +1,1735 @@
+{
+ "category": "apology",
+ "options": [
+  {
+   "id": "apology_verbal_sorry",
+   "text": "dialogue.warfront.opt.apology_verbal_sorry",
+   "response": "apology_verbal",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "effects": [
+    {
+     "type": "standing",
+     "amount": 1
+    }
+   ],
+   "weight": 10,
+   "cooldown_minutes": 60
+  },
+  {
+   "id": "apology_verbal_owe",
+   "text": "dialogue.warfront.opt.apology_verbal_owe",
+   "response": "apology_verbal",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "effects": [
+    {
+     "type": "standing",
+     "amount": 1
+    }
+   ],
+   "weight": 9,
+   "cooldown_minutes": 60
+  },
+  {
+   "id": "apology_verbal_was_wrong",
+   "text": "dialogue.warfront.opt.apology_verbal_was_wrong",
+   "response": "apology_verbal",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "effects": [
+    {
+     "type": "standing",
+     "amount": 1
+    }
+   ],
+   "weight": 8,
+   "cooldown_minutes": 60
+  },
+  {
+   "id": "apology_verbal_know_it",
+   "text": "dialogue.warfront.opt.apology_verbal_know_it",
+   "response": "apology_verbal",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "effects": [
+    {
+     "type": "standing",
+     "amount": 1
+    }
+   ],
+   "weight": 8,
+   "cooldown_minutes": 60
+  },
+  {
+   "id": "apology_verbal_plain",
+   "text": "dialogue.warfront.opt.apology_verbal_plain",
+   "response": "apology_verbal",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "effects": [
+    {
+     "type": "standing",
+     "amount": 1
+    }
+   ],
+   "weight": 8,
+   "cooldown_minutes": 60
+  },
+  {
+   "id": "apology_verbal_no_excuses",
+   "text": "dialogue.warfront.opt.apology_verbal_no_excuses",
+   "response": "apology_verbal",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "effects": [
+    {
+     "type": "standing",
+     "amount": 1
+    }
+   ],
+   "weight": 8,
+   "cooldown_minutes": 60
+  },
+  {
+   "id": "apology_verbal_regret",
+   "text": "dialogue.warfront.opt.apology_verbal_regret",
+   "response": "apology_verbal",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "effects": [
+    {
+     "type": "standing",
+     "amount": 1
+    }
+   ],
+   "weight": 7,
+   "cooldown_minutes": 60
+  },
+  {
+   "id": "apology_verbal_own_mistakes",
+   "text": "dialogue.warfront.opt.apology_verbal_own_mistakes",
+   "response": "apology_verbal",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "effects": [
+    {
+     "type": "standing",
+     "amount": 1
+    }
+   ],
+   "weight": 7,
+   "cooldown_minutes": 60
+  },
+  {
+   "id": "apology_verbal_deserved_better",
+   "text": "dialogue.warfront.opt.apology_verbal_deserved_better",
+   "response": "apology_verbal",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "effects": [
+    {
+     "type": "standing",
+     "amount": 1
+    }
+   ],
+   "weight": 7,
+   "cooldown_minutes": 60
+  },
+  {
+   "id": "apology_verbal_straight",
+   "text": "dialogue.warfront.opt.apology_verbal_straight",
+   "response": "apology_verbal",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "effects": [
+    {
+     "type": "standing",
+     "amount": 1
+    }
+   ],
+   "weight": 7,
+   "cooldown_minutes": 60
+  },
+  {
+   "id": "apology_verbal_admit",
+   "text": "dialogue.warfront.opt.apology_verbal_admit",
+   "response": "apology_verbal",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "effects": [
+    {
+     "type": "standing",
+     "amount": 1
+    }
+   ],
+   "weight": 7,
+   "cooldown_minutes": 60
+  },
+  {
+   "id": "apology_verbal_thinking",
+   "text": "dialogue.warfront.opt.apology_verbal_thinking",
+   "response": "apology_verbal",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "effects": [
+    {
+     "type": "standing",
+     "amount": 1
+    }
+   ],
+   "weight": 6,
+   "cooldown_minutes": 60
+  },
+  {
+   "id": "apology_verbal_no_defense",
+   "text": "dialogue.warfront.opt.apology_verbal_no_defense",
+   "response": "apology_verbal",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "effects": [
+    {
+     "type": "standing",
+     "amount": 1
+    }
+   ],
+   "weight": 6,
+   "cooldown_minutes": 60
+  },
+  {
+   "id": "apology_verbal_face_to_face",
+   "text": "dialogue.warfront.opt.apology_verbal_face_to_face",
+   "response": "apology_verbal",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "effects": [
+    {
+     "type": "standing",
+     "amount": 1
+    }
+   ],
+   "weight": 6,
+   "cooldown_minutes": 60
+  },
+  {
+   "id": "apology_verbal_reckless",
+   "text": "dialogue.warfront.opt.apology_verbal_reckless",
+   "response": "apology_verbal",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "effects": [
+    {
+     "type": "standing",
+     "amount": 1
+    }
+   ],
+   "weight": 6,
+   "cooldown_minutes": 60
+  },
+  {
+   "id": "apology_verbal_late",
+   "text": "dialogue.warfront.opt.apology_verbal_late",
+   "response": "apology_verbal",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "effects": [
+    {
+     "type": "standing",
+     "amount": 1
+    }
+   ],
+   "weight": 6,
+   "cooldown_minutes": 60
+  },
+  {
+   "id": "apology_verbal_shameful",
+   "text": "dialogue.warfront.opt.apology_verbal_shameful",
+   "response": "apology_verbal",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "effects": [
+    {
+     "type": "standing",
+     "amount": 1
+    }
+   ],
+   "weight": 6,
+   "cooldown_minutes": 60
+  },
+  {
+   "id": "apology_verbal_pardon",
+   "text": "dialogue.warfront.opt.apology_verbal_pardon",
+   "response": "apology_verbal",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "effects": [
+    {
+     "type": "standing",
+     "amount": 1
+    }
+   ],
+   "weight": 6,
+   "cooldown_minutes": 60
+  },
+  {
+   "id": "apology_deep_whole_camp",
+   "text": "dialogue.warfront.opt.apology_deep_whole_camp",
+   "response": "apology_verbal_deep",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "effects": [
+    {
+     "type": "standing",
+     "amount": 2
+    }
+   ],
+   "weight": 7,
+   "cooldown_minutes": 180
+  },
+  {
+   "id": "apology_deep_carried",
+   "text": "dialogue.warfront.opt.apology_deep_carried",
+   "response": "apology_verbal_deep",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "effects": [
+    {
+     "type": "standing",
+     "amount": 2
+    }
+   ],
+   "weight": 7,
+   "cooldown_minutes": 180
+  },
+  {
+   "id": "apology_deep_not_leaving",
+   "text": "dialogue.warfront.opt.apology_deep_not_leaving",
+   "response": "apology_verbal_deep",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "effects": [
+    {
+     "type": "standing",
+     "amount": 2
+    }
+   ],
+   "weight": 6,
+   "cooldown_minutes": 180
+  },
+  {
+   "id": "apology_deep_failed_you",
+   "text": "dialogue.warfront.opt.apology_deep_failed_you",
+   "response": "apology_verbal_deep",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "effects": [
+    {
+     "type": "standing",
+     "amount": 2
+    }
+   ],
+   "weight": 6,
+   "cooldown_minutes": 180
+  },
+  {
+   "id": "apology_deep_in_the_eye",
+   "text": "dialogue.warfront.opt.apology_deep_in_the_eye",
+   "response": "apology_verbal_deep",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "effects": [
+    {
+     "type": "standing",
+     "amount": 2
+    }
+   ],
+   "weight": 6,
+   "cooldown_minutes": 180
+  },
+  {
+   "id": "apology_deep_rehearsed",
+   "text": "dialogue.warfront.opt.apology_deep_rehearsed",
+   "response": "apology_verbal_deep",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "effects": [
+    {
+     "type": "standing",
+     "amount": 2
+    }
+   ],
+   "weight": 5,
+   "cooldown_minutes": 180
+  },
+  {
+   "id": "apology_deep_punish",
+   "text": "dialogue.warfront.opt.apology_deep_punish",
+   "response": "apology_verbal_deep",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "effects": [
+    {
+     "type": "standing",
+     "amount": 2
+    }
+   ],
+   "weight": 5,
+   "cooldown_minutes": 180
+  },
+  {
+   "id": "apology_deep_honor",
+   "text": "dialogue.warfront.opt.apology_deep_honor",
+   "response": "apology_verbal_deep",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "effects": [
+    {
+     "type": "standing",
+     "amount": 2
+    }
+   ],
+   "weight": 5,
+   "cooldown_minutes": 180
+  },
+  {
+   "id": "apology_light_business",
+   "text": "dialogue.warfront.opt.apology_light_business",
+   "response": "apology_dismissed",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "weight": 7
+  },
+  {
+   "id": "apology_light_no_hard_feelings",
+   "text": "dialogue.warfront.opt.apology_light_no_hard_feelings",
+   "response": "apology_dismissed",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "weight": 7
+  },
+  {
+   "id": "apology_light_past_behind",
+   "text": "dialogue.warfront.opt.apology_light_past_behind",
+   "response": "apology_dismissed",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "weight": 7
+  },
+  {
+   "id": "apology_light_bygones",
+   "text": "dialogue.warfront.opt.apology_light_bygones",
+   "response": "apology_dismissed",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "apology_light_said_already",
+   "text": "dialogue.warfront.opt.apology_light_said_already",
+   "response": "apology_dismissed",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "apology_light_mistakes",
+   "text": "dialogue.warfront.opt.apology_light_mistakes",
+   "response": "apology_dismissed",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "apology_light_not_personal",
+   "text": "dialogue.warfront.opt.apology_light_not_personal",
+   "response": "apology_dismissed",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "apology_light_bridge",
+   "text": "dialogue.warfront.opt.apology_light_bridge",
+   "response": "apology_dismissed",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "apology_ask_make_right",
+   "text": "dialogue.warfront.opt.apology_ask_make_right",
+   "response": "apology_what_take",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "weight": 10
+  },
+  {
+   "id": "apology_ask_fix_this",
+   "text": "dialogue.warfront.opt.apology_ask_fix_this",
+   "response": "apology_what_take",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "weight": 9
+  },
+  {
+   "id": "apology_ask_price_forgiveness",
+   "text": "dialogue.warfront.opt.apology_ask_price_forgiveness",
+   "response": "apology_what_take",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "weight": 8
+  },
+  {
+   "id": "apology_ask_goods_work_blood",
+   "text": "dialogue.warfront.opt.apology_ask_goods_work_blood",
+   "response": "apology_what_take",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "weight": 7
+  },
+  {
+   "id": "apology_ask_earn_back",
+   "text": "dialogue.warfront.opt.apology_ask_earn_back",
+   "response": "apology_what_take",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "weight": 8
+  },
+  {
+   "id": "apology_ask_name_amends",
+   "text": "dialogue.warfront.opt.apology_ask_name_amends",
+   "response": "apology_what_take",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "weight": 7
+  },
+  {
+   "id": "apology_ask_some_way",
+   "text": "dialogue.warfront.opt.apology_ask_some_way",
+   "response": "apology_what_take",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "weight": 7
+  },
+  {
+   "id": "apology_ask_officers_accept",
+   "text": "dialogue.warfront.opt.apology_ask_officers_accept",
+   "response": "apology_what_take",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "apology_ask_clean_slate",
+   "text": "dialogue.warfront.opt.apology_ask_clean_slate",
+   "response": "apology_what_take",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "weight": 7
+  },
+  {
+   "id": "apology_ask_debt_settled",
+   "text": "dialogue.warfront.opt.apology_ask_debt_settled",
+   "response": "apology_what_take",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "apology_ask_path_back",
+   "text": "dialogue.warfront.opt.apology_ask_path_back",
+   "response": "apology_what_take",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "weight": 7
+  },
+  {
+   "id": "apology_ask_tribute_soften",
+   "text": "dialogue.warfront.opt.apology_ask_tribute_soften",
+   "response": "apology_what_take",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "apology_ask_hole_dug",
+   "text": "dialogue.warfront.opt.apology_ask_hole_dug",
+   "response": "apology_what_take",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "apology_tribute_iron_harm",
+   "text": "dialogue.warfront.opt.apology_tribute_iron_harm",
+   "response": "apology_tribute_minor",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ],
+    "requires_item": "minecraft:iron_ingot",
+    "requires_count": 8
+   },
+   "effects": [
+    {
+     "type": "take_items",
+     "item": "minecraft:iron_ingot",
+     "count": 8
+    },
+    {
+     "type": "disposition",
+     "event": "apology_tribute_paid"
+    }
+   ],
+   "weight": 8
+  },
+  {
+   "id": "apology_tribute_iron_amends",
+   "text": "dialogue.warfront.opt.apology_tribute_iron_amends",
+   "response": "apology_tribute_minor",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ],
+    "requires_item": "minecraft:iron_ingot",
+    "requires_count": 8
+   },
+   "effects": [
+    {
+     "type": "take_items",
+     "item": "minecraft:iron_ingot",
+     "count": 8
+    },
+    {
+     "type": "disposition",
+     "event": "apology_tribute_paid"
+    }
+   ],
+   "weight": 7
+  },
+  {
+   "id": "apology_tribute_iron_speak",
+   "text": "dialogue.warfront.opt.apology_tribute_iron_speak",
+   "response": "apology_tribute_minor",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ],
+    "requires_item": "minecraft:iron_ingot",
+    "requires_count": 8
+   },
+   "effects": [
+    {
+     "type": "take_items",
+     "item": "minecraft:iron_ingot",
+     "count": 8
+    },
+    {
+     "type": "disposition",
+     "event": "apology_tribute_paid"
+    }
+   ],
+   "weight": 6
+  },
+  {
+   "id": "apology_tribute_iron_smiths",
+   "text": "dialogue.warfront.opt.apology_tribute_iron_smiths",
+   "response": "apology_tribute_minor",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ],
+    "requires_item": "minecraft:iron_ingot",
+    "requires_count": 8
+   },
+   "effects": [
+    {
+     "type": "take_items",
+     "item": "minecraft:iron_ingot",
+     "count": 8
+    },
+    {
+     "type": "disposition",
+     "event": "apology_tribute_paid"
+    }
+   ],
+   "weight": 6
+  },
+  {
+   "id": "apology_tribute_iron_first_payment",
+   "text": "dialogue.warfront.opt.apology_tribute_iron_first_payment",
+   "response": "apology_tribute_minor",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ],
+    "requires_item": "minecraft:iron_ingot",
+    "requires_count": 8
+   },
+   "effects": [
+    {
+     "type": "take_items",
+     "item": "minecraft:iron_ingot",
+     "count": 8
+    },
+    {
+     "type": "disposition",
+     "event": "apology_tribute_paid"
+    }
+   ],
+   "weight": 6
+  },
+  {
+   "id": "apology_tribute_iron_this_time",
+   "text": "dialogue.warfront.opt.apology_tribute_iron_this_time",
+   "response": "apology_tribute_minor",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ],
+    "requires_item": "minecraft:iron_ingot",
+    "requires_count": 8
+   },
+   "effects": [
+    {
+     "type": "take_items",
+     "item": "minecraft:iron_ingot",
+     "count": 8
+    },
+    {
+     "type": "disposition",
+     "event": "apology_tribute_paid"
+    }
+   ],
+   "weight": 6
+  },
+  {
+   "id": "apology_tribute_em3_mend",
+   "text": "dialogue.warfront.opt.apology_tribute_em3_mend",
+   "response": "apology_tribute_minor",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ],
+    "requires_item": "minecraft:emerald",
+    "requires_count": 3
+   },
+   "effects": [
+    {
+     "type": "take_items",
+     "item": "minecraft:emerald",
+     "count": 3
+    },
+    {
+     "type": "disposition",
+     "event": "apology_tribute_paid"
+    }
+   ],
+   "weight": 8
+  },
+  {
+   "id": "apology_tribute_em3_brought",
+   "text": "dialogue.warfront.opt.apology_tribute_em3_brought",
+   "response": "apology_tribute_minor",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ],
+    "requires_item": "minecraft:emerald",
+    "requires_count": 3
+   },
+   "effects": [
+    {
+     "type": "take_items",
+     "item": "minecraft:emerald",
+     "count": 3
+    },
+    {
+     "type": "disposition",
+     "event": "apology_tribute_paid"
+    }
+   ],
+   "weight": 7
+  },
+  {
+   "id": "apology_tribute_em3_toward",
+   "text": "dialogue.warfront.opt.apology_tribute_em3_toward",
+   "response": "apology_tribute_minor",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ],
+    "requires_item": "minecraft:emerald",
+    "requires_count": 3
+   },
+   "effects": [
+    {
+     "type": "take_items",
+     "item": "minecraft:emerald",
+     "count": 3
+    },
+    {
+     "type": "disposition",
+     "event": "apology_tribute_paid"
+    }
+   ],
+   "weight": 6
+  },
+  {
+   "id": "apology_tribute_em3_wronged",
+   "text": "dialogue.warfront.opt.apology_tribute_em3_wronged",
+   "response": "apology_tribute_minor",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ],
+    "requires_item": "minecraft:emerald",
+    "requires_count": 3
+   },
+   "effects": [
+    {
+     "type": "take_items",
+     "item": "minecraft:emerald",
+     "count": 3
+    },
+    {
+     "type": "disposition",
+     "event": "apology_tribute_paid"
+    }
+   ],
+   "weight": 6
+  },
+  {
+   "id": "apology_tribute_em3_have_it",
+   "text": "dialogue.warfront.opt.apology_tribute_em3_have_it",
+   "response": "apology_tribute_minor",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ],
+    "requires_item": "minecraft:emerald",
+    "requires_count": 3
+   },
+   "effects": [
+    {
+     "type": "take_items",
+     "item": "minecraft:emerald",
+     "count": 3
+    },
+    {
+     "type": "disposition",
+     "event": "apology_tribute_paid"
+    }
+   ],
+   "weight": 6
+  },
+  {
+   "id": "apology_tribute_em3_start_paying",
+   "text": "dialogue.warfront.opt.apology_tribute_em3_start_paying",
+   "response": "apology_tribute_minor",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ],
+    "requires_item": "minecraft:emerald",
+    "requires_count": 3
+   },
+   "effects": [
+    {
+     "type": "take_items",
+     "item": "minecraft:emerald",
+     "count": 3
+    },
+    {
+     "type": "disposition",
+     "event": "apology_tribute_paid"
+    }
+   ],
+   "weight": 6
+  },
+  {
+   "id": "apology_tribute_em6_real",
+   "text": "dialogue.warfront.opt.apology_tribute_em6_real",
+   "response": "apology_tribute_major",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ],
+    "requires_item": "minecraft:emerald",
+    "requires_count": 6
+   },
+   "effects": [
+    {
+     "type": "take_items",
+     "item": "minecraft:emerald",
+     "count": 6
+    },
+    {
+     "type": "disposition",
+     "event": "apology_tribute_paid"
+    }
+   ],
+   "weight": 7
+  },
+  {
+   "id": "apology_tribute_em6_saved",
+   "text": "dialogue.warfront.opt.apology_tribute_em6_saved",
+   "response": "apology_tribute_major",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ],
+    "requires_item": "minecraft:emerald",
+    "requires_count": 6
+   },
+   "effects": [
+    {
+     "type": "take_items",
+     "item": "minecraft:emerald",
+     "count": 6
+    },
+    {
+     "type": "disposition",
+     "event": "apology_tribute_paid"
+    }
+   ],
+   "weight": 6
+  },
+  {
+   "id": "apology_tribute_em6_purse",
+   "text": "dialogue.warfront.opt.apology_tribute_em6_purse",
+   "response": "apology_tribute_major",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ],
+    "requires_item": "minecraft:emerald",
+    "requires_count": 6
+   },
+   "effects": [
+    {
+     "type": "take_items",
+     "item": "minecraft:emerald",
+     "count": 6
+    },
+    {
+     "type": "disposition",
+     "event": "apology_tribute_paid"
+    }
+   ],
+   "weight": 6
+  },
+  {
+   "id": "apology_tribute_em6_weight",
+   "text": "dialogue.warfront.opt.apology_tribute_em6_weight",
+   "response": "apology_tribute_major",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ],
+    "requires_item": "minecraft:emerald",
+    "requires_count": 6
+   },
+   "effects": [
+    {
+     "type": "take_items",
+     "item": "minecraft:emerald",
+     "count": 6
+    },
+    {
+     "type": "disposition",
+     "event": "apology_tribute_paid"
+    }
+   ],
+   "weight": 6
+  },
+  {
+   "id": "apology_tribute_em6_count_them",
+   "text": "dialogue.warfront.opt.apology_tribute_em6_count_them",
+   "response": "apology_tribute_major",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ],
+    "requires_item": "minecraft:emerald",
+    "requires_count": 6
+   },
+   "effects": [
+    {
+     "type": "take_items",
+     "item": "minecraft:emerald",
+     "count": 6
+    },
+    {
+     "type": "disposition",
+     "event": "apology_tribute_paid"
+    }
+   ],
+   "weight": 6
+  },
+  {
+   "id": "apology_tribute_diamond_hardest",
+   "text": "dialogue.warfront.opt.apology_tribute_diamond_hardest",
+   "response": "apology_tribute_major",
+   "conditions": {
+    "disposition": [
+     "vengeful"
+    ],
+    "requires_item": "minecraft:diamond",
+    "requires_count": 1
+   },
+   "effects": [
+    {
+     "type": "take_items",
+     "item": "minecraft:diamond",
+     "count": 1
+    },
+    {
+     "type": "disposition",
+     "event": "apology_tribute_paid"
+    }
+   ],
+   "weight": 7
+  },
+  {
+   "id": "apology_tribute_diamond_undo",
+   "text": "dialogue.warfront.opt.apology_tribute_diamond_undo",
+   "response": "apology_tribute_major",
+   "conditions": {
+    "disposition": [
+     "vengeful"
+    ],
+    "requires_item": "minecraft:diamond",
+    "requires_count": 1
+   },
+   "effects": [
+    {
+     "type": "take_items",
+     "item": "minecraft:diamond",
+     "count": 1
+    },
+    {
+     "type": "disposition",
+     "event": "apology_tribute_paid"
+    }
+   ],
+   "weight": 6
+  },
+  {
+   "id": "apology_tribute_diamond_worst",
+   "text": "dialogue.warfront.opt.apology_tribute_diamond_worst",
+   "response": "apology_tribute_major",
+   "conditions": {
+    "disposition": [
+     "vengeful"
+    ],
+    "requires_item": "minecraft:diamond",
+    "requires_count": 1
+   },
+   "effects": [
+    {
+     "type": "take_items",
+     "item": "minecraft:diamond",
+     "count": 1
+    },
+    {
+     "type": "disposition",
+     "event": "apology_tribute_paid"
+    }
+   ],
+   "weight": 6
+  },
+  {
+   "id": "apology_tribute_diamond_blood_price",
+   "text": "dialogue.warfront.opt.apology_tribute_diamond_blood_price",
+   "response": "apology_tribute_major",
+   "conditions": {
+    "disposition": [
+     "vengeful"
+    ],
+    "requires_item": "minecraft:diamond",
+    "requires_count": 1
+   },
+   "effects": [
+    {
+     "type": "take_items",
+     "item": "minecraft:diamond",
+     "count": 1
+    },
+    {
+     "type": "disposition",
+     "event": "apology_tribute_paid"
+    }
+   ],
+   "weight": 6
+  },
+  {
+   "id": "apology_tribute_diamond_not_enough",
+   "text": "dialogue.warfront.opt.apology_tribute_diamond_not_enough",
+   "response": "apology_tribute_major",
+   "conditions": {
+    "disposition": [
+     "vengeful"
+    ],
+    "requires_item": "minecraft:diamond",
+    "requires_count": 1
+   },
+   "effects": [
+    {
+     "type": "take_items",
+     "item": "minecraft:diamond",
+     "count": 1
+    },
+    {
+     "type": "disposition",
+     "event": "apology_tribute_paid"
+    }
+   ],
+   "weight": 6
+  },
+  {
+   "id": "apology_plea_hear_me",
+   "text": "dialogue.warfront.opt.apology_plea_hear_me",
+   "response": "apology_vengeful_plea",
+   "conditions": {
+    "disposition": [
+     "vengeful"
+    ]
+   },
+   "weight": 8
+  },
+  {
+   "id": "apology_plea_betrayed",
+   "text": "dialogue.warfront.opt.apology_plea_betrayed",
+   "response": "apology_vengeful_plea",
+   "conditions": {
+    "disposition": [
+     "vengeful"
+    ]
+   },
+   "weight": 7
+  },
+  {
+   "id": "apology_plea_name_worth",
+   "text": "dialogue.warfront.opt.apology_plea_name_worth",
+   "response": "apology_vengeful_plea",
+   "conditions": {
+    "disposition": [
+     "vengeful"
+    ]
+   },
+   "weight": 7
+  },
+  {
+   "id": "apology_plea_unarmed",
+   "text": "dialogue.warfront.opt.apology_plea_unarmed",
+   "response": "apology_vengeful_plea",
+   "conditions": {
+    "disposition": [
+     "vengeful"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "apology_plea_curse_me",
+   "text": "dialogue.warfront.opt.apology_plea_curse_me",
+   "response": "apology_vengeful_plea",
+   "conditions": {
+    "disposition": [
+     "vengeful"
+    ]
+   },
+   "effects": [
+    {
+     "type": "standing",
+     "amount": 1
+    }
+   ],
+   "weight": 6,
+   "cooldown_minutes": 120
+  },
+  {
+   "id": "apology_plea_unforgivable",
+   "text": "dialogue.warfront.opt.apology_plea_unforgivable",
+   "response": "apology_vengeful_plea",
+   "conditions": {
+    "disposition": [
+     "vengeful"
+    ]
+   },
+   "weight": 7
+  },
+  {
+   "id": "apology_plea_every_right",
+   "text": "dialogue.warfront.opt.apology_plea_every_right",
+   "response": "apology_vengeful_plea",
+   "conditions": {
+    "disposition": [
+     "vengeful"
+    ]
+   },
+   "effects": [
+    {
+     "type": "standing",
+     "amount": 1
+    }
+   ],
+   "weight": 6,
+   "cooldown_minutes": 120
+  },
+  {
+   "id": "apology_plea_blame_me",
+   "text": "dialogue.warfront.opt.apology_plea_blame_me",
+   "response": "apology_vengeful_plea",
+   "conditions": {
+    "disposition": [
+     "vengeful"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "apology_plea_earn_asking",
+   "text": "dialogue.warfront.opt.apology_plea_earn_asking",
+   "response": "apology_vengeful_plea",
+   "conditions": {
+    "disposition": [
+     "vengeful"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "apology_plea_kneel",
+   "text": "dialogue.warfront.opt.apology_plea_kneel",
+   "response": "apology_vengeful_plea",
+   "conditions": {
+    "disposition": [
+     "vengeful"
+    ]
+   },
+   "weight": 5
+  },
+  {
+   "id": "apology_promise_wont_happen",
+   "text": "dialogue.warfront.opt.apology_promise_wont_happen",
+   "response": "apology_promise",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "weight": 8
+  },
+  {
+   "id": "apology_promise_changed",
+   "text": "dialogue.warfront.opt.apology_promise_changed",
+   "response": "apology_promise",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "weight": 7
+  },
+  {
+   "id": "apology_promise_nothing_to_fear",
+   "text": "dialogue.warfront.opt.apology_promise_nothing_to_fear",
+   "response": "apology_promise",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "weight": 7
+  },
+  {
+   "id": "apology_promise_swear_off",
+   "text": "dialogue.warfront.opt.apology_promise_swear_off",
+   "response": "apology_promise",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "effects": [
+    {
+     "type": "standing",
+     "amount": 1
+    }
+   ],
+   "weight": 6,
+   "cooldown_minutes": 120
+  },
+  {
+   "id": "apology_promise_watch_me",
+   "text": "dialogue.warfront.opt.apology_promise_watch_me",
+   "response": "apology_promise",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "apology_promise_be_better",
+   "text": "dialogue.warfront.opt.apology_promise_be_better",
+   "response": "apology_promise",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "apology_promise_whats_left",
+   "text": "dialogue.warfront.opt.apology_promise_whats_left",
+   "response": "apology_promise",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "effects": [
+    {
+     "type": "standing",
+     "amount": 1
+    }
+   ],
+   "weight": 6,
+   "cooldown_minutes": 120
+  },
+  {
+   "id": "apology_promise_opposite",
+   "text": "dialogue.warfront.opt.apology_promise_opposite",
+   "response": "apology_promise",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "apology_blood_answer",
+   "text": "dialogue.warfront.opt.apology_blood_answer",
+   "response": "apology_confess_blood",
+   "conditions": {
+    "has_killed_this_faction": true,
+    "disposition": [
+     "negative"
+    ]
+   },
+   "effects": [
+    {
+     "type": "standing",
+     "amount": 1
+    }
+   ],
+   "weight": 9,
+   "cooldown_minutes": 120
+  },
+  {
+   "id": "apology_blood_hands",
+   "text": "dialogue.warfront.opt.apology_blood_hands",
+   "response": "apology_confess_blood",
+   "conditions": {
+    "has_killed_this_faction": true,
+    "disposition": [
+     "negative"
+    ]
+   },
+   "weight": 8
+  },
+  {
+   "id": "apology_blood_took_lives",
+   "text": "dialogue.warfront.opt.apology_blood_took_lives",
+   "response": "apology_confess_blood",
+   "conditions": {
+    "has_killed_this_faction": true,
+    "disposition": [
+     "negative"
+    ]
+   },
+   "weight": 7
+  },
+  {
+   "id": "apology_blood_my_doing",
+   "text": "dialogue.warfront.opt.apology_blood_my_doing",
+   "response": "apology_confess_blood",
+   "conditions": {
+    "has_killed_this_faction": true,
+    "disposition": [
+     "negative"
+    ]
+   },
+   "effects": [
+    {
+     "type": "standing",
+     "amount": 1
+    }
+   ],
+   "weight": 7,
+   "cooldown_minutes": 120
+  },
+  {
+   "id": "apology_blood_confess",
+   "text": "dialogue.warfront.opt.apology_blood_confess",
+   "response": "apology_confess_blood",
+   "conditions": {
+    "has_killed_this_faction": true,
+    "disposition": [
+     "negative"
+    ]
+   },
+   "weight": 7
+  },
+  {
+   "id": "apology_blood_didnt_come_home",
+   "text": "dialogue.warfront.opt.apology_blood_didnt_come_home",
+   "response": "apology_confess_blood",
+   "conditions": {
+    "has_killed_this_faction": true,
+    "disposition": [
+     "negative"
+    ]
+   },
+   "weight": 7
+  },
+  {
+   "id": "apology_blood_colors",
+   "text": "dialogue.warfront.opt.apology_blood_colors",
+   "response": "apology_confess_blood",
+   "conditions": {
+    "has_killed_this_faction": true,
+    "disposition": [
+     "negative"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "apology_blood_graves",
+   "text": "dialogue.warfront.opt.apology_blood_graves",
+   "response": "apology_confess_blood",
+   "conditions": {
+    "has_killed_this_faction": true,
+    "disposition": [
+     "negative"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "apology_blood_wont_hide",
+   "text": "dialogue.warfront.opt.apology_blood_wont_hide",
+   "response": "apology_confess_blood",
+   "conditions": {
+    "has_killed_this_faction": true,
+    "disposition": [
+     "negative"
+    ]
+   },
+   "effects": [
+    {
+     "type": "standing",
+     "amount": 1
+    }
+   ],
+   "weight": 6,
+   "cooldown_minutes": 120
+  },
+  {
+   "id": "apology_blood_name_dead",
+   "text": "dialogue.warfront.opt.apology_blood_name_dead",
+   "response": "apology_confess_blood",
+   "conditions": {
+    "has_killed_this_faction": true,
+    "disposition": [
+     "negative"
+    ]
+   },
+   "weight": 5
+  },
+  {
+   "id": "apology_blood_some_fell",
+   "text": "dialogue.warfront.opt.apology_blood_some_fell",
+   "response": "apology_confess_blood",
+   "conditions": {
+    "has_killed_this_faction": true,
+    "disposition": [
+     "negative"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "apology_blood_justice",
+   "text": "dialogue.warfront.opt.apology_blood_justice",
+   "response": "apology_confess_blood",
+   "conditions": {
+    "has_killed_this_faction": true,
+    "disposition": [
+     "negative"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "apology_nice_bad_blood",
+   "text": "dialogue.warfront.opt.apology_nice_bad_blood",
+   "response": "apology_nicety",
+   "conditions": {
+    "disposition": [
+     "neutral",
+     "warm",
+     "friendly",
+     "devoted"
+    ]
+   },
+   "weight": 7
+  },
+  {
+   "id": "apology_nice_toes",
+   "text": "dialogue.warfront.opt.apology_nice_toes",
+   "response": "apology_nicety",
+   "conditions": {
+    "disposition": [
+     "neutral",
+     "warm",
+     "friendly",
+     "devoted"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "apology_nice_still_square",
+   "text": "dialogue.warfront.opt.apology_nice_still_square",
+   "response": "apology_nicety",
+   "conditions": {
+    "disposition": [
+     "neutral",
+     "warm",
+     "friendly",
+     "devoted"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "apology_nice_are_we_good",
+   "text": "dialogue.warfront.opt.apology_nice_are_we_good",
+   "response": "apology_nicety",
+   "conditions": {
+    "disposition": [
+     "neutral",
+     "warm",
+     "friendly",
+     "devoted"
+    ]
+   },
+   "weight": 7
+  },
+  {
+   "id": "apology_nice_good_graces",
+   "text": "dialogue.warfront.opt.apology_nice_good_graces",
+   "response": "apology_nicety",
+   "conditions": {
+    "disposition": [
+     "neutral",
+     "warm",
+     "friendly",
+     "devoted"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "apology_nice_offense",
+   "text": "dialogue.warfront.opt.apology_nice_offense",
+   "response": "apology_nicety",
+   "conditions": {
+    "disposition": [
+     "neutral",
+     "warm",
+     "friendly",
+     "devoted"
+    ]
+   },
+   "weight": 5
+  },
+  {
+   "id": "apology_nice_name_holds",
+   "text": "dialogue.warfront.opt.apology_nice_name_holds",
+   "response": "apology_nicety",
+   "conditions": {
+    "disposition": [
+     "neutral",
+     "warm",
+     "friendly",
+     "devoted"
+    ]
+   },
+   "weight": 5
+  },
+  {
+   "id": "apology_nice_grievances",
+   "text": "dialogue.warfront.opt.apology_nice_grievances",
+   "response": "apology_nicety",
+   "conditions": {
+    "disposition": [
+     "neutral",
+     "warm",
+     "friendly",
+     "devoted"
+    ]
+   },
+   "weight": 6
+  }
+ ]
+}

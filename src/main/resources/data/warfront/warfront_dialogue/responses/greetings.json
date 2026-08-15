@@ -1,0 +1,840 @@
+{
+ "classes": {
+  "greetings_hail": {
+   "vostok": {
+    "negative": [
+     "dialogue.warfront.resp.greetings_hail.vostok.negative.1",
+     "dialogue.warfront.resp.greetings_hail.vostok.negative.2",
+     "dialogue.warfront.resp.greetings_hail.vostok.negative.3"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.greetings_hail.vostok.neutral.1",
+     "dialogue.warfront.resp.greetings_hail.vostok.neutral.2",
+     "dialogue.warfront.resp.greetings_hail.vostok.neutral.3"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.greetings_hail.vostok.positive.1",
+     "dialogue.warfront.resp.greetings_hail.vostok.positive.2",
+     "dialogue.warfront.resp.greetings_hail.vostok.positive.3"
+    ]
+   },
+   "aegis": {
+    "negative": [
+     "dialogue.warfront.resp.greetings_hail.aegis.negative.1",
+     "dialogue.warfront.resp.greetings_hail.aegis.negative.2",
+     "dialogue.warfront.resp.greetings_hail.aegis.negative.3"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.greetings_hail.aegis.neutral.1",
+     "dialogue.warfront.resp.greetings_hail.aegis.neutral.2",
+     "dialogue.warfront.resp.greetings_hail.aegis.neutral.3"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.greetings_hail.aegis.positive.1",
+     "dialogue.warfront.resp.greetings_hail.aegis.positive.2",
+     "dialogue.warfront.resp.greetings_hail.aegis.positive.3"
+    ]
+   },
+   "sarab": {
+    "negative": [
+     "dialogue.warfront.resp.greetings_hail.sarab.negative.1",
+     "dialogue.warfront.resp.greetings_hail.sarab.negative.2",
+     "dialogue.warfront.resp.greetings_hail.sarab.negative.3"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.greetings_hail.sarab.neutral.1",
+     "dialogue.warfront.resp.greetings_hail.sarab.neutral.2",
+     "dialogue.warfront.resp.greetings_hail.sarab.neutral.3"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.greetings_hail.sarab.positive.1",
+     "dialogue.warfront.resp.greetings_hail.sarab.positive.2",
+     "dialogue.warfront.resp.greetings_hail.sarab.positive.3"
+    ]
+   }
+  },
+  "greetings_smalltalk_weather": {
+   "vostok": {
+    "negative": [
+     "dialogue.warfront.resp.greetings_smalltalk_weather.vostok.negative.1",
+     "dialogue.warfront.resp.greetings_smalltalk_weather.vostok.negative.2"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.greetings_smalltalk_weather.vostok.neutral.1",
+     "dialogue.warfront.resp.greetings_smalltalk_weather.vostok.neutral.2",
+     "dialogue.warfront.resp.greetings_smalltalk_weather.vostok.neutral.3"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.greetings_smalltalk_weather.vostok.positive.1",
+     "dialogue.warfront.resp.greetings_smalltalk_weather.vostok.positive.2",
+     "dialogue.warfront.resp.greetings_smalltalk_weather.vostok.positive.3"
+    ]
+   },
+   "aegis": {
+    "negative": [
+     "dialogue.warfront.resp.greetings_smalltalk_weather.aegis.negative.1",
+     "dialogue.warfront.resp.greetings_smalltalk_weather.aegis.negative.2"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.greetings_smalltalk_weather.aegis.neutral.1",
+     "dialogue.warfront.resp.greetings_smalltalk_weather.aegis.neutral.2",
+     "dialogue.warfront.resp.greetings_smalltalk_weather.aegis.neutral.3"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.greetings_smalltalk_weather.aegis.positive.1",
+     "dialogue.warfront.resp.greetings_smalltalk_weather.aegis.positive.2",
+     "dialogue.warfront.resp.greetings_smalltalk_weather.aegis.positive.3"
+    ]
+   },
+   "sarab": {
+    "negative": [
+     "dialogue.warfront.resp.greetings_smalltalk_weather.sarab.negative.1",
+     "dialogue.warfront.resp.greetings_smalltalk_weather.sarab.negative.2"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.greetings_smalltalk_weather.sarab.neutral.1",
+     "dialogue.warfront.resp.greetings_smalltalk_weather.sarab.neutral.2",
+     "dialogue.warfront.resp.greetings_smalltalk_weather.sarab.neutral.3"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.greetings_smalltalk_weather.sarab.positive.1",
+     "dialogue.warfront.resp.greetings_smalltalk_weather.sarab.positive.2",
+     "dialogue.warfront.resp.greetings_smalltalk_weather.sarab.positive.3"
+    ]
+   }
+  },
+  "greetings_ask_war": {
+   "vostok": {
+    "negative": [
+     "dialogue.warfront.resp.greetings_ask_war.vostok.negative.1",
+     "dialogue.warfront.resp.greetings_ask_war.vostok.negative.2"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.greetings_ask_war.vostok.neutral.1",
+     "dialogue.warfront.resp.greetings_ask_war.vostok.neutral.2",
+     "dialogue.warfront.resp.greetings_ask_war.vostok.neutral.3"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.greetings_ask_war.vostok.positive.1",
+     "dialogue.warfront.resp.greetings_ask_war.vostok.positive.2",
+     "dialogue.warfront.resp.greetings_ask_war.vostok.positive.3"
+    ]
+   },
+   "aegis": {
+    "negative": [
+     "dialogue.warfront.resp.greetings_ask_war.aegis.negative.1",
+     "dialogue.warfront.resp.greetings_ask_war.aegis.negative.2"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.greetings_ask_war.aegis.neutral.1",
+     "dialogue.warfront.resp.greetings_ask_war.aegis.neutral.2",
+     "dialogue.warfront.resp.greetings_ask_war.aegis.neutral.3"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.greetings_ask_war.aegis.positive.1",
+     "dialogue.warfront.resp.greetings_ask_war.aegis.positive.2",
+     "dialogue.warfront.resp.greetings_ask_war.aegis.positive.3"
+    ]
+   },
+   "sarab": {
+    "negative": [
+     "dialogue.warfront.resp.greetings_ask_war.sarab.negative.1",
+     "dialogue.warfront.resp.greetings_ask_war.sarab.negative.2"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.greetings_ask_war.sarab.neutral.1",
+     "dialogue.warfront.resp.greetings_ask_war.sarab.neutral.2",
+     "dialogue.warfront.resp.greetings_ask_war.sarab.neutral.3"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.greetings_ask_war.sarab.positive.1",
+     "dialogue.warfront.resp.greetings_ask_war.sarab.positive.2",
+     "dialogue.warfront.resp.greetings_ask_war.sarab.positive.3"
+    ]
+   }
+  },
+  "greetings_ask_name": {
+   "vostok": {
+    "negative": [
+     "dialogue.warfront.resp.greetings_ask_name.vostok.negative.1",
+     "dialogue.warfront.resp.greetings_ask_name.vostok.negative.2"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.greetings_ask_name.vostok.neutral.1",
+     "dialogue.warfront.resp.greetings_ask_name.vostok.neutral.2"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.greetings_ask_name.vostok.positive.1",
+     "dialogue.warfront.resp.greetings_ask_name.vostok.positive.2"
+    ]
+   },
+   "aegis": {
+    "negative": [
+     "dialogue.warfront.resp.greetings_ask_name.aegis.negative.1",
+     "dialogue.warfront.resp.greetings_ask_name.aegis.negative.2"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.greetings_ask_name.aegis.neutral.1",
+     "dialogue.warfront.resp.greetings_ask_name.aegis.neutral.2"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.greetings_ask_name.aegis.positive.1",
+     "dialogue.warfront.resp.greetings_ask_name.aegis.positive.2"
+    ]
+   },
+   "sarab": {
+    "negative": [
+     "dialogue.warfront.resp.greetings_ask_name.sarab.negative.1",
+     "dialogue.warfront.resp.greetings_ask_name.sarab.negative.2"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.greetings_ask_name.sarab.neutral.1",
+     "dialogue.warfront.resp.greetings_ask_name.sarab.neutral.2"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.greetings_ask_name.sarab.positive.1",
+     "dialogue.warfront.resp.greetings_ask_name.sarab.positive.2"
+    ]
+   }
+  },
+  "greetings_ask_day": {
+   "vostok": {
+    "negative": [
+     "dialogue.warfront.resp.greetings_ask_day.vostok.negative.1",
+     "dialogue.warfront.resp.greetings_ask_day.vostok.negative.2"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.greetings_ask_day.vostok.neutral.1",
+     "dialogue.warfront.resp.greetings_ask_day.vostok.neutral.2",
+     "dialogue.warfront.resp.greetings_ask_day.vostok.neutral.3"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.greetings_ask_day.vostok.positive.1",
+     "dialogue.warfront.resp.greetings_ask_day.vostok.positive.2"
+    ]
+   },
+   "aegis": {
+    "negative": [
+     "dialogue.warfront.resp.greetings_ask_day.aegis.negative.1",
+     "dialogue.warfront.resp.greetings_ask_day.aegis.negative.2"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.greetings_ask_day.aegis.neutral.1",
+     "dialogue.warfront.resp.greetings_ask_day.aegis.neutral.2",
+     "dialogue.warfront.resp.greetings_ask_day.aegis.neutral.3"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.greetings_ask_day.aegis.positive.1",
+     "dialogue.warfront.resp.greetings_ask_day.aegis.positive.2"
+    ]
+   },
+   "sarab": {
+    "negative": [
+     "dialogue.warfront.resp.greetings_ask_day.sarab.negative.1",
+     "dialogue.warfront.resp.greetings_ask_day.sarab.negative.2"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.greetings_ask_day.sarab.neutral.1",
+     "dialogue.warfront.resp.greetings_ask_day.sarab.neutral.2"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.greetings_ask_day.sarab.positive.1",
+     "dialogue.warfront.resp.greetings_ask_day.sarab.positive.2"
+    ]
+   }
+  },
+  "greetings_joke": {
+   "vostok": {
+    "negative": [
+     "dialogue.warfront.resp.greetings_joke.vostok.negative.1",
+     "dialogue.warfront.resp.greetings_joke.vostok.negative.2"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.greetings_joke.vostok.neutral.1",
+     "dialogue.warfront.resp.greetings_joke.vostok.neutral.2"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.greetings_joke.vostok.positive.1",
+     "dialogue.warfront.resp.greetings_joke.vostok.positive.2"
+    ]
+   },
+   "aegis": {
+    "negative": [
+     "dialogue.warfront.resp.greetings_joke.aegis.negative.1",
+     "dialogue.warfront.resp.greetings_joke.aegis.negative.2"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.greetings_joke.aegis.neutral.1",
+     "dialogue.warfront.resp.greetings_joke.aegis.neutral.2"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.greetings_joke.aegis.positive.1",
+     "dialogue.warfront.resp.greetings_joke.aegis.positive.2"
+    ]
+   },
+   "sarab": {
+    "negative": [
+     "dialogue.warfront.resp.greetings_joke.sarab.negative.1",
+     "dialogue.warfront.resp.greetings_joke.sarab.negative.2"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.greetings_joke.sarab.neutral.1",
+     "dialogue.warfront.resp.greetings_joke.sarab.neutral.2"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.greetings_joke.sarab.positive.1",
+     "dialogue.warfront.resp.greetings_joke.sarab.positive.2"
+    ]
+   }
+  },
+  "greetings_morning": {
+   "vostok": {
+    "negative": [
+     "dialogue.warfront.resp.greetings_morning.vostok.negative.1",
+     "dialogue.warfront.resp.greetings_morning.vostok.negative.2"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.greetings_morning.vostok.neutral.1",
+     "dialogue.warfront.resp.greetings_morning.vostok.neutral.2"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.greetings_morning.vostok.positive.1",
+     "dialogue.warfront.resp.greetings_morning.vostok.positive.2"
+    ]
+   },
+   "aegis": {
+    "negative": [
+     "dialogue.warfront.resp.greetings_morning.aegis.negative.1",
+     "dialogue.warfront.resp.greetings_morning.aegis.negative.2"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.greetings_morning.aegis.neutral.1",
+     "dialogue.warfront.resp.greetings_morning.aegis.neutral.2"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.greetings_morning.aegis.positive.1",
+     "dialogue.warfront.resp.greetings_morning.aegis.positive.2"
+    ]
+   },
+   "sarab": {
+    "negative": [
+     "dialogue.warfront.resp.greetings_morning.sarab.negative.1",
+     "dialogue.warfront.resp.greetings_morning.sarab.negative.2"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.greetings_morning.sarab.neutral.1",
+     "dialogue.warfront.resp.greetings_morning.sarab.neutral.2"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.greetings_morning.sarab.positive.1",
+     "dialogue.warfront.resp.greetings_morning.sarab.positive.2"
+    ]
+   }
+  },
+  "greetings_night": {
+   "vostok": {
+    "negative": [
+     "dialogue.warfront.resp.greetings_night.vostok.negative.1",
+     "dialogue.warfront.resp.greetings_night.vostok.negative.2"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.greetings_night.vostok.neutral.1",
+     "dialogue.warfront.resp.greetings_night.vostok.neutral.2"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.greetings_night.vostok.positive.1",
+     "dialogue.warfront.resp.greetings_night.vostok.positive.2"
+    ]
+   },
+   "aegis": {
+    "negative": [
+     "dialogue.warfront.resp.greetings_night.aegis.negative.1",
+     "dialogue.warfront.resp.greetings_night.aegis.negative.2"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.greetings_night.aegis.neutral.1",
+     "dialogue.warfront.resp.greetings_night.aegis.neutral.2"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.greetings_night.aegis.positive.1",
+     "dialogue.warfront.resp.greetings_night.aegis.positive.2"
+    ]
+   },
+   "sarab": {
+    "negative": [
+     "dialogue.warfront.resp.greetings_night.sarab.negative.1",
+     "dialogue.warfront.resp.greetings_night.sarab.negative.2"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.greetings_night.sarab.neutral.1",
+     "dialogue.warfront.resp.greetings_night.sarab.neutral.2"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.greetings_night.sarab.positive.1",
+     "dialogue.warfront.resp.greetings_night.sarab.positive.2"
+    ]
+   }
+  },
+  "greetings_first_meeting": {
+   "vostok": {
+    "negative": [
+     "dialogue.warfront.resp.greetings_first_meeting.vostok.negative.1",
+     "dialogue.warfront.resp.greetings_first_meeting.vostok.negative.2"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.greetings_first_meeting.vostok.neutral.1",
+     "dialogue.warfront.resp.greetings_first_meeting.vostok.neutral.2"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.greetings_first_meeting.vostok.positive.1",
+     "dialogue.warfront.resp.greetings_first_meeting.vostok.positive.2"
+    ]
+   },
+   "aegis": {
+    "negative": [
+     "dialogue.warfront.resp.greetings_first_meeting.aegis.negative.1",
+     "dialogue.warfront.resp.greetings_first_meeting.aegis.negative.2"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.greetings_first_meeting.aegis.neutral.1",
+     "dialogue.warfront.resp.greetings_first_meeting.aegis.neutral.2"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.greetings_first_meeting.aegis.positive.1",
+     "dialogue.warfront.resp.greetings_first_meeting.aegis.positive.2"
+    ]
+   },
+   "sarab": {
+    "negative": [
+     "dialogue.warfront.resp.greetings_first_meeting.sarab.negative.1",
+     "dialogue.warfront.resp.greetings_first_meeting.sarab.negative.2"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.greetings_first_meeting.sarab.neutral.1",
+     "dialogue.warfront.resp.greetings_first_meeting.sarab.neutral.2"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.greetings_first_meeting.sarab.positive.1",
+     "dialogue.warfront.resp.greetings_first_meeting.sarab.positive.2"
+    ]
+   }
+  },
+  "greetings_killer_wary": {
+   "vostok": {
+    "vengeful": [
+     "dialogue.warfront.resp.greetings_killer_wary.vostok.vengeful.1",
+     "dialogue.warfront.resp.greetings_killer_wary.vostok.vengeful.2"
+    ],
+    "negative": [
+     "dialogue.warfront.resp.greetings_killer_wary.vostok.negative.1",
+     "dialogue.warfront.resp.greetings_killer_wary.vostok.negative.2",
+     "dialogue.warfront.resp.greetings_killer_wary.vostok.negative.3"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.greetings_killer_wary.vostok.neutral.1",
+     "dialogue.warfront.resp.greetings_killer_wary.vostok.neutral.2"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.greetings_killer_wary.vostok.positive.1",
+     "dialogue.warfront.resp.greetings_killer_wary.vostok.positive.2"
+    ]
+   },
+   "aegis": {
+    "vengeful": [
+     "dialogue.warfront.resp.greetings_killer_wary.aegis.vengeful.1",
+     "dialogue.warfront.resp.greetings_killer_wary.aegis.vengeful.2"
+    ],
+    "negative": [
+     "dialogue.warfront.resp.greetings_killer_wary.aegis.negative.1",
+     "dialogue.warfront.resp.greetings_killer_wary.aegis.negative.2",
+     "dialogue.warfront.resp.greetings_killer_wary.aegis.negative.3"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.greetings_killer_wary.aegis.neutral.1",
+     "dialogue.warfront.resp.greetings_killer_wary.aegis.neutral.2"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.greetings_killer_wary.aegis.positive.1",
+     "dialogue.warfront.resp.greetings_killer_wary.aegis.positive.2"
+    ]
+   },
+   "sarab": {
+    "vengeful": [
+     "dialogue.warfront.resp.greetings_killer_wary.sarab.vengeful.1",
+     "dialogue.warfront.resp.greetings_killer_wary.sarab.vengeful.2"
+    ],
+    "negative": [
+     "dialogue.warfront.resp.greetings_killer_wary.sarab.negative.1",
+     "dialogue.warfront.resp.greetings_killer_wary.sarab.negative.2",
+     "dialogue.warfront.resp.greetings_killer_wary.sarab.negative.3"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.greetings_killer_wary.sarab.neutral.1",
+     "dialogue.warfront.resp.greetings_killer_wary.sarab.neutral.2"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.greetings_killer_wary.sarab.positive.1",
+     "dialogue.warfront.resp.greetings_killer_wary.sarab.positive.2"
+    ]
+   }
+  },
+  "greetings_gate_respect": {
+   "vostok": {
+    "negative": [
+     "dialogue.warfront.resp.greetings_gate_respect.vostok.negative.1",
+     "dialogue.warfront.resp.greetings_gate_respect.vostok.negative.2"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.greetings_gate_respect.vostok.neutral.1",
+     "dialogue.warfront.resp.greetings_gate_respect.vostok.neutral.2"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.greetings_gate_respect.vostok.positive.1",
+     "dialogue.warfront.resp.greetings_gate_respect.vostok.positive.2"
+    ]
+   },
+   "aegis": {
+    "negative": [
+     "dialogue.warfront.resp.greetings_gate_respect.aegis.negative.1",
+     "dialogue.warfront.resp.greetings_gate_respect.aegis.negative.2"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.greetings_gate_respect.aegis.neutral.1",
+     "dialogue.warfront.resp.greetings_gate_respect.aegis.neutral.2"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.greetings_gate_respect.aegis.positive.1",
+     "dialogue.warfront.resp.greetings_gate_respect.aegis.positive.2"
+    ]
+   },
+   "sarab": {
+    "negative": [
+     "dialogue.warfront.resp.greetings_gate_respect.sarab.negative.1",
+     "dialogue.warfront.resp.greetings_gate_respect.sarab.negative.2"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.greetings_gate_respect.sarab.neutral.1",
+     "dialogue.warfront.resp.greetings_gate_respect.sarab.neutral.2"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.greetings_gate_respect.sarab.positive.1",
+     "dialogue.warfront.resp.greetings_gate_respect.sarab.positive.2"
+    ]
+   }
+  },
+  "greetings_trail_meet": {
+   "vostok": {
+    "negative": [
+     "dialogue.warfront.resp.greetings_trail_meet.vostok.negative.1",
+     "dialogue.warfront.resp.greetings_trail_meet.vostok.negative.2"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.greetings_trail_meet.vostok.neutral.1",
+     "dialogue.warfront.resp.greetings_trail_meet.vostok.neutral.2"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.greetings_trail_meet.vostok.positive.1",
+     "dialogue.warfront.resp.greetings_trail_meet.vostok.positive.2"
+    ]
+   },
+   "aegis": {
+    "negative": [
+     "dialogue.warfront.resp.greetings_trail_meet.aegis.negative.1",
+     "dialogue.warfront.resp.greetings_trail_meet.aegis.negative.2"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.greetings_trail_meet.aegis.neutral.1",
+     "dialogue.warfront.resp.greetings_trail_meet.aegis.neutral.2"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.greetings_trail_meet.aegis.positive.1",
+     "dialogue.warfront.resp.greetings_trail_meet.aegis.positive.2"
+    ]
+   },
+   "sarab": {
+    "negative": [
+     "dialogue.warfront.resp.greetings_trail_meet.sarab.negative.1",
+     "dialogue.warfront.resp.greetings_trail_meet.sarab.negative.2"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.greetings_trail_meet.sarab.neutral.1",
+     "dialogue.warfront.resp.greetings_trail_meet.sarab.neutral.2"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.greetings_trail_meet.sarab.positive.1",
+     "dialogue.warfront.resp.greetings_trail_meet.sarab.positive.2"
+    ]
+   }
+  },
+  "greetings_officer_formal": {
+   "vostok": {
+    "negative": [
+     "dialogue.warfront.resp.greetings_officer_formal.vostok.negative.1",
+     "dialogue.warfront.resp.greetings_officer_formal.vostok.negative.2"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.greetings_officer_formal.vostok.neutral.1",
+     "dialogue.warfront.resp.greetings_officer_formal.vostok.neutral.2"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.greetings_officer_formal.vostok.positive.1",
+     "dialogue.warfront.resp.greetings_officer_formal.vostok.positive.2"
+    ]
+   },
+   "aegis": {
+    "negative": [
+     "dialogue.warfront.resp.greetings_officer_formal.aegis.negative.1",
+     "dialogue.warfront.resp.greetings_officer_formal.aegis.negative.2"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.greetings_officer_formal.aegis.neutral.1",
+     "dialogue.warfront.resp.greetings_officer_formal.aegis.neutral.2"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.greetings_officer_formal.aegis.positive.1",
+     "dialogue.warfront.resp.greetings_officer_formal.aegis.positive.2"
+    ]
+   },
+   "sarab": {
+    "negative": [
+     "dialogue.warfront.resp.greetings_officer_formal.sarab.negative.1",
+     "dialogue.warfront.resp.greetings_officer_formal.sarab.negative.2"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.greetings_officer_formal.sarab.neutral.1",
+     "dialogue.warfront.resp.greetings_officer_formal.sarab.neutral.2"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.greetings_officer_formal.sarab.positive.1",
+     "dialogue.warfront.resp.greetings_officer_formal.sarab.positive.2"
+    ]
+   }
+  },
+  "greetings_nervous_peace": {
+   "vostok": {
+    "negative": [
+     "dialogue.warfront.resp.greetings_nervous_peace.vostok.negative.1",
+     "dialogue.warfront.resp.greetings_nervous_peace.vostok.negative.2",
+     "dialogue.warfront.resp.greetings_nervous_peace.vostok.negative.3"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.greetings_nervous_peace.vostok.neutral.1",
+     "dialogue.warfront.resp.greetings_nervous_peace.vostok.neutral.2"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.greetings_nervous_peace.vostok.positive.1",
+     "dialogue.warfront.resp.greetings_nervous_peace.vostok.positive.2"
+    ]
+   },
+   "aegis": {
+    "negative": [
+     "dialogue.warfront.resp.greetings_nervous_peace.aegis.negative.1",
+     "dialogue.warfront.resp.greetings_nervous_peace.aegis.negative.2",
+     "dialogue.warfront.resp.greetings_nervous_peace.aegis.negative.3"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.greetings_nervous_peace.aegis.neutral.1",
+     "dialogue.warfront.resp.greetings_nervous_peace.aegis.neutral.2"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.greetings_nervous_peace.aegis.positive.1",
+     "dialogue.warfront.resp.greetings_nervous_peace.aegis.positive.2"
+    ]
+   },
+   "sarab": {
+    "negative": [
+     "dialogue.warfront.resp.greetings_nervous_peace.sarab.negative.1",
+     "dialogue.warfront.resp.greetings_nervous_peace.sarab.negative.2",
+     "dialogue.warfront.resp.greetings_nervous_peace.sarab.negative.3"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.greetings_nervous_peace.sarab.neutral.1",
+     "dialogue.warfront.resp.greetings_nervous_peace.sarab.neutral.2"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.greetings_nervous_peace.sarab.positive.1",
+     "dialogue.warfront.resp.greetings_nervous_peace.sarab.positive.2"
+    ]
+   }
+  },
+  "greetings_familiar_banter": {
+   "vostok": {
+    "negative": [
+     "dialogue.warfront.resp.greetings_familiar_banter.vostok.negative.1",
+     "dialogue.warfront.resp.greetings_familiar_banter.vostok.negative.2"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.greetings_familiar_banter.vostok.neutral.1",
+     "dialogue.warfront.resp.greetings_familiar_banter.vostok.neutral.2"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.greetings_familiar_banter.vostok.positive.1",
+     "dialogue.warfront.resp.greetings_familiar_banter.vostok.positive.2",
+     "dialogue.warfront.resp.greetings_familiar_banter.vostok.positive.3"
+    ]
+   },
+   "aegis": {
+    "negative": [
+     "dialogue.warfront.resp.greetings_familiar_banter.aegis.negative.1",
+     "dialogue.warfront.resp.greetings_familiar_banter.aegis.negative.2"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.greetings_familiar_banter.aegis.neutral.1",
+     "dialogue.warfront.resp.greetings_familiar_banter.aegis.neutral.2"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.greetings_familiar_banter.aegis.positive.1",
+     "dialogue.warfront.resp.greetings_familiar_banter.aegis.positive.2",
+     "dialogue.warfront.resp.greetings_familiar_banter.aegis.positive.3"
+    ]
+   },
+   "sarab": {
+    "negative": [
+     "dialogue.warfront.resp.greetings_familiar_banter.sarab.negative.1",
+     "dialogue.warfront.resp.greetings_familiar_banter.sarab.negative.2"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.greetings_familiar_banter.sarab.neutral.1",
+     "dialogue.warfront.resp.greetings_familiar_banter.sarab.neutral.2"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.greetings_familiar_banter.sarab.positive.1",
+     "dialogue.warfront.resp.greetings_familiar_banter.sarab.positive.2",
+     "dialogue.warfront.resp.greetings_familiar_banter.sarab.positive.3"
+    ]
+   }
+  },
+  "greetings_farewell": {
+   "vostok": {
+    "negative": [
+     "dialogue.warfront.resp.greetings_farewell.vostok.negative.1",
+     "dialogue.warfront.resp.greetings_farewell.vostok.negative.2"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.greetings_farewell.vostok.neutral.1",
+     "dialogue.warfront.resp.greetings_farewell.vostok.neutral.2"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.greetings_farewell.vostok.positive.1",
+     "dialogue.warfront.resp.greetings_farewell.vostok.positive.2"
+    ]
+   },
+   "aegis": {
+    "negative": [
+     "dialogue.warfront.resp.greetings_farewell.aegis.negative.1",
+     "dialogue.warfront.resp.greetings_farewell.aegis.negative.2"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.greetings_farewell.aegis.neutral.1",
+     "dialogue.warfront.resp.greetings_farewell.aegis.neutral.2"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.greetings_farewell.aegis.positive.1",
+     "dialogue.warfront.resp.greetings_farewell.aegis.positive.2"
+    ]
+   },
+   "sarab": {
+    "negative": [
+     "dialogue.warfront.resp.greetings_farewell.sarab.negative.1",
+     "dialogue.warfront.resp.greetings_farewell.sarab.negative.2"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.greetings_farewell.sarab.neutral.1",
+     "dialogue.warfront.resp.greetings_farewell.sarab.neutral.2"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.greetings_farewell.sarab.positive.1",
+     "dialogue.warfront.resp.greetings_farewell.sarab.positive.2"
+    ]
+   }
+  },
+  "greetings_compliment": {
+   "vostok": {
+    "negative": [
+     "dialogue.warfront.resp.greetings_compliment.vostok.negative.1",
+     "dialogue.warfront.resp.greetings_compliment.vostok.negative.2"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.greetings_compliment.vostok.neutral.1",
+     "dialogue.warfront.resp.greetings_compliment.vostok.neutral.2"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.greetings_compliment.vostok.positive.1",
+     "dialogue.warfront.resp.greetings_compliment.vostok.positive.2"
+    ]
+   },
+   "aegis": {
+    "negative": [
+     "dialogue.warfront.resp.greetings_compliment.aegis.negative.1",
+     "dialogue.warfront.resp.greetings_compliment.aegis.negative.2"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.greetings_compliment.aegis.neutral.1",
+     "dialogue.warfront.resp.greetings_compliment.aegis.neutral.2"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.greetings_compliment.aegis.positive.1",
+     "dialogue.warfront.resp.greetings_compliment.aegis.positive.2"
+    ]
+   },
+   "sarab": {
+    "negative": [
+     "dialogue.warfront.resp.greetings_compliment.sarab.negative.1",
+     "dialogue.warfront.resp.greetings_compliment.sarab.negative.2"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.greetings_compliment.sarab.neutral.1",
+     "dialogue.warfront.resp.greetings_compliment.sarab.neutral.2"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.greetings_compliment.sarab.positive.1",
+     "dialogue.warfront.resp.greetings_compliment.sarab.positive.2"
+    ]
+   }
+  },
+  "greetings_rude_insult": {
+   "vostok": {
+    "negative": [
+     "dialogue.warfront.resp.greetings_rude_insult.vostok.negative.1",
+     "dialogue.warfront.resp.greetings_rude_insult.vostok.negative.2"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.greetings_rude_insult.vostok.neutral.1",
+     "dialogue.warfront.resp.greetings_rude_insult.vostok.neutral.2"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.greetings_rude_insult.vostok.positive.1",
+     "dialogue.warfront.resp.greetings_rude_insult.vostok.positive.2"
+    ]
+   },
+   "aegis": {
+    "negative": [
+     "dialogue.warfront.resp.greetings_rude_insult.aegis.negative.1",
+     "dialogue.warfront.resp.greetings_rude_insult.aegis.negative.2"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.greetings_rude_insult.aegis.neutral.1",
+     "dialogue.warfront.resp.greetings_rude_insult.aegis.neutral.2"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.greetings_rude_insult.aegis.positive.1",
+     "dialogue.warfront.resp.greetings_rude_insult.aegis.positive.2"
+    ]
+   },
+   "sarab": {
+    "negative": [
+     "dialogue.warfront.resp.greetings_rude_insult.sarab.negative.1",
+     "dialogue.warfront.resp.greetings_rude_insult.sarab.negative.2"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.greetings_rude_insult.sarab.neutral.1",
+     "dialogue.warfront.resp.greetings_rude_insult.sarab.neutral.2"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.greetings_rude_insult.sarab.positive.1",
+     "dialogue.warfront.resp.greetings_rude_insult.sarab.positive.2"
+    ]
+   }
+  }
+ }
+}

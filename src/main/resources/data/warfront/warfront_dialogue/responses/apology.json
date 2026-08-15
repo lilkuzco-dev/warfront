@@ -1,0 +1,504 @@
+{
+ "classes": {
+  "apology_verbal": {
+   "vostok": {
+    "negative": [
+     "dialogue.warfront.resp.apology_verbal.vostok.negative.1",
+     "dialogue.warfront.resp.apology_verbal.vostok.negative.2",
+     "dialogue.warfront.resp.apology_verbal.vostok.negative.3"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.apology_verbal.vostok.neutral.1",
+     "dialogue.warfront.resp.apology_verbal.vostok.neutral.2"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.apology_verbal.vostok.positive.1",
+     "dialogue.warfront.resp.apology_verbal.vostok.positive.2"
+    ]
+   },
+   "aegis": {
+    "negative": [
+     "dialogue.warfront.resp.apology_verbal.aegis.negative.1",
+     "dialogue.warfront.resp.apology_verbal.aegis.negative.2",
+     "dialogue.warfront.resp.apology_verbal.aegis.negative.3"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.apology_verbal.aegis.neutral.1",
+     "dialogue.warfront.resp.apology_verbal.aegis.neutral.2"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.apology_verbal.aegis.positive.1",
+     "dialogue.warfront.resp.apology_verbal.aegis.positive.2"
+    ]
+   },
+   "sarab": {
+    "negative": [
+     "dialogue.warfront.resp.apology_verbal.sarab.negative.1",
+     "dialogue.warfront.resp.apology_verbal.sarab.negative.2",
+     "dialogue.warfront.resp.apology_verbal.sarab.negative.3"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.apology_verbal.sarab.neutral.1",
+     "dialogue.warfront.resp.apology_verbal.sarab.neutral.2"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.apology_verbal.sarab.positive.1",
+     "dialogue.warfront.resp.apology_verbal.sarab.positive.2"
+    ]
+   }
+  },
+  "apology_verbal_deep": {
+   "vostok": {
+    "negative": [
+     "dialogue.warfront.resp.apology_verbal_deep.vostok.negative.1",
+     "dialogue.warfront.resp.apology_verbal_deep.vostok.negative.2",
+     "dialogue.warfront.resp.apology_verbal_deep.vostok.negative.3"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.apology_verbal_deep.vostok.neutral.1",
+     "dialogue.warfront.resp.apology_verbal_deep.vostok.neutral.2"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.apology_verbal_deep.vostok.positive.1",
+     "dialogue.warfront.resp.apology_verbal_deep.vostok.positive.2"
+    ]
+   },
+   "aegis": {
+    "negative": [
+     "dialogue.warfront.resp.apology_verbal_deep.aegis.negative.1",
+     "dialogue.warfront.resp.apology_verbal_deep.aegis.negative.2",
+     "dialogue.warfront.resp.apology_verbal_deep.aegis.negative.3"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.apology_verbal_deep.aegis.neutral.1",
+     "dialogue.warfront.resp.apology_verbal_deep.aegis.neutral.2"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.apology_verbal_deep.aegis.positive.1",
+     "dialogue.warfront.resp.apology_verbal_deep.aegis.positive.2"
+    ]
+   },
+   "sarab": {
+    "negative": [
+     "dialogue.warfront.resp.apology_verbal_deep.sarab.negative.1",
+     "dialogue.warfront.resp.apology_verbal_deep.sarab.negative.2",
+     "dialogue.warfront.resp.apology_verbal_deep.sarab.negative.3"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.apology_verbal_deep.sarab.neutral.1",
+     "dialogue.warfront.resp.apology_verbal_deep.sarab.neutral.2"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.apology_verbal_deep.sarab.positive.1",
+     "dialogue.warfront.resp.apology_verbal_deep.sarab.positive.2"
+    ]
+   }
+  },
+  "apology_dismissed": {
+   "vostok": {
+    "negative": [
+     "dialogue.warfront.resp.apology_dismissed.vostok.negative.1",
+     "dialogue.warfront.resp.apology_dismissed.vostok.negative.2",
+     "dialogue.warfront.resp.apology_dismissed.vostok.negative.3"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.apology_dismissed.vostok.neutral.1",
+     "dialogue.warfront.resp.apology_dismissed.vostok.neutral.2"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.apology_dismissed.vostok.positive.1",
+     "dialogue.warfront.resp.apology_dismissed.vostok.positive.2"
+    ]
+   },
+   "aegis": {
+    "negative": [
+     "dialogue.warfront.resp.apology_dismissed.aegis.negative.1",
+     "dialogue.warfront.resp.apology_dismissed.aegis.negative.2",
+     "dialogue.warfront.resp.apology_dismissed.aegis.negative.3"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.apology_dismissed.aegis.neutral.1",
+     "dialogue.warfront.resp.apology_dismissed.aegis.neutral.2"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.apology_dismissed.aegis.positive.1",
+     "dialogue.warfront.resp.apology_dismissed.aegis.positive.2"
+    ]
+   },
+   "sarab": {
+    "negative": [
+     "dialogue.warfront.resp.apology_dismissed.sarab.negative.1",
+     "dialogue.warfront.resp.apology_dismissed.sarab.negative.2",
+     "dialogue.warfront.resp.apology_dismissed.sarab.negative.3"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.apology_dismissed.sarab.neutral.1",
+     "dialogue.warfront.resp.apology_dismissed.sarab.neutral.2"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.apology_dismissed.sarab.positive.1",
+     "dialogue.warfront.resp.apology_dismissed.sarab.positive.2"
+    ]
+   }
+  },
+  "apology_what_take": {
+   "vostok": {
+    "negative": [
+     "dialogue.warfront.resp.apology_what_take.vostok.negative.1",
+     "dialogue.warfront.resp.apology_what_take.vostok.negative.2",
+     "dialogue.warfront.resp.apology_what_take.vostok.negative.3"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.apology_what_take.vostok.neutral.1",
+     "dialogue.warfront.resp.apology_what_take.vostok.neutral.2"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.apology_what_take.vostok.positive.1",
+     "dialogue.warfront.resp.apology_what_take.vostok.positive.2"
+    ]
+   },
+   "aegis": {
+    "negative": [
+     "dialogue.warfront.resp.apology_what_take.aegis.negative.1",
+     "dialogue.warfront.resp.apology_what_take.aegis.negative.2",
+     "dialogue.warfront.resp.apology_what_take.aegis.negative.3"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.apology_what_take.aegis.neutral.1",
+     "dialogue.warfront.resp.apology_what_take.aegis.neutral.2"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.apology_what_take.aegis.positive.1",
+     "dialogue.warfront.resp.apology_what_take.aegis.positive.2"
+    ]
+   },
+   "sarab": {
+    "negative": [
+     "dialogue.warfront.resp.apology_what_take.sarab.negative.1",
+     "dialogue.warfront.resp.apology_what_take.sarab.negative.2",
+     "dialogue.warfront.resp.apology_what_take.sarab.negative.3"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.apology_what_take.sarab.neutral.1",
+     "dialogue.warfront.resp.apology_what_take.sarab.neutral.2"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.apology_what_take.sarab.positive.1",
+     "dialogue.warfront.resp.apology_what_take.sarab.positive.2"
+    ]
+   }
+  },
+  "apology_tribute_minor": {
+   "vostok": {
+    "negative": [
+     "dialogue.warfront.resp.apology_tribute_minor.vostok.negative.1",
+     "dialogue.warfront.resp.apology_tribute_minor.vostok.negative.2",
+     "dialogue.warfront.resp.apology_tribute_minor.vostok.negative.3"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.apology_tribute_minor.vostok.neutral.1",
+     "dialogue.warfront.resp.apology_tribute_minor.vostok.neutral.2"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.apology_tribute_minor.vostok.positive.1",
+     "dialogue.warfront.resp.apology_tribute_minor.vostok.positive.2"
+    ]
+   },
+   "aegis": {
+    "negative": [
+     "dialogue.warfront.resp.apology_tribute_minor.aegis.negative.1",
+     "dialogue.warfront.resp.apology_tribute_minor.aegis.negative.2",
+     "dialogue.warfront.resp.apology_tribute_minor.aegis.negative.3"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.apology_tribute_minor.aegis.neutral.1",
+     "dialogue.warfront.resp.apology_tribute_minor.aegis.neutral.2"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.apology_tribute_minor.aegis.positive.1",
+     "dialogue.warfront.resp.apology_tribute_minor.aegis.positive.2"
+    ]
+   },
+   "sarab": {
+    "negative": [
+     "dialogue.warfront.resp.apology_tribute_minor.sarab.negative.1",
+     "dialogue.warfront.resp.apology_tribute_minor.sarab.negative.2",
+     "dialogue.warfront.resp.apology_tribute_minor.sarab.negative.3"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.apology_tribute_minor.sarab.neutral.1",
+     "dialogue.warfront.resp.apology_tribute_minor.sarab.neutral.2"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.apology_tribute_minor.sarab.positive.1",
+     "dialogue.warfront.resp.apology_tribute_minor.sarab.positive.2"
+    ]
+   }
+  },
+  "apology_tribute_major": {
+   "vostok": {
+    "vengeful": [
+     "dialogue.warfront.resp.apology_tribute_major.vostok.vengeful.1",
+     "dialogue.warfront.resp.apology_tribute_major.vostok.vengeful.2",
+     "dialogue.warfront.resp.apology_tribute_major.vostok.vengeful.3"
+    ],
+    "negative": [
+     "dialogue.warfront.resp.apology_tribute_major.vostok.negative.1",
+     "dialogue.warfront.resp.apology_tribute_major.vostok.negative.2"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.apology_tribute_major.vostok.neutral.1",
+     "dialogue.warfront.resp.apology_tribute_major.vostok.neutral.2"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.apology_tribute_major.vostok.positive.1",
+     "dialogue.warfront.resp.apology_tribute_major.vostok.positive.2"
+    ]
+   },
+   "aegis": {
+    "vengeful": [
+     "dialogue.warfront.resp.apology_tribute_major.aegis.vengeful.1",
+     "dialogue.warfront.resp.apology_tribute_major.aegis.vengeful.2",
+     "dialogue.warfront.resp.apology_tribute_major.aegis.vengeful.3"
+    ],
+    "negative": [
+     "dialogue.warfront.resp.apology_tribute_major.aegis.negative.1",
+     "dialogue.warfront.resp.apology_tribute_major.aegis.negative.2"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.apology_tribute_major.aegis.neutral.1",
+     "dialogue.warfront.resp.apology_tribute_major.aegis.neutral.2"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.apology_tribute_major.aegis.positive.1",
+     "dialogue.warfront.resp.apology_tribute_major.aegis.positive.2"
+    ]
+   },
+   "sarab": {
+    "vengeful": [
+     "dialogue.warfront.resp.apology_tribute_major.sarab.vengeful.1",
+     "dialogue.warfront.resp.apology_tribute_major.sarab.vengeful.2",
+     "dialogue.warfront.resp.apology_tribute_major.sarab.vengeful.3"
+    ],
+    "negative": [
+     "dialogue.warfront.resp.apology_tribute_major.sarab.negative.1",
+     "dialogue.warfront.resp.apology_tribute_major.sarab.negative.2"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.apology_tribute_major.sarab.neutral.1",
+     "dialogue.warfront.resp.apology_tribute_major.sarab.neutral.2"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.apology_tribute_major.sarab.positive.1",
+     "dialogue.warfront.resp.apology_tribute_major.sarab.positive.2"
+    ]
+   }
+  },
+  "apology_vengeful_plea": {
+   "vostok": {
+    "vengeful": [
+     "dialogue.warfront.resp.apology_vengeful_plea.vostok.vengeful.1",
+     "dialogue.warfront.resp.apology_vengeful_plea.vostok.vengeful.2",
+     "dialogue.warfront.resp.apology_vengeful_plea.vostok.vengeful.3"
+    ],
+    "negative": [
+     "dialogue.warfront.resp.apology_vengeful_plea.vostok.negative.1",
+     "dialogue.warfront.resp.apology_vengeful_plea.vostok.negative.2"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.apology_vengeful_plea.vostok.neutral.1",
+     "dialogue.warfront.resp.apology_vengeful_plea.vostok.neutral.2"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.apology_vengeful_plea.vostok.positive.1",
+     "dialogue.warfront.resp.apology_vengeful_plea.vostok.positive.2"
+    ]
+   },
+   "aegis": {
+    "vengeful": [
+     "dialogue.warfront.resp.apology_vengeful_plea.aegis.vengeful.1",
+     "dialogue.warfront.resp.apology_vengeful_plea.aegis.vengeful.2",
+     "dialogue.warfront.resp.apology_vengeful_plea.aegis.vengeful.3"
+    ],
+    "negative": [
+     "dialogue.warfront.resp.apology_vengeful_plea.aegis.negative.1",
+     "dialogue.warfront.resp.apology_vengeful_plea.aegis.negative.2"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.apology_vengeful_plea.aegis.neutral.1",
+     "dialogue.warfront.resp.apology_vengeful_plea.aegis.neutral.2"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.apology_vengeful_plea.aegis.positive.1",
+     "dialogue.warfront.resp.apology_vengeful_plea.aegis.positive.2"
+    ]
+   },
+   "sarab": {
+    "vengeful": [
+     "dialogue.warfront.resp.apology_vengeful_plea.sarab.vengeful.1",
+     "dialogue.warfront.resp.apology_vengeful_plea.sarab.vengeful.2",
+     "dialogue.warfront.resp.apology_vengeful_plea.sarab.vengeful.3"
+    ],
+    "negative": [
+     "dialogue.warfront.resp.apology_vengeful_plea.sarab.negative.1",
+     "dialogue.warfront.resp.apology_vengeful_plea.sarab.negative.2"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.apology_vengeful_plea.sarab.neutral.1",
+     "dialogue.warfront.resp.apology_vengeful_plea.sarab.neutral.2"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.apology_vengeful_plea.sarab.positive.1",
+     "dialogue.warfront.resp.apology_vengeful_plea.sarab.positive.2"
+    ]
+   }
+  },
+  "apology_promise": {
+   "vostok": {
+    "negative": [
+     "dialogue.warfront.resp.apology_promise.vostok.negative.1",
+     "dialogue.warfront.resp.apology_promise.vostok.negative.2",
+     "dialogue.warfront.resp.apology_promise.vostok.negative.3"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.apology_promise.vostok.neutral.1",
+     "dialogue.warfront.resp.apology_promise.vostok.neutral.2"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.apology_promise.vostok.positive.1",
+     "dialogue.warfront.resp.apology_promise.vostok.positive.2"
+    ]
+   },
+   "aegis": {
+    "negative": [
+     "dialogue.warfront.resp.apology_promise.aegis.negative.1",
+     "dialogue.warfront.resp.apology_promise.aegis.negative.2",
+     "dialogue.warfront.resp.apology_promise.aegis.negative.3"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.apology_promise.aegis.neutral.1",
+     "dialogue.warfront.resp.apology_promise.aegis.neutral.2"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.apology_promise.aegis.positive.1",
+     "dialogue.warfront.resp.apology_promise.aegis.positive.2"
+    ]
+   },
+   "sarab": {
+    "negative": [
+     "dialogue.warfront.resp.apology_promise.sarab.negative.1",
+     "dialogue.warfront.resp.apology_promise.sarab.negative.2",
+     "dialogue.warfront.resp.apology_promise.sarab.negative.3"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.apology_promise.sarab.neutral.1",
+     "dialogue.warfront.resp.apology_promise.sarab.neutral.2"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.apology_promise.sarab.positive.1",
+     "dialogue.warfront.resp.apology_promise.sarab.positive.2"
+    ]
+   }
+  },
+  "apology_confess_blood": {
+   "vostok": {
+    "vengeful": [
+     "dialogue.warfront.resp.apology_confess_blood.vostok.vengeful.1"
+    ],
+    "negative": [
+     "dialogue.warfront.resp.apology_confess_blood.vostok.negative.1",
+     "dialogue.warfront.resp.apology_confess_blood.vostok.negative.2",
+     "dialogue.warfront.resp.apology_confess_blood.vostok.negative.3"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.apology_confess_blood.vostok.neutral.1",
+     "dialogue.warfront.resp.apology_confess_blood.vostok.neutral.2"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.apology_confess_blood.vostok.positive.1",
+     "dialogue.warfront.resp.apology_confess_blood.vostok.positive.2"
+    ]
+   },
+   "aegis": {
+    "vengeful": [
+     "dialogue.warfront.resp.apology_confess_blood.aegis.vengeful.1"
+    ],
+    "negative": [
+     "dialogue.warfront.resp.apology_confess_blood.aegis.negative.1",
+     "dialogue.warfront.resp.apology_confess_blood.aegis.negative.2",
+     "dialogue.warfront.resp.apology_confess_blood.aegis.negative.3"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.apology_confess_blood.aegis.neutral.1",
+     "dialogue.warfront.resp.apology_confess_blood.aegis.neutral.2"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.apology_confess_blood.aegis.positive.1",
+     "dialogue.warfront.resp.apology_confess_blood.aegis.positive.2"
+    ]
+   },
+   "sarab": {
+    "vengeful": [
+     "dialogue.warfront.resp.apology_confess_blood.sarab.vengeful.1"
+    ],
+    "negative": [
+     "dialogue.warfront.resp.apology_confess_blood.sarab.negative.1",
+     "dialogue.warfront.resp.apology_confess_blood.sarab.negative.2",
+     "dialogue.warfront.resp.apology_confess_blood.sarab.negative.3"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.apology_confess_blood.sarab.neutral.1",
+     "dialogue.warfront.resp.apology_confess_blood.sarab.neutral.2"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.apology_confess_blood.sarab.positive.1",
+     "dialogue.warfront.resp.apology_confess_blood.sarab.positive.2"
+    ]
+   }
+  },
+  "apology_nicety": {
+   "vostok": {
+    "negative": [
+     "dialogue.warfront.resp.apology_nicety.vostok.negative.1",
+     "dialogue.warfront.resp.apology_nicety.vostok.negative.2"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.apology_nicety.vostok.neutral.1",
+     "dialogue.warfront.resp.apology_nicety.vostok.neutral.2"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.apology_nicety.vostok.positive.1",
+     "dialogue.warfront.resp.apology_nicety.vostok.positive.2"
+    ]
+   },
+   "aegis": {
+    "negative": [
+     "dialogue.warfront.resp.apology_nicety.aegis.negative.1",
+     "dialogue.warfront.resp.apology_nicety.aegis.negative.2"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.apology_nicety.aegis.neutral.1",
+     "dialogue.warfront.resp.apology_nicety.aegis.neutral.2"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.apology_nicety.aegis.positive.1",
+     "dialogue.warfront.resp.apology_nicety.aegis.positive.2"
+    ]
+   },
+   "sarab": {
+    "negative": [
+     "dialogue.warfront.resp.apology_nicety.sarab.negative.1",
+     "dialogue.warfront.resp.apology_nicety.sarab.negative.2"
+    ],
+    "neutral": [
+     "dialogue.warfront.resp.apology_nicety.sarab.neutral.1",
+     "dialogue.warfront.resp.apology_nicety.sarab.neutral.2"
+    ],
+    "positive": [
+     "dialogue.warfront.resp.apology_nicety.sarab.positive.1",
+     "dialogue.warfront.resp.apology_nicety.sarab.positive.2"
+    ]
+   }
+  }
+ }
+}

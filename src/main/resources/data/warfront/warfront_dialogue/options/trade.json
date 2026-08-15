@@ -1,0 +1,1262 @@
+{
+ "category": "trade",
+ "options": [
+  {
+   "id": "trade_open_see_stock",
+   "text": "dialogue.warfront.opt.trade_open_see_stock",
+   "response": "trade_open",
+   "conditions": {
+    "role": [
+     "quartermaster"
+    ]
+   },
+   "effects": [
+    {
+     "type": "open_trade"
+    }
+   ],
+   "weight": 10
+  },
+  {
+   "id": "trade_open_show_selling",
+   "text": "dialogue.warfront.opt.trade_open_show_selling",
+   "response": "trade_open",
+   "conditions": {
+    "role": [
+     "quartermaster"
+    ]
+   },
+   "effects": [
+    {
+     "type": "open_trade"
+    }
+   ],
+   "weight": 9
+  },
+  {
+   "id": "trade_open_here_to_buy",
+   "text": "dialogue.warfront.opt.trade_open_here_to_buy",
+   "response": "trade_open",
+   "conditions": {
+    "role": [
+     "quartermaster"
+    ]
+   },
+   "effects": [
+    {
+     "type": "open_trade"
+    }
+   ],
+   "weight": 10
+  },
+  {
+   "id": "trade_open_the_books",
+   "text": "dialogue.warfront.opt.trade_open_the_books",
+   "response": "trade_open",
+   "conditions": {
+    "role": [
+     "quartermaster"
+    ]
+   },
+   "effects": [
+    {
+     "type": "open_trade"
+    }
+   ],
+   "weight": 7
+  },
+  {
+   "id": "trade_open_long_list",
+   "text": "dialogue.warfront.opt.trade_open_long_list",
+   "response": "trade_open",
+   "conditions": {
+    "role": [
+     "quartermaster"
+    ]
+   },
+   "effects": [
+    {
+     "type": "open_trade"
+    }
+   ],
+   "weight": 7
+  },
+  {
+   "id": "trade_open_spend_emeralds",
+   "text": "dialogue.warfront.opt.trade_open_spend_emeralds",
+   "response": "trade_open",
+   "conditions": {
+    "role": [
+     "quartermaster"
+    ]
+   },
+   "effects": [
+    {
+     "type": "open_trade"
+    }
+   ],
+   "weight": 7
+  },
+  {
+   "id": "trade_open_shelves",
+   "text": "dialogue.warfront.opt.trade_open_shelves",
+   "response": "trade_open",
+   "conditions": {
+    "role": [
+     "quartermaster"
+    ]
+   },
+   "effects": [
+    {
+     "type": "open_trade"
+    }
+   ],
+   "weight": 8
+  },
+  {
+   "id": "trade_open_business",
+   "text": "dialogue.warfront.opt.trade_open_business",
+   "response": "trade_open",
+   "conditions": {
+    "role": [
+     "quartermaster"
+    ]
+   },
+   "effects": [
+    {
+     "type": "open_trade"
+    }
+   ],
+   "weight": 8
+  },
+  {
+   "id": "trade_open_need_supplies",
+   "text": "dialogue.warfront.opt.trade_open_need_supplies",
+   "response": "trade_open",
+   "conditions": {
+    "role": [
+     "quartermaster"
+    ]
+   },
+   "effects": [
+    {
+     "type": "open_trade"
+    }
+   ],
+   "weight": 8
+  },
+  {
+   "id": "trade_open_lay_it_out",
+   "text": "dialogue.warfront.opt.trade_open_lay_it_out",
+   "response": "trade_open",
+   "conditions": {
+    "role": [
+     "quartermaster"
+    ]
+   },
+   "effects": [
+    {
+     "type": "open_trade"
+    }
+   ],
+   "weight": 6
+  },
+  {
+   "id": "trade_ask_grunt_anything",
+   "text": "dialogue.warfront.opt.trade_ask_grunt_anything",
+   "response": "trade_redirect",
+   "conditions": {
+    "role": [
+     "grunt"
+    ]
+   },
+   "weight": 9
+  },
+  {
+   "id": "trade_ask_grunt_gear",
+   "text": "dialogue.warfront.opt.trade_ask_grunt_gear",
+   "response": "trade_redirect",
+   "conditions": {
+    "role": [
+     "grunt"
+    ]
+   },
+   "weight": 8
+  },
+  {
+   "id": "trade_ask_grunt_bread",
+   "text": "dialogue.warfront.opt.trade_ask_grunt_bread",
+   "response": "trade_redirect",
+   "conditions": {
+    "role": [
+     "grunt"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "trade_ask_grunt_rations",
+   "text": "dialogue.warfront.opt.trade_ask_grunt_rations",
+   "response": "trade_redirect",
+   "conditions": {
+    "role": [
+     "grunt"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "trade_ask_grunt_coin",
+   "text": "dialogue.warfront.opt.trade_ask_grunt_coin",
+   "response": "trade_redirect",
+   "conditions": {
+    "role": [
+     "grunt"
+    ]
+   },
+   "weight": 7
+  },
+  {
+   "id": "trade_ask_grunt_look",
+   "text": "dialogue.warfront.opt.trade_ask_grunt_look",
+   "response": "trade_redirect",
+   "conditions": {
+    "role": [
+     "grunt"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "trade_ask_grunt_kit",
+   "text": "dialogue.warfront.opt.trade_ask_grunt_kit",
+   "response": "trade_redirect",
+   "conditions": {
+    "role": [
+     "grunt"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "trade_ask_grunt_who",
+   "text": "dialogue.warfront.opt.trade_ask_grunt_who",
+   "response": "trade_redirect",
+   "conditions": {
+    "role": [
+     "grunt"
+    ]
+   },
+   "weight": 8
+  },
+  {
+   "id": "trade_browse_goods",
+   "text": "dialogue.warfront.opt.trade_browse_goods",
+   "response": "trade_browse",
+   "weight": 8
+  },
+  {
+   "id": "trade_browse_usual",
+   "text": "dialogue.warfront.opt.trade_browse_usual",
+   "response": "trade_browse",
+   "weight": 7
+  },
+  {
+   "id": "trade_browse_market",
+   "text": "dialogue.warfront.opt.trade_browse_market",
+   "response": "trade_browse",
+   "weight": 8
+  },
+  {
+   "id": "trade_browse_supply_lines",
+   "text": "dialogue.warfront.opt.trade_browse_supply_lines",
+   "response": "trade_browse",
+   "weight": 6
+  },
+  {
+   "id": "trade_browse_outsiders",
+   "text": "dialogue.warfront.opt.trade_browse_outsiders",
+   "response": "trade_browse",
+   "weight": 8
+  },
+  {
+   "id": "trade_browse_worth",
+   "text": "dialogue.warfront.opt.trade_browse_worth",
+   "response": "trade_browse",
+   "weight": 7
+  },
+  {
+   "id": "trade_browse_surplus",
+   "text": "dialogue.warfront.opt.trade_browse_surplus",
+   "response": "trade_browse",
+   "weight": 6
+  },
+  {
+   "id": "trade_browse_shop",
+   "text": "dialogue.warfront.opt.trade_browse_shop",
+   "response": "trade_browse",
+   "weight": 6
+  },
+  {
+   "id": "trade_needs_short",
+   "text": "dialogue.warfront.opt.trade_needs_short",
+   "response": "trade_needs",
+   "weight": 8
+  },
+  {
+   "id": "trade_needs_most",
+   "text": "dialogue.warfront.opt.trade_needs_most",
+   "response": "trade_needs",
+   "weight": 8
+  },
+  {
+   "id": "trade_needs_pay",
+   "text": "dialogue.warfront.opt.trade_needs_pay",
+   "response": "trade_needs",
+   "weight": 7
+  },
+  {
+   "id": "trade_needs_scarce",
+   "text": "dialogue.warfront.opt.trade_needs_scarce",
+   "response": "trade_needs",
+   "weight": 7
+  },
+  {
+   "id": "trade_needs_haul",
+   "text": "dialogue.warfront.opt.trade_needs_haul",
+   "response": "trade_needs",
+   "weight": 6
+  },
+  {
+   "id": "trade_needs_front_list",
+   "text": "dialogue.warfront.opt.trade_needs_front_list",
+   "response": "trade_needs",
+   "conditions": {
+    "disposition": [
+     "positive"
+    ]
+   },
+   "weight": 7
+  },
+  {
+   "id": "trade_needs_keep_supplied",
+   "text": "dialogue.warfront.opt.trade_needs_keep_supplied",
+   "response": "trade_needs",
+   "conditions": {
+    "disposition": [
+     "positive"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "trade_needs_consider_found",
+   "text": "dialogue.warfront.opt.trade_needs_consider_found",
+   "response": "trade_needs",
+   "conditions": {
+    "disposition": [
+     "positive"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "trade_haggle_steep",
+   "text": "dialogue.warfront.opt.trade_haggle_steep",
+   "response": "trade_haggle",
+   "weight": 9
+  },
+  {
+   "id": "trade_haggle_better",
+   "text": "dialogue.warfront.opt.trade_haggle_better",
+   "response": "trade_haggle",
+   "weight": 9
+  },
+  {
+   "id": "trade_haggle_cheaper_elsewhere",
+   "text": "dialogue.warfront.opt.trade_haggle_cheaper_elsewhere",
+   "response": "trade_haggle",
+   "weight": 7
+  },
+  {
+   "id": "trade_haggle_knock_off",
+   "text": "dialogue.warfront.opt.trade_haggle_knock_off",
+   "response": "trade_haggle",
+   "weight": 7
+  },
+  {
+   "id": "trade_haggle_ever",
+   "text": "dialogue.warfront.opt.trade_haggle_ever",
+   "response": "trade_haggle",
+   "weight": 7
+  },
+  {
+   "id": "trade_haggle_goods",
+   "text": "dialogue.warfront.opt.trade_haggle_goods",
+   "response": "trade_haggle",
+   "weight": 6
+  },
+  {
+   "id": "trade_haggle_bulk",
+   "text": "dialogue.warfront.opt.trade_haggle_bulk",
+   "response": "trade_haggle",
+   "weight": 6
+  },
+  {
+   "id": "trade_haggle_patient",
+   "text": "dialogue.warfront.opt.trade_haggle_patient",
+   "response": "trade_haggle",
+   "weight": 5
+  },
+  {
+   "id": "trade_haggle_friends",
+   "text": "dialogue.warfront.opt.trade_haggle_friends",
+   "response": "trade_haggle",
+   "conditions": {
+    "disposition": [
+     "positive"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "trade_haggle_round_down",
+   "text": "dialogue.warfront.opt.trade_haggle_round_down",
+   "response": "trade_haggle",
+   "conditions": {
+    "disposition": [
+     "positive"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "trade_gift_bread_fresh",
+   "text": "dialogue.warfront.opt.trade_gift_bread_fresh",
+   "response": "trade_gift_food",
+   "conditions": {
+    "requires_item": "minecraft:bread",
+    "requires_count": 4
+   },
+   "effects": [
+    {
+     "type": "take_items",
+     "item": "minecraft:bread",
+     "count": 4
+    },
+    {
+     "type": "disposition",
+     "event": "gifted"
+    }
+   ],
+   "weight": 7,
+   "cooldown_minutes": 60
+  },
+  {
+   "id": "trade_gift_bread_mess",
+   "text": "dialogue.warfront.opt.trade_gift_bread_mess",
+   "response": "trade_gift_food",
+   "conditions": {
+    "requires_item": "minecraft:bread",
+    "requires_count": 4
+   },
+   "effects": [
+    {
+     "type": "take_items",
+     "item": "minecraft:bread",
+     "count": 4
+    },
+    {
+     "type": "disposition",
+     "event": "gifted"
+    }
+   ],
+   "weight": 7,
+   "cooldown_minutes": 60
+  },
+  {
+   "id": "trade_gift_bread_baked",
+   "text": "dialogue.warfront.opt.trade_gift_bread_baked",
+   "response": "trade_gift_food",
+   "conditions": {
+    "requires_item": "minecraft:bread",
+    "requires_count": 4
+   },
+   "effects": [
+    {
+     "type": "take_items",
+     "item": "minecraft:bread",
+     "count": 4
+    },
+    {
+     "type": "disposition",
+     "event": "gifted"
+    }
+   ],
+   "weight": 6,
+   "cooldown_minutes": 60
+  },
+  {
+   "id": "trade_gift_bread_watch",
+   "text": "dialogue.warfront.opt.trade_gift_bread_watch",
+   "response": "trade_gift_food",
+   "conditions": {
+    "requires_item": "minecraft:bread",
+    "requires_count": 4
+   },
+   "effects": [
+    {
+     "type": "take_items",
+     "item": "minecraft:bread",
+     "count": 4
+    },
+    {
+     "type": "disposition",
+     "event": "gifted"
+    }
+   ],
+   "weight": 6,
+   "cooldown_minutes": 60
+  },
+  {
+   "id": "trade_gift_iron_smiths",
+   "text": "dialogue.warfront.opt.trade_gift_iron_smiths",
+   "response": "trade_gift_metal",
+   "conditions": {
+    "requires_item": "minecraft:iron_ingot",
+    "requires_count": 4
+   },
+   "effects": [
+    {
+     "type": "take_items",
+     "item": "minecraft:iron_ingot",
+     "count": 4
+    },
+    {
+     "type": "disposition",
+     "event": "gifted"
+    }
+   ],
+   "weight": 7,
+   "cooldown_minutes": 60
+  },
+  {
+   "id": "trade_gift_iron_armor",
+   "text": "dialogue.warfront.opt.trade_gift_iron_armor",
+   "response": "trade_gift_metal",
+   "conditions": {
+    "requires_item": "minecraft:iron_ingot",
+    "requires_count": 4
+   },
+   "effects": [
+    {
+     "type": "take_items",
+     "item": "minecraft:iron_ingot",
+     "count": 4
+    },
+    {
+     "type": "disposition",
+     "event": "gifted"
+    }
+   ],
+   "weight": 7,
+   "cooldown_minutes": 60
+  },
+  {
+   "id": "trade_gift_iron_forge",
+   "text": "dialogue.warfront.opt.trade_gift_iron_forge",
+   "response": "trade_gift_metal",
+   "conditions": {
+    "requires_item": "minecraft:iron_ingot",
+    "requires_count": 4
+   },
+   "effects": [
+    {
+     "type": "take_items",
+     "item": "minecraft:iron_ingot",
+     "count": 4
+    },
+    {
+     "type": "disposition",
+     "event": "gifted"
+    }
+   ],
+   "weight": 6,
+   "cooldown_minutes": 60
+  },
+  {
+   "id": "trade_gift_iron_use",
+   "text": "dialogue.warfront.opt.trade_gift_iron_use",
+   "response": "trade_gift_metal",
+   "conditions": {
+    "requires_item": "minecraft:iron_ingot",
+    "requires_count": 4
+   },
+   "effects": [
+    {
+     "type": "take_items",
+     "item": "minecraft:iron_ingot",
+     "count": 4
+    },
+    {
+     "type": "disposition",
+     "event": "gifted"
+    }
+   ],
+   "weight": 6,
+   "cooldown_minutes": 60
+  },
+  {
+   "id": "trade_gift_leather_boots",
+   "text": "dialogue.warfront.opt.trade_gift_leather_boots",
+   "response": "trade_gift_leather",
+   "conditions": {
+    "requires_item": "minecraft:leather",
+    "requires_count": 3
+   },
+   "effects": [
+    {
+     "type": "take_items",
+     "item": "minecraft:leather",
+     "count": 3
+    },
+    {
+     "type": "disposition",
+     "event": "gifted"
+    }
+   ],
+   "weight": 7,
+   "cooldown_minutes": 60
+  },
+  {
+   "id": "trade_gift_leather_straps",
+   "text": "dialogue.warfront.opt.trade_gift_leather_straps",
+   "response": "trade_gift_leather",
+   "conditions": {
+    "requires_item": "minecraft:leather",
+    "requires_count": 3
+   },
+   "effects": [
+    {
+     "type": "take_items",
+     "item": "minecraft:leather",
+     "count": 3
+    },
+    {
+     "type": "disposition",
+     "event": "gifted"
+    }
+   ],
+   "weight": 6,
+   "cooldown_minutes": 60
+  },
+  {
+   "id": "trade_gift_leather_repairs",
+   "text": "dialogue.warfront.opt.trade_gift_leather_repairs",
+   "response": "trade_gift_leather",
+   "conditions": {
+    "requires_item": "minecraft:leather",
+    "requires_count": 3
+   },
+   "effects": [
+    {
+     "type": "take_items",
+     "item": "minecraft:leather",
+     "count": 3
+    },
+    {
+     "type": "disposition",
+     "event": "gifted"
+    }
+   ],
+   "weight": 6,
+   "cooldown_minutes": 60
+  },
+  {
+   "id": "trade_gift_leather_tanned",
+   "text": "dialogue.warfront.opt.trade_gift_leather_tanned",
+   "response": "trade_gift_leather",
+   "conditions": {
+    "requires_item": "minecraft:leather",
+    "requires_count": 3
+   },
+   "effects": [
+    {
+     "type": "take_items",
+     "item": "minecraft:leather",
+     "count": 3
+    },
+    {
+     "type": "disposition",
+     "event": "gifted"
+    }
+   ],
+   "weight": 6,
+   "cooldown_minutes": 60
+  },
+  {
+   "id": "trade_gift_emerald_fund",
+   "text": "dialogue.warfront.opt.trade_gift_emerald_fund",
+   "response": "trade_gift_gem",
+   "conditions": {
+    "requires_item": "minecraft:emerald",
+    "requires_count": 2
+   },
+   "effects": [
+    {
+     "type": "take_items",
+     "item": "minecraft:emerald",
+     "count": 2
+    },
+    {
+     "type": "disposition",
+     "event": "gifted"
+    }
+   ],
+   "weight": 7,
+   "cooldown_minutes": 60
+  },
+  {
+   "id": "trade_gift_emerald_goodwill",
+   "text": "dialogue.warfront.opt.trade_gift_emerald_goodwill",
+   "response": "trade_gift_gem",
+   "conditions": {
+    "requires_item": "minecraft:emerald",
+    "requires_count": 2
+   },
+   "effects": [
+    {
+     "type": "take_items",
+     "item": "minecraft:emerald",
+     "count": 2
+    },
+    {
+     "type": "disposition",
+     "event": "gifted"
+    }
+   ],
+   "weight": 6,
+   "cooldown_minutes": 60
+  },
+  {
+   "id": "trade_gift_emerald_squad",
+   "text": "dialogue.warfront.opt.trade_gift_emerald_squad",
+   "response": "trade_gift_gem",
+   "conditions": {
+    "requires_item": "minecraft:emerald",
+    "requires_count": 2
+   },
+   "effects": [
+    {
+     "type": "take_items",
+     "item": "minecraft:emerald",
+     "count": 2
+    },
+    {
+     "type": "disposition",
+     "event": "gifted"
+    }
+   ],
+   "weight": 6,
+   "cooldown_minutes": 60
+  },
+  {
+   "id": "trade_gift_emerald_people",
+   "text": "dialogue.warfront.opt.trade_gift_emerald_people",
+   "response": "trade_gift_gem",
+   "conditions": {
+    "requires_item": "minecraft:emerald",
+    "requires_count": 2
+   },
+   "effects": [
+    {
+     "type": "take_items",
+     "item": "minecraft:emerald",
+     "count": 2
+    },
+    {
+     "type": "disposition",
+     "event": "gifted"
+    }
+   ],
+   "weight": 6,
+   "cooldown_minutes": 60
+  },
+  {
+   "id": "trade_gouge_double",
+   "text": "dialogue.warfront.opt.trade_gouge_double",
+   "response": "trade_gouge",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "weight": 9
+  },
+  {
+   "id": "trade_gouge_robbery",
+   "text": "dialogue.warfront.opt.trade_gouge_robbery",
+   "response": "trade_gouge",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "weight": 8
+  },
+  {
+   "id": "trade_gouge_on_purpose",
+   "text": "dialogue.warfront.opt.trade_gouge_on_purpose",
+   "response": "trade_gouge",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "weight": 7
+  },
+  {
+   "id": "trade_gouge_everyone",
+   "text": "dialogue.warfront.opt.trade_gouge_everyone",
+   "response": "trade_gouge",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "weight": 7
+  },
+  {
+   "id": "trade_gouge_three_times",
+   "text": "dialogue.warfront.opt.trade_gouge_three_times",
+   "response": "trade_gouge",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "weight": 7
+  },
+  {
+   "id": "trade_gouge_fair_price",
+   "text": "dialogue.warfront.opt.trade_gouge_fair_price",
+   "response": "trade_gouge",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "weight": 7
+  },
+  {
+   "id": "trade_gouge_steeper",
+   "text": "dialogue.warfront.opt.trade_gouge_steeper",
+   "response": "trade_gouge",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "trade_gouge_breathing",
+   "text": "dialogue.warfront.opt.trade_gouge_breathing",
+   "response": "trade_gouge",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "trade_gouge_liked",
+   "text": "dialogue.warfront.opt.trade_gouge_liked",
+   "response": "trade_gouge",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "trade_gouge_only_one",
+   "text": "dialogue.warfront.opt.trade_gouge_only_one",
+   "response": "trade_gouge",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "trade_gouge_halfway",
+   "text": "dialogue.warfront.opt.trade_gouge_halfway",
+   "response": "trade_gouge",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "trade_gouge_fair_rate",
+   "text": "dialogue.warfront.opt.trade_gouge_fair_rate",
+   "response": "trade_gouge",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "trade_gouge_forget_insult",
+   "text": "dialogue.warfront.opt.trade_gouge_forget_insult",
+   "response": "trade_gouge",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "weight": 5
+  },
+  {
+   "id": "trade_gouge_no_sale",
+   "text": "dialogue.warfront.opt.trade_gouge_no_sale",
+   "response": "trade_gouge",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "trade_gouge_bandits",
+   "text": "dialogue.warfront.opt.trade_gouge_bandits",
+   "response": "trade_gouge",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "weight": 5
+  },
+  {
+   "id": "trade_gouge_every_coin",
+   "text": "dialogue.warfront.opt.trade_gouge_every_coin",
+   "response": "trade_gouge",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "weight": 5
+  },
+  {
+   "id": "trade_gouge_spite",
+   "text": "dialogue.warfront.opt.trade_gouge_spite",
+   "response": "trade_gouge",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "trade_cold_still_sell",
+   "text": "dialogue.warfront.opt.trade_cold_still_sell",
+   "response": "trade_cold_shoulder",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "weight": 8
+  },
+  {
+   "id": "trade_cold_banned",
+   "text": "dialogue.warfront.opt.trade_cold_banned",
+   "response": "trade_cold_shoulder",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "weight": 7
+  },
+  {
+   "id": "trade_cold_coin_good",
+   "text": "dialogue.warfront.opt.trade_cold_coin_good",
+   "response": "trade_cold_shoulder",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "weight": 7
+  },
+  {
+   "id": "trade_cold_after_everything",
+   "text": "dialogue.warfront.opt.trade_cold_after_everything",
+   "response": "trade_cold_shoulder",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "weight": 7
+  },
+  {
+   "id": "trade_cold_just_trade",
+   "text": "dialogue.warfront.opt.trade_cold_just_trade",
+   "response": "trade_cold_shoulder",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "weight": 7
+  },
+  {
+   "id": "trade_cold_commerce",
+   "text": "dialogue.warfront.opt.trade_cold_commerce",
+   "response": "trade_cold_shoulder",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "trade_cold_customers",
+   "text": "dialogue.warfront.opt.trade_cold_customers",
+   "response": "trade_cold_shoulder",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "trade_cold_emeralds_spend",
+   "text": "dialogue.warfront.opt.trade_cold_emeralds_spend",
+   "response": "trade_cold_shoulder",
+   "conditions": {
+    "disposition": [
+     "negative"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "trade_discount_friendly_rates",
+   "text": "dialogue.warfront.opt.trade_discount_friendly_rates",
+   "response": "trade_discount",
+   "conditions": {
+    "disposition": [
+     "positive"
+    ]
+   },
+   "weight": 8
+  },
+  {
+   "id": "trade_discount_shop_cheaper",
+   "text": "dialogue.warfront.opt.trade_discount_shop_cheaper",
+   "response": "trade_discount",
+   "conditions": {
+    "disposition": [
+     "positive"
+    ]
+   },
+   "weight": 7
+  },
+  {
+   "id": "trade_discount_good_company",
+   "text": "dialogue.warfront.opt.trade_discount_good_company",
+   "response": "trade_discount",
+   "conditions": {
+    "disposition": [
+     "positive"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "trade_discount_record",
+   "text": "dialogue.warfront.opt.trade_discount_record",
+   "response": "trade_discount",
+   "conditions": {
+    "disposition": [
+     "positive"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "trade_discount_loyalty",
+   "text": "dialogue.warfront.opt.trade_discount_loyalty",
+   "response": "trade_discount",
+   "conditions": {
+    "disposition": [
+     "positive"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "trade_discount_own",
+   "text": "dialogue.warfront.opt.trade_discount_own",
+   "response": "trade_discount",
+   "conditions": {
+    "disposition": [
+     "positive"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "trade_discount_sharpen",
+   "text": "dialogue.warfront.opt.trade_discount_sharpen",
+   "response": "trade_discount",
+   "conditions": {
+    "disposition": [
+     "positive"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "trade_discount_good_for_it",
+   "text": "dialogue.warfront.opt.trade_discount_good_for_it",
+   "response": "trade_discount",
+   "conditions": {
+    "disposition": [
+     "positive"
+    ]
+   },
+   "weight": 5
+  },
+  {
+   "id": "trade_special_strangers",
+   "text": "dialogue.warfront.opt.trade_special_strangers",
+   "response": "trade_special",
+   "conditions": {
+    "disposition": [
+     "positive"
+    ]
+   },
+   "weight": 7
+  },
+  {
+   "id": "trade_special_back",
+   "text": "dialogue.warfront.opt.trade_special_back",
+   "response": "trade_special",
+   "conditions": {
+    "disposition": [
+     "positive"
+    ]
+   },
+   "weight": 7
+  },
+  {
+   "id": "trade_special_trusted",
+   "text": "dialogue.warfront.opt.trade_special_trusted",
+   "response": "trade_special",
+   "conditions": {
+    "disposition": [
+     "positive"
+    ]
+   },
+   "weight": 7
+  },
+  {
+   "id": "trade_special_good_stuff",
+   "text": "dialogue.warfront.opt.trade_special_good_stuff",
+   "response": "trade_special",
+   "conditions": {
+    "disposition": [
+     "positive"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "trade_special_hidden",
+   "text": "dialogue.warfront.opt.trade_special_hidden",
+   "response": "trade_special",
+   "conditions": {
+    "disposition": [
+     "positive"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "trade_special_only_friend",
+   "text": "dialogue.warfront.opt.trade_special_only_friend",
+   "response": "trade_special",
+   "conditions": {
+    "disposition": [
+     "positive"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "trade_special_rare",
+   "text": "dialogue.warfront.opt.trade_special_rare",
+   "response": "trade_special",
+   "conditions": {
+    "disposition": [
+     "positive"
+    ]
+   },
+   "weight": 6
+  },
+  {
+   "id": "trade_quality_any_good",
+   "text": "dialogue.warfront.opt.trade_quality_any_good",
+   "response": "trade_quality",
+   "weight": 7
+  },
+  {
+   "id": "trade_quality_hold_up",
+   "text": "dialogue.warfront.opt.trade_quality_hold_up",
+   "response": "trade_quality",
+   "weight": 6
+  },
+  {
+   "id": "trade_quality_who_makes",
+   "text": "dialogue.warfront.opt.trade_quality_who_makes",
+   "response": "trade_quality",
+   "weight": 6
+  },
+  {
+   "id": "trade_quality_own_life",
+   "text": "dialogue.warfront.opt.trade_quality_own_life",
+   "response": "trade_quality",
+   "weight": 6
+  },
+  {
+   "id": "trade_quality_best_made",
+   "text": "dialogue.warfront.opt.trade_quality_best_made",
+   "response": "trade_quality",
+   "weight": 6
+  },
+  {
+   "id": "trade_quality_guarantee",
+   "text": "dialogue.warfront.opt.trade_quality_guarantee",
+   "response": "trade_quality",
+   "weight": 5
+  }
+ ]
+}
