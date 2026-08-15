@@ -1,0 +1,16 @@
+{
+  "_tuning_notes": "Aegis doctrine: quality over volume — one good armor piece, optics, precision goods. See vostok.json for semantics.",
+  "offers": [
+    { "min_standing": "neutral", "cost": { "item": "minecraft:emerald", "count": 2 }, "result": { "item": "minecraft:golden_carrot", "count": 4 } },
+    { "min_standing": "neutral", "cost": { "item": "minecraft:emerald", "count": 3 }, "result": { "item": "minecraft:glass", "count": 12 } },
+    { "min_standing": "neutral", "cost": { "item": "minecraft:redstone", "count": 16 }, "result": { "item": "minecraft:emerald", "count": 1 } },
+    { "min_standing": "friendly", "cost": { "item": "minecraft:emerald", "count": 8 }, "result": { "item": "minecraft:iron_chestplate", "count": 1 } },
+    { "min_standing": "friendly", "cost": { "item": "minecraft:emerald", "count": 5 }, "result": { "item": "minecraft:spyglass", "count": 1 } },
+    { "min_standing": "trusted", "cost": { "item": "minecraft:emerald", "count": 12 }, "result": { "item": "minecraft:diamond_helmet", "count": 1 } },
+    { "min_standing": "trusted", "cost": { "item": "minecraft:emerald", "count": 6 }, "result": { "item": "minecraft:sea_lantern", "count": 4 } }
+  ],
+  "price_multipliers": {
+    "standing": { "neutral": 1.0, "friendly": 0.85, "trusted": 0.7 },
+    "disposition": { "negative": 1.5, "neutral": 1.0, "positive": 0.8 }
+  }
+}

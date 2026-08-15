@@ -1,0 +1,15 @@
+{
+  "_tuning_notes": "Soldier display-name pools; a soldier's name is a stable hash of its UUID. Add names freely — flavor only.",
+  "vostok": {
+    "first": ["Dmitri", "Yuri", "Anton", "Sergei", "Pavel", "Nikolai", "Boris", "Ivan", "Oleg", "Viktor", "Grigor", "Mikhail", "Anya", "Katya", "Vera", "Irina", "Lena", "Nadia"],
+    "last": ["Volkov", "Orlov", "Petrov", "Sokolov", "Morozov", "Novikov", "Kuznetsov", "Popov", "Lebedev", "Kozlov", "Fedorov", "Antonov"]
+  },
+  "aegis": {
+    "first": ["Carter", "Reese", "Morgan", "Ellis", "Quinn", "Avery", "Jordan", "Blake", "Casey", "Drew", "Hayden", "Parker", "Rowan", "Sloane", "Tate", "Emerson"],
+    "last": ["Hale", "Mercer", "Vance", "Cole", "Ashford", "Bennett", "Calloway", "Drake", "Foster", "Grayson", "Holt", "Kessler"]
+  },
+  "sarab": {
+    "first": ["Tariq", "Samir", "Nadim", "Rashid", "Karim", "Yusuf", "Farid", "Hakim", "Zahir", "Idris", "Layla", "Amira", "Yasmin", "Zara", "Nour", "Salma"],
+    "last": ["al-Din", "Haddad", "Nasser", "Qadir", "Rahal", "Sayegh", "Tahan", "Zaman", "Fahri", "Masri"]
+  }
+}

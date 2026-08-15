@@ -27,24 +27,29 @@ import net.minecraft.world.phys.AABB;
  */
 public final class WarfrontCommands {
 	public static void init() {
+		// root is player-accessible (standing/disposition/talk); admin branches gate themselves
 		CommandRegistrationCallback.EVENT.register((dispatcher, context, environment) -> dispatcher.register(
-				Commands.literal("warfront").requires(Commands.hasPermission(Commands.LEVEL_GAMEMASTERS))
-						.then(Commands.literal("tech")
+				Commands.literal("warfront")
+						.then(Commands.literal("disposition").executes(ctx -> disposition(ctx.getSource())))
+						.then(Commands.literal("talk")
+								.then(Commands.argument("option", StringArgumentType.word())
+										.executes(ctx -> talk(ctx.getSource(), StringArgumentType.getString(ctx, "option")))))
+						.then(Commands.literal("tech").requires(Commands.hasPermission(Commands.LEVEL_GAMEMASTERS))
 								.then(Commands.argument("faction", StringArgumentType.word())
 										.executes(ctx -> viewTech(ctx.getSource(), StringArgumentType.getString(ctx, "faction")))
 										.then(Commands.argument("level", IntegerArgumentType.integer(0, 4))
 												.executes(ctx -> setTech(ctx.getSource(), StringArgumentType.getString(ctx, "faction"),
 														IntegerArgumentType.getInteger(ctx, "level"))))))
-						.then(Commands.literal("order")
+						.then(Commands.literal("order").requires(Commands.hasPermission(Commands.LEVEL_GAMEMASTERS))
 								.then(Commands.argument("faction", StringArgumentType.word())
 										.then(Commands.literal("assault")
 												.then(Commands.argument("pos", BlockPosArgument.blockPos())
 														.executes(ctx -> order(ctx.getSource(), StringArgumentType.getString(ctx, "faction"),
 																BlockPosArgument.getBlockPos(ctx, "pos")))))))
 						.then(Commands.literal("standing").executes(ctx -> standing(ctx.getSource())))
-						.then(Commands.literal("bases").executes(ctx -> bases(ctx.getSource())))
-						.then(Commands.literal("adopt").executes(ctx -> adoptDebug(ctx.getSource())))
-						.then(Commands.literal("patrol")
+						.then(Commands.literal("bases").requires(Commands.hasPermission(Commands.LEVEL_GAMEMASTERS)).executes(ctx -> bases(ctx.getSource())))
+						.then(Commands.literal("adopt").requires(Commands.hasPermission(Commands.LEVEL_GAMEMASTERS)).executes(ctx -> adoptDebug(ctx.getSource())))
+						.then(Commands.literal("patrol").requires(Commands.hasPermission(Commands.LEVEL_GAMEMASTERS))
 								.then(Commands.argument("faction", StringArgumentType.word())
 										.executes(ctx -> patrol(ctx.getSource(), StringArgumentType.getString(ctx, "faction")))))));
 	}
@@ -123,6 +128,33 @@ public final class WarfrontCommands {
 			source.sendSuccess(() -> Component.literal("no structure references at " + pos.toShortString()), false);
 		}
 		return 1;
+	}
+
+	/** Player-facing: numeric disposition + band per faction (verification aid too). */
+	private static int disposition(CommandSourceStack source) {
+		if (!(source.getEntity() instanceof net.minecraft.server.level.ServerPlayer player)) {
+			source.sendFailure(Component.literal("Run as a player"));
+			return 0;
+		}
+		WarfrontState state = WarfrontState.get(source.getServer());
+		long now = source.getLevel().getGameTime();
+		for (Faction faction : WarfrontRegistry.factions().values()) {
+			float score = state.disposition(player.getUUID(), faction.id(), now);
+			String band = state.dispositionBand(player.getUUID(), faction.id(), now);
+			var events = state.ledgerEvents(player.getUUID(), faction.id());
+			source.sendSuccess(() -> Component.literal(String.format("%s: %.1f (%s), %d remembered events",
+					faction.name(), score, band, events.size())), false);
+		}
+		return 1;
+	}
+
+	/** Chat-fallback dialogue choice (clickable components run this). */
+	private static int talk(CommandSourceStack source, String option) {
+		if (source.getEntity() instanceof net.minecraft.server.level.ServerPlayer player) {
+			io.github.lilkuzcodev.warfront.dialogue.DialogueSessions.choose(player, option);
+			return 1;
+		}
+		return 0;
 	}
 
 	private static int patrol(CommandSourceStack source, String faction) {

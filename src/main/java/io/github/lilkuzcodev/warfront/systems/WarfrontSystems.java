@@ -44,8 +44,11 @@ public final class WarfrontSystems {
 				return;
 			}
 			if (source.getEntity() instanceof ServerPlayer player) {
-				WarfrontState.get(player.level().getServer()).addStanding(player.getUUID(), soldier.getFaction(),
+				WarfrontState state = WarfrontState.get(player.level().getServer());
+				state.addStanding(player.getUUID(), soldier.getFaction(),
 						WarfrontRegistry.standing().attackPenalty());
+				state.recordEvent(player.getUUID(), soldier.getFaction(), "attacked_soldier",
+						player.level().getGameTime());
 			}
 		});
 		// damaging base infrastructure (station blocks, banners near soldiers) -> penalty
@@ -62,8 +65,10 @@ public final class WarfrontSystems {
 					new AABB(pos).inflate(32), s -> !s.getFaction().isEmpty());
 			if (!nearby.isEmpty()) {
 				String faction = nearby.get(0).getFaction();
-				WarfrontState.get(serverLevel.getServer()).addStanding(serverPlayer.getUUID(), faction,
-						WarfrontRegistry.standing().blockPenalty());
+				WarfrontState warfrontState = WarfrontState.get(serverLevel.getServer());
+				warfrontState.addStanding(serverPlayer.getUUID(), faction, WarfrontRegistry.standing().blockPenalty());
+				warfrontState.recordEvent(serverPlayer.getUUID(), faction, "destroyed_property",
+						serverLevel.getGameTime());
 			}
 		});
 		// once a minute: standing decay toward neutral + tech point accrual per doctrine rate
@@ -73,6 +78,7 @@ public final class WarfrontSystems {
 			}
 			WarfrontState state = WarfrontState.get(server);
 			state.decayStandings(WarfrontRegistry.standing().decayPerMinute());
+			state.pruneLedger(server.overworld().getGameTime());
 			double perMinuteBase = WarfrontRegistry.tech().pointsPerDay() * MINUTE_TICKS / 24000.0;
 			for (Faction faction : WarfrontRegistry.factions().values()) {
 				state.addPoints(faction.id(), perMinuteBase * faction.doctrine().techRate());

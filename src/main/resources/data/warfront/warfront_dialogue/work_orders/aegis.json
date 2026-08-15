@@ -1,0 +1,11 @@
+{
+  "orders": [
+    { "id": "aegis_elim_vostok", "type": "eliminate", "target_faction": "vostok", "count": 3, "reward_standing": 8 },
+    { "id": "aegis_elim_sarab", "type": "eliminate", "target_faction": "sarab", "count": 3, "reward_standing": 8 },
+    { "id": "aegis_supply_redstone", "type": "supply", "item": "minecraft:redstone", "count": 32, "reward_standing": 6 },
+    { "id": "aegis_supply_glass", "type": "supply", "item": "minecraft:glass", "count": 24, "reward_standing": 5 },
+    { "id": "aegis_recon_vostok", "type": "recon", "target_faction": "vostok", "count": 1, "reward_standing": 6 },
+    { "id": "aegis_penance_supply", "type": "supply", "item": "minecraft:redstone", "count": 48, "reward_standing": 3, "penance": true },
+    { "id": "aegis_penance_recon", "type": "recon", "target_faction": "sarab", "count": 1, "reward_standing": 3, "penance": true }
+  ]
+}

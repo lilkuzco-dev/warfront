@@ -1,0 +1,11 @@
+{
+  "orders": [
+    { "id": "sarab_elim_vostok", "type": "eliminate", "target_faction": "vostok", "count": 3, "reward_standing": 8 },
+    { "id": "sarab_elim_aegis", "type": "eliminate", "target_faction": "aegis", "count": 3, "reward_standing": 8 },
+    { "id": "sarab_supply_string", "type": "supply", "item": "minecraft:string", "count": 24, "reward_standing": 5 },
+    { "id": "sarab_supply_leather", "type": "supply", "item": "minecraft:leather", "count": 12, "reward_standing": 6 },
+    { "id": "sarab_recon_vostok", "type": "recon", "target_faction": "vostok", "count": 1, "reward_standing": 6 },
+    { "id": "sarab_penance_supply", "type": "supply", "item": "minecraft:leather", "count": 20, "reward_standing": 3, "penance": true },
+    { "id": "sarab_penance_recon", "type": "recon", "target_faction": "vostok", "count": 1, "reward_standing": 3, "penance": true }
+  ]
+}

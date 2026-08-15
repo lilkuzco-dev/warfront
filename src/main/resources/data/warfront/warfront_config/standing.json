@@ -1,6 +1,8 @@
 {
   "hostile_below": -30.0,
   "wary_below": -10.0,
+  "friendly_above": 25.0,
+  "trusted_above": 60.0,
   "decay_per_minute": 0.5,
   "attack_penalty": -40.0,
   "block_penalty": -15.0

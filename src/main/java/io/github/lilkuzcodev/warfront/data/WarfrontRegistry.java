@@ -32,6 +32,7 @@ public final class WarfrontRegistry {
 	private static TechConfig tech = TechConfig.DEFAULT;
 	private static StandingConfig standing = StandingConfig.DEFAULT;
 	private static PopulationGlobal population = PopulationGlobal.DEFAULT;
+	private static DispositionConfig disposition = DispositionConfig.DEFAULT;
 
 	public static void init() {
 		ResourceLoader.get(PackType.SERVER_DATA).registerReloadListener(Warfront.id("registry"), new Listener());
@@ -61,6 +62,10 @@ public final class WarfrontRegistry {
 		return population;
 	}
 
+	public static DispositionConfig disposition() {
+		return disposition;
+	}
+
 	/** Relation between two factions: "hostile", "neutral" (default), or "allied". */
 	public static String relation(String a, String b) {
 		if (a.equals(b)) {
@@ -74,7 +79,8 @@ public final class WarfrontRegistry {
 	}
 
 	private record LoadedData(Map<String, Faction> factions, Map<String, TacticalTemplate> templates,
-			Map<String, String> relations, TechConfig tech, StandingConfig standing, PopulationGlobal population) {
+			Map<String, String> relations, TechConfig tech, StandingConfig standing, PopulationGlobal population,
+			DispositionConfig disposition) {
 	}
 
 	private static class Listener extends SimpleReloadListener<LoadedData> {
@@ -106,7 +112,10 @@ public final class WarfrontRegistry {
 					.map(res -> StandingConfig.fromJson(parse(res))).orElse(StandingConfig.DEFAULT);
 			PopulationGlobal populationConfig = manager.getResource(Warfront.id("warfront_config/population.json"))
 					.map(res -> PopulationGlobal.fromJson(parse(res))).orElse(PopulationGlobal.DEFAULT);
-			return new LoadedData(factionMap, templateMap, relationMap, techConfig, standingConfig, populationConfig);
+			DispositionConfig dispositionConfig = manager.getResource(Warfront.id("warfront_config/disposition.json"))
+					.map(res -> DispositionConfig.fromJson(parse(res))).orElse(DispositionConfig.DEFAULT);
+			return new LoadedData(factionMap, templateMap, relationMap, techConfig, standingConfig, populationConfig,
+					dispositionConfig);
 		}
 
 		@Override
@@ -117,6 +126,7 @@ public final class WarfrontRegistry {
 			tech = data.tech();
 			standing = data.standing();
 			population = data.population();
+			disposition = data.disposition();
 			Warfront.LOGGER.info("Loaded {} factions, {} templates, {} relations", factions.size(), templates.size(), relations.size());
 		}
 	}
@@ -201,14 +211,16 @@ public final class WarfrontRegistry {
 	}
 
 	/** Player-standing thresholds and decay (numeric under the hood, labels derived). */
-	public record StandingConfig(float hostileBelow, float waryBelow, float decayPerMinute,
-			float attackPenalty, float blockPenalty) {
-		public static final StandingConfig DEFAULT = new StandingConfig(-30.0F, -10.0F, 0.5F, -40.0F, -15.0F);
+	public record StandingConfig(float hostileBelow, float waryBelow, float friendlyAbove, float trustedAbove,
+			float decayPerMinute, float attackPenalty, float blockPenalty) {
+		public static final StandingConfig DEFAULT = new StandingConfig(-30.0F, -10.0F, 25.0F, 60.0F, 0.5F, -40.0F, -15.0F);
 
 		public static StandingConfig fromJson(JsonObject json) {
 			return new StandingConfig(
 					GsonHelper.getAsFloat(json, "hostile_below"),
 					GsonHelper.getAsFloat(json, "wary_below"),
+					GsonHelper.getAsFloat(json, "friendly_above", 25.0F),
+					GsonHelper.getAsFloat(json, "trusted_above", 60.0F),
 					GsonHelper.getAsFloat(json, "decay_per_minute"),
 					GsonHelper.getAsFloat(json, "attack_penalty"),
 					GsonHelper.getAsFloat(json, "block_penalty"));
@@ -218,7 +230,13 @@ public final class WarfrontRegistry {
 			if (value < hostileBelow) {
 				return "hostile";
 			}
-			return value < waryBelow ? "wary" : "neutral";
+			if (value < waryBelow) {
+				return "wary";
+			}
+			if (value >= trustedAbove) {
+				return "trusted";
+			}
+			return value >= friendlyAbove ? "friendly" : "neutral";
 		}
 	}
 

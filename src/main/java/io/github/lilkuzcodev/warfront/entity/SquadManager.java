@@ -67,6 +67,15 @@ public final class SquadManager {
 		return Math.min(1.0F, DEATHS.getOrDefault(squadId, 0) / (float) squad.initialSize());
 	}
 
+	/** Turns the whole loaded squad on a target (dialogue provocations). */
+	public static void alertSquad(UUID squadId, ServerLevel level, net.minecraft.world.entity.LivingEntity target) {
+		AABB everywhere = new AABB(-3.0E7, -512, -3.0E7, 3.0E7, 512, 3.0E7);
+		for (Entity entity : level.getEntitiesOfClass(SoldierEntity.class, everywhere,
+				s -> squadId.equals(s.getSquadId()))) {
+			((SoldierEntity) entity).setTarget(target);
+		}
+	}
+
 	/** Broadcasts a scatter to every loaded member of the squad (Sarab doctrine). */
 	public static void scatterSquad(UUID squadId, net.minecraft.world.level.Level level, int ticks) {
 		if (!(level instanceof ServerLevel serverLevel)) {

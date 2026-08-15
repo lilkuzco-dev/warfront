@@ -1,0 +1,16 @@
+{
+  "_tuning_notes": "Quartermaster stock, standing-gated (neutral -> basics, friendly -> faction gear tier 1, trusted -> faction specials — existing items only). Prices scale by standing AND disposition band group: final cost = ceil(count * standing_mult * disposition_mult), min 1. Vostok doctrine: bulk iron and arrows, cheap.",
+  "offers": [
+    { "min_standing": "neutral", "cost": { "item": "minecraft:emerald", "count": 2 }, "result": { "item": "minecraft:bread", "count": 6 } },
+    { "min_standing": "neutral", "cost": { "item": "minecraft:emerald", "count": 3 }, "result": { "item": "minecraft:arrow", "count": 16 } },
+    { "min_standing": "neutral", "cost": { "item": "minecraft:iron_ingot", "count": 4 }, "result": { "item": "minecraft:emerald", "count": 1 } },
+    { "min_standing": "friendly", "cost": { "item": "minecraft:emerald", "count": 5 }, "result": { "item": "minecraft:iron_ingot", "count": 8 } },
+    { "min_standing": "friendly", "cost": { "item": "minecraft:emerald", "count": 6 }, "result": { "item": "minecraft:chainmail_chestplate", "count": 1 } },
+    { "min_standing": "trusted", "cost": { "item": "minecraft:emerald", "count": 8 }, "result": { "item": "minecraft:iron_block", "count": 2 } },
+    { "min_standing": "trusted", "cost": { "item": "minecraft:emerald", "count": 10 }, "result": { "item": "minecraft:arrow", "count": 64 } }
+  ],
+  "price_multipliers": {
+    "standing": { "neutral": 1.0, "friendly": 0.85, "trusted": 0.7 },
+    "disposition": { "negative": 1.5, "neutral": 1.0, "positive": 0.8 }
+  }
+}

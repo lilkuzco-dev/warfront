@@ -1,0 +1,32 @@
+{
+  "_tuning_notes": "The memory model behind dialogue. Every typed event lands in a per-player per-faction ledger with a timestamp; disposition = sum of decayed event weights + standing * standing_baseline_factor. Decay is exponential with per-event half-lives in IN-GAME DAYS (24000 ticks): violence decays slowly, kindness faster. Bands gate which dialogue options appear and which response flavor is used. betrayal_multiplier scales negative events recorded while the player is warm-or-better (the generous-then-violent cliff). relations_echo_factor: fraction of a positive event's weight leaked as a NEGATIVE echo event to every faction hostile to the recipient. contract_target_weight: the direct hit applied to the faction an eliminate contract targeted. prune_below_abs: ledger entries whose decayed weight falls under this are deleted.",
+  "events": {
+    "attacked_soldier": { "weight": -6, "half_life_days": 3 },
+    "killed_soldier": { "weight": -15, "half_life_days": 3 },
+    "destroyed_property": { "weight": -8, "half_life_days": 3 },
+    "trespassed": { "weight": -3, "half_life_days": 1 },
+    "traded": { "weight": 4, "half_life_days": 1 },
+    "gifted": { "weight": 6, "half_life_days": 1 },
+    "contract_completed": { "weight": 12, "half_life_days": 2 },
+    "contract_failed": { "weight": -8, "half_life_days": 2 },
+    "contract_target": { "weight": -10, "half_life_days": 3 },
+    "aided_in_combat": { "weight": 10, "half_life_days": 2 },
+    "apology_tribute_paid": { "weight": 15, "half_life_days": 4 },
+    "penance_completed": { "weight": 18, "half_life_days": 4 },
+    "insulted": { "weight": -4, "half_life_days": 1 },
+    "bribed": { "weight": 3, "half_life_days": 1 },
+    "echo": { "weight": 0, "half_life_days": 2 }
+  },
+  "bands": {
+    "vengeful_below": -60,
+    "hostile_below": -35,
+    "cold_below": -12,
+    "warm_above": 12,
+    "friendly_above": 35,
+    "devoted_above": 70
+  },
+  "standing_baseline_factor": 0.25,
+  "relations_echo_factor": 0.35,
+  "betrayal_multiplier": 2.0,
+  "prune_below_abs": 0.5
+}

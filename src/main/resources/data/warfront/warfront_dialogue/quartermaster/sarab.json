@@ -1,0 +1,16 @@
+{
+  "_tuning_notes": "Sarab doctrine: night-flavored consumables and quiet tools. See vostok.json for semantics.",
+  "offers": [
+    { "min_standing": "neutral", "cost": { "item": "minecraft:emerald", "count": 2 }, "result": { "item": "minecraft:sweet_berries", "count": 8 } },
+    { "min_standing": "neutral", "cost": { "item": "minecraft:emerald", "count": 3 }, "result": { "item": "minecraft:string", "count": 12 } },
+    { "min_standing": "neutral", "cost": { "item": "minecraft:leather", "count": 6 }, "result": { "item": "minecraft:emerald", "count": 1 } },
+    { "min_standing": "friendly", "cost": { "item": "minecraft:emerald", "count": 4 }, "result": { "item": "minecraft:golden_carrot", "count": 6 } },
+    { "min_standing": "friendly", "cost": { "item": "minecraft:emerald", "count": 5 }, "result": { "item": "minecraft:crossbow", "count": 1 } },
+    { "min_standing": "trusted", "cost": { "item": "minecraft:emerald", "count": 8 }, "result": { "item": "minecraft:phantom_membrane", "count": 3 } },
+    { "min_standing": "trusted", "cost": { "item": "minecraft:emerald", "count": 9 }, "result": { "item": "minecraft:ender_pearl", "count": 2 } }
+  ],
+  "price_multipliers": {
+    "standing": { "neutral": 1.0, "friendly": 0.85, "trusted": 0.7 },
+    "disposition": { "negative": 1.5, "neutral": 1.0, "positive": 0.8 }
+  }
+}

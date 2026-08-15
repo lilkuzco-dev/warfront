@@ -379,10 +379,151 @@ public class SoldierEntity extends PathfinderMob {
 			if (!baseKey.isEmpty()) {
 				io.github.lilkuzcodev.warfront.systems.BaseManager.onSoldierDeath(serverLevel, baseKey);
 			}
+			if (source.getEntity() instanceof ServerPlayer player && !getFaction().isEmpty()) {
+				WarfrontState.get(serverLevel.getServer()).recordEvent(player.getUUID(), getFaction(),
+						"killed_soldier", serverLevel.getGameTime());
+				io.github.lilkuzcodev.warfront.dialogue.WorkOrders.onSoldierKilled(player, this);
+			}
+			io.github.lilkuzcodev.warfront.dialogue.DialogueSessions.onSoldierGone(this);
 		}
 	}
 
 	public static net.minecraft.resources.Identifier textureFor(String faction) {
 		return Warfront.id("textures/entity/soldier/" + (faction.isEmpty() ? "vostok" : faction) + ".png");
 	}
+
+	// ---------- dialogue (Stage 4) ----------
+	@Override
+	protected net.minecraft.world.InteractionResult mobInteract(Player player,
+			net.minecraft.world.InteractionHand hand) {
+		if (hand != net.minecraft.world.InteractionHand.MAIN_HAND || getFaction().isEmpty()) {
+			return super.mobInteract(player, hand);
+		}
+		if (level().isClientSide()) {
+			return net.minecraft.world.InteractionResult.SUCCESS;
+		}
+		if (!(player instanceof ServerPlayer serverPlayer) || getTarget() != null || isScattered()) {
+			return net.minecraft.world.InteractionResult.PASS;
+		}
+		// hostile-standing players get steel, not words (targeting AI handles them)
+		if (WarfrontState.get(serverPlayer.level().getServer()).isHostileTo(serverPlayer.getUUID(), getFaction())) {
+			return net.minecraft.world.InteractionResult.PASS;
+		}
+		io.github.lilkuzcodev.warfront.dialogue.DialogueSessions.open(serverPlayer, this);
+		return net.minecraft.world.InteractionResult.CONSUME;
+	}
+
+	// ---------- quartermaster trading (Merchant, offers built per player) ----------
+	private @Nullable Player tradingPlayer;
+	private net.minecraft.world.item.trading.MerchantOffers offers = new net.minecraft.world.item.trading.MerchantOffers();
+
+	/** Opens standing+disposition-priced trades. Only quartermasters sell. */
+	public void openQuartermaster(ServerPlayer player) {
+		if (!"quartermaster".equals(rank) || !(level() instanceof ServerLevel serverLevel)) {
+			return;
+		}
+		var stock = io.github.lilkuzcodev.warfront.dialogue.DialogueRegistry.quartermaster(getFaction());
+		if (stock == null) {
+			return;
+		}
+		WarfrontState state = WarfrontState.get(serverLevel.getServer());
+		String standingLabel = WarfrontRegistry.standing().label(state.standing(player.getUUID(), getFaction()));
+		String bandGroup = io.github.lilkuzcodev.warfront.data.DispositionConfig.bandGroup(
+				state.dispositionBand(player.getUUID(), getFaction(), serverLevel.getGameTime()));
+		int standingRank = standingRank(standingLabel);
+		float multiplier = stock.standingMultiplier().getOrDefault(standingLabel, 1.0F)
+				* stock.dispositionMultiplier().getOrDefault(bandGroup, 1.0F);
+		offers = new net.minecraft.world.item.trading.MerchantOffers();
+		for (var offer : stock.offers()) {
+			if (standingRank < standingRank(offer.minStanding())) {
+				continue;
+			}
+			var costItem = net.minecraft.core.registries.BuiltInRegistries.ITEM
+					.getValue(net.minecraft.resources.Identifier.parse(offer.costItem()));
+			var resultItem = net.minecraft.core.registries.BuiltInRegistries.ITEM
+					.getValue(net.minecraft.resources.Identifier.parse(offer.resultItem()));
+			int cost = Math.max(1, Math.round(offer.costCount() * multiplier));
+			offers.add(new net.minecraft.world.item.trading.MerchantOffer(
+					new net.minecraft.world.item.trading.ItemCost(costItem, cost),
+					new ItemStack(resultItem, offer.resultCount()), 12, 2, 0.0F));
+		}
+		if (offers.isEmpty()) {
+			return;
+		}
+		this.tradingPlayer = player;
+		merchant.openTradingScreen(player, net.minecraft.network.chat.Component.literal(
+				io.github.lilkuzcodev.warfront.dialogue.DialogueRegistry.soldierName(getFaction(), getUUID())), 0);
+	}
+
+	private static int standingRank(String label) {
+		return switch (label) {
+			case "trusted" -> 2;
+			case "friendly" -> 1;
+			default -> 0;
+		};
+	}
+
+	/** Merchant facade: soldiers are not villagers, so the interface lives on a delegate. */
+	public final net.minecraft.world.item.trading.Merchant merchant = new net.minecraft.world.item.trading.Merchant() {
+		@Override
+		public void setTradingPlayer(@Nullable Player player) {
+			tradingPlayer = player;
+		}
+
+		@Override
+		public Player getTradingPlayer() {
+			return tradingPlayer;
+		}
+
+		@Override
+		public net.minecraft.world.item.trading.MerchantOffers getOffers() {
+			return offers;
+		}
+
+		@Override
+		public void overrideOffers(net.minecraft.world.item.trading.MerchantOffers merchantOffers) {
+		}
+
+		@Override
+		public void notifyTrade(net.minecraft.world.item.trading.MerchantOffer offer) {
+			// trading builds disposition memory
+			if (tradingPlayer instanceof ServerPlayer serverPlayer && level() instanceof ServerLevel serverLevel) {
+				WarfrontState.get(serverLevel.getServer()).recordEvent(serverPlayer.getUUID(), getFaction(),
+						"traded", serverLevel.getGameTime());
+			}
+		}
+
+		@Override
+		public void notifyTradeUpdated(ItemStack stack) {
+		}
+
+		@Override
+		public int getVillagerXp() {
+			return 0;
+		}
+
+		@Override
+		public void overrideXp(int xp) {
+		}
+
+		@Override
+		public boolean showProgressBar() {
+			return false;
+		}
+
+		@Override
+		public net.minecraft.sounds.SoundEvent getNotifyTradeSound() {
+			return net.minecraft.sounds.SoundEvents.VILLAGER_YES;
+		}
+
+		@Override
+		public boolean isClientSide() {
+			return level().isClientSide();
+		}
+
+		@Override
+		public boolean stillValid(Player player) {
+			return tradingPlayer == player && isAlive() && player.distanceToSqr(SoldierEntity.this) < 64.0;
+		}
+	};
 }

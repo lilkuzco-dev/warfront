@@ -1,0 +1,12 @@
+{
+  "_tuning_notes": "Work-order pool. type: eliminate (kill count soldiers of target_faction), supply (deliver count of item), recon (approach a target_faction base within 48 blocks). penance orders only surface for negative-band players: smaller standing reward, but turn-in records the big penance_completed disposition event.",
+  "orders": [
+    { "id": "vostok_elim_aegis", "type": "eliminate", "target_faction": "aegis", "count": 3, "reward_standing": 8 },
+    { "id": "vostok_elim_sarab", "type": "eliminate", "target_faction": "sarab", "count": 3, "reward_standing": 8 },
+    { "id": "vostok_supply_iron", "type": "supply", "item": "minecraft:iron_ingot", "count": 16, "reward_standing": 6 },
+    { "id": "vostok_supply_bread", "type": "supply", "item": "minecraft:bread", "count": 24, "reward_standing": 5 },
+    { "id": "vostok_recon_aegis", "type": "recon", "target_faction": "aegis", "count": 1, "reward_standing": 6 },
+    { "id": "vostok_penance_supply", "type": "supply", "item": "minecraft:iron_ingot", "count": 24, "reward_standing": 3, "penance": true },
+    { "id": "vostok_penance_elim", "type": "eliminate", "target_faction": "aegis", "count": 4, "reward_standing": 3, "penance": true }
+  ]
+}

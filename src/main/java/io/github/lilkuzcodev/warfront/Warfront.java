@@ -16,6 +16,9 @@ public class Warfront implements ModInitializer {
 	@Override
 	public void onInitialize() {
 		io.github.lilkuzcodev.warfront.data.WarfrontRegistry.init();
+		io.github.lilkuzcodev.warfront.dialogue.DialogueRegistry.init();
+		io.github.lilkuzcodev.warfront.dialogue.WarfrontNet.init();
+		io.github.lilkuzcodev.warfront.dialogue.DialogueSessions.init();
 		io.github.lilkuzcodev.warfront.block.WarfrontBlocks.init();
 		io.github.lilkuzcodev.warfront.entity.WarfrontEntities.init();
 		io.github.lilkuzcodev.warfront.systems.TickScheduler.init();
