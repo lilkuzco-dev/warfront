@@ -210,6 +210,36 @@ for (const [faction, color] of Object.entries(FACTIONS)) {
 	console.log("wrote block/sandbag_station.png");
 }
 
+// garrison bunk (v0.2.0): olive blanket with pillow band on top, canvas + frame sides
+{
+	const top = Buffer.alloc(16 * 16 * 4);
+	const blanket = [86, 104, 60], blanketDark = [70, 86, 48], pillow = [196, 192, 178], pillowShade = [168, 164, 150], frame = [92, 74, 52];
+	for (let y = 0; y < 16; y++)
+		for (let x = 0; x < 16; x++) {
+			let c;
+			if (x === 0 || x === 15) c = frame; // side rails
+			else if (y < 4) c = (x + y) % 5 === 0 ? pillowShade : pillow; // pillow band
+			else if (y === 4) c = blanketDark; // blanket fold
+			else c = (x * 5 + y * 3) % 7 === 0 ? blanketDark : blanket; // wool weave
+			const i = (y * 16 + x) * 4;
+			top[i] = c[0]; top[i + 1] = c[1]; top[i + 2] = c[2]; top[i + 3] = 255;
+		}
+	const side = Buffer.alloc(16 * 16 * 4);
+	const canvas = [122, 116, 96], canvasDark = [102, 96, 78];
+	for (let y = 0; y < 16; y++)
+		for (let x = 0; x < 16; x++) {
+			let c;
+			if (y < 10) c = [0, 0, 0]; // above the 6px cot: unused (uv maps 10..16)
+			else if (y === 10 || x === 0 || x === 15) c = frame; // top edge + legs
+			else c = (x * 3 + y * 7) % 6 === 0 ? canvasDark : canvas;
+			const i = (y * 16 + x) * 4;
+			side[i] = c[0]; side[i + 1] = c[1]; side[i + 2] = c[2]; side[i + 3] = y < 10 ? 0 : 255;
+		}
+	fs.writeFileSync(path.join(ASSETS, "textures/block/bunk_top.png"), encodePng(16, 16, top));
+	fs.writeFileSync(path.join(ASSETS, "textures/block/bunk_side.png"), encodePng(16, 16, side));
+	console.log("wrote block/bunk_top.png, block/bunk_side.png");
+}
+
 // icon: three faction-color chevrons on dark field
 {
 	const px = Buffer.alloc(16 * 16 * 4);

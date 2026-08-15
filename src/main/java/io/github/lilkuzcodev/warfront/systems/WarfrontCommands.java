@@ -42,6 +42,7 @@ public final class WarfrontCommands {
 														.executes(ctx -> order(ctx.getSource(), StringArgumentType.getString(ctx, "faction"),
 																BlockPosArgument.getBlockPos(ctx, "pos")))))))
 						.then(Commands.literal("standing").executes(ctx -> standing(ctx.getSource())))
+						.then(Commands.literal("bases").executes(ctx -> bases(ctx.getSource())))
 						.then(Commands.literal("patrol")
 								.then(Commands.argument("faction", StringArgumentType.word())
 										.executes(ctx -> patrol(ctx.getSource(), StringArgumentType.getString(ctx, "faction")))))));
@@ -90,6 +91,18 @@ public final class WarfrontCommands {
 		}
 		source.sendFailure(Component.literal("Run as a player"));
 		return 0;
+	}
+
+	private static int bases(CommandSourceStack source) {
+		var state = WarfrontState.get(source.getServer());
+		if (state.bases().isEmpty()) {
+			source.sendSuccess(() -> Component.literal("No bases discovered yet"), false);
+			return 0;
+		}
+		state.bases().forEach((key, base) -> source.sendSuccess(() -> Component.literal(
+				String.format("%s %s @ %d,%d,%d garrison=%d hydrated=%s", base.faction, base.tier,
+						base.center.getX(), base.center.getY(), base.center.getZ(), base.garrison, base.hydrated)), false));
+		return state.bases().size();
 	}
 
 	private static int patrol(CommandSourceStack source, String faction) {

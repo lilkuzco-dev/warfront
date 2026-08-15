@@ -13,5 +13,15 @@
     "gear_bonus": 1,
     "squad_growth": 0.75,
     "ambush_growth": 0.0
+  },
+  "population": {
+    "_tuning_notes": "see vostok.json for field semantics. Aegis doctrine: precision — small elite garrisons, small fast cross-country teams.",
+    "garrison": { "outpost": [4, 6], "forward_base": [8, 12], "headquarters": [14, 18] },
+    "reinforce_minutes": 5.0,
+    "reinforce_pause_radius": 32,
+    "roam_style": "team",
+    "roam_squad_size": 3,
+    "roam_link_blocks": 400,
+    "roam_despawn_unloaded_minutes": 10.0
   }
 }

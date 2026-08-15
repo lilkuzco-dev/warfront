@@ -21,11 +21,50 @@ public class WarfrontState extends SavedData {
 	private static final Codec<Map<String, Double>> POINTS_CODEC = Codec.unboundedMap(Codec.STRING, Codec.DOUBLE);
 	private static final Codec<Map<String, Map<String, Float>>> STANDINGS_CODEC =
 			Codec.unboundedMap(Codec.STRING, Codec.unboundedMap(Codec.STRING, Codec.FLOAT));
+	private static final Codec<Map<String, Base>> BASES_CODEC = Codec.unboundedMap(Codec.STRING, Base.CODEC);
 
 	private static final Codec<WarfrontState> CODEC = RecordCodecBuilder.create(i -> i.group(
 			POINTS_CODEC.optionalFieldOf("tech_points", Map.of()).forGetter(s -> Map.copyOf(s.techPoints)),
-			STANDINGS_CODEC.optionalFieldOf("standings", Map.of()).forGetter(WarfrontState::copyStandings)
+			STANDINGS_CODEC.optionalFieldOf("standings", Map.of()).forGetter(WarfrontState::copyStandings),
+			BASES_CODEC.optionalFieldOf("bases", Map.of()).forGetter(s -> Map.copyOf(s.bases))
 	).apply(i, WarfrontState::new));
+
+	/**
+	 * A discovered faction base: registered the first time one of its garrison soldiers
+	 * ticks (or a reinforcement spawns), then managed by BaseManager. Garrison is the
+	 * persistent live-count — the source of truth when the base's chunks are unloaded
+	 * (lazy hydration tops the entity population up to it on approach).
+	 */
+	public static class Base {
+		public static final Codec<Base> CODEC = RecordCodecBuilder.create(i -> i.group(
+				Codec.STRING.fieldOf("faction").forGetter(b -> b.faction),
+				Codec.STRING.fieldOf("tier").forGetter(b -> b.tier),
+				net.minecraft.core.BlockPos.CODEC.fieldOf("center").forGetter(b -> b.center),
+				Codec.INT.listOf().fieldOf("bounds").forGetter(b -> b.bounds),
+				Codec.INT.fieldOf("garrison").forGetter(b -> b.garrison),
+				Codec.LONG.fieldOf("last_reinforce").forGetter(b -> b.lastReinforce),
+				Codec.BOOL.fieldOf("hydrated").forGetter(b -> b.hydrated)
+		).apply(i, Base::new));
+
+		public final String faction;
+		public final String tier;
+		public final net.minecraft.core.BlockPos center;
+		public final java.util.List<Integer> bounds; // minX,minY,minZ,maxX,maxY,maxZ
+		public int garrison;
+		public long lastReinforce;
+		public boolean hydrated;
+
+		public Base(String faction, String tier, net.minecraft.core.BlockPos center, java.util.List<Integer> bounds,
+				int garrison, long lastReinforce, boolean hydrated) {
+			this.faction = faction;
+			this.tier = tier;
+			this.center = center;
+			this.bounds = java.util.List.copyOf(bounds);
+			this.garrison = garrison;
+			this.lastReinforce = lastReinforce;
+			this.hydrated = hydrated;
+		}
+	}
 
 	// DataFixTypes is mandatory in the record; command storage has no legacy fixes,
 	// making it the safe conventional choice for modded saved data.
@@ -34,13 +73,34 @@ public class WarfrontState extends SavedData {
 
 	private final Map<String, Double> techPoints = new HashMap<>();
 	private final Map<String, Map<String, Float>> standings = new HashMap<>();
+	private final Map<String, Base> bases = new HashMap<>();
 
 	public WarfrontState() {
 	}
 
-	private WarfrontState(Map<String, Double> points, Map<String, Map<String, Float>> loadedStandings) {
+	private WarfrontState(Map<String, Double> points, Map<String, Map<String, Float>> loadedStandings,
+			Map<String, Base> loadedBases) {
 		this.techPoints.putAll(points);
 		loadedStandings.forEach((player, map) -> this.standings.put(player, new HashMap<>(map)));
+		this.bases.putAll(loadedBases);
+	}
+
+	// ---------- bases ----------
+	public Map<String, Base> bases() {
+		return bases;
+	}
+
+	public Base base(String key) {
+		return bases.get(key);
+	}
+
+	public void putBase(String key, Base base) {
+		bases.put(key, base);
+		setDirty();
+	}
+
+	public void markBasesDirty() {
+		setDirty();
 	}
 
 	private Map<String, Map<String, Float>> copyStandings() {

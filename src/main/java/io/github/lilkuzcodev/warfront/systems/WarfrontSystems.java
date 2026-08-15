@@ -53,7 +53,7 @@ public final class WarfrontSystems {
 			if (!(level instanceof ServerLevel serverLevel) || !(player instanceof ServerPlayer serverPlayer)) {
 				return;
 			}
-			boolean baseBlock = state.is(WarfrontBlocks.SANDBAG_STATION)
+			boolean baseBlock = state.is(WarfrontBlocks.SANDBAG_STATION) || state.is(WarfrontBlocks.BUNK)
 					|| state.getBlock().getDescriptionId().contains("banner");
 			if (!baseBlock) {
 				return;
@@ -77,6 +77,18 @@ public final class WarfrontSystems {
 			for (Faction faction : WarfrontRegistry.factions().values()) {
 				state.addPoints(faction.id(), perMinuteBase * faction.doctrine().techRate());
 			}
+		});
+		// inter-base roaming squads: shuttles between friendly bases within link range
+		ServerTickEvents.END_SERVER_TICK.register(server -> {
+			int interval = Math.max(1, WarfrontRegistry.population().roamIntervalSeconds()) * 20;
+			if (server.getTickCount() % interval != 0) {
+				return;
+			}
+			ServerLevel level = server.overworld();
+			if (level.getRandom().nextFloat() > WarfrontRegistry.population().roamChance()) {
+				return;
+			}
+			spawnInterBaseSquad(level);
 		});
 		// roaming squads in faction territory (within ~200 blocks of a base)
 		ServerTickEvents.END_SERVER_TICK.register(server -> {
@@ -107,10 +119,97 @@ public final class WarfrontSystems {
 		});
 	}
 
+	/**
+	 * Picks a friendly base pair within link range (one end near a player, so the squad
+	 * is seen) and spawns a doctrine-flavored traveling squad: Vostok road-march columns
+	 * (large, in file), Aegis small cross-country teams, Sarab night infiltration pairs.
+	 */
+	static void spawnInterBaseSquad(ServerLevel level) {
+		var state = WarfrontState.get(level.getServer());
+		if (state.bases().size() < 2) {
+			return;
+		}
+		var keys = new java.util.ArrayList<>(state.bases().keySet());
+		java.util.Collections.shuffle(keys, new java.util.Random(level.getRandom().nextLong()));
+		for (String keyA : keys) {
+			var baseA = state.base(keyA);
+			Faction faction = WarfrontRegistry.faction(baseA.faction);
+			if (faction == null || !nearAnyPlayer(level, baseA.center, 192)) {
+				continue;
+			}
+			var pop = faction.population();
+			if ("night_pair".equals(pop.roamStyle()) && !isNight(level)) {
+				continue;
+			}
+			for (String keyB : keys) {
+				var baseB = state.base(keyB);
+				if (keyA.equals(keyB) || !baseA.faction.equals(baseB.faction)
+						|| !baseA.center.closerThan(baseB.center, pop.roamLinkBlocks())) {
+					continue;
+				}
+				spawnTravelSquad(level, faction, baseA.center, baseB.center);
+				return;
+			}
+		}
+	}
+
+	private static boolean nearAnyPlayer(ServerLevel level, BlockPos pos, int radius) {
+		for (ServerPlayer player : level.players()) {
+			if (player.blockPosition().closerThan(pos, radius)) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	private static boolean isNight(ServerLevel level) {
+		long dayTime = level.getOverworldClockTime() % 24000L;
+		return dayTime >= 13000L && dayTime <= 23000L;
+	}
+
+	private static void spawnTravelSquad(ServerLevel level, Faction faction, BlockPos from, BlockPos to) {
+		int size = Math.max(2, faction.population().roamSquadSize());
+		if (size > soldierBudget(level)) {
+			return;
+		}
+		int techLevel = WarfrontState.get(level.getServer()).techLevel(faction.id());
+		UUID squad = SquadManager.createSquad(faction.id(), size, from);
+		// column style spawns the squad in a file along the march direction
+		double dx = to.getX() - from.getX();
+		double dz = to.getZ() - from.getZ();
+		double len = Math.max(1.0, Math.sqrt(dx * dx + dz * dz));
+		boolean column = "column".equals(faction.population().roamStyle());
+		for (int i = 0; i < size; i++) {
+			int x = from.getX() + (column ? (int) (dx / len * (i + 2)) : level.getRandom().nextInt(5) - 2);
+			int z = from.getZ() + (column ? (int) (dz / len * (i + 2)) : level.getRandom().nextInt(5) - 2);
+			int y = level.getHeight(Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, x, z);
+			SoldierEntity soldier = WarfrontEntities.SOLDIER.create(level, EntitySpawnReason.EVENT);
+			soldier.setPos(x + 0.5, y, z + 0.5);
+			soldier.setFaction(faction.id());
+			soldier.setRank(i == 0 ? "officer" : "soldier");
+			soldier.setHomePos(from);
+			soldier.setRoute(from, to);
+			soldier.applyLoadout(techLevel);
+			soldier.setPersistenceRequired();
+			SquadManager.join(squad, soldier);
+			level.addFreshEntity(soldier);
+		}
+	}
+
+	/** Remaining head-room under the global per-player soldier cap. */
+	static int soldierBudget(ServerLevel level) {
+		int cap = WarfrontRegistry.population().perPlayerSoldierCap() * Math.max(1, level.players().size());
+		return cap - level.getEntitiesOfClass(SoldierEntity.class,
+				new AABB(-3.0E7, -512, -3.0E7, 3.0E7, 512, 3.0E7)).size();
+	}
+
 	/** Spawns a doctrine-sized roaming squad near a base that patrols outward. */
 	public static int spawnRoamingSquad(ServerLevel level, String factionId, BlockPos base) {
 		Faction faction = WarfrontRegistry.faction(factionId);
 		if (faction == null) {
+			return 0;
+		}
+		if (soldierBudget(level) <= 0) {
 			return 0;
 		}
 		WarfrontState state = WarfrontState.get(level.getServer());

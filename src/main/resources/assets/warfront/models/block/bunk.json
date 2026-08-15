@@ -1,0 +1,18 @@
+{
+  "parent": "minecraft:block/block",
+  "textures": { "top": "warfront:block/bunk_top", "side": "warfront:block/bunk_side", "particle": "warfront:block/bunk_side" },
+  "elements": [
+    {
+      "from": [0, 0, 0],
+      "to": [16, 6, 16],
+      "faces": {
+        "down": { "texture": "#side", "cullface": "down" },
+        "up": { "texture": "#top" },
+        "north": { "texture": "#side", "uv": [0, 10, 16, 16] },
+        "south": { "texture": "#side", "uv": [0, 10, 16, 16] },
+        "west": { "texture": "#side", "uv": [0, 10, 16, 16] },
+        "east": { "texture": "#side", "uv": [0, 10, 16, 16] }
+      }
+    }
+  ]
+}

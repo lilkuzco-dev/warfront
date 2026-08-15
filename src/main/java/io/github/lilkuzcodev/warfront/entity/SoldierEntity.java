@@ -56,6 +56,11 @@ public class SoldierEntity extends PathfinderMob {
 	private @Nullable BlockPos homePos;
 	private @Nullable BlockPos stationPos;
 	private long scatterUntil; // Sarab scatter timer (absolute game time)
+	private String baseKey = ""; // garrison membership (BaseManager ledger key)
+	private boolean roaming; // inter-base roaming squad member
+	private @Nullable BlockPos travelFrom;
+	private @Nullable BlockPos travelTo;
+	private long lastLoadedGameTime; // roaming despawn bookkeeping
 
 	public SoldierEntity(EntityType<? extends SoldierEntity> type, Level level) {
 		super(type, level);
@@ -81,6 +86,7 @@ public class SoldierEntity extends PathfinderMob {
 		this.goalSelector.addGoal(2, new RetreatGoal(this));
 		this.goalSelector.addGoal(3, new StationGoal(this));
 		this.goalSelector.addGoal(4, new MeleeAttackGoal(this, 1.15, true));
+		this.goalSelector.addGoal(5, new io.github.lilkuzcodev.warfront.entity.ai.TravelGoal(this));
 		this.goalSelector.addGoal(6, new PatrolGoal(this));
 		this.goalSelector.addGoal(7, new WaterAvoidingRandomStrollGoal(this, 0.6) {
 			@Override
@@ -179,6 +185,37 @@ public class SoldierEntity extends PathfinderMob {
 		this.stationPos = pos;
 	}
 
+	public String getBaseKey() {
+		return baseKey;
+	}
+
+	public void setBaseKey(String key) {
+		this.baseKey = key;
+	}
+
+	public boolean isRoaming() {
+		return roaming;
+	}
+
+	/** Marks this soldier as an inter-base roaming squad member shuttling from→to. */
+	public void setRoute(BlockPos from, BlockPos to) {
+		this.roaming = true;
+		this.travelFrom = from;
+		this.travelTo = to;
+		this.lastLoadedGameTime = level().getGameTime();
+	}
+
+	public @Nullable BlockPos getTravelTo() {
+		return travelTo;
+	}
+
+	/** Route leg complete: turn around and shuttle back. */
+	public void swapRoute() {
+		BlockPos from = travelFrom;
+		this.travelFrom = travelTo;
+		this.travelTo = from;
+	}
+
 	public boolean isScattered() {
 		return level().getGameTime() < scatterUntil;
 	}
@@ -273,6 +310,11 @@ public class SoldierEntity extends PathfinderMob {
 		output.putString("warfront_rank", rank);
 		output.putString("warfront_squad", squadId == null ? "" : squadId.toString());
 		output.storeNullable("warfront_home", BlockPos.CODEC, homePos);
+		output.putString("warfront_base", baseKey);
+		output.putBoolean("warfront_roaming", roaming);
+		output.storeNullable("warfront_travel_from", BlockPos.CODEC, travelFrom);
+		output.storeNullable("warfront_travel_to", BlockPos.CODEC, travelTo);
+		output.putLong("warfront_last_loaded", lastLoadedGameTime);
 	}
 
 	@Override
@@ -283,6 +325,11 @@ public class SoldierEntity extends PathfinderMob {
 		String squad = input.getStringOr("warfront_squad", "");
 		squadId = squad.isEmpty() ? null : UUID.fromString(squad);
 		homePos = input.read("warfront_home", BlockPos.CODEC).orElse(null);
+		baseKey = input.getStringOr("warfront_base", "");
+		roaming = input.getBooleanOr("warfront_roaming", false);
+		travelFrom = input.read("warfront_travel_from", BlockPos.CODEC).orElse(null);
+		travelTo = input.read("warfront_travel_to", BlockPos.CODEC).orElse(null);
+		lastLoadedGameTime = input.getLongOr("warfront_last_loaded", 0L);
 		// Structure-template soldiers ship with faction data but empty hands:
 		// outfit them for the faction's current tech level on first load.
 		if (!getFaction().isEmpty() && getMainHandItem().isEmpty()) {
@@ -296,22 +343,42 @@ public class SoldierEntity extends PathfinderMob {
 	@Override
 	public void tick() {
 		super.tick();
-		if (!squadChecked && !level().isClientSide()) {
-			squadChecked = true;
-			SquadManager.ensureRegistered(this);
-			// structure-template garrisons anchor their patrol home where they spawned
-			if (homePos == null && !getFaction().isEmpty()) {
-				homePos = blockPosition();
+		if (!level().isClientSide()) {
+			if (!squadChecked) {
+				squadChecked = true;
+				SquadManager.ensureRegistered(this);
+				// structure-template garrisons anchor their patrol home where they spawned
+				if (homePos == null && !getFaction().isEmpty()) {
+					homePos = blockPosition();
+				}
+				// roaming squads that sat unloaded past their JSON deadline despawn on re-load
+				if (roaming && lastLoadedGameTime > 0
+						&& level().getGameTime() - lastLoadedGameTime > roamDespawnTicks()) {
+					discard();
+					return;
+				}
+				io.github.lilkuzcodev.warfront.systems.BaseManager.tryAdopt(this);
+			}
+			if (roaming && tickCount % 200 == 0) {
+				lastLoadedGameTime = level().getGameTime();
 			}
 		}
+	}
+
+	private long roamDespawnTicks() {
+		Faction faction = WarfrontRegistry.faction(getFaction());
+		return faction == null ? 12000L : faction.population().roamDespawnTicks();
 	}
 
 	@Override
 	public void die(net.minecraft.world.damagesource.DamageSource source) {
 		super.die(source);
-		if (level() instanceof ServerLevel) {
+		if (level() instanceof ServerLevel serverLevel) {
 			SquadManager.onSoldierDeath(this);
 			StationManager.release(this);
+			if (!baseKey.isEmpty()) {
+				io.github.lilkuzcodev.warfront.systems.BaseManager.onSoldierDeath(serverLevel, baseKey);
+			}
 		}
 	}
 

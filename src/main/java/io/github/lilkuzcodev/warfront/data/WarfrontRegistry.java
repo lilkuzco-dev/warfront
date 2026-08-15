@@ -31,6 +31,7 @@ public final class WarfrontRegistry {
 	private static Map<String, String> relations = Map.of(); // "a|b" -> relation
 	private static TechConfig tech = TechConfig.DEFAULT;
 	private static StandingConfig standing = StandingConfig.DEFAULT;
+	private static PopulationGlobal population = PopulationGlobal.DEFAULT;
 
 	public static void init() {
 		ResourceLoader.get(PackType.SERVER_DATA).registerReloadListener(Warfront.id("registry"), new Listener());
@@ -56,6 +57,10 @@ public final class WarfrontRegistry {
 		return standing;
 	}
 
+	public static PopulationGlobal population() {
+		return population;
+	}
+
 	/** Relation between two factions: "hostile", "neutral" (default), or "allied". */
 	public static String relation(String a, String b) {
 		if (a.equals(b)) {
@@ -69,7 +74,7 @@ public final class WarfrontRegistry {
 	}
 
 	private record LoadedData(Map<String, Faction> factions, Map<String, TacticalTemplate> templates,
-			Map<String, String> relations, TechConfig tech, StandingConfig standing) {
+			Map<String, String> relations, TechConfig tech, StandingConfig standing, PopulationGlobal population) {
 	}
 
 	private static class Listener extends SimpleReloadListener<LoadedData> {
@@ -99,7 +104,9 @@ public final class WarfrontRegistry {
 					.map(res -> TechConfig.fromJson(parse(res))).orElse(TechConfig.DEFAULT);
 			StandingConfig standingConfig = manager.getResource(Warfront.id("warfront_config/standing.json"))
 					.map(res -> StandingConfig.fromJson(parse(res))).orElse(StandingConfig.DEFAULT);
-			return new LoadedData(factionMap, templateMap, relationMap, techConfig, standingConfig);
+			PopulationGlobal populationConfig = manager.getResource(Warfront.id("warfront_config/population.json"))
+					.map(res -> PopulationGlobal.fromJson(parse(res))).orElse(PopulationGlobal.DEFAULT);
+			return new LoadedData(factionMap, templateMap, relationMap, techConfig, standingConfig, populationConfig);
 		}
 
 		@Override
@@ -109,6 +116,7 @@ public final class WarfrontRegistry {
 			relations = Map.copyOf(data.relations());
 			tech = data.tech();
 			standing = data.standing();
+			population = data.population();
 			Warfront.LOGGER.info("Loaded {} factions, {} templates, {} relations", factions.size(), templates.size(), relations.size());
 		}
 	}
@@ -174,6 +182,21 @@ public final class WarfrontRegistry {
 				}
 			}
 			return false;
+		}
+	}
+
+	/** Global population budget knobs (performance-facing; per-faction flavor lives in Faction.Population). */
+	public record PopulationGlobal(int perPlayerSoldierCap, int hydrationRadius, int baseTickSeconds,
+			int roamIntervalSeconds, float roamChance) {
+		public static final PopulationGlobal DEFAULT = new PopulationGlobal(64, 128, 15, 240, 0.5F);
+
+		public static PopulationGlobal fromJson(JsonObject json) {
+			return new PopulationGlobal(
+					GsonHelper.getAsInt(json, "per_player_soldier_cap", 64),
+					GsonHelper.getAsInt(json, "hydration_radius", 128),
+					GsonHelper.getAsInt(json, "base_tick_seconds", 15),
+					GsonHelper.getAsInt(json, "roam_interval_seconds", 240),
+					GsonHelper.getAsFloat(json, "roam_chance", 0.5F));
 		}
 	}
 
