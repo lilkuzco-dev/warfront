@@ -41,7 +41,21 @@ Requires Fabric Loader 0.19.3+ and Fabric API for 26.2.
 
 ## Development
 
-Fabric Loom, Mojang mappings, JDK 25. `./gradlew build`; structure templates regenerate via `node tools/gen-structures.js`, uniform/block textures via `node tools/gen-textures.js` (soldier skins are recolors of the vanilla player skin — clothing regions only).
+Fabric Loom, Mojang mappings, JDK 25. `./gradlew build`. Asset/structure pipelines:
+
+- `node tools/retheme-structure.js --batch tools/retheme-batch.json` — rethemes the
+  imported Repurposed Structures NBTs into the three faction skins (material maps in
+  `tools/retheme-maps/`). Run after touching maps or imports.
+- `node tools/gen-base-plans.js` — composes the 9 tier×faction base plates (freehand
+  connective tissue + stamped sourced buildings) and the jigsaw sprawl pieces.
+- `node tools/gen-textures.js` — soldier uniforms (player-skin recolors), block
+  textures, icon.
+- `tools/devserver.sh start|stop|log` — headless dev server (rcon 25576/`wartest`,
+  carpet fake player keeps 26.2's pause-when-empty at bay).
+
+**v0.2.0 base tiers**: outposts were rebuilt and two new tiers (forward base,
+headquarters) were added. All of them generate in **newly generated chunks only** —
+already-explored terrain keeps whatever stood there before.
 
 ## License
 

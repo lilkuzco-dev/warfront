@@ -1,0 +1,59 @@
+{
+  "_notes": "Faction retheme batch: src is relative to source_root (imported originals), out lands in out_root/<faction>/. Geometry sets: badlands->vostok, mountains->aegis, oak->sarab; shared military pieces retheme into every faction that uses them.",
+  "source_root": "src/main/resources/data/warfront/structures/imported/repurposed_structures",
+  "out_root": "src/main/resources/data/warfront/structure",
+  "factions": {
+    "vostok": [
+      { "src": "villages/badlands/houses/medium_house_1", "out": "barracks_1" },
+      { "src": "villages/badlands/houses/medium_house_4", "out": "barracks_2" },
+      { "src": "villages/badlands/houses/small_house_2", "out": "bunkroom" },
+      { "src": "villages/badlands/houses/armorer", "out": "armory_1" },
+      { "src": "villages/badlands/houses/weaponsmith", "out": "armory_2" },
+      { "src": "villages/badlands/houses/tool_smith", "out": "quartermaster" },
+      { "src": "villages/badlands/houses/library_1", "out": "command_post" },
+      { "src": "villages/badlands/houses/saloon", "out": "mess" },
+      { "src": "outposts/oak/watchtower", "out": "watchtower" },
+      { "src": "outposts/basalt/tower", "out": "heavy_tower" },
+      { "src": "outposts/badlands/tent1", "out": "tent_1" },
+      { "src": "outposts/badlands/tent2", "out": "tent_2" },
+      { "src": "outposts/badlands/targets", "out": "targets" },
+      { "src": "strongholds/end/prison", "out": "bunker_cells" },
+      { "src": "strongholds/end/storage_crossing", "out": "bunker_storage" },
+      { "src": "fortresses/jungle/center_room", "out": "bunker_core" }
+    ],
+    "aegis": [
+      { "src": "villages/mountains/houses/medium_house_1", "out": "barracks_1" },
+      { "src": "villages/mountains/houses/medium_house_2", "out": "barracks_2" },
+      { "src": "villages/mountains/houses/small_house_2", "out": "bunkroom" },
+      { "src": "villages/mountains/houses/armorer_house_1", "out": "armory_1" },
+      { "src": "villages/mountains/houses/weaponsmith_1", "out": "armory_2" },
+      { "src": "villages/mountains/houses/tool_smith_1", "out": "quartermaster" },
+      { "src": "villages/mountains/houses/library_1", "out": "command_post" },
+      { "src": "villages/mountains/houses/butcher_shop_1", "out": "mess" },
+      { "src": "outposts/oak/watchtower", "out": "watchtower" },
+      { "src": "outposts/basalt/tower", "out": "heavy_tower" },
+      { "src": "outposts/badlands/targets", "out": "targets" },
+      { "src": "strongholds/end/prison", "out": "bunker_cells" },
+      { "src": "strongholds/end/storage_crossing", "out": "bunker_storage" },
+      { "src": "fortresses/jungle/center_room", "out": "bunker_core" }
+    ],
+    "sarab": [
+      { "src": "villages/oak/houses/medium_house_1", "out": "barracks_1" },
+      { "src": "villages/oak/houses/medium_house_2", "out": "barracks_2" },
+      { "src": "villages/oak/houses/small_house_2", "out": "bunkroom" },
+      { "src": "villages/oak/houses/small_house_5", "out": "supply" },
+      { "src": "villages/oak/houses/armorer_house_1", "out": "armory_1" },
+      { "src": "villages/oak/houses/weaponsmith_1", "out": "armory_2" },
+      { "src": "villages/oak/houses/tool_smith_1", "out": "quartermaster" },
+      { "src": "villages/oak/houses/library_1", "out": "command_post" },
+      { "src": "outposts/oak/watchtower", "out": "watchtower" },
+      { "src": "outposts/basalt/tower", "out": "heavy_tower" },
+      { "src": "outposts/badlands/tent1", "out": "tent_1" },
+      { "src": "outposts/badlands/tent2", "out": "tent_2" },
+      { "src": "outposts/badlands/targets", "out": "targets" },
+      { "src": "strongholds/end/prison", "out": "bunker_cells" },
+      { "src": "strongholds/end/storage_crossing", "out": "bunker_storage" },
+      { "src": "fortresses/jungle/center_room", "out": "bunker_core" }
+    ]
+  }
+}

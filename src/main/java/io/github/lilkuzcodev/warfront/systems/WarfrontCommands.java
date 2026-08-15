@@ -43,6 +43,7 @@ public final class WarfrontCommands {
 																BlockPosArgument.getBlockPos(ctx, "pos")))))))
 						.then(Commands.literal("standing").executes(ctx -> standing(ctx.getSource())))
 						.then(Commands.literal("bases").executes(ctx -> bases(ctx.getSource())))
+						.then(Commands.literal("adopt").executes(ctx -> adoptDebug(ctx.getSource())))
 						.then(Commands.literal("patrol")
 								.then(Commands.argument("faction", StringArgumentType.word())
 										.executes(ctx -> patrol(ctx.getSource(), StringArgumentType.getString(ctx, "faction")))))));
@@ -103,6 +104,25 @@ public final class WarfrontCommands {
 				String.format("%s %s @ %d,%d,%d garrison=%d hydrated=%s", base.faction, base.tier,
 						base.center.getX(), base.center.getY(), base.center.getZ(), base.garrison, base.hydrated)), false));
 		return state.bases().size();
+	}
+
+	/** Diagnostics for base discovery: what structure references exist at my position? */
+	private static int adoptDebug(CommandSourceStack source) {
+		ServerLevel level = source.getLevel();
+		BlockPos pos = BlockPos.containing(source.getPosition());
+		var start = level.structureManager().getStructureWithPieceAt(pos, BaseManager.ALL_BASES);
+		source.sendSuccess(() -> Component.literal("withPieceAt(#warfront:bases): valid=" + start.isValid()
+				+ (start.isValid() ? " box=" + start.getBoundingBox() : "")), false);
+		var all = level.structureManager().getAllStructuresAt(pos);
+		var registry = level.registryAccess().lookupOrThrow(net.minecraft.core.registries.Registries.STRUCTURE);
+		for (var entry : all.entrySet()) {
+			source.sendSuccess(() -> Component.literal("ref: " + registry.getKey(entry.getKey())
+					+ " x" + entry.getValue().size()), false);
+		}
+		if (all.isEmpty()) {
+			source.sendSuccess(() -> Component.literal("no structure references at " + pos.toShortString()), false);
+		}
+		return 1;
 	}
 
 	private static int patrol(CommandSourceStack source, String faction) {

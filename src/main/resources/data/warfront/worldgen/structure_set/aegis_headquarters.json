@@ -1,0 +1,18 @@
+{
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 835621002,
+    "separation": 48,
+    "spacing": 112,
+    "exclusion_zone": {
+      "chunk_count": 8,
+      "other_set": "minecraft:villages"
+    }
+  },
+  "structures": [
+    {
+      "structure": "warfront:aegis_headquarters",
+      "weight": 1
+    }
+  ]
+}

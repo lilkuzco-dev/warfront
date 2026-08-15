@@ -1,3 +1,7 @@
 {
-  "values": [ "warfront:sarab_outpost" ]
+  "values": [
+    "warfront:sarab_outpost",
+    "warfront:sarab_forward_base",
+    "warfront:sarab_headquarters"
+  ]
 }

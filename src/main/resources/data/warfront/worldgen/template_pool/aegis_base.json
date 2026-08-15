@@ -1,6 +1,23 @@
 {
   "elements": [
-    { "weight": 1, "element": { "element_type": "minecraft:single_pool_element", "location": "warfront:aegis_base", "processors": "minecraft:empty", "projection": "rigid" } }
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "warfront:aegis/outpost_a",
+        "processors": "minecraft:empty",
+        "projection": "rigid"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "warfront:aegis/outpost_b",
+        "processors": "minecraft:empty",
+        "projection": "rigid"
+      }
+    }
   ],
   "fallback": "minecraft:empty"
 }

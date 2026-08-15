@@ -1,5 +1,18 @@
 {
-  "placement": { "type": "minecraft:random_spread", "salt": 192837465, "separation": 8, "spacing": 34,
-    "exclusion_zone": { "chunk_count": 6, "other_set": "warfront:vostok_bases" } },
-  "structures": [ { "structure": "warfront:aegis_base", "weight": 1 } ]
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 192837465,
+    "separation": 8,
+    "spacing": 34,
+    "exclusion_zone": {
+      "chunk_count": 6,
+      "other_set": "minecraft:villages"
+    }
+  },
+  "structures": [
+    {
+      "structure": "warfront:aegis_base",
+      "weight": 1
+    }
+  ]
 }

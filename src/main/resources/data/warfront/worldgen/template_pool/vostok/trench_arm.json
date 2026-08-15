@@ -1,0 +1,23 @@
+{
+  "elements": [
+    {
+      "weight": 3,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "warfront:vostok/trench_arm",
+        "processors": "minecraft:empty",
+        "projection": "terrain_matching"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "warfront:vostok/trench_end",
+        "processors": "minecraft:empty",
+        "projection": "terrain_matching"
+      }
+    }
+  ],
+  "fallback": "warfront:vostok/trench_end"
+}

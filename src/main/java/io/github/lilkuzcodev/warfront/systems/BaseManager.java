@@ -65,6 +65,8 @@ public final class BaseManager {
 		if (!(soldier.level() instanceof ServerLevel level) || soldier.getFaction().isEmpty() || soldier.isRoaming()) {
 			return;
 		}
+		// NOTE: /place structure writes no chunk references, so command-placed bases are
+		// never discovered — only naturally generated ones. Verified 2026-08-15.
 		StructureStart start = level.structureManager().getStructureWithPieceAt(soldier.blockPosition(), ALL_BASES);
 		if (!start.isValid()) {
 			return;
