@@ -3,7 +3,7 @@
   "biomes": "#warfront:has_structure/warfront_bases",
   "max_distance_from_center": 96,
   "project_start_to_heightmap": "WORLD_SURFACE_WG",
-  "size": 4,
+  "size": 6,
   "start_height": {
     "absolute": 0
   },
