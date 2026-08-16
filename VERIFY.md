@@ -172,3 +172,69 @@ overrides only; garrison ranges untouched).
   window**; ids recurred only once the window rolled past them (conversations 9–10
   reusing conversation-1 ids after 32 fresh ones). Shown-id lists logged in
   `run/devserver.log` (`Dialogue options for Runner: …`). ✅
+
+## v0.2.1 — post-ship diagnosis, depth ruling, and Stage 6 structure battery re-run (2026-08-15)
+
+### Why a re-run: the "broken jigsaw" that wasn't
+- Field report: bases generating as "a single tiny walled square with a barrel, slabs,
+  and a banner." Diagnosed in order (audit → logs → placement tests): the imported
+  NBTs, SOURCES.md, pools, and the built 0.2.0 jar were all intact — the client was
+  still running **warfront-0.1.0.jar**. The v0.2.0 release went live at 19:45, the
+  manifest bump landed 19:46, the game launched 19:52 with the old jar: nobody ran the
+  installer sync. v0.1.0 bases ARE single-plate structures; the report described them
+  accurately. Zero structure errors in any log.
+- Countermeasure: `mod-installer/tools/postship-check.sh` (sync + convergence dry-run
+  + independent sha512 diff of every extra_mods jar; loud table + nonzero exit on any
+  divergence). Ship doctrine updated: **ship is done when postship-check passes.**
+
+### Depth ruling (Emperor, 2026-08-15)
+- Shipped jigsaw sizes were 2–5 vs the RESEARCH.md plan of 4/6/7. Side-by-side
+  `/place jigsaw` pairs (aegis HQ 4v7, aegis outpost 2v4; same start plate pinned;
+  fresh flat gametest world) were **visually identical** — aegis plates carry only
+  leaf feature sockets, so nothing past depth 1 is reachable. Evidence page:
+  claude.ai/code/artifact/b42aca59-8dce-456a-9a70-3c97e0d9e015
+- Ruling: raise to 4/6/7 anyway — depth is doctrine-relevant for vostok (trench
+  reach) and sarab (dispersal); aegis compactness is correct per doctrine. Shipped as
+  v0.2.1 (JSON-only), released, manifest bumped, postship-check gate: **PASS**.
+- Placement-test findings worth keeping: `/place jigsaw <pool> <target>` needs the
+  plates' actual anchor jigsaw name `warfront:socket` (not vanilla's default
+  `minecraft:empty`); `/place jigsaw` ignores max_distance_from_center (hard 128).
+
+### Stage 6 structure battery — fresh worlds, honest re-run
+Setup: dev server on a brand-new `warfront-test` world (fake player Watcher held it
+un-paused); client gametest fresh flat world for all camera work.
+
+- **/locate battery**: all 9 tier×faction structures locate in the fresh server world
+  (outposts/FBs 237–644 blocks from spawn; HQs 3,032–3,449 at the 112-chunk spacing). ✅
+- **Natural generation**: walking Watcher to the nearest sarab outpost generated and
+  registered it (`Registered base sarab_outpost@39,-284`), seeded a garrison of 8. ✅
+- **Aerials, all nine** (screenshots/v0.2.1/): retheme unmistakable per faction —
+  vostok stone/crenellation/red, aegis andesite/blue, sarab mud-brick/green. Depth
+  raise visibly pays off where it should: vostok trench arms now chain far beyond the
+  walls at all three tiers; sarab outpost/FB/HQ generate 2–4 detached sub-camp pads on
+  paths; aegis stays compact (as ruled). ✅
+- **Anatomy** (generator composition + furnishing audit + aerials): towers, armory,
+  command post, quartermaster (+NPC seed), barracks, mess per tier plan; every plate
+  furnished — faction-colored banners, chests/barrels, workstations, lecterns in
+  command posts, barrel-rich HQ storage; bunks present (warfront:bunk in plate NBTs). ✅
+- **Provenance spot-audit, 10 pieces** (5 vostok / 3 aegis / 2 sarab, houses + towers
+  + bunker rooms): every rethemed NBT is dimension-identical to its imported RS
+  original, palette rethemed, and listed in structures/SOURCES.md. 10/10. ✅
+- **Eye-level read, aegis HQ** (per the ruling; unrotated template, spectator camera):
+  - Gate approach, courtyard, and command post read as a genuine installation:
+    manned gate under a bannered gatehouse, lantern-lit crenellations, layered
+    watchtowers, banner dais + flagpoles, paved paths, supply barrel clusters,
+    furnished command post (windows, planters, balcony; interior windows/torch/lectern). ✅
+  - **Honest caveats, no redesign done (per ruling, reporting back instead)**:
+    (1) the central bunker core and the gray-concrete annexes read as flat dark boxes
+    at close range — they are rethemed stronghold/fortress *interior* pieces whose
+    exteriors were never designed to be seen; (2) aegis barracks_1 (RS mountains
+    medium_house_1) is a hillside house that looks odd out of terrain context —
+    fine inside compounds, strange as the triptych centerpiece.
+- **Test-harness fixes this pass** (cameras, not content): render distance must be set
+  before world creation (integrated server snapshots it at connect); elevated cameras
+  must be spectator — creative players fall during chunk-render waits, which had
+  silently degraded some earlier "aerials." `/place template` keeps raw jigsaw blocks
+  visible (test-only artifact; natural gen replaces them with their final_state).
+- Soldier lineup: all 3 factions × soldier/officer posed correctly — ghost-limb fix
+  still good. Dialogue screens re-captured incidentally (battery runs both tests). ✅

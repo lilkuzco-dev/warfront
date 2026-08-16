@@ -14,6 +14,9 @@ import net.fabricmc.fabric.api.client.gametest.v1.context.TestSingleplayerContex
 public class WarfrontRenderTest implements FabricClientGameTest {
 	@Override
 	public void runTest(ClientGameTestContext context) {
+		// before world creation: the integrated server snapshots the client view
+		// distance at connect; the 130-block aerial cameras need the full radius
+		context.runOnClient(client -> client.options.renderDistance().set(32));
 		try (TestSingleplayerContext world = context.worldBuilder().adjustSettings(ui -> {
 			// flat world: deterministic surface height for the aerial shots
 			for (var entry : ui.getNormalPresetList()) {
@@ -51,6 +54,9 @@ public class WarfrontRenderTest implements FabricClientGameTest {
 			server.runCommand("execute at @p run place template warfront:vostok/barracks_1 ~-24 ~ ~8");
 			server.runCommand("execute at @p run place template warfront:aegis/barracks_1 ~-6 ~ ~8");
 			server.runCommand("execute at @p run place template warfront:sarab/barracks_1 ~10 ~ ~8");
+			// spectator from here on: every remaining camera is an elevated tp, and a
+			// creative player falls out of position during the chunk-render wait
+			server.runCommand("gamemode spectator @p");
 			server.runCommand("execute at @p run tp @p ~ ~16 ~-26 0 22");
 			context.waitTicks(80);
 			context.takeScreenshot("retheme_triptych");
@@ -67,6 +73,37 @@ public class WarfrontRenderTest implements FabricClientGameTest {
 				shootStructure(context, world, "warfront:" + factions[i] + "_headquarters", factions[i] + "_headquarters", x, 130);
 				x += 300;
 			}
+
+			// --- aegis HQ eye-level read (depth-ruling addendum): does the plate read
+			// as a genuine installation from the ground, not just from the air?
+			// Unrotated /place template so the generator's composition coordinates hold
+			// (gate south, command post west column, QM east, towers north corners).
+			int ex = 3600;
+			server.runCommand("forceload add " + (ex - 96) + " -96 " + (ex + 176) + " 176");
+			server.runCommand("tp @p " + ex + " -55 0");
+			context.waitTicks(200);
+			server.runCommand("place template warfront:aegis/headquarters " + ex + " -60 0");
+			context.waitTicks(80);
+			// spectator: eye-level cameras must hold position (and clip into doorways)
+			server.runCommand("gamemode spectator @p");
+			server.runCommand("tp @p " + (ex + 40) + " -58 95 180 5");
+			context.waitTicks(60);
+			context.takeScreenshot("aegis_hq_eye_gate");
+			int[][] courtyardShots = { { 180, 0 }, { -90, 0 }, { 0, 0 }, { 90, 0 } };
+			String[] dirNames = { "n", "e", "s", "w" };
+			for (int i = 0; i < 4; i++) {
+				server.runCommand("tp @p " + (ex + 40) + " -58 40 " + courtyardShots[i][0] + " " + courtyardShots[i][1]);
+				context.waitTicks(30);
+				context.takeScreenshot("aegis_hq_eye_court_" + dirNames[i]);
+			}
+			server.runCommand("tp @p " + (ex + 16) + " -58 27 90 0");
+			context.waitTicks(30);
+			context.takeScreenshot("aegis_hq_eye_command_door");
+			server.runCommand("tp @p " + (ex + 8) + " -58 27 90 0");
+			context.waitTicks(30);
+			context.takeScreenshot("aegis_hq_eye_command_interior");
+			server.runCommand("forceload remove all");
+			server.runCommand("kill @e[type=warfront:soldier]");
 		}
 	}
 
@@ -82,13 +119,12 @@ public class WarfrontRenderTest implements FabricClientGameTest {
 		server.runCommand("place structure " + structureId + " " + x + " 0 0");
 		context.waitTicks(60);
 		// /place rotates the compound into an arbitrary quadrant off the anchor;
-		// shoot straight down over all four quadrant centers — one of them frames it
+		// shoot straight down over all four quadrant centers — one of them frames it.
+		// Absolute spectator tp: flat-world surface is -60, so camera y = height - 60.
 		int half = height / 2;
 		int shot = 1;
 		for (int[] q : new int[][] { { half, half }, { -half, half }, { half, -half }, { -half, -half } }) {
-			server.runCommand("spreadplayers " + (x + q[0]) + " " + q[1] + " 0 2 false @p");
-			context.waitTicks(10);
-			server.runCommand("execute at @p run tp @p ~ ~" + height + " ~ -45 90");
+			server.runCommand("tp @p " + (x + q[0]) + " " + (height - 60) + " " + q[1] + " -45 90");
 			context.waitTicks(60);
 			context.takeScreenshot(shotName + "_q" + shot);
 			shot++;
