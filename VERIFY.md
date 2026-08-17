@@ -238,3 +238,144 @@ un-paused); client gametest fresh flat world for all camera work.
   visible (test-only artifact; natural gen replaces them with their final_state).
 - Soldier lineup: all 3 factions × soldier/officer posed correctly — ghost-limb fix
   still good. Dialogue screens re-captured incidentally (battery runs both tests). ✅
+
+## v0.2.2 — independent reliability audit (2026-08-16)
+
+Scope: Warfront only. Dedicated-server testing used a completely new survival world
+(`warfront-audit-20260816`) and Carpet fake player `Auditor`; the client suite used
+its own fresh flat worlds.
+
+### Soldier spawning: reproduced, fixed, re-tested
+
+- Reproduced the field symptom: a discovered base could initially show zero loaded
+  soldiers and remain empty until the 15-second base cycle. The structures themselves
+  are sound: every faction/tier main NBT contains seed soldiers (3–10 before attached
+  jigsaw pieces), and a fresh Vostok HQ presented 14 visible seeds immediately. ✅
+- Found the underlying HQ race: hydration could run while later jigsaw/template seed
+  entities were still loading. A fresh Vostok HQ reached **48** despite a configured
+  maximum of 40. Hydration now waits 200 ticks for all seeds to settle and enforces
+  the remaining global budget per individual spawn. ✅
+- Fresh-world results after the fix: Vostok HQ **14 visible seeds → 39 stored / 39
+  loaded / target 39 / hydrated true**; Aegis HQ **4 visible seeds → 18 / 18 /
+  target 18 / hydrated true**. No delayed empty base and no overfill. ✅
+- The global one-player cap reached exactly **64** after a forced patrol; another
+  patrol spawned 0. A cap-constrained tactical assault used exactly the 3 remaining
+  slots, including its delayed second wave, and finished at exactly 64. ✅
+- Added player-position structure discovery as a seedless fallback. Seed adoption
+  retries for 200 ticks so entity/structure-reference load ordering is not a single
+  point of failure. Existing overfilled bases are trimmed only when their full target
+  is visibly loaded; virtual ledgers are never reduced merely because a chunk has not
+  loaded yet. ✅
+
+### Additional defects found and closed
+
+- Rival soldiers inside a base were incorrectly assigned to that base's garrison.
+  Reproduced with a Vostok soldier in an Aegis HQ; after the guard, its
+  `warfront_base` remained empty and the Aegis ledger did not change. Existing saved
+  cross-faction memberships self-repair when the soldier loads. ✅
+- Invalid `warfront_squad` UUID data now sanitizes to empty instead of throwing.
+  Entity creation/add failures are checked in bases, patrols, travel squads, and
+  assault waves; ledgers increment only after a successful world add. ✅
+- Unreachable stations release after 200 ticks and are temporarily blacklisted;
+  scheduled assault tasks are cleared between server lifecycles and isolated from a
+  server-tick crash. Deprecated chunk APIs were removed under `-Xlint:deprecation`. ✅
+
+### Runtime and artifact battery
+
+- Soldier NBT survived save/restart with faction `vostok`, rank `officer`, fixed UUID
+  squad, home position, dyed armor, and iron weapon intact. ✅
+- Isolated Vostok/Aegis pair engaged correctly: one died and the survivor had 10.14
+  health. Tech level 2 refreshed 45 loaded Vostok soldiers and a new spawn carried
+  the expected iron loadout. An unloaded-target order aborted cleanly. ✅
+- `tools/validate-dialogue.js`: PASS — 5,443 options, 21,758 response lines, 3,250
+  classes. All 100 deep subjects contain ten sequential layers with one friendly,
+  neutral, and threatening choice per layer. Every resource JSON parses with `jq`. ✅
+- `./gradlew runGametest`: PASS — client boot, soldier lineup, all nine base camera
+  placements and depth comparison; focused dialogue test PASS covers exact-position
+  hold, visible responses, fresh rerolls, tone coverage, branch traversal through
+  depth five, dynamically measured wrapped option buttons, change-subject behavior,
+  personality temper limits,
+  hostile-band/quartermaster flows, and soldier↔hostile-mob targeting;
+  no Warfront exception. (Offline profile-auth and macOS shader-driver warnings are
+  external development-environment noise.) ✅
+- `./gradlew clean build`: PASS on JDK 25 with deprecation lint enabled; final jar
+  archive integrity and SHA-512 recorded at handoff. ✅
+
+## Civilization update — Phase 1 gate (2026-08-16)
+
+### Automated conservation and determinism gate
+
+- `./gradlew clean build`: PASS on JDK 25. The five JUnit checks are build-failing:
+  exact inventory equality through embodied → local → virtual → reconstituted copies;
+  a miner at 75/200 work advanced by 12,125 virtual ticks to exactly 61 goods and
+  0 remainder; segmented coarse ticks equal one elapsed tick; identical input replay
+  produces identical state; backwards clocks fail closed. A maximum command-sized
+  500-record pure-data city averaged **0.252 ms/tick** across 100 measured runs
+  (after warmup), below the 1 ms gate. ✅
+- Dedicated server loaded Warfront 0.2.2 with 44 mods and zero registry, saved-data,
+  mixin, UUID, or Warfront exception lines after the final fix. `/warfront city
+  validate` independently reported `transition goods 10->10`, `produced=61`,
+  `remainder=0`, `deterministic=true`. ✅
+
+### Live leave/return proof
+
+- Created `finalgate` (Sarab, 20 citizens) beside fake player Watcher: inspect showed
+  **20 embodied / 0 local / 0 virtual**, and 20 real citizen entities existed. ✅
+- Teleported Watcher 3,000 blocks away. After chunk unload: **0 embodied / 0 local /
+  20 virtual**, and the entity selector found none. Goods advanced arithmetically
+  **0 → 20** during ten seconds absent. ✅
+- Returned to the city: **20 embodied / 0 local / 0 virtual**. The virtual interval
+  completed a second exact cycle before promotion, producing 40 total goods; that
+  total remained **40 → 40** over the next reconciliation. A reconstituted trader's
+  entity NBT carried `warfront:trade_bundle=2`. ✅
+- The first live attempt found and closed two real transition defects: city creation
+  no longer trusts an unsettled destination heightmap after teleport, and promotion
+  overwrites a stale chunk-restored entity from the authoritative actor record. The
+  latter was the observed 28→8 conservation loss; the final rerun has no loss. ✅
+
+Phase 1 stopped here for review. Phase 2 continued only after approval.
+
+## Civilization update — Phase 2 gate (2026-08-16)
+
+### Emergence, determinism, and conservation
+
+- Equal-start 250-citizen run completed 10,000 economic ticks: Gini **0.0000 →
+  0.7518**, liquidity-constrained poor share **0.0% → 52.0%**, and top-5 wealth share
+  **4.8% → 47.6%**. Final wealth quantiles were 66 / 98 / 100 / 1,413 / 2,831 /
+  42,323 (min/Q1/median/Q3/P90/max). A poor class, surviving middle/upper strata, and
+  long rich tail emerged without assigned classes or unequal starting money. ✅
+- Money remained exactly 250,000. Every model tick asserts money conservation and
+  the goods identity `initial + regeneration - consumption - shock loss = current`.
+  Embodied inventory additions/removals are included in the same ledger. Identical
+  seed + ticks produced identical distribution, money, and net-worth arrays; snapshot
+  encode/decode round-tripped them exactly. ✅
+- Vein depletion + blight changed at least ten wealth ranks for 68/250 actors versus
+  an unshocked twin (30 rose, 38 fell). A separate matched-region test produced ore
+  prices 108 disrupted versus 94 stable, proving local scarcity changes prices. ✅
+- A 500-citizen pure-data economy averaged **0.013 ms/tick** over 2,000 measured ticks
+  after warmup, below the 1 ms gate. Full tables and model notes:
+  `ECONOMY_VALIDATION.md`. ✅
+
+### Dedicated-server persistence gate
+
+- Existing 20-citizen city `finalgate` advanced from economic tick 1 to 2 with money
+  fixed at 20,000, goods 54 → 84, and conservation true; measured full city-economy
+  costs were 0.493 ms and 0.196 ms. ✅
+- Injected vein depletion and blight at tick 2 changed Gini 0.0211 → 0.0602 and the
+  wealth range 1,000–1,132 → 890–1,345 while money stayed 20,000 and conservation
+  stayed true. After a graceful stop/restart, the exact tick, distribution, prices,
+  money, goods, and conservation status were restored. ✅
+- Five additional 500-citizen cities were kept fully Tier 3 (2,500 virtual citizens).
+  Their full live economy ticks measured 0.396 / 0.409 / 0.456 / 0.498 / 0.769 ms,
+  each below 1 ms and each conserved. With all test cities present, `tick query`
+  reported 7.0 ms average, 12.4 ms P95, and 15.3 ms P99 over 100 samples. ✅
+- The virtual snapshot fast path was transition-tested by returning to `finalgate`:
+  20/20 citizens reconstituted with current economic inventory (sample: 47 wheat),
+  then passed the next embodied synchronization at 20,000 money / 504 goods with
+  conservation true and a 0.108 ms economy tick. Final log grep found no Warfront,
+  registry, saved-data, or conservation error/exception. The server stopped cleanly
+  through RCON. ✅
+
+Phase 2 stops here for review. Derived social classes, governors, taxation, welfare,
+regulation regimes, and class-driven housing/consumption remain intentionally fenced
+for Phase 3.

@@ -20,7 +20,11 @@ public class Warfront implements ModInitializer {
 		io.github.lilkuzcodev.warfront.dialogue.WarfrontNet.init();
 		io.github.lilkuzcodev.warfront.dialogue.DialogueSessions.init();
 		io.github.lilkuzcodev.warfront.block.WarfrontBlocks.init();
+		io.github.lilkuzcodev.warfront.block.WarfrontBlockEntities.init();
+		io.github.lilkuzcodev.warfront.block.WarfrontCreativeTab.init();
 		io.github.lilkuzcodev.warfront.entity.WarfrontEntities.init();
+		io.github.lilkuzcodev.warfront.civilization.CivilizationManager.init();
+		io.github.lilkuzcodev.warfront.civilization.EconomyManager.init();
 		io.github.lilkuzcodev.warfront.systems.TickScheduler.init();
 		io.github.lilkuzcodev.warfront.systems.WarfrontSystems.init();
 		io.github.lilkuzcodev.warfront.systems.BaseManager.init();

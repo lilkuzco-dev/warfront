@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "warfront:block/screen" },
+    "facing=east":  { "model": "warfront:block/screen", "y": 90 },
+    "facing=south": { "model": "warfront:block/screen", "y": 180 },
+    "facing=west":  { "model": "warfront:block/screen", "y": 270 }
+  }
+}

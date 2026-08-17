@@ -9,6 +9,7 @@ import io.github.lilkuzcodev.warfront.entity.SoldierEntity;
 import io.github.lilkuzcodev.warfront.entity.SquadManager;
 import io.github.lilkuzcodev.warfront.entity.WarfrontEntities;
 import io.github.lilkuzcodev.warfront.systems.TickScheduler;
+import io.github.lilkuzcodev.warfront.systems.WarfrontSystems;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -32,7 +33,7 @@ public final class InfantryAssaultExecution implements General.TemplateExecutor 
 	public void execute(MinecraftServer server, Order order, Faction faction, TacticalTemplate template, Consumer<String> report) {
 		ServerLevel level = server.overworld();
 		BlockPos target = order.target();
-		if (!level.hasChunkAt(target)) {
+		if (!level.hasChunk(target.getX() >> 4, target.getZ() >> 4)) {
 			// architecture note 4: never touch entities in unloaded space
 			VirtualResolver.NOOP.resolve(server, order, report);
 			return;
@@ -45,6 +46,11 @@ public final class InfantryAssaultExecution implements General.TemplateExecutor 
 		if (order.forceCap() > 0) {
 			size = Math.min(size, order.forceCap());
 		}
+		size = Math.min(size, Math.max(0, WarfrontSystems.soldierBudget(level)));
+		if (size == 0) {
+			report.accept("Assault aborted: the global live-soldier cap is already full.");
+			return;
+		}
 
 		double baseAngle = level.getRandom().nextDouble() * Math.PI * 2;
 		int vectors = Math.max(1, doctrine.flankVectors());
@@ -55,15 +61,23 @@ public final class InfantryAssaultExecution implements General.TemplateExecutor 
 		boolean echeloned = doctrine.casualtyTolerance() >= 0.6F && vectors == 1; // Vostok wave assault
 		int firstWave = echeloned ? (size + 1) / 2 : size;
 		for (int i = 0; i < firstWave; i++) {
-			spawned.add(spawnAttacker(level, target, baseAngle, vectors, i, musterDistance, faction, squadId, techLevel, i == 0));
+			SoldierEntity soldier = spawnAttacker(level, target, baseAngle, vectors, i, musterDistance,
+					faction, squadId, techLevel, i == 0);
+			if (soldier != null) {
+				spawned.add(soldier);
+			}
 		}
 		if (echeloned) {
 			int remaining = size - firstWave;
 			TickScheduler.schedule(200, () -> {
-				for (int i = 0; i < remaining; i++) {
+				for (int i = 0; i < remaining && WarfrontSystems.soldierBudget(level) > 0; i++) {
 					spawnAttacker(level, target, baseAngle, 1, i, musterDistance + 10, faction, squadId, techLevel, false);
 				}
 			});
+		}
+		if (spawned.isEmpty()) {
+			report.accept("Assault aborted: no safe, loaded spawn position was available.");
+			return;
 		}
 
 		String style = echeloned ? "echeloned waves (" + firstWave + "+" + (size - firstWave) + ")"
@@ -85,22 +99,31 @@ public final class InfantryAssaultExecution implements General.TemplateExecutor 
 		});
 	}
 
-	private SoldierEntity spawnAttacker(ServerLevel level, BlockPos target, double baseAngle, int vectors, int index,
+	private @org.jspecify.annotations.Nullable SoldierEntity spawnAttacker(ServerLevel level, BlockPos target,
+			double baseAngle, int vectors, int index,
 			double distance, Faction faction, UUID squadId, int techLevel, boolean officer) {
 		double angle = baseAngle + (vectors > 1 ? (index % vectors) * (Math.PI * 2 / vectors) : 0)
 				+ (level.getRandom().nextDouble() - 0.5) * 0.3;
 		int x = target.getX() + (int) Math.round(Math.cos(angle) * distance);
 		int z = target.getZ() + (int) Math.round(Math.sin(angle) * distance);
+		if (!level.hasChunk(x >> 4, z >> 4)) {
+			return null;
+		}
 		int y = level.getHeight(Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, x, z);
 		SoldierEntity soldier = WarfrontEntities.SOLDIER.create(level, EntitySpawnReason.EVENT);
+		if (soldier == null) {
+			return null;
+		}
 		soldier.setPos(x + 0.5, y, z + 0.5);
 		soldier.setFaction(faction.id());
 		soldier.setRank(officer ? "officer" : "soldier");
 		soldier.setHomePos(target); // anchors approach + post-fight patrol on the objective
 		soldier.applyLoadout(techLevel);
 		soldier.setPersistenceRequired();
+		if (!level.addFreshEntity(soldier)) {
+			return null;
+		}
 		SquadManager.join(squadId, soldier);
-		level.addFreshEntity(soldier);
 		soldier.getNavigation().moveTo(target.getX(), target.getY(), target.getZ(), 1.1);
 		return soldier;
 	}

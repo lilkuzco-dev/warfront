@@ -14,12 +14,14 @@ import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
  * the client renders lang keys and sends back choices. One compact screen, no inventory.
  */
 public final class WarfrontNet {
-	public record OptionEntry(String id, String textKey) {
+	public record OptionEntry(String id, String textKey, String tone) {
 	}
 
 	/** S2C: open or refresh the dialogue screen. */
 	public record DialogueS2C(int soldierId, String soldierName, String rank, String faction, String factionName,
-			String standing, float standingValue, String band, String soldierLine, List<OptionEntry> options,
+			String standing, float standingValue, String band, String personality, String mood,
+			String soldierLine, List<OptionEntry> options,
+			String topicKey, int branchDepth, int branchMaxDepth, boolean inBranch,
 			boolean canMore, boolean openScreen) implements CustomPacketPayload {
 		public static final CustomPacketPayload.Type<DialogueS2C> TYPE =
 				new CustomPacketPayload.Type<>(Warfront.id("dialogue"));
@@ -33,12 +35,19 @@ public final class WarfrontNet {
 					buf.writeUtf(payload.standing());
 					buf.writeFloat(payload.standingValue());
 					buf.writeUtf(payload.band());
+					buf.writeUtf(payload.personality());
+					buf.writeUtf(payload.mood());
 					buf.writeUtf(payload.soldierLine());
 					buf.writeVarInt(payload.options().size());
 					for (OptionEntry entry : payload.options()) {
 						buf.writeUtf(entry.id());
 						buf.writeUtf(entry.textKey());
+						buf.writeUtf(entry.tone());
 					}
+					buf.writeUtf(payload.topicKey());
+					buf.writeVarInt(payload.branchDepth());
+					buf.writeVarInt(payload.branchMaxDepth());
+					buf.writeBoolean(payload.inBranch());
 					buf.writeBoolean(payload.canMore());
 					buf.writeBoolean(payload.openScreen());
 				},
@@ -51,14 +60,21 @@ public final class WarfrontNet {
 					String standing = buf.readUtf();
 					float standingValue = buf.readFloat();
 					String band = buf.readUtf();
+					String personality = buf.readUtf();
+					String mood = buf.readUtf();
 					String line = buf.readUtf();
 					int count = buf.readVarInt();
 					List<OptionEntry> options = new ArrayList<>();
 					for (int i = 0; i < count; i++) {
-						options.add(new OptionEntry(buf.readUtf(), buf.readUtf()));
+						options.add(new OptionEntry(buf.readUtf(), buf.readUtf(), buf.readUtf()));
 					}
+					String topicKey = buf.readUtf();
+					int branchDepth = buf.readVarInt();
+					int branchMaxDepth = buf.readVarInt();
+					boolean inBranch = buf.readBoolean();
 					return new DialogueS2C(soldierId, name, rank, faction, factionName, standing, standingValue,
-							band, line, options, buf.readBoolean(), buf.readBoolean());
+							band, personality, mood, line, options, topicKey, branchDepth, branchMaxDepth,
+							inBranch, buf.readBoolean(), buf.readBoolean());
 				});
 
 		@Override

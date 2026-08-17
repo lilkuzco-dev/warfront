@@ -1,0 +1,9 @@
+{
+  "game_ticks_per_economic_tick": 200,
+  "starting_wealth": 1000,
+  "liquidity_floor": 100,
+  "fixed_exchange": 3,
+  "exchanges_per_actor": 1,
+  "shock_interval": 400,
+  "shock_permille": 180
+}

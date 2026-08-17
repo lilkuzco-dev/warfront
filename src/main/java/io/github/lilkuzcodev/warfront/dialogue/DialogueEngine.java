@@ -6,7 +6,6 @@ import io.github.lilkuzcodev.warfront.data.WarfrontState;
 import io.github.lilkuzcodev.warfront.entity.SoldierEntity;
 import java.util.ArrayList;
 import java.util.Comparator;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import net.minecraft.server.level.ServerLevel;
@@ -15,15 +14,16 @@ import net.minecraft.world.item.ItemStack;
 
 /**
  * Option selection (Stage 4B.3): filter by conditions → score (weight × novelty) →
- * pick 4 with a category-spread constraint and a guaranteed exit/neutral option.
+ * pick a friendly, neutral, threatening, and safe-exit option with category spread.
  */
 public final class DialogueEngine {
-	public static final int SHOWN_HISTORY_CAP = 30;
+	public static final int SHOWN_HISTORY_CAP = 200;
 	private static final int PICK = 4;
-	private static final float NOVELTY_PENALTY = 0.15F;
+	private record Scored(DialogueOption option, double score) {
+	}
 
 	/** Everything conditions can see, computed once per selection. */
-	public record Context(String faction, String standing, String band, String bandGroup, String role,
+	public record Context(String faction, String standing, String band, String bandGroup, String role, String personality,
 			String location, String time, boolean recentCombat, boolean hasKilledThisFaction,
 			String contractState, int techLevel, ServerPlayer player) {
 
@@ -50,7 +50,8 @@ public final class DialogueEngine {
 					: "offered".equals(contract.state()) ? "offered"
 					: WorkOrders.isComplete(state, player, contract) ? "complete_ready" : "active";
 			return new Context(faction, WarfrontRegistry.standing().label(standingValue), band,
-					DispositionConfig.bandGroup(band), role, location, night ? "night" : "day", recentCombat,
+					DispositionConfig.bandGroup(band), role, soldier.dialoguePersonality(), location,
+					night ? "night" : "day", recentCombat,
 					state.remembers(player.getUUID(), faction, "killed_soldier", now), contractState,
 					state.techLevel(faction), player);
 		}
@@ -69,6 +70,9 @@ public final class DialogueEngine {
 			return false;
 		}
 		if (!c.roles().isEmpty() && !c.roles().contains(ctx.role())) {
+			return false;
+		}
+		if (!c.personalities().isEmpty() && !c.personalities().contains(ctx.personality())) {
 			return false;
 		}
 		if (!c.locations().isEmpty() && !c.locations().contains(ctx.location())) {
@@ -107,18 +111,28 @@ public final class DialogueEngine {
 	}
 
 	/**
-	 * Picks up to 4 options: highest score first, never 4 of one category, always at
-	 * least one exit/neutral option. Excluded ids (already shown this conversation)
-	 * never reappear; the persistent recent-history applies a novelty penalty.
+	 * Picks up to 4 options: one per gameplay tone, with distinct categories when possible.
+	 * Excluded ids (already shown this conversation)
+	 * never reappear. Fresh options are always considered before anything in the
+	 * persistent recent-history; recent lines are only a fallback when a narrow
+	 * context has exhausted every fresh match.
 	 */
-	public static List<DialogueOption> select(Context ctx, WarfrontState state, Set<String> excluded, long now) {
+	public static List<DialogueOption> select(Context ctx, WarfrontState state, Set<String> excluded, long now,
+			String activeBranch, int activeDepth) {
 		List<String> recent = state.recentShown(ctx.player().getUUID());
-		record Scored(DialogueOption option, double score) {
-		}
-		List<Scored> eligible = new ArrayList<>();
+		List<Scored> fresh = new ArrayList<>();
+		List<Scored> recentFallback = new ArrayList<>();
 		var random = ctx.player().level().getRandom();
 		for (DialogueOption option : DialogueRegistry.options().values()) {
 			if (excluded.contains(option.id()) || !matches(option, ctx)) {
+				continue;
+			}
+			boolean safeExit = option.exit()
+					&& option.effects().stream().anyMatch(effect -> "end".equals(effect.type()));
+			if (activeBranch.isEmpty()) {
+				if (!option.branch().isEmpty() && option.branchDepth() != 0) continue;
+			} else if (!safeExit
+					&& (!activeBranch.equals(option.branch()) || option.branchDepth() != activeDepth)) {
 				continue;
 			}
 			long last = state.lastUsed(ctx.player().getUUID(), option.id());
@@ -143,41 +157,59 @@ public final class DialogueEngine {
 					|| c.hasKilledThisFaction() != null || !c.contractStates().isEmpty()) {
 				relevance *= 1.5;
 			}
-			double score = option.weight() * relevance * (recent.contains(option.id()) ? NOVELTY_PENALTY : 1.0)
-					* (0.75 + random.nextDouble() * 0.5);
-			eligible.add(new Scored(option, score));
+			double score = option.weight() * relevance * (0.75 + random.nextDouble() * 0.5);
+			(recent.contains(option.id()) ? recentFallback : fresh).add(new Scored(option, score));
 		}
-		eligible.sort(Comparator.comparingDouble(Scored::score).reversed());
+		Comparator<Scored> byScore = Comparator.comparingDouble(Scored::score).reversed();
+		fresh.sort(byScore);
+		recentFallback.sort(byScore);
+		List<Scored> eligible = new ArrayList<>(fresh.size() + recentFallback.size());
+		eligible.addAll(fresh);
+		eligible.addAll(recentFallback);
 
 		List<DialogueOption> picked = new ArrayList<>();
-		Set<String> categories = new HashSet<>();
-		int categoryRepeats = 0;
-		for (Scored scored : eligible) {
-			if (picked.size() >= PICK) {
-				break;
-			}
-			// spread: at most 2 of any one category among the four
-			long sameCategory = picked.stream().filter(p -> p.category().equals(scored.option().category())).count();
-			if (sameCategory >= 2) {
-				continue;
-			}
-			picked.add(scored.option());
-			categories.add(scored.option().category());
-			if (sameCategory > 0) {
-				categoryRepeats++;
-			}
+		// Every set communicates its consequences clearly: one friendly choice, one
+		// informational choice, one hostile choice, and one safe way out.
+		for (String tone : List.of("positive", "neutral", "negative")) {
+			pickTone(eligible, picked, tone);
 		}
-		// guarantee an exit/neutral option in the set
-		if (picked.stream().noneMatch(DialogueOption::exit)) {
-			eligible.stream().map(Scored::option).filter(DialogueOption::exit)
-					.filter(o -> !picked.contains(o)).findFirst().ifPresent(exit -> {
-						if (picked.size() >= PICK) {
-							picked.remove(picked.size() - 1);
-						}
-						picked.add(exit);
+		// Root menus always expose a safe, neutral doorway into one of the long-form
+		// topics instead of relying on random scoring to make branches discoverable.
+		if (activeBranch.isEmpty()) {
+			eligible.stream().map(Scored::option)
+					.filter(o -> !o.branch().isEmpty() && o.branchDepth() == 0 && "neutral".equals(o.tone()))
+					.findFirst().ifPresent(branchEntry -> {
+						picked.removeIf(option -> "neutral".equals(option.tone()));
+						picked.add(Math.min(1, picked.size()), branchEntry);
 					});
 		}
+		eligible.stream().map(Scored::option)
+				.filter(o -> o.exit() && o.effects().stream().anyMatch(e -> "end".equals(e.type())))
+				.filter(o -> !picked.contains(o)).findFirst().ifPresent(picked::add);
+		// Defensive fallback for malformed third-party dialogue packs.
+		for (Scored scored : eligible) {
+			if (picked.size() >= PICK) break;
+			if (!picked.contains(scored.option())) picked.add(scored.option());
+		}
 		return picked;
+	}
+
+	private static void pickTone(List<Scored> eligible, List<DialogueOption> picked, String tone) {
+		for (Scored scored : eligible) {
+			DialogueOption option = scored.option();
+			if (!option.exit() && tone.equals(option.tone()) && !picked.contains(option)
+					&& picked.stream().noneMatch(p -> p.category().equals(option.category()))) {
+				picked.add(option);
+				return;
+			}
+		}
+		for (Scored scored : eligible) {
+			DialogueOption option = scored.option();
+			if (!option.exit() && tone.equals(option.tone()) && !picked.contains(option)) {
+				picked.add(option);
+				return;
+			}
+		}
 	}
 
 	private DialogueEngine() {

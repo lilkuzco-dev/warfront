@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/block",
+  "textures": { "case": "warfront:block/screen_case", "particle": "warfront:block/screen_case" },
+  "elements": [{
+    "from": [0, 0, 0], "to": [16, 16, 2],
+    "faces": {
+      "down":  { "texture": "#case" }, "up":    { "texture": "#case" },
+      "north": { "texture": "#case" }, "south": { "texture": "#case" },
+      "west":  { "texture": "#case" }, "east":  { "texture": "#case" }
+    }
+  }]
+}

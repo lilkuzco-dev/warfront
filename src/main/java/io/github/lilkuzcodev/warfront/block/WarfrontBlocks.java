@@ -43,6 +43,20 @@ public final class WarfrontBlocks {
 			.sound(SoundType.WOOL)
 			.noOcclusion());
 
+	public static final Block SCREEN = register("screen", ScreenBlock::new,
+			BlockBehaviour.Properties.of()
+					.mapColor(MapColor.COLOR_BLACK)
+					.strength(2.0F)
+					.sound(SoundType.METAL)
+					.noOcclusion());
+
+	public static final Block PROJECTOR = register("projector", ProjectorBlock::new,
+			BlockBehaviour.Properties.of()
+					.mapColor(MapColor.METAL)
+					.strength(2.5F)
+					.sound(SoundType.METAL)
+					.noOcclusion());
+
 	private static Block register(String name, BlockBehaviour.Properties properties) {
 		return register(name, Block::new, properties);
 	}

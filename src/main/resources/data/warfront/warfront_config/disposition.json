@@ -15,6 +15,8 @@
     "penance_completed": { "weight": 18, "half_life_days": 4 },
     "insulted": { "weight": -4, "half_life_days": 1 },
     "bribed": { "weight": 3, "half_life_days": 1 },
+    "friendly_words": { "weight": 2, "half_life_days": 1 },
+    "threatened": { "weight": -5, "half_life_days": 2 },
     "echo": { "weight": 0, "half_life_days": 2 }
   },
   "bands": {

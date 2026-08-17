@@ -1,0 +1,64 @@
+{
+ "classes": {
+  "attitude_positive": {
+   "vostok": {
+    "neutral": [
+     "dialogue.warfront.resp.attitude_positive.vostok.neutral.1",
+     "dialogue.warfront.resp.attitude_positive.vostok.neutral.2"
+    ]
+   },
+   "aegis": {
+    "neutral": [
+     "dialogue.warfront.resp.attitude_positive.aegis.neutral.1",
+     "dialogue.warfront.resp.attitude_positive.aegis.neutral.2"
+    ]
+   },
+   "sarab": {
+    "neutral": [
+     "dialogue.warfront.resp.attitude_positive.sarab.neutral.1",
+     "dialogue.warfront.resp.attitude_positive.sarab.neutral.2"
+    ]
+   }
+  },
+  "attitude_neutral": {
+   "vostok": {
+    "neutral": [
+     "dialogue.warfront.resp.attitude_neutral.vostok.neutral.1",
+     "dialogue.warfront.resp.attitude_neutral.vostok.neutral.2"
+    ]
+   },
+   "aegis": {
+    "neutral": [
+     "dialogue.warfront.resp.attitude_neutral.aegis.neutral.1",
+     "dialogue.warfront.resp.attitude_neutral.aegis.neutral.2"
+    ]
+   },
+   "sarab": {
+    "neutral": [
+     "dialogue.warfront.resp.attitude_neutral.sarab.neutral.1",
+     "dialogue.warfront.resp.attitude_neutral.sarab.neutral.2"
+    ]
+   }
+  },
+  "attitude_negative": {
+   "vostok": {
+    "neutral": [
+     "dialogue.warfront.resp.attitude_negative.vostok.neutral.1",
+     "dialogue.warfront.resp.attitude_negative.vostok.neutral.2"
+    ]
+   },
+   "aegis": {
+    "neutral": [
+     "dialogue.warfront.resp.attitude_negative.aegis.neutral.1",
+     "dialogue.warfront.resp.attitude_negative.aegis.neutral.2"
+    ]
+   },
+   "sarab": {
+    "neutral": [
+     "dialogue.warfront.resp.attitude_negative.sarab.neutral.1",
+     "dialogue.warfront.resp.attitude_negative.sarab.neutral.2"
+    ]
+   }
+  }
+ }
+}

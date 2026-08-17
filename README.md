@@ -4,6 +4,54 @@ Modern military factions for Minecraft 26.2 (Fabric). Three doctrine-driven fact
 
 Requires Fabric Loader 0.19.3+ and Fabric API for 26.2.
 
+## Civilization update — Phases 1–2
+
+- Cities persist as data independently of world generation. Their citizens cycle
+  through exactly one representation: embodied inside 48 blocks, local-abstract in
+  loaded chunks, and virtual in unloaded chunks.
+- Five citizen professions ship in Phase 1: miner, farmer, builder, trader, and
+  laborer. Embodied citizens pathfind, work at blocks/routes, flee monsters, and are
+  defended by the existing soldier-vs-hostile behavior. Nearby same-faction soldiers
+  are assigned to the city rather than duplicated into a new military system.
+- The actor record owns serial ID, position, partial work, and full goods inventory.
+  Demotion snapshots the entity; local/virtual work uses deterministic elapsed-time
+  arithmetic; promotion overwrites even a stale chunk-restored entity from that
+  authoritative record.
+- Commands: `/warfront city create <id> <faction> <1-500>`,
+  `/warfront city list`, `/warfront city inspect <id>`, and (op)
+  `/warfront city validate`. `inspect` includes the three tier counts, total goods,
+  assigned soldiers, and the last measured city tick cost.
+- Every city now runs one persistent, deterministic economy across all three fidelity
+  tiers. Finite food/ore/timber nodes, heterogeneous skill/metabolism/aptitude,
+  input-consuming crafting, upkeep, a liquidity floor, fixed-amount exchange, and
+  local supply/demand prices produce winners and genuine poverty traps from an equal
+  money start. Money only transfers; goods reconcile against production,
+  consumption, and shock loss after every tick.
+- `/warfront city economy <id>` exposes Gini, poverty and top-five-percent shares,
+  wealth quantiles, regional prices, conservation status, and the last economic tick
+  cost. Operators can inject `vein_depletion`, `blight`, `raid`, or `fire` with
+  `/warfront city shock <id> <type>`.
+- Economy cadence, starting wealth, liquidity, exchange, and shock frequency/severity
+  are datapack knobs in `data/warfront/warfront_config/economy.json`.
+
+The equal-start 10,000-tick results and conservation/shock/performance evidence are
+recorded in `ECONOMY_VALIDATION.md`. Phase 3 classes and governance remain fenced
+pending review.
+
+## v0.2.2 — garrison reliability update
+
+- Naturally generated bases show their template soldiers as soon as their chunks
+  load, then fill to the configured tier target after a short settlement window.
+  Player-position discovery now recovers bases even if every seed entity was removed.
+- Fixed a chunk-load race that could overfill an HQ (reproduced at 48 soldiers for a
+  maximum-40 Vostok HQ), and made the global cap apply across an entire spawn batch,
+  patrols, and tactical assault waves.
+- Enemy assault units can no longer enter a rival base's persistent garrison ledger.
+  Existing bad memberships and overfilled loaded bases repair themselves safely.
+- Hardened malformed saved squad IDs, failed entity creation, scheduled-task cleanup,
+  and unreachable station claims. `/warfront bases` now reports stored, loaded,
+  target, and hydration counts for diagnosis.
+
 ## v0.2.0 — the Garrison Update
 
 - **Population**: bases now carry real garrisons — tier-scaled counts per faction
@@ -23,19 +71,31 @@ Requires Fabric Loader 0.19.3+ and Fabric API for 26.2.
   via `tools/retheme-structure.js`. Guaranteed anatomy per tier (towers manned,
   gates guarded, furnished interiors, faction loot). **New tiers generate in newly
   generated chunks only.**
-- **Dialogue**: right-click a non-hostile soldier. **1,401 authored player options**
-  (3,140 soldier response lines) surfaced four at a time by context — faction,
+- **Dialogue**: right-click a non-hostile soldier. **5,443 authored player options**
+  (21,758 soldier response lines) surfaced four at a time by context — faction,
   standing, disposition, rank, location, time of day, your recent deeds. Soldiers
   remember: a per-player event ledger (attacks, kills, sabotage, trades, gifts,
   contracts, tributes) with slow-fading violence and faster-fading kindness drives a
   disposition band from *vengeful* to *devoted*. Kill a faction's soldiers and every
   member greets you accordingly until you claw back through apology tributes,
   penance work orders, trade, or fighting at their side — and a betrayal after
-  friendship cuts twice as deep. Helping one faction echoes against its enemies.
+  friendship cuts twice as deep. Every set now includes visibly labeled friendly,
+  neutral, threatening, and leave choices. Individual soldiers are patient,
+  professional, proud, or volatile; friendly lines build goodwill and cool tempers,
+  while repeated threats can make that specific soldier attack. Soldiers stop and
+  face the player for the entire conversation. One hundred substantive subjects
+  branch through ten sequential layers, with friendly, probing, and threatening
+  approaches at every layer; the transcript-oriented screen keeps the current
+  reply, topic, and depth visible and lets the player change subject cleanly. Long
+  choices receive dynamically sized, wrapped buttons; long exchanges wrap inside a
+  mouse-wheel-scrollable transcript instead of being clipped.
+  Helping one faction echoes against its enemies.
   Quartermasters trade through dialogue (standing-gated stock, prices scale with
   standing *and* disposition); officers offer work orders (eliminate / supply /
   recon) with matrix consequences. Chat-fallback UI via
   `config/warfront-client.json`.
+- **World hostility**: faction soldiers and vanilla hostile mobs acquire one another
+  on sight, so patrols defend themselves from monsters without player intervention.
 - **Fixes**: soldier "ghost limb" rendering fixed at the root (player-model overlay
   parts now posed); item model transform audit clean. (No M1911 exists in this mod
   or the managed pack — the reported gun-rendering bug was this arm issue.)
@@ -67,6 +127,7 @@ Requires Fabric Loader 0.19.3+ and Fabric API for 26.2.
 - Doctrine weights: `src/main/resources/data/warfront/warfront_factions/{vostok,aegis,sarab}.json`
 - Tech curve + gates: `data/warfront/warfront_config/tech.json` (thresholds, points/day, gear & squad size per level, unlocks)
 - Standing thresholds/decay/penalties: `data/warfront/warfront_config/standing.json`
+- Economy cadence/liquidity/exchange/shocks: `data/warfront/warfront_config/economy.json`
 - Relations matrix: `data/warfront/warfront_config/relations.json`
 - Tactical templates: `data/warfront/warfront_templates/*.json` (preconditions incl. `min_tech_level`, constraint compatibility, doctrine affinity)
 

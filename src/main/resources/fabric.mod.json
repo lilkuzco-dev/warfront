@@ -3,7 +3,7 @@
 	"id": "warfront",
 	"version": "${version}",
 	"name": "Warfront",
-	"description": "Modern military factions: doctrine-driven soldiers, bases, tech progression, and an order pipeline. Phase 1 skeleton.",
+	"description": "Doctrine-driven military factions with staffed bases, patrols, progression, dialogue, contracts, and tactical orders.",
 	"authors": [
 		"lilkuzco-dev"
 	],

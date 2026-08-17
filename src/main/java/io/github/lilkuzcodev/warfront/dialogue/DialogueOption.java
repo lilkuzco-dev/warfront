@@ -12,15 +12,16 @@ import net.minecraft.util.GsonHelper;
  * mirror vanilla predicate style: every present field must match, list fields are
  * any-of. The corpus is static JSON — the engine is deterministic.
  */
-public record DialogueOption(String id, String textKey, String category, String responseClass,
+public record DialogueOption(String id, String textKey, String category, String responseClass, String tone,
+		String branch, int branchDepth, int nextBranchDepth, String topicKey,
 		Conditions conditions, List<Effect> effects, int weight, String oncePer, int cooldownMinutes, boolean exit) {
 
 	public record Conditions(List<String> factions, List<String> standings, List<String> dispositions,
-			List<String> roles, List<String> locations, List<String> times, Boolean recentCombat,
+			List<String> roles, List<String> personalities, List<String> locations, List<String> times, Boolean recentCombat,
 			Boolean hasKilledThisFaction, List<String> contractStates, int techMin, int techMax,
 			String requiresItem, int requiresCount) {
 		public static final Conditions ANY = new Conditions(List.of(), List.of(), List.of(), List.of(),
-				List.of(), List.of(), null, null, List.of(), 0, 4, "", 0);
+				List.of(), List.of(), List.of(), null, null, List.of(), 0, 4, "", 0);
 
 		static List<String> strings(JsonObject json, String key) {
 			if (!json.has(key)) {
@@ -43,6 +44,7 @@ public record DialogueOption(String id, String textKey, String category, String 
 					strings(json, "standing"),
 					strings(json, "disposition"),
 					strings(json, "role"),
+					strings(json, "personality"),
 					strings(json, "location"),
 					strings(json, "time"),
 					json.has("recent_combat") ? json.get("recent_combat").getAsBoolean() : null,
@@ -75,16 +77,45 @@ public record DialogueOption(String id, String textKey, String category, String 
 				effects.add(Effect.fromJson(el.getAsJsonObject()));
 			}
 		}
+		boolean exit = GsonHelper.getAsBoolean(json, "exit", false);
 		return new DialogueOption(
 				GsonHelper.getAsString(json, "id"),
 				GsonHelper.getAsString(json, "text"),
 				category,
 				GsonHelper.getAsString(json, "response"),
+				GsonHelper.getAsString(json, "tone", inferTone(effects, exit)),
+				GsonHelper.getAsString(json, "branch", ""),
+				GsonHelper.getAsInt(json, "branch_depth", -1),
+				GsonHelper.getAsInt(json, "next_depth", -1),
+				GsonHelper.getAsString(json, "topic", ""),
 				json.has("conditions") ? Conditions.fromJson(json.getAsJsonObject("conditions")) : Conditions.ANY,
 				List.copyOf(effects),
 				GsonHelper.getAsInt(json, "weight", 10),
 				GsonHelper.getAsString(json, "once_per", ""),
 				GsonHelper.getAsInt(json, "cooldown_minutes", 0),
-				GsonHelper.getAsBoolean(json, "exit", false));
+				exit);
+	}
+
+	private static String inferTone(List<Effect> effects, boolean exit) {
+		if (exit) {
+			return "exit";
+		}
+		for (Effect effect : effects) {
+			if ("provoke".equals(effect.type()) || ("standing".equals(effect.type()) && effect.amount() < 0)
+					|| ("disposition".equals(effect.type()) && List.of("insulted", "threatened",
+							"attacked_soldier", "killed_soldier", "destroyed_property", "trespassed")
+							.contains(effect.arg()))) {
+				return "negative";
+			}
+		}
+		for (Effect effect : effects) {
+			if (("standing".equals(effect.type()) && effect.amount() > 0)
+					|| ("disposition".equals(effect.type()) && List.of("friendly_words", "traded", "gifted",
+							"contract_completed", "aided_in_combat", "apology_tribute_paid",
+							"penance_completed", "bribed").contains(effect.arg()))) {
+				return "positive";
+			}
+		}
+		return "neutral";
 	}
 }

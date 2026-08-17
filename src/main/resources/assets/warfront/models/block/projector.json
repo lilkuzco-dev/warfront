@@ -1,0 +1,14 @@
+{
+  "parent": "minecraft:block/block",
+  "textures": { "all": "warfront:block/projector", "particle": "warfront:block/projector" },
+  "elements": [
+    { "from": [2, 0, 2], "to": [14, 3, 14], "faces": {
+      "down":{"texture":"#all"}, "up":{"texture":"#all"}, "north":{"texture":"#all"},
+      "south":{"texture":"#all"}, "west":{"texture":"#all"}, "east":{"texture":"#all"}
+    }},
+    { "from": [5, 3, 5], "to": [11, 5, 11], "faces": {
+      "down":{"texture":"#all"}, "up":{"texture":"#all"}, "north":{"texture":"#all"},
+      "south":{"texture":"#all"}, "west":{"texture":"#all"}, "east":{"texture":"#all"}
+    }}
+  ]
+}

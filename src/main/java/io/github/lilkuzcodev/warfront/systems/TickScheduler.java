@@ -1,8 +1,10 @@
 package io.github.lilkuzcodev.warfront.systems;
 
+import io.github.lilkuzcodev.warfront.Warfront;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 
 /** Minimal delayed-task queue on the server tick. */
@@ -14,6 +16,10 @@ public final class TickScheduler {
 	private static long tick;
 
 	public static void init() {
+		ServerLifecycleEvents.SERVER_STOPPED.register(server -> {
+			TASKS.clear();
+			tick = 0;
+		});
 		ServerTickEvents.END_SERVER_TICK.register(server -> {
 			tick++;
 			Iterator<Task> iterator = TASKS.iterator();
@@ -21,7 +27,11 @@ public final class TickScheduler {
 				Task task = iterator.next();
 				if (tick >= task.runAtTick()) {
 					iterator.remove();
-					task.action().run();
+					try {
+						task.action().run();
+					} catch (RuntimeException exception) {
+						Warfront.LOGGER.error("Scheduled Warfront task failed", exception);
+					}
 				}
 			}
 		});

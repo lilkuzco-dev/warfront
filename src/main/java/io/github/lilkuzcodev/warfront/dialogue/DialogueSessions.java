@@ -17,6 +17,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
+import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.item.ItemStack;
@@ -36,6 +37,9 @@ public final class DialogueSessions {
 		final Set<String> shownThisConvo = new HashSet<>();
 		final List<DialogueOption> offered = new ArrayList<>();
 		boolean moreUsed;
+		String activeBranch = "";
+		String topicKey = "";
+		int branchDepth = -1;
 
 		Session(SoldierEntity soldier) {
 			this.soldierUuid = soldier.getUUID();
@@ -47,9 +51,10 @@ public final class DialogueSessions {
 	private static final Map<UUID, Session> SESSIONS = new HashMap<>();
 
 	public static void init() {
-		// combat/distance watchdog: conversations end automatically
+		// Combat/distance watchdog: conversations end automatically. This runs every
+		// tick so movement control is released promptly if combat begins.
 		ServerTickEvents.END_SERVER_TICK.register(server -> {
-			if (server.getTickCount() % 10 != 0 || SESSIONS.isEmpty()) {
+			if (SESSIONS.isEmpty()) {
 				return;
 			}
 			for (UUID playerId : List.copyOf(SESSIONS.keySet())) {
@@ -59,7 +64,7 @@ public final class DialogueSessions {
 						|| soldier.getTarget() != null
 						|| player.distanceToSqr(soldier) > MAX_TALK_DISTANCE_SQR
 						|| WarfrontState.get(server).isHostileTo(playerId, SESSIONS.get(playerId).faction)) {
-					close(player, playerId);
+					close(server, player, playerId);
 				}
 			}
 		});
@@ -82,13 +87,32 @@ public final class DialogueSessions {
 
 	/** Right-click entry point (non-combat). */
 	public static void open(ServerPlayer player, SoldierEntity soldier) {
+		MinecraftServer server = player.level().getServer();
+		close(server, player, player.getUUID());
+		// A soldier can focus on only one player at a time. If another player starts
+		// talking to them, cleanly end the old session before assigning the new one.
+		for (var entry : List.copyOf(SESSIONS.entrySet())) {
+			if (entry.getValue().soldierUuid.equals(soldier.getUUID())) {
+				ServerPlayer previous = server.getPlayerList().getPlayer(entry.getKey());
+				close(server, previous, entry.getKey());
+			}
+		}
 		Session session = new Session(soldier);
 		SESSIONS.put(player.getUUID(), session);
+		soldier.beginDialogue(player);
 		send(player, soldier, session, "greet", true);
 	}
 
 	public static void onSoldierGone(SoldierEntity soldier) {
-		SESSIONS.entrySet().removeIf(entry -> entry.getValue().soldierUuid.equals(soldier.getUUID()));
+		if (!(soldier.level() instanceof ServerLevel level)) {
+			return;
+		}
+		for (var entry : List.copyOf(SESSIONS.entrySet())) {
+			if (entry.getValue().soldierUuid.equals(soldier.getUUID())) {
+				ServerPlayer player = level.getServer().getPlayerList().getPlayer(entry.getKey());
+				close(level.getServer(), player, entry.getKey());
+			}
+		}
 	}
 
 	/** Handles a client choice: specials (__more/__leave) or an offered option id. */
@@ -101,7 +125,7 @@ public final class DialogueSessions {
 		WarfrontState state = WarfrontState.get(player.level().getServer());
 		long now = WarfrontState.clock(player.level());
 		if ("__leave".equals(optionId)) {
-			close(player, player.getUUID());
+			close(player.level().getServer(), player, player.getUUID());
 			return;
 		}
 		if ("__more".equals(optionId)) {
@@ -110,6 +134,14 @@ public final class DialogueSessions {
 				// reroll: previously offered non-exit options are excluded via shownThisConvo
 				send(player, soldier, session, null, false);
 			}
+			return;
+		}
+		if ("__topics".equals(optionId)) {
+			session.activeBranch = "";
+			session.topicKey = "";
+			session.branchDepth = -1;
+			session.moreUsed = false;
+			send(player, soldier, session, null, false);
 			return;
 		}
 		DialogueOption option = session.offered.stream().filter(o -> o.id().equals(optionId)).findFirst().orElse(null);
@@ -121,6 +153,18 @@ public final class DialogueSessions {
 		if (ended) {
 			return;
 		}
+		if (!option.branch().isEmpty()) {
+			if (option.nextBranchDepth() < 0) {
+				session.activeBranch = "";
+				session.topicKey = "";
+				session.branchDepth = -1;
+				session.moreUsed = false;
+			} else {
+				session.activeBranch = option.branch();
+				session.topicKey = option.topicKey();
+				session.branchDepth = option.nextBranchDepth();
+			}
+		}
 		send(player, soldier, session, option.responseClass(), false);
 	}
 
@@ -130,6 +174,26 @@ public final class DialogueSessions {
 		WarfrontState state = WarfrontState.get(player.level().getServer());
 		long now = WarfrontState.clock(player.level());
 		String faction = session.faction;
+		if ("positive".equals(option.tone())) {
+			state.recordEvent(player.getUUID(), faction, "friendly_words", now);
+			state.addStanding(player.getUUID(), faction, 1);
+			soldier.reactToDialogue(player.getUUID(), option.tone());
+		} else if ("negative".equals(option.tone())) {
+			state.recordEvent(player.getUUID(), faction, "threatened", now);
+			state.addStanding(player.getUUID(), faction, -1);
+			if (soldier.reactToDialogue(player.getUUID(), option.tone())) {
+				player.sendSystemMessage(Component.translatable("dialogue.warfront.temper_broken",
+						DialogueRegistry.soldierName(faction, soldier.getUUID())));
+				close(player.level().getServer(), player, player.getUUID());
+				soldier.setTarget(player);
+				if (soldier.getSquadId() != null
+						&& ("officer".equals(soldier.getRank()) || soldier.doctrine().aggression() >= 0.65F)) {
+					io.github.lilkuzcodev.warfront.entity.SquadManager.alertSquad(soldier.getSquadId(),
+							(ServerLevel) player.level(), player);
+				}
+				return true;
+			}
+		}
 		for (DialogueOption.Effect effect : option.effects()) {
 			switch (effect.type()) {
 				case "standing" -> state.addStanding(player.getUUID(), faction, effect.amount());
@@ -140,7 +204,7 @@ public final class DialogueSessions {
 					player.getInventory().placeItemBackInInventory(new ItemStack(item, Math.max(1, effect.amount())));
 				}
 				case "open_trade" -> {
-					close(player, player.getUUID());
+					close(player.level().getServer(), player, player.getUUID());
 					soldier.openQuartermaster(player);
 					return true;
 				}
@@ -159,7 +223,7 @@ public final class DialogueSessions {
 				case "provoke" -> {
 					state.recordEvent(player.getUUID(), faction, "insulted", now);
 					state.addStanding(player.getUUID(), faction, -8);
-					close(player, player.getUUID());
+					close(player.level().getServer(), player, player.getUUID());
 					soldier.setTarget(player);
 					if ("squad".equals(effect.arg()) && soldier.getSquadId() != null) {
 						io.github.lilkuzcodev.warfront.entity.SquadManager.alertSquad(soldier.getSquadId(),
@@ -168,7 +232,7 @@ public final class DialogueSessions {
 					return true;
 				}
 				case "end" -> {
-					close(player, player.getUUID());
+					close(player.level().getServer(), player, player.getUUID());
 					return true;
 				}
 				default -> Warfront.LOGGER.warn("Unknown dialogue effect type {}", effect.type());
@@ -227,7 +291,8 @@ public final class DialogueSessions {
 		WarfrontState state = WarfrontState.get(player.level().getServer());
 		long now = WarfrontState.clock(player.level());
 		DialogueEngine.Context ctx = DialogueEngine.Context.of(player, soldier);
-		List<DialogueOption> picked = DialogueEngine.select(ctx, state, session.shownThisConvo, now);
+		List<DialogueOption> picked = DialogueEngine.select(ctx, state, session.shownThisConvo, now,
+				session.activeBranch, session.branchDepth);
 		session.offered.clear();
 		session.offered.addAll(picked);
 		List<String> ids = picked.stream().map(DialogueOption::id).toList();
@@ -247,14 +312,25 @@ public final class DialogueSessions {
 				session.soldierEntityId,
 				DialogueRegistry.soldierName(session.faction, session.soldierUuid),
 				soldier.getRank(), session.faction, faction == null ? session.faction : faction.name(),
-				ctx.standing(), state.standing(player.getUUID(), session.faction), ctx.band(), line,
-				picked.stream().map(o -> new WarfrontNet.OptionEntry(o.id(), o.textKey())).toList(),
-				!session.moreUsed, openScreen));
+				ctx.standing(), state.standing(player.getUUID(), session.faction), ctx.band(),
+				soldier.dialoguePersonality(), soldier.dialogueMood(player.getUUID()), line,
+				picked.stream().map(o -> new WarfrontNet.OptionEntry(o.id(), o.textKey(), o.tone())).toList(),
+				session.topicKey, session.branchDepth < 0 ? 0 : session.branchDepth + 1, 10,
+				!session.activeBranch.isEmpty(), !session.moreUsed, openScreen));
 	}
 
-	private static void close(ServerPlayer player, UUID playerId) {
-		SESSIONS.remove(playerId);
-		if (player != null) {
+	private static void close(MinecraftServer server, ServerPlayer player, UUID playerId) {
+		Session session = SESSIONS.remove(playerId);
+		if (session != null) {
+			for (ServerLevel level : server.getAllLevels()) {
+				var entity = level.getEntity(session.soldierUuid);
+				if (entity instanceof SoldierEntity soldier) {
+					soldier.endDialogue(playerId);
+					break;
+				}
+			}
+		}
+		if (player != null && session != null) {
 			ServerPlayNetworking.send(player, new WarfrontNet.DialogueCloseS2C(0));
 		}
 	}

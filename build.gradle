@@ -27,8 +27,16 @@ loom {
 	runs {
 		gametest {
 			inherit client
-			vmArg "-Dfabric.client.gametest"
+			vmArg "-Dfabric.client.gametest=true"
+			vmArg "-Dfabric.client.gametest.modid=warfront"
 			runDir "build/run-gametest"
+		}
+		c2gametest {
+			inherit client
+			vmArg "-Dfabric.client.gametest=true"
+			vmArg "-Dfabric.client.gametest.modid=warfront"
+			vmArg "-Dwarfront.c2.only=true"
+			runDir "build/run-c2-gametest"
 		}
 	}
 }
@@ -40,6 +48,13 @@ dependencies {
 
 	// Fabric API. This is technically optional, but you probably want it anyway.
 	implementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
+	testImplementation platform('org.junit:junit-bom:5.13.4')
+	testImplementation 'org.junit.jupiter:junit-jupiter'
+	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+test {
+	useJUnitPlatform()
 }
 
 processResources {
@@ -53,6 +68,7 @@ processResources {
 
 tasks.withType(JavaCompile).configureEach {
 	it.options.release = 25
+	it.options.compilerArgs += ['-Xlint:deprecation']
 }
 
 java {

@@ -18,6 +18,9 @@ public class StationGoal extends Goal {
 	private final SoldierEntity soldier;
 	private BlockPos station;
 	private int recheckCooldown;
+	private int travelTicks;
+	private BlockPos blockedStation;
+	private int blockedUntil;
 
 	public StationGoal(SoldierEntity soldier) {
 		this.soldier = soldier;
@@ -37,23 +40,32 @@ public class StationGoal extends Goal {
 		}
 		recheckCooldown = 100;
 		station = StationManager.claimNearest(soldier);
+		if (station != null && station.equals(blockedStation) && soldier.tickCount < blockedUntil) {
+			StationManager.release(soldier);
+			station = null;
+		}
 		return station != null;
 	}
 
 	@Override
 	public boolean canContinueToUse() {
 		return station != null && soldier.getTarget() == null && !soldier.isScattered()
-				&& soldier.stationsUnlocked() && StationManager.holds(soldier, station);
+				&& travelTicks < 200 && soldier.stationsUnlocked() && StationManager.holds(soldier, station);
 	}
 
 	@Override
 	public void start() {
 		soldier.setStationPos(station);
+		travelTicks = 0;
 		soldier.getNavigation().moveTo(station.getX() + 0.5, station.getY() + 1, station.getZ() + 0.5, 1.0);
 	}
 
 	@Override
 	public void stop() {
+		if (station != null && travelTicks >= 200) {
+			blockedStation = station;
+			blockedUntil = soldier.tickCount + 600;
+		}
 		soldier.setStationPos(null);
 		StationManager.release(soldier);
 		station = null;
@@ -71,11 +83,13 @@ public class StationGoal extends Goal {
 		}
 		double distSq = soldier.distanceToSqr(station.getX() + 0.5, station.getY() + 1, station.getZ() + 0.5);
 		if (distSq > 4.0) {
+			travelTicks++;
 			if (soldier.getNavigation().isDone()) {
 				soldier.getNavigation().moveTo(station.getX() + 0.5, station.getY() + 1, station.getZ() + 0.5, 1.0);
 			}
 			return;
 		}
+		travelTicks = 0;
 		soldier.getNavigation().stop();
 		// face OUTWARD: away from the base center through the station
 		BlockPos home = soldier.getHomePos();

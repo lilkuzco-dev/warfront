@@ -1,0 +1,66 @@
+{
+  "category": "attitude",
+  "options": [
+    { "id": "attitude_pos_patient_steady", "text": "You have a steady presence. I respect that.", "response": "attitude_positive", "tone": "positive", "conditions": { "personality": "patient" }, "weight": 12 },
+    { "id": "attitude_pos_patient_listen", "text": "Thank you for taking the time to listen.", "response": "attitude_positive", "tone": "positive", "conditions": { "personality": "patient" }, "weight": 11 },
+    { "id": "attitude_pos_patient_kind", "text": "Your patience does your people credit.", "response": "attitude_positive", "tone": "positive", "conditions": { "personality": "patient" }, "weight": 10 },
+    { "id": "attitude_pos_patient_judgment", "text": "I trust the judgment of someone who does not rush.", "response": "attitude_positive", "tone": "positive", "conditions": { "personality": "patient" }, "weight": 9 },
+    { "id": "attitude_pos_patient_grounded", "text": "You seem grounded even when the front is chaos.", "response": "attitude_positive", "tone": "positive", "conditions": { "personality": "patient" }, "weight": 9 },
+    { "id": "attitude_pos_patient_example", "text": "More soldiers should learn your kind of restraint.", "response": "attitude_positive", "tone": "positive", "conditions": { "personality": "patient" }, "weight": 8 },
+    { "id": "attitude_pos_professional_duty", "text": "You carry yourself like someone who takes duty seriously.", "response": "attitude_positive", "tone": "positive", "conditions": { "personality": "professional" }, "weight": 12 },
+    { "id": "attitude_pos_professional_reliable", "text": "It is good to meet someone reliable out here.", "response": "attitude_positive", "tone": "positive", "conditions": { "personality": "professional" }, "weight": 11 },
+    { "id": "attitude_pos_professional_service", "text": "Your service has not gone unnoticed. You have my respect.", "response": "attitude_positive", "tone": "positive", "conditions": { "personality": "professional" }, "weight": 10 },
+    { "id": "attitude_pos_professional_ready", "text": "You always look ready for whatever comes next.", "response": "attitude_positive", "tone": "positive", "conditions": { "personality": "professional" }, "weight": 9 },
+    { "id": "attitude_pos_professional_confidence", "text": "Your discipline gives the people around you confidence.", "response": "attitude_positive", "tone": "positive", "conditions": { "personality": "professional" }, "weight": 9 },
+    { "id": "attitude_pos_professional_count", "text": "If trouble starts, you are someone I would count on.", "response": "attitude_positive", "tone": "positive", "conditions": { "personality": "professional" }, "weight": 8 },
+    { "id": "attitude_pos_proud_reputation", "text": "Your reputation is well earned, soldier.", "response": "attitude_positive", "tone": "positive", "conditions": { "personality": "proud" }, "weight": 12 },
+    { "id": "attitude_pos_proud_standard", "text": "You set a high standard for the rest of the unit.", "response": "attitude_positive", "tone": "positive", "conditions": { "personality": "proud" }, "weight": 11 },
+    { "id": "attitude_pos_proud_uniform", "text": "That uniform suits someone with your bearing.", "response": "attitude_positive", "tone": "positive", "conditions": { "personality": "proud" }, "weight": 10 },
+    { "id": "attitude_pos_proud_stories", "text": "I can see why the others tell stories about you.", "response": "attitude_positive", "tone": "positive", "conditions": { "personality": "proud" }, "weight": 9 },
+    { "id": "attitude_pos_proud_command", "text": "You have the presence of someone born to command.", "response": "attitude_positive", "tone": "positive", "conditions": { "personality": "proud" }, "weight": 9 },
+    { "id": "attitude_pos_proud_earned", "text": "Whatever honors you carry, I believe you earned them.", "response": "attitude_positive", "tone": "positive", "conditions": { "personality": "proud" }, "weight": 8 },
+    { "id": "attitude_pos_volatile_courage", "text": "Nobody could question your courage.", "response": "attitude_positive", "tone": "positive", "conditions": { "personality": "volatile" }, "weight": 12 },
+    { "id": "attitude_pos_volatile_fire", "text": "That fire in you must be useful in a fight.", "response": "attitude_positive", "tone": "positive", "conditions": { "personality": "volatile" }, "weight": 11 },
+    { "id": "attitude_pos_volatile_side", "text": "I would rather have you beside me than against me.", "response": "attitude_positive", "tone": "positive", "conditions": { "personality": "volatile" }, "weight": 10 },
+    { "id": "attitude_pos_volatile_decisive", "text": "You are decisive when everyone else hesitates.", "response": "attitude_positive", "tone": "positive", "conditions": { "personality": "volatile" }, "weight": 9 },
+    { "id": "attitude_pos_volatile_spirit", "text": "A spirit like yours can turn the course of a battle.", "response": "attitude_positive", "tone": "positive", "conditions": { "personality": "volatile" }, "weight": 9 },
+    { "id": "attitude_pos_volatile_nerve", "text": "You have the nerve to act when action matters.", "response": "attitude_positive", "tone": "positive", "conditions": { "personality": "volatile" }, "weight": 8 },
+
+    { "id": "attitude_neu_assignment", "text": "What is your current assignment?", "response": "attitude_neutral", "tone": "neutral", "weight": 11 },
+    { "id": "attitude_neu_shift", "text": "How long is left on your watch?", "response": "attitude_neutral", "tone": "neutral", "weight": 10 },
+    { "id": "attitude_neu_road", "text": "Has the road been quiet today?", "response": "attitude_neutral", "tone": "neutral", "weight": 10 },
+    { "id": "attitude_neu_orders", "text": "Are your orders clear?", "response": "attitude_neutral", "tone": "neutral", "weight": 9 },
+    { "id": "attitude_neu_weather", "text": "Does the weather change your patrol routine?", "response": "attitude_neutral", "tone": "neutral", "weight": 9 },
+    { "id": "attitude_neu_supplies", "text": "Are your supplies holding up?", "response": "attitude_neutral", "tone": "neutral", "weight": 8 },
+
+    { "id": "attitude_neg_patient_coward", "text": "Your calm looks a lot like cowardice to me.", "response": "attitude_negative", "tone": "negative", "conditions": { "personality": "patient" }, "weight": 12 },
+    { "id": "attitude_neg_patient_break", "text": "I wonder how much pressure it takes to make you break.", "response": "attitude_negative", "tone": "negative", "conditions": { "personality": "patient" }, "weight": 11 },
+    { "id": "attitude_neg_patient_push", "text": "Keep staring. I can make this ugly whenever I choose.", "response": "attitude_negative", "tone": "negative", "conditions": { "personality": "patient" }, "weight": 10 },
+    { "id": "attitude_neg_professional_orders", "text": "Hide behind your orders while you still can.", "response": "attitude_negative", "tone": "negative", "conditions": { "personality": "professional" }, "weight": 12 },
+    { "id": "attitude_neg_professional_uniform", "text": "Without that uniform, you are nothing worth fearing.", "response": "attitude_negative", "tone": "negative", "conditions": { "personality": "professional" }, "weight": 11 },
+    { "id": "attitude_neg_professional_regret", "text": "Reach for your weapon and you will regret it.", "response": "attitude_negative", "tone": "negative", "conditions": { "personality": "professional" }, "weight": 10 },
+    { "id": "attitude_neg_proud_humble", "text": "I could knock that pride out of you in one swing.", "response": "attitude_negative", "tone": "negative", "conditions": { "personality": "proud" }, "weight": 12 },
+    { "id": "attitude_neg_proud_brag", "text": "You brag like someone who has never faced a real threat.", "response": "attitude_negative", "tone": "negative", "conditions": { "personality": "proud" }, "weight": 11 },
+    { "id": "attitude_neg_proud_knees", "text": "Before this ends, I could have you on your knees.", "response": "attitude_negative", "tone": "negative", "conditions": { "personality": "proud" }, "weight": 10 },
+    { "id": "attitude_neg_volatile_swing", "text": "Go on, lose your temper. Give me a reason.", "response": "attitude_negative", "tone": "negative", "conditions": { "personality": "volatile" }, "weight": 12 },
+    { "id": "attitude_neg_volatile_easy", "text": "A loud soldier is usually the easiest one to put down.", "response": "attitude_negative", "tone": "negative", "conditions": { "personality": "volatile" }, "weight": 11 },
+    { "id": "attitude_neg_volatile_try", "text": "Try me. I doubt you survive the lesson.", "response": "attitude_negative", "tone": "negative", "conditions": { "personality": "volatile" }, "weight": 10 }
+  ],
+  "responses": {
+    "attitude_positive": {
+      "vostok": { "neutral": ["Respect given freely is worth keeping. You have mine in return.", "Good words travel farther than orders. I will remember yours."] },
+      "aegis": { "neutral": ["Professional regard acknowledged. Your standing improves with me.", "That is noted, and appreciated more than regulations require."] },
+      "sarab": { "neutral": ["A kind word is water carried without a jar. I accept it.", "Respect offered in the open grows shade for both of us."] }
+    },
+    "attitude_neutral": {
+      "vostok": { "neutral": ["Routine work. The line holds and the watch turns.", "Nothing dramatic. That is the answer every soldier hopes to give."] },
+      "aegis": { "neutral": ["Current conditions remain within operational limits.", "The watch proceeds according to schedule. No exceptions logged."] },
+      "sarab": { "neutral": ["The road speaks softly today, but we still listen.", "The watch ends when another pair of eyes is ready to inherit it."] }
+    },
+    "attitude_negative": {
+      "vostok": { "neutral": ["Careful. The line gives one warning before it gives a grave.", "You are spending my patience faster than you understand."] },
+      "aegis": { "neutral": ["Threat recorded. Continue and the response becomes physical.", "You are approaching the limit of authorized restraint."] },
+      "sarab": { "neutral": ["The scorpion warns with its tail before the sting. See the tail.", "Another thorn like that and hospitality ends with blood."] }
+    }
+  }
+}

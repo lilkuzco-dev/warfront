@@ -5,9 +5,12 @@ import io.github.lilkuzcodev.warfront.data.Doctrine;
 import io.github.lilkuzcodev.warfront.data.Faction;
 import io.github.lilkuzcodev.warfront.data.WarfrontRegistry;
 import io.github.lilkuzcodev.warfront.data.WarfrontState;
+import io.github.lilkuzcodev.warfront.entity.ai.DialogueGoal;
 import io.github.lilkuzcodev.warfront.entity.ai.PatrolGoal;
 import io.github.lilkuzcodev.warfront.entity.ai.RetreatGoal;
 import io.github.lilkuzcodev.warfront.entity.ai.StationGoal;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.UUID;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.component.DataComponents;
@@ -31,12 +34,14 @@ import net.minecraft.world.entity.ai.goal.WaterAvoidingRandomStrollGoal;
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.monster.Enemy;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.component.DyedItemColor;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
+import net.minecraft.world.phys.Vec3;
 import org.jspecify.annotations.Nullable;
 
 /**
@@ -61,6 +66,9 @@ public class SoldierEntity extends PathfinderMob {
 	private @Nullable BlockPos travelFrom;
 	private @Nullable BlockPos travelTo;
 	private long lastLoadedGameTime; // roaming despawn bookkeeping
+	private @Nullable UUID dialoguePartner;
+	private @Nullable Vec3 dialogueAnchor;
+	private final Map<UUID, Integer> dialogueProvocation = new HashMap<>();
 
 	public SoldierEntity(EntityType<? extends SoldierEntity> type, Level level) {
 		super(type, level);
@@ -83,6 +91,7 @@ public class SoldierEntity extends PathfinderMob {
 	@Override
 	protected void registerGoals() {
 		this.goalSelector.addGoal(0, new FloatGoal(this));
+		this.goalSelector.addGoal(1, new DialogueGoal(this));
 		this.goalSelector.addGoal(2, new RetreatGoal(this));
 		this.goalSelector.addGoal(3, new StationGoal(this));
 		this.goalSelector.addGoal(4, new MeleeAttackGoal(this, 1.15, true));
@@ -104,6 +113,8 @@ public class SoldierEntity extends PathfinderMob {
 				(target, level) -> target instanceof SoldierEntity other && this.isHostileToSoldier(other)));
 		this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, Player.class, true,
 				(target, level) -> target instanceof ServerPlayer player && this.isHostileToPlayer(player, level)));
+		this.targetSelector.addGoal(4, new NearestAttackableTargetGoal<>(this, Mob.class, true,
+				(target, level) -> target instanceof Enemy && target != this));
 	}
 
 	// ---------- doctrine-driven checks ----------
@@ -220,6 +231,74 @@ public class SoldierEntity extends PathfinderMob {
 		return level().getGameTime() < scatterUntil;
 	}
 
+	/** Temporarily gives dialogue exclusive control of movement and looking. */
+	public void beginDialogue(ServerPlayer player) {
+		this.dialoguePartner = player.getUUID();
+		this.dialogueAnchor = position();
+		getNavigation().stop();
+		setDeltaMovement(Vec3.ZERO);
+	}
+
+	public void endDialogue(UUID playerId) {
+		if (playerId.equals(dialoguePartner)) {
+			dialoguePartner = null;
+			dialogueAnchor = null;
+			getNavigation().stop();
+		}
+	}
+
+	public @Nullable ServerPlayer getDialoguePartner() {
+		if (dialoguePartner == null || !(level() instanceof ServerLevel serverLevel)) {
+			return null;
+		}
+		ServerPlayer player = serverLevel.getServer().getPlayerList().getPlayer(dialoguePartner);
+		return player != null && player.level() == level() && player.isAlive() ? player : null;
+	}
+
+	/** Stable, UUID-derived temperament; faction aggression adjusts the attack threshold. */
+	public String dialoguePersonality() {
+		return switch (Math.floorMod(getUUID().hashCode(), 4)) {
+			case 0 -> "patient";
+			case 1 -> "professional";
+			case 2 -> "proud";
+			default -> "volatile";
+		};
+	}
+
+	public int dialogueTemperLimit() {
+		int base = switch (dialoguePersonality()) {
+			case "patient" -> 5;
+			case "professional" -> 4;
+			case "proud" -> 3;
+			default -> 2;
+		};
+		if (doctrine().aggression() >= 0.75F) base--;
+		if (doctrine().aggression() <= 0.30F) base++;
+		if ("officer".equals(rank)) base++;
+		return Math.clamp(base, 2, 6);
+	}
+
+	public String dialogueMood(UUID playerId) {
+		int anger = dialogueProvocation.getOrDefault(playerId, 0);
+		int limit = dialogueTemperLimit();
+		if (anger == 0) return "calm";
+		if (anger + 1 < limit) return "wary";
+		return "angry";
+	}
+
+	/** Applies this individual soldier's reaction and returns true when their temper breaks. */
+	public boolean reactToDialogue(UUID playerId, String tone) {
+		if ("positive".equals(tone)) {
+			dialogueProvocation.computeIfPresent(playerId, (id, anger) -> Math.max(0, anger - 1));
+			return false;
+		}
+		if (!"negative".equals(tone)) {
+			return false;
+		}
+		int anger = dialogueProvocation.merge(playerId, 1, Integer::sum);
+		return anger >= dialogueTemperLimit();
+	}
+
 	public void scatter(int ticks) {
 		this.scatterUntil = level().getGameTime() + ticks;
 		this.setTarget(null);
@@ -315,6 +394,11 @@ public class SoldierEntity extends PathfinderMob {
 		output.storeNullable("warfront_travel_from", BlockPos.CODEC, travelFrom);
 		output.storeNullable("warfront_travel_to", BlockPos.CODEC, travelTo);
 		output.putLong("warfront_last_loaded", lastLoadedGameTime);
+		if (!dialogueProvocation.isEmpty()) {
+			String serialized = dialogueProvocation.entrySet().stream().limit(32)
+					.map(e -> e.getKey() + ":" + e.getValue()).collect(java.util.stream.Collectors.joining(","));
+			output.putString("warfront_dialogue_provocation", serialized);
+		}
 	}
 
 	@Override
@@ -323,13 +407,28 @@ public class SoldierEntity extends PathfinderMob {
 		setFaction(input.getStringOr("warfront_faction", ""));
 		rank = input.getStringOr("warfront_rank", "soldier");
 		String squad = input.getStringOr("warfront_squad", "");
-		squadId = squad.isEmpty() ? null : UUID.fromString(squad);
+		try {
+			squadId = squad.isEmpty() ? null : UUID.fromString(squad);
+		} catch (IllegalArgumentException ignored) {
+			squadId = null;
+		}
 		homePos = input.read("warfront_home", BlockPos.CODEC).orElse(null);
 		baseKey = input.getStringOr("warfront_base", "");
 		roaming = input.getBooleanOr("warfront_roaming", false);
 		travelFrom = input.read("warfront_travel_from", BlockPos.CODEC).orElse(null);
 		travelTo = input.read("warfront_travel_to", BlockPos.CODEC).orElse(null);
 		lastLoadedGameTime = input.getLongOr("warfront_last_loaded", 0L);
+		dialogueProvocation.clear();
+		for (String entry : input.getStringOr("warfront_dialogue_provocation", "").split(",")) {
+			int split = entry.lastIndexOf(':');
+			if (split <= 0) continue;
+			try {
+				dialogueProvocation.put(UUID.fromString(entry.substring(0, split)),
+						Math.max(0, Integer.parseInt(entry.substring(split + 1))));
+			} catch (IllegalArgumentException ignored) {
+				// Ignore stale or hand-edited entries without invalidating the soldier.
+			}
+		}
 		// Structure-template soldiers ship with faction data but empty hands:
 		// outfit them for the faction's current tech level on first load.
 		if (!getFaction().isEmpty() && getMainHandItem().isEmpty()) {
@@ -344,9 +443,36 @@ public class SoldierEntity extends PathfinderMob {
 	public void tick() {
 		super.tick();
 		if (!level().isClientSide()) {
+			// Goals can stop navigation but other movement controllers still run during
+			// super.tick(). Pin the body after that tick and retain only head/body rotation.
+			if (dialoguePartner != null && dialogueAnchor != null) {
+				getNavigation().stop();
+				setDeltaMovement(Vec3.ZERO);
+				setPos(dialogueAnchor.x, dialogueAnchor.y, dialogueAnchor.z);
+				ServerPlayer partner = getDialoguePartner();
+				if (partner != null) {
+					getLookControl().setLookAt(partner, 30.0F, 30.0F);
+				}
+			}
+			// Vanilla hostile mobs do not know about custom soldier types. Soldiers
+			// acquire Enemy mobs normally; idle mobs reciprocate when they see a soldier.
+			if (tickCount % 10 == 0) {
+				for (Mob mob : level().getEntitiesOfClass(Mob.class, getBoundingBox().inflate(24),
+						candidate -> candidate instanceof Enemy && candidate.isAlive())) {
+					if ((getTarget() == null || !getTarget().isAlive())
+							&& getSensing().hasLineOfSight(mob)) {
+						setTarget(mob);
+					}
+					if ((mob.getTarget() == null || !mob.getTarget().isAlive())
+							&& mob.getSensing().hasLineOfSight(this)) {
+						mob.setTarget(this);
+					}
+				}
+			}
 			if (!squadChecked) {
 				squadChecked = true;
 				SquadManager.ensureRegistered(this);
+				io.github.lilkuzcodev.warfront.systems.BaseManager.validateMembership(this);
 				// structure-template garrisons anchor their patrol home where they spawned
 				if (homePos == null && !getFaction().isEmpty()) {
 					homePos = blockPosition();
@@ -357,6 +483,12 @@ public class SoldierEntity extends PathfinderMob {
 					discard();
 					return;
 				}
+			}
+			// Structure references and template entities may finish loading on different
+			// ticks. Retry adoption briefly instead of making the first tick a single
+			// point of failure that can leave an otherwise valid base permanently empty.
+			if (!roaming && baseKey.isEmpty() && !getFaction().isEmpty()
+					&& tickCount <= 200 && tickCount % 20 == 1) {
 				io.github.lilkuzcodev.warfront.systems.BaseManager.tryAdopt(this);
 			}
 			if (roaming && tickCount % 200 == 0) {

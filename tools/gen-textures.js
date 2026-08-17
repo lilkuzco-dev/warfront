@@ -240,6 +240,28 @@ for (const [faction, color] of Object.entries(FACTIONS)) {
 	console.log("wrote block/bunk_top.png, block/bunk_side.png");
 }
 
+// C2 displays: original phosphor-black military electronics, authored as pixels here.
+{
+	const screen = Buffer.alloc(16 * 16 * 4);
+	const projector = Buffer.alloc(16 * 16 * 4);
+	for (let y = 0; y < 16; y++) for (let x = 0; x < 16; x++) {
+		let c = (x === 0 || y === 0 || x === 15 || y === 15) ? [45, 55, 48]
+			: ((x + y) % 9 === 0 ? [17, 34, 28] : [10, 20, 17]);
+		if ((x === 2 || x === 13) && y === 13) c = [70, 180, 92];
+		let i = (y * 16 + x) * 4;
+		screen[i] = c[0]; screen[i + 1] = c[1]; screen[i + 2] = c[2]; screen[i + 3] = 255;
+
+		c = (x === 0 || y === 0 || x === 15 || y === 15) ? [36, 42, 38] : [61, 70, 64];
+		if ((x + y * 3) % 13 === 0) c = [78, 88, 80];
+		if (x >= 5 && x <= 10 && y >= 5 && y <= 10) c = [28, 90, 61];
+		i = (y * 16 + x) * 4;
+		projector[i] = c[0]; projector[i + 1] = c[1]; projector[i + 2] = c[2]; projector[i + 3] = 255;
+	}
+	fs.writeFileSync(path.join(ASSETS, "textures/block/screen_case.png"), encodePng(16, 16, screen));
+	fs.writeFileSync(path.join(ASSETS, "textures/block/projector.png"), encodePng(16, 16, projector));
+	console.log("wrote block/screen_case.png, block/projector.png");
+}
+
 // icon: three faction-color chevrons on dark field
 {
 	const px = Buffer.alloc(16 * 16 * 4);

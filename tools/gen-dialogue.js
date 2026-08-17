@@ -5,7 +5,9 @@
 //     data/warfront/warfront_dialogue/responses/<category>.json (lang keys)
 //     assets/warfront/lang/en_us.json = tools/lang-base.json + all corpus text
 // Keys: dialogue.warfront.opt.<id> and dialogue.warfront.resp.<class>.<faction>.<band>.<n>
-// Usage: node tools/gen-dialogue.js
+// Usage: node tools/gen-dialogue.js (also refreshes the generated field-chatter source)
+require("./gen-field-chatter.js");
+require("./gen-deep-dialogue.js");
 const fs = require("node:fs");
 const path = require("node:path");
 
@@ -28,6 +30,11 @@ for (const file of fs.readdirSync(SRC).filter((f) => f.endsWith(".json")).sort()
 			const key = `dialogue.warfront.opt.${option.id}`;
 			lang[key] = option.text;
 			const out = { ...option, text: key };
+			if (option.topic && option.branch) {
+				const topicKey = `dialogue.warfront.topic.${option.branch}`;
+				lang[topicKey] = option.topic;
+				out.topic = topicKey;
+			}
 			outOptions.push(out);
 			optionCount++;
 		}

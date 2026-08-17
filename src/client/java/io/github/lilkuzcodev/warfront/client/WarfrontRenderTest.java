@@ -29,8 +29,37 @@ public class WarfrontRenderTest implements FabricClientGameTest {
 			context.waitTicks(80);
 			var server = world.getServer();
 			server.runCommand("time set noon");
-			server.runCommand("gamerule mob_spawning false");
-			server.runCommand("gamerule doMobSpawning false");
+			server.runCommand("gamemode creative @p");
+			// Generated bases can hydrate soldiers near flat-world spawn. They add noise to
+			// the benchmark and may attack/open dialogue, so isolate the camera first.
+			server.runCommand("kill @e[type=warfront:soldier]");
+			server.runCommand("kill @e[type=warfront:citizen]");
+
+			// --- C2 Phase 1: one controller texture split across a full 5x3 wall ---
+			server.runCommand("execute at @p run fill ~-5 ~-1 ~-2 ~5 ~-1 ~10 minecraft:smooth_stone");
+			server.runCommand("execute at @p run fill ~-5 ~ ~-2 ~5 ~5 ~10 minecraft:air");
+			server.runCommand("execute at @p run tp @p ~ ~1 ~-1 0 5");
+			server.runCommand("gamemode spectator @p");
+			context.waitTicks(60);
+			PerfSample baseline = samplePerformance(context, 120);
+			server.runCommand("execute at @p run fill ~-2 ~ ~6 ~2 ~2 ~6 warfront:screen[facing=north]");
+			server.runCommand("execute at @p run setblock ~ ~-1 ~3 warfront:projector");
+			context.waitTicks(60);
+			PerfSample wall = samplePerformance(context, 120);
+			System.out.printf("c2DisplayPerf samples=120 baselineMedianFps=%.1f wallMedianFps=%.1f "
+					+ "baselineP95FrameMs=%.3f wallP95FrameMs=%.3f%n",
+					baseline.medianFps, wall.medianFps, baseline.p95FrameMs, wall.p95FrameMs);
+			if (wall.medianFps < baseline.medianFps * 0.5
+					|| wall.p95FrameMs > Math.max(50.0, baseline.p95FrameMs * 2.5)) {
+				throw new AssertionError("5x3 display wall caused a material render regression: baseline="
+						+ baseline + ", wall=" + wall);
+			}
+			context.takeScreenshot("c2_5x3_live_wall_and_projector");
+			if (Boolean.getBoolean("warfront.c2.only")) {
+				return;
+			}
+			server.runCommand("execute at @p run fill ~-2 ~ ~6 ~2 ~2 ~6 minecraft:air");
+			server.runCommand("execute at @p run setblock ~ ~-1 ~3 minecraft:air");
 			server.runCommand("gamemode creative @p");
 
 			// --- soldier lineup: 3 factions x soldier/officer, arms/overlays in-camera ---
@@ -106,6 +135,25 @@ public class WarfrontRenderTest implements FabricClientGameTest {
 			server.runCommand("kill @e[type=warfront:soldier]");
 		}
 	}
+
+	private static PerfSample samplePerformance(ClientGameTestContext context, int samples) {
+		double[] fps = new double[samples];
+		double[] frameMs = new double[samples];
+		for (int i = 0; i < samples; i++) {
+			context.waitTicks(1);
+			fps[i] = context.computeOnClient(net.minecraft.client.Minecraft::getFps);
+			frameMs[i] = context.computeOnClient(client -> client.getFrameTimeNs() / 1_000_000.0);
+		}
+		java.util.Arrays.sort(fps);
+		java.util.Arrays.sort(frameMs);
+		return new PerfSample(percentile(fps, 0.50), percentile(frameMs, 0.95));
+	}
+
+	private static double percentile(double[] sorted, double percentile) {
+		return sorted[Math.min(sorted.length - 1, Math.max(0, (int) Math.ceil(percentile * sorted.length) - 1))];
+	}
+
+	private record PerfSample(double medianFps, double p95FrameMs) { }
 
 	private void shootStructure(ClientGameTestContext context, TestSingleplayerContext world,
 			String structureId, String shotName, int x, int height) {

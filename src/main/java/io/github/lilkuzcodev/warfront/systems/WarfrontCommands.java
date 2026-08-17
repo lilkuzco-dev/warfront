@@ -2,6 +2,11 @@ package io.github.lilkuzcodev.warfront.systems;
 
 import com.mojang.brigadier.arguments.IntegerArgumentType;
 import com.mojang.brigadier.arguments.StringArgumentType;
+import io.github.lilkuzcodev.warfront.civilization.CivilizationManager;
+import io.github.lilkuzcodev.warfront.civilization.CivilizationMath;
+import io.github.lilkuzcodev.warfront.civilization.CivilizationState;
+import io.github.lilkuzcodev.warfront.civilization.EconomyManager;
+import io.github.lilkuzcodev.warfront.civilization.EconomyModel;
 import io.github.lilkuzcodev.warfront.data.Faction;
 import io.github.lilkuzcodev.warfront.data.WarfrontRegistry;
 import io.github.lilkuzcodev.warfront.data.WarfrontState;
@@ -58,10 +63,143 @@ public final class WarfrontCommands {
 								.then(Commands.argument("faction", StringArgumentType.word())
 										.then(Commands.argument("action", StringArgumentType.word())
 												.executes(ctx -> contract(ctx.getSource(), StringArgumentType.getString(ctx, "faction"),
-														StringArgumentType.getString(ctx, "action"))))))
+												StringArgumentType.getString(ctx, "action"))))))
+						.then(Commands.literal("city")
+								.then(Commands.literal("list").executes(ctx -> cityList(ctx.getSource())))
+								.then(Commands.literal("inspect")
+										.then(Commands.argument("city", StringArgumentType.word())
+												.executes(ctx -> cityInspect(ctx.getSource(), StringArgumentType.getString(ctx, "city")))))
+								.then(Commands.literal("economy")
+										.then(Commands.argument("city", StringArgumentType.word())
+												.executes(ctx -> cityEconomy(ctx.getSource(), StringArgumentType.getString(ctx, "city")))))
+								.then(Commands.literal("shock").requires(Commands.hasPermission(Commands.LEVEL_GAMEMASTERS))
+										.then(Commands.argument("city", StringArgumentType.word())
+												.then(Commands.argument("type", StringArgumentType.word())
+														.executes(ctx -> cityShock(ctx.getSource(),
+																StringArgumentType.getString(ctx, "city"),
+																StringArgumentType.getString(ctx, "type"))))))
+								.then(Commands.literal("validate").requires(Commands.hasPermission(Commands.LEVEL_GAMEMASTERS))
+										.executes(ctx -> cityValidate(ctx.getSource())))
+								.then(Commands.literal("create").requires(Commands.hasPermission(Commands.LEVEL_GAMEMASTERS))
+										.then(Commands.argument("city", StringArgumentType.word())
+												.then(Commands.argument("faction", StringArgumentType.word())
+														.then(Commands.argument("population", IntegerArgumentType.integer(1, 500))
+																.executes(ctx -> cityCreate(ctx.getSource(),
+																		StringArgumentType.getString(ctx, "city"),
+																		StringArgumentType.getString(ctx, "faction"),
+																		IntegerArgumentType.getInteger(ctx, "population"))))))))
 						.then(Commands.literal("patrol").requires(Commands.hasPermission(Commands.LEVEL_GAMEMASTERS))
 								.then(Commands.argument("faction", StringArgumentType.word())
 										.executes(ctx -> patrol(ctx.getSource(), StringArgumentType.getString(ctx, "faction")))))));
+	}
+
+	private static int cityCreate(CommandSourceStack source, String city, String faction, int population) {
+		if (WarfrontRegistry.faction(faction) == null) {
+			source.sendFailure(Component.literal("Unknown faction: " + faction));
+			return 0;
+		}
+		if (source.getLevel() != source.getServer().overworld()) {
+			source.sendFailure(Component.literal("Phase 1 cities currently live in the overworld"));
+			return 0;
+		}
+		try {
+			var created = CivilizationManager.createCity(source.getLevel(), city, faction,
+					BlockPos.containing(source.getPosition()), population);
+			source.sendSuccess(() -> Component.literal("Created " + created.id() + " for " + faction + " with "
+					+ created.citizens().size() + " citizens; approach/leave to drive the fidelity ladder"), true);
+			return created.citizens().size();
+		} catch (IllegalArgumentException exception) {
+			source.sendFailure(Component.literal(exception.getMessage()));
+			return 0;
+		}
+	}
+
+	private static int cityList(CommandSourceStack source) {
+		var state = CivilizationState.get(source.getServer());
+		if (state.cities().isEmpty()) {
+			source.sendSuccess(() -> Component.literal("No cities"), false);
+			return 0;
+		}
+		for (var city : state.cities().values()) {
+			source.sendSuccess(() -> Component.literal(city.id() + " [" + city.faction() + "] @ "
+					+ city.center().toShortString() + " citizens=" + city.citizens().size()
+					+ " soldiers=" + state.assignedSoldierCount(city.id())), false);
+		}
+		return state.cities().size();
+	}
+
+	private static int cityInspect(CommandSourceStack source, String cityId) {
+		var state = CivilizationState.get(source.getServer());
+		var city = state.city(CivilizationManager.normalizeId(cityId));
+		if (city == null) {
+			source.sendFailure(Component.literal("Unknown city: " + cityId));
+			return 0;
+		}
+		long embodied = city.citizens().values().stream().filter(c -> c.tier().id().equals("embodied")).count();
+		long local = city.citizens().values().stream().filter(c -> c.tier().id().equals("local")).count();
+		long virtual = city.citizens().size() - embodied - local;
+		long goods = EconomyManager.distribution(source.getServer(), city).totalGoods();
+		long tickNanos = CivilizationManager.lastCityTickNanos(city.id());
+		source.sendSuccess(() -> Component.literal(String.format(
+				"%s: embodied=%d local=%d virtual=%d citizens=%d goods=%d soldiers=%d lastTick=%.3fms",
+				city.id(), embodied, local, virtual, city.citizens().size(), goods,
+				state.assignedSoldierCount(city.id()), tickNanos < 0 ? -1.0 : tickNanos / 1_000_000.0)), false);
+		return city.citizens().size();
+	}
+
+	private static int cityValidate(CommandSourceStack source) {
+		try {
+			var result = CivilizationManager.validatePhaseOne();
+			source.sendSuccess(() -> Component.literal(String.format(
+					"Phase 1 PASS: transition goods %d->%d; virtual elapsed produced=%d remainder=%d; deterministic=%s",
+					result.goodsBeforeTransitions(), result.goodsAfterTransitions(), result.virtualGoodsProduced(),
+					result.workRemainder(), result.deterministicReplay())), true);
+			return 1;
+		} catch (RuntimeException exception) {
+			source.sendFailure(Component.literal("Phase 1 FAIL: " + exception.getMessage()));
+			return 0;
+		}
+	}
+
+	private static int cityEconomy(CommandSourceStack source, String cityId) {
+		var city = CivilizationState.get(source.getServer()).city(CivilizationManager.normalizeId(cityId));
+		if (city == null) {
+			source.sendFailure(Component.literal("Unknown city: " + cityId));
+			return 0;
+		}
+		var d = EconomyManager.distribution(source.getServer(), city);
+		var audit = EconomyManager.conservation(source.getServer(), city);
+		double ms = EconomyManager.tickNanos(city.id()) / 1_000_000.0;
+		source.sendSuccess(() -> Component.literal(String.format(
+				"%s economy tick=%d Gini=%.4f poor=%.1f%% top5=%.1f%% wealth[min/q25/med/q75/p90/max]=%d/%d/%d/%d/%d/%d",
+				city.id(), d.tick(), d.gini(), d.poorShare() * 100, d.topFiveShare() * 100,
+				d.minimum(), d.lowerQuartile(), d.median(), d.upperQuartile(), d.p90(), d.maximum())), false);
+		source.sendSuccess(() -> Component.literal(String.format(
+				"prices food=%d ore=%d timber=%d crafts=%d; money=%d; goods=%d; conserved=%s; lastTick=%.3fms",
+				EconomyManager.price(source.getServer(), city, EconomyModel.Good.FOOD),
+				EconomyManager.price(source.getServer(), city, EconomyModel.Good.ORE),
+				EconomyManager.price(source.getServer(), city, EconomyModel.Good.TIMBER),
+				EconomyManager.price(source.getServer(), city, EconomyModel.Good.CRAFTS),
+				d.totalMoney(), d.totalGoods(), audit.balanced(), ms)), false);
+		return 1;
+	}
+
+	private static int cityShock(CommandSourceStack source, String cityId, String type) {
+		var city = CivilizationState.get(source.getServer()).city(CivilizationManager.normalizeId(cityId));
+		if (city == null) {
+			source.sendFailure(Component.literal("Unknown city: " + cityId));
+			return 0;
+		}
+		try {
+			EconomyModel.Shock shock = EconomyModel.Shock.valueOf(type.toUpperCase(java.util.Locale.ROOT));
+			EconomyManager.injectShock(source.getServer(), city, shock);
+			source.sendSuccess(() -> Component.literal("Injected " + shock.name().toLowerCase(java.util.Locale.ROOT)
+					+ " into " + city.id()), true);
+			return 1;
+		} catch (IllegalArgumentException exception) {
+			source.sendFailure(Component.literal("Shock must be vein_depletion, blight, raid, or fire"));
+			return 0;
+		}
 	}
 
 	private static int viewTech(CommandSourceStack source, String faction) {
@@ -111,13 +249,20 @@ public final class WarfrontCommands {
 
 	private static int bases(CommandSourceStack source) {
 		var state = WarfrontState.get(source.getServer());
+		ServerLevel level = source.getServer().overworld();
 		if (state.bases().isEmpty()) {
 			source.sendSuccess(() -> Component.literal("No bases discovered yet"), false);
 			return 0;
 		}
-		state.bases().forEach((key, base) -> source.sendSuccess(() -> Component.literal(
-				String.format("%s %s @ %d,%d,%d garrison=%d hydrated=%s", base.faction, base.tier,
-						base.center.getX(), base.center.getY(), base.center.getZ(), base.garrison, base.hydrated)), false));
+		state.bases().forEach((key, base) -> {
+			Faction faction = WarfrontRegistry.faction(base.faction);
+			int target = faction == null ? -1 : faction.population().garrisonTarget(base.tier, key.hashCode());
+			int loaded = BaseManager.loadedGarrisonCount(level, key);
+			source.sendSuccess(() -> Component.literal(
+					String.format("%s %s @ %d,%d,%d stored=%d loaded=%d target=%d hydrated=%s",
+							base.faction, base.tier, base.center.getX(), base.center.getY(), base.center.getZ(),
+							base.garrison, loaded, target, base.hydrated)), false);
+		});
 		return state.bases().size();
 	}
 

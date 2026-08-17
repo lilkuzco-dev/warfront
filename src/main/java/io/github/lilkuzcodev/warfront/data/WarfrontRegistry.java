@@ -33,6 +33,7 @@ public final class WarfrontRegistry {
 	private static StandingConfig standing = StandingConfig.DEFAULT;
 	private static PopulationGlobal population = PopulationGlobal.DEFAULT;
 	private static DispositionConfig disposition = DispositionConfig.DEFAULT;
+	private static EconomyConfig economy = EconomyConfig.DEFAULT;
 
 	public static void init() {
 		ResourceLoader.get(PackType.SERVER_DATA).registerReloadListener(Warfront.id("registry"), new Listener());
@@ -66,6 +67,10 @@ public final class WarfrontRegistry {
 		return disposition;
 	}
 
+	public static EconomyConfig economy() {
+		return economy;
+	}
+
 	/** Relation between two factions: "hostile", "neutral" (default), or "allied". */
 	public static String relation(String a, String b) {
 		if (a.equals(b)) {
@@ -80,7 +85,7 @@ public final class WarfrontRegistry {
 
 	private record LoadedData(Map<String, Faction> factions, Map<String, TacticalTemplate> templates,
 			Map<String, String> relations, TechConfig tech, StandingConfig standing, PopulationGlobal population,
-			DispositionConfig disposition) {
+			DispositionConfig disposition, EconomyConfig economy) {
 	}
 
 	private static class Listener extends SimpleReloadListener<LoadedData> {
@@ -114,8 +119,10 @@ public final class WarfrontRegistry {
 					.map(res -> PopulationGlobal.fromJson(parse(res))).orElse(PopulationGlobal.DEFAULT);
 			DispositionConfig dispositionConfig = manager.getResource(Warfront.id("warfront_config/disposition.json"))
 					.map(res -> DispositionConfig.fromJson(parse(res))).orElse(DispositionConfig.DEFAULT);
+			EconomyConfig economyConfig = manager.getResource(Warfront.id("warfront_config/economy.json"))
+					.map(res -> EconomyConfig.fromJson(parse(res))).orElse(EconomyConfig.DEFAULT);
 			return new LoadedData(factionMap, templateMap, relationMap, techConfig, standingConfig, populationConfig,
-					dispositionConfig);
+					dispositionConfig, economyConfig);
 		}
 
 		@Override
@@ -127,6 +134,7 @@ public final class WarfrontRegistry {
 			standing = data.standing();
 			population = data.population();
 			disposition = data.disposition();
+			economy = data.economy();
 			Warfront.LOGGER.info("Loaded {} factions, {} templates, {} relations", factions.size(), templates.size(), relations.size());
 		}
 	}
@@ -207,6 +215,31 @@ public final class WarfrontRegistry {
 					GsonHelper.getAsInt(json, "base_tick_seconds", 15),
 					GsonHelper.getAsInt(json, "roam_interval_seconds", 240),
 					GsonHelper.getAsFloat(json, "roam_chance", 0.5F));
+		}
+	}
+
+	/** Data-driven Phase 2 economy cadence, liquidity, exchange, and shock knobs. */
+	public record EconomyConfig(int gameTicksPerEconomicTick, long startingWealth, long liquidityFloor,
+			long fixedExchange, int exchangesPerActor, int shockInterval, int shockPermille) {
+		public static final EconomyConfig DEFAULT = new EconomyConfig(200, 1_000L, 100L, 3L, 1, 400, 180);
+
+		public EconomyConfig {
+			if (gameTicksPerEconomicTick < 1 || startingWealth < 1 || liquidityFloor < 0
+					|| fixedExchange < 1 || exchangesPerActor < 0 || shockInterval < 0
+					|| shockPermille < 0 || shockPermille > 1_000) {
+				throw new IllegalArgumentException("invalid economy configuration");
+			}
+		}
+
+		public static EconomyConfig fromJson(JsonObject json) {
+			return new EconomyConfig(
+					GsonHelper.getAsInt(json, "game_ticks_per_economic_tick", 200),
+					GsonHelper.getAsLong(json, "starting_wealth", 1_000L),
+					GsonHelper.getAsLong(json, "liquidity_floor", 100L),
+					GsonHelper.getAsLong(json, "fixed_exchange", 3L),
+					GsonHelper.getAsInt(json, "exchanges_per_actor", 1),
+					GsonHelper.getAsInt(json, "shock_interval", 400),
+					GsonHelper.getAsInt(json, "shock_permille", 180));
 		}
 	}
 

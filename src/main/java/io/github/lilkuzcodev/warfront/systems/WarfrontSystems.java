@@ -190,6 +190,9 @@ public final class WarfrontSystems {
 			int z = from.getZ() + (column ? (int) (dz / len * (i + 2)) : level.getRandom().nextInt(5) - 2);
 			int y = level.getHeight(Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, x, z);
 			SoldierEntity soldier = WarfrontEntities.SOLDIER.create(level, EntitySpawnReason.EVENT);
+			if (soldier == null) {
+				break;
+			}
 			soldier.setPos(x + 0.5, y, z + 0.5);
 			soldier.setFaction(faction.id());
 			soldier.setRank(i == 0 ? "officer" : "soldier");
@@ -197,13 +200,15 @@ public final class WarfrontSystems {
 			soldier.setRoute(from, to);
 			soldier.applyLoadout(techLevel);
 			soldier.setPersistenceRequired();
+			if (!level.addFreshEntity(soldier)) {
+				break;
+			}
 			SquadManager.join(squad, soldier);
-			level.addFreshEntity(soldier);
 		}
 	}
 
 	/** Remaining head-room under the global per-player soldier cap. */
-	static int soldierBudget(ServerLevel level) {
+	public static int soldierBudget(ServerLevel level) {
 		int cap = WarfrontRegistry.population().perPlayerSoldierCap() * Math.max(1, level.players().size());
 		return cap - level.getEntitiesOfClass(SoldierEntity.class,
 				new AABB(-3.0E7, -512, -3.0E7, 3.0E7, 512, 3.0E7)).size();
@@ -215,35 +220,42 @@ public final class WarfrontSystems {
 		if (faction == null) {
 			return 0;
 		}
-		if (soldierBudget(level) <= 0) {
-			return 0;
-		}
 		WarfrontState state = WarfrontState.get(level.getServer());
 		int techLevel = state.techLevel(factionId);
 		int bonus = WarfrontRegistry.tech().squadBonusByLevel().getOrDefault(techLevel, 0);
 		int size = Math.max(2, faction.doctrine().preferredSquadSize() + Math.round(bonus * faction.doctrine().squadGrowth()));
+		if (size > soldierBudget(level)) {
+			return 0;
+		}
 		double angle = level.getRandom().nextDouble() * Math.PI * 2;
 		int cx = base.getX() + (int) (Math.cos(angle) * 40);
 		int cz = base.getZ() + (int) (Math.sin(angle) * 40);
-		if (!level.hasChunkAt(new BlockPos(cx, 0, cz))) {
+		if (!level.hasChunk(cx >> 4, cz >> 4)) {
 			return 0;
 		}
 		UUID squad = SquadManager.createSquad(factionId, size, base);
+		int spawned = 0;
 		for (int i = 0; i < size; i++) {
 			int x = cx + level.getRandom().nextInt(5) - 2;
 			int z = cz + level.getRandom().nextInt(5) - 2;
 			int y = level.getHeight(Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, x, z);
 			SoldierEntity soldier = WarfrontEntities.SOLDIER.create(level, EntitySpawnReason.EVENT);
+			if (soldier == null) {
+				break;
+			}
 			soldier.setPos(x + 0.5, y, z + 0.5);
 			soldier.setFaction(factionId);
 			soldier.setRank(i == 0 ? "officer" : "soldier");
 			soldier.setHomePos(new BlockPos(cx, y, cz));
 			soldier.applyLoadout(techLevel);
 			soldier.setPersistenceRequired();
+			if (!level.addFreshEntity(soldier)) {
+				break;
+			}
 			SquadManager.join(squad, soldier);
-			level.addFreshEntity(soldier);
+			spawned++;
 		}
-		return size;
+		return spawned;
 	}
 
 	private WarfrontSystems() {
