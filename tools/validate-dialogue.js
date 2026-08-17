@@ -4,7 +4,8 @@
 //   - globally unique ids; no duplicate / near-duplicate texts
 //   - every option's response class resolves to >=2 lines per applicable faction,
 //     with a non-empty resolution for every band the option can appear in
-//   - HARD GATES: at least 5,400 options plus 100 complete ten-layer branches
+//   - HARD GATES: substantial corpus plus ten fully authored ten-layer branches
+//   - deep-response craft: silent gates, bounded length, and no colon chains
 //   - coverage matrix (category x faction x band-group), empty cells flagged
 // Usage: node tools/validate-dialogue.js   (exit 1 on failure)
 const fs = require("node:fs");
@@ -39,6 +40,7 @@ const options = [];
 const responseClasses = {}; // class -> faction -> band -> count
 const allTexts = new Map(); // normalized -> id
 const allIds = new Set();
+const forbiddenNpcMechanics = /\b(?:your standing|trust level|conversation depth|respect earns|standing improves|dialogue option)\b/i;
 
 const normalize = (t) => t.toLowerCase().replace(/[^a-z0-9 ]+/g, "").replace(/\s+/g, " ").trim();
 const tokens = (t) => new Set(normalize(t).split(" "));
@@ -134,8 +136,20 @@ for (const file of fs.readdirSync(SRC).filter((f) => f.endsWith(".json")).sort()
 					continue;
 				}
 				fMap[band] = (fMap[band] ?? 0) + lines.length;
-				for (const line of lines) {
-					const norm = normalize(line);
+					for (const line of lines) {
+						const norm = normalize(line);
+						if (forbiddenNpcMechanics.test(line)) {
+							errors.push(`${file}:${cls}.${faction}.${band}: NPC line leaks a dialogue mechanic: "${line}"`);
+						}
+						if (file === "deep_branches.json") {
+							if (line.length > 220) errors.push(`${file}:${cls}.${faction}.${band}: line exceeds 220 characters`);
+							if ((line.match(/:/g) ?? []).length > 1) {
+								errors.push(`${file}:${cls}.${faction}.${band}: colon-chained response`);
+							}
+							if (normalize(line).split(" ").length < 7) {
+								errors.push(`${file}:${cls}.${faction}.${band}: response is too thin to convey content or a natural refusal`);
+							}
+						}
 					if (norm.length > 0 && allTexts.has(norm)) {
 						errors.push(`${file}:${cls}.${faction}.${band}: duplicate line "${line.slice(0, 40)}..."`);
 					} else allTexts.set(norm, `${cls}.${faction}.${band}`);
@@ -258,7 +272,19 @@ for (const [branch, depths] of branches) {
 		}
 	}
 }
-if (branches.size < 100) errors.push(`need >=100 deep dialogue branches, have ${branches.size}`);
+if (branches.size < 10) errors.push(`need >=10 authored deep dialogue branches, have ${branches.size}`);
+
+// Every deep answer must have a real silent disclosure gate: refusal/deflection for
+// negative disposition, a guarded fact for neutral, and fuller substance for positive.
+for (const option of options.filter((o) => o.category === "deep_branches")) {
+	const byFaction = responseClasses[option.response] ?? {};
+	for (const faction of FACTIONS) {
+		const pools = byFaction[faction] ?? {};
+		for (const band of ["negative", "neutral", "positive"]) {
+			if ((pools[band] ?? 0) < 1) errors.push(`${option.id}: missing ${faction}/${band} disclosure pool`);
+		}
+	}
+}
 
 let responseLineTotal = 0;
 for (const byFaction of Object.values(responseClasses)) {
@@ -271,11 +297,11 @@ console.log(`\n${options.length} player options, ${responseLineTotal} response l
 if (warnings.length) {
 	console.log(`\n${warnings.length} warnings` + (process.env.VERBOSE ? ":\n  " + warnings.join("\n  ") : " (VERBOSE=1 to list)"));
 }
-if (options.length < 5400) {
-	errors.push(`HARD COUNT GATE: ${options.length} player options < 5400`);
+if (options.length < 2700) {
+	errors.push(`HARD COUNT GATE: ${options.length} player options < 2700`);
 }
-if (responseLineTotal < 21700) {
-	errors.push(`HARD COUNT GATE: ${responseLineTotal} response lines < 21700`);
+if (responseLineTotal < 6400) {
+	errors.push(`HARD COUNT GATE: ${responseLineTotal} response lines < 6400`);
 }
 if (errors.length) {
 	console.error(`\nFAIL — ${errors.length} errors:`);

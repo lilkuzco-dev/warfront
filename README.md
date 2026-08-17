@@ -71,8 +71,8 @@ pending review.
   via `tools/retheme-structure.js`. Guaranteed anatomy per tier (towers manned,
   gates guarded, furnished interiors, faction loot). **New tiers generate in newly
   generated chunks only.**
-- **Dialogue**: right-click a non-hostile soldier. **5,443 authored player options**
-  (21,758 soldier response lines) surfaced four at a time by context — faction,
+- **Dialogue**: right-click a non-hostile soldier. **2,743 authored player options**
+  (6,458 soldier response lines) surfaced four at a time by context — faction,
   standing, disposition, rank, location, time of day, your recent deeds. Soldiers
   remember: a per-player event ledger (attacks, kills, sabotage, trades, gifts,
   contracts, tributes) with slow-fading violence and faster-fading kindness drives a
@@ -83,11 +83,15 @@ pending review.
   neutral, threatening, and leave choices. Individual soldiers are patient,
   professional, proud, or volatile; friendly lines build goodwill and cool tempers,
   while repeated threats can make that specific soldier attack. Soldiers stop and
-  face the player for the entire conversation. One hundred substantive subjects
-  branch through ten sequential layers, with friendly, probing, and threatening
-  approaches at every layer; the transcript-oriented screen keeps the current
-  reply, topic, and depth visible and lets the player change subject cleanly. Long
-  choices receive dynamically sized, wrapped buttons; long exchanges wrap inside a
+  face the player for the entire conversation. Ten substantive, hand-authored
+  subjects branch through ten sequential layers, with friendly, probing, and
+  threatening approaches at every layer. Standing is a silent disclosure gate:
+  hostile soldiers refuse details, neutral soldiers give a guarded concrete fact,
+  and trusted soldiers add faction-specific history. Recent fights, monster
+  attacks, locations, contracts, and other immediate events take priority over
+  long-form lore. The transcript-oriented screen keeps the current exchange,
+  topic, and depth visible and lets the player change subject cleanly. Long choices
+  receive dynamically sized, wrapped buttons; long exchanges wrap inside a
   mouse-wheel-scrollable transcript instead of being clipped.
   Helping one faction echoes against its enemies.
   Quartermasters trade through dialogue (standing-gated stock, prices scale with

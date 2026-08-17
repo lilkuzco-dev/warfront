@@ -27,8 +27,16 @@ public class DialogueScreen extends Screen {
 	private static final int CHOICE_HEIGHT = 18;
 	private static final int LINE_HEIGHT = 9;
 	private static final int TRANSCRIPT_GAP = 14;
+	private static final int CONTENT_PADDING = 6;
+	private static final int HEADER_GAP = 3;
+	private static final int SPEAKER_BODY_GAP = 2;
 
 	private record Exchange(Component playerLine, Component soldierLine) {
+	}
+
+	private record HeaderLayout(Component name, Component rankStanding, Component personality,
+			Component topicDepth, int nameY, int rankY, int personalityY, int topicY,
+			int dividerY, int height) {
 	}
 
 	private WarfrontNet.DialogueS2C data;
@@ -104,36 +112,21 @@ public class DialogueScreen extends Screen {
 	public void extractRenderState(GuiGraphicsExtractor g, int mouseX, int mouseY, float delta) {
 		int panelWidth = panelWidth();
 		int x = (width - panelWidth) / 2;
+		HeaderLayout header = headerLayout(panelWidth);
 		int headerY = PANEL_TOP;
-		int headerHeight = headerHeight();
+		int headerHeight = header.height();
 		int choicesY = choicesTop();
 		g.fill(x - 10, 0, x + panelWidth + 10, height - 4, 0xE8101014);
 		g.fill(x - 10, 0, x - 7, height - 4, 0xFF8A744B);
 		// Widget render state must be extracted after the panel so buttons remain on top.
 		super.extractRenderState(g, mouseX, mouseY, delta);
-		g.text(font, Component.literal(data.soldierName()).withStyle(s -> s.withBold(true)), x, headerY, 0xFFFFFFFF);
-		g.text(font, Component.translatable("dialogue.warfront.header_rank_faction",
-				Component.translatable("dialogue.warfront.rank." + data.rank()), data.factionName()),
-				x, headerY + 12, 0xFFB0B0B8);
-		g.text(font, Component.translatable("dialogue.warfront.header_standing",
-				data.standing(), String.format("%.0f", data.standingValue()),
-				Component.translatable("dialogue.warfront.band." + data.band())),
-				x, headerY + 24, 0xFF8FA8C8);
-		g.text(font, Component.translatable("dialogue.warfront.header_personality",
-				Component.translatable("dialogue.warfront.personality." + data.personality()),
-				Component.translatable("dialogue.warfront.mood." + data.mood())),
-				x, headerY + 36, 0xFFC7A6E8);
-
-		Component topic = data.inBranch() && !data.topicKey().isEmpty()
-				? Component.translatable(data.topicKey())
-				: Component.translatable("dialogue.warfront.choose_topic");
-		g.textWithWordWrap(font, topic.copy().withStyle(s -> s.withBold(true)),
-				x + panelWidth / 2, headerY, panelWidth / 2, 0xFFFFD37A);
-		if (data.inBranch()) {
-			g.text(font, Component.translatable("dialogue.warfront.thread_depth",
-					data.branchDepth(), data.branchMaxDepth()), x + panelWidth / 2, headerY + 24, 0xFFAAB6C8);
-		}
-		g.fill(x, headerY + headerHeight - 8, x + panelWidth, headerY + headerHeight - 7, 0xFF6A604E);
+		int contentX = x + CONTENT_PADDING;
+		int contentWidth = panelWidth - CONTENT_PADDING * 2;
+		g.textWithWordWrap(font, header.name(), contentX, header.nameY(), contentWidth, 0xFFFFFFFF);
+		g.textWithWordWrap(font, header.rankStanding(), contentX, header.rankY(), contentWidth, 0xFFFFFFFF);
+		g.textWithWordWrap(font, header.personality(), contentX, header.personalityY(), contentWidth, 0xFFC7A6E8);
+		g.textWithWordWrap(font, header.topicDepth(), contentX, header.topicY(), contentWidth, 0xFFFFFFFF);
+		g.fill(x, header.dividerY(), x + panelWidth, header.dividerY() + 1, 0xFF6A604E);
 
 		int transcriptTop = headerY + headerHeight + 2;
 		int transcriptBottom = Math.max(transcriptTop + LINE_HEIGHT, choicesY - TRANSCRIPT_GAP);
@@ -175,13 +168,54 @@ public class DialogueScreen extends Screen {
 		return height - (optionsHeight + 32);
 	}
 
-	private int headerHeight() {
+	private HeaderLayout headerLayout(int panelWidth) {
+		int contentWidth = Math.max(1, panelWidth - CONTENT_PADDING * 2);
+		Component name = Component.literal(data.soldierName()).withStyle(s -> s.withBold(true));
+		Component rankFaction = Component.translatable("dialogue.warfront.header_rank_faction",
+				Component.translatable("dialogue.warfront.rank." + data.rank()), data.factionName());
+		Component standing = Component.translatable("dialogue.warfront.header_standing",
+				data.standing(), String.format("%.0f", data.standingValue()),
+				Component.translatable("dialogue.warfront.band." + data.band()));
+		Component personality = Component.translatable("dialogue.warfront.header_personality",
+				Component.translatable("dialogue.warfront.personality." + data.personality()),
+				Component.translatable("dialogue.warfront.mood." + data.mood()));
 		Component topic = data.inBranch() && !data.topicKey().isEmpty()
 				? Component.translatable(data.topicKey())
 				: Component.translatable("dialogue.warfront.choose_topic");
-		int topicHeight = font.split(topic, Math.max(1, panelWidth() / 2)).size() * LINE_HEIGHT;
-		if (data.inBranch()) topicHeight += 14;
-		return Math.max(48, topicHeight + 8);
+		topic = topic.copy().withStyle(s -> s.withBold(true).withColor(0xFFD37A));
+		Component depth = data.inBranch()
+				? Component.translatable("dialogue.warfront.thread_depth", data.branchDepth(), data.branchMaxDepth())
+				: null;
+		Component rankStanding = Component.empty()
+				.append(rankFaction.copy().withStyle(s -> s.withColor(0xB0B0B8)))
+				.append(Component.literal("   "))
+				.append(standing.copy().withStyle(s -> s.withColor(0x8FA8C8)));
+		Component topicDepth = topic;
+		if (depth != null) {
+			topicDepth = topic.copy().append(Component.literal("   •   ").withStyle(s -> s.withColor(0x6A604E)))
+					.append(depth.copy().withStyle(s -> s.withBold(false).withColor(0xAAB6C8)));
+		}
+		int cursor = PANEL_TOP;
+		int nameY = cursor;
+		cursor += wrappedHeight(name, contentWidth) + HEADER_GAP;
+		int rankY = cursor;
+		cursor += wrappedHeight(rankStanding, contentWidth) + HEADER_GAP;
+		int personalityY = cursor;
+		cursor += wrappedHeight(personality, contentWidth) + HEADER_GAP + 2;
+		int topicY = cursor;
+		cursor += wrappedHeight(topicDepth, contentWidth) + HEADER_GAP;
+		int dividerY = cursor + 1;
+		return new HeaderLayout(name, rankStanding, personality, topicDepth,
+				nameY, rankY, personalityY, topicY, dividerY,
+				dividerY - PANEL_TOP + 8);
+	}
+
+	private int headerHeight() {
+		return headerLayout(panelWidth()).height();
+	}
+
+	private int wrappedHeight(Component text, int width) {
+		return Math.max(LINE_HEIGHT, font.split(text, Math.max(1, width)).size() * LINE_HEIGHT);
 	}
 
 	private int wrappedButtonHeight(Component text, int buttonWidth) {
@@ -205,13 +239,20 @@ public class DialogueScreen extends Screen {
 	}
 
 	private int playerLineHeight(Component line, int panelWidth) {
-		return Math.max(12, font.split(line, Math.max(1, panelWidth - 34)).size() * LINE_HEIGHT + 3);
+		return Math.max(12, font.split(line, playerTextWidth(panelWidth)).size() * LINE_HEIGHT + 3);
 	}
 
 	private int soldierLineHeight(Component line, int panelWidth) {
-		Component label = Component.literal(data.soldierName() + ":").withStyle(s -> s.withBold(true));
-		int labelWidth = font.width(label) + 5;
-		return Math.max(12, font.split(line, Math.max(1, panelWidth - labelWidth)).size() * LINE_HEIGHT + 3);
+		return LINE_HEIGHT + SPEAKER_BODY_GAP
+				+ font.split(line, transcriptTextWidth(panelWidth)).size() * LINE_HEIGHT + 3;
+	}
+
+	private int transcriptTextWidth(int panelWidth) {
+		return Math.max(1, panelWidth - CONTENT_PADDING * 2);
+	}
+
+	private int playerTextWidth(int panelWidth) {
+		return Math.max(1, panelWidth - CONTENT_PADDING * 2 - 34);
 	}
 
 	private void drawTranscriptScrollbar(GuiGraphicsExtractor g, int x, int y, int viewportHeight, int contentHeight) {
@@ -224,17 +265,18 @@ public class DialogueScreen extends Screen {
 
 	private int drawPlayerLine(GuiGraphicsExtractor g, Component line, int x, int y, int panelWidth) {
 		g.text(font, Component.translatable("dialogue.warfront.you").withStyle(s -> s.withBold(true)),
-				x, y, 0xFFAAB6C8);
-		g.textWithWordWrap(font, line, x + 34, y, panelWidth - 34, 0xFFD1D8E2);
+				x + CONTENT_PADDING, y, 0xFFAAB6C8);
+		g.textWithWordWrap(font, line, x + CONTENT_PADDING + 34, y,
+				playerTextWidth(panelWidth), 0xFFD1D8E2);
 		return y + playerLineHeight(line, panelWidth);
 	}
 
 	private int drawSoldierLine(GuiGraphicsExtractor g, Component line, int x, int y, int panelWidth) {
 		Component label = Component.literal(data.soldierName() + ":").withStyle(s -> s.withBold(true));
-		g.text(font, label, x, y, 0xFFFFD37A);
-		int labelWidth = font.width(label) + 5;
+		g.text(font, label, x + CONTENT_PADDING, y, 0xFFFFD37A);
 		g.textWithWordWrap(font, line.copy().withStyle(s -> s.withItalic(true)),
-				x + labelWidth, y, panelWidth - labelWidth, 0xFFFFF0C8);
+				x + CONTENT_PADDING, y + LINE_HEIGHT + SPEAKER_BODY_GAP,
+				transcriptTextWidth(panelWidth), 0xFFFFF0C8);
 		return y + soldierLineHeight(line, panelWidth);
 	}
 
@@ -253,6 +295,19 @@ public class DialogueScreen extends Screen {
 	boolean allOptionTextFitsForTest() {
 		return optionButtons.size() == data.options().size() && optionButtons.stream()
 				.allMatch(button -> button.getHeight() >= wrappedButtonHeight(button.getMessage(), button.getWidth()));
+	}
+
+	boolean headerRowsDoNotOverlapForTest() {
+		HeaderLayout h = headerLayout(panelWidth());
+		int width = transcriptTextWidth(panelWidth());
+		return h.rankY() >= h.nameY() + wrappedHeight(h.name(), width)
+				&& h.personalityY() >= h.rankY() + wrappedHeight(h.rankStanding(), width)
+				&& h.topicY() >= h.personalityY() + wrappedHeight(h.personality(), width)
+				&& h.dividerY() > h.topicY() + wrappedHeight(h.topicDepth(), width);
+	}
+
+	boolean replyUsesPaddedFullWidthForTest() {
+		return transcriptTextWidth(panelWidth()) == panelWidth() - CONTENT_PADDING * 2;
 	}
 
 	private static final class WrappedButton extends Button {
@@ -309,6 +364,26 @@ public class DialogueScreen extends Screen {
 
 	boolean hasVisibleExchangeForTest() {
 		return !history.isEmpty() && !awaitingReply;
+	}
+
+	String latestReplyForTest() {
+		return history.isEmpty() ? "" : history.getLast().soldierLine().getString();
+	}
+
+	boolean isPrototypeBarrierTopicForTest() {
+		return data.topicKey().endsWith("prototype_defensive_barrier");
+	}
+
+	float standingValueForTest() {
+		return data.standingValue();
+	}
+
+	int screenWidthForTest() {
+		return width;
+	}
+
+	boolean referenceExchangeFitsWithoutScrollForTest() {
+		return transcriptMaxScroll == 0;
 	}
 
 	boolean inDeepBranchForTest() {

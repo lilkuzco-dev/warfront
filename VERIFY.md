@@ -379,3 +379,23 @@ Phase 1 stopped here for review. Phase 2 continued only after approval.
 Phase 2 stops here for review. Derived social classes, governors, taxation, welfare,
 regulation regimes, and class-driven housing/consumption remain intentionally fenced
 for Phase 3.
+
+## Dialogue overhaul gate — 0.2.3 (2026-08-17)
+
+- Dialogue generation produced 2,743 player options and 6,458 response lines. The
+  validator passed schema and branch integrity, per-faction negative/neutral/positive
+  disclosure pools, length bounds, and player-facing mechanism-leak checks. The three
+  remaining warnings are pre-existing thin hostile pools in field chatter. ✅
+- Deep dialogue now uses ten hand-authored, concrete subjects. Standing silently
+  changes what an NPC will disclose, while faction identity appears through distinct
+  incidents and field language. Immediate context, including recent monster attacks
+  and fights, receives priority over long-form lore. ✅
+- `./gradlew clean build`: PASS on JDK 25. ✅
+- `./gradlew runGametest`: PASS in 5m44s. The dialogue test opened the prototype
+  barrier branch for Vostok, Aegis, and Sarab; advanced to the faction-history reply;
+  verified standing 4, distinct expected language, measured non-overlapping header
+  rows, padded wrapping, complete buttons, and a no-scroll reference exchange at
+  independent GUI scales 1 and 2. ✅
+- Manually inspected all six archived frames in `screenshots/v0.2.3/`: no header
+  collisions, divider strike-through, clipped reply, or clipped choice text. Both the
+  player question and the NPC answer remain visible at the tighter scale. ✅

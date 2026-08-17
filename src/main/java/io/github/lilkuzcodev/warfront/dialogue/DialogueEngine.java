@@ -124,6 +124,13 @@ public final class DialogueEngine {
 		List<Scored> recentFallback = new ArrayList<>();
 		var random = ctx.player().level().getRandom();
 		for (DialogueOption option : DialogueRegistry.options().values()) {
+			// The old "explain/criticize doctrine" pools mix broad philosophical
+			// questions with interchangeable answers. Keep that dead material out of
+			// menus; faction identity now comes from concrete lore and field history.
+			if ("lore_doctrine_why".equals(option.responseClass())
+					|| "lore_doctrine_officer".equals(option.responseClass())) {
+				continue;
+			}
 			if (excluded.contains(option.id()) || !matches(option, ctx)) {
 				continue;
 			}
@@ -157,6 +164,12 @@ public final class DialogueEngine {
 					|| c.hasKilledThisFaction() != null || !c.contractStates().isEmpty()) {
 				relevance *= 1.5;
 			}
+			// What just happened outranks canned background talk. In particular, a
+			// soldier fresh from fighting zombies should discuss the fight before a
+			// random lore branch is offered.
+			if (Boolean.TRUE.equals(c.recentCombat()) && ctx.recentCombat()) {
+				relevance *= 4.0;
+			}
 			double score = option.weight() * relevance * (0.75 + random.nextDouble() * 0.5);
 			(recent.contains(option.id()) ? recentFallback : fresh).add(new Scored(option, score));
 		}
@@ -173,25 +186,44 @@ public final class DialogueEngine {
 		for (String tone : List.of("positive", "neutral", "negative")) {
 			pickTone(eligible, picked, tone);
 		}
-		// Root menus always expose a safe, neutral doorway into one of the long-form
-		// topics instead of relying on random scoring to make branches discoverable.
+		// Root menus expose lore when the world has nothing more immediate to discuss.
+		// A recent fight, contract, location, or relationship-specific line keeps the
+		// neutral slot instead of being displaced by a random long-form subject.
+		if (activeBranch.isEmpty()) {
+			String preferredBranch = System.getProperty("warfront.test.dialogueBranch", "");
+			DialogueOption neutral = picked.stream().filter(o -> "neutral".equals(o.tone())).findFirst().orElse(null);
+			boolean immediateContext = neutral != null && isImmediateContext(neutral.conditions());
+			if (!preferredBranch.isEmpty() || !immediateContext) {
+				eligible.stream().map(Scored::option)
+						.filter(o -> !o.branch().isEmpty() && o.branchDepth() == 0 && "neutral".equals(o.tone()))
+						.filter(o -> preferredBranch.isEmpty() || preferredBranch.equals(o.branch()))
+						.findFirst().ifPresent(branchEntry -> {
+							picked.removeIf(option -> "neutral".equals(option.tone()));
+							picked.add(Math.min(1, picked.size()), branchEntry);
+						});
+			}
+		}
+		// Branch screens already have persistent Change Subject and Leave controls.
+		// A fourth random exit option duplicates Leave and steals transcript height.
 		if (activeBranch.isEmpty()) {
 			eligible.stream().map(Scored::option)
-					.filter(o -> !o.branch().isEmpty() && o.branchDepth() == 0 && "neutral".equals(o.tone()))
-					.findFirst().ifPresent(branchEntry -> {
-						picked.removeIf(option -> "neutral".equals(option.tone()));
-						picked.add(Math.min(1, picked.size()), branchEntry);
-					});
+					.filter(o -> o.exit() && o.effects().stream().anyMatch(e -> "end".equals(e.type())))
+					.filter(o -> !picked.contains(o)).findFirst().ifPresent(picked::add);
 		}
-		eligible.stream().map(Scored::option)
-				.filter(o -> o.exit() && o.effects().stream().anyMatch(e -> "end".equals(e.type())))
-				.filter(o -> !picked.contains(o)).findFirst().ifPresent(picked::add);
 		// Defensive fallback for malformed third-party dialogue packs.
 		for (Scored scored : eligible) {
 			if (picked.size() >= PICK) break;
-			if (!picked.contains(scored.option())) picked.add(scored.option());
+			if (!picked.contains(scored.option()) && (activeBranch.isEmpty() || !scored.option().exit())) {
+				picked.add(scored.option());
+			}
 		}
 		return picked;
+	}
+
+	private static boolean isImmediateContext(DialogueOption.Conditions c) {
+		return !c.dispositions().isEmpty() || !c.locations().isEmpty() || !c.times().isEmpty()
+				|| c.recentCombat() != null || c.hasKilledThisFaction() != null
+				|| !c.contractStates().isEmpty() || !c.requiresItem().isEmpty();
 	}
 
 	private static void pickTone(List<Scored> eligible, List<DialogueOption> picked, String tone) {

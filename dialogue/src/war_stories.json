@@ -431,7 +431,7 @@
       },
       "aegis": {
         "negative": [
-          "Personal details are not shared at this trust level. Miss whatever you like on my behalf.",
+          "Personal details are not shared. Miss whatever you like on my behalf.",
           "Home is what I keep people like you away from. That's all you get."
         ],
         "neutral": [
@@ -935,7 +935,7 @@
           "You're fishing for soft spots. Professionals notice."
         ],
         "neutral": [
-          "That would be off the record, and there is no off the record at this trust level.",
+          "That would be off the record, and I do not speak off the record.",
           "I keep the personal file thin on purpose. Thin files survive."
         ],
         "positive": [

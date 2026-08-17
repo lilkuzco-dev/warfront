@@ -19,6 +19,8 @@ public class WarfrontDialogueTest implements FabricClientGameTest {
 	@Override
 	public void runTest(ClientGameTestContext context) {
 		if (Boolean.getBoolean("warfront.c2.only")) return;
+		int originalGuiScale = context.computeOnClient(client -> client.options.guiScale().get());
+		System.setProperty("warfront.test.dialogueBranch", "prototype_defensive_barrier");
 		try (TestSingleplayerContext world = context.worldBuilder().create()) {
 			context.waitTicks(80);
 			var server = world.getServer();
@@ -99,6 +101,7 @@ public class WarfrontDialogueTest implements FabricClientGameTest {
 				}
 				soldier.setNoAi(true);
 			});
+			System.setProperty("warfront.test.dialogueBranch", "contested_river_bridge");
 			context.getInput().pressKey(options -> options.keyUse);
 			context.waitForScreen(DialogueScreen.class);
 			Set<String> reopenedOptions = context.computeOnClient(client ->
@@ -133,6 +136,7 @@ public class WarfrontDialogueTest implements FabricClientGameTest {
 			context.clickScreenButton("Change Subject");
 			context.waitFor(client -> client.gui.screen() instanceof DialogueScreen screen
 					&& screen.atTopicRootForTest());
+			System.clearProperty("warfront.test.dialogueBranch");
 			context.clickScreenButton("Leave");
 			context.waitTicks(20);
 
@@ -192,6 +196,100 @@ public class WarfrontDialogueTest implements FabricClientGameTest {
 					throw new AssertionError("Soldier did not attack at its individual temper limit");
 				}
 			});
+		}
+		for (String faction : new String[] { "vostok", "aegis", "sarab" }) {
+			captureBarrierLore(context, faction);
+		}
+		context.runOnClient(client -> {
+			client.options.guiScale().set(originalGuiScale);
+			client.resizeGui();
+		});
+	}
+
+	private static void captureBarrierLore(ClientGameTestContext context, String faction) {
+		System.setProperty("warfront.test.dialogueBranch", "prototype_defensive_barrier");
+		try (TestSingleplayerContext world = context.worldBuilder().create()) {
+			context.waitTicks(80);
+			var server = world.getServer();
+			server.runCommand("time set noon");
+			server.runCommand("gamemode creative @p");
+			server.runCommand("execute at @p run fill ~-6 ~-1 ~-2 ~6 ~-1 ~8 minecraft:smooth_stone");
+			server.runCommand("execute at @p run fill ~-6 ~ ~-2 ~6 ~4 ~8 minecraft:air");
+			server.runCommand("execute at @p run tp @p ~ ~ ~ 0 12");
+			server.runCommand("execute at @p run summon warfront:soldier ~ ~ ~2.5 {warfront_faction:\""
+					+ faction + "\",warfront_rank:\"officer\",NoAI:1b,Rotation:[180f,0f]}");
+			server.runOnServer(minecraftServer -> {
+				var player = minecraftServer.getPlayerList().getPlayers().getFirst();
+				io.github.lilkuzcodev.warfront.data.WarfrontState.get(minecraftServer)
+						.addStanding(player.getUUID(), faction, 3);
+			});
+			context.waitTicks(40);
+			context.getInput().pressKey(options -> options.keyUse);
+			context.waitForScreen(DialogueScreen.class);
+			String barrierEntry = context.computeOnClient(client ->
+					((DialogueScreen) client.gui.screen()).firstOptionLabelForToneForTest("neutral"));
+			context.clickScreenButton(barrierEntry);
+			context.waitFor(client -> client.gui.screen() instanceof DialogueScreen screen
+					&& screen.inDeepBranchForTest() && screen.isPrototypeBarrierTopicForTest());
+			for (int expectedDepth = 3; expectedDepth <= 6; expectedDepth++) {
+				String followup = context.computeOnClient(client ->
+						((DialogueScreen) client.gui.screen()).firstOptionLabelForToneForTest("neutral"));
+				context.clickScreenButton(followup);
+				int targetDepth = expectedDepth;
+				context.waitFor(client -> client.gui.screen() instanceof DialogueScreen screen
+						&& screen.branchDepthForTest() == targetDepth);
+			}
+			String historyQuestion = context.computeOnClient(client ->
+					((DialogueScreen) client.gui.screen()).firstOptionLabelForToneForTest("positive"));
+			context.clickScreenButton(historyQuestion);
+			context.waitFor(client -> client.gui.screen() instanceof DialogueScreen screen
+					&& screen.branchDepthForTest() == 7 && screen.hasVisibleExchangeForTest());
+			context.runOnClient(client -> {
+				DialogueScreen screen = (DialogueScreen) client.gui.screen();
+				String reply = screen.latestReplyForTest();
+				String required = switch (faction) {
+					case "vostok" -> "neat target";
+					case "aegis" -> "blue status lamp";
+					default -> "bright wall";
+				};
+				if (!reply.contains(required)) {
+					throw new AssertionError(faction + " barrier answer lacked faction-specific history: " + reply);
+				}
+				if (Math.round(screen.standingValueForTest()) != 4) {
+					throw new AssertionError("Reference barrier conversation was not at standing 4");
+				}
+			});
+			int[] effectiveWidths = new int[2];
+			int scaleIndex = 0;
+			for (int guiScale : new int[] { 1, 2 }) {
+				context.runOnClient(client -> {
+					client.options.guiScale().set(guiScale);
+					client.resizeGui();
+				});
+				context.waitTicks(10);
+				context.runOnClient(client -> {
+					DialogueScreen screen = (DialogueScreen) client.gui.screen();
+					if (!screen.headerRowsDoNotOverlapForTest()) {
+						throw new AssertionError("Dialogue header overlaps at GUI scale " + guiScale);
+					}
+					if (!screen.replyUsesPaddedFullWidthForTest() || !screen.allOptionTextFitsForTest()) {
+						throw new AssertionError("Dialogue wrapping failed at GUI scale " + guiScale);
+					}
+					if (!screen.referenceExchangeFitsWithoutScrollForTest()) {
+						throw new AssertionError("Reference player question and reply do not fit at GUI scale " + guiScale);
+					}
+				});
+				effectiveWidths[scaleIndex++] = context.computeOnClient(client ->
+						((DialogueScreen) client.gui.screen()).screenWidthForTest());
+				context.takeScreenshot("dialogue_barrier_" + faction + "_gui" + guiScale);
+			}
+			if (effectiveWidths[0] == effectiveWidths[1]) {
+				throw new AssertionError("GUI scale battery did not produce two independent layouts");
+			}
+			context.clickScreenButton("Leave");
+			context.waitTicks(10);
+		} finally {
+			System.clearProperty("warfront.test.dialogueBranch");
 		}
 	}
 }

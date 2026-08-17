@@ -852,7 +852,7 @@
       },
       "aegis": {
         "negative": [
-          "Familiarity not authorized at your trust level.",
+          "We are not familiar. Keep this professional.",
           "You're chatting like we're friends. Check the record: we're not."
         ],
         "neutral": [

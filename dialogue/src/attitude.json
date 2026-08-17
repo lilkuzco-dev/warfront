@@ -49,7 +49,7 @@
   "responses": {
     "attitude_positive": {
       "vostok": { "neutral": ["Respect given freely is worth keeping. You have mine in return.", "Good words travel farther than orders. I will remember yours."] },
-      "aegis": { "neutral": ["Professional regard acknowledged. Your standing improves with me.", "That is noted, and appreciated more than regulations require."] },
+      "aegis": { "neutral": ["Professional regard acknowledged. I will note that you acted well.", "That is noted, and appreciated more than regulations require."] },
       "sarab": { "neutral": ["A kind word is water carried without a jar. I accept it.", "Respect offered in the open grows shade for both of us."] }
     },
     "attitude_neutral": {
