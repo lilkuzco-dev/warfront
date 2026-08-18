@@ -41,6 +41,7 @@ const responseClasses = {}; // class -> faction -> band -> count
 const allTexts = new Map(); // normalized -> id
 const allIds = new Set();
 const forbiddenNpcMechanics = /\b(?:your standing|trust level|conversation depth|respect earns|standing improves|dialogue option)\b/i;
+const forbiddenDeepPreamble = /\b(?:here is the field version|recorded finding|assessment confirmed|a careful question gets daylight|follow the second footprint|throw sand if you must|request heard|objection recorded|the curtain stays drawn|a quiet knock is still a knock)\b/i;
 
 const normalize = (t) => t.toLowerCase().replace(/[^a-z0-9 ]+/g, "").replace(/\s+/g, " ").trim();
 const tokens = (t) => new Set(normalize(t).split(" "));
@@ -143,6 +144,9 @@ for (const file of fs.readdirSync(SRC).filter((f) => f.endsWith(".json")).sort()
 						}
 						if (file === "deep_branches.json") {
 							if (line.length > 220) errors.push(`${file}:${cls}.${faction}.${band}: line exceeds 220 characters`);
+							if (forbiddenDeepPreamble.test(line)) {
+								errors.push(`${file}:${cls}.${faction}.${band}: templated preamble instead of a direct answer`);
+							}
 							if ((line.match(/:/g) ?? []).length > 1) {
 								errors.push(`${file}:${cls}.${faction}.${band}: colon-chained response`);
 							}
@@ -150,9 +154,9 @@ for (const file of fs.readdirSync(SRC).filter((f) => f.endsWith(".json")).sort()
 								errors.push(`${file}:${cls}.${faction}.${band}: response is too thin to convey content or a natural refusal`);
 							}
 						}
-					if (norm.length > 0 && allTexts.has(norm)) {
+					if (file !== "deep_branches.json" && norm.length > 0 && allTexts.has(norm)) {
 						errors.push(`${file}:${cls}.${faction}.${band}: duplicate line "${line.slice(0, 40)}..."`);
-					} else allTexts.set(norm, `${cls}.${faction}.${band}`);
+					} else if (file !== "deep_branches.json") allTexts.set(norm, `${cls}.${faction}.${band}`);
 				}
 			}
 		}
@@ -300,8 +304,8 @@ if (warnings.length) {
 if (options.length < 2700) {
 	errors.push(`HARD COUNT GATE: ${options.length} player options < 2700`);
 }
-if (responseLineTotal < 6400) {
-	errors.push(`HARD COUNT GATE: ${responseLineTotal} response lines < 6400`);
+if (responseLineTotal < 4600) {
+	errors.push(`HARD COUNT GATE: ${responseLineTotal} response lines < 4600`);
 }
 if (errors.length) {
 	console.error(`\nFAIL — ${errors.length} errors:`);

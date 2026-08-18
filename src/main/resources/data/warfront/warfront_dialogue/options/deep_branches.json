@@ -4,7 +4,7 @@
   {
    "id": "deep_contested_river_bridge_1_positive",
    "text": "dialogue.warfront.opt.deep_contested_river_bridge_1_positive",
-   "response": "deep_contested_river_bridge_1_positive",
+   "response": "deep_contested_river_bridge_1",
    "tone": "positive",
    "branch": "contested_river_bridge",
    "branch_depth": 0,
@@ -15,7 +15,7 @@
   {
    "id": "deep_contested_river_bridge_1_neutral",
    "text": "dialogue.warfront.opt.deep_contested_river_bridge_1_neutral",
-   "response": "deep_contested_river_bridge_1_neutral",
+   "response": "deep_contested_river_bridge_1",
    "tone": "neutral",
    "branch": "contested_river_bridge",
    "branch_depth": 0,
@@ -26,7 +26,7 @@
   {
    "id": "deep_contested_river_bridge_1_negative",
    "text": "dialogue.warfront.opt.deep_contested_river_bridge_1_negative",
-   "response": "deep_contested_river_bridge_1_negative",
+   "response": "deep_contested_river_bridge_1",
    "tone": "negative",
    "branch": "contested_river_bridge",
    "branch_depth": 0,
@@ -37,7 +37,7 @@
   {
    "id": "deep_contested_river_bridge_2_positive",
    "text": "dialogue.warfront.opt.deep_contested_river_bridge_2_positive",
-   "response": "deep_contested_river_bridge_2_positive",
+   "response": "deep_contested_river_bridge_2",
    "tone": "positive",
    "branch": "contested_river_bridge",
    "branch_depth": 1,
@@ -48,7 +48,7 @@
   {
    "id": "deep_contested_river_bridge_2_neutral",
    "text": "dialogue.warfront.opt.deep_contested_river_bridge_2_neutral",
-   "response": "deep_contested_river_bridge_2_neutral",
+   "response": "deep_contested_river_bridge_2",
    "tone": "neutral",
    "branch": "contested_river_bridge",
    "branch_depth": 1,
@@ -59,7 +59,7 @@
   {
    "id": "deep_contested_river_bridge_2_negative",
    "text": "dialogue.warfront.opt.deep_contested_river_bridge_2_negative",
-   "response": "deep_contested_river_bridge_2_negative",
+   "response": "deep_contested_river_bridge_2",
    "tone": "negative",
    "branch": "contested_river_bridge",
    "branch_depth": 1,
@@ -70,7 +70,7 @@
   {
    "id": "deep_contested_river_bridge_3_positive",
    "text": "dialogue.warfront.opt.deep_contested_river_bridge_3_positive",
-   "response": "deep_contested_river_bridge_3_positive",
+   "response": "deep_contested_river_bridge_3",
    "tone": "positive",
    "branch": "contested_river_bridge",
    "branch_depth": 2,
@@ -81,7 +81,7 @@
   {
    "id": "deep_contested_river_bridge_3_neutral",
    "text": "dialogue.warfront.opt.deep_contested_river_bridge_3_neutral",
-   "response": "deep_contested_river_bridge_3_neutral",
+   "response": "deep_contested_river_bridge_3",
    "tone": "neutral",
    "branch": "contested_river_bridge",
    "branch_depth": 2,
@@ -92,7 +92,7 @@
   {
    "id": "deep_contested_river_bridge_3_negative",
    "text": "dialogue.warfront.opt.deep_contested_river_bridge_3_negative",
-   "response": "deep_contested_river_bridge_3_negative",
+   "response": "deep_contested_river_bridge_3",
    "tone": "negative",
    "branch": "contested_river_bridge",
    "branch_depth": 2,
@@ -103,7 +103,7 @@
   {
    "id": "deep_contested_river_bridge_4_positive",
    "text": "dialogue.warfront.opt.deep_contested_river_bridge_4_positive",
-   "response": "deep_contested_river_bridge_4_positive",
+   "response": "deep_contested_river_bridge_4",
    "tone": "positive",
    "branch": "contested_river_bridge",
    "branch_depth": 3,
@@ -114,7 +114,7 @@
   {
    "id": "deep_contested_river_bridge_4_neutral",
    "text": "dialogue.warfront.opt.deep_contested_river_bridge_4_neutral",
-   "response": "deep_contested_river_bridge_4_neutral",
+   "response": "deep_contested_river_bridge_4",
    "tone": "neutral",
    "branch": "contested_river_bridge",
    "branch_depth": 3,
@@ -125,7 +125,7 @@
   {
    "id": "deep_contested_river_bridge_4_negative",
    "text": "dialogue.warfront.opt.deep_contested_river_bridge_4_negative",
-   "response": "deep_contested_river_bridge_4_negative",
+   "response": "deep_contested_river_bridge_4",
    "tone": "negative",
    "branch": "contested_river_bridge",
    "branch_depth": 3,
@@ -136,7 +136,7 @@
   {
    "id": "deep_contested_river_bridge_5_positive",
    "text": "dialogue.warfront.opt.deep_contested_river_bridge_5_positive",
-   "response": "deep_contested_river_bridge_5_positive",
+   "response": "deep_contested_river_bridge_5",
    "tone": "positive",
    "branch": "contested_river_bridge",
    "branch_depth": 4,
@@ -147,7 +147,7 @@
   {
    "id": "deep_contested_river_bridge_5_neutral",
    "text": "dialogue.warfront.opt.deep_contested_river_bridge_5_neutral",
-   "response": "deep_contested_river_bridge_5_neutral",
+   "response": "deep_contested_river_bridge_5",
    "tone": "neutral",
    "branch": "contested_river_bridge",
    "branch_depth": 4,
@@ -158,7 +158,7 @@
   {
    "id": "deep_contested_river_bridge_5_negative",
    "text": "dialogue.warfront.opt.deep_contested_river_bridge_5_negative",
-   "response": "deep_contested_river_bridge_5_negative",
+   "response": "deep_contested_river_bridge_5",
    "tone": "negative",
    "branch": "contested_river_bridge",
    "branch_depth": 4,
@@ -169,7 +169,7 @@
   {
    "id": "deep_contested_river_bridge_6_positive",
    "text": "dialogue.warfront.opt.deep_contested_river_bridge_6_positive",
-   "response": "deep_contested_river_bridge_6_positive",
+   "response": "deep_contested_river_bridge_6",
    "tone": "positive",
    "branch": "contested_river_bridge",
    "branch_depth": 5,
@@ -180,7 +180,7 @@
   {
    "id": "deep_contested_river_bridge_6_neutral",
    "text": "dialogue.warfront.opt.deep_contested_river_bridge_6_neutral",
-   "response": "deep_contested_river_bridge_6_neutral",
+   "response": "deep_contested_river_bridge_6",
    "tone": "neutral",
    "branch": "contested_river_bridge",
    "branch_depth": 5,
@@ -191,7 +191,7 @@
   {
    "id": "deep_contested_river_bridge_6_negative",
    "text": "dialogue.warfront.opt.deep_contested_river_bridge_6_negative",
-   "response": "deep_contested_river_bridge_6_negative",
+   "response": "deep_contested_river_bridge_6",
    "tone": "negative",
    "branch": "contested_river_bridge",
    "branch_depth": 5,
@@ -202,7 +202,7 @@
   {
    "id": "deep_contested_river_bridge_7_positive",
    "text": "dialogue.warfront.opt.deep_contested_river_bridge_7_positive",
-   "response": "deep_contested_river_bridge_7_positive",
+   "response": "deep_contested_river_bridge_7",
    "tone": "positive",
    "branch": "contested_river_bridge",
    "branch_depth": 6,
@@ -213,7 +213,7 @@
   {
    "id": "deep_contested_river_bridge_7_neutral",
    "text": "dialogue.warfront.opt.deep_contested_river_bridge_7_neutral",
-   "response": "deep_contested_river_bridge_7_neutral",
+   "response": "deep_contested_river_bridge_7",
    "tone": "neutral",
    "branch": "contested_river_bridge",
    "branch_depth": 6,
@@ -224,7 +224,7 @@
   {
    "id": "deep_contested_river_bridge_7_negative",
    "text": "dialogue.warfront.opt.deep_contested_river_bridge_7_negative",
-   "response": "deep_contested_river_bridge_7_negative",
+   "response": "deep_contested_river_bridge_7",
    "tone": "negative",
    "branch": "contested_river_bridge",
    "branch_depth": 6,
@@ -235,7 +235,7 @@
   {
    "id": "deep_contested_river_bridge_8_positive",
    "text": "dialogue.warfront.opt.deep_contested_river_bridge_8_positive",
-   "response": "deep_contested_river_bridge_8_positive",
+   "response": "deep_contested_river_bridge_8",
    "tone": "positive",
    "branch": "contested_river_bridge",
    "branch_depth": 7,
@@ -246,7 +246,7 @@
   {
    "id": "deep_contested_river_bridge_8_neutral",
    "text": "dialogue.warfront.opt.deep_contested_river_bridge_8_neutral",
-   "response": "deep_contested_river_bridge_8_neutral",
+   "response": "deep_contested_river_bridge_8",
    "tone": "neutral",
    "branch": "contested_river_bridge",
    "branch_depth": 7,
@@ -257,7 +257,7 @@
   {
    "id": "deep_contested_river_bridge_8_negative",
    "text": "dialogue.warfront.opt.deep_contested_river_bridge_8_negative",
-   "response": "deep_contested_river_bridge_8_negative",
+   "response": "deep_contested_river_bridge_8",
    "tone": "negative",
    "branch": "contested_river_bridge",
    "branch_depth": 7,
@@ -268,7 +268,7 @@
   {
    "id": "deep_contested_river_bridge_9_positive",
    "text": "dialogue.warfront.opt.deep_contested_river_bridge_9_positive",
-   "response": "deep_contested_river_bridge_9_positive",
+   "response": "deep_contested_river_bridge_9",
    "tone": "positive",
    "branch": "contested_river_bridge",
    "branch_depth": 8,
@@ -279,7 +279,7 @@
   {
    "id": "deep_contested_river_bridge_9_neutral",
    "text": "dialogue.warfront.opt.deep_contested_river_bridge_9_neutral",
-   "response": "deep_contested_river_bridge_9_neutral",
+   "response": "deep_contested_river_bridge_9",
    "tone": "neutral",
    "branch": "contested_river_bridge",
    "branch_depth": 8,
@@ -290,7 +290,7 @@
   {
    "id": "deep_contested_river_bridge_9_negative",
    "text": "dialogue.warfront.opt.deep_contested_river_bridge_9_negative",
-   "response": "deep_contested_river_bridge_9_negative",
+   "response": "deep_contested_river_bridge_9",
    "tone": "negative",
    "branch": "contested_river_bridge",
    "branch_depth": 8,
@@ -301,7 +301,7 @@
   {
    "id": "deep_contested_river_bridge_10_positive",
    "text": "dialogue.warfront.opt.deep_contested_river_bridge_10_positive",
-   "response": "deep_contested_river_bridge_10_positive",
+   "response": "deep_contested_river_bridge_10",
    "tone": "positive",
    "branch": "contested_river_bridge",
    "branch_depth": 9,
@@ -312,7 +312,7 @@
   {
    "id": "deep_contested_river_bridge_10_neutral",
    "text": "dialogue.warfront.opt.deep_contested_river_bridge_10_neutral",
-   "response": "deep_contested_river_bridge_10_neutral",
+   "response": "deep_contested_river_bridge_10",
    "tone": "neutral",
    "branch": "contested_river_bridge",
    "branch_depth": 9,
@@ -323,7 +323,7 @@
   {
    "id": "deep_contested_river_bridge_10_negative",
    "text": "dialogue.warfront.opt.deep_contested_river_bridge_10_negative",
-   "response": "deep_contested_river_bridge_10_negative",
+   "response": "deep_contested_river_bridge_10",
    "tone": "negative",
    "branch": "contested_river_bridge",
    "branch_depth": 9,
@@ -334,7 +334,7 @@
   {
    "id": "deep_winter_ration_reserve_1_positive",
    "text": "dialogue.warfront.opt.deep_winter_ration_reserve_1_positive",
-   "response": "deep_winter_ration_reserve_1_positive",
+   "response": "deep_winter_ration_reserve_1",
    "tone": "positive",
    "branch": "winter_ration_reserve",
    "branch_depth": 0,
@@ -345,7 +345,7 @@
   {
    "id": "deep_winter_ration_reserve_1_neutral",
    "text": "dialogue.warfront.opt.deep_winter_ration_reserve_1_neutral",
-   "response": "deep_winter_ration_reserve_1_neutral",
+   "response": "deep_winter_ration_reserve_1",
    "tone": "neutral",
    "branch": "winter_ration_reserve",
    "branch_depth": 0,
@@ -356,7 +356,7 @@
   {
    "id": "deep_winter_ration_reserve_1_negative",
    "text": "dialogue.warfront.opt.deep_winter_ration_reserve_1_negative",
-   "response": "deep_winter_ration_reserve_1_negative",
+   "response": "deep_winter_ration_reserve_1",
    "tone": "negative",
    "branch": "winter_ration_reserve",
    "branch_depth": 0,
@@ -367,7 +367,7 @@
   {
    "id": "deep_winter_ration_reserve_2_positive",
    "text": "dialogue.warfront.opt.deep_winter_ration_reserve_2_positive",
-   "response": "deep_winter_ration_reserve_2_positive",
+   "response": "deep_winter_ration_reserve_2",
    "tone": "positive",
    "branch": "winter_ration_reserve",
    "branch_depth": 1,
@@ -378,7 +378,7 @@
   {
    "id": "deep_winter_ration_reserve_2_neutral",
    "text": "dialogue.warfront.opt.deep_winter_ration_reserve_2_neutral",
-   "response": "deep_winter_ration_reserve_2_neutral",
+   "response": "deep_winter_ration_reserve_2",
    "tone": "neutral",
    "branch": "winter_ration_reserve",
    "branch_depth": 1,
@@ -389,7 +389,7 @@
   {
    "id": "deep_winter_ration_reserve_2_negative",
    "text": "dialogue.warfront.opt.deep_winter_ration_reserve_2_negative",
-   "response": "deep_winter_ration_reserve_2_negative",
+   "response": "deep_winter_ration_reserve_2",
    "tone": "negative",
    "branch": "winter_ration_reserve",
    "branch_depth": 1,
@@ -400,7 +400,7 @@
   {
    "id": "deep_winter_ration_reserve_3_positive",
    "text": "dialogue.warfront.opt.deep_winter_ration_reserve_3_positive",
-   "response": "deep_winter_ration_reserve_3_positive",
+   "response": "deep_winter_ration_reserve_3",
    "tone": "positive",
    "branch": "winter_ration_reserve",
    "branch_depth": 2,
@@ -411,7 +411,7 @@
   {
    "id": "deep_winter_ration_reserve_3_neutral",
    "text": "dialogue.warfront.opt.deep_winter_ration_reserve_3_neutral",
-   "response": "deep_winter_ration_reserve_3_neutral",
+   "response": "deep_winter_ration_reserve_3",
    "tone": "neutral",
    "branch": "winter_ration_reserve",
    "branch_depth": 2,
@@ -422,7 +422,7 @@
   {
    "id": "deep_winter_ration_reserve_3_negative",
    "text": "dialogue.warfront.opt.deep_winter_ration_reserve_3_negative",
-   "response": "deep_winter_ration_reserve_3_negative",
+   "response": "deep_winter_ration_reserve_3",
    "tone": "negative",
    "branch": "winter_ration_reserve",
    "branch_depth": 2,
@@ -433,7 +433,7 @@
   {
    "id": "deep_winter_ration_reserve_4_positive",
    "text": "dialogue.warfront.opt.deep_winter_ration_reserve_4_positive",
-   "response": "deep_winter_ration_reserve_4_positive",
+   "response": "deep_winter_ration_reserve_4",
    "tone": "positive",
    "branch": "winter_ration_reserve",
    "branch_depth": 3,
@@ -444,7 +444,7 @@
   {
    "id": "deep_winter_ration_reserve_4_neutral",
    "text": "dialogue.warfront.opt.deep_winter_ration_reserve_4_neutral",
-   "response": "deep_winter_ration_reserve_4_neutral",
+   "response": "deep_winter_ration_reserve_4",
    "tone": "neutral",
    "branch": "winter_ration_reserve",
    "branch_depth": 3,
@@ -455,7 +455,7 @@
   {
    "id": "deep_winter_ration_reserve_4_negative",
    "text": "dialogue.warfront.opt.deep_winter_ration_reserve_4_negative",
-   "response": "deep_winter_ration_reserve_4_negative",
+   "response": "deep_winter_ration_reserve_4",
    "tone": "negative",
    "branch": "winter_ration_reserve",
    "branch_depth": 3,
@@ -466,7 +466,7 @@
   {
    "id": "deep_winter_ration_reserve_5_positive",
    "text": "dialogue.warfront.opt.deep_winter_ration_reserve_5_positive",
-   "response": "deep_winter_ration_reserve_5_positive",
+   "response": "deep_winter_ration_reserve_5",
    "tone": "positive",
    "branch": "winter_ration_reserve",
    "branch_depth": 4,
@@ -477,7 +477,7 @@
   {
    "id": "deep_winter_ration_reserve_5_neutral",
    "text": "dialogue.warfront.opt.deep_winter_ration_reserve_5_neutral",
-   "response": "deep_winter_ration_reserve_5_neutral",
+   "response": "deep_winter_ration_reserve_5",
    "tone": "neutral",
    "branch": "winter_ration_reserve",
    "branch_depth": 4,
@@ -488,7 +488,7 @@
   {
    "id": "deep_winter_ration_reserve_5_negative",
    "text": "dialogue.warfront.opt.deep_winter_ration_reserve_5_negative",
-   "response": "deep_winter_ration_reserve_5_negative",
+   "response": "deep_winter_ration_reserve_5",
    "tone": "negative",
    "branch": "winter_ration_reserve",
    "branch_depth": 4,
@@ -499,7 +499,7 @@
   {
    "id": "deep_winter_ration_reserve_6_positive",
    "text": "dialogue.warfront.opt.deep_winter_ration_reserve_6_positive",
-   "response": "deep_winter_ration_reserve_6_positive",
+   "response": "deep_winter_ration_reserve_6",
    "tone": "positive",
    "branch": "winter_ration_reserve",
    "branch_depth": 5,
@@ -510,7 +510,7 @@
   {
    "id": "deep_winter_ration_reserve_6_neutral",
    "text": "dialogue.warfront.opt.deep_winter_ration_reserve_6_neutral",
-   "response": "deep_winter_ration_reserve_6_neutral",
+   "response": "deep_winter_ration_reserve_6",
    "tone": "neutral",
    "branch": "winter_ration_reserve",
    "branch_depth": 5,
@@ -521,7 +521,7 @@
   {
    "id": "deep_winter_ration_reserve_6_negative",
    "text": "dialogue.warfront.opt.deep_winter_ration_reserve_6_negative",
-   "response": "deep_winter_ration_reserve_6_negative",
+   "response": "deep_winter_ration_reserve_6",
    "tone": "negative",
    "branch": "winter_ration_reserve",
    "branch_depth": 5,
@@ -532,7 +532,7 @@
   {
    "id": "deep_winter_ration_reserve_7_positive",
    "text": "dialogue.warfront.opt.deep_winter_ration_reserve_7_positive",
-   "response": "deep_winter_ration_reserve_7_positive",
+   "response": "deep_winter_ration_reserve_7",
    "tone": "positive",
    "branch": "winter_ration_reserve",
    "branch_depth": 6,
@@ -543,7 +543,7 @@
   {
    "id": "deep_winter_ration_reserve_7_neutral",
    "text": "dialogue.warfront.opt.deep_winter_ration_reserve_7_neutral",
-   "response": "deep_winter_ration_reserve_7_neutral",
+   "response": "deep_winter_ration_reserve_7",
    "tone": "neutral",
    "branch": "winter_ration_reserve",
    "branch_depth": 6,
@@ -554,7 +554,7 @@
   {
    "id": "deep_winter_ration_reserve_7_negative",
    "text": "dialogue.warfront.opt.deep_winter_ration_reserve_7_negative",
-   "response": "deep_winter_ration_reserve_7_negative",
+   "response": "deep_winter_ration_reserve_7",
    "tone": "negative",
    "branch": "winter_ration_reserve",
    "branch_depth": 6,
@@ -565,7 +565,7 @@
   {
    "id": "deep_winter_ration_reserve_8_positive",
    "text": "dialogue.warfront.opt.deep_winter_ration_reserve_8_positive",
-   "response": "deep_winter_ration_reserve_8_positive",
+   "response": "deep_winter_ration_reserve_8",
    "tone": "positive",
    "branch": "winter_ration_reserve",
    "branch_depth": 7,
@@ -576,7 +576,7 @@
   {
    "id": "deep_winter_ration_reserve_8_neutral",
    "text": "dialogue.warfront.opt.deep_winter_ration_reserve_8_neutral",
-   "response": "deep_winter_ration_reserve_8_neutral",
+   "response": "deep_winter_ration_reserve_8",
    "tone": "neutral",
    "branch": "winter_ration_reserve",
    "branch_depth": 7,
@@ -587,7 +587,7 @@
   {
    "id": "deep_winter_ration_reserve_8_negative",
    "text": "dialogue.warfront.opt.deep_winter_ration_reserve_8_negative",
-   "response": "deep_winter_ration_reserve_8_negative",
+   "response": "deep_winter_ration_reserve_8",
    "tone": "negative",
    "branch": "winter_ration_reserve",
    "branch_depth": 7,
@@ -598,7 +598,7 @@
   {
    "id": "deep_winter_ration_reserve_9_positive",
    "text": "dialogue.warfront.opt.deep_winter_ration_reserve_9_positive",
-   "response": "deep_winter_ration_reserve_9_positive",
+   "response": "deep_winter_ration_reserve_9",
    "tone": "positive",
    "branch": "winter_ration_reserve",
    "branch_depth": 8,
@@ -609,7 +609,7 @@
   {
    "id": "deep_winter_ration_reserve_9_neutral",
    "text": "dialogue.warfront.opt.deep_winter_ration_reserve_9_neutral",
-   "response": "deep_winter_ration_reserve_9_neutral",
+   "response": "deep_winter_ration_reserve_9",
    "tone": "neutral",
    "branch": "winter_ration_reserve",
    "branch_depth": 8,
@@ -620,7 +620,7 @@
   {
    "id": "deep_winter_ration_reserve_9_negative",
    "text": "dialogue.warfront.opt.deep_winter_ration_reserve_9_negative",
-   "response": "deep_winter_ration_reserve_9_negative",
+   "response": "deep_winter_ration_reserve_9",
    "tone": "negative",
    "branch": "winter_ration_reserve",
    "branch_depth": 8,
@@ -631,7 +631,7 @@
   {
    "id": "deep_winter_ration_reserve_10_positive",
    "text": "dialogue.warfront.opt.deep_winter_ration_reserve_10_positive",
-   "response": "deep_winter_ration_reserve_10_positive",
+   "response": "deep_winter_ration_reserve_10",
    "tone": "positive",
    "branch": "winter_ration_reserve",
    "branch_depth": 9,
@@ -642,7 +642,7 @@
   {
    "id": "deep_winter_ration_reserve_10_neutral",
    "text": "dialogue.warfront.opt.deep_winter_ration_reserve_10_neutral",
-   "response": "deep_winter_ration_reserve_10_neutral",
+   "response": "deep_winter_ration_reserve_10",
    "tone": "neutral",
    "branch": "winter_ration_reserve",
    "branch_depth": 9,
@@ -653,7 +653,7 @@
   {
    "id": "deep_winter_ration_reserve_10_negative",
    "text": "dialogue.warfront.opt.deep_winter_ration_reserve_10_negative",
-   "response": "deep_winter_ration_reserve_10_negative",
+   "response": "deep_winter_ration_reserve_10",
    "tone": "negative",
    "branch": "winter_ration_reserve",
    "branch_depth": 9,
@@ -664,7 +664,7 @@
   {
    "id": "deep_double_agent_report_1_positive",
    "text": "dialogue.warfront.opt.deep_double_agent_report_1_positive",
-   "response": "deep_double_agent_report_1_positive",
+   "response": "deep_double_agent_report_1",
    "tone": "positive",
    "branch": "double_agent_report",
    "branch_depth": 0,
@@ -675,7 +675,7 @@
   {
    "id": "deep_double_agent_report_1_neutral",
    "text": "dialogue.warfront.opt.deep_double_agent_report_1_neutral",
-   "response": "deep_double_agent_report_1_neutral",
+   "response": "deep_double_agent_report_1",
    "tone": "neutral",
    "branch": "double_agent_report",
    "branch_depth": 0,
@@ -686,7 +686,7 @@
   {
    "id": "deep_double_agent_report_1_negative",
    "text": "dialogue.warfront.opt.deep_double_agent_report_1_negative",
-   "response": "deep_double_agent_report_1_negative",
+   "response": "deep_double_agent_report_1",
    "tone": "negative",
    "branch": "double_agent_report",
    "branch_depth": 0,
@@ -697,7 +697,7 @@
   {
    "id": "deep_double_agent_report_2_positive",
    "text": "dialogue.warfront.opt.deep_double_agent_report_2_positive",
-   "response": "deep_double_agent_report_2_positive",
+   "response": "deep_double_agent_report_2",
    "tone": "positive",
    "branch": "double_agent_report",
    "branch_depth": 1,
@@ -708,7 +708,7 @@
   {
    "id": "deep_double_agent_report_2_neutral",
    "text": "dialogue.warfront.opt.deep_double_agent_report_2_neutral",
-   "response": "deep_double_agent_report_2_neutral",
+   "response": "deep_double_agent_report_2",
    "tone": "neutral",
    "branch": "double_agent_report",
    "branch_depth": 1,
@@ -719,7 +719,7 @@
   {
    "id": "deep_double_agent_report_2_negative",
    "text": "dialogue.warfront.opt.deep_double_agent_report_2_negative",
-   "response": "deep_double_agent_report_2_negative",
+   "response": "deep_double_agent_report_2",
    "tone": "negative",
    "branch": "double_agent_report",
    "branch_depth": 1,
@@ -730,7 +730,7 @@
   {
    "id": "deep_double_agent_report_3_positive",
    "text": "dialogue.warfront.opt.deep_double_agent_report_3_positive",
-   "response": "deep_double_agent_report_3_positive",
+   "response": "deep_double_agent_report_3",
    "tone": "positive",
    "branch": "double_agent_report",
    "branch_depth": 2,
@@ -741,7 +741,7 @@
   {
    "id": "deep_double_agent_report_3_neutral",
    "text": "dialogue.warfront.opt.deep_double_agent_report_3_neutral",
-   "response": "deep_double_agent_report_3_neutral",
+   "response": "deep_double_agent_report_3",
    "tone": "neutral",
    "branch": "double_agent_report",
    "branch_depth": 2,
@@ -752,7 +752,7 @@
   {
    "id": "deep_double_agent_report_3_negative",
    "text": "dialogue.warfront.opt.deep_double_agent_report_3_negative",
-   "response": "deep_double_agent_report_3_negative",
+   "response": "deep_double_agent_report_3",
    "tone": "negative",
    "branch": "double_agent_report",
    "branch_depth": 2,
@@ -763,7 +763,7 @@
   {
    "id": "deep_double_agent_report_4_positive",
    "text": "dialogue.warfront.opt.deep_double_agent_report_4_positive",
-   "response": "deep_double_agent_report_4_positive",
+   "response": "deep_double_agent_report_4",
    "tone": "positive",
    "branch": "double_agent_report",
    "branch_depth": 3,
@@ -774,7 +774,7 @@
   {
    "id": "deep_double_agent_report_4_neutral",
    "text": "dialogue.warfront.opt.deep_double_agent_report_4_neutral",
-   "response": "deep_double_agent_report_4_neutral",
+   "response": "deep_double_agent_report_4",
    "tone": "neutral",
    "branch": "double_agent_report",
    "branch_depth": 3,
@@ -785,7 +785,7 @@
   {
    "id": "deep_double_agent_report_4_negative",
    "text": "dialogue.warfront.opt.deep_double_agent_report_4_negative",
-   "response": "deep_double_agent_report_4_negative",
+   "response": "deep_double_agent_report_4",
    "tone": "negative",
    "branch": "double_agent_report",
    "branch_depth": 3,
@@ -796,7 +796,7 @@
   {
    "id": "deep_double_agent_report_5_positive",
    "text": "dialogue.warfront.opt.deep_double_agent_report_5_positive",
-   "response": "deep_double_agent_report_5_positive",
+   "response": "deep_double_agent_report_5",
    "tone": "positive",
    "branch": "double_agent_report",
    "branch_depth": 4,
@@ -807,7 +807,7 @@
   {
    "id": "deep_double_agent_report_5_neutral",
    "text": "dialogue.warfront.opt.deep_double_agent_report_5_neutral",
-   "response": "deep_double_agent_report_5_neutral",
+   "response": "deep_double_agent_report_5",
    "tone": "neutral",
    "branch": "double_agent_report",
    "branch_depth": 4,
@@ -818,7 +818,7 @@
   {
    "id": "deep_double_agent_report_5_negative",
    "text": "dialogue.warfront.opt.deep_double_agent_report_5_negative",
-   "response": "deep_double_agent_report_5_negative",
+   "response": "deep_double_agent_report_5",
    "tone": "negative",
    "branch": "double_agent_report",
    "branch_depth": 4,
@@ -829,7 +829,7 @@
   {
    "id": "deep_double_agent_report_6_positive",
    "text": "dialogue.warfront.opt.deep_double_agent_report_6_positive",
-   "response": "deep_double_agent_report_6_positive",
+   "response": "deep_double_agent_report_6",
    "tone": "positive",
    "branch": "double_agent_report",
    "branch_depth": 5,
@@ -840,7 +840,7 @@
   {
    "id": "deep_double_agent_report_6_neutral",
    "text": "dialogue.warfront.opt.deep_double_agent_report_6_neutral",
-   "response": "deep_double_agent_report_6_neutral",
+   "response": "deep_double_agent_report_6",
    "tone": "neutral",
    "branch": "double_agent_report",
    "branch_depth": 5,
@@ -851,7 +851,7 @@
   {
    "id": "deep_double_agent_report_6_negative",
    "text": "dialogue.warfront.opt.deep_double_agent_report_6_negative",
-   "response": "deep_double_agent_report_6_negative",
+   "response": "deep_double_agent_report_6",
    "tone": "negative",
    "branch": "double_agent_report",
    "branch_depth": 5,
@@ -862,7 +862,7 @@
   {
    "id": "deep_double_agent_report_7_positive",
    "text": "dialogue.warfront.opt.deep_double_agent_report_7_positive",
-   "response": "deep_double_agent_report_7_positive",
+   "response": "deep_double_agent_report_7",
    "tone": "positive",
    "branch": "double_agent_report",
    "branch_depth": 6,
@@ -873,7 +873,7 @@
   {
    "id": "deep_double_agent_report_7_neutral",
    "text": "dialogue.warfront.opt.deep_double_agent_report_7_neutral",
-   "response": "deep_double_agent_report_7_neutral",
+   "response": "deep_double_agent_report_7",
    "tone": "neutral",
    "branch": "double_agent_report",
    "branch_depth": 6,
@@ -884,7 +884,7 @@
   {
    "id": "deep_double_agent_report_7_negative",
    "text": "dialogue.warfront.opt.deep_double_agent_report_7_negative",
-   "response": "deep_double_agent_report_7_negative",
+   "response": "deep_double_agent_report_7",
    "tone": "negative",
    "branch": "double_agent_report",
    "branch_depth": 6,
@@ -895,7 +895,7 @@
   {
    "id": "deep_double_agent_report_8_positive",
    "text": "dialogue.warfront.opt.deep_double_agent_report_8_positive",
-   "response": "deep_double_agent_report_8_positive",
+   "response": "deep_double_agent_report_8",
    "tone": "positive",
    "branch": "double_agent_report",
    "branch_depth": 7,
@@ -906,7 +906,7 @@
   {
    "id": "deep_double_agent_report_8_neutral",
    "text": "dialogue.warfront.opt.deep_double_agent_report_8_neutral",
-   "response": "deep_double_agent_report_8_neutral",
+   "response": "deep_double_agent_report_8",
    "tone": "neutral",
    "branch": "double_agent_report",
    "branch_depth": 7,
@@ -917,7 +917,7 @@
   {
    "id": "deep_double_agent_report_8_negative",
    "text": "dialogue.warfront.opt.deep_double_agent_report_8_negative",
-   "response": "deep_double_agent_report_8_negative",
+   "response": "deep_double_agent_report_8",
    "tone": "negative",
    "branch": "double_agent_report",
    "branch_depth": 7,
@@ -928,7 +928,7 @@
   {
    "id": "deep_double_agent_report_9_positive",
    "text": "dialogue.warfront.opt.deep_double_agent_report_9_positive",
-   "response": "deep_double_agent_report_9_positive",
+   "response": "deep_double_agent_report_9",
    "tone": "positive",
    "branch": "double_agent_report",
    "branch_depth": 8,
@@ -939,7 +939,7 @@
   {
    "id": "deep_double_agent_report_9_neutral",
    "text": "dialogue.warfront.opt.deep_double_agent_report_9_neutral",
-   "response": "deep_double_agent_report_9_neutral",
+   "response": "deep_double_agent_report_9",
    "tone": "neutral",
    "branch": "double_agent_report",
    "branch_depth": 8,
@@ -950,7 +950,7 @@
   {
    "id": "deep_double_agent_report_9_negative",
    "text": "dialogue.warfront.opt.deep_double_agent_report_9_negative",
-   "response": "deep_double_agent_report_9_negative",
+   "response": "deep_double_agent_report_9",
    "tone": "negative",
    "branch": "double_agent_report",
    "branch_depth": 8,
@@ -961,7 +961,7 @@
   {
    "id": "deep_double_agent_report_10_positive",
    "text": "dialogue.warfront.opt.deep_double_agent_report_10_positive",
-   "response": "deep_double_agent_report_10_positive",
+   "response": "deep_double_agent_report_10",
    "tone": "positive",
    "branch": "double_agent_report",
    "branch_depth": 9,
@@ -972,7 +972,7 @@
   {
    "id": "deep_double_agent_report_10_neutral",
    "text": "dialogue.warfront.opt.deep_double_agent_report_10_neutral",
-   "response": "deep_double_agent_report_10_neutral",
+   "response": "deep_double_agent_report_10",
    "tone": "neutral",
    "branch": "double_agent_report",
    "branch_depth": 9,
@@ -983,7 +983,7 @@
   {
    "id": "deep_double_agent_report_10_negative",
    "text": "dialogue.warfront.opt.deep_double_agent_report_10_negative",
-   "response": "deep_double_agent_report_10_negative",
+   "response": "deep_double_agent_report_10",
    "tone": "negative",
    "branch": "double_agent_report",
    "branch_depth": 9,
@@ -994,7 +994,7 @@
   {
    "id": "deep_unauthorized_rescue_mission_1_positive",
    "text": "dialogue.warfront.opt.deep_unauthorized_rescue_mission_1_positive",
-   "response": "deep_unauthorized_rescue_mission_1_positive",
+   "response": "deep_unauthorized_rescue_mission_1",
    "tone": "positive",
    "branch": "unauthorized_rescue_mission",
    "branch_depth": 0,
@@ -1005,7 +1005,7 @@
   {
    "id": "deep_unauthorized_rescue_mission_1_neutral",
    "text": "dialogue.warfront.opt.deep_unauthorized_rescue_mission_1_neutral",
-   "response": "deep_unauthorized_rescue_mission_1_neutral",
+   "response": "deep_unauthorized_rescue_mission_1",
    "tone": "neutral",
    "branch": "unauthorized_rescue_mission",
    "branch_depth": 0,
@@ -1016,7 +1016,7 @@
   {
    "id": "deep_unauthorized_rescue_mission_1_negative",
    "text": "dialogue.warfront.opt.deep_unauthorized_rescue_mission_1_negative",
-   "response": "deep_unauthorized_rescue_mission_1_negative",
+   "response": "deep_unauthorized_rescue_mission_1",
    "tone": "negative",
    "branch": "unauthorized_rescue_mission",
    "branch_depth": 0,
@@ -1027,7 +1027,7 @@
   {
    "id": "deep_unauthorized_rescue_mission_2_positive",
    "text": "dialogue.warfront.opt.deep_unauthorized_rescue_mission_2_positive",
-   "response": "deep_unauthorized_rescue_mission_2_positive",
+   "response": "deep_unauthorized_rescue_mission_2",
    "tone": "positive",
    "branch": "unauthorized_rescue_mission",
    "branch_depth": 1,
@@ -1038,7 +1038,7 @@
   {
    "id": "deep_unauthorized_rescue_mission_2_neutral",
    "text": "dialogue.warfront.opt.deep_unauthorized_rescue_mission_2_neutral",
-   "response": "deep_unauthorized_rescue_mission_2_neutral",
+   "response": "deep_unauthorized_rescue_mission_2",
    "tone": "neutral",
    "branch": "unauthorized_rescue_mission",
    "branch_depth": 1,
@@ -1049,7 +1049,7 @@
   {
    "id": "deep_unauthorized_rescue_mission_2_negative",
    "text": "dialogue.warfront.opt.deep_unauthorized_rescue_mission_2_negative",
-   "response": "deep_unauthorized_rescue_mission_2_negative",
+   "response": "deep_unauthorized_rescue_mission_2",
    "tone": "negative",
    "branch": "unauthorized_rescue_mission",
    "branch_depth": 1,
@@ -1060,7 +1060,7 @@
   {
    "id": "deep_unauthorized_rescue_mission_3_positive",
    "text": "dialogue.warfront.opt.deep_unauthorized_rescue_mission_3_positive",
-   "response": "deep_unauthorized_rescue_mission_3_positive",
+   "response": "deep_unauthorized_rescue_mission_3",
    "tone": "positive",
    "branch": "unauthorized_rescue_mission",
    "branch_depth": 2,
@@ -1071,7 +1071,7 @@
   {
    "id": "deep_unauthorized_rescue_mission_3_neutral",
    "text": "dialogue.warfront.opt.deep_unauthorized_rescue_mission_3_neutral",
-   "response": "deep_unauthorized_rescue_mission_3_neutral",
+   "response": "deep_unauthorized_rescue_mission_3",
    "tone": "neutral",
    "branch": "unauthorized_rescue_mission",
    "branch_depth": 2,
@@ -1082,7 +1082,7 @@
   {
    "id": "deep_unauthorized_rescue_mission_3_negative",
    "text": "dialogue.warfront.opt.deep_unauthorized_rescue_mission_3_negative",
-   "response": "deep_unauthorized_rescue_mission_3_negative",
+   "response": "deep_unauthorized_rescue_mission_3",
    "tone": "negative",
    "branch": "unauthorized_rescue_mission",
    "branch_depth": 2,
@@ -1093,7 +1093,7 @@
   {
    "id": "deep_unauthorized_rescue_mission_4_positive",
    "text": "dialogue.warfront.opt.deep_unauthorized_rescue_mission_4_positive",
-   "response": "deep_unauthorized_rescue_mission_4_positive",
+   "response": "deep_unauthorized_rescue_mission_4",
    "tone": "positive",
    "branch": "unauthorized_rescue_mission",
    "branch_depth": 3,
@@ -1104,7 +1104,7 @@
   {
    "id": "deep_unauthorized_rescue_mission_4_neutral",
    "text": "dialogue.warfront.opt.deep_unauthorized_rescue_mission_4_neutral",
-   "response": "deep_unauthorized_rescue_mission_4_neutral",
+   "response": "deep_unauthorized_rescue_mission_4",
    "tone": "neutral",
    "branch": "unauthorized_rescue_mission",
    "branch_depth": 3,
@@ -1115,7 +1115,7 @@
   {
    "id": "deep_unauthorized_rescue_mission_4_negative",
    "text": "dialogue.warfront.opt.deep_unauthorized_rescue_mission_4_negative",
-   "response": "deep_unauthorized_rescue_mission_4_negative",
+   "response": "deep_unauthorized_rescue_mission_4",
    "tone": "negative",
    "branch": "unauthorized_rescue_mission",
    "branch_depth": 3,
@@ -1126,7 +1126,7 @@
   {
    "id": "deep_unauthorized_rescue_mission_5_positive",
    "text": "dialogue.warfront.opt.deep_unauthorized_rescue_mission_5_positive",
-   "response": "deep_unauthorized_rescue_mission_5_positive",
+   "response": "deep_unauthorized_rescue_mission_5",
    "tone": "positive",
    "branch": "unauthorized_rescue_mission",
    "branch_depth": 4,
@@ -1137,7 +1137,7 @@
   {
    "id": "deep_unauthorized_rescue_mission_5_neutral",
    "text": "dialogue.warfront.opt.deep_unauthorized_rescue_mission_5_neutral",
-   "response": "deep_unauthorized_rescue_mission_5_neutral",
+   "response": "deep_unauthorized_rescue_mission_5",
    "tone": "neutral",
    "branch": "unauthorized_rescue_mission",
    "branch_depth": 4,
@@ -1148,7 +1148,7 @@
   {
    "id": "deep_unauthorized_rescue_mission_5_negative",
    "text": "dialogue.warfront.opt.deep_unauthorized_rescue_mission_5_negative",
-   "response": "deep_unauthorized_rescue_mission_5_negative",
+   "response": "deep_unauthorized_rescue_mission_5",
    "tone": "negative",
    "branch": "unauthorized_rescue_mission",
    "branch_depth": 4,
@@ -1159,7 +1159,7 @@
   {
    "id": "deep_unauthorized_rescue_mission_6_positive",
    "text": "dialogue.warfront.opt.deep_unauthorized_rescue_mission_6_positive",
-   "response": "deep_unauthorized_rescue_mission_6_positive",
+   "response": "deep_unauthorized_rescue_mission_6",
    "tone": "positive",
    "branch": "unauthorized_rescue_mission",
    "branch_depth": 5,
@@ -1170,7 +1170,7 @@
   {
    "id": "deep_unauthorized_rescue_mission_6_neutral",
    "text": "dialogue.warfront.opt.deep_unauthorized_rescue_mission_6_neutral",
-   "response": "deep_unauthorized_rescue_mission_6_neutral",
+   "response": "deep_unauthorized_rescue_mission_6",
    "tone": "neutral",
    "branch": "unauthorized_rescue_mission",
    "branch_depth": 5,
@@ -1181,7 +1181,7 @@
   {
    "id": "deep_unauthorized_rescue_mission_6_negative",
    "text": "dialogue.warfront.opt.deep_unauthorized_rescue_mission_6_negative",
-   "response": "deep_unauthorized_rescue_mission_6_negative",
+   "response": "deep_unauthorized_rescue_mission_6",
    "tone": "negative",
    "branch": "unauthorized_rescue_mission",
    "branch_depth": 5,
@@ -1192,7 +1192,7 @@
   {
    "id": "deep_unauthorized_rescue_mission_7_positive",
    "text": "dialogue.warfront.opt.deep_unauthorized_rescue_mission_7_positive",
-   "response": "deep_unauthorized_rescue_mission_7_positive",
+   "response": "deep_unauthorized_rescue_mission_7",
    "tone": "positive",
    "branch": "unauthorized_rescue_mission",
    "branch_depth": 6,
@@ -1203,7 +1203,7 @@
   {
    "id": "deep_unauthorized_rescue_mission_7_neutral",
    "text": "dialogue.warfront.opt.deep_unauthorized_rescue_mission_7_neutral",
-   "response": "deep_unauthorized_rescue_mission_7_neutral",
+   "response": "deep_unauthorized_rescue_mission_7",
    "tone": "neutral",
    "branch": "unauthorized_rescue_mission",
    "branch_depth": 6,
@@ -1214,7 +1214,7 @@
   {
    "id": "deep_unauthorized_rescue_mission_7_negative",
    "text": "dialogue.warfront.opt.deep_unauthorized_rescue_mission_7_negative",
-   "response": "deep_unauthorized_rescue_mission_7_negative",
+   "response": "deep_unauthorized_rescue_mission_7",
    "tone": "negative",
    "branch": "unauthorized_rescue_mission",
    "branch_depth": 6,
@@ -1225,7 +1225,7 @@
   {
    "id": "deep_unauthorized_rescue_mission_8_positive",
    "text": "dialogue.warfront.opt.deep_unauthorized_rescue_mission_8_positive",
-   "response": "deep_unauthorized_rescue_mission_8_positive",
+   "response": "deep_unauthorized_rescue_mission_8",
    "tone": "positive",
    "branch": "unauthorized_rescue_mission",
    "branch_depth": 7,
@@ -1236,7 +1236,7 @@
   {
    "id": "deep_unauthorized_rescue_mission_8_neutral",
    "text": "dialogue.warfront.opt.deep_unauthorized_rescue_mission_8_neutral",
-   "response": "deep_unauthorized_rescue_mission_8_neutral",
+   "response": "deep_unauthorized_rescue_mission_8",
    "tone": "neutral",
    "branch": "unauthorized_rescue_mission",
    "branch_depth": 7,
@@ -1247,7 +1247,7 @@
   {
    "id": "deep_unauthorized_rescue_mission_8_negative",
    "text": "dialogue.warfront.opt.deep_unauthorized_rescue_mission_8_negative",
-   "response": "deep_unauthorized_rescue_mission_8_negative",
+   "response": "deep_unauthorized_rescue_mission_8",
    "tone": "negative",
    "branch": "unauthorized_rescue_mission",
    "branch_depth": 7,
@@ -1258,7 +1258,7 @@
   {
    "id": "deep_unauthorized_rescue_mission_9_positive",
    "text": "dialogue.warfront.opt.deep_unauthorized_rescue_mission_9_positive",
-   "response": "deep_unauthorized_rescue_mission_9_positive",
+   "response": "deep_unauthorized_rescue_mission_9",
    "tone": "positive",
    "branch": "unauthorized_rescue_mission",
    "branch_depth": 8,
@@ -1269,7 +1269,7 @@
   {
    "id": "deep_unauthorized_rescue_mission_9_neutral",
    "text": "dialogue.warfront.opt.deep_unauthorized_rescue_mission_9_neutral",
-   "response": "deep_unauthorized_rescue_mission_9_neutral",
+   "response": "deep_unauthorized_rescue_mission_9",
    "tone": "neutral",
    "branch": "unauthorized_rescue_mission",
    "branch_depth": 8,
@@ -1280,7 +1280,7 @@
   {
    "id": "deep_unauthorized_rescue_mission_9_negative",
    "text": "dialogue.warfront.opt.deep_unauthorized_rescue_mission_9_negative",
-   "response": "deep_unauthorized_rescue_mission_9_negative",
+   "response": "deep_unauthorized_rescue_mission_9",
    "tone": "negative",
    "branch": "unauthorized_rescue_mission",
    "branch_depth": 8,
@@ -1291,7 +1291,7 @@
   {
    "id": "deep_unauthorized_rescue_mission_10_positive",
    "text": "dialogue.warfront.opt.deep_unauthorized_rescue_mission_10_positive",
-   "response": "deep_unauthorized_rescue_mission_10_positive",
+   "response": "deep_unauthorized_rescue_mission_10",
    "tone": "positive",
    "branch": "unauthorized_rescue_mission",
    "branch_depth": 9,
@@ -1302,7 +1302,7 @@
   {
    "id": "deep_unauthorized_rescue_mission_10_neutral",
    "text": "dialogue.warfront.opt.deep_unauthorized_rescue_mission_10_neutral",
-   "response": "deep_unauthorized_rescue_mission_10_neutral",
+   "response": "deep_unauthorized_rescue_mission_10",
    "tone": "neutral",
    "branch": "unauthorized_rescue_mission",
    "branch_depth": 9,
@@ -1313,7 +1313,7 @@
   {
    "id": "deep_unauthorized_rescue_mission_10_negative",
    "text": "dialogue.warfront.opt.deep_unauthorized_rescue_mission_10_negative",
-   "response": "deep_unauthorized_rescue_mission_10_negative",
+   "response": "deep_unauthorized_rescue_mission_10",
    "tone": "negative",
    "branch": "unauthorized_rescue_mission",
    "branch_depth": 9,
@@ -1324,7 +1324,7 @@
   {
    "id": "deep_unit_after_heavy_losses_1_positive",
    "text": "dialogue.warfront.opt.deep_unit_after_heavy_losses_1_positive",
-   "response": "deep_unit_after_heavy_losses_1_positive",
+   "response": "deep_unit_after_heavy_losses_1",
    "tone": "positive",
    "branch": "unit_after_heavy_losses",
    "branch_depth": 0,
@@ -1335,7 +1335,7 @@
   {
    "id": "deep_unit_after_heavy_losses_1_neutral",
    "text": "dialogue.warfront.opt.deep_unit_after_heavy_losses_1_neutral",
-   "response": "deep_unit_after_heavy_losses_1_neutral",
+   "response": "deep_unit_after_heavy_losses_1",
    "tone": "neutral",
    "branch": "unit_after_heavy_losses",
    "branch_depth": 0,
@@ -1346,7 +1346,7 @@
   {
    "id": "deep_unit_after_heavy_losses_1_negative",
    "text": "dialogue.warfront.opt.deep_unit_after_heavy_losses_1_negative",
-   "response": "deep_unit_after_heavy_losses_1_negative",
+   "response": "deep_unit_after_heavy_losses_1",
    "tone": "negative",
    "branch": "unit_after_heavy_losses",
    "branch_depth": 0,
@@ -1357,7 +1357,7 @@
   {
    "id": "deep_unit_after_heavy_losses_2_positive",
    "text": "dialogue.warfront.opt.deep_unit_after_heavy_losses_2_positive",
-   "response": "deep_unit_after_heavy_losses_2_positive",
+   "response": "deep_unit_after_heavy_losses_2",
    "tone": "positive",
    "branch": "unit_after_heavy_losses",
    "branch_depth": 1,
@@ -1368,7 +1368,7 @@
   {
    "id": "deep_unit_after_heavy_losses_2_neutral",
    "text": "dialogue.warfront.opt.deep_unit_after_heavy_losses_2_neutral",
-   "response": "deep_unit_after_heavy_losses_2_neutral",
+   "response": "deep_unit_after_heavy_losses_2",
    "tone": "neutral",
    "branch": "unit_after_heavy_losses",
    "branch_depth": 1,
@@ -1379,7 +1379,7 @@
   {
    "id": "deep_unit_after_heavy_losses_2_negative",
    "text": "dialogue.warfront.opt.deep_unit_after_heavy_losses_2_negative",
-   "response": "deep_unit_after_heavy_losses_2_negative",
+   "response": "deep_unit_after_heavy_losses_2",
    "tone": "negative",
    "branch": "unit_after_heavy_losses",
    "branch_depth": 1,
@@ -1390,7 +1390,7 @@
   {
    "id": "deep_unit_after_heavy_losses_3_positive",
    "text": "dialogue.warfront.opt.deep_unit_after_heavy_losses_3_positive",
-   "response": "deep_unit_after_heavy_losses_3_positive",
+   "response": "deep_unit_after_heavy_losses_3",
    "tone": "positive",
    "branch": "unit_after_heavy_losses",
    "branch_depth": 2,
@@ -1401,7 +1401,7 @@
   {
    "id": "deep_unit_after_heavy_losses_3_neutral",
    "text": "dialogue.warfront.opt.deep_unit_after_heavy_losses_3_neutral",
-   "response": "deep_unit_after_heavy_losses_3_neutral",
+   "response": "deep_unit_after_heavy_losses_3",
    "tone": "neutral",
    "branch": "unit_after_heavy_losses",
    "branch_depth": 2,
@@ -1412,7 +1412,7 @@
   {
    "id": "deep_unit_after_heavy_losses_3_negative",
    "text": "dialogue.warfront.opt.deep_unit_after_heavy_losses_3_negative",
-   "response": "deep_unit_after_heavy_losses_3_negative",
+   "response": "deep_unit_after_heavy_losses_3",
    "tone": "negative",
    "branch": "unit_after_heavy_losses",
    "branch_depth": 2,
@@ -1423,7 +1423,7 @@
   {
    "id": "deep_unit_after_heavy_losses_4_positive",
    "text": "dialogue.warfront.opt.deep_unit_after_heavy_losses_4_positive",
-   "response": "deep_unit_after_heavy_losses_4_positive",
+   "response": "deep_unit_after_heavy_losses_4",
    "tone": "positive",
    "branch": "unit_after_heavy_losses",
    "branch_depth": 3,
@@ -1434,7 +1434,7 @@
   {
    "id": "deep_unit_after_heavy_losses_4_neutral",
    "text": "dialogue.warfront.opt.deep_unit_after_heavy_losses_4_neutral",
-   "response": "deep_unit_after_heavy_losses_4_neutral",
+   "response": "deep_unit_after_heavy_losses_4",
    "tone": "neutral",
    "branch": "unit_after_heavy_losses",
    "branch_depth": 3,
@@ -1445,7 +1445,7 @@
   {
    "id": "deep_unit_after_heavy_losses_4_negative",
    "text": "dialogue.warfront.opt.deep_unit_after_heavy_losses_4_negative",
-   "response": "deep_unit_after_heavy_losses_4_negative",
+   "response": "deep_unit_after_heavy_losses_4",
    "tone": "negative",
    "branch": "unit_after_heavy_losses",
    "branch_depth": 3,
@@ -1456,7 +1456,7 @@
   {
    "id": "deep_unit_after_heavy_losses_5_positive",
    "text": "dialogue.warfront.opt.deep_unit_after_heavy_losses_5_positive",
-   "response": "deep_unit_after_heavy_losses_5_positive",
+   "response": "deep_unit_after_heavy_losses_5",
    "tone": "positive",
    "branch": "unit_after_heavy_losses",
    "branch_depth": 4,
@@ -1467,7 +1467,7 @@
   {
    "id": "deep_unit_after_heavy_losses_5_neutral",
    "text": "dialogue.warfront.opt.deep_unit_after_heavy_losses_5_neutral",
-   "response": "deep_unit_after_heavy_losses_5_neutral",
+   "response": "deep_unit_after_heavy_losses_5",
    "tone": "neutral",
    "branch": "unit_after_heavy_losses",
    "branch_depth": 4,
@@ -1478,7 +1478,7 @@
   {
    "id": "deep_unit_after_heavy_losses_5_negative",
    "text": "dialogue.warfront.opt.deep_unit_after_heavy_losses_5_negative",
-   "response": "deep_unit_after_heavy_losses_5_negative",
+   "response": "deep_unit_after_heavy_losses_5",
    "tone": "negative",
    "branch": "unit_after_heavy_losses",
    "branch_depth": 4,
@@ -1489,7 +1489,7 @@
   {
    "id": "deep_unit_after_heavy_losses_6_positive",
    "text": "dialogue.warfront.opt.deep_unit_after_heavy_losses_6_positive",
-   "response": "deep_unit_after_heavy_losses_6_positive",
+   "response": "deep_unit_after_heavy_losses_6",
    "tone": "positive",
    "branch": "unit_after_heavy_losses",
    "branch_depth": 5,
@@ -1500,7 +1500,7 @@
   {
    "id": "deep_unit_after_heavy_losses_6_neutral",
    "text": "dialogue.warfront.opt.deep_unit_after_heavy_losses_6_neutral",
-   "response": "deep_unit_after_heavy_losses_6_neutral",
+   "response": "deep_unit_after_heavy_losses_6",
    "tone": "neutral",
    "branch": "unit_after_heavy_losses",
    "branch_depth": 5,
@@ -1511,7 +1511,7 @@
   {
    "id": "deep_unit_after_heavy_losses_6_negative",
    "text": "dialogue.warfront.opt.deep_unit_after_heavy_losses_6_negative",
-   "response": "deep_unit_after_heavy_losses_6_negative",
+   "response": "deep_unit_after_heavy_losses_6",
    "tone": "negative",
    "branch": "unit_after_heavy_losses",
    "branch_depth": 5,
@@ -1522,7 +1522,7 @@
   {
    "id": "deep_unit_after_heavy_losses_7_positive",
    "text": "dialogue.warfront.opt.deep_unit_after_heavy_losses_7_positive",
-   "response": "deep_unit_after_heavy_losses_7_positive",
+   "response": "deep_unit_after_heavy_losses_7",
    "tone": "positive",
    "branch": "unit_after_heavy_losses",
    "branch_depth": 6,
@@ -1533,7 +1533,7 @@
   {
    "id": "deep_unit_after_heavy_losses_7_neutral",
    "text": "dialogue.warfront.opt.deep_unit_after_heavy_losses_7_neutral",
-   "response": "deep_unit_after_heavy_losses_7_neutral",
+   "response": "deep_unit_after_heavy_losses_7",
    "tone": "neutral",
    "branch": "unit_after_heavy_losses",
    "branch_depth": 6,
@@ -1544,7 +1544,7 @@
   {
    "id": "deep_unit_after_heavy_losses_7_negative",
    "text": "dialogue.warfront.opt.deep_unit_after_heavy_losses_7_negative",
-   "response": "deep_unit_after_heavy_losses_7_negative",
+   "response": "deep_unit_after_heavy_losses_7",
    "tone": "negative",
    "branch": "unit_after_heavy_losses",
    "branch_depth": 6,
@@ -1555,7 +1555,7 @@
   {
    "id": "deep_unit_after_heavy_losses_8_positive",
    "text": "dialogue.warfront.opt.deep_unit_after_heavy_losses_8_positive",
-   "response": "deep_unit_after_heavy_losses_8_positive",
+   "response": "deep_unit_after_heavy_losses_8",
    "tone": "positive",
    "branch": "unit_after_heavy_losses",
    "branch_depth": 7,
@@ -1566,7 +1566,7 @@
   {
    "id": "deep_unit_after_heavy_losses_8_neutral",
    "text": "dialogue.warfront.opt.deep_unit_after_heavy_losses_8_neutral",
-   "response": "deep_unit_after_heavy_losses_8_neutral",
+   "response": "deep_unit_after_heavy_losses_8",
    "tone": "neutral",
    "branch": "unit_after_heavy_losses",
    "branch_depth": 7,
@@ -1577,7 +1577,7 @@
   {
    "id": "deep_unit_after_heavy_losses_8_negative",
    "text": "dialogue.warfront.opt.deep_unit_after_heavy_losses_8_negative",
-   "response": "deep_unit_after_heavy_losses_8_negative",
+   "response": "deep_unit_after_heavy_losses_8",
    "tone": "negative",
    "branch": "unit_after_heavy_losses",
    "branch_depth": 7,
@@ -1588,7 +1588,7 @@
   {
    "id": "deep_unit_after_heavy_losses_9_positive",
    "text": "dialogue.warfront.opt.deep_unit_after_heavy_losses_9_positive",
-   "response": "deep_unit_after_heavy_losses_9_positive",
+   "response": "deep_unit_after_heavy_losses_9",
    "tone": "positive",
    "branch": "unit_after_heavy_losses",
    "branch_depth": 8,
@@ -1599,7 +1599,7 @@
   {
    "id": "deep_unit_after_heavy_losses_9_neutral",
    "text": "dialogue.warfront.opt.deep_unit_after_heavy_losses_9_neutral",
-   "response": "deep_unit_after_heavy_losses_9_neutral",
+   "response": "deep_unit_after_heavy_losses_9",
    "tone": "neutral",
    "branch": "unit_after_heavy_losses",
    "branch_depth": 8,
@@ -1610,7 +1610,7 @@
   {
    "id": "deep_unit_after_heavy_losses_9_negative",
    "text": "dialogue.warfront.opt.deep_unit_after_heavy_losses_9_negative",
-   "response": "deep_unit_after_heavy_losses_9_negative",
+   "response": "deep_unit_after_heavy_losses_9",
    "tone": "negative",
    "branch": "unit_after_heavy_losses",
    "branch_depth": 8,
@@ -1621,7 +1621,7 @@
   {
    "id": "deep_unit_after_heavy_losses_10_positive",
    "text": "dialogue.warfront.opt.deep_unit_after_heavy_losses_10_positive",
-   "response": "deep_unit_after_heavy_losses_10_positive",
+   "response": "deep_unit_after_heavy_losses_10",
    "tone": "positive",
    "branch": "unit_after_heavy_losses",
    "branch_depth": 9,
@@ -1632,7 +1632,7 @@
   {
    "id": "deep_unit_after_heavy_losses_10_neutral",
    "text": "dialogue.warfront.opt.deep_unit_after_heavy_losses_10_neutral",
-   "response": "deep_unit_after_heavy_losses_10_neutral",
+   "response": "deep_unit_after_heavy_losses_10",
    "tone": "neutral",
    "branch": "unit_after_heavy_losses",
    "branch_depth": 9,
@@ -1643,7 +1643,7 @@
   {
    "id": "deep_unit_after_heavy_losses_10_negative",
    "text": "dialogue.warfront.opt.deep_unit_after_heavy_losses_10_negative",
-   "response": "deep_unit_after_heavy_losses_10_negative",
+   "response": "deep_unit_after_heavy_losses_10",
    "tone": "negative",
    "branch": "unit_after_heavy_losses",
    "branch_depth": 9,
@@ -1654,7 +1654,7 @@
   {
    "id": "deep_hospital_claimed_by_both_sides_1_positive",
    "text": "dialogue.warfront.opt.deep_hospital_claimed_by_both_sides_1_positive",
-   "response": "deep_hospital_claimed_by_both_sides_1_positive",
+   "response": "deep_hospital_claimed_by_both_sides_1",
    "tone": "positive",
    "branch": "hospital_claimed_by_both_sides",
    "branch_depth": 0,
@@ -1665,7 +1665,7 @@
   {
    "id": "deep_hospital_claimed_by_both_sides_1_neutral",
    "text": "dialogue.warfront.opt.deep_hospital_claimed_by_both_sides_1_neutral",
-   "response": "deep_hospital_claimed_by_both_sides_1_neutral",
+   "response": "deep_hospital_claimed_by_both_sides_1",
    "tone": "neutral",
    "branch": "hospital_claimed_by_both_sides",
    "branch_depth": 0,
@@ -1676,7 +1676,7 @@
   {
    "id": "deep_hospital_claimed_by_both_sides_1_negative",
    "text": "dialogue.warfront.opt.deep_hospital_claimed_by_both_sides_1_negative",
-   "response": "deep_hospital_claimed_by_both_sides_1_negative",
+   "response": "deep_hospital_claimed_by_both_sides_1",
    "tone": "negative",
    "branch": "hospital_claimed_by_both_sides",
    "branch_depth": 0,
@@ -1687,7 +1687,7 @@
   {
    "id": "deep_hospital_claimed_by_both_sides_2_positive",
    "text": "dialogue.warfront.opt.deep_hospital_claimed_by_both_sides_2_positive",
-   "response": "deep_hospital_claimed_by_both_sides_2_positive",
+   "response": "deep_hospital_claimed_by_both_sides_2",
    "tone": "positive",
    "branch": "hospital_claimed_by_both_sides",
    "branch_depth": 1,
@@ -1698,7 +1698,7 @@
   {
    "id": "deep_hospital_claimed_by_both_sides_2_neutral",
    "text": "dialogue.warfront.opt.deep_hospital_claimed_by_both_sides_2_neutral",
-   "response": "deep_hospital_claimed_by_both_sides_2_neutral",
+   "response": "deep_hospital_claimed_by_both_sides_2",
    "tone": "neutral",
    "branch": "hospital_claimed_by_both_sides",
    "branch_depth": 1,
@@ -1709,7 +1709,7 @@
   {
    "id": "deep_hospital_claimed_by_both_sides_2_negative",
    "text": "dialogue.warfront.opt.deep_hospital_claimed_by_both_sides_2_negative",
-   "response": "deep_hospital_claimed_by_both_sides_2_negative",
+   "response": "deep_hospital_claimed_by_both_sides_2",
    "tone": "negative",
    "branch": "hospital_claimed_by_both_sides",
    "branch_depth": 1,
@@ -1720,7 +1720,7 @@
   {
    "id": "deep_hospital_claimed_by_both_sides_3_positive",
    "text": "dialogue.warfront.opt.deep_hospital_claimed_by_both_sides_3_positive",
-   "response": "deep_hospital_claimed_by_both_sides_3_positive",
+   "response": "deep_hospital_claimed_by_both_sides_3",
    "tone": "positive",
    "branch": "hospital_claimed_by_both_sides",
    "branch_depth": 2,
@@ -1731,7 +1731,7 @@
   {
    "id": "deep_hospital_claimed_by_both_sides_3_neutral",
    "text": "dialogue.warfront.opt.deep_hospital_claimed_by_both_sides_3_neutral",
-   "response": "deep_hospital_claimed_by_both_sides_3_neutral",
+   "response": "deep_hospital_claimed_by_both_sides_3",
    "tone": "neutral",
    "branch": "hospital_claimed_by_both_sides",
    "branch_depth": 2,
@@ -1742,7 +1742,7 @@
   {
    "id": "deep_hospital_claimed_by_both_sides_3_negative",
    "text": "dialogue.warfront.opt.deep_hospital_claimed_by_both_sides_3_negative",
-   "response": "deep_hospital_claimed_by_both_sides_3_negative",
+   "response": "deep_hospital_claimed_by_both_sides_3",
    "tone": "negative",
    "branch": "hospital_claimed_by_both_sides",
    "branch_depth": 2,
@@ -1753,7 +1753,7 @@
   {
    "id": "deep_hospital_claimed_by_both_sides_4_positive",
    "text": "dialogue.warfront.opt.deep_hospital_claimed_by_both_sides_4_positive",
-   "response": "deep_hospital_claimed_by_both_sides_4_positive",
+   "response": "deep_hospital_claimed_by_both_sides_4",
    "tone": "positive",
    "branch": "hospital_claimed_by_both_sides",
    "branch_depth": 3,
@@ -1764,7 +1764,7 @@
   {
    "id": "deep_hospital_claimed_by_both_sides_4_neutral",
    "text": "dialogue.warfront.opt.deep_hospital_claimed_by_both_sides_4_neutral",
-   "response": "deep_hospital_claimed_by_both_sides_4_neutral",
+   "response": "deep_hospital_claimed_by_both_sides_4",
    "tone": "neutral",
    "branch": "hospital_claimed_by_both_sides",
    "branch_depth": 3,
@@ -1775,7 +1775,7 @@
   {
    "id": "deep_hospital_claimed_by_both_sides_4_negative",
    "text": "dialogue.warfront.opt.deep_hospital_claimed_by_both_sides_4_negative",
-   "response": "deep_hospital_claimed_by_both_sides_4_negative",
+   "response": "deep_hospital_claimed_by_both_sides_4",
    "tone": "negative",
    "branch": "hospital_claimed_by_both_sides",
    "branch_depth": 3,
@@ -1786,7 +1786,7 @@
   {
    "id": "deep_hospital_claimed_by_both_sides_5_positive",
    "text": "dialogue.warfront.opt.deep_hospital_claimed_by_both_sides_5_positive",
-   "response": "deep_hospital_claimed_by_both_sides_5_positive",
+   "response": "deep_hospital_claimed_by_both_sides_5",
    "tone": "positive",
    "branch": "hospital_claimed_by_both_sides",
    "branch_depth": 4,
@@ -1797,7 +1797,7 @@
   {
    "id": "deep_hospital_claimed_by_both_sides_5_neutral",
    "text": "dialogue.warfront.opt.deep_hospital_claimed_by_both_sides_5_neutral",
-   "response": "deep_hospital_claimed_by_both_sides_5_neutral",
+   "response": "deep_hospital_claimed_by_both_sides_5",
    "tone": "neutral",
    "branch": "hospital_claimed_by_both_sides",
    "branch_depth": 4,
@@ -1808,7 +1808,7 @@
   {
    "id": "deep_hospital_claimed_by_both_sides_5_negative",
    "text": "dialogue.warfront.opt.deep_hospital_claimed_by_both_sides_5_negative",
-   "response": "deep_hospital_claimed_by_both_sides_5_negative",
+   "response": "deep_hospital_claimed_by_both_sides_5",
    "tone": "negative",
    "branch": "hospital_claimed_by_both_sides",
    "branch_depth": 4,
@@ -1819,7 +1819,7 @@
   {
    "id": "deep_hospital_claimed_by_both_sides_6_positive",
    "text": "dialogue.warfront.opt.deep_hospital_claimed_by_both_sides_6_positive",
-   "response": "deep_hospital_claimed_by_both_sides_6_positive",
+   "response": "deep_hospital_claimed_by_both_sides_6",
    "tone": "positive",
    "branch": "hospital_claimed_by_both_sides",
    "branch_depth": 5,
@@ -1830,7 +1830,7 @@
   {
    "id": "deep_hospital_claimed_by_both_sides_6_neutral",
    "text": "dialogue.warfront.opt.deep_hospital_claimed_by_both_sides_6_neutral",
-   "response": "deep_hospital_claimed_by_both_sides_6_neutral",
+   "response": "deep_hospital_claimed_by_both_sides_6",
    "tone": "neutral",
    "branch": "hospital_claimed_by_both_sides",
    "branch_depth": 5,
@@ -1841,7 +1841,7 @@
   {
    "id": "deep_hospital_claimed_by_both_sides_6_negative",
    "text": "dialogue.warfront.opt.deep_hospital_claimed_by_both_sides_6_negative",
-   "response": "deep_hospital_claimed_by_both_sides_6_negative",
+   "response": "deep_hospital_claimed_by_both_sides_6",
    "tone": "negative",
    "branch": "hospital_claimed_by_both_sides",
    "branch_depth": 5,
@@ -1852,7 +1852,7 @@
   {
    "id": "deep_hospital_claimed_by_both_sides_7_positive",
    "text": "dialogue.warfront.opt.deep_hospital_claimed_by_both_sides_7_positive",
-   "response": "deep_hospital_claimed_by_both_sides_7_positive",
+   "response": "deep_hospital_claimed_by_both_sides_7",
    "tone": "positive",
    "branch": "hospital_claimed_by_both_sides",
    "branch_depth": 6,
@@ -1863,7 +1863,7 @@
   {
    "id": "deep_hospital_claimed_by_both_sides_7_neutral",
    "text": "dialogue.warfront.opt.deep_hospital_claimed_by_both_sides_7_neutral",
-   "response": "deep_hospital_claimed_by_both_sides_7_neutral",
+   "response": "deep_hospital_claimed_by_both_sides_7",
    "tone": "neutral",
    "branch": "hospital_claimed_by_both_sides",
    "branch_depth": 6,
@@ -1874,7 +1874,7 @@
   {
    "id": "deep_hospital_claimed_by_both_sides_7_negative",
    "text": "dialogue.warfront.opt.deep_hospital_claimed_by_both_sides_7_negative",
-   "response": "deep_hospital_claimed_by_both_sides_7_negative",
+   "response": "deep_hospital_claimed_by_both_sides_7",
    "tone": "negative",
    "branch": "hospital_claimed_by_both_sides",
    "branch_depth": 6,
@@ -1885,7 +1885,7 @@
   {
    "id": "deep_hospital_claimed_by_both_sides_8_positive",
    "text": "dialogue.warfront.opt.deep_hospital_claimed_by_both_sides_8_positive",
-   "response": "deep_hospital_claimed_by_both_sides_8_positive",
+   "response": "deep_hospital_claimed_by_both_sides_8",
    "tone": "positive",
    "branch": "hospital_claimed_by_both_sides",
    "branch_depth": 7,
@@ -1896,7 +1896,7 @@
   {
    "id": "deep_hospital_claimed_by_both_sides_8_neutral",
    "text": "dialogue.warfront.opt.deep_hospital_claimed_by_both_sides_8_neutral",
-   "response": "deep_hospital_claimed_by_both_sides_8_neutral",
+   "response": "deep_hospital_claimed_by_both_sides_8",
    "tone": "neutral",
    "branch": "hospital_claimed_by_both_sides",
    "branch_depth": 7,
@@ -1907,7 +1907,7 @@
   {
    "id": "deep_hospital_claimed_by_both_sides_8_negative",
    "text": "dialogue.warfront.opt.deep_hospital_claimed_by_both_sides_8_negative",
-   "response": "deep_hospital_claimed_by_both_sides_8_negative",
+   "response": "deep_hospital_claimed_by_both_sides_8",
    "tone": "negative",
    "branch": "hospital_claimed_by_both_sides",
    "branch_depth": 7,
@@ -1918,7 +1918,7 @@
   {
    "id": "deep_hospital_claimed_by_both_sides_9_positive",
    "text": "dialogue.warfront.opt.deep_hospital_claimed_by_both_sides_9_positive",
-   "response": "deep_hospital_claimed_by_both_sides_9_positive",
+   "response": "deep_hospital_claimed_by_both_sides_9",
    "tone": "positive",
    "branch": "hospital_claimed_by_both_sides",
    "branch_depth": 8,
@@ -1929,7 +1929,7 @@
   {
    "id": "deep_hospital_claimed_by_both_sides_9_neutral",
    "text": "dialogue.warfront.opt.deep_hospital_claimed_by_both_sides_9_neutral",
-   "response": "deep_hospital_claimed_by_both_sides_9_neutral",
+   "response": "deep_hospital_claimed_by_both_sides_9",
    "tone": "neutral",
    "branch": "hospital_claimed_by_both_sides",
    "branch_depth": 8,
@@ -1940,7 +1940,7 @@
   {
    "id": "deep_hospital_claimed_by_both_sides_9_negative",
    "text": "dialogue.warfront.opt.deep_hospital_claimed_by_both_sides_9_negative",
-   "response": "deep_hospital_claimed_by_both_sides_9_negative",
+   "response": "deep_hospital_claimed_by_both_sides_9",
    "tone": "negative",
    "branch": "hospital_claimed_by_both_sides",
    "branch_depth": 8,
@@ -1951,7 +1951,7 @@
   {
    "id": "deep_hospital_claimed_by_both_sides_10_positive",
    "text": "dialogue.warfront.opt.deep_hospital_claimed_by_both_sides_10_positive",
-   "response": "deep_hospital_claimed_by_both_sides_10_positive",
+   "response": "deep_hospital_claimed_by_both_sides_10",
    "tone": "positive",
    "branch": "hospital_claimed_by_both_sides",
    "branch_depth": 9,
@@ -1962,7 +1962,7 @@
   {
    "id": "deep_hospital_claimed_by_both_sides_10_neutral",
    "text": "dialogue.warfront.opt.deep_hospital_claimed_by_both_sides_10_neutral",
-   "response": "deep_hospital_claimed_by_both_sides_10_neutral",
+   "response": "deep_hospital_claimed_by_both_sides_10",
    "tone": "neutral",
    "branch": "hospital_claimed_by_both_sides",
    "branch_depth": 9,
@@ -1973,7 +1973,7 @@
   {
    "id": "deep_hospital_claimed_by_both_sides_10_negative",
    "text": "dialogue.warfront.opt.deep_hospital_claimed_by_both_sides_10_negative",
-   "response": "deep_hospital_claimed_by_both_sides_10_negative",
+   "response": "deep_hospital_claimed_by_both_sides_10",
    "tone": "negative",
    "branch": "hospital_claimed_by_both_sides",
    "branch_depth": 9,
@@ -1984,7 +1984,7 @@
   {
    "id": "deep_failed_prewar_treaty_1_positive",
    "text": "dialogue.warfront.opt.deep_failed_prewar_treaty_1_positive",
-   "response": "deep_failed_prewar_treaty_1_positive",
+   "response": "deep_failed_prewar_treaty_1",
    "tone": "positive",
    "branch": "failed_prewar_treaty",
    "branch_depth": 0,
@@ -1995,7 +1995,7 @@
   {
    "id": "deep_failed_prewar_treaty_1_neutral",
    "text": "dialogue.warfront.opt.deep_failed_prewar_treaty_1_neutral",
-   "response": "deep_failed_prewar_treaty_1_neutral",
+   "response": "deep_failed_prewar_treaty_1",
    "tone": "neutral",
    "branch": "failed_prewar_treaty",
    "branch_depth": 0,
@@ -2006,7 +2006,7 @@
   {
    "id": "deep_failed_prewar_treaty_1_negative",
    "text": "dialogue.warfront.opt.deep_failed_prewar_treaty_1_negative",
-   "response": "deep_failed_prewar_treaty_1_negative",
+   "response": "deep_failed_prewar_treaty_1",
    "tone": "negative",
    "branch": "failed_prewar_treaty",
    "branch_depth": 0,
@@ -2017,7 +2017,7 @@
   {
    "id": "deep_failed_prewar_treaty_2_positive",
    "text": "dialogue.warfront.opt.deep_failed_prewar_treaty_2_positive",
-   "response": "deep_failed_prewar_treaty_2_positive",
+   "response": "deep_failed_prewar_treaty_2",
    "tone": "positive",
    "branch": "failed_prewar_treaty",
    "branch_depth": 1,
@@ -2028,7 +2028,7 @@
   {
    "id": "deep_failed_prewar_treaty_2_neutral",
    "text": "dialogue.warfront.opt.deep_failed_prewar_treaty_2_neutral",
-   "response": "deep_failed_prewar_treaty_2_neutral",
+   "response": "deep_failed_prewar_treaty_2",
    "tone": "neutral",
    "branch": "failed_prewar_treaty",
    "branch_depth": 1,
@@ -2039,7 +2039,7 @@
   {
    "id": "deep_failed_prewar_treaty_2_negative",
    "text": "dialogue.warfront.opt.deep_failed_prewar_treaty_2_negative",
-   "response": "deep_failed_prewar_treaty_2_negative",
+   "response": "deep_failed_prewar_treaty_2",
    "tone": "negative",
    "branch": "failed_prewar_treaty",
    "branch_depth": 1,
@@ -2050,7 +2050,7 @@
   {
    "id": "deep_failed_prewar_treaty_3_positive",
    "text": "dialogue.warfront.opt.deep_failed_prewar_treaty_3_positive",
-   "response": "deep_failed_prewar_treaty_3_positive",
+   "response": "deep_failed_prewar_treaty_3",
    "tone": "positive",
    "branch": "failed_prewar_treaty",
    "branch_depth": 2,
@@ -2061,7 +2061,7 @@
   {
    "id": "deep_failed_prewar_treaty_3_neutral",
    "text": "dialogue.warfront.opt.deep_failed_prewar_treaty_3_neutral",
-   "response": "deep_failed_prewar_treaty_3_neutral",
+   "response": "deep_failed_prewar_treaty_3",
    "tone": "neutral",
    "branch": "failed_prewar_treaty",
    "branch_depth": 2,
@@ -2072,7 +2072,7 @@
   {
    "id": "deep_failed_prewar_treaty_3_negative",
    "text": "dialogue.warfront.opt.deep_failed_prewar_treaty_3_negative",
-   "response": "deep_failed_prewar_treaty_3_negative",
+   "response": "deep_failed_prewar_treaty_3",
    "tone": "negative",
    "branch": "failed_prewar_treaty",
    "branch_depth": 2,
@@ -2083,7 +2083,7 @@
   {
    "id": "deep_failed_prewar_treaty_4_positive",
    "text": "dialogue.warfront.opt.deep_failed_prewar_treaty_4_positive",
-   "response": "deep_failed_prewar_treaty_4_positive",
+   "response": "deep_failed_prewar_treaty_4",
    "tone": "positive",
    "branch": "failed_prewar_treaty",
    "branch_depth": 3,
@@ -2094,7 +2094,7 @@
   {
    "id": "deep_failed_prewar_treaty_4_neutral",
    "text": "dialogue.warfront.opt.deep_failed_prewar_treaty_4_neutral",
-   "response": "deep_failed_prewar_treaty_4_neutral",
+   "response": "deep_failed_prewar_treaty_4",
    "tone": "neutral",
    "branch": "failed_prewar_treaty",
    "branch_depth": 3,
@@ -2105,7 +2105,7 @@
   {
    "id": "deep_failed_prewar_treaty_4_negative",
    "text": "dialogue.warfront.opt.deep_failed_prewar_treaty_4_negative",
-   "response": "deep_failed_prewar_treaty_4_negative",
+   "response": "deep_failed_prewar_treaty_4",
    "tone": "negative",
    "branch": "failed_prewar_treaty",
    "branch_depth": 3,
@@ -2116,7 +2116,7 @@
   {
    "id": "deep_failed_prewar_treaty_5_positive",
    "text": "dialogue.warfront.opt.deep_failed_prewar_treaty_5_positive",
-   "response": "deep_failed_prewar_treaty_5_positive",
+   "response": "deep_failed_prewar_treaty_5",
    "tone": "positive",
    "branch": "failed_prewar_treaty",
    "branch_depth": 4,
@@ -2127,7 +2127,7 @@
   {
    "id": "deep_failed_prewar_treaty_5_neutral",
    "text": "dialogue.warfront.opt.deep_failed_prewar_treaty_5_neutral",
-   "response": "deep_failed_prewar_treaty_5_neutral",
+   "response": "deep_failed_prewar_treaty_5",
    "tone": "neutral",
    "branch": "failed_prewar_treaty",
    "branch_depth": 4,
@@ -2138,7 +2138,7 @@
   {
    "id": "deep_failed_prewar_treaty_5_negative",
    "text": "dialogue.warfront.opt.deep_failed_prewar_treaty_5_negative",
-   "response": "deep_failed_prewar_treaty_5_negative",
+   "response": "deep_failed_prewar_treaty_5",
    "tone": "negative",
    "branch": "failed_prewar_treaty",
    "branch_depth": 4,
@@ -2149,7 +2149,7 @@
   {
    "id": "deep_failed_prewar_treaty_6_positive",
    "text": "dialogue.warfront.opt.deep_failed_prewar_treaty_6_positive",
-   "response": "deep_failed_prewar_treaty_6_positive",
+   "response": "deep_failed_prewar_treaty_6",
    "tone": "positive",
    "branch": "failed_prewar_treaty",
    "branch_depth": 5,
@@ -2160,7 +2160,7 @@
   {
    "id": "deep_failed_prewar_treaty_6_neutral",
    "text": "dialogue.warfront.opt.deep_failed_prewar_treaty_6_neutral",
-   "response": "deep_failed_prewar_treaty_6_neutral",
+   "response": "deep_failed_prewar_treaty_6",
    "tone": "neutral",
    "branch": "failed_prewar_treaty",
    "branch_depth": 5,
@@ -2171,7 +2171,7 @@
   {
    "id": "deep_failed_prewar_treaty_6_negative",
    "text": "dialogue.warfront.opt.deep_failed_prewar_treaty_6_negative",
-   "response": "deep_failed_prewar_treaty_6_negative",
+   "response": "deep_failed_prewar_treaty_6",
    "tone": "negative",
    "branch": "failed_prewar_treaty",
    "branch_depth": 5,
@@ -2182,7 +2182,7 @@
   {
    "id": "deep_failed_prewar_treaty_7_positive",
    "text": "dialogue.warfront.opt.deep_failed_prewar_treaty_7_positive",
-   "response": "deep_failed_prewar_treaty_7_positive",
+   "response": "deep_failed_prewar_treaty_7",
    "tone": "positive",
    "branch": "failed_prewar_treaty",
    "branch_depth": 6,
@@ -2193,7 +2193,7 @@
   {
    "id": "deep_failed_prewar_treaty_7_neutral",
    "text": "dialogue.warfront.opt.deep_failed_prewar_treaty_7_neutral",
-   "response": "deep_failed_prewar_treaty_7_neutral",
+   "response": "deep_failed_prewar_treaty_7",
    "tone": "neutral",
    "branch": "failed_prewar_treaty",
    "branch_depth": 6,
@@ -2204,7 +2204,7 @@
   {
    "id": "deep_failed_prewar_treaty_7_negative",
    "text": "dialogue.warfront.opt.deep_failed_prewar_treaty_7_negative",
-   "response": "deep_failed_prewar_treaty_7_negative",
+   "response": "deep_failed_prewar_treaty_7",
    "tone": "negative",
    "branch": "failed_prewar_treaty",
    "branch_depth": 6,
@@ -2215,7 +2215,7 @@
   {
    "id": "deep_failed_prewar_treaty_8_positive",
    "text": "dialogue.warfront.opt.deep_failed_prewar_treaty_8_positive",
-   "response": "deep_failed_prewar_treaty_8_positive",
+   "response": "deep_failed_prewar_treaty_8",
    "tone": "positive",
    "branch": "failed_prewar_treaty",
    "branch_depth": 7,
@@ -2226,7 +2226,7 @@
   {
    "id": "deep_failed_prewar_treaty_8_neutral",
    "text": "dialogue.warfront.opt.deep_failed_prewar_treaty_8_neutral",
-   "response": "deep_failed_prewar_treaty_8_neutral",
+   "response": "deep_failed_prewar_treaty_8",
    "tone": "neutral",
    "branch": "failed_prewar_treaty",
    "branch_depth": 7,
@@ -2237,7 +2237,7 @@
   {
    "id": "deep_failed_prewar_treaty_8_negative",
    "text": "dialogue.warfront.opt.deep_failed_prewar_treaty_8_negative",
-   "response": "deep_failed_prewar_treaty_8_negative",
+   "response": "deep_failed_prewar_treaty_8",
    "tone": "negative",
    "branch": "failed_prewar_treaty",
    "branch_depth": 7,
@@ -2248,7 +2248,7 @@
   {
    "id": "deep_failed_prewar_treaty_9_positive",
    "text": "dialogue.warfront.opt.deep_failed_prewar_treaty_9_positive",
-   "response": "deep_failed_prewar_treaty_9_positive",
+   "response": "deep_failed_prewar_treaty_9",
    "tone": "positive",
    "branch": "failed_prewar_treaty",
    "branch_depth": 8,
@@ -2259,7 +2259,7 @@
   {
    "id": "deep_failed_prewar_treaty_9_neutral",
    "text": "dialogue.warfront.opt.deep_failed_prewar_treaty_9_neutral",
-   "response": "deep_failed_prewar_treaty_9_neutral",
+   "response": "deep_failed_prewar_treaty_9",
    "tone": "neutral",
    "branch": "failed_prewar_treaty",
    "branch_depth": 8,
@@ -2270,7 +2270,7 @@
   {
    "id": "deep_failed_prewar_treaty_9_negative",
    "text": "dialogue.warfront.opt.deep_failed_prewar_treaty_9_negative",
-   "response": "deep_failed_prewar_treaty_9_negative",
+   "response": "deep_failed_prewar_treaty_9",
    "tone": "negative",
    "branch": "failed_prewar_treaty",
    "branch_depth": 8,
@@ -2281,7 +2281,7 @@
   {
    "id": "deep_failed_prewar_treaty_10_positive",
    "text": "dialogue.warfront.opt.deep_failed_prewar_treaty_10_positive",
-   "response": "deep_failed_prewar_treaty_10_positive",
+   "response": "deep_failed_prewar_treaty_10",
    "tone": "positive",
    "branch": "failed_prewar_treaty",
    "branch_depth": 9,
@@ -2292,7 +2292,7 @@
   {
    "id": "deep_failed_prewar_treaty_10_neutral",
    "text": "dialogue.warfront.opt.deep_failed_prewar_treaty_10_neutral",
-   "response": "deep_failed_prewar_treaty_10_neutral",
+   "response": "deep_failed_prewar_treaty_10",
    "tone": "neutral",
    "branch": "failed_prewar_treaty",
    "branch_depth": 9,
@@ -2303,7 +2303,7 @@
   {
    "id": "deep_failed_prewar_treaty_10_negative",
    "text": "dialogue.warfront.opt.deep_failed_prewar_treaty_10_negative",
-   "response": "deep_failed_prewar_treaty_10_negative",
+   "response": "deep_failed_prewar_treaty_10",
    "tone": "negative",
    "branch": "failed_prewar_treaty",
    "branch_depth": 9,
@@ -2314,7 +2314,7 @@
   {
    "id": "deep_prototype_defensive_barrier_1_positive",
    "text": "dialogue.warfront.opt.deep_prototype_defensive_barrier_1_positive",
-   "response": "deep_prototype_defensive_barrier_1_positive",
+   "response": "deep_prototype_defensive_barrier_1",
    "tone": "positive",
    "branch": "prototype_defensive_barrier",
    "branch_depth": 0,
@@ -2325,7 +2325,7 @@
   {
    "id": "deep_prototype_defensive_barrier_1_neutral",
    "text": "dialogue.warfront.opt.deep_prototype_defensive_barrier_1_neutral",
-   "response": "deep_prototype_defensive_barrier_1_neutral",
+   "response": "deep_prototype_defensive_barrier_1",
    "tone": "neutral",
    "branch": "prototype_defensive_barrier",
    "branch_depth": 0,
@@ -2336,7 +2336,7 @@
   {
    "id": "deep_prototype_defensive_barrier_1_negative",
    "text": "dialogue.warfront.opt.deep_prototype_defensive_barrier_1_negative",
-   "response": "deep_prototype_defensive_barrier_1_negative",
+   "response": "deep_prototype_defensive_barrier_1",
    "tone": "negative",
    "branch": "prototype_defensive_barrier",
    "branch_depth": 0,
@@ -2347,7 +2347,7 @@
   {
    "id": "deep_prototype_defensive_barrier_2_positive",
    "text": "dialogue.warfront.opt.deep_prototype_defensive_barrier_2_positive",
-   "response": "deep_prototype_defensive_barrier_2_positive",
+   "response": "deep_prototype_defensive_barrier_2",
    "tone": "positive",
    "branch": "prototype_defensive_barrier",
    "branch_depth": 1,
@@ -2358,7 +2358,7 @@
   {
    "id": "deep_prototype_defensive_barrier_2_neutral",
    "text": "dialogue.warfront.opt.deep_prototype_defensive_barrier_2_neutral",
-   "response": "deep_prototype_defensive_barrier_2_neutral",
+   "response": "deep_prototype_defensive_barrier_2",
    "tone": "neutral",
    "branch": "prototype_defensive_barrier",
    "branch_depth": 1,
@@ -2369,7 +2369,7 @@
   {
    "id": "deep_prototype_defensive_barrier_2_negative",
    "text": "dialogue.warfront.opt.deep_prototype_defensive_barrier_2_negative",
-   "response": "deep_prototype_defensive_barrier_2_negative",
+   "response": "deep_prototype_defensive_barrier_2",
    "tone": "negative",
    "branch": "prototype_defensive_barrier",
    "branch_depth": 1,
@@ -2380,7 +2380,7 @@
   {
    "id": "deep_prototype_defensive_barrier_3_positive",
    "text": "dialogue.warfront.opt.deep_prototype_defensive_barrier_3_positive",
-   "response": "deep_prototype_defensive_barrier_3_positive",
+   "response": "deep_prototype_defensive_barrier_3",
    "tone": "positive",
    "branch": "prototype_defensive_barrier",
    "branch_depth": 2,
@@ -2391,7 +2391,7 @@
   {
    "id": "deep_prototype_defensive_barrier_3_neutral",
    "text": "dialogue.warfront.opt.deep_prototype_defensive_barrier_3_neutral",
-   "response": "deep_prototype_defensive_barrier_3_neutral",
+   "response": "deep_prototype_defensive_barrier_3",
    "tone": "neutral",
    "branch": "prototype_defensive_barrier",
    "branch_depth": 2,
@@ -2402,7 +2402,7 @@
   {
    "id": "deep_prototype_defensive_barrier_3_negative",
    "text": "dialogue.warfront.opt.deep_prototype_defensive_barrier_3_negative",
-   "response": "deep_prototype_defensive_barrier_3_negative",
+   "response": "deep_prototype_defensive_barrier_3",
    "tone": "negative",
    "branch": "prototype_defensive_barrier",
    "branch_depth": 2,
@@ -2413,7 +2413,7 @@
   {
    "id": "deep_prototype_defensive_barrier_4_positive",
    "text": "dialogue.warfront.opt.deep_prototype_defensive_barrier_4_positive",
-   "response": "deep_prototype_defensive_barrier_4_positive",
+   "response": "deep_prototype_defensive_barrier_4",
    "tone": "positive",
    "branch": "prototype_defensive_barrier",
    "branch_depth": 3,
@@ -2424,7 +2424,7 @@
   {
    "id": "deep_prototype_defensive_barrier_4_neutral",
    "text": "dialogue.warfront.opt.deep_prototype_defensive_barrier_4_neutral",
-   "response": "deep_prototype_defensive_barrier_4_neutral",
+   "response": "deep_prototype_defensive_barrier_4",
    "tone": "neutral",
    "branch": "prototype_defensive_barrier",
    "branch_depth": 3,
@@ -2435,7 +2435,7 @@
   {
    "id": "deep_prototype_defensive_barrier_4_negative",
    "text": "dialogue.warfront.opt.deep_prototype_defensive_barrier_4_negative",
-   "response": "deep_prototype_defensive_barrier_4_negative",
+   "response": "deep_prototype_defensive_barrier_4",
    "tone": "negative",
    "branch": "prototype_defensive_barrier",
    "branch_depth": 3,
@@ -2446,7 +2446,7 @@
   {
    "id": "deep_prototype_defensive_barrier_5_positive",
    "text": "dialogue.warfront.opt.deep_prototype_defensive_barrier_5_positive",
-   "response": "deep_prototype_defensive_barrier_5_positive",
+   "response": "deep_prototype_defensive_barrier_5",
    "tone": "positive",
    "branch": "prototype_defensive_barrier",
    "branch_depth": 4,
@@ -2457,7 +2457,7 @@
   {
    "id": "deep_prototype_defensive_barrier_5_neutral",
    "text": "dialogue.warfront.opt.deep_prototype_defensive_barrier_5_neutral",
-   "response": "deep_prototype_defensive_barrier_5_neutral",
+   "response": "deep_prototype_defensive_barrier_5",
    "tone": "neutral",
    "branch": "prototype_defensive_barrier",
    "branch_depth": 4,
@@ -2468,7 +2468,7 @@
   {
    "id": "deep_prototype_defensive_barrier_5_negative",
    "text": "dialogue.warfront.opt.deep_prototype_defensive_barrier_5_negative",
-   "response": "deep_prototype_defensive_barrier_5_negative",
+   "response": "deep_prototype_defensive_barrier_5",
    "tone": "negative",
    "branch": "prototype_defensive_barrier",
    "branch_depth": 4,
@@ -2479,7 +2479,7 @@
   {
    "id": "deep_prototype_defensive_barrier_6_positive",
    "text": "dialogue.warfront.opt.deep_prototype_defensive_barrier_6_positive",
-   "response": "deep_prototype_defensive_barrier_6_positive",
+   "response": "deep_prototype_defensive_barrier_6",
    "tone": "positive",
    "branch": "prototype_defensive_barrier",
    "branch_depth": 5,
@@ -2490,7 +2490,7 @@
   {
    "id": "deep_prototype_defensive_barrier_6_neutral",
    "text": "dialogue.warfront.opt.deep_prototype_defensive_barrier_6_neutral",
-   "response": "deep_prototype_defensive_barrier_6_neutral",
+   "response": "deep_prototype_defensive_barrier_6",
    "tone": "neutral",
    "branch": "prototype_defensive_barrier",
    "branch_depth": 5,
@@ -2501,7 +2501,7 @@
   {
    "id": "deep_prototype_defensive_barrier_6_negative",
    "text": "dialogue.warfront.opt.deep_prototype_defensive_barrier_6_negative",
-   "response": "deep_prototype_defensive_barrier_6_negative",
+   "response": "deep_prototype_defensive_barrier_6",
    "tone": "negative",
    "branch": "prototype_defensive_barrier",
    "branch_depth": 5,
@@ -2512,7 +2512,7 @@
   {
    "id": "deep_prototype_defensive_barrier_7_positive",
    "text": "dialogue.warfront.opt.deep_prototype_defensive_barrier_7_positive",
-   "response": "deep_prototype_defensive_barrier_7_positive",
+   "response": "deep_prototype_defensive_barrier_7",
    "tone": "positive",
    "branch": "prototype_defensive_barrier",
    "branch_depth": 6,
@@ -2523,7 +2523,7 @@
   {
    "id": "deep_prototype_defensive_barrier_7_neutral",
    "text": "dialogue.warfront.opt.deep_prototype_defensive_barrier_7_neutral",
-   "response": "deep_prototype_defensive_barrier_7_neutral",
+   "response": "deep_prototype_defensive_barrier_7",
    "tone": "neutral",
    "branch": "prototype_defensive_barrier",
    "branch_depth": 6,
@@ -2534,7 +2534,7 @@
   {
    "id": "deep_prototype_defensive_barrier_7_negative",
    "text": "dialogue.warfront.opt.deep_prototype_defensive_barrier_7_negative",
-   "response": "deep_prototype_defensive_barrier_7_negative",
+   "response": "deep_prototype_defensive_barrier_7",
    "tone": "negative",
    "branch": "prototype_defensive_barrier",
    "branch_depth": 6,
@@ -2545,7 +2545,7 @@
   {
    "id": "deep_prototype_defensive_barrier_8_positive",
    "text": "dialogue.warfront.opt.deep_prototype_defensive_barrier_8_positive",
-   "response": "deep_prototype_defensive_barrier_8_positive",
+   "response": "deep_prototype_defensive_barrier_8",
    "tone": "positive",
    "branch": "prototype_defensive_barrier",
    "branch_depth": 7,
@@ -2556,7 +2556,7 @@
   {
    "id": "deep_prototype_defensive_barrier_8_neutral",
    "text": "dialogue.warfront.opt.deep_prototype_defensive_barrier_8_neutral",
-   "response": "deep_prototype_defensive_barrier_8_neutral",
+   "response": "deep_prototype_defensive_barrier_8",
    "tone": "neutral",
    "branch": "prototype_defensive_barrier",
    "branch_depth": 7,
@@ -2567,7 +2567,7 @@
   {
    "id": "deep_prototype_defensive_barrier_8_negative",
    "text": "dialogue.warfront.opt.deep_prototype_defensive_barrier_8_negative",
-   "response": "deep_prototype_defensive_barrier_8_negative",
+   "response": "deep_prototype_defensive_barrier_8",
    "tone": "negative",
    "branch": "prototype_defensive_barrier",
    "branch_depth": 7,
@@ -2578,7 +2578,7 @@
   {
    "id": "deep_prototype_defensive_barrier_9_positive",
    "text": "dialogue.warfront.opt.deep_prototype_defensive_barrier_9_positive",
-   "response": "deep_prototype_defensive_barrier_9_positive",
+   "response": "deep_prototype_defensive_barrier_9",
    "tone": "positive",
    "branch": "prototype_defensive_barrier",
    "branch_depth": 8,
@@ -2589,7 +2589,7 @@
   {
    "id": "deep_prototype_defensive_barrier_9_neutral",
    "text": "dialogue.warfront.opt.deep_prototype_defensive_barrier_9_neutral",
-   "response": "deep_prototype_defensive_barrier_9_neutral",
+   "response": "deep_prototype_defensive_barrier_9",
    "tone": "neutral",
    "branch": "prototype_defensive_barrier",
    "branch_depth": 8,
@@ -2600,7 +2600,7 @@
   {
    "id": "deep_prototype_defensive_barrier_9_negative",
    "text": "dialogue.warfront.opt.deep_prototype_defensive_barrier_9_negative",
-   "response": "deep_prototype_defensive_barrier_9_negative",
+   "response": "deep_prototype_defensive_barrier_9",
    "tone": "negative",
    "branch": "prototype_defensive_barrier",
    "branch_depth": 8,
@@ -2611,7 +2611,7 @@
   {
    "id": "deep_prototype_defensive_barrier_10_positive",
    "text": "dialogue.warfront.opt.deep_prototype_defensive_barrier_10_positive",
-   "response": "deep_prototype_defensive_barrier_10_positive",
+   "response": "deep_prototype_defensive_barrier_10",
    "tone": "positive",
    "branch": "prototype_defensive_barrier",
    "branch_depth": 9,
@@ -2622,7 +2622,7 @@
   {
    "id": "deep_prototype_defensive_barrier_10_neutral",
    "text": "dialogue.warfront.opt.deep_prototype_defensive_barrier_10_neutral",
-   "response": "deep_prototype_defensive_barrier_10_neutral",
+   "response": "deep_prototype_defensive_barrier_10",
    "tone": "neutral",
    "branch": "prototype_defensive_barrier",
    "branch_depth": 9,
@@ -2633,7 +2633,7 @@
   {
    "id": "deep_prototype_defensive_barrier_10_negative",
    "text": "dialogue.warfront.opt.deep_prototype_defensive_barrier_10_negative",
-   "response": "deep_prototype_defensive_barrier_10_negative",
+   "response": "deep_prototype_defensive_barrier_10",
    "tone": "negative",
    "branch": "prototype_defensive_barrier",
    "branch_depth": 9,
@@ -2644,7 +2644,7 @@
   {
    "id": "deep_desert_water_emergency_1_positive",
    "text": "dialogue.warfront.opt.deep_desert_water_emergency_1_positive",
-   "response": "deep_desert_water_emergency_1_positive",
+   "response": "deep_desert_water_emergency_1",
    "tone": "positive",
    "branch": "desert_water_emergency",
    "branch_depth": 0,
@@ -2655,7 +2655,7 @@
   {
    "id": "deep_desert_water_emergency_1_neutral",
    "text": "dialogue.warfront.opt.deep_desert_water_emergency_1_neutral",
-   "response": "deep_desert_water_emergency_1_neutral",
+   "response": "deep_desert_water_emergency_1",
    "tone": "neutral",
    "branch": "desert_water_emergency",
    "branch_depth": 0,
@@ -2666,7 +2666,7 @@
   {
    "id": "deep_desert_water_emergency_1_negative",
    "text": "dialogue.warfront.opt.deep_desert_water_emergency_1_negative",
-   "response": "deep_desert_water_emergency_1_negative",
+   "response": "deep_desert_water_emergency_1",
    "tone": "negative",
    "branch": "desert_water_emergency",
    "branch_depth": 0,
@@ -2677,7 +2677,7 @@
   {
    "id": "deep_desert_water_emergency_2_positive",
    "text": "dialogue.warfront.opt.deep_desert_water_emergency_2_positive",
-   "response": "deep_desert_water_emergency_2_positive",
+   "response": "deep_desert_water_emergency_2",
    "tone": "positive",
    "branch": "desert_water_emergency",
    "branch_depth": 1,
@@ -2688,7 +2688,7 @@
   {
    "id": "deep_desert_water_emergency_2_neutral",
    "text": "dialogue.warfront.opt.deep_desert_water_emergency_2_neutral",
-   "response": "deep_desert_water_emergency_2_neutral",
+   "response": "deep_desert_water_emergency_2",
    "tone": "neutral",
    "branch": "desert_water_emergency",
    "branch_depth": 1,
@@ -2699,7 +2699,7 @@
   {
    "id": "deep_desert_water_emergency_2_negative",
    "text": "dialogue.warfront.opt.deep_desert_water_emergency_2_negative",
-   "response": "deep_desert_water_emergency_2_negative",
+   "response": "deep_desert_water_emergency_2",
    "tone": "negative",
    "branch": "desert_water_emergency",
    "branch_depth": 1,
@@ -2710,7 +2710,7 @@
   {
    "id": "deep_desert_water_emergency_3_positive",
    "text": "dialogue.warfront.opt.deep_desert_water_emergency_3_positive",
-   "response": "deep_desert_water_emergency_3_positive",
+   "response": "deep_desert_water_emergency_3",
    "tone": "positive",
    "branch": "desert_water_emergency",
    "branch_depth": 2,
@@ -2721,7 +2721,7 @@
   {
    "id": "deep_desert_water_emergency_3_neutral",
    "text": "dialogue.warfront.opt.deep_desert_water_emergency_3_neutral",
-   "response": "deep_desert_water_emergency_3_neutral",
+   "response": "deep_desert_water_emergency_3",
    "tone": "neutral",
    "branch": "desert_water_emergency",
    "branch_depth": 2,
@@ -2732,7 +2732,7 @@
   {
    "id": "deep_desert_water_emergency_3_negative",
    "text": "dialogue.warfront.opt.deep_desert_water_emergency_3_negative",
-   "response": "deep_desert_water_emergency_3_negative",
+   "response": "deep_desert_water_emergency_3",
    "tone": "negative",
    "branch": "desert_water_emergency",
    "branch_depth": 2,
@@ -2743,7 +2743,7 @@
   {
    "id": "deep_desert_water_emergency_4_positive",
    "text": "dialogue.warfront.opt.deep_desert_water_emergency_4_positive",
-   "response": "deep_desert_water_emergency_4_positive",
+   "response": "deep_desert_water_emergency_4",
    "tone": "positive",
    "branch": "desert_water_emergency",
    "branch_depth": 3,
@@ -2754,7 +2754,7 @@
   {
    "id": "deep_desert_water_emergency_4_neutral",
    "text": "dialogue.warfront.opt.deep_desert_water_emergency_4_neutral",
-   "response": "deep_desert_water_emergency_4_neutral",
+   "response": "deep_desert_water_emergency_4",
    "tone": "neutral",
    "branch": "desert_water_emergency",
    "branch_depth": 3,
@@ -2765,7 +2765,7 @@
   {
    "id": "deep_desert_water_emergency_4_negative",
    "text": "dialogue.warfront.opt.deep_desert_water_emergency_4_negative",
-   "response": "deep_desert_water_emergency_4_negative",
+   "response": "deep_desert_water_emergency_4",
    "tone": "negative",
    "branch": "desert_water_emergency",
    "branch_depth": 3,
@@ -2776,7 +2776,7 @@
   {
    "id": "deep_desert_water_emergency_5_positive",
    "text": "dialogue.warfront.opt.deep_desert_water_emergency_5_positive",
-   "response": "deep_desert_water_emergency_5_positive",
+   "response": "deep_desert_water_emergency_5",
    "tone": "positive",
    "branch": "desert_water_emergency",
    "branch_depth": 4,
@@ -2787,7 +2787,7 @@
   {
    "id": "deep_desert_water_emergency_5_neutral",
    "text": "dialogue.warfront.opt.deep_desert_water_emergency_5_neutral",
-   "response": "deep_desert_water_emergency_5_neutral",
+   "response": "deep_desert_water_emergency_5",
    "tone": "neutral",
    "branch": "desert_water_emergency",
    "branch_depth": 4,
@@ -2798,7 +2798,7 @@
   {
    "id": "deep_desert_water_emergency_5_negative",
    "text": "dialogue.warfront.opt.deep_desert_water_emergency_5_negative",
-   "response": "deep_desert_water_emergency_5_negative",
+   "response": "deep_desert_water_emergency_5",
    "tone": "negative",
    "branch": "desert_water_emergency",
    "branch_depth": 4,
@@ -2809,7 +2809,7 @@
   {
    "id": "deep_desert_water_emergency_6_positive",
    "text": "dialogue.warfront.opt.deep_desert_water_emergency_6_positive",
-   "response": "deep_desert_water_emergency_6_positive",
+   "response": "deep_desert_water_emergency_6",
    "tone": "positive",
    "branch": "desert_water_emergency",
    "branch_depth": 5,
@@ -2820,7 +2820,7 @@
   {
    "id": "deep_desert_water_emergency_6_neutral",
    "text": "dialogue.warfront.opt.deep_desert_water_emergency_6_neutral",
-   "response": "deep_desert_water_emergency_6_neutral",
+   "response": "deep_desert_water_emergency_6",
    "tone": "neutral",
    "branch": "desert_water_emergency",
    "branch_depth": 5,
@@ -2831,7 +2831,7 @@
   {
    "id": "deep_desert_water_emergency_6_negative",
    "text": "dialogue.warfront.opt.deep_desert_water_emergency_6_negative",
-   "response": "deep_desert_water_emergency_6_negative",
+   "response": "deep_desert_water_emergency_6",
    "tone": "negative",
    "branch": "desert_water_emergency",
    "branch_depth": 5,
@@ -2842,7 +2842,7 @@
   {
    "id": "deep_desert_water_emergency_7_positive",
    "text": "dialogue.warfront.opt.deep_desert_water_emergency_7_positive",
-   "response": "deep_desert_water_emergency_7_positive",
+   "response": "deep_desert_water_emergency_7",
    "tone": "positive",
    "branch": "desert_water_emergency",
    "branch_depth": 6,
@@ -2853,7 +2853,7 @@
   {
    "id": "deep_desert_water_emergency_7_neutral",
    "text": "dialogue.warfront.opt.deep_desert_water_emergency_7_neutral",
-   "response": "deep_desert_water_emergency_7_neutral",
+   "response": "deep_desert_water_emergency_7",
    "tone": "neutral",
    "branch": "desert_water_emergency",
    "branch_depth": 6,
@@ -2864,7 +2864,7 @@
   {
    "id": "deep_desert_water_emergency_7_negative",
    "text": "dialogue.warfront.opt.deep_desert_water_emergency_7_negative",
-   "response": "deep_desert_water_emergency_7_negative",
+   "response": "deep_desert_water_emergency_7",
    "tone": "negative",
    "branch": "desert_water_emergency",
    "branch_depth": 6,
@@ -2875,7 +2875,7 @@
   {
    "id": "deep_desert_water_emergency_8_positive",
    "text": "dialogue.warfront.opt.deep_desert_water_emergency_8_positive",
-   "response": "deep_desert_water_emergency_8_positive",
+   "response": "deep_desert_water_emergency_8",
    "tone": "positive",
    "branch": "desert_water_emergency",
    "branch_depth": 7,
@@ -2886,7 +2886,7 @@
   {
    "id": "deep_desert_water_emergency_8_neutral",
    "text": "dialogue.warfront.opt.deep_desert_water_emergency_8_neutral",
-   "response": "deep_desert_water_emergency_8_neutral",
+   "response": "deep_desert_water_emergency_8",
    "tone": "neutral",
    "branch": "desert_water_emergency",
    "branch_depth": 7,
@@ -2897,7 +2897,7 @@
   {
    "id": "deep_desert_water_emergency_8_negative",
    "text": "dialogue.warfront.opt.deep_desert_water_emergency_8_negative",
-   "response": "deep_desert_water_emergency_8_negative",
+   "response": "deep_desert_water_emergency_8",
    "tone": "negative",
    "branch": "desert_water_emergency",
    "branch_depth": 7,
@@ -2908,7 +2908,7 @@
   {
    "id": "deep_desert_water_emergency_9_positive",
    "text": "dialogue.warfront.opt.deep_desert_water_emergency_9_positive",
-   "response": "deep_desert_water_emergency_9_positive",
+   "response": "deep_desert_water_emergency_9",
    "tone": "positive",
    "branch": "desert_water_emergency",
    "branch_depth": 8,
@@ -2919,7 +2919,7 @@
   {
    "id": "deep_desert_water_emergency_9_neutral",
    "text": "dialogue.warfront.opt.deep_desert_water_emergency_9_neutral",
-   "response": "deep_desert_water_emergency_9_neutral",
+   "response": "deep_desert_water_emergency_9",
    "tone": "neutral",
    "branch": "desert_water_emergency",
    "branch_depth": 8,
@@ -2930,7 +2930,7 @@
   {
    "id": "deep_desert_water_emergency_9_negative",
    "text": "dialogue.warfront.opt.deep_desert_water_emergency_9_negative",
-   "response": "deep_desert_water_emergency_9_negative",
+   "response": "deep_desert_water_emergency_9",
    "tone": "negative",
    "branch": "desert_water_emergency",
    "branch_depth": 8,
@@ -2941,7 +2941,7 @@
   {
    "id": "deep_desert_water_emergency_10_positive",
    "text": "dialogue.warfront.opt.deep_desert_water_emergency_10_positive",
-   "response": "deep_desert_water_emergency_10_positive",
+   "response": "deep_desert_water_emergency_10",
    "tone": "positive",
    "branch": "desert_water_emergency",
    "branch_depth": 9,
@@ -2952,7 +2952,7 @@
   {
    "id": "deep_desert_water_emergency_10_neutral",
    "text": "dialogue.warfront.opt.deep_desert_water_emergency_10_neutral",
-   "response": "deep_desert_water_emergency_10_neutral",
+   "response": "deep_desert_water_emergency_10",
    "tone": "neutral",
    "branch": "desert_water_emergency",
    "branch_depth": 9,
@@ -2963,7 +2963,7 @@
   {
    "id": "deep_desert_water_emergency_10_negative",
    "text": "dialogue.warfront.opt.deep_desert_water_emergency_10_negative",
-   "response": "deep_desert_water_emergency_10_negative",
+   "response": "deep_desert_water_emergency_10",
    "tone": "negative",
    "branch": "desert_water_emergency",
    "branch_depth": 9,
@@ -2974,7 +2974,7 @@
   {
    "id": "deep_disarming_rival_militias_1_positive",
    "text": "dialogue.warfront.opt.deep_disarming_rival_militias_1_positive",
-   "response": "deep_disarming_rival_militias_1_positive",
+   "response": "deep_disarming_rival_militias_1",
    "tone": "positive",
    "branch": "disarming_rival_militias",
    "branch_depth": 0,
@@ -2985,7 +2985,7 @@
   {
    "id": "deep_disarming_rival_militias_1_neutral",
    "text": "dialogue.warfront.opt.deep_disarming_rival_militias_1_neutral",
-   "response": "deep_disarming_rival_militias_1_neutral",
+   "response": "deep_disarming_rival_militias_1",
    "tone": "neutral",
    "branch": "disarming_rival_militias",
    "branch_depth": 0,
@@ -2996,7 +2996,7 @@
   {
    "id": "deep_disarming_rival_militias_1_negative",
    "text": "dialogue.warfront.opt.deep_disarming_rival_militias_1_negative",
-   "response": "deep_disarming_rival_militias_1_negative",
+   "response": "deep_disarming_rival_militias_1",
    "tone": "negative",
    "branch": "disarming_rival_militias",
    "branch_depth": 0,
@@ -3007,7 +3007,7 @@
   {
    "id": "deep_disarming_rival_militias_2_positive",
    "text": "dialogue.warfront.opt.deep_disarming_rival_militias_2_positive",
-   "response": "deep_disarming_rival_militias_2_positive",
+   "response": "deep_disarming_rival_militias_2",
    "tone": "positive",
    "branch": "disarming_rival_militias",
    "branch_depth": 1,
@@ -3018,7 +3018,7 @@
   {
    "id": "deep_disarming_rival_militias_2_neutral",
    "text": "dialogue.warfront.opt.deep_disarming_rival_militias_2_neutral",
-   "response": "deep_disarming_rival_militias_2_neutral",
+   "response": "deep_disarming_rival_militias_2",
    "tone": "neutral",
    "branch": "disarming_rival_militias",
    "branch_depth": 1,
@@ -3029,7 +3029,7 @@
   {
    "id": "deep_disarming_rival_militias_2_negative",
    "text": "dialogue.warfront.opt.deep_disarming_rival_militias_2_negative",
-   "response": "deep_disarming_rival_militias_2_negative",
+   "response": "deep_disarming_rival_militias_2",
    "tone": "negative",
    "branch": "disarming_rival_militias",
    "branch_depth": 1,
@@ -3040,7 +3040,7 @@
   {
    "id": "deep_disarming_rival_militias_3_positive",
    "text": "dialogue.warfront.opt.deep_disarming_rival_militias_3_positive",
-   "response": "deep_disarming_rival_militias_3_positive",
+   "response": "deep_disarming_rival_militias_3",
    "tone": "positive",
    "branch": "disarming_rival_militias",
    "branch_depth": 2,
@@ -3051,7 +3051,7 @@
   {
    "id": "deep_disarming_rival_militias_3_neutral",
    "text": "dialogue.warfront.opt.deep_disarming_rival_militias_3_neutral",
-   "response": "deep_disarming_rival_militias_3_neutral",
+   "response": "deep_disarming_rival_militias_3",
    "tone": "neutral",
    "branch": "disarming_rival_militias",
    "branch_depth": 2,
@@ -3062,7 +3062,7 @@
   {
    "id": "deep_disarming_rival_militias_3_negative",
    "text": "dialogue.warfront.opt.deep_disarming_rival_militias_3_negative",
-   "response": "deep_disarming_rival_militias_3_negative",
+   "response": "deep_disarming_rival_militias_3",
    "tone": "negative",
    "branch": "disarming_rival_militias",
    "branch_depth": 2,
@@ -3073,7 +3073,7 @@
   {
    "id": "deep_disarming_rival_militias_4_positive",
    "text": "dialogue.warfront.opt.deep_disarming_rival_militias_4_positive",
-   "response": "deep_disarming_rival_militias_4_positive",
+   "response": "deep_disarming_rival_militias_4",
    "tone": "positive",
    "branch": "disarming_rival_militias",
    "branch_depth": 3,
@@ -3084,7 +3084,7 @@
   {
    "id": "deep_disarming_rival_militias_4_neutral",
    "text": "dialogue.warfront.opt.deep_disarming_rival_militias_4_neutral",
-   "response": "deep_disarming_rival_militias_4_neutral",
+   "response": "deep_disarming_rival_militias_4",
    "tone": "neutral",
    "branch": "disarming_rival_militias",
    "branch_depth": 3,
@@ -3095,7 +3095,7 @@
   {
    "id": "deep_disarming_rival_militias_4_negative",
    "text": "dialogue.warfront.opt.deep_disarming_rival_militias_4_negative",
-   "response": "deep_disarming_rival_militias_4_negative",
+   "response": "deep_disarming_rival_militias_4",
    "tone": "negative",
    "branch": "disarming_rival_militias",
    "branch_depth": 3,
@@ -3106,7 +3106,7 @@
   {
    "id": "deep_disarming_rival_militias_5_positive",
    "text": "dialogue.warfront.opt.deep_disarming_rival_militias_5_positive",
-   "response": "deep_disarming_rival_militias_5_positive",
+   "response": "deep_disarming_rival_militias_5",
    "tone": "positive",
    "branch": "disarming_rival_militias",
    "branch_depth": 4,
@@ -3117,7 +3117,7 @@
   {
    "id": "deep_disarming_rival_militias_5_neutral",
    "text": "dialogue.warfront.opt.deep_disarming_rival_militias_5_neutral",
-   "response": "deep_disarming_rival_militias_5_neutral",
+   "response": "deep_disarming_rival_militias_5",
    "tone": "neutral",
    "branch": "disarming_rival_militias",
    "branch_depth": 4,
@@ -3128,7 +3128,7 @@
   {
    "id": "deep_disarming_rival_militias_5_negative",
    "text": "dialogue.warfront.opt.deep_disarming_rival_militias_5_negative",
-   "response": "deep_disarming_rival_militias_5_negative",
+   "response": "deep_disarming_rival_militias_5",
    "tone": "negative",
    "branch": "disarming_rival_militias",
    "branch_depth": 4,
@@ -3139,7 +3139,7 @@
   {
    "id": "deep_disarming_rival_militias_6_positive",
    "text": "dialogue.warfront.opt.deep_disarming_rival_militias_6_positive",
-   "response": "deep_disarming_rival_militias_6_positive",
+   "response": "deep_disarming_rival_militias_6",
    "tone": "positive",
    "branch": "disarming_rival_militias",
    "branch_depth": 5,
@@ -3150,7 +3150,7 @@
   {
    "id": "deep_disarming_rival_militias_6_neutral",
    "text": "dialogue.warfront.opt.deep_disarming_rival_militias_6_neutral",
-   "response": "deep_disarming_rival_militias_6_neutral",
+   "response": "deep_disarming_rival_militias_6",
    "tone": "neutral",
    "branch": "disarming_rival_militias",
    "branch_depth": 5,
@@ -3161,7 +3161,7 @@
   {
    "id": "deep_disarming_rival_militias_6_negative",
    "text": "dialogue.warfront.opt.deep_disarming_rival_militias_6_negative",
-   "response": "deep_disarming_rival_militias_6_negative",
+   "response": "deep_disarming_rival_militias_6",
    "tone": "negative",
    "branch": "disarming_rival_militias",
    "branch_depth": 5,
@@ -3172,7 +3172,7 @@
   {
    "id": "deep_disarming_rival_militias_7_positive",
    "text": "dialogue.warfront.opt.deep_disarming_rival_militias_7_positive",
-   "response": "deep_disarming_rival_militias_7_positive",
+   "response": "deep_disarming_rival_militias_7",
    "tone": "positive",
    "branch": "disarming_rival_militias",
    "branch_depth": 6,
@@ -3183,7 +3183,7 @@
   {
    "id": "deep_disarming_rival_militias_7_neutral",
    "text": "dialogue.warfront.opt.deep_disarming_rival_militias_7_neutral",
-   "response": "deep_disarming_rival_militias_7_neutral",
+   "response": "deep_disarming_rival_militias_7",
    "tone": "neutral",
    "branch": "disarming_rival_militias",
    "branch_depth": 6,
@@ -3194,7 +3194,7 @@
   {
    "id": "deep_disarming_rival_militias_7_negative",
    "text": "dialogue.warfront.opt.deep_disarming_rival_militias_7_negative",
-   "response": "deep_disarming_rival_militias_7_negative",
+   "response": "deep_disarming_rival_militias_7",
    "tone": "negative",
    "branch": "disarming_rival_militias",
    "branch_depth": 6,
@@ -3205,7 +3205,7 @@
   {
    "id": "deep_disarming_rival_militias_8_positive",
    "text": "dialogue.warfront.opt.deep_disarming_rival_militias_8_positive",
-   "response": "deep_disarming_rival_militias_8_positive",
+   "response": "deep_disarming_rival_militias_8",
    "tone": "positive",
    "branch": "disarming_rival_militias",
    "branch_depth": 7,
@@ -3216,7 +3216,7 @@
   {
    "id": "deep_disarming_rival_militias_8_neutral",
    "text": "dialogue.warfront.opt.deep_disarming_rival_militias_8_neutral",
-   "response": "deep_disarming_rival_militias_8_neutral",
+   "response": "deep_disarming_rival_militias_8",
    "tone": "neutral",
    "branch": "disarming_rival_militias",
    "branch_depth": 7,
@@ -3227,7 +3227,7 @@
   {
    "id": "deep_disarming_rival_militias_8_negative",
    "text": "dialogue.warfront.opt.deep_disarming_rival_militias_8_negative",
-   "response": "deep_disarming_rival_militias_8_negative",
+   "response": "deep_disarming_rival_militias_8",
    "tone": "negative",
    "branch": "disarming_rival_militias",
    "branch_depth": 7,
@@ -3238,7 +3238,7 @@
   {
    "id": "deep_disarming_rival_militias_9_positive",
    "text": "dialogue.warfront.opt.deep_disarming_rival_militias_9_positive",
-   "response": "deep_disarming_rival_militias_9_positive",
+   "response": "deep_disarming_rival_militias_9",
    "tone": "positive",
    "branch": "disarming_rival_militias",
    "branch_depth": 8,
@@ -3249,7 +3249,7 @@
   {
    "id": "deep_disarming_rival_militias_9_neutral",
    "text": "dialogue.warfront.opt.deep_disarming_rival_militias_9_neutral",
-   "response": "deep_disarming_rival_militias_9_neutral",
+   "response": "deep_disarming_rival_militias_9",
    "tone": "neutral",
    "branch": "disarming_rival_militias",
    "branch_depth": 8,
@@ -3260,7 +3260,7 @@
   {
    "id": "deep_disarming_rival_militias_9_negative",
    "text": "dialogue.warfront.opt.deep_disarming_rival_militias_9_negative",
-   "response": "deep_disarming_rival_militias_9_negative",
+   "response": "deep_disarming_rival_militias_9",
    "tone": "negative",
    "branch": "disarming_rival_militias",
    "branch_depth": 8,
@@ -3271,7 +3271,7 @@
   {
    "id": "deep_disarming_rival_militias_10_positive",
    "text": "dialogue.warfront.opt.deep_disarming_rival_militias_10_positive",
-   "response": "deep_disarming_rival_militias_10_positive",
+   "response": "deep_disarming_rival_militias_10",
    "tone": "positive",
    "branch": "disarming_rival_militias",
    "branch_depth": 9,
@@ -3282,7 +3282,7 @@
   {
    "id": "deep_disarming_rival_militias_10_neutral",
    "text": "dialogue.warfront.opt.deep_disarming_rival_militias_10_neutral",
-   "response": "deep_disarming_rival_militias_10_neutral",
+   "response": "deep_disarming_rival_militias_10",
    "tone": "neutral",
    "branch": "disarming_rival_militias",
    "branch_depth": 9,
@@ -3293,7 +3293,7 @@
   {
    "id": "deep_disarming_rival_militias_10_negative",
    "text": "dialogue.warfront.opt.deep_disarming_rival_militias_10_negative",
-   "response": "deep_disarming_rival_militias_10_negative",
+   "response": "deep_disarming_rival_militias_10",
    "tone": "negative",
    "branch": "disarming_rival_militias",
    "branch_depth": 9,

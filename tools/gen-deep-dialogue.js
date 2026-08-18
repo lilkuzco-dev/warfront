@@ -10,16 +10,16 @@ const OUTPUT = path.join(__dirname, "..", "dialogue", "src", "deep_branches.json
 const slug = (value) => value.toLowerCase().replace(/[^a-z0-9]+/g, "_").replace(/^_|_$/g, "");
 
 const prompts = [
-	["What have your crews learned about the {subject}?", "What does the {subject} actually do?", "Is the {subject} anything more than a dangerous idea?"],
-	["Tell me what happened in the last field test.", "What happened when it was tested?", "How many warnings were ignored during testing?"],
-	["Where is it most likely to fail?", "What is its worst failure mode?", "Why was that flaw allowed through?"],
-	["How would you use it without betting the operation on it?", "What limited field use justifies the risk?", "Are commanders using it to avoid harder choices?"],
+	["What can your crews tell me about the {subject}?", "What does the {subject} actually do?", "Is there any proof the {subject} works?"],
+	["Tell me about the latest attempt.", "What happened during the latest attempt?", "Did the latest attempt fail as badly as people say?"],
+	["Where is it most likely to fail?", "What is its worst failure mode?", "What flaw did the planners miss?"],
+	["How would you use it without betting the operation on it?", "What limited field use justifies the risk?", "Is there any use that justifies the risk?"],
 	["Who carries the greatest risk?", "Who pays when it goes wrong?", "Who was volunteered without being asked?"],
-	["What lesson did your faction learn the hard way?", "What did your faction learn from this?", "Did your leaders learn anything the first time?"],
-	["Which mistake cannot happen again?", "What first decision caused the failure?", "Why should anyone believe the lesson was learned?"],
+	["You've dealt with this before?", "Has this happened to your side before?", "So your side has made this mistake before?"],
+	["Which mistake cannot happen again?", "What first decision caused the failure?", "What was the first avoidable mistake?"],
 	["What line should commanders refuse to cross?", "What is the non-negotiable limit?", "Would victory excuse crossing that line?"],
-	["What is the strongest case against proceeding?", "What objection worries you most?", "What are your officers still hiding?"],
-	["What must change before the next attempt?", "What should happen next?", "Why should this project survive at all?"]
+	["What is the strongest case against proceeding?", "What objection worries you most?", "What risk are your officers downplaying?"],
+	["What must change before the next attempt?", "What should happen next?", "What would it take to make this safe?"]
 ];
 
 const topics = [
@@ -118,7 +118,7 @@ const topics = [
 			["Correct the roster, finish the graves, and rebuild around a smaller mission before adding replacements.", "Make the number honest, bury the dead, assign one achievable sector, and introduce replacements as help rather than substitutes."]
 		],
 		history: {
-			vostok: ["We mistake survival for readiness.", "Vostok sees seventeen still standing and gives them forty people's work. Endurance becomes the excuse for spending them again."],
+			vostok: ["We see survivors standing and assume they are ready.", "Vostok sees seventeen still standing and gives them forty people's work. Endurance becomes the excuse for spending them again."],
 			aegis: ["Our readiness table stays green until somebody updates the casualty field.", "Aegis can display a full company because the report is late. Procedure turns seventeen exhausted people into forty available assets."],
 			sarab: ["We scatter after loss and sometimes leave grief scattered with us.", "Sarab disperses survivors for safety, but isolated pairs cannot bury a company or tell the same story about what happened."]
 		}
@@ -178,9 +178,9 @@ const topics = [
 			["Fix the anchors, add a front-facing countdown, and repeat the rain trial with nobody inside.", "Rebuild the anchors with broad feet, add a red countdown, and pass three wet trials with weighted dummies before another soldier enters."]
 		],
 		history: {
-			vostok: ["At the third trial, we crowded behind the blue light. Its collapse left the whole squad in one neat target.", "At the third trial, we crowded behind anything that promised cover. When the blue light died, the whole squad stood in one neat target. We stopped calling it cover after that."],
-			aegis: ["At Northwatch, a section advanced on a blue status lamp after its anchor gauge had already failed.", "At Northwatch, the checklist said advance because the lamp stayed blue. It measured power, not the cracked anchor; six soldiers crossed before the field collapsed."],
-			sarab: ["At Qamar Pass, we made the bright wall a decoy and left its two operators exposed behind it.", "At Qamar Pass, Sarab drew every eye to a captured barrier while scouts moved around it. The feint worked; the two operators we used as bait did not return."]
+			vostok: ["Yes. At the third trial, we crowded behind it. When it failed, it left the whole squad bunched in one place.", "At the third trial, we packed in behind the blue light. When it failed, the whole squad was standing in one place. We don't call it cover anymore."],
+			aegis: ["At Northwatch. The lamp stayed blue after an anchor cracked. A section advanced, and the field collapsed.", "At Northwatch, the lamp stayed blue after an anchor cracked. The checklist said advance, so six soldiers did. Then the field collapsed."],
+			sarab: ["At Qamar Pass. We used one as a decoy and left its two operators exposed.", "We used a captured barrier as a decoy at Qamar Pass. The scouts got through. The two operators we left behind did not."]
 		}
 	},
 	{
@@ -225,18 +225,6 @@ const topics = [
 	}
 ];
 
-const toneLead = {
-	vostok: { positive: "Good. Here is the field version. ", neutral: "Short answer. ", negative: "Save the accusation. " },
-	aegis: { positive: "Valid request. Recorded finding. ", neutral: "Assessment confirmed. ", negative: "Objection noted. " },
-	sarab: { positive: "A careful question gets daylight. ", neutral: "Follow the second footprint. ", negative: "Throw sand if you must. " }
-};
-
-const closedLead = {
-	vostok: { positive: "I heard you. ", neutral: "No. ", negative: "That changes nothing. " },
-	aegis: { positive: "Request heard. ", neutral: "Negative. ", negative: "Objection recorded. " },
-	sarab: { positive: "A quiet knock is still a knock. ", neutral: "The curtain stays drawn. ", negative: "A fist opens no door here. " }
-};
-
 const refusal = {
 	vostok: [
 		s => `What the ${s} can do is not yours to inspect.`,
@@ -263,24 +251,23 @@ const refusal = {
 		s => `The decision on the ${s} project is restricted.`
 	],
 	sarab: [
-		s => `The ${s} sits behind a wall I will not lower.`,
-		s => `The tracks from the ${s} trial have been swept away.`,
-		s => `Its cracks are covered; I will not uncover the ${s} for you.`,
-		s => `The road chosen for the ${s} is hidden tonight.`,
-		s => `The people beneath the ${s} keep their names.`,
-		s => `Our history with the ${s} shares a closed tent.`,
-		s => `Yesterday's mistake around the ${s} remains buried.`,
-		s => `The boundary around the ${s} is not yours to move.`,
-		s => `The argument over the ${s} will receive no daylight here.`,
-		s => `Tomorrow's path for the ${s} is covered.`
+		s => `I am not discussing what the ${s} can do.`,
+		s => `The ${s} trial is not yours to hear about.`,
+		s => `I will not tell you where the ${s} fails.`,
+		s => `I will not discuss where we would use the ${s}.`,
+		s => `The people tied to the ${s} keep their privacy.`,
+		s => `Our history with the ${s} is not for you.`,
+		s => `I am not opening the ${s} failure report for you.`,
+		s => `You do not set the limits on the ${s}.`,
+		s => `I will not argue the case for the ${s} with you.`,
+		s => `What happens next with the ${s} is not your concern.`
 	]
 };
 
-function response(topic, depth, faction, tone, band) {
-	if (band === "negative") return closedLead[faction][tone] + refusal[faction][depth](topic.subject);
+function response(topic, depth, faction, band) {
+	if (band === "negative") return refusal[faction][depth](topic.subject);
 	const pair = depth === 5 ? topic.history[faction] : topic.facts[depth];
-	const detail = pair[band === "positive" ? 1 : 0];
-	return toneLead[faction][tone] + detail;
+	return pair[band === "positive" ? 1 : 0];
 }
 
 const options = [];
@@ -288,27 +275,27 @@ const responses = {};
 for (const topic of topics) {
 	const branch = slug(topic.subject);
 	for (let depth = 0; depth < prompts.length; depth++) {
+		const responseClass = `deep_${branch}_${depth + 1}`;
 		for (const [toneIndex, tone] of ["positive", "neutral", "negative"].entries()) {
-			const responseClass = `deep_${branch}_${depth + 1}_${tone}`;
 			options.push({
-				id: responseClass,
+				id: `${responseClass}_${tone}`,
 				text: prompts[depth][toneIndex].replace("{subject}", topic.subject),
 				response: responseClass,
 				tone,
 				branch,
 				branch_depth: depth,
 				next_depth: depth === prompts.length - 1 ? -1 : depth + 1,
-				topic: `${topic.theme}: ${topic.subject.replace(/\b\w/g, (letter) => letter.toUpperCase())}`,
+				topic: topic.subject.replace(/\b\w/g, (letter) => letter.toUpperCase()),
 				weight: depth === 0 ? 6 : 10
 			});
-			responses[responseClass] = {};
-			for (const faction of ["vostok", "aegis", "sarab"]) {
-				responses[responseClass][faction] = {
-					negative: [response(topic, depth, faction, tone, "negative")],
-					neutral: [response(topic, depth, faction, tone, "neutral")],
-					positive: [response(topic, depth, faction, tone, "positive")]
-				};
-			}
+		}
+		responses[responseClass] = {};
+		for (const faction of ["vostok", "aegis", "sarab"]) {
+			responses[responseClass][faction] = {
+				negative: [response(topic, depth, faction, "negative")],
+				neutral: [response(topic, depth, faction, "neutral")],
+				positive: [response(topic, depth, faction, "positive")]
+			};
 		}
 	}
 }
@@ -323,6 +310,12 @@ if (prompts[3][0] !== "How would you use it without betting the operation on it?
 		|| !barrier.facts[3][0].includes("stretcher crossing")
 		|| !barrier.facts[3][0].includes("do not build an assault around it")) {
 	throw new Error("Prototype barrier limited-use question no longer matches its answer");
+}
+if (prompts[5][0] !== "You've dealt with this before?"
+		|| !barrier.history.vostok[1].startsWith("At the third trial")
+		|| !barrier.history.aegis[1].startsWith("At Northwatch")
+		|| !barrier.history.sarab[1].startsWith("We used a captured barrier")) {
+	throw new Error("Prototype barrier history question no longer matches its answers");
 }
 fs.writeFileSync(OUTPUT, JSON.stringify({ category: "deep_branches", options, responses }, null, 2) + "\n");
 console.log(`gen-deep-dialogue: ${topics.length} authored topics, ${options.length} options, ${Object.keys(responses).length * 9} gated response lines`);

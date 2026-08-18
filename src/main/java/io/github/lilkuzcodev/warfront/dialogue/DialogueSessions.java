@@ -303,7 +303,7 @@ public final class DialogueSessions {
 
 		String line = "dialogue.warfront.resp.silent";
 		List<String> lines = responseClass == null ? List.of()
-				: DialogueRegistry.responseLines(responseClass, session.faction, ctx.band());
+				: DialogueRegistry.responseLines(responseClass, session.faction, disclosureBand(ctx.standing()));
 		if (!lines.isEmpty()) {
 			line = lines.get(player.level().getRandom().nextInt(lines.size()));
 		}
@@ -317,6 +317,14 @@ public final class DialogueSessions {
 				picked.stream().map(o -> new WarfrontNet.OptionEntry(o.id(), o.textKey(), o.tone())).toList(),
 				session.topicKey, session.branchDepth < 0 ? 0 : session.branchDepth + 1, 10,
 				!session.activeBranch.isEmpty(), !session.moreUsed, openScreen));
+	}
+
+	private static String disclosureBand(String standing) {
+		return switch (standing) {
+			case "hostile", "wary" -> "negative";
+			case "friendly", "trusted" -> "positive";
+			default -> "neutral";
+		};
 	}
 
 	private static void close(MinecraftServer server, ServerPlayer player, UUID playerId) {

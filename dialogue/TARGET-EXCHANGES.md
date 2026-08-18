@@ -1,32 +1,31 @@
 # Prototype defensive barrier — target exchanges
 
-These five exchanges were fixed before the deep-dialogue generator rewrite. They
-define the quality bar for a Vostok officer at neutral standing: the option says
-what the player is doing, and the answer supplies a fact, field judgment, memory,
-warning, or concrete recommendation without naming any dialogue mechanic.
+These five exchanges define the quality bar for a Vostok officer who is willing to
+talk freely. The question and answer must share the same subject and intent. Replies
+start with the answer: no approval phrase, procedural label, tone marker, or dialogue
+mechanic appears on screen.
 
-1. **[+] What happened the last time Vostok relied on one?**
+1. **What does the prototype defensive barrier actually do?**
 
-   “We bunch up behind anything that promises cover. When the third test barrier
-   died, the whole squad was standing in one neat target. We stopped calling the
-   blue light cover after that.”
+   “The field turns arrows and one full-speed charge for twelve seconds on dry
+   stone. In rain it lasted six, then failed without warning.”
 
-2. **[-] What does the prototype barrier actually stop?**
+2. **Tell me about the latest attempt.**
 
-   “Arrows and charging bodies, for about twelve seconds in the last trial. Rain
-   cut that time in half, and nobody has explained why.”
+   “In the third trial, two anchors sank three fingers into mud. The field folded
+   toward the squad and burned three testers through leather.”
 
-3. **[!] You would send soldiers behind an untested wall?**
+3. **Where is it most likely to fail?**
 
-   “Command already did. Two anchors sank in mud, the field folded inward, and
-   three people left the range burned. Call that testing if you like.”
+   “A hairline crack in any anchor collapses the full barrier. The lamp reads anchor
+   power, so it stays blue even while the field is dying.”
 
-4. **[+] How would you use it without betting the assault on it?**
+4. **How would you use it without betting the operation on it?**
 
-   “Long enough to pull wounded across open ground, with a shield line ready when
-   it fails. I would not build an assault around it.”
+   “It can buy twelve seconds for wounded crossing open ground. A shield line must
+   already be moving before the sixth second.”
 
-5. **[-] What should the engineers fix first?**
+5. **You've dealt with this before?**
 
-   “The anchors. One cracked stone kills the whole field, and the warning lamp
-   stays blue. A barrier that lies before it dies is worse than no barrier.”
+   “At the third trial, we packed in behind the blue light. When it failed, the
+   whole squad was standing in one place. We don't call it cover anymore.”

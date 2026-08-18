@@ -221,7 +221,7 @@ public class WarfrontDialogueTest implements FabricClientGameTest {
 			server.runOnServer(minecraftServer -> {
 				var player = minecraftServer.getPlayerList().getPlayers().getFirst();
 				io.github.lilkuzcodev.warfront.data.WarfrontState.get(minecraftServer)
-						.addStanding(player.getUUID(), faction, 3);
+						.addStanding(player.getUUID(), faction, 25);
 			});
 			context.waitTicks(40);
 			context.getInput().pressKey(options -> options.keyUse);
@@ -248,15 +248,15 @@ public class WarfrontDialogueTest implements FabricClientGameTest {
 				DialogueScreen screen = (DialogueScreen) client.gui.screen();
 				String reply = screen.latestReplyForTest();
 				String required = switch (faction) {
-					case "vostok" -> "neat target";
-					case "aegis" -> "blue status lamp";
-					default -> "bright wall";
+					case "vostok" -> "don't call it cover";
+					case "aegis" -> "checklist said advance";
+					default -> "operators we left behind did not";
 				};
 				if (!reply.contains(required)) {
 					throw new AssertionError(faction + " barrier answer lacked faction-specific history: " + reply);
 				}
-				if (Math.round(screen.standingValueForTest()) != 4) {
-					throw new AssertionError("Reference barrier conversation was not at standing 4");
+				if (Math.round(screen.standingValueForTest()) != 26) {
+					throw new AssertionError("Reference barrier conversation was not at friendly standing");
 				}
 			});
 			int[] effectiveWidths = new int[2];
@@ -272,7 +272,8 @@ public class WarfrontDialogueTest implements FabricClientGameTest {
 					if (!screen.headerRowsDoNotOverlapForTest()) {
 						throw new AssertionError("Dialogue header overlaps at GUI scale " + guiScale);
 					}
-					if (!screen.replyUsesPaddedFullWidthForTest() || !screen.allOptionTextFitsForTest()) {
+					if (!screen.replyUsesPaddedFullWidthForTest() || !screen.allOptionTextFitsForTest()
+							|| !screen.optionLabelsExposeNoToneMarkersForTest()) {
 						throw new AssertionError("Dialogue wrapping failed at GUI scale " + guiScale);
 					}
 					if (!screen.referenceExchangeFitsWithoutScrollForTest()) {

@@ -6,7 +6,6 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
-import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.ActiveTextCollector;
 import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
@@ -26,7 +25,7 @@ public class DialogueScreen extends Screen {
 	private static final int PANEL_TOP = 4;
 	private static final int CHOICE_HEIGHT = 18;
 	private static final int LINE_HEIGHT = 9;
-	private static final int TRANSCRIPT_GAP = 14;
+	private static final int TRANSCRIPT_GAP = 6;
 	private static final int CONTENT_PADDING = 6;
 	private static final int HEADER_GAP = 3;
 	private static final int SPEAKER_BODY_GAP = 2;
@@ -34,9 +33,8 @@ public class DialogueScreen extends Screen {
 	private record Exchange(Component playerLine, Component soldierLine) {
 	}
 
-	private record HeaderLayout(Component name, Component rankStanding, Component personality,
-			Component topicDepth, int nameY, int rankY, int personalityY, int topicY,
-			int dividerY, int height) {
+	private record HeaderLayout(Component name, Component rankFaction, Component topic,
+			int nameY, int rankY, int topicY, int dividerY, int height) {
 	}
 
 	private WarfrontNet.DialogueS2C data;
@@ -76,7 +74,7 @@ public class DialogueScreen extends Screen {
 		optionButtons.clear();
 		for (WarfrontNet.OptionEntry option : data.options()) {
 			String id = option.id();
-			Component text = tonedOption(option);
+			Component text = optionLabel(option);
 			int buttonHeight = wrappedButtonHeight(text, panelWidth);
 			WrappedButton button = new WrappedButton(x, y, panelWidth, buttonHeight, text, font,
 					b -> {
@@ -123,9 +121,8 @@ public class DialogueScreen extends Screen {
 		int contentX = x + CONTENT_PADDING;
 		int contentWidth = panelWidth - CONTENT_PADDING * 2;
 		g.textWithWordWrap(font, header.name(), contentX, header.nameY(), contentWidth, 0xFFFFFFFF);
-		g.textWithWordWrap(font, header.rankStanding(), contentX, header.rankY(), contentWidth, 0xFFFFFFFF);
-		g.textWithWordWrap(font, header.personality(), contentX, header.personalityY(), contentWidth, 0xFFC7A6E8);
-		g.textWithWordWrap(font, header.topicDepth(), contentX, header.topicY(), contentWidth, 0xFFFFFFFF);
+		g.textWithWordWrap(font, header.rankFaction(), contentX, header.rankY(), contentWidth, 0xFFB0B0B8);
+		g.textWithWordWrap(font, header.topic(), contentX, header.topicY(), contentWidth, 0xFFFFD37A);
 		g.fill(x, header.dividerY(), x + panelWidth, header.dividerY() + 1, 0xFF6A604E);
 
 		int transcriptTop = headerY + headerHeight + 2;
@@ -154,7 +151,6 @@ public class DialogueScreen extends Screen {
 		g.disableScissor();
 		if (transcriptMaxScroll > 0) drawTranscriptScrollbar(g, x + panelWidth - 3,
 				transcriptTop, viewportHeight, contentHeight);
-		g.text(font, Component.translatable("dialogue.warfront.choice_hint"), x, choicesY - 11, 0xFF8F96A3);
 	}
 
 	private int panelWidth() {
@@ -163,9 +159,9 @@ public class DialogueScreen extends Screen {
 
 	private int choicesTop() {
 		int optionsHeight = data.options().stream()
-				.mapToInt(option -> wrappedButtonHeight(tonedOption(option), panelWidth()) + 2)
+				.mapToInt(option -> wrappedButtonHeight(optionLabel(option), panelWidth()) + 2)
 				.sum();
-		return height - (optionsHeight + 32);
+		return height - (optionsHeight + 26);
 	}
 
 	private HeaderLayout headerLayout(int panelWidth) {
@@ -173,40 +169,20 @@ public class DialogueScreen extends Screen {
 		Component name = Component.literal(data.soldierName()).withStyle(s -> s.withBold(true));
 		Component rankFaction = Component.translatable("dialogue.warfront.header_rank_faction",
 				Component.translatable("dialogue.warfront.rank." + data.rank()), data.factionName());
-		Component standing = Component.translatable("dialogue.warfront.header_standing",
-				data.standing(), String.format("%.0f", data.standingValue()),
-				Component.translatable("dialogue.warfront.band." + data.band()));
-		Component personality = Component.translatable("dialogue.warfront.header_personality",
-				Component.translatable("dialogue.warfront.personality." + data.personality()),
-				Component.translatable("dialogue.warfront.mood." + data.mood()));
 		Component topic = data.inBranch() && !data.topicKey().isEmpty()
 				? Component.translatable(data.topicKey())
 				: Component.translatable("dialogue.warfront.choose_topic");
-		topic = topic.copy().withStyle(s -> s.withBold(true).withColor(0xFFD37A));
-		Component depth = data.inBranch()
-				? Component.translatable("dialogue.warfront.thread_depth", data.branchDepth(), data.branchMaxDepth())
-				: null;
-		Component rankStanding = Component.empty()
-				.append(rankFaction.copy().withStyle(s -> s.withColor(0xB0B0B8)))
-				.append(Component.literal("   "))
-				.append(standing.copy().withStyle(s -> s.withColor(0x8FA8C8)));
-		Component topicDepth = topic;
-		if (depth != null) {
-			topicDepth = topic.copy().append(Component.literal("   •   ").withStyle(s -> s.withColor(0x6A604E)))
-					.append(depth.copy().withStyle(s -> s.withBold(false).withColor(0xAAB6C8)));
-		}
+		topic = topic.copy().withStyle(s -> s.withBold(true));
 		int cursor = PANEL_TOP;
 		int nameY = cursor;
 		cursor += wrappedHeight(name, contentWidth) + HEADER_GAP;
 		int rankY = cursor;
-		cursor += wrappedHeight(rankStanding, contentWidth) + HEADER_GAP;
-		int personalityY = cursor;
-		cursor += wrappedHeight(personality, contentWidth) + HEADER_GAP + 2;
+		cursor += wrappedHeight(rankFaction, contentWidth) + HEADER_GAP + 2;
 		int topicY = cursor;
-		cursor += wrappedHeight(topicDepth, contentWidth) + HEADER_GAP;
+		cursor += wrappedHeight(topic, contentWidth) + HEADER_GAP;
 		int dividerY = cursor + 1;
-		return new HeaderLayout(name, rankStanding, personality, topicDepth,
-				nameY, rankY, personalityY, topicY, dividerY,
+		return new HeaderLayout(name, rankFaction, topic,
+				nameY, rankY, topicY, dividerY,
 				dividerY - PANEL_TOP + 8);
 	}
 
@@ -301,13 +277,17 @@ public class DialogueScreen extends Screen {
 		HeaderLayout h = headerLayout(panelWidth());
 		int width = transcriptTextWidth(panelWidth());
 		return h.rankY() >= h.nameY() + wrappedHeight(h.name(), width)
-				&& h.personalityY() >= h.rankY() + wrappedHeight(h.rankStanding(), width)
-				&& h.topicY() >= h.personalityY() + wrappedHeight(h.personality(), width)
-				&& h.dividerY() > h.topicY() + wrappedHeight(h.topicDepth(), width);
+				&& h.topicY() >= h.rankY() + wrappedHeight(h.rankFaction(), width)
+				&& h.dividerY() > h.topicY() + wrappedHeight(h.topic(), width);
 	}
 
 	boolean replyUsesPaddedFullWidthForTest() {
 		return transcriptTextWidth(panelWidth()) == panelWidth() - CONTENT_PADDING * 2;
+	}
+
+	boolean optionLabelsExposeNoToneMarkersForTest() {
+		return data.options().stream().map(DialogueScreen::optionLabel)
+				.map(Component::getString).noneMatch(label -> label.startsWith("["));
 	}
 
 	private static final class WrappedButton extends Button {
@@ -337,19 +317,12 @@ public class DialogueScreen extends Screen {
 		return data.options().stream()
 				.filter(option -> !option.id().startsWith("core_leave"))
 				.findFirst()
-				.map(option -> tonedOption(option).getString())
+				.map(option -> optionLabel(option).getString())
 				.orElseThrow();
 	}
 
-	private static Component tonedOption(WarfrontNet.OptionEntry option) {
-		ChatFormatting color = switch (option.tone()) {
-			case "positive" -> ChatFormatting.GREEN;
-			case "negative" -> ChatFormatting.RED;
-			case "exit" -> ChatFormatting.GRAY;
-			default -> ChatFormatting.WHITE;
-		};
-		return Component.translatable("dialogue.warfront.tone." + option.tone()).withStyle(color)
-				.append(Component.literal(" ")).append(Component.translatable(option.textKey()).withStyle(color));
+	private static Component optionLabel(WarfrontNet.OptionEntry option) {
+		return Component.translatable(option.textKey());
 	}
 
 	Set<String> optionIdsForTest() {
@@ -392,12 +365,12 @@ public class DialogueScreen extends Screen {
 
 	String firstDeepOptionLabelForTest() {
 		return data.options().stream().filter(option -> option.id().startsWith("deep_"))
-				.findFirst().map(option -> tonedOption(option).getString()).orElseThrow();
+				.findFirst().map(option -> optionLabel(option).getString()).orElseThrow();
 	}
 
 	String firstOptionLabelForToneForTest(String tone) {
 		return data.options().stream().filter(option -> tone.equals(option.tone()))
-				.findFirst().map(option -> tonedOption(option).getString()).orElseThrow();
+				.findFirst().map(option -> optionLabel(option).getString()).orElseThrow();
 	}
 
 	int branchDepthForTest() {

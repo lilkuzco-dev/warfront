@@ -399,3 +399,22 @@ for Phase 3.
 - Manually inspected all six archived frames in `screenshots/v0.2.3/`: no header
   collisions, divider strike-through, clipped reply, or clipped choice text. Both the
   player question and the NPC answer remain visible at the tighter scale. ✅
+
+## Dialogue cleanup gate — 0.2.4 (2026-08-17)
+
+- Removed every rendered standing, disposition, personality, mood, conversation-depth,
+  tone-marker, and color-legend label from both the screen and chat fallback. The
+  visible header is now only name, rank/faction, and subject. ✅
+- Removed generated faction preambles such as “Here is the field version,” “Recorded
+  finding,” and “A careful question gets daylight.” Three tone variants now share the
+  same direct factual answer instead of manufacturing 1,800 nominally unique lines
+  with filler. The validator rejects those preambles if they return. Final corpus:
+  2,743 player options, 4,658 response lines, and 350 response classes. ✅
+- Disclosure now uses the hidden standing band as intended: hostile/wary refuses,
+  neutral gives a concise fact, and friendly/trusted gives the fuller answer. The
+  separate disposition meter no longer accidentally chooses disclosure depth. ✅
+- `./gradlew runGametest`: PASS in 5m44s after the final wording change. Vostok,
+  Aegis, and Sarab each produced a direct, faction-specific barrier exchange at GUI
+  scales 1 and 2; all six frames passed no-marker, non-overlap, wrapping, complete
+  button, and no-scroll assertions. Manual review of `screenshots/v0.2.4/` found the
+  simplified header and final question/answer unobstructed at both scales. ✅

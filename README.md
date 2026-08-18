@@ -72,15 +72,15 @@ pending review.
   gates guarded, furnished interiors, faction loot). **New tiers generate in newly
   generated chunks only.**
 - **Dialogue**: right-click a non-hostile soldier. **2,743 authored player options**
-  (6,458 soldier response lines) surfaced four at a time by context — faction,
+  (4,658 soldier response lines) surfaced four at a time by context — faction,
   standing, disposition, rank, location, time of day, your recent deeds. Soldiers
   remember: a per-player event ledger (attacks, kills, sabotage, trades, gifts,
   contracts, tributes) with slow-fading violence and faster-fading kindness drives a
   disposition band from *vengeful* to *devoted*. Kill a faction's soldiers and every
   member greets you accordingly until you claw back through apology tributes,
   penance work orders, trade, or fighting at their side — and a betrayal after
-  friendship cuts twice as deep. Every set now includes visibly labeled friendly,
-  neutral, threatening, and leave choices. Individual soldiers are patient,
+  friendship cuts twice as deep. Choices are written naturally rather than marked
+  with tone symbols or mechanic explanations. Individual soldiers are patient,
   professional, proud, or volatile; friendly lines build goodwill and cool tempers,
   while repeated threats can make that specific soldier attack. Soldiers stop and
   face the player for the entire conversation. Ten substantive, hand-authored
@@ -89,8 +89,9 @@ pending review.
   hostile soldiers refuse details, neutral soldiers give a guarded concrete fact,
   and trusted soldiers add faction-specific history. Recent fights, monster
   attacks, locations, contracts, and other immediate events take priority over
-  long-form lore. The transcript-oriented screen keeps the current exchange,
-  topic, and depth visible and lets the player change subject cleanly. Long choices
+  long-form lore. The transcript-oriented screen shows only the soldier's identity,
+  current subject, and exchange; standing, disposition, personality, mood, and
+  branch depth remain hidden. The player can still change subject cleanly. Long choices
   receive dynamically sized, wrapped buttons; long exchanges wrap inside a
   mouse-wheel-scrollable transcript instead of being clipped.
   Helping one faction echoes against its enemies.
