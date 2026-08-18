@@ -4,6 +4,35 @@ Modern military factions for Minecraft 26.2 (Fabric). Three doctrine-driven fact
 
 Requires Fabric Loader 0.19.3+ and Fabric API for 26.2.
 
+## v0.4.0 — settlements that grow, and an economy that is not a closed loop
+
+- **Settlements come in three sizes.** Towns (10 citizens) are common, cities (28)
+  uncommon, and **metropolises rare and genuinely large — 300 citizens and a garrison
+  of 50–95**, laid out as four quarters of housing around a central plaza with its own
+  towers. A metropolis is about 0.9% of settlements, roughly one per four thousand
+  blocks. All three share the 272-block separation floor, so even the biggest cannot
+  overlap its neighbour.
+- **Citizens populate like a village.** A settlement has children, bounded by the roofs
+  it actually has (each `warfront:bunk` houses a household) and rationed against the
+  food it is holding. Build more barracks and the town grows; burn them down, blight
+  the fields or strip the granary in a raid and it stops. A newborn draws a stake so it
+  starts above the liquidity floor — drawn from the treasury and levied from the
+  richest, never minted.
+- **The economy is no longer zero-sum.** Cities send expeditions out of town, and the
+  citizens who go are genuinely away — not standing in the market square. Parties
+  **mine emeralds** and **trade** (wealth from outside the model entirely), **forage**
+  (goods), and **raid other settlements** (wealth and grain taken off a hostile
+  faction's city and carried home, with casualties on both sides). What comes home
+  lands in the town treasury and is paid out to its people, so a city that mines well
+  gets visibly richer and a city that is raided gets poorer.
+- Every flow is booked, so `conserved=true` still means what it says:
+  `/warfront city economy` now reports held wealth, the treasury, and what has been
+  carried in and out. `/warfront city expeditions` lists the parties currently away,
+  and `inspect` shows population against housing.
+- `tools/econ-selftest.sh` runs the economy's invariants — births, deaths, mining,
+  looting, foraging and the snapshot round trip — standalone in about a second, with
+  no Minecraft in the loop.
+
 ## v0.3.1 — the dialogue rewrite
 
 - **Nothing is written by substitution any more.** The corpus had reached its size by

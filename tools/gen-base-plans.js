@@ -704,52 +704,90 @@ function buildingRow(p, f, pieces, x0, z0, face, xLimit, zLimit, lootTable) {
 	return x;
 }
 
-function city(f) {
-	// Sarab needs the wider plate: its command post is 17 deep against Aegis' 11.
-	const size = { vostok: 76, aegis: 72, sarab: 76 }[f];
+/**
+ * Settlements come in three sizes. A town is a crossroads with a few houses; a city is
+ * the full four-quarter plate; a metropolis is a genuinely large place, laid out as a
+ * ring of quarters around a central plaza with its own inner avenues.
+ *
+ * All three share the same grammar and the same guarantee: buildings are placed in
+ * reserved lots sized to the larger side of the piece, so nothing can overlap whichever
+ * way a piece's entrance rotates it.
+ */
+const SETTLEMENTS = {
+	// Sarab needs the wider plate everywhere: its command post is 17 deep against Aegis' 11.
+	town: { size: { vostok: 52, aegis: 48, sarab: 52 }, guards: 1 },
+	city: { size: { vostok: 76, aegis: 72, sarab: 76 }, guards: 2 },
+	metropolis: { size: { vostok: 124, aegis: 120, sarab: 124 }, guards: 6 },
+};
+
+function settlement(f, tier) {
+	const spec = SETTLEMENTS[tier];
+	const size = spec.size[f];
 	const p = new Plan();
 	const mid = Math.floor(size / 2);
 	const L = loot(f, "outpost");
 	cityRoads(p, f, size);
 	plaza(p, f, mid, mid, L);
 
-	// Four quarters, bounded by the PLAZA's extent rather than the avenue's — the plaza
-	// is wider than the road it sits on, and its corner lamps stand 6 out from centre.
+	// Quarters are bounded by the PLAZA's extent rather than the avenue's — the plaza is
+	// wider than the road it sits on, and its corner lamps stand 6 out from centre.
 	const lo = 3;
 	const hiNear = mid - 8;
 	const loFar = mid + 8;
 	const hiFar = size - 4;
 
-	// NW — the residential quarter
-	buildingRow(p, f, ["barracks_1", "bunkroom"], lo, lo, "s", hiNear, hiNear, L);
-	// NE — the guard tower watching the north road
-	tower(p, f, "watchtower", loFar, lo, "s");
-	// SW — civic buildings facing the plaza
-	buildingRow(p, f, ["command_post", f === "sarab" ? "supply" : "mess"], lo, loFar, "n", hiNear, hiFar, L);
-	// SE — trade buildings
-	buildingRow(p, f, ["quartermaster", "armory_1"], loFar, loFar, "n", hiFar, hiFar, L);
-
-	// Farmland fills the strip each northern row did not claim: the deepest lot up
-	// there is the tower's 15, so the fence line starts clear of it.
-	farmPlot(p, f, lo, hiNear - 9);
-	farmPlot(p, f, loFar + 15, hiNear - 9);
+	if (tier === "town") {
+		// A town quarter is only ~16 across, which is one building and no more.
+		buildingRow(p, f, ["barracks_1"], lo, lo, "s", hiNear, hiNear, L);
+		buildingRow(p, f, ["bunkroom"], loFar, lo, "s", hiFar, hiNear, L);
+		buildingRow(p, f, [f === "sarab" ? "supply" : "mess"], lo, loFar, "n", hiNear, hiFar, L);
+		buildingRow(p, f, ["quartermaster"], loFar, loFar, "n", hiFar, hiFar, L);
+		farmPlot(p, f, lo, mid - 5, 11, 7);
+	} else if (tier === "city") {
+		buildingRow(p, f, ["barracks_1", "bunkroom"], lo, lo, "s", hiNear, hiNear, L);
+		tower(p, f, "watchtower", loFar, lo, "s");
+		buildingRow(p, f, ["command_post", f === "sarab" ? "supply" : "mess"], lo, loFar, "n", hiNear, hiFar, L);
+		buildingRow(p, f, ["quartermaster", "armory_1"], loFar, loFar, "n", hiFar, hiFar, L);
+		// The deepest lot in a northern row is the tower's 15, so the fence starts clear.
+		farmPlot(p, f, lo, hiNear - 9);
+		farmPlot(p, f, loFar + 15, hiNear - 9);
+	} else {
+		// A metropolis fills all four quarters two rows deep and rings the plaza with
+		// towers. This is where the housing comes from: every barracks and bunkroom
+		// carries beds, and beds are what a settlement's population is allowed to grow to.
+		buildingRow(p, f, ["barracks_1", "barracks_2", "bunkroom"], lo, lo, "s", hiNear, hiNear, L);
+		buildingRow(p, f, ["bunkroom", "barracks_1"], lo, lo + 20, "s", hiNear, hiNear, L);
+		buildingRow(p, f, ["command_post", "armory_1", "armory_2"], loFar, lo, "s", hiFar, hiNear, L);
+		buildingRow(p, f, ["barracks_2", "bunkroom"], loFar, lo + 20, "s", hiFar, hiNear, L);
+		buildingRow(p, f, [f === "sarab" ? "supply" : "mess", "barracks_1"], lo, loFar, "n", hiNear, hiFar, L);
+		buildingRow(p, f, ["bunkroom", "barracks_2"], lo, loFar + 20, "n", hiNear, hiFar, L);
+		buildingRow(p, f, ["quartermaster", "bunkroom"], loFar, loFar, "n", hiFar, hiFar, L);
+		buildingRow(p, f, ["barracks_1", "bunkroom"], loFar, loFar + 20, "n", hiFar, hiFar, L);
+		tower(p, f, "heavy_tower", mid - 7, lo, "s");
+		tower(p, f, "watchtower", lo, mid - 7, "s");
+		tower(p, f, "watchtower", size - 18, mid - 7, "s");
+		farmPlot(p, f, lo, mid - 6, 13, 9);
+		farmPlot(p, f, size - 16, mid - 6, 13, 9);
+	}
 
 	for (const d of [lo + 5, size - lo - 5]) {
 		streetLamp(p, f, mid - 3, d);
 		streetLamp(p, f, mid + 3, d);
 	}
-	flagpole(p, f, mid - 7, mid + 7, 8);
+	flagpole(p, f, mid - 7, mid + 7, tier === "metropolis" ? 11 : 8);
 
-	// A city is defended, but lightly: a token guard, so the garrison ledger has
-	// something to hold and the place is not a free larder.
+	// Settlements are defended, but by a guard rather than a garrison: enough that the
+	// ledger has something to hold and the place is not a free larder.
 	p.soldier(mid, 1, mid + 8, f, "officer");
-	p.soldier(mid - 7, 1, mid, f, "soldier");
+	for (let i = 1; i < spec.guards; i++) {
+		p.soldier(mid - 7 + i * 3, 1, mid, f, "soldier");
+	}
 
 	citySocket(p, f, 0, mid, "west_up");
 	citySocket(p, f, size - 1, mid, "east_up");
 	citySocket(p, f, mid, 0, "north_up");
 	citySocket(p, f, mid, size - 1, "south_up");
-	p.emit(f, "city");
+	p.emit(f, tier);
 }
 
 /** District pieces the city sprawls into: more housing, more farmland, or a road end. */
@@ -806,7 +844,9 @@ for (const f of ["vostok", "aegis", "sarab"]) {
 	outpost(f, "b");
 	forwardBase(f);
 	headquarters(f);
-	city(f);
+	settlement(f, "town");
+	settlement(f, "city");
+	settlement(f, "metropolis");
 }
 trenchArm();
 sarabArms();

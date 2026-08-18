@@ -16,7 +16,7 @@
   },
   "population": {
     "_tuning_notes": "see vostok.json for field semantics. Aegis doctrine: precision — small elite garrisons, small fast cross-country teams.",
-    "garrison": { "outpost": [4, 6], "forward_base": [8, 12], "headquarters": [14, 18], "city": [5, 8] },
+    "garrison": { "outpost": [4, 6], "forward_base": [8, 12], "headquarters": [14, 18], "city": [5, 8], "town": [2, 4], "metropolis": [50, 70] },
     "reinforce_minutes": 5.0,
     "reinforce_pause_radius": 32,
     "roam_style": "team",

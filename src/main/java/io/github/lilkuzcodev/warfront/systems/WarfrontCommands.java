@@ -78,6 +78,7 @@ public final class WarfrontCommands {
 														.executes(ctx -> cityShock(ctx.getSource(),
 																StringArgumentType.getString(ctx, "city"),
 																StringArgumentType.getString(ctx, "type"))))))
+								.then(Commands.literal("expeditions").executes(ctx -> cityExpeditions(ctx.getSource())))
 								.then(Commands.literal("validate").requires(Commands.hasPermission(Commands.LEVEL_GAMEMASTERS))
 										.executes(ctx -> cityValidate(ctx.getSource())))
 								.then(Commands.literal("create").requires(Commands.hasPermission(Commands.LEVEL_GAMEMASTERS))
@@ -138,13 +139,34 @@ public final class WarfrontCommands {
 		long embodied = city.citizens().values().stream().filter(c -> c.tier().id().equals("embodied")).count();
 		long local = city.citizens().values().stream().filter(c -> c.tier().id().equals("local")).count();
 		long virtual = city.citizens().size() - embodied - local;
+		long nowTick = source.getServer().overworld().getGameTime();
+		long away = city.citizens().values().stream().filter(c -> c.isAway(nowTick)).count();
 		long goods = EconomyManager.distribution(source.getServer(), city).totalGoods();
 		long tickNanos = CivilizationManager.lastCityTickNanos(city.id());
 		source.sendSuccess(() -> Component.literal(String.format(
-				"%s: embodied=%d local=%d virtual=%d citizens=%d goods=%d soldiers=%d lastTick=%.3fms",
-				city.id(), embodied, local, virtual, city.citizens().size(), goods,
+				"%s: embodied=%d local=%d virtual=%d away=%d citizens=%d/%d housing goods=%d soldiers=%d lastTick=%.3fms",
+				city.id(), embodied, local, virtual, away, city.citizens().size(), city.housing(), goods,
 				state.assignedSoldierCount(city.id()), tickNanos < 0 ? -1.0 : tickNanos / 1_000_000.0)), false);
 		return city.citizens().size();
+	}
+
+	private static int cityExpeditions(CommandSourceStack source) {
+		var state = CivilizationState.get(source.getServer());
+		var expeditions = state.expeditions();
+		if (expeditions.isEmpty()) {
+			source.sendSuccess(() -> Component.literal("No parties are out."), false);
+			return 0;
+		}
+		long now = source.getServer().overworld().getGameTime();
+		for (var expedition : expeditions.values()) {
+			long remaining = Math.max(0L, expedition.returnTick() - now);
+			source.sendSuccess(() -> Component.literal(String.format("%s: %d on %s%s — back in %ds",
+					expedition.cityId(), expedition.party(),
+					expedition.kind().toLowerCase(java.util.Locale.ROOT),
+					expedition.targetCityId().isEmpty() ? "" : " vs " + expedition.targetCityId(),
+					remaining / 20)), false);
+		}
+		return expeditions.size();
 	}
 
 	private static int cityValidate(CommandSourceStack source) {
@@ -182,9 +204,10 @@ public final class WarfrontCommands {
 				EconomyManager.price(source.getServer(), city, EconomyModel.Good.CRAFTS),
 				d.totalMoney(), d.totalGoods(), audit.balanced(), ms)), false);
 		source.sendSuccess(() -> Component.literal(String.format(
-				"emeralds: city wealth=%d; %d/lot food=%d ore=%d timber=%d crafts=%d (buy); "
-						+ "player trade in=%d out=%d",
+				"emeralds: held=%d treasury=%d; %d/lot food=%d ore=%d timber=%d crafts=%d (buy); "
+						+ "carried in=%d out=%d (expeditions + player trade)",
 				EconomyManager.emeraldsOf(d.totalMoney()),
+				EconomyManager.emeraldsOf(EconomyManager.treasury(source.getServer(), city)),
 				WarfrontRegistry.economy().tradeLot(),
 				EconomyManager.lotPriceEmeralds(source.getServer(), city, EconomyModel.Good.FOOD, true),
 				EconomyManager.lotPriceEmeralds(source.getServer(), city, EconomyModel.Good.ORE, true),

@@ -3,6 +3,8 @@
     "warfront:vostok_base",
     "warfront:vostok_forward_base",
     "warfront:vostok_headquarters",
-    "warfront:vostok_city"
+    "warfront:vostok_city",
+    "warfront:vostok_town",
+    "warfront:vostok_metropolis"
   ]
 }

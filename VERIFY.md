@@ -612,3 +612,70 @@ city record is missing would have crashed the interaction. Guarded. ✅
 Regression suite after the fixes: `verify-base-spacing.js` PASS (224-block floor),
 `validate-dialogue.js` PASS with zero warnings, `gen-base-plans.js` zero collisions and
 zero skipped buildings, `./gradlew runGametest` PASS with 75 frames.
+
+## Settlement growth and the open economy — 0.4.0 (2026-08-18)
+
+### What was built
+
+Population growth bounded by housing and food; expeditions that mine, trade, forage and
+raid; and three settlement tiers with a rare, genuinely large metropolis.
+
+The economy model had to stop being fixed-size and closed. Per-actor arrays now grow, a
+slot is `serial - 1` for the life of the city (a death leaves an inert slot rather than
+re-indexing everyone), and a **treasury** holds money belonging to nobody — the estates
+of the dead, and what expeditions bring home.
+
+### Verified live
+
+- **Three tiers generate.** All six new structures resolve via `/locate`. A metropolis
+  seeded **300 citizens** with a garrison filling toward its 70–95 target:
+  `base_vostok_metropolis_… citizens=300 soldiers=23`. ✅
+- **Footprint stays inside the separation floor.** The metropolis measured **228×221
+  (half-extent 114)** against a **272-block** floor — two adjacent need 228, leaving 44
+  blocks of headroom. Separation was raised 16 (from 13) precisely because the largest
+  settlement sets the spacing for everything. ✅
+- **Growth works, bounded by housing:** a town went `10 → 11 → 13 → 15 → 17 → 19`
+  against `housing=32`, while three of its citizens were `away=3` on expedition. ✅
+- **Expeditions dispatch and resolve** across every settlement — mine, trade, forage and
+  raid — with parties drawn from the city's own people. ✅
+- **Raids move wealth between cities.**
+  `base_vostok_city_… sacked testopolis for 70 emeralds and 84 food (lost 2)`.
+  Testopolis' money fell 25,000 → 23,700, its Gini rose 0.04 → 0.12 and its poorest
+  citizen dropped to 84 — the raiders took it off people, richest first. Both cities
+  still reported `conserved=true`. ✅
+- **External wealth reaches citizens.** A mining city's actor money climbed
+  `28,000 → 28,028 → 28,150 → 28,206` as `carried in` rose to 31 emeralds. ✅
+- **Performance holds at scale:** a 300-citizen metropolis costs 0.78ms per economic
+  tick and 0.055ms per reconcile. ✅
+
+### Three bugs this found and fixed before shipping
+
+1. **Conservation would have broken on reload.** `initialMoney` was derived from the
+   population at construction, so a decoded snapshot of a city that had *grown*
+   recomputed the baseline from the larger population and the audit would have thrown.
+   The baseline is persisted now. Caught by `tools/econ-selftest.sh`, which compiles
+   `EconomyModel` standalone (it has no Minecraft imports) and runs 30 invariants in a
+   second rather than a server boot.
+2. **Nothing an expedition earned ever reached anybody.** Deposits landed in the
+   treasury and stayed there, because the payout reserve was a full `startingWealth`
+   (1000) and a typical haul is 250. The economy was open on paper and unchanged in
+   practice — visible only because a mining city's `money=` never moved. Reserve is now
+   one liquidity floor.
+3. **The growth clock never fired.** It demanded `now % interval == 0`, but `maybeGrow`
+   is only reached on an economic tick every 200 ticks, so the clock had to land on one
+   of three reachable residues out of 600 — a town sat at 10 citizens with 32 housing
+   and full granaries for six minutes without a single birth. It now fires on the first
+   economic tick inside each interval window.
+
+### Regression suite
+
+`econ-selftest.sh` ALL PASS (30 invariants) · `verify-base-spacing.js` PASS (272-block
+floor) · `validate-dialogue.js` PASS, zero warnings · `gen-base-plans.js` zero
+collisions and zero skipped buildings · `./gradlew runGametest` PASS, with the town,
+city and metropolis plates added to the aerial battery and read.
+
+### Note
+
+The port collision during testing was **not** resolved by killing the process holding
+25565: no pidfile existed, so by rule 1 it was not mine to kill. The dev server's
+`server-port` was moved to 25599 instead.

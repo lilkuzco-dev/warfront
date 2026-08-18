@@ -1,5 +1,5 @@
 {
-  "_tuning_notes": "Phase 2 economy. money_per_emerald: internal money units one emerald is worth — citizen wealth and every player-facing price convert at this rate. citizen_purse_cap / trader_emerald_float: how many emeralds a citizen actually carries as items (the rest of their wealth stays abstract holdings, so citizens are not an emerald farm). trade_lot: units of a good exchanged per player trade.",
+  "_tuning_notes": "Phase 2 economy. money_per_emerald: internal money units one emerald is worth — citizen wealth and every player-facing price convert at this rate. citizen_purse_cap / trader_emerald_float: how many emeralds a citizen actually carries as items (the rest of their wealth stays abstract holdings, so citizens are not an emerald farm). trade_lot: units of a good exchanged per player trade. newborn_stake: money a newborn is given so it starts above the liquidity floor — drawn from the treasury and levied from the richest, never minted. growth_food_per_citizen: food the city must hold PER CITIZEN before it will have another. growth_interval_ticks: how often a birth is considered.",
   "game_ticks_per_economic_tick": 200,
   "starting_wealth": 1000,
   "liquidity_floor": 100,
@@ -10,5 +10,8 @@
   "money_per_emerald": 25,
   "trader_emerald_float": 12,
   "citizen_purse_cap": 4,
-  "trade_lot": 8
+  "trade_lot": 8,
+  "newborn_stake": 250,
+  "growth_food_per_citizen": 3,
+  "growth_interval_ticks": 600
 }

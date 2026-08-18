@@ -1,0 +1,16 @@
+{
+  "_tuning_notes": "Expeditions are what stop a city's economy being a closed loop. MINE and TRADE bring wealth in from outside the model entirely; FORAGE brings goods; RAID moves both from another settlement into this one. Parties are drawn from the city's own citizens and are away (and unspawnable at home) until they return. Everything resolves from the stored seed and return tick, so a party completes correctly with every chunk involved unloaded.",
+  "enabled": true,
+  "min_party": 3,
+  "max_party": 12,
+  "cooldown_ticks": 12000,
+  "base_duration_ticks": 6000,
+  "duration_jitter_ticks": 6000,
+  "success_permille": 650,
+  "mine_emeralds_per_head": 6,
+  "forage_goods_per_head": 12,
+  "trade_emeralds_per_head": 3,
+  "raid_emeralds_per_head": 10,
+  "raid_casualty_permille": 220,
+  "raid_range": 1500
+}

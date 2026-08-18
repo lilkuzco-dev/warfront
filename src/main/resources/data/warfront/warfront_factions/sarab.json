@@ -16,7 +16,7 @@
   },
   "population": {
     "_tuning_notes": "see vostok.json for field semantics. Sarab doctrine: dispersed asymmetry — mid-size garrisons spread across sub-compounds, night infiltration pairs on the move.",
-    "garrison": { "outpost": [5, 8], "forward_base": [10, 14], "headquarters": [16, 22], "city": [6, 10] },
+    "garrison": { "outpost": [5, 8], "forward_base": [10, 14], "headquarters": [16, 22], "city": [6, 10], "town": [3, 5], "metropolis": [60, 80] },
     "reinforce_minutes": 5.0,
     "reinforce_pause_radius": 32,
     "roam_style": "night_pair",

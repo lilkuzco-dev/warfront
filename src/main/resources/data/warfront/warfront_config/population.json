@@ -1,5 +1,5 @@
 {
-  "_tuning_notes": "Global performance budget. per_player_soldier_cap: hard ceiling on loaded soldiers per online player — all spawners (hydration, reinforcement, roaming, patrols) respect it, nearest-base-to-a-player gets priority. hydration_radius: how close a player must be before a base's stored garrison count is hydrated into live entities. base_tick_seconds: cadence of the base manager cycle. roam_interval_seconds/roam_chance: how often inter-base squads are attempted. *_citizens: civilian population seeded when a structure of that tier is first discovered. per_player_citizen_cap: ceiling on loaded citizens per online player.",
+  "_tuning_notes": "Global performance budget. per_player_soldier_cap: hard ceiling on loaded soldiers per online player — all spawners (hydration, reinforcement, roaming, patrols) respect it, nearest-base-to-a-player gets priority. hydration_radius: how close a player must be before a base's stored garrison count is hydrated into live entities. base_tick_seconds: cadence of the base manager cycle. roam_interval_seconds/roam_chance: how often inter-base squads are attempted. *_citizens: civilian population seeded when a structure of that tier is first discovered. per_player_citizen_cap: ceiling on loaded citizens per online player. town/city/metropolis_citizens: seeded civilian population by settlement tier — a metropolis is rare and genuinely large. citizen_hard_cap: absolute ceiling a settlement may grow to.",
   "per_player_soldier_cap": 64,
   "hydration_radius": 128,
   "base_tick_seconds": 15,
@@ -9,5 +9,9 @@
   "forward_base_citizens": 8,
   "headquarters_citizens": 14,
   "city_citizens": 28,
-  "per_player_citizen_cap": 48
+  "per_player_citizen_cap": 48,
+  "town_citizens": 10,
+  "metropolis_citizens": 300,
+  "citizen_hard_cap": 420,
+  "citizens_per_bunk": 4
 }

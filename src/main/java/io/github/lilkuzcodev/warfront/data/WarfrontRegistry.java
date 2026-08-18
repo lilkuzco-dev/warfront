@@ -34,6 +34,7 @@ public final class WarfrontRegistry {
 	private static PopulationGlobal population = PopulationGlobal.DEFAULT;
 	private static DispositionConfig disposition = DispositionConfig.DEFAULT;
 	private static EconomyConfig economy = EconomyConfig.DEFAULT;
+	private static ExpeditionConfig expeditions = ExpeditionConfig.DEFAULT;
 
 	public static void init() {
 		ResourceLoader.get(PackType.SERVER_DATA).registerReloadListener(Warfront.id("registry"), new Listener());
@@ -71,6 +72,46 @@ public final class WarfrontRegistry {
 		return economy;
 	}
 
+	public static ExpeditionConfig expeditions() {
+		return expeditions;
+	}
+
+	/** What a settlement's parties do when they leave town, and what they bring back. */
+	public record ExpeditionConfig(boolean enabled, int minParty, int maxParty, int cooldownTicks,
+			int baseDurationTicks, int durationJitterTicks, int successPermille, int mineEmeraldsPerHead,
+			int forageGoodsPerHead, int tradeEmeraldsPerHead, int raidEmeraldsPerHead,
+			int raidCasualtyPermille, int raidRange) {
+		public static final ExpeditionConfig DEFAULT = new ExpeditionConfig(
+				true, 3, 12, 12_000, 6_000, 6_000, 650, 6, 12, 3, 10, 220, 1_500);
+
+		public ExpeditionConfig {
+			if (minParty < 1 || maxParty < minParty || cooldownTicks < 1 || baseDurationTicks < 1
+					|| durationJitterTicks < 1 || successPermille < 0 || successPermille > 1_000
+					|| mineEmeraldsPerHead < 0 || forageGoodsPerHead < 0 || tradeEmeraldsPerHead < 0
+					|| raidEmeraldsPerHead < 0 || raidCasualtyPermille < 0 || raidCasualtyPermille > 1_000
+					|| raidRange < 0) {
+				throw new IllegalArgumentException("invalid expedition configuration");
+			}
+		}
+
+		public static ExpeditionConfig fromJson(JsonObject json) {
+			return new ExpeditionConfig(
+					GsonHelper.getAsBoolean(json, "enabled", true),
+					GsonHelper.getAsInt(json, "min_party", 3),
+					GsonHelper.getAsInt(json, "max_party", 12),
+					GsonHelper.getAsInt(json, "cooldown_ticks", 12_000),
+					GsonHelper.getAsInt(json, "base_duration_ticks", 6_000),
+					GsonHelper.getAsInt(json, "duration_jitter_ticks", 6_000),
+					GsonHelper.getAsInt(json, "success_permille", 650),
+					GsonHelper.getAsInt(json, "mine_emeralds_per_head", 6),
+					GsonHelper.getAsInt(json, "forage_goods_per_head", 12),
+					GsonHelper.getAsInt(json, "trade_emeralds_per_head", 3),
+					GsonHelper.getAsInt(json, "raid_emeralds_per_head", 10),
+					GsonHelper.getAsInt(json, "raid_casualty_permille", 220),
+					GsonHelper.getAsInt(json, "raid_range", 1_500));
+		}
+	}
+
 	/** Relation between two factions: "hostile", "neutral" (default), or "allied". */
 	public static String relation(String a, String b) {
 		if (a.equals(b)) {
@@ -85,7 +126,7 @@ public final class WarfrontRegistry {
 
 	private record LoadedData(Map<String, Faction> factions, Map<String, TacticalTemplate> templates,
 			Map<String, String> relations, TechConfig tech, StandingConfig standing, PopulationGlobal population,
-			DispositionConfig disposition, EconomyConfig economy) {
+			DispositionConfig disposition, EconomyConfig economy, ExpeditionConfig expeditions) {
 	}
 
 	private static class Listener extends SimpleReloadListener<LoadedData> {
@@ -121,8 +162,10 @@ public final class WarfrontRegistry {
 					.map(res -> DispositionConfig.fromJson(parse(res))).orElse(DispositionConfig.DEFAULT);
 			EconomyConfig economyConfig = manager.getResource(Warfront.id("warfront_config/economy.json"))
 					.map(res -> EconomyConfig.fromJson(parse(res))).orElse(EconomyConfig.DEFAULT);
+			ExpeditionConfig expeditionConfig = manager.getResource(Warfront.id("warfront_config/expeditions.json"))
+					.map(res -> ExpeditionConfig.fromJson(parse(res))).orElse(ExpeditionConfig.DEFAULT);
 			return new LoadedData(factionMap, templateMap, relationMap, techConfig, standingConfig, populationConfig,
-					dispositionConfig, economyConfig);
+					dispositionConfig, economyConfig, expeditionConfig);
 		}
 
 		@Override
@@ -135,6 +178,7 @@ public final class WarfrontRegistry {
 			population = data.population();
 			disposition = data.disposition();
 			economy = data.economy();
+			expeditions = data.expeditions();
 			Warfront.LOGGER.info("Loaded {} factions, {} templates, {} relations", factions.size(), templates.size(), relations.size());
 		}
 	}
@@ -206,9 +250,10 @@ public final class WarfrontRegistry {
 	/** Global population budget knobs (performance-facing; per-faction flavor lives in Faction.Population). */
 	public record PopulationGlobal(int perPlayerSoldierCap, int hydrationRadius, int baseTickSeconds,
 			int roamIntervalSeconds, float roamChance, int outpostCitizens, int forwardBaseCitizens,
-			int headquartersCitizens, int cityCitizens, int perPlayerCitizenCap) {
+			int headquartersCitizens, int cityCitizens, int perPlayerCitizenCap,
+			int townCitizens, int metropolisCitizens, int citizenHardCap, int citizensPerBunk) {
 		public static final PopulationGlobal DEFAULT =
-				new PopulationGlobal(64, 128, 15, 240, 0.5F, 4, 8, 14, 28, 48);
+				new PopulationGlobal(64, 128, 15, 240, 0.5F, 4, 8, 14, 28, 48, 10, 300, 420, 4);
 
 		public static PopulationGlobal fromJson(JsonObject json) {
 			return new PopulationGlobal(
@@ -221,7 +266,11 @@ public final class WarfrontRegistry {
 					GsonHelper.getAsInt(json, "forward_base_citizens", 8),
 					GsonHelper.getAsInt(json, "headquarters_citizens", 14),
 					GsonHelper.getAsInt(json, "city_citizens", 28),
-					GsonHelper.getAsInt(json, "per_player_citizen_cap", 48));
+					GsonHelper.getAsInt(json, "per_player_citizen_cap", 48),
+					GsonHelper.getAsInt(json, "town_citizens", 10),
+					GsonHelper.getAsInt(json, "metropolis_citizens", 300),
+					GsonHelper.getAsInt(json, "citizen_hard_cap", 420),
+					GsonHelper.getAsInt(json, "citizens_per_bunk", 4));
 		}
 
 		/** Civilian population a freshly discovered structure of this tier seeds. */
@@ -229,7 +278,9 @@ public final class WarfrontRegistry {
 			return switch (tier) {
 				case "headquarters" -> headquartersCitizens;
 				case "forward_base" -> forwardBaseCitizens;
+				case "town" -> townCitizens;
 				case "city" -> cityCitizens;
+				case "metropolis" -> metropolisCitizens;
 				default -> outpostCitizens;
 			};
 		}
@@ -238,15 +289,17 @@ public final class WarfrontRegistry {
 	/** Data-driven Phase 2 economy cadence, liquidity, exchange, and shock knobs. */
 	public record EconomyConfig(int gameTicksPerEconomicTick, long startingWealth, long liquidityFloor,
 			long fixedExchange, int exchangesPerActor, int shockInterval, int shockPermille,
-			long moneyPerEmerald, int traderEmeraldFloat, int citizenPurseCap, int tradeLot) {
+			long moneyPerEmerald, int traderEmeraldFloat, int citizenPurseCap, int tradeLot,
+			long newbornStake, int growthFoodPerCitizen, int growthIntervalTicks) {
 		public static final EconomyConfig DEFAULT =
-				new EconomyConfig(200, 1_000L, 100L, 3L, 1, 400, 180, 25L, 12, 4, 8);
+				new EconomyConfig(200, 1_000L, 100L, 3L, 1, 400, 180, 25L, 12, 4, 8, 250L, 3, 600);
 
 		public EconomyConfig {
 			if (gameTicksPerEconomicTick < 1 || startingWealth < 1 || liquidityFloor < 0
 					|| fixedExchange < 1 || exchangesPerActor < 0 || shockInterval < 0
 					|| shockPermille < 0 || shockPermille > 1_000 || moneyPerEmerald < 1
-					|| traderEmeraldFloat < 0 || citizenPurseCap < 0 || tradeLot < 1) {
+					|| traderEmeraldFloat < 0 || citizenPurseCap < 0 || tradeLot < 1
+					|| newbornStake < 0 || growthFoodPerCitizen < 1 || growthIntervalTicks < 1) {
 				throw new IllegalArgumentException("invalid economy configuration");
 			}
 		}
@@ -263,7 +316,10 @@ public final class WarfrontRegistry {
 					GsonHelper.getAsLong(json, "money_per_emerald", 25L),
 					GsonHelper.getAsInt(json, "trader_emerald_float", 12),
 					GsonHelper.getAsInt(json, "citizen_purse_cap", 4),
-					GsonHelper.getAsInt(json, "trade_lot", 8));
+					GsonHelper.getAsInt(json, "trade_lot", 8),
+					GsonHelper.getAsLong(json, "newborn_stake", 250L),
+					GsonHelper.getAsInt(json, "growth_food_per_citizen", 3),
+					GsonHelper.getAsInt(json, "growth_interval_ticks", 600));
 		}
 	}
 

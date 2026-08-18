@@ -3,6 +3,7 @@ package io.github.lilkuzcodev.warfront.systems;
 import io.github.lilkuzcodev.warfront.Warfront;
 import io.github.lilkuzcodev.warfront.block.WarfrontBlocks;
 import io.github.lilkuzcodev.warfront.civilization.CivilizationManager;
+import io.github.lilkuzcodev.warfront.civilization.CivilizationState;
 import io.github.lilkuzcodev.warfront.data.Faction;
 import io.github.lilkuzcodev.warfront.data.WarfrontRegistry;
 import io.github.lilkuzcodev.warfront.data.WarfrontState;
@@ -48,6 +49,8 @@ public final class BaseManager {
 	private static final int SETTLEMENT_RADIUS = 40;
 	/** Spawn-anchor search radius around a base centre; see {@link #anchorPoints}. */
 	private static final int ANCHOR_SCAN_RADIUS = 64;
+	private static final int HOUSING_RECOUNT_TICKS = 6_000;
+	private static final java.util.Map<String, Long> LAST_HOUSING_COUNT = new java.util.HashMap<>();
 
 	public static void init() {
 		ServerTickEvents.END_SERVER_TICK.register(server -> {
@@ -141,6 +144,35 @@ public final class BaseManager {
 		return key;
 	}
 
+	/**
+	 * Recounts the settlement's roofs so population growth is bounded by what is actually
+	 * standing. Throttled hard: this is a block scan, and it only matters on the timescale
+	 * of someone building or burning down a barracks.
+	 */
+	private static void refreshHousing(ServerLevel level, String key, WarfrontState.Base base) {
+		long now = level.getGameTime();
+		Long last = LAST_HOUSING_COUNT.get(key);
+		if (last != null && now - last < HOUSING_RECOUNT_TICKS) {
+			return;
+		}
+		LAST_HOUSING_COUNT.put(key, now);
+		var state = CivilizationState.get(level.getServer());
+		var city = state.city(CivilizationManager.normalizeId("base_" + key));
+		if (city == null) {
+			return;
+		}
+		int bunks = scanNearCentre(level, base, WarfrontBlocks.BUNK, ANCHOR_SCAN_RADIUS).size();
+		// A bunk is a household, not a bed. The rethemed village houses carry only a
+		// handful of beds each, so counting them one-for-one put every settlement's
+		// ceiling below its own seeded population and growth could never start.
+		int housing = Math.max(city.citizens().size(),
+				bunks * WarfrontRegistry.population().citizensPerBunk());
+		if (housing != city.housing()) {
+			Warfront.LOGGER.debug("{} housing {} -> {} ({} bunks)", city.id(), city.housing(), housing, bunks);
+			state.putCity(city.withHousing(housing));
+		}
+	}
+
 	/** Centre of the plate the structure started from, which is where the settlement is. */
 	private static BlockPos startPieceCenter(StructureStart start, BoundingBox fallback) {
 		var pieces = start.getPieces();
@@ -205,8 +237,14 @@ public final class BaseManager {
 		if (structurePath.contains("headquarters")) {
 			return "headquarters";
 		}
+		if (structurePath.endsWith("_metropolis")) {
+			return "metropolis";
+		}
 		if (structurePath.endsWith("_city")) {
 			return "city";
+		}
+		if (structurePath.endsWith("_town")) {
+			return "town";
 		}
 		return structurePath.contains("forward") ? "forward_base" : "outpost";
 	}
@@ -261,6 +299,7 @@ public final class BaseManager {
 				continue;
 			}
 			int target = faction.population().garrisonTarget(base.tier, key.hashCode());
+			refreshHousing(level, key, base);
 			if (level.getGameTime() - base.lastReinforce >= DISCOVERY_SETTLE_TICKS) {
 				reconcileLoadedGarrison(level, key, base, target);
 			}

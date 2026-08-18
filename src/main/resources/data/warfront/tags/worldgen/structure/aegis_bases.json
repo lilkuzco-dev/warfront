@@ -3,6 +3,8 @@
     "warfront:aegis_base",
     "warfront:aegis_forward_base",
     "warfront:aegis_headquarters",
-    "warfront:aegis_city"
+    "warfront:aegis_city",
+    "warfront:aegis_town",
+    "warfront:aegis_metropolis"
   ]
 }

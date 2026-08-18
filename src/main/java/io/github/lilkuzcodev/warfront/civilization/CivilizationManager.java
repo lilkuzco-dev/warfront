@@ -44,7 +44,7 @@ public final class CivilizationManager {
 		if (id.isEmpty()) throw new IllegalArgumentException("city id must contain a letter or number");
 		if (state.city(id) != null) throw new IllegalArgumentException("city already exists: " + id);
 		CityRecord city = new CityRecord(id, faction, center.immutable(), 64, population + 1L,
-				buildCitizens(level, id, center, population, List.of()));
+				buildCitizens(level, id, center, population, List.of()), population, 0L);
 		state.putCity(city);
 		reconcile(level.getServer());
 		return state.city(id);
@@ -67,8 +67,10 @@ public final class CivilizationManager {
 		if (id.isEmpty()) return null;
 		CityRecord existing = state.city(id);
 		if (existing != null) return existing;
+		// Housing starts at the seeded population; BaseManager recounts real bunks once
+		// the settlement is loaded, and that is what growth is bounded by from then on.
 		CityRecord city = new CityRecord(id, faction, center.immutable(), radius, population + 1L,
-				buildCitizens(level, id, center, population, homes));
+				buildCitizens(level, id, center, population, homes), population, 0L);
 		state.putCity(city);
 		Warfront.LOGGER.info("Seeded settlement {} ({}) with {} citizens at {}", id, faction, population,
 				center.toShortString());
@@ -103,7 +105,7 @@ public final class CivilizationManager {
 			UUID uuid = UUID.nameUUIDFromBytes((level.getSeed() + ":" + id + ":" + serial)
 					.getBytes(StandardCharsets.UTF_8));
 			CitizenRecord actor = new CitizenRecord(serial, uuid, profession, x, y, z, 0L, Map.of(), now,
-					FidelityTier.VIRTUAL);
+					FidelityTier.VIRTUAL, 0L);
 			citizens.put(Long.toString(serial), actor);
 		}
 		return Map.copyOf(citizens);
@@ -177,8 +179,7 @@ public final class CivilizationManager {
 				}
 				nextCitizens.put(Long.toString(current.serial()), current);
 			}
-			state.putCity(new CityRecord(city.id(), city.faction(), city.center(), city.radius(), city.nextSerial(),
-					Map.copyOf(nextCitizens)));
+			state.putCity(city.withCitizens(nextCitizens, city.nextSerial()));
 			assignSoldiers(level, state, city);
 			LAST_CITY_TICK_NANOS.put(city.id(), System.nanoTime() - cityStarted);
 		}
@@ -212,6 +213,10 @@ public final class CivilizationManager {
 	}
 
 	private static FidelityTier desiredTier(ServerLevel level, CitizenRecord actor) {
+		// Out on an expedition: the record keeps running, but there is nobody in town to
+		// walk into. Without this a raiding party would still be standing in its own
+		// market square for the whole journey.
+		if (actor.isAway(level.getGameTime())) return FidelityTier.VIRTUAL;
 		for (ServerPlayer player : level.players()) {
 			double dx = player.getX() - actor.x();
 			double dy = player.getY() - actor.y();

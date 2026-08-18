@@ -105,12 +105,17 @@ public class WarfrontRenderTest implements FabricClientGameTest {
 
 			// --- the three faction cities (aerial), plus one eye-level read of the
 			// plaza, which is the piece of civilian grammar most likely to be wrong.
-			// Cities measure ~200 blocks across once their districts sprawl. The camera
-			// looks straight down, so it has to be high enough for the FOV to contain
-			// that (~1.4 x altitude); at 120 the town sat in one corner of the frame.
+			// Settlements measure up to ~230 blocks across once their districts sprawl.
+			// The camera looks straight down, so it has to be high enough for the FOV to
+			// contain that (~1.4 x altitude); at 120 the town sat in a corner of the frame.
 			for (int i = 0; i < 3; i++) {
+				shootStructure(context, world, "warfront:" + factions[i] + "_town", factions[i] + "_town", x, 140);
+				x += 300;
 				shootStructure(context, world, "warfront:" + factions[i] + "_city", factions[i] + "_city", x, 200);
 				x += 300;
+				shootStructure(context, world, "warfront:" + factions[i] + "_metropolis",
+						factions[i] + "_metropolis", x, 260);
+				x += 400;
 			}
 
 			int cx = 3000;

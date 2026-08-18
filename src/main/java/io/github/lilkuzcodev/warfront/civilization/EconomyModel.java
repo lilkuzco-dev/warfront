@@ -44,34 +44,41 @@ public final class EconomyModel {
 	 * emerald a citizen pays out is booked here, and the balance still has to close.
 	 */
 	public record Conservation(long initialMoney, long moneyNow, long initialGoods, long regenerated,
-			long consumed, long shockLoss, long goodsNow, long externalMoneyIn, long externalMoneyOut) {
+			long consumed, long shockLoss, long goodsNow, long externalMoneyIn, long externalMoneyOut,
+			long treasury) {
 		public boolean balanced() {
-			return initialMoney + externalMoneyIn - externalMoneyOut == moneyNow
+			return initialMoney + externalMoneyIn - externalMoneyOut == moneyNow + treasury
 					&& initialGoods + regenerated - consumed - shockLoss == goodsNow;
 		}
 	}
 
 	private final Config config;
-	private final long[] money;
-	private final int[] skill;
-	private final int[] metabolism;
-	private final int[] aptitude;
-	private final Role[] professions;
-	private final long[][] goods;
-	private final int[] assignedNode;
+	// Per-actor arrays GROW as a city has children and are never re-indexed: an actor's
+	// slot is `serial - 1` for the life of the city, so a death leaves an inert slot
+	// rather than shifting everyone down and corrupting every stored index.
+	private long[] money;
+	private int[] skill;
+	private int[] metabolism;
+	private int[] aptitude;
+	private Role[] professions;
+	private long[][] goods;
+	private int[] assignedNode;
+	private boolean[] active;
 	private final Good[] nodeGood;
 	private final long[] nodeStock;
 	private final long[] nodeCapacity;
 	private final int[] nodeRegeneration;
 	private final long[] prices = { 12L, 18L, 14L, 24L };
-	private final long initialMoney;
-	private final long initialGoods;
+	private long initialMoney;
+	private long initialGoods;
 	private long regenerated;
 	private long consumed;
 	private long shockLoss;
 	private long unmetUpkeep;
 	private long externalMoneyIn;
 	private long externalMoneyOut;
+	/** City money held by nobody: estates of the dead, and the stake a newborn draws. */
+	private long treasury;
 	private long tick;
 	private long randomState;
 
@@ -86,7 +93,9 @@ public final class EconomyModel {
 		this.professions = new Role[n];
 		this.goods = new long[n][Good.values().length];
 		this.assignedNode = new int[n];
+		this.active = new boolean[n];
 		Arrays.fill(money, config.startingWealth());
+		Arrays.fill(active, true);
 
 		for (int i = 0; i < n; i++) {
 			long actorSeed = mix64(config.seed() ^ (i + 1L) * 0x9E3779B97F4A7C15L);
@@ -124,6 +133,7 @@ public final class EconomyModel {
 		clearFoodMarket();
 		if (tick % 20 == 0) clearMarket(Good.CRAFTS, Math.max(1, money.length / 10));
 		fixedAmountExchange();
+		distributeTreasury();
 		if (config.shockInterval() > 0 && tick % config.shockInterval() == 0) {
 			injectShock(Shock.values()[(int) Math.floorMod(nextLong(), Shock.values().length)]);
 		}
@@ -142,7 +152,7 @@ public final class EconomyModel {
 
 	private void produce() {
 		for (int actor = 0; actor < money.length; actor++) {
-			if (money[actor] < config.liquidityFloor()) continue;
+			if (!active[actor] || money[actor] < config.liquidityFloor()) continue;
 			Role profession = professions[actor];
 			if (profession == Role.TRADER) continue;
 			if (profession == Role.BUILDER) {
@@ -168,13 +178,14 @@ public final class EconomyModel {
 		int demand = 0;
 		long supply = 0;
 		for (int actor = 0; actor < money.length; actor++) {
+			if (!active[actor]) continue;
 			if (tick % (metabolism[actor] * 20L) == 0) demand++;
 			supply += goods[actor][Good.FOOD.ordinal()];
 		}
 		updatePrice(Good.FOOD, demand, supply);
 		for (int offset = 0; offset < money.length; offset++) {
 			int buyer = (offset + (int) (tick % money.length)) % money.length;
-			if (tick % (metabolism[buyer] * 20L) != 0) continue;
+			if (!active[buyer] || tick % (metabolism[buyer] * 20L) != 0) continue;
 			if (goods[buyer][Good.FOOD.ordinal()] > 0) {
 				goods[buyer][Good.FOOD.ordinal()]--;
 				consumed++;
@@ -198,6 +209,7 @@ public final class EconomyModel {
 		long timberSupply = 0;
 		int builders = 0;
 		for (int actor = 0; actor < money.length; actor++) {
+			if (!active[actor]) continue;
 			oreSupply += goods[actor][Good.ORE.ordinal()];
 			timberSupply += goods[actor][Good.TIMBER.ordinal()];
 			if (professions[actor] == Role.BUILDER && money[actor] >= config.liquidityFloor()) builders++;
@@ -205,7 +217,8 @@ public final class EconomyModel {
 		updatePrice(Good.ORE, builders, oreSupply);
 		updatePrice(Good.TIMBER, builders, timberSupply);
 		for (int builder = 0; builder < money.length; builder++) {
-			if (professions[builder] != Role.BUILDER || money[builder] < config.liquidityFloor()) continue;
+			if (!active[builder] || professions[builder] != Role.BUILDER
+					|| money[builder] < config.liquidityFloor()) continue;
 			if (goods[builder][Good.ORE.ordinal()] == 0) buyInput(builder, Good.ORE);
 			if (goods[builder][Good.TIMBER.ordinal()] == 0) buyInput(builder, Good.TIMBER);
 		}
@@ -227,6 +240,7 @@ public final class EconomyModel {
 		updatePrice(good, demand, supply);
 		for (int order = 0; order < demand; order++) {
 			int buyer = (int) Math.floorMod(mix64(config.seed() ^ tick * 131L ^ order), money.length);
+			if (!active[buyer]) continue;
 			int seller = findSeller(good, buyer);
 			long price = prices[good.ordinal()];
 			if (seller >= 0 && money[buyer] >= Math.max(config.liquidityFloor(), price)) {
@@ -241,7 +255,7 @@ public final class EconomyModel {
 		int start = (int) Math.floorMod(mix64(config.seed() + tick * 17L + buyer * 97L), money.length);
 		for (int offset = 0; offset < money.length; offset++) {
 			int seller = (start + offset) % money.length;
-			if (seller != buyer && goods[seller][good.ordinal()] > 0) return seller;
+			if (seller != buyer && active[seller] && goods[seller][good.ordinal()] > 0) return seller;
 		}
 		return -1;
 	}
@@ -257,13 +271,40 @@ public final class EconomyModel {
 		for (int exchange = 0; exchange < config.exchangesPerTick(); exchange++) {
 			int a = nextInt(money.length);
 			int b = nextInt(money.length);
-			if (a == b || money[a] < config.liquidityFloor() || money[b] < config.liquidityFloor()) continue;
+			if (a == b || !active[a] || !active[b]
+					|| money[a] < config.liquidityFloor() || money[b] < config.liquidityFloor()) continue;
 			double chanceA = (skill[a] + aptitude[a])
 					/ (double) (skill[a] + aptitude[a] + skill[b] + aptitude[b]);
 			int winner = nextUnit() < chanceA ? a : b;
 			int loser = winner == a ? b : a;
 			if (money[loser] >= config.fixedExchange()) transfer(loser, winner, config.fixedExchange());
 		}
+	}
+
+	/**
+	 * Pays the town purse out to the people. Without this, everything an expedition
+	 * mines or loots would pile up in the treasury and never reach a citizen — the
+	 * economy would be open on paper and unchanged in practice.
+	 *
+	 * <p>The reserve held back is one liquidity floor — a small working float, not a
+	 * whole starting fortune. Reserving `startingWealth` meant a typical expedition haul
+	 * never cleared the bar and nothing ever circulated; a newborn's stake falls back to
+	 * a levy on the rich anyway, so the treasury does not need to cover one in full.
+	 */
+	private void distributeTreasury() {
+		long reserve = config.liquidityFloor();
+		long payable = treasury - reserve;
+		if (payable <= 0) return;
+		int living = activeCount();
+		if (living == 0) return;
+		long share = Math.max(1L, payable / 10L / living);
+		long paid = 0;
+		for (int actor = 0; actor < money.length && paid + share <= payable; actor++) {
+			if (!active[actor]) continue;
+			money[actor] = Math.addExact(money[actor], share);
+			paid += share;
+		}
+		treasury -= paid;
 	}
 
 	private void transfer(int from, int to, long amount) {
@@ -309,7 +350,7 @@ public final class EconomyModel {
 		int start = (int) Math.floorMod(mix64(config.seed() ^ tick ^ payer * 41L), money.length);
 		for (int offset = 0; offset < money.length; offset++) {
 			int recipient = (start + offset) % money.length;
-			if (recipient != payer && professions[recipient] == recipientRole) {
+			if (recipient != payer && active[recipient] && professions[recipient] == recipientRole) {
 				long amount = Math.min(maximum, Math.max(0, (money[payer] - config.liquidityFloor()) / 3));
 				if (amount > 0) transfer(payer, recipient, amount);
 				return;
@@ -344,8 +385,14 @@ public final class EconomyModel {
 	}
 
 	public Distribution distribution() {
-		long[] wealth = new long[money.length];
-		for (int actor = 0; actor < wealth.length; actor++) wealth[actor] = netWorth(actor);
+		// Inert slots left by the dead are not people; counting their zero wealth would
+		// drag every quantile and the Gini coefficient toward a poverty that nobody lives.
+		long[] wealth = new long[activeCount()];
+		int w = 0;
+		for (int actor = 0; actor < money.length; actor++) {
+			if (active[actor]) wealth[w++] = netWorth(actor);
+		}
+		if (wealth.length == 0) wealth = new long[] { 0L };
 		Arrays.sort(wealth);
 		long total = Arrays.stream(wealth).sum();
 		long weighted = 0;
@@ -364,7 +411,183 @@ public final class EconomyModel {
 
 	public Conservation conservation() {
 		return new Conservation(initialMoney, totalMoney(), initialGoods, regenerated, consumed, shockLoss,
-				totalGoodsIncludingNodes(), externalMoneyIn, externalMoneyOut);
+				totalGoodsIncludingNodes(), externalMoneyIn, externalMoneyOut, treasury);
+	}
+
+	// ---------- population lifecycle ----------
+
+	public int activeCount() {
+		int n = 0;
+		for (boolean live : active) {
+			if (live) n++;
+		}
+		return n;
+	}
+
+	public boolean isActive(int actor) {
+		return actor >= 0 && actor < active.length && active[actor];
+	}
+
+	public long treasury() {
+		return treasury;
+	}
+
+	/**
+	 * Ensures a slot exists for {@code index} and brings it to life. A newborn draws a
+	 * stake so it starts above the liquidity floor — otherwise it could never trade or
+	 * produce, and would be born permanently destitute. The stake comes from the
+	 * treasury first (the estates of the dead) and is levied from the richest living
+	 * actors only for the shortfall, so no money is created here.
+	 */
+	public void bringActorToLife(int index, long stake) {
+		if (index < 0) throw new IllegalArgumentException("negative actor index");
+		if (index >= money.length) grow(index + 1);
+		if (active[index]) return;
+		long actorSeed = mix64(config.seed() ^ (index + 1L) * 0x9E3779B97F4A7C15L);
+		skill[index] = 80 + (int) Math.floorMod(actorSeed, 41L);
+		metabolism[index] = 2 + (int) Math.floorMod(actorSeed >>> 9, 3L);
+		aptitude[index] = 80 + (int) Math.floorMod(actorSeed >>> 17, 41L);
+		professions[index] = Role.values()[index % Role.values().length];
+		Good needed = productionGood(professions[index]);
+		int base = needed == Good.FOOD ? 0 : needed == Good.ORE ? 3 : 6;
+		assignedNode[index] = base + (int) Math.floorMod(mix64(config.seed() + index * 31L), 3L);
+		Arrays.fill(goods[index], 0L);
+		money[index] = 0L;
+		active[index] = true;
+		long wanted = Math.max(0L, stake);
+		long fromTreasury = Math.min(wanted, treasury);
+		treasury -= fromTreasury;
+		money[index] = fromTreasury;
+		long shortfall = wanted - fromTreasury;
+		if (shortfall > 0) levyInto(index, shortfall);
+		assertConservation();
+	}
+
+	/** Retires a slot: the estate goes to the treasury, the goods are consumed. */
+	public void retireActor(int index) {
+		if (index < 0 || index >= money.length || !active[index]) return;
+		treasury = Math.addExact(treasury, money[index]);
+		money[index] = 0L;
+		for (Good good : Good.values()) {
+			consumed += goods[index][good.ordinal()];
+			goods[index][good.ordinal()] = 0L;
+		}
+		active[index] = false;
+		assertConservation();
+	}
+
+	/** Takes a shortfall from the richest living actors, above the liquidity floor. */
+	private void levyInto(int beneficiary, long amount) {
+		Integer[] order = new Integer[money.length];
+		for (int i = 0; i < order.length; i++) order[i] = i;
+		Arrays.sort(order, Comparator.comparingLong((Integer i) -> money[i]).reversed());
+		long remaining = amount;
+		for (int rank = 0; rank < order.length && remaining > 0; rank++) {
+			int donor = order[rank];
+			if (donor == beneficiary || !active[donor]) continue;
+			long spare = money[donor] - config.liquidityFloor();
+			if (spare <= 0) break; // sorted by wealth: nobody after this one can spare more
+			long taken = Math.min(spare, remaining);
+			money[donor] -= taken;
+			money[beneficiary] = Math.addExact(money[beneficiary], taken);
+			remaining -= taken;
+		}
+	}
+
+	private void grow(int size) {
+		int old = money.length;
+		money = Arrays.copyOf(money, size);
+		skill = Arrays.copyOf(skill, size);
+		metabolism = Arrays.copyOf(metabolism, size);
+		aptitude = Arrays.copyOf(aptitude, size);
+		professions = Arrays.copyOf(professions, size);
+		assignedNode = Arrays.copyOf(assignedNode, size);
+		active = Arrays.copyOf(active, size);
+		goods = Arrays.copyOf(goods, size);
+		for (int i = old; i < size; i++) {
+			goods[i] = new long[Good.values().length];
+			professions[i] = Role.LABORER;
+			metabolism[i] = 2;
+		}
+	}
+
+	// ---------- the open economy ----------
+
+	/**
+	 * Wealth carried in from outside the city — an expedition that mined emeralds, or
+	 * loot taken off another settlement. This is the seam that makes the economy stop
+	 * being zero-sum, and it is booked so conservation still closes.
+	 */
+	public void depositExternal(long amount) {
+		if (amount <= 0) return;
+		treasury = Math.addExact(treasury, amount);
+		externalMoneyIn += amount;
+		assertConservation();
+	}
+
+	/** Wealth leaving the city — loot taken FROM it, or an expedition's outfitting cost. */
+	public long withdrawExternal(long amount) {
+		if (amount <= 0) return 0L;
+		long taken = Math.min(amount, treasury);
+		treasury -= taken;
+		long shortfall = amount - taken;
+		if (shortfall > 0) {
+			// Raiders do not stop at the town strongbox; they take it off people.
+			Integer[] order = new Integer[money.length];
+			for (int i = 0; i < order.length; i++) order[i] = i;
+			Arrays.sort(order, Comparator.comparingLong((Integer i) -> money[i]).reversed());
+			for (int rank = 0; rank < order.length && shortfall > 0; rank++) {
+				int victim = order[rank];
+				if (!active[victim]) continue;
+				long grabbed = Math.min(money[victim], shortfall);
+				money[victim] -= grabbed;
+				shortfall -= grabbed;
+				taken += grabbed;
+			}
+		}
+		externalMoneyOut += taken;
+		assertConservation();
+		return taken;
+	}
+
+	/** Goods carried in from outside — foraged, mined, or looted. */
+	public void depositGoods(Good good, long quantity) {
+		if (quantity <= 0) return;
+		int target = -1;
+		for (int actor = 0; actor < money.length; actor++) {
+			if (active[actor] && (target < 0 || goods[actor][good.ordinal()] < goods[target][good.ordinal()])) {
+				target = actor;
+			}
+		}
+		if (target < 0) return;
+		goods[target][good.ordinal()] = Math.addExact(goods[target][good.ordinal()], quantity);
+		regenerated += quantity;
+		assertConservation();
+	}
+
+	/** Goods carried out — looted from this city. Returns what was actually taken. */
+	public long removeGoods(Good good, long quantity) {
+		long remaining = quantity;
+		long taken = 0;
+		for (int actor = 0; actor < money.length && remaining > 0; actor++) {
+			if (!active[actor]) continue;
+			long grabbed = Math.min(goods[actor][good.ordinal()], remaining);
+			goods[actor][good.ordinal()] -= grabbed;
+			remaining -= grabbed;
+			taken += grabbed;
+		}
+		consumed += taken;
+		assertConservation();
+		return taken;
+	}
+
+	/** Total food the city is holding — what population growth is rationed against. */
+	public long foodHeld() {
+		long total = 0;
+		for (int actor = 0; actor < money.length; actor++) {
+			if (active[actor]) total += goods[actor][Good.FOOD.ordinal()];
+		}
+		return total;
 	}
 
 	// ---------- player trade ----------
@@ -474,18 +697,19 @@ public final class EconomyModel {
 		try {
 			ByteArrayOutputStream bytes = new ByteArrayOutputStream();
 			try (DataOutputStream out = new DataOutputStream(bytes)) {
-				out.writeInt(0x57464533); // WFE3 — adds the external (player-trade) money ledger
-				out.writeInt(config.population()); out.writeLong(config.seed()); out.writeLong(config.startingWealth());
+				out.writeInt(0x57464534); // WFE4 — adds the treasury, the active mask, and growth
+				out.writeInt(money.length); out.writeLong(config.seed()); out.writeLong(config.startingWealth());
 				out.writeLong(config.liquidityFloor()); out.writeLong(config.fixedExchange());
 				out.writeInt(config.exchangesPerTick()); out.writeInt(config.shockInterval());
 				out.writeInt(config.shockPermille());
 				out.writeLong(tick); out.writeLong(randomState); out.writeLong(regenerated); out.writeLong(consumed);
 				out.writeLong(shockLoss); out.writeLong(unmetUpkeep);
-				out.writeLong(externalMoneyIn); out.writeLong(externalMoneyOut);
+				out.writeLong(externalMoneyIn); out.writeLong(externalMoneyOut); out.writeLong(treasury);
+				out.writeLong(initialMoney); out.writeLong(initialGoods);
 				for (int actor = 0; actor < money.length; actor++) {
 					out.writeLong(money[actor]); out.writeInt(skill[actor]); out.writeInt(metabolism[actor]);
 					out.writeInt(aptitude[actor]); out.writeByte(professions[actor].ordinal());
-					out.writeInt(assignedNode[actor]);
+					out.writeInt(assignedNode[actor]); out.writeBoolean(active[actor]);
 					for (Good good : Good.values()) out.writeLong(goods[actor][good.ordinal()]);
 				}
 				out.writeInt(nodeStock.length);
@@ -504,10 +728,11 @@ public final class EconomyModel {
 		try (DataInputStream in = new DataInputStream(new ByteArrayInputStream(Base64.getDecoder().decode(encoded)))) {
 			// WFE2 predates the player-trade ledger; its two external totals are zero.
 			int version = in.readInt();
-			if (version != 0x57464532 && version != 0x57464533) {
+			if (version != 0x57464532 && version != 0x57464533 && version != 0x57464534) {
 				throw new IllegalArgumentException("unknown economy snapshot version");
 			}
-			boolean hasExternalLedger = version == 0x57464533;
+			boolean hasExternalLedger = version >= 0x57464533;
+			boolean hasTreasury = version >= 0x57464534;
 			Config config = new Config(in.readInt(), in.readLong(), in.readLong(), in.readLong(), in.readLong(),
 					in.readInt(), in.readInt(), in.readInt());
 			EconomyModel model = new EconomyModel(config);
@@ -517,10 +742,21 @@ public final class EconomyModel {
 				model.externalMoneyIn = in.readLong();
 				model.externalMoneyOut = in.readLong();
 			}
+			// Snapshots written before growth existed have every slot alive and an empty
+			// treasury, which is exactly what a fixed-population city was.
+			if (hasTreasury) {
+				model.treasury = in.readLong();
+				// Re-deriving these from the constructor would use the GROWN population and
+				// break conservation the first time a city that had children was reloaded.
+				model.initialMoney = in.readLong();
+				model.initialGoods = in.readLong();
+			}
+			Arrays.fill(model.active, true);
 			for (int actor = 0; actor < model.money.length; actor++) {
 				model.money[actor] = in.readLong(); model.skill[actor] = in.readInt();
 				model.metabolism[actor] = in.readInt(); model.aptitude[actor] = in.readInt();
 				model.professions[actor] = Role.values()[in.readUnsignedByte()]; model.assignedNode[actor] = in.readInt();
+				if (hasTreasury) model.active[actor] = in.readBoolean();
 				for (Good good : Good.values()) model.goods[actor][good.ordinal()] = in.readLong();
 			}
 			int nodes = in.readInt();

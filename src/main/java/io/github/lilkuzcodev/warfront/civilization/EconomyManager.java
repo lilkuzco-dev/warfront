@@ -41,6 +41,13 @@ public final class EconomyManager {
 			// Avoid rebuilding 500 inventory maps every tick; promotion hydrates the
 			// exact goods immediately before an entity is reconstituted.
 			if (!fullyVirtual) projectGoods(civilization, city, model);
+			// Births and expeditions run off the same economic tick, so a town keeps
+			// growing and its parties keep marching while nobody is anywhere near it.
+			CityRecord current = civilization.city(city.id());
+			if (current != null) {
+				CityRecord grown = CityGrowth.maybeGrow(server.overworld(), current, model);
+				if (grown != current) civilization.putCity(grown);
+			}
 			persisted.put(city.id(), model);
 			LAST_DISTRIBUTION.put(city.id(), model.distribution());
 			LAST_TICK_NANOS.put(city.id(), System.nanoTime() - started);
@@ -48,24 +55,103 @@ public final class EconomyManager {
 	}
 
 	private static EconomyModel model(MinecraftServer server, CityRecord city, EconomyState state) {
-		return MODELS.computeIfAbsent(city.id(), id -> {
+		EconomyModel model = MODELS.computeIfAbsent(city.id(), id -> load(server, city, state, id));
+		// A city gains people by birth and loses them to war, so the model's roster is
+		// brought into line with the record instead of being thrown away and restarted
+		// (which used to wipe every citizen's accumulated wealth on a population change).
+		reconcileActors(model, city);
+		return model;
+	}
+
+	/** Grows a slot for every living citizen and retires the slots of the departed. */
+	private static void reconcileActors(EconomyModel model, CityRecord city) {
+		long stake = WarfrontRegistry.economy().newbornStake();
+		boolean[] present = new boolean[Math.max(model.population(), highestSerial(city))];
+		for (CitizenRecord actor : city.citizens().values()) {
+			int index = Math.toIntExact(actor.serial() - 1);
+			if (index < 0) continue;
+			if (index < present.length) present[index] = true;
+			if (!model.isActive(index)) model.bringActorToLife(index, stake);
+		}
+		for (int index = 0; index < model.population(); index++) {
+			if (model.isActive(index) && (index >= present.length || !present[index])) {
+				model.retireActor(index);
+			}
+		}
+	}
+
+	private static int highestSerial(CityRecord city) {
+		int highest = 0;
+		for (CitizenRecord actor : city.citizens().values()) {
+			highest = Math.max(highest, Math.toIntExact(actor.serial()));
+		}
+		return highest;
+	}
+
+	private static EconomyModel load(MinecraftServer server, CityRecord city, EconomyState state, String id) {
+		{
 			String snapshot = state.snapshot(id);
 			if (snapshot != null) {
 				try {
-					EconomyModel loaded = EconomyModel.decode(snapshot);
-					if (loaded.population() == city.citizens().size()) return loaded;
-					Warfront.LOGGER.warn("Economy population changed for {}; starting a compatible model", id);
+					return EconomyModel.decode(snapshot);
 				} catch (IllegalArgumentException exception) {
 					Warfront.LOGGER.error("Economy snapshot for {} failed validation; starting equal", id, exception);
 				}
 			}
 			long seed = server.overworld().getSeed() ^ id.hashCode() * 0x9E3779B97F4A7C15L;
-			int population = city.citizens().size();
+			int population = Math.max(1, city.citizens().size());
 			var config = WarfrontRegistry.economy();
 			return new EconomyModel(new EconomyModel.Config(population, seed, config.startingWealth(),
 					config.liquidityFloor(), config.fixedExchange(), population * config.exchangesPerActor(),
 					config.shockInterval(), config.shockPermille()));
-		});
+		}
+	}
+
+	// ---------- the open economy: what expeditions bring home ----------
+
+	/** Wealth carried into a city from outside it. Returns false if the city is gone. */
+	public static boolean depositExternal(MinecraftServer server, String cityId, long money) {
+		CityRecord city = CivilizationState.get(server).city(cityId);
+		if (city == null) return false;
+		EconomyModel model = model(server, city, EconomyState.get(server));
+		model.depositExternal(money);
+		EconomyState.get(server).put(cityId, model);
+		return true;
+	}
+
+	/** Wealth taken out of a city. Returns how much was actually there to take. */
+	public static long withdrawExternal(MinecraftServer server, String cityId, long money) {
+		CityRecord city = CivilizationState.get(server).city(cityId);
+		if (city == null) return 0L;
+		EconomyModel model = model(server, city, EconomyState.get(server));
+		long taken = model.withdrawExternal(money);
+		EconomyState.get(server).put(cityId, model);
+		return taken;
+	}
+
+	public static void depositGoods(MinecraftServer server, String cityId, EconomyModel.Good good, long amount) {
+		CityRecord city = CivilizationState.get(server).city(cityId);
+		if (city == null) return;
+		EconomyModel model = model(server, city, EconomyState.get(server));
+		model.depositGoods(good, amount);
+		EconomyState.get(server).put(cityId, model);
+	}
+
+	public static long removeGoods(MinecraftServer server, String cityId, EconomyModel.Good good, long amount) {
+		CityRecord city = CivilizationState.get(server).city(cityId);
+		if (city == null) return 0L;
+		EconomyModel model = model(server, city, EconomyState.get(server));
+		long taken = model.removeGoods(good, amount);
+		EconomyState.get(server).put(cityId, model);
+		return taken;
+	}
+
+	public static long treasury(MinecraftServer server, CityRecord city) {
+		return model(server, city, EconomyState.get(server)).treasury();
+	}
+
+	public static long foodHeld(MinecraftServer server, CityRecord city) {
+		return model(server, city, EconomyState.get(server)).foodHeld();
 	}
 
 	private static void syncPhysicalGoodsIntoModel(CityRecord city, EconomyModel model) {
@@ -94,8 +180,7 @@ public final class EconomyManager {
 			actors.put(Long.toString(actor.serial()), actor.withState(actor.x(), actor.y(), actor.z(),
 					actor.workTicks(), inventory, actor.lastAdvancedTick(), actor.tier()));
 		}
-		civilization.putCity(new CityRecord(city.id(), city.faction(), city.center(), city.radius(), city.nextSerial(),
-				Map.copyOf(actors)));
+		civilization.putCity(city.withCitizens(actors, city.nextSerial()));
 	}
 
 	public static EconomyModel.Distribution distribution(MinecraftServer server, CityRecord city) {
