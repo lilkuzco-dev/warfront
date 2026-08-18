@@ -677,5 +677,53 @@ city and metropolis plates added to the aerial battery and read.
 ### Note
 
 The port collision during testing was **not** resolved by killing the process holding
-25565: no pidfile existed, so by rule 1 it was not mine to kill. The dev server's
-`server-port` was moved to 25599 instead.
+25565: no pidfile existed, so by rule 1 it was not mine to kill. The dev server was
+moved to a spare port for that session and returned to 25565 in 0.4.1, which also
+hardened `tools/devserver.sh` so the ambiguity cannot recur.
+
+## Dev-server launcher hardening — 0.4.1 (2026-08-18)
+
+Port 25565 was reclaimed, and `tools/devserver.sh` rewritten so an orphaned server can
+never again be ambiguous.
+
+### The actual root cause
+
+The old script *did* write a pidfile — but it recorded `$!`, which is the **gradlew
+wrapper**, not the JVM that binds the port. Measured on a live launch: launcher **50145**,
+listener **50160**. The recorded PID could therefore never match the process holding the
+port, so a leftover server was unprovable either way. The listening PID is now discovered
+via `lsof` on our own port *after our own log reports ready* (so the binder is provably
+ours) and recorded separately in `run/server.pid`.
+
+### Behaviour, each branch exercised
+
+| Situation | Result |
+|---|---|
+| Port free | starts; `run/server.pid` written and matching `lsof` |
+| Pidfile present, PID dead | `cleared a stale …/server.pid (process was gone)`, then starts |
+| Port held, pidfile **matches** holder | `reclaiming it` → kills that exact PID → starts, records the new listener |
+| Port held, **no** pidfile | **refuses**, exit 1, reports PID / elapsed / command line |
+| Port held, pidfile records a live but **different** PID | **refuses**, exit 1, names both PIDs |
+
+Verified end to end: launch → `lsof :25565 = 51746` and `run/server.pid = 51746` (match)
+→ clean stop → port free, both pidfiles removed. ✅
+
+`status` was added to report what holds the port and whether it is ours.
+
+### A bug this verification caught
+
+The first cut of `stop` waited for the **port** to free before its kill fallback. The
+listening socket closes at the very start of shutdown, while `Saving worlds` is still
+running — so the fallback landed a SIGTERM in the middle of the world save. The log
+proved it: `Saving worlds` with no following `All dimensions are saved`, and gradle
+reporting `non-zero exit value 143`. `stop` now waits on the **process** to exit (90s)
+and only then falls back. Re-verified: `Saving worlds` → `All dimensions are saved`, no
+SIGTERM, and the fallback never fires on a healthy shutdown. ✅
+
+### Rule 1 compliance
+
+Nothing is ever selected by pattern. `lsof` is used only to *identify* a holder for
+comparison and reporting, never to choose a kill target: the sole PID the script will
+signal to reclaim a port is one it recorded itself and that still matches the listener.
+The launcher fallback additionally checks the command line still looks like gradle/java
+before signalling, so a reused PID is left alone.

@@ -4,6 +4,18 @@ Modern military factions for Minecraft 26.2 (Fabric). Three doctrine-driven fact
 
 Requires Fabric Loader 0.19.3+ and Fabric API for 26.2.
 
+## v0.4.1 — dev-server launcher hardening
+
+- `tools/devserver.sh` now records the **listening JVM's** PID in `run/server.pid`, not
+  the gradlew wrapper's. Those are different processes, which is why a leftover server
+  used to be unprovable: the recorded PID could never match the one holding the port.
+- On startup it refuses to guess. A stale pidfile is cleaned; a port held by a server it
+  can prove is its own is reclaimed by signalling that exact PID; a port held by anything
+  else stops the launch with the holder's PID, uptime and command line — it never
+  silently moves ports or kills a process it cannot prove it owns.
+- `stop` waits for the server process to exit rather than for the port to close, so the
+  kill fallback can no longer interrupt a world save. `status` reports what holds the port.
+
 ## v0.4.0 — settlements that grow, and an economy that is not a closed loop
 
 - **Settlements come in three sizes.** Towns (10 citizens) are common, cities (28)
