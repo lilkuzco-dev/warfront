@@ -186,6 +186,11 @@ public final class CitizenEntity extends PathfinderMob {
 			player.sendSystemMessage(Component.literal("That trade fell through."));
 			return InteractionResult.SUCCESS;
 		}
+		// The record — not the model — is authoritative for goods while a citizen is
+		// embodied: the next economic tick copies this inventory INTO the model. Without
+		// this line the model's side of the trade is silently overwritten a tick later
+		// and the goods reappear on the citizen, having also been handed to the player.
+		consume(goodItem, lot);
 		emeralds.shrink((int) price);
 		player.getInventory().placeItemBackInInventory(new ItemStack(itemOrAir(goodItem), lot));
 		player.sendSystemMessage(Component.literal("Bought " + lot + " " + shortName(goodItem)
@@ -202,7 +207,11 @@ public final class CitizenEntity extends PathfinderMob {
 					EconomyManager.itemOf(good)) + " " + lot + " at a time."));
 			return InteractionResult.SUCCESS;
 		}
-		long price = EconomyManager.lotPriceEmeralds(server, city(server), good, false);
+		var record = city(server);
+		if (record == null) {
+			return InteractionResult.SUCCESS; // orphaned citizen: no city to trade against
+		}
+		long price = EconomyManager.lotPriceEmeralds(server, record, good, false);
 		if (EconomyManager.actorMoney(server, cityId, serial) < EconomyManager.moneyOf(price)) {
 			player.sendSystemMessage(Component.literal("Citizen #" + serial + " cannot afford that right now."));
 			return InteractionResult.SUCCESS;
@@ -211,6 +220,9 @@ public final class CitizenEntity extends PathfinderMob {
 			player.sendSystemMessage(Component.literal("That trade fell through."));
 			return InteractionResult.SUCCESS;
 		}
+		// Same reason as the buy path: the record feeds the model, so the goods have to
+		// land on the citizen here or the sale is undone at the next economic tick.
+		store(EconomyManager.itemOf(good), lot);
 		offered.shrink(lot);
 		player.getInventory().placeItemBackInInventory(new ItemStack(Items.EMERALD, (int) price));
 		player.sendSystemMessage(Component.literal("Sold " + lot + " " + shortName(EconomyManager.itemOf(good))

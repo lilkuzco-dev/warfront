@@ -46,6 +46,8 @@ public final class BaseManager {
 	private static final int DISCOVERY_SETTLE_TICKS = 200;
 	/** How far from the settlement heart civilians live and are counted. */
 	private static final int SETTLEMENT_RADIUS = 40;
+	/** Spawn-anchor search radius around a base centre; see {@link #anchorPoints}. */
+	private static final int ANCHOR_SCAN_RADIUS = 64;
 
 	public static void init() {
 		ServerTickEvents.END_SERVER_TICK.register(server -> {
@@ -450,12 +452,37 @@ public final class BaseManager {
 	 * on the towers and at the gates instead of one clump in the middle.
 	 */
 	private static List<BlockPos> anchorPoints(ServerLevel level, WarfrontState.Base base) {
-		List<BlockPos> anchors = scanBounds(level, base, WarfrontBlocks.BUNK);
-		anchors.addAll(scanBounds(level, base, WarfrontBlocks.SANDBAG_STATION));
+		// Bounded to the core deliberately. This runs on EVERY base tick until the base
+		// finishes hydrating, and a jigsaw structure's bounding box is far larger than
+		// the plate: a generated city measured 245x46x245, so the unbounded pair of
+		// scans was 5.5M block reads every fifteen seconds for any base that could not
+		// finish hydrating. Anchors only need to be somewhere sensible to stand.
+		List<BlockPos> anchors = scanNearCentre(level, base, WarfrontBlocks.BUNK, ANCHOR_SCAN_RADIUS);
+		anchors.addAll(scanNearCentre(level, base, WarfrontBlocks.SANDBAG_STATION, ANCHOR_SCAN_RADIUS));
 		if (anchors.isEmpty()) {
 			anchors.add(base.center);
 		}
 		return anchors;
+	}
+
+	/** {@link #scanBounds} clipped to a box around the base centre. */
+	private static List<BlockPos> scanNearCentre(ServerLevel level, WarfrontState.Base base,
+			net.minecraft.world.level.block.Block block, int radius) {
+		List<BlockPos> found = new ArrayList<>();
+		List<Integer> b = base.bounds;
+		if (b.size() != 6) {
+			return found;
+		}
+		int minX = Math.max(b.get(0), base.center.getX() - radius);
+		int maxX = Math.min(b.get(3), base.center.getX() + radius);
+		int minZ = Math.max(b.get(2), base.center.getZ() - radius);
+		int maxZ = Math.min(b.get(5), base.center.getZ() + radius);
+		for (BlockPos pos : BlockPos.betweenClosed(minX, b.get(1), minZ, maxX, b.get(4), maxZ)) {
+			if (level.getBlockState(pos).is(block)) {
+				found.add(pos.immutable());
+			}
+		}
+		return found;
 	}
 
 	private static List<BlockPos> scanBounds(ServerLevel level, WarfrontState.Base base,

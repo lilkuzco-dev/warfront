@@ -542,3 +542,73 @@ writing now, or not at all.
 `node tools/validate-dialogue.js`: **PASS**, zero warnings. `./gradlew runGametest`:
 PASS; dialogue frames read in-camera — *"What state is the river bridge actually in?"*
 now asks something a bridge can answer. ✅
+
+## Post-ship audit — 0.3.2 (2026-08-18)
+
+An audit of everything shipped in 0.3.0/0.3.1 found four real defects. All were
+introduced by those releases; all are fixed here, with the measurement that found them.
+
+### 1. Player trades were silently undone (correctness)
+
+`EconomyManager.trade` wrote only to the `EconomyModel`. But while a citizen is
+**embodied** the entity is authoritative: `reconcile` copies entity→record every 20
+ticks, and the economic tick copies record→model. So the model side of a trade was
+overwritten within one economic tick — the player kept the goods they bought *and the
+citizen kept them too*, and a sale's goods never arrived. Fixed by mutating the
+entity's inventory (`consume`/`store`) as part of the trade, which is the only write
+that survives the ladder. ✅
+
+*Not empirically driven:* the right-click path could not be exercised headlessly —
+carpet's `player <name> use` accepts the command but does not fire entity interaction,
+and the aim was verified correct. The fix rests on source-level data-flow analysis of
+`reconcile` → `snapshot` → `syncPhysicalGoodsIntoModel`, each hop read directly. Worth
+a client gametest later.
+
+### 2. Structure pieces could still overlap despite the 224-block floor (worldgen)
+
+The floor separates structure **origins**; it says nothing about how far pieces sprawl
+from them. Measured from the live ledger, a generated city's bounding box was
+**245×46×245 — a half-extent of 122**, so two adjacent cities needed 245 blocks and
+only had 224: **up to 21 blocks of overlap.** Every other structure measured ≤84.
+The city was the outlier, so the city was corrected rather than the spacing: jigsaw
+`size` 5→3 and `max_distance_from_center` 116→96. Re-measured on freshly generated
+terrain: 199×201, 155×201, 151×197 — worst half-extent **100.5**, so two adjacent need
+201 against a 224 floor. **No overlap possible.** ✅
+
+### 3. Anchor scanning grew with jigsaw sprawl (performance)
+
+`anchorPoints` ran two *unbounded* `scanBounds` passes over the whole structure
+bounding box, and it runs on **every base tick until a base finishes hydrating** — so a
+base that cannot finish (spawn budget exhausted, no standable anchor) rescanned
+**5.5M block states every 15 seconds** for a 245-wide city. Now clipped to a 64-block
+box around the centre, which makes the cost independent of sprawl. The bunk scan in
+`reinforce` deliberately still walks the full bounds — destroying a distant barracks
+must still count — but it runs at most once per `reinforce_minutes`. ✅
+
+### 4. NPE risk trading with an orphaned citizen (robustness)
+
+`sellToCitizen` dereferenced the city record before checking it. A citizen entity whose
+city record is missing would have crashed the interaction. Guarded. ✅
+
+### Also corrected
+
+- `verify-base-spacing.js` passed the placement salt by assigning a property onto the
+  function object — action at a distance that silently reuses the previous salt if a
+  caller forgets. Now an explicit parameter. ✅
+- The city aerial frames shot from 120 blocks could not contain a ~200-block town, so
+  the subject sat in a corner of its own evidence photo. Raised to 200. Re-read: the
+  road cross, plaza, farmland and district sprawl are now all legible in frame. ✅
+
+### Known and accepted, not fixed
+
+- **Citizens carry a lootable purse and do not repopulate.** Killing a city's 28
+  civilians yields their carried emeralds (≤4 each, 12 for traders) and depopulates it
+  permanently. Bounded and deliberate — the purse is capped precisely so this is not a
+  farm — but it is a real incentive to slaughter civilians, and worth a design ruling.
+- **`EconomyModel` is cached per city and rebuilt if the population changed** across a
+  restart, which resets that city's wealth distribution. Pre-existing behaviour,
+  reachable more often now that citizens are killable.
+
+Regression suite after the fixes: `verify-base-spacing.js` PASS (224-block floor),
+`validate-dialogue.js` PASS with zero warnings, `gen-base-plans.js` zero collisions and
+zero skipped buildings, `./gradlew runGametest` PASS with 75 frames.

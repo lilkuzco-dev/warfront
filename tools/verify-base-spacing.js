@@ -60,9 +60,9 @@ class LegacyRandom {
 }
 
 /** RandomSpreadStructurePlacement: the chunk this cell places its structure in. */
-function placementForCell(worldSeed, cellX, cellZ, spacing, separation, spreadType) {
+function placementForCell(worldSeed, cellX, cellZ, spacing, separation, spreadType, salt) {
 	const random = new LegacyRandom();
-	random.setLargeFeatureWithSalt(worldSeed, cellX, cellZ, placementForCell.salt);
+	random.setLargeFeatureWithSalt(worldSeed, cellX, cellZ, salt);
 	const range = spacing - separation;
 	let offX, offZ;
 	if (spreadType === 'triangular') {
@@ -109,8 +109,7 @@ function collectPlacements(sets, worldSeed, radiusChunks) {
 		const factions = [...new Set(json.structures.map(s => factionOf(s.structure)))];
 		for (let cx = cellLo; cx <= cellHi; cx++) {
 			for (let cz = cellLo; cz <= cellHi; cz++) {
-				placementForCell.salt = p.salt;
-				const [chunkX, chunkZ] = placementForCell(worldSeed, cx, cz, spacing, separation, spreadType);
+				const [chunkX, chunkZ] = placementForCell(worldSeed, cx, cz, spacing, separation, spreadType, p.salt);
 				points.push({
 					file,
 					factions,
