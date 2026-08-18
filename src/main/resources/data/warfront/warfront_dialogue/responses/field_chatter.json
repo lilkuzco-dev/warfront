@@ -20,26 +20,6 @@
     ]
    }
   },
-  "field_logistics_ammunition_reserves": {
-   "vostok": {
-    "neutral": [
-     "dialogue.warfront.resp.field_logistics_ammunition_reserves.vostok.neutral.1",
-     "dialogue.warfront.resp.field_logistics_ammunition_reserves.vostok.neutral.2"
-    ]
-   },
-   "aegis": {
-    "neutral": [
-     "dialogue.warfront.resp.field_logistics_ammunition_reserves.aegis.neutral.1",
-     "dialogue.warfront.resp.field_logistics_ammunition_reserves.aegis.neutral.2"
-    ]
-   },
-   "sarab": {
-    "neutral": [
-     "dialogue.warfront.resp.field_logistics_ammunition_reserves.sarab.neutral.1",
-     "dialogue.warfront.resp.field_logistics_ammunition_reserves.sarab.neutral.2"
-    ]
-   }
-  },
   "field_logistics_ration_convoys": {
    "vostok": {
     "neutral": [
@@ -100,26 +80,6 @@
     ]
    }
   },
-  "field_logistics_spare_parts": {
-   "vostok": {
-    "neutral": [
-     "dialogue.warfront.resp.field_logistics_spare_parts.vostok.neutral.1",
-     "dialogue.warfront.resp.field_logistics_spare_parts.vostok.neutral.2"
-    ]
-   },
-   "aegis": {
-    "neutral": [
-     "dialogue.warfront.resp.field_logistics_spare_parts.aegis.neutral.1",
-     "dialogue.warfront.resp.field_logistics_spare_parts.aegis.neutral.2"
-    ]
-   },
-   "sarab": {
-    "neutral": [
-     "dialogue.warfront.resp.field_logistics_spare_parts.sarab.neutral.1",
-     "dialogue.warfront.resp.field_logistics_spare_parts.sarab.neutral.2"
-    ]
-   }
-  },
   "field_logistics_field_depots": {
    "vostok": {
     "neutral": [
@@ -137,46 +97,6 @@
     "neutral": [
      "dialogue.warfront.resp.field_logistics_field_depots.sarab.neutral.1",
      "dialogue.warfront.resp.field_logistics_field_depots.sarab.neutral.2"
-    ]
-   }
-  },
-  "field_logistics_pack_trains": {
-   "vostok": {
-    "neutral": [
-     "dialogue.warfront.resp.field_logistics_pack_trains.vostok.neutral.1",
-     "dialogue.warfront.resp.field_logistics_pack_trains.vostok.neutral.2"
-    ]
-   },
-   "aegis": {
-    "neutral": [
-     "dialogue.warfront.resp.field_logistics_pack_trains.aegis.neutral.1",
-     "dialogue.warfront.resp.field_logistics_pack_trains.aegis.neutral.2"
-    ]
-   },
-   "sarab": {
-    "neutral": [
-     "dialogue.warfront.resp.field_logistics_pack_trains.sarab.neutral.1",
-     "dialogue.warfront.resp.field_logistics_pack_trains.sarab.neutral.2"
-    ]
-   }
-  },
-  "field_logistics_fuel_allotments": {
-   "vostok": {
-    "neutral": [
-     "dialogue.warfront.resp.field_logistics_fuel_allotments.vostok.neutral.1",
-     "dialogue.warfront.resp.field_logistics_fuel_allotments.vostok.neutral.2"
-    ]
-   },
-   "aegis": {
-    "neutral": [
-     "dialogue.warfront.resp.field_logistics_fuel_allotments.aegis.neutral.1",
-     "dialogue.warfront.resp.field_logistics_fuel_allotments.aegis.neutral.2"
-    ]
-   },
-   "sarab": {
-    "neutral": [
-     "dialogue.warfront.resp.field_logistics_fuel_allotments.sarab.neutral.1",
-     "dialogue.warfront.resp.field_logistics_fuel_allotments.sarab.neutral.2"
     ]
    }
   },
@@ -280,26 +200,6 @@
     ]
    }
   },
-  "field_patrolcraft_scout_spacing": {
-   "vostok": {
-    "neutral": [
-     "dialogue.warfront.resp.field_patrolcraft_scout_spacing.vostok.neutral.1",
-     "dialogue.warfront.resp.field_patrolcraft_scout_spacing.vostok.neutral.2"
-    ]
-   },
-   "aegis": {
-    "neutral": [
-     "dialogue.warfront.resp.field_patrolcraft_scout_spacing.aegis.neutral.1",
-     "dialogue.warfront.resp.field_patrolcraft_scout_spacing.aegis.neutral.2"
-    ]
-   },
-   "sarab": {
-    "neutral": [
-     "dialogue.warfront.resp.field_patrolcraft_scout_spacing.sarab.neutral.1",
-     "dialogue.warfront.resp.field_patrolcraft_scout_spacing.sarab.neutral.2"
-    ]
-   }
-  },
   "field_patrolcraft_silent_signals": {
    "vostok": {
     "neutral": [
@@ -337,66 +237,6 @@
     "neutral": [
      "dialogue.warfront.resp.field_patrolcraft_relief_watches.sarab.neutral.1",
      "dialogue.warfront.resp.field_patrolcraft_relief_watches.sarab.neutral.2"
-    ]
-   }
-  },
-  "field_patrolcraft_border_posts": {
-   "vostok": {
-    "neutral": [
-     "dialogue.warfront.resp.field_patrolcraft_border_posts.vostok.neutral.1",
-     "dialogue.warfront.resp.field_patrolcraft_border_posts.vostok.neutral.2"
-    ]
-   },
-   "aegis": {
-    "neutral": [
-     "dialogue.warfront.resp.field_patrolcraft_border_posts.aegis.neutral.1",
-     "dialogue.warfront.resp.field_patrolcraft_border_posts.aegis.neutral.2"
-    ]
-   },
-   "sarab": {
-    "neutral": [
-     "dialogue.warfront.resp.field_patrolcraft_border_posts.sarab.neutral.1",
-     "dialogue.warfront.resp.field_patrolcraft_border_posts.sarab.neutral.2"
-    ]
-   }
-  },
-  "field_patrolcraft_pursuit_tracks": {
-   "vostok": {
-    "neutral": [
-     "dialogue.warfront.resp.field_patrolcraft_pursuit_tracks.vostok.neutral.1",
-     "dialogue.warfront.resp.field_patrolcraft_pursuit_tracks.vostok.neutral.2"
-    ]
-   },
-   "aegis": {
-    "neutral": [
-     "dialogue.warfront.resp.field_patrolcraft_pursuit_tracks.aegis.neutral.1",
-     "dialogue.warfront.resp.field_patrolcraft_pursuit_tracks.aegis.neutral.2"
-    ]
-   },
-   "sarab": {
-    "neutral": [
-     "dialogue.warfront.resp.field_patrolcraft_pursuit_tracks.sarab.neutral.1",
-     "dialogue.warfront.resp.field_patrolcraft_pursuit_tracks.sarab.neutral.2"
-    ]
-   }
-  },
-  "field_patrolcraft_return_routes": {
-   "vostok": {
-    "neutral": [
-     "dialogue.warfront.resp.field_patrolcraft_return_routes.vostok.neutral.1",
-     "dialogue.warfront.resp.field_patrolcraft_return_routes.vostok.neutral.2"
-    ]
-   },
-   "aegis": {
-    "neutral": [
-     "dialogue.warfront.resp.field_patrolcraft_return_routes.aegis.neutral.1",
-     "dialogue.warfront.resp.field_patrolcraft_return_routes.aegis.neutral.2"
-    ]
-   },
-   "sarab": {
-    "neutral": [
-     "dialogue.warfront.resp.field_patrolcraft_return_routes.sarab.neutral.1",
-     "dialogue.warfront.resp.field_patrolcraft_return_routes.sarab.neutral.2"
     ]
    }
   },
@@ -460,26 +300,6 @@
     ]
    }
   },
-  "field_terrain_forest_roads": {
-   "vostok": {
-    "neutral": [
-     "dialogue.warfront.resp.field_terrain_forest_roads.vostok.neutral.1",
-     "dialogue.warfront.resp.field_terrain_forest_roads.vostok.neutral.2"
-    ]
-   },
-   "aegis": {
-    "neutral": [
-     "dialogue.warfront.resp.field_terrain_forest_roads.aegis.neutral.1",
-     "dialogue.warfront.resp.field_terrain_forest_roads.aegis.neutral.2"
-    ]
-   },
-   "sarab": {
-    "neutral": [
-     "dialogue.warfront.resp.field_terrain_forest_roads.sarab.neutral.1",
-     "dialogue.warfront.resp.field_terrain_forest_roads.sarab.neutral.2"
-    ]
-   }
-  },
   "field_terrain_ruined_bridges": {
    "vostok": {
     "neutral": [
@@ -537,66 +357,6 @@
     "neutral": [
      "dialogue.warfront.resp.field_terrain_dry_gullies.sarab.neutral.1",
      "dialogue.warfront.resp.field_terrain_dry_gullies.sarab.neutral.2"
-    ]
-   }
-  },
-  "field_terrain_cave_shelters": {
-   "vostok": {
-    "neutral": [
-     "dialogue.warfront.resp.field_terrain_cave_shelters.vostok.neutral.1",
-     "dialogue.warfront.resp.field_terrain_cave_shelters.vostok.neutral.2"
-    ]
-   },
-   "aegis": {
-    "neutral": [
-     "dialogue.warfront.resp.field_terrain_cave_shelters.aegis.neutral.1",
-     "dialogue.warfront.resp.field_terrain_cave_shelters.aegis.neutral.2"
-    ]
-   },
-   "sarab": {
-    "neutral": [
-     "dialogue.warfront.resp.field_terrain_cave_shelters.sarab.neutral.1",
-     "dialogue.warfront.resp.field_terrain_cave_shelters.sarab.neutral.2"
-    ]
-   }
-  },
-  "field_terrain_open_fields": {
-   "vostok": {
-    "neutral": [
-     "dialogue.warfront.resp.field_terrain_open_fields.vostok.neutral.1",
-     "dialogue.warfront.resp.field_terrain_open_fields.vostok.neutral.2"
-    ]
-   },
-   "aegis": {
-    "neutral": [
-     "dialogue.warfront.resp.field_terrain_open_fields.aegis.neutral.1",
-     "dialogue.warfront.resp.field_terrain_open_fields.aegis.neutral.2"
-    ]
-   },
-   "sarab": {
-    "neutral": [
-     "dialogue.warfront.resp.field_terrain_open_fields.sarab.neutral.1",
-     "dialogue.warfront.resp.field_terrain_open_fields.sarab.neutral.2"
-    ]
-   }
-  },
-  "field_terrain_village_lanes": {
-   "vostok": {
-    "neutral": [
-     "dialogue.warfront.resp.field_terrain_village_lanes.vostok.neutral.1",
-     "dialogue.warfront.resp.field_terrain_village_lanes.vostok.neutral.2"
-    ]
-   },
-   "aegis": {
-    "neutral": [
-     "dialogue.warfront.resp.field_terrain_village_lanes.aegis.neutral.1",
-     "dialogue.warfront.resp.field_terrain_village_lanes.aegis.neutral.2"
-    ]
-   },
-   "sarab": {
-    "neutral": [
-     "dialogue.warfront.resp.field_terrain_village_lanes.sarab.neutral.1",
-     "dialogue.warfront.resp.field_terrain_village_lanes.sarab.neutral.2"
     ]
    }
   },
@@ -680,26 +440,6 @@
     ]
    }
   },
-  "field_weather_freezing_nights": {
-   "vostok": {
-    "neutral": [
-     "dialogue.warfront.resp.field_weather_freezing_nights.vostok.neutral.1",
-     "dialogue.warfront.resp.field_weather_freezing_nights.vostok.neutral.2"
-    ]
-   },
-   "aegis": {
-    "neutral": [
-     "dialogue.warfront.resp.field_weather_freezing_nights.aegis.neutral.1",
-     "dialogue.warfront.resp.field_weather_freezing_nights.aegis.neutral.2"
-    ]
-   },
-   "sarab": {
-    "neutral": [
-     "dialogue.warfront.resp.field_weather_freezing_nights.sarab.neutral.1",
-     "dialogue.warfront.resp.field_weather_freezing_nights.sarab.neutral.2"
-    ]
-   }
-  },
   "field_weather_heavy_fog": {
    "vostok": {
     "neutral": [
@@ -720,26 +460,6 @@
     ]
    }
   },
-  "field_weather_strong_crosswinds": {
-   "vostok": {
-    "neutral": [
-     "dialogue.warfront.resp.field_weather_strong_crosswinds.vostok.neutral.1",
-     "dialogue.warfront.resp.field_weather_strong_crosswinds.vostok.neutral.2"
-    ]
-   },
-   "aegis": {
-    "neutral": [
-     "dialogue.warfront.resp.field_weather_strong_crosswinds.aegis.neutral.1",
-     "dialogue.warfront.resp.field_weather_strong_crosswinds.aegis.neutral.2"
-    ]
-   },
-   "sarab": {
-    "neutral": [
-     "dialogue.warfront.resp.field_weather_strong_crosswinds.sarab.neutral.1",
-     "dialogue.warfront.resp.field_weather_strong_crosswinds.sarab.neutral.2"
-    ]
-   }
-  },
   "field_weather_sudden_floods": {
    "vostok": {
     "neutral": [
@@ -757,46 +477,6 @@
     "neutral": [
      "dialogue.warfront.resp.field_weather_sudden_floods.sarab.neutral.1",
      "dialogue.warfront.resp.field_weather_sudden_floods.sarab.neutral.2"
-    ]
-   }
-  },
-  "field_weather_lightning": {
-   "vostok": {
-    "neutral": [
-     "dialogue.warfront.resp.field_weather_lightning.vostok.neutral.1",
-     "dialogue.warfront.resp.field_weather_lightning.vostok.neutral.2"
-    ]
-   },
-   "aegis": {
-    "neutral": [
-     "dialogue.warfront.resp.field_weather_lightning.aegis.neutral.1",
-     "dialogue.warfront.resp.field_weather_lightning.aegis.neutral.2"
-    ]
-   },
-   "sarab": {
-    "neutral": [
-     "dialogue.warfront.resp.field_weather_lightning.sarab.neutral.1",
-     "dialogue.warfront.resp.field_weather_lightning.sarab.neutral.2"
-    ]
-   }
-  },
-  "field_weather_long_droughts": {
-   "vostok": {
-    "neutral": [
-     "dialogue.warfront.resp.field_weather_long_droughts.vostok.neutral.1",
-     "dialogue.warfront.resp.field_weather_long_droughts.vostok.neutral.2"
-    ]
-   },
-   "aegis": {
-    "neutral": [
-     "dialogue.warfront.resp.field_weather_long_droughts.aegis.neutral.1",
-     "dialogue.warfront.resp.field_weather_long_droughts.aegis.neutral.2"
-    ]
-   },
-   "sarab": {
-    "neutral": [
-     "dialogue.warfront.resp.field_weather_long_droughts.sarab.neutral.1",
-     "dialogue.warfront.resp.field_weather_long_droughts.sarab.neutral.2"
     ]
    }
   },
@@ -860,26 +540,6 @@
     ]
    }
   },
-  "field_equipment_field_packs": {
-   "vostok": {
-    "neutral": [
-     "dialogue.warfront.resp.field_equipment_field_packs.vostok.neutral.1",
-     "dialogue.warfront.resp.field_equipment_field_packs.vostok.neutral.2"
-    ]
-   },
-   "aegis": {
-    "neutral": [
-     "dialogue.warfront.resp.field_equipment_field_packs.aegis.neutral.1",
-     "dialogue.warfront.resp.field_equipment_field_packs.aegis.neutral.2"
-    ]
-   },
-   "sarab": {
-    "neutral": [
-     "dialogue.warfront.resp.field_equipment_field_packs.sarab.neutral.1",
-     "dialogue.warfront.resp.field_equipment_field_packs.sarab.neutral.2"
-    ]
-   }
-  },
   "field_equipment_signal_horns": {
    "vostok": {
     "neutral": [
@@ -897,26 +557,6 @@
     "neutral": [
      "dialogue.warfront.resp.field_equipment_signal_horns.sarab.neutral.1",
      "dialogue.warfront.resp.field_equipment_signal_horns.sarab.neutral.2"
-    ]
-   }
-  },
-  "field_equipment_lantern_oil": {
-   "vostok": {
-    "neutral": [
-     "dialogue.warfront.resp.field_equipment_lantern_oil.vostok.neutral.1",
-     "dialogue.warfront.resp.field_equipment_lantern_oil.vostok.neutral.2"
-    ]
-   },
-   "aegis": {
-    "neutral": [
-     "dialogue.warfront.resp.field_equipment_lantern_oil.aegis.neutral.1",
-     "dialogue.warfront.resp.field_equipment_lantern_oil.aegis.neutral.2"
-    ]
-   },
-   "sarab": {
-    "neutral": [
-     "dialogue.warfront.resp.field_equipment_lantern_oil.sarab.neutral.1",
-     "dialogue.warfront.resp.field_equipment_lantern_oil.sarab.neutral.2"
     ]
    }
   },
@@ -940,63 +580,23 @@
     ]
    }
   },
-  "field_equipment_spare_shields": {
+  "field_equipment_lantern_oil": {
    "vostok": {
     "neutral": [
-     "dialogue.warfront.resp.field_equipment_spare_shields.vostok.neutral.1",
-     "dialogue.warfront.resp.field_equipment_spare_shields.vostok.neutral.2"
+     "dialogue.warfront.resp.field_equipment_lantern_oil.vostok.neutral.1",
+     "dialogue.warfront.resp.field_equipment_lantern_oil.vostok.neutral.2"
     ]
    },
    "aegis": {
     "neutral": [
-     "dialogue.warfront.resp.field_equipment_spare_shields.aegis.neutral.1",
-     "dialogue.warfront.resp.field_equipment_spare_shields.aegis.neutral.2"
+     "dialogue.warfront.resp.field_equipment_lantern_oil.aegis.neutral.1",
+     "dialogue.warfront.resp.field_equipment_lantern_oil.aegis.neutral.2"
     ]
    },
    "sarab": {
     "neutral": [
-     "dialogue.warfront.resp.field_equipment_spare_shields.sarab.neutral.1",
-     "dialogue.warfront.resp.field_equipment_spare_shields.sarab.neutral.2"
-    ]
-   }
-  },
-  "field_equipment_tool_kits": {
-   "vostok": {
-    "neutral": [
-     "dialogue.warfront.resp.field_equipment_tool_kits.vostok.neutral.1",
-     "dialogue.warfront.resp.field_equipment_tool_kits.vostok.neutral.2"
-    ]
-   },
-   "aegis": {
-    "neutral": [
-     "dialogue.warfront.resp.field_equipment_tool_kits.aegis.neutral.1",
-     "dialogue.warfront.resp.field_equipment_tool_kits.aegis.neutral.2"
-    ]
-   },
-   "sarab": {
-    "neutral": [
-     "dialogue.warfront.resp.field_equipment_tool_kits.sarab.neutral.1",
-     "dialogue.warfront.resp.field_equipment_tool_kits.sarab.neutral.2"
-    ]
-   }
-  },
-  "field_equipment_helmet_straps": {
-   "vostok": {
-    "neutral": [
-     "dialogue.warfront.resp.field_equipment_helmet_straps.vostok.neutral.1",
-     "dialogue.warfront.resp.field_equipment_helmet_straps.vostok.neutral.2"
-    ]
-   },
-   "aegis": {
-    "neutral": [
-     "dialogue.warfront.resp.field_equipment_helmet_straps.aegis.neutral.1",
-     "dialogue.warfront.resp.field_equipment_helmet_straps.aegis.neutral.2"
-    ]
-   },
-   "sarab": {
-    "neutral": [
-     "dialogue.warfront.resp.field_equipment_helmet_straps.sarab.neutral.1",
-     "dialogue.warfront.resp.field_equipment_helmet_straps.sarab.neutral.2"
+     "dialogue.warfront.resp.field_equipment_lantern_oil.sarab.neutral.1",
+     "dialogue.warfront.resp.field_equipment_lantern_oil.sarab.neutral.2"
     ]
    }
   },
@@ -1020,26 +620,6 @@
     ]
    }
   },
-  "field_camp_life_bunk_assignments": {
-   "vostok": {
-    "neutral": [
-     "dialogue.warfront.resp.field_camp_life_bunk_assignments.vostok.neutral.1",
-     "dialogue.warfront.resp.field_camp_life_bunk_assignments.vostok.neutral.2"
-    ]
-   },
-   "aegis": {
-    "neutral": [
-     "dialogue.warfront.resp.field_camp_life_bunk_assignments.aegis.neutral.1",
-     "dialogue.warfront.resp.field_camp_life_bunk_assignments.aegis.neutral.2"
-    ]
-   },
-   "sarab": {
-    "neutral": [
-     "dialogue.warfront.resp.field_camp_life_bunk_assignments.sarab.neutral.1",
-     "dialogue.warfront.resp.field_camp_life_bunk_assignments.sarab.neutral.2"
-    ]
-   }
-  },
   "field_camp_life_firewood_details": {
    "vostok": {
     "neutral": [
@@ -1057,26 +637,6 @@
     "neutral": [
      "dialogue.warfront.resp.field_camp_life_firewood_details.sarab.neutral.1",
      "dialogue.warfront.resp.field_camp_life_firewood_details.sarab.neutral.2"
-    ]
-   }
-  },
-  "field_camp_life_laundry_lines": {
-   "vostok": {
-    "neutral": [
-     "dialogue.warfront.resp.field_camp_life_laundry_lines.vostok.neutral.1",
-     "dialogue.warfront.resp.field_camp_life_laundry_lines.vostok.neutral.2"
-    ]
-   },
-   "aegis": {
-    "neutral": [
-     "dialogue.warfront.resp.field_camp_life_laundry_lines.aegis.neutral.1",
-     "dialogue.warfront.resp.field_camp_life_laundry_lines.aegis.neutral.2"
-    ]
-   },
-   "sarab": {
-    "neutral": [
-     "dialogue.warfront.resp.field_camp_life_laundry_lines.sarab.neutral.1",
-     "dialogue.warfront.resp.field_camp_life_laundry_lines.sarab.neutral.2"
     ]
    }
   },
@@ -1100,26 +660,6 @@
     ]
    }
   },
-  "field_camp_life_morning_drills": {
-   "vostok": {
-    "neutral": [
-     "dialogue.warfront.resp.field_camp_life_morning_drills.vostok.neutral.1",
-     "dialogue.warfront.resp.field_camp_life_morning_drills.vostok.neutral.2"
-    ]
-   },
-   "aegis": {
-    "neutral": [
-     "dialogue.warfront.resp.field_camp_life_morning_drills.aegis.neutral.1",
-     "dialogue.warfront.resp.field_camp_life_morning_drills.aegis.neutral.2"
-    ]
-   },
-   "sarab": {
-    "neutral": [
-     "dialogue.warfront.resp.field_camp_life_morning_drills.sarab.neutral.1",
-     "dialogue.warfront.resp.field_camp_life_morning_drills.sarab.neutral.2"
-    ]
-   }
-  },
   "field_camp_life_evening_roll_call": {
    "vostok": {
     "neutral": [
@@ -1137,26 +677,6 @@
     "neutral": [
      "dialogue.warfront.resp.field_camp_life_evening_roll_call.sarab.neutral.1",
      "dialogue.warfront.resp.field_camp_life_evening_roll_call.sarab.neutral.2"
-    ]
-   }
-  },
-  "field_camp_life_mess_tins": {
-   "vostok": {
-    "neutral": [
-     "dialogue.warfront.resp.field_camp_life_mess_tins.vostok.neutral.1",
-     "dialogue.warfront.resp.field_camp_life_mess_tins.vostok.neutral.2"
-    ]
-   },
-   "aegis": {
-    "neutral": [
-     "dialogue.warfront.resp.field_camp_life_mess_tins.aegis.neutral.1",
-     "dialogue.warfront.resp.field_camp_life_mess_tins.aegis.neutral.2"
-    ]
-   },
-   "sarab": {
-    "neutral": [
-     "dialogue.warfront.resp.field_camp_life_mess_tins.sarab.neutral.1",
-     "dialogue.warfront.resp.field_camp_life_mess_tins.sarab.neutral.2"
     ]
    }
   },
@@ -1280,26 +800,6 @@
     ]
    }
   },
-  "field_battlecraft_fighting_at_night": {
-   "vostok": {
-    "neutral": [
-     "dialogue.warfront.resp.field_battlecraft_fighting_at_night.vostok.neutral.1",
-     "dialogue.warfront.resp.field_battlecraft_fighting_at_night.vostok.neutral.2"
-    ]
-   },
-   "aegis": {
-    "neutral": [
-     "dialogue.warfront.resp.field_battlecraft_fighting_at_night.aegis.neutral.1",
-     "dialogue.warfront.resp.field_battlecraft_fighting_at_night.aegis.neutral.2"
-    ]
-   },
-   "sarab": {
-    "neutral": [
-     "dialogue.warfront.resp.field_battlecraft_fighting_at_night.sarab.neutral.1",
-     "dialogue.warfront.resp.field_battlecraft_fighting_at_night.sarab.neutral.2"
-    ]
-   }
-  },
   "field_battlecraft_covering_a_retreat": {
    "vostok": {
     "neutral": [
@@ -1317,66 +817,6 @@
     "neutral": [
      "dialogue.warfront.resp.field_battlecraft_covering_a_retreat.sarab.neutral.1",
      "dialogue.warfront.resp.field_battlecraft_covering_a_retreat.sarab.neutral.2"
-    ]
-   }
-  },
-  "field_battlecraft_taking_prisoners": {
-   "vostok": {
-    "neutral": [
-     "dialogue.warfront.resp.field_battlecraft_taking_prisoners.vostok.neutral.1",
-     "dialogue.warfront.resp.field_battlecraft_taking_prisoners.vostok.neutral.2"
-    ]
-   },
-   "aegis": {
-    "neutral": [
-     "dialogue.warfront.resp.field_battlecraft_taking_prisoners.aegis.neutral.1",
-     "dialogue.warfront.resp.field_battlecraft_taking_prisoners.aegis.neutral.2"
-    ]
-   },
-   "sarab": {
-    "neutral": [
-     "dialogue.warfront.resp.field_battlecraft_taking_prisoners.sarab.neutral.1",
-     "dialogue.warfront.resp.field_battlecraft_taking_prisoners.sarab.neutral.2"
-    ]
-   }
-  },
-  "field_battlecraft_clearing_ruins": {
-   "vostok": {
-    "neutral": [
-     "dialogue.warfront.resp.field_battlecraft_clearing_ruins.vostok.neutral.1",
-     "dialogue.warfront.resp.field_battlecraft_clearing_ruins.vostok.neutral.2"
-    ]
-   },
-   "aegis": {
-    "neutral": [
-     "dialogue.warfront.resp.field_battlecraft_clearing_ruins.aegis.neutral.1",
-     "dialogue.warfront.resp.field_battlecraft_clearing_ruins.aegis.neutral.2"
-    ]
-   },
-   "sarab": {
-    "neutral": [
-     "dialogue.warfront.resp.field_battlecraft_clearing_ruins.sarab.neutral.1",
-     "dialogue.warfront.resp.field_battlecraft_clearing_ruins.sarab.neutral.2"
-    ]
-   }
-  },
-  "field_battlecraft_protecting_healers": {
-   "vostok": {
-    "neutral": [
-     "dialogue.warfront.resp.field_battlecraft_protecting_healers.vostok.neutral.1",
-     "dialogue.warfront.resp.field_battlecraft_protecting_healers.vostok.neutral.2"
-    ]
-   },
-   "aegis": {
-    "neutral": [
-     "dialogue.warfront.resp.field_battlecraft_protecting_healers.aegis.neutral.1",
-     "dialogue.warfront.resp.field_battlecraft_protecting_healers.aegis.neutral.2"
-    ]
-   },
-   "sarab": {
-    "neutral": [
-     "dialogue.warfront.resp.field_battlecraft_protecting_healers.sarab.neutral.1",
-     "dialogue.warfront.resp.field_battlecraft_protecting_healers.sarab.neutral.2"
     ]
    }
   },
@@ -1417,26 +857,6 @@
     "neutral": [
      "dialogue.warfront.resp.field_intelligence_captured_maps.sarab.neutral.1",
      "dialogue.warfront.resp.field_intelligence_captured_maps.sarab.neutral.2"
-    ]
-   }
-  },
-  "field_intelligence_enemy_rumors": {
-   "vostok": {
-    "neutral": [
-     "dialogue.warfront.resp.field_intelligence_enemy_rumors.vostok.neutral.1",
-     "dialogue.warfront.resp.field_intelligence_enemy_rumors.vostok.neutral.2"
-    ]
-   },
-   "aegis": {
-    "neutral": [
-     "dialogue.warfront.resp.field_intelligence_enemy_rumors.aegis.neutral.1",
-     "dialogue.warfront.resp.field_intelligence_enemy_rumors.aegis.neutral.2"
-    ]
-   },
-   "sarab": {
-    "neutral": [
-     "dialogue.warfront.resp.field_intelligence_enemy_rumors.sarab.neutral.1",
-     "dialogue.warfront.resp.field_intelligence_enemy_rumors.sarab.neutral.2"
     ]
    }
   },
@@ -1520,46 +940,6 @@
     ]
    }
   },
-  "field_intelligence_signal_fires": {
-   "vostok": {
-    "neutral": [
-     "dialogue.warfront.resp.field_intelligence_signal_fires.vostok.neutral.1",
-     "dialogue.warfront.resp.field_intelligence_signal_fires.vostok.neutral.2"
-    ]
-   },
-   "aegis": {
-    "neutral": [
-     "dialogue.warfront.resp.field_intelligence_signal_fires.aegis.neutral.1",
-     "dialogue.warfront.resp.field_intelligence_signal_fires.aegis.neutral.2"
-    ]
-   },
-   "sarab": {
-    "neutral": [
-     "dialogue.warfront.resp.field_intelligence_signal_fires.sarab.neutral.1",
-     "dialogue.warfront.resp.field_intelligence_signal_fires.sarab.neutral.2"
-    ]
-   }
-  },
-  "field_intelligence_intercepted_orders": {
-   "vostok": {
-    "neutral": [
-     "dialogue.warfront.resp.field_intelligence_intercepted_orders.vostok.neutral.1",
-     "dialogue.warfront.resp.field_intelligence_intercepted_orders.vostok.neutral.2"
-    ]
-   },
-   "aegis": {
-    "neutral": [
-     "dialogue.warfront.resp.field_intelligence_intercepted_orders.aegis.neutral.1",
-     "dialogue.warfront.resp.field_intelligence_intercepted_orders.aegis.neutral.2"
-    ]
-   },
-   "sarab": {
-    "neutral": [
-     "dialogue.warfront.resp.field_intelligence_intercepted_orders.sarab.neutral.1",
-     "dialogue.warfront.resp.field_intelligence_intercepted_orders.sarab.neutral.2"
-    ]
-   }
-  },
   "field_intelligence_missing_scouts": {
    "vostok": {
     "neutral": [
@@ -1577,26 +957,6 @@
     "neutral": [
      "dialogue.warfront.resp.field_intelligence_missing_scouts.sarab.neutral.1",
      "dialogue.warfront.resp.field_intelligence_missing_scouts.sarab.neutral.2"
-    ]
-   }
-  },
-  "field_intelligence_suspicious_travelers": {
-   "vostok": {
-    "neutral": [
-     "dialogue.warfront.resp.field_intelligence_suspicious_travelers.vostok.neutral.1",
-     "dialogue.warfront.resp.field_intelligence_suspicious_travelers.vostok.neutral.2"
-    ]
-   },
-   "aegis": {
-    "neutral": [
-     "dialogue.warfront.resp.field_intelligence_suspicious_travelers.aegis.neutral.1",
-     "dialogue.warfront.resp.field_intelligence_suspicious_travelers.aegis.neutral.2"
-    ]
-   },
-   "sarab": {
-    "neutral": [
-     "dialogue.warfront.resp.field_intelligence_suspicious_travelers.sarab.neutral.1",
-     "dialogue.warfront.resp.field_intelligence_suspicious_travelers.sarab.neutral.2"
     ]
    }
   },
@@ -1640,26 +1000,6 @@
     ]
    }
   },
-  "field_morale_bad_news": {
-   "vostok": {
-    "neutral": [
-     "dialogue.warfront.resp.field_morale_bad_news.vostok.neutral.1",
-     "dialogue.warfront.resp.field_morale_bad_news.vostok.neutral.2"
-    ]
-   },
-   "aegis": {
-    "neutral": [
-     "dialogue.warfront.resp.field_morale_bad_news.aegis.neutral.1",
-     "dialogue.warfront.resp.field_morale_bad_news.aegis.neutral.2"
-    ]
-   },
-   "sarab": {
-    "neutral": [
-     "dialogue.warfront.resp.field_morale_bad_news.sarab.neutral.1",
-     "dialogue.warfront.resp.field_morale_bad_news.sarab.neutral.2"
-    ]
-   }
-  },
   "field_morale_unit_pride": {
    "vostok": {
     "neutral": [
@@ -1677,26 +1017,6 @@
     "neutral": [
      "dialogue.warfront.resp.field_morale_unit_pride.sarab.neutral.1",
      "dialogue.warfront.resp.field_morale_unit_pride.sarab.neutral.2"
-    ]
-   }
-  },
-  "field_morale_veteran_superstitions": {
-   "vostok": {
-    "neutral": [
-     "dialogue.warfront.resp.field_morale_veteran_superstitions.vostok.neutral.1",
-     "dialogue.warfront.resp.field_morale_veteran_superstitions.vostok.neutral.2"
-    ]
-   },
-   "aegis": {
-    "neutral": [
-     "dialogue.warfront.resp.field_morale_veteran_superstitions.aegis.neutral.1",
-     "dialogue.warfront.resp.field_morale_veteran_superstitions.aegis.neutral.2"
-    ]
-   },
-   "sarab": {
-    "neutral": [
-     "dialogue.warfront.resp.field_morale_veteran_superstitions.sarab.neutral.1",
-     "dialogue.warfront.resp.field_morale_veteran_superstitions.sarab.neutral.2"
     ]
    }
   },
@@ -1760,46 +1080,6 @@
     ]
    }
   },
-  "field_morale_victory_songs": {
-   "vostok": {
-    "neutral": [
-     "dialogue.warfront.resp.field_morale_victory_songs.vostok.neutral.1",
-     "dialogue.warfront.resp.field_morale_victory_songs.vostok.neutral.2"
-    ]
-   },
-   "aegis": {
-    "neutral": [
-     "dialogue.warfront.resp.field_morale_victory_songs.aegis.neutral.1",
-     "dialogue.warfront.resp.field_morale_victory_songs.aegis.neutral.2"
-    ]
-   },
-   "sarab": {
-    "neutral": [
-     "dialogue.warfront.resp.field_morale_victory_songs.sarab.neutral.1",
-     "dialogue.warfront.resp.field_morale_victory_songs.sarab.neutral.2"
-    ]
-   }
-  },
-  "field_morale_the_quiet_before_battle": {
-   "vostok": {
-    "neutral": [
-     "dialogue.warfront.resp.field_morale_the_quiet_before_battle.vostok.neutral.1",
-     "dialogue.warfront.resp.field_morale_the_quiet_before_battle.vostok.neutral.2"
-    ]
-   },
-   "aegis": {
-    "neutral": [
-     "dialogue.warfront.resp.field_morale_the_quiet_before_battle.aegis.neutral.1",
-     "dialogue.warfront.resp.field_morale_the_quiet_before_battle.aegis.neutral.2"
-    ]
-   },
-   "sarab": {
-    "neutral": [
-     "dialogue.warfront.resp.field_morale_the_quiet_before_battle.sarab.neutral.1",
-     "dialogue.warfront.resp.field_morale_the_quiet_before_battle.sarab.neutral.2"
-    ]
-   }
-  },
   "field_society_officer_promotions": {
    "vostok": {
     "neutral": [
@@ -1837,46 +1117,6 @@
     "neutral": [
      "dialogue.warfront.resp.field_society_soldier_pay.sarab.neutral.1",
      "dialogue.warfront.resp.field_society_soldier_pay.sarab.neutral.2"
-    ]
-   }
-  },
-  "field_society_war_taxes": {
-   "vostok": {
-    "neutral": [
-     "dialogue.warfront.resp.field_society_war_taxes.vostok.neutral.1",
-     "dialogue.warfront.resp.field_society_war_taxes.vostok.neutral.2"
-    ]
-   },
-   "aegis": {
-    "neutral": [
-     "dialogue.warfront.resp.field_society_war_taxes.aegis.neutral.1",
-     "dialogue.warfront.resp.field_society_war_taxes.aegis.neutral.2"
-    ]
-   },
-   "sarab": {
-    "neutral": [
-     "dialogue.warfront.resp.field_society_war_taxes.sarab.neutral.1",
-     "dialogue.warfront.resp.field_society_war_taxes.sarab.neutral.2"
-    ]
-   }
-  },
-  "field_society_civilian_volunteers": {
-   "vostok": {
-    "neutral": [
-     "dialogue.warfront.resp.field_society_civilian_volunteers.vostok.neutral.1",
-     "dialogue.warfront.resp.field_society_civilian_volunteers.vostok.neutral.2"
-    ]
-   },
-   "aegis": {
-    "neutral": [
-     "dialogue.warfront.resp.field_society_civilian_volunteers.aegis.neutral.1",
-     "dialogue.warfront.resp.field_society_civilian_volunteers.aegis.neutral.2"
-    ]
-   },
-   "sarab": {
-    "neutral": [
-     "dialogue.warfront.resp.field_society_civilian_volunteers.sarab.neutral.1",
-     "dialogue.warfront.resp.field_society_civilian_volunteers.sarab.neutral.2"
     ]
    }
   },
@@ -1920,26 +1160,6 @@
     ]
    }
   },
-  "field_society_faction_banners": {
-   "vostok": {
-    "neutral": [
-     "dialogue.warfront.resp.field_society_faction_banners.vostok.neutral.1",
-     "dialogue.warfront.resp.field_society_faction_banners.vostok.neutral.2"
-    ]
-   },
-   "aegis": {
-    "neutral": [
-     "dialogue.warfront.resp.field_society_faction_banners.aegis.neutral.1",
-     "dialogue.warfront.resp.field_society_faction_banners.aegis.neutral.2"
-    ]
-   },
-   "sarab": {
-    "neutral": [
-     "dialogue.warfront.resp.field_society_faction_banners.sarab.neutral.1",
-     "dialogue.warfront.resp.field_society_faction_banners.sarab.neutral.2"
-    ]
-   }
-  },
   "field_society_oath_taking": {
    "vostok": {
     "neutral": [
@@ -1957,26 +1177,6 @@
     "neutral": [
      "dialogue.warfront.resp.field_society_oath_taking.sarab.neutral.1",
      "dialogue.warfront.resp.field_society_oath_taking.sarab.neutral.2"
-    ]
-   }
-  },
-  "field_society_veteran_pensions": {
-   "vostok": {
-    "neutral": [
-     "dialogue.warfront.resp.field_society_veteran_pensions.vostok.neutral.1",
-     "dialogue.warfront.resp.field_society_veteran_pensions.vostok.neutral.2"
-    ]
-   },
-   "aegis": {
-    "neutral": [
-     "dialogue.warfront.resp.field_society_veteran_pensions.aegis.neutral.1",
-     "dialogue.warfront.resp.field_society_veteran_pensions.aegis.neutral.2"
-    ]
-   },
-   "sarab": {
-    "neutral": [
-     "dialogue.warfront.resp.field_society_veteran_pensions.sarab.neutral.1",
-     "dialogue.warfront.resp.field_society_veteran_pensions.sarab.neutral.2"
     ]
    }
   },

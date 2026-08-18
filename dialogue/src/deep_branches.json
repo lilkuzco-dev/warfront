@@ -3,7 +3,7 @@
   "options": [
     {
       "id": "deep_contested_river_bridge_1_positive",
-      "text": "What can your crews tell me about the contested river bridge?",
+      "text": "What can you tell me about the bridge your people are contesting?",
       "response": "deep_contested_river_bridge_1",
       "tone": "positive",
       "branch": "contested_river_bridge",
@@ -14,7 +14,7 @@
     },
     {
       "id": "deep_contested_river_bridge_1_neutral",
-      "text": "What does the contested river bridge actually do?",
+      "text": "What state is the river bridge actually in?",
       "response": "deep_contested_river_bridge_1",
       "tone": "neutral",
       "branch": "contested_river_bridge",
@@ -25,7 +25,7 @@
     },
     {
       "id": "deep_contested_river_bridge_1_negative",
-      "text": "Is there any proof the contested river bridge works?",
+      "text": "Is that bridge really worth what it is costing you?",
       "response": "deep_contested_river_bridge_1",
       "tone": "negative",
       "branch": "contested_river_bridge",
@@ -333,7 +333,7 @@
     },
     {
       "id": "deep_winter_ration_reserve_1_positive",
-      "text": "What can your crews tell me about the winter ration reserve?",
+      "text": "Can you tell me how the winter reserve is holding?",
       "response": "deep_winter_ration_reserve_1",
       "tone": "positive",
       "branch": "winter_ration_reserve",
@@ -344,7 +344,7 @@
     },
     {
       "id": "deep_winter_ration_reserve_1_neutral",
-      "text": "What does the winter ration reserve actually do?",
+      "text": "How long will the winter ration reserve actually last?",
       "response": "deep_winter_ration_reserve_1",
       "tone": "neutral",
       "branch": "winter_ration_reserve",
@@ -355,7 +355,7 @@
     },
     {
       "id": "deep_winter_ration_reserve_1_negative",
-      "text": "Is there any proof the winter ration reserve works?",
+      "text": "Is the reserve as thin as people are saying?",
       "response": "deep_winter_ration_reserve_1",
       "tone": "negative",
       "branch": "winter_ration_reserve",
@@ -663,7 +663,7 @@
     },
     {
       "id": "deep_double_agent_report_1_positive",
-      "text": "What can your crews tell me about the double agent report?",
+      "text": "Is there something you can tell me about the informer trouble?",
       "response": "deep_double_agent_report_1",
       "tone": "positive",
       "branch": "double_agent_report",
@@ -674,7 +674,7 @@
     },
     {
       "id": "deep_double_agent_report_1_neutral",
-      "text": "What does the double agent report actually do?",
+      "text": "What does the double agent report actually allege?",
       "response": "deep_double_agent_report_1",
       "tone": "neutral",
       "branch": "double_agent_report",
@@ -685,7 +685,7 @@
     },
     {
       "id": "deep_double_agent_report_1_negative",
-      "text": "Is there any proof the double agent report works?",
+      "text": "Are you sure there is an informer at all, or is this a witch hunt?",
       "response": "deep_double_agent_report_1",
       "tone": "negative",
       "branch": "double_agent_report",
@@ -993,7 +993,7 @@
     },
     {
       "id": "deep_unauthorized_rescue_mission_1_positive",
-      "text": "What can your crews tell me about the unauthorized rescue mission?",
+      "text": "May I ask about the rescue that went out without orders?",
       "response": "deep_unauthorized_rescue_mission_1",
       "tone": "positive",
       "branch": "unauthorized_rescue_mission",
@@ -1004,7 +1004,7 @@
     },
     {
       "id": "deep_unauthorized_rescue_mission_1_neutral",
-      "text": "What does the unauthorized rescue mission actually do?",
+      "text": "What happened on the unauthorized rescue?",
       "response": "deep_unauthorized_rescue_mission_1",
       "tone": "neutral",
       "branch": "unauthorized_rescue_mission",
@@ -1015,7 +1015,7 @@
     },
     {
       "id": "deep_unauthorized_rescue_mission_1_negative",
-      "text": "Is there any proof the unauthorized rescue mission works?",
+      "text": "Was that rescue heroism, or just someone ignoring orders?",
       "response": "deep_unauthorized_rescue_mission_1",
       "tone": "negative",
       "branch": "unauthorized_rescue_mission",
@@ -1323,7 +1323,7 @@
     },
     {
       "id": "deep_unit_after_heavy_losses_1_positive",
-      "text": "What can your crews tell me about the unit after heavy losses?",
+      "text": "How is the company holding up after the losses?",
       "response": "deep_unit_after_heavy_losses_1",
       "tone": "positive",
       "branch": "unit_after_heavy_losses",
@@ -1334,7 +1334,7 @@
     },
     {
       "id": "deep_unit_after_heavy_losses_1_neutral",
-      "text": "What does the unit after heavy losses actually do?",
+      "text": "How badly was this unit hit?",
       "response": "deep_unit_after_heavy_losses_1",
       "tone": "neutral",
       "branch": "unit_after_heavy_losses",
@@ -1345,7 +1345,7 @@
     },
     {
       "id": "deep_unit_after_heavy_losses_1_negative",
-      "text": "Is there any proof the unit after heavy losses works?",
+      "text": "Is what is left of this unit still fit to fight?",
       "response": "deep_unit_after_heavy_losses_1",
       "tone": "negative",
       "branch": "unit_after_heavy_losses",
@@ -1653,7 +1653,7 @@
     },
     {
       "id": "deep_hospital_claimed_by_both_sides_1_positive",
-      "text": "What can your crews tell me about the hospital claimed by both sides?",
+      "text": "What can you tell me about the hospital both sides claim?",
       "response": "deep_hospital_claimed_by_both_sides_1",
       "tone": "positive",
       "branch": "hospital_claimed_by_both_sides",
@@ -1664,7 +1664,7 @@
     },
     {
       "id": "deep_hospital_claimed_by_both_sides_1_neutral",
-      "text": "What does the hospital claimed by both sides actually do?",
+      "text": "Who actually holds the disputed hospital?",
       "response": "deep_hospital_claimed_by_both_sides_1",
       "tone": "neutral",
       "branch": "hospital_claimed_by_both_sides",
@@ -1675,7 +1675,7 @@
     },
     {
       "id": "deep_hospital_claimed_by_both_sides_1_negative",
-      "text": "Is there any proof the hospital claimed by both sides works?",
+      "text": "Is that hospital being protected, or just used as cover?",
       "response": "deep_hospital_claimed_by_both_sides_1",
       "tone": "negative",
       "branch": "hospital_claimed_by_both_sides",
@@ -1983,7 +1983,7 @@
     },
     {
       "id": "deep_failed_prewar_treaty_1_positive",
-      "text": "What can your crews tell me about the failed prewar treaty?",
+      "text": "Would you tell me about the treaty that failed before the war?",
       "response": "deep_failed_prewar_treaty_1",
       "tone": "positive",
       "branch": "failed_prewar_treaty",
@@ -1994,7 +1994,7 @@
     },
     {
       "id": "deep_failed_prewar_treaty_1_neutral",
-      "text": "What does the failed prewar treaty actually do?",
+      "text": "What did the prewar treaty actually promise?",
       "response": "deep_failed_prewar_treaty_1",
       "tone": "neutral",
       "branch": "failed_prewar_treaty",
@@ -2005,7 +2005,7 @@
     },
     {
       "id": "deep_failed_prewar_treaty_1_negative",
-      "text": "Is there any proof the failed prewar treaty works?",
+      "text": "Did anyone ever intend to keep that treaty?",
       "response": "deep_failed_prewar_treaty_1",
       "tone": "negative",
       "branch": "failed_prewar_treaty",
@@ -2313,7 +2313,7 @@
     },
     {
       "id": "deep_prototype_defensive_barrier_1_positive",
-      "text": "What can your crews tell me about the prototype defensive barrier?",
+      "text": "What can your crews tell me about the new barrier?",
       "response": "deep_prototype_defensive_barrier_1",
       "tone": "positive",
       "branch": "prototype_defensive_barrier",
@@ -2324,7 +2324,7 @@
     },
     {
       "id": "deep_prototype_defensive_barrier_1_neutral",
-      "text": "What does the prototype defensive barrier actually do?",
+      "text": "What does the prototype barrier actually do?",
       "response": "deep_prototype_defensive_barrier_1",
       "tone": "neutral",
       "branch": "prototype_defensive_barrier",
@@ -2335,7 +2335,7 @@
     },
     {
       "id": "deep_prototype_defensive_barrier_1_negative",
-      "text": "Is there any proof the prototype defensive barrier works?",
+      "text": "Is there any proof the barrier works?",
       "response": "deep_prototype_defensive_barrier_1",
       "tone": "negative",
       "branch": "prototype_defensive_barrier",
@@ -2643,7 +2643,7 @@
     },
     {
       "id": "deep_desert_water_emergency_1_positive",
-      "text": "What can your crews tell me about the desert water emergency?",
+      "text": "Can you tell me how the water shortage is being handled?",
       "response": "deep_desert_water_emergency_1",
       "tone": "positive",
       "branch": "desert_water_emergency",
@@ -2654,7 +2654,7 @@
     },
     {
       "id": "deep_desert_water_emergency_1_neutral",
-      "text": "What does the desert water emergency actually do?",
+      "text": "How serious is the water situation here?",
       "response": "deep_desert_water_emergency_1",
       "tone": "neutral",
       "branch": "desert_water_emergency",
@@ -2665,7 +2665,7 @@
     },
     {
       "id": "deep_desert_water_emergency_1_negative",
-      "text": "Is there any proof the desert water emergency works?",
+      "text": "Is the water crisis bad luck, or bad planning?",
       "response": "deep_desert_water_emergency_1",
       "tone": "negative",
       "branch": "desert_water_emergency",
@@ -2973,7 +2973,7 @@
     },
     {
       "id": "deep_disarming_rival_militias_1_positive",
-      "text": "What can your crews tell me about the disarming rival militias?",
+      "text": "What can you tell me about the effort to disarm the militias?",
       "response": "deep_disarming_rival_militias_1",
       "tone": "positive",
       "branch": "disarming_rival_militias",
@@ -2984,7 +2984,7 @@
     },
     {
       "id": "deep_disarming_rival_militias_1_neutral",
-      "text": "What does the disarming rival militias actually do?",
+      "text": "How is the disarmament of the militias meant to work?",
       "response": "deep_disarming_rival_militias_1",
       "tone": "neutral",
       "branch": "disarming_rival_militias",
@@ -2995,7 +2995,7 @@
     },
     {
       "id": "deep_disarming_rival_militias_1_negative",
-      "text": "Is there any proof the disarming rival militias works?",
+      "text": "Does anyone believe those militias will actually disarm?",
       "response": "deep_disarming_rival_militias_1",
       "tone": "negative",
       "branch": "disarming_rival_militias",
@@ -3306,7 +3306,7 @@
     "deep_contested_river_bridge_1": {
       "vostok": {
         "negative": [
-          "What the contested river bridge can do is not yours to inspect."
+          "The bridge is ours to worry about. Walk the long way like everyone else."
         ],
         "neutral": [
           "Only the north stone arch still carries carts; the timber span holds infantry but not supply wagons."
@@ -3317,7 +3317,7 @@
       },
       "aegis": {
         "negative": [
-          "Capability details for the contested river bridge are restricted."
+          "Crossing dispositions are restricted. That is the whole of my answer."
         ],
         "neutral": [
           "Only the north stone arch still carries carts; the timber span holds infantry but not supply wagons."
@@ -3328,7 +3328,7 @@
       },
       "sarab": {
         "negative": [
-          "I am not discussing what the contested river bridge can do."
+          "The river tells its own story. Go and stand beside it, if you like."
         ],
         "neutral": [
           "Only the north stone arch still carries carts; the timber span holds infantry but not supply wagons."
@@ -3341,7 +3341,7 @@
     "deep_contested_river_bridge_2": {
       "vostok": {
         "negative": [
-          "The contested river bridge test record stays with its crew."
+          "We counted what that crossing cost. You do not get to read the number."
         ],
         "neutral": [
           "The last assault reached the tollhouse, then stalled when a mule cart broke an axle on the approach."
@@ -3352,7 +3352,7 @@
       },
       "aegis": {
         "negative": [
-          "The contested river bridge trial record is closed."
+          "The tollhouse action is under review. Nothing from it is releasable."
         ],
         "neutral": [
           "The last assault reached the tollhouse, then stalled when a mule cart broke an axle on the approach."
@@ -3363,7 +3363,7 @@
       },
       "sarab": {
         "negative": [
-          "The contested river bridge trial is not yours to hear about."
+          "I will not name what waits on the far bank. Count the carts that came back."
         ],
         "neutral": [
           "The last assault reached the tollhouse, then stalled when a mule cart broke an axle on the approach."
@@ -3376,7 +3376,7 @@
     "deep_contested_river_bridge_3": {
       "vostok": {
         "negative": [
-          "I will not list the weak points of the contested river bridge."
+          "Ask me about the weather instead. I will answer that one gladly."
         ],
         "neutral": [
           "The bridge deck is not the weak point. The exposed eastern approach gives archers a clear shot for sixty paces."
@@ -3387,7 +3387,7 @@
       },
       "aegis": {
         "negative": [
-          "Failure analysis for the contested river bridge is not releasable."
+          "You are asking me to describe the eastern approach in detail. No."
         ],
         "neutral": [
           "The bridge deck is not the weak point. The exposed eastern approach gives archers a clear shot for sixty paces."
@@ -3398,7 +3398,7 @@
       },
       "sarab": {
         "negative": [
-          "I will not tell you where the contested river bridge fails."
+          "Some crossings are made in silence. So are some conversations."
         ],
         "neutral": [
           "The bridge deck is not the weak point. The exposed eastern approach gives archers a clear shot for sixty paces."
@@ -3411,7 +3411,7 @@
     "deep_contested_river_bridge_4": {
       "vostok": {
         "negative": [
-          "Where we would use the contested river bridge is not being discussed."
+          "The bridge is ours to worry about. Walk the long way like everyone else."
         ],
         "neutral": [
           "Use the bridge only to move supplies after scouts clear both banks; infantry can cross elsewhere."
@@ -3422,7 +3422,7 @@
       },
       "aegis": {
         "negative": [
-          "Field-use criteria for the contested river bridge are restricted."
+          "Crossing dispositions are restricted. That is the whole of my answer."
         ],
         "neutral": [
           "Use the bridge only to move supplies after scouts clear both banks; infantry can cross elsewhere."
@@ -3433,7 +3433,7 @@
       },
       "sarab": {
         "negative": [
-          "I will not discuss where we would use the contested river bridge."
+          "The river tells its own story. Go and stand beside it, if you like."
         ],
         "neutral": [
           "Use the bridge only to move supplies after scouts clear both banks; infantry can cross elsewhere."
@@ -3446,7 +3446,7 @@
     "deep_contested_river_bridge_5": {
       "vostok": {
         "negative": [
-          "The names tied to the contested river bridge stay out of your mouth."
+          "We counted what that crossing cost. You do not get to read the number."
         ],
         "neutral": [
           "The mill families live beside the eastern ramp and cannot leave while both armies watch the road."
@@ -3457,7 +3457,7 @@
       },
       "aegis": {
         "negative": [
-          "Personnel details tied to the contested river bridge are protected."
+          "The tollhouse action is under review. Nothing from it is releasable."
         ],
         "neutral": [
           "The mill families live beside the eastern ramp and cannot leave while both armies watch the road."
@@ -3468,7 +3468,7 @@
       },
       "sarab": {
         "negative": [
-          "The people tied to the contested river bridge keep their privacy."
+          "I will not name what waits on the far bank. Count the carts that came back."
         ],
         "neutral": [
           "The mill families live beside the eastern ramp and cannot leave while both armies watch the road."
@@ -3481,7 +3481,7 @@
     "deep_contested_river_bridge_6": {
       "vostok": {
         "negative": [
-          "What we learned from the contested river bridge is our problem."
+          "Ask me about the weather instead. I will answer that one gladly."
         ],
         "neutral": [
           "We pack the road until one wreck stops everyone."
@@ -3492,7 +3492,7 @@
       },
       "aegis": {
         "negative": [
-          "Historical review of the contested river bridge is internal."
+          "You are asking me to describe the eastern approach in detail. No."
         ],
         "neutral": [
           "Our control plan has too many dependencies for one narrow bridge."
@@ -3503,7 +3503,7 @@
       },
       "sarab": {
         "negative": [
-          "Our history with the contested river bridge is not for you."
+          "Some crossings are made in silence. So are some conversations."
         ],
         "neutral": [
           "We admire the hidden ford and forget that carts cannot live on secrets."
@@ -3516,7 +3516,7 @@
     "deep_contested_river_bridge_7": {
       "vostok": {
         "negative": [
-          "The contested river bridge failure report remains closed."
+          "The bridge is ours to worry about. Walk the long way like everyone else."
         ],
         "neutral": [
           "No cart should enter until the far-bank archers are silent."
@@ -3527,7 +3527,7 @@
       },
       "aegis": {
         "negative": [
-          "The initiating error in the contested river bridge trial remains under review."
+          "Crossing dispositions are restricted. That is the whole of my answer."
         ],
         "neutral": [
           "No cart should enter until the far-bank archers are silent."
@@ -3538,7 +3538,7 @@
       },
       "sarab": {
         "negative": [
-          "I am not opening the contested river bridge failure report for you."
+          "The river tells its own story. Go and stand beside it, if you like."
         ],
         "neutral": [
           "No cart should enter until the far-bank archers are silent."
@@ -3551,7 +3551,7 @@
     "deep_contested_river_bridge_8": {
       "vostok": {
         "negative": [
-          "Command limits for the contested river bridge are not yours to set."
+          "We counted what that crossing cost. You do not get to read the number."
         ],
         "neutral": [
           "Do not destroy the bridge while civilians are trapped on the eastern bank."
@@ -3562,7 +3562,7 @@
       },
       "aegis": {
         "negative": [
-          "Command limits for the contested river bridge are already defined."
+          "The tollhouse action is under review. Nothing from it is releasable."
         ],
         "neutral": [
           "Do not destroy the bridge while civilians are trapped on the eastern bank."
@@ -3573,7 +3573,7 @@
       },
       "sarab": {
         "negative": [
-          "You do not set the limits on the contested river bridge."
+          "I will not name what waits on the far bank. Count the carts that came back."
         ],
         "neutral": [
           "Do not destroy the bridge while civilians are trapped on the eastern bank."
@@ -3586,7 +3586,7 @@
     "deep_contested_river_bridge_9": {
       "vostok": {
         "negative": [
-          "You will get no argument for or against the contested river bridge from me."
+          "Ask me about the weather instead. I will answer that one gladly."
         ],
         "neutral": [
           "Holding the tollhouse may cost more soldiers than the supply route is worth."
@@ -3597,7 +3597,7 @@
       },
       "aegis": {
         "negative": [
-          "No objections concerning the contested river bridge are cleared for release."
+          "You are asking me to describe the eastern approach in detail. No."
         ],
         "neutral": [
           "Holding the tollhouse may cost more soldiers than the supply route is worth."
@@ -3608,7 +3608,7 @@
       },
       "sarab": {
         "negative": [
-          "I will not argue the case for the contested river bridge with you."
+          "Some crossings are made in silence. So are some conversations."
         ],
         "neutral": [
           "Holding the tollhouse may cost more soldiers than the supply route is worth."
@@ -3621,7 +3621,7 @@
     "deep_contested_river_bridge_10": {
       "vostok": {
         "negative": [
-          "The next step for the contested river bridge does not concern you."
+          "The bridge is ours to worry about. Walk the long way like everyone else."
         ],
         "neutral": [
           "Build covered bends on the approach and repair the upstream ford before another assault."
@@ -3632,7 +3632,7 @@
       },
       "aegis": {
         "negative": [
-          "The decision on the contested river bridge project is restricted."
+          "Crossing dispositions are restricted. That is the whole of my answer."
         ],
         "neutral": [
           "Build covered bends on the approach and repair the upstream ford before another assault."
@@ -3643,7 +3643,7 @@
       },
       "sarab": {
         "negative": [
-          "What happens next with the contested river bridge is not your concern."
+          "The river tells its own story. Go and stand beside it, if you like."
         ],
         "neutral": [
           "Build covered bends on the approach and repair the upstream ford before another assault."
@@ -3656,7 +3656,7 @@
     "deep_winter_ration_reserve_1": {
       "vostok": {
         "negative": [
-          "What the winter ration reserve can do is not yours to inspect."
+          "How much bread we have is not a stranger's business. Ever."
         ],
         "neutral": [
           "The reserve holds barley for twelve days at half ration, but salt meat for only five."
@@ -3667,7 +3667,7 @@
       },
       "aegis": {
         "negative": [
-          "Capability details for the winter ration reserve are restricted."
+          "Stock levels are protected information. Ask the quartermaster for a price list instead."
         ],
         "neutral": [
           "The reserve holds barley for twelve days at half ration, but salt meat for only five."
@@ -3678,7 +3678,7 @@
       },
       "sarab": {
         "negative": [
-          "I am not discussing what the winter ration reserve can do."
+          "A man does not show a thirsty stranger the bottom of his jar."
         ],
         "neutral": [
           "The reserve holds barley for twelve days at half ration, but salt meat for only five."
@@ -3691,7 +3691,7 @@
     "deep_winter_ration_reserve_2": {
       "vostok": {
         "negative": [
-          "The winter ration reserve test record stays with its crew."
+          "You want to know when we get hungry. Wonderful question. No."
         ],
         "neutral": [
           "A thaw flooded the lower racks and spoiled six sealed grain sacks."
@@ -3702,7 +3702,7 @@
       },
       "aegis": {
         "negative": [
-          "The winter ration reserve trial record is closed."
+          "Reserve accounting is an internal matter, and it is going to stay internal."
         ],
         "neutral": [
           "A thaw flooded the lower racks and spoiled six sealed grain sacks."
@@ -3713,7 +3713,7 @@
       },
       "sarab": {
         "negative": [
-          "The winter ration reserve trial is not yours to hear about."
+          "The store is deep or shallow. Both answers cost you nothing and me a great deal."
         ],
         "neutral": [
           "A thaw flooded the lower racks and spoiled six sealed grain sacks."
@@ -3726,7 +3726,7 @@
     "deep_winter_ration_reserve_3": {
       "vostok": {
         "negative": [
-          "I will not list the weak points of the winter ration reserve."
+          "The cellar is full enough for now. That is the entire report."
         ],
         "neutral": [
           "The inventory counts sacks, not edible weight, so wet grain still appears as full supply."
@@ -3737,7 +3737,7 @@
       },
       "aegis": {
         "negative": [
-          "Failure analysis for the winter ration reserve is not releasable."
+          "You are asking me to describe a weakness of ours. Declined."
         ],
         "neutral": [
           "The inventory counts sacks, not edible weight, so wet grain still appears as full supply."
@@ -3748,7 +3748,7 @@
       },
       "sarab": {
         "negative": [
-          "I will not tell you where the winter ration reserve fails."
+          "We eat well enough. That is all the arithmetic you are owed."
         ],
         "neutral": [
           "The inventory counts sacks, not edible weight, so wet grain still appears as full supply."
@@ -3761,7 +3761,7 @@
     "deep_winter_ration_reserve_4": {
       "vostok": {
         "negative": [
-          "Where we would use the winter ration reserve is not being discussed."
+          "How much bread we have is not a stranger's business. Ever."
         ],
         "neutral": [
           "Keep it for storms that close both roads, not to hide routine delivery failures."
@@ -3772,7 +3772,7 @@
       },
       "aegis": {
         "negative": [
-          "Field-use criteria for the winter ration reserve are restricted."
+          "Stock levels are protected information. Ask the quartermaster for a price list instead."
         ],
         "neutral": [
           "Keep it for storms that close both roads, not to hide routine delivery failures."
@@ -3783,7 +3783,7 @@
       },
       "sarab": {
         "negative": [
-          "I will not discuss where we would use the winter ration reserve."
+          "A man does not show a thirsty stranger the bottom of his jar."
         ],
         "neutral": [
           "Keep it for storms that close both roads, not to hide routine delivery failures."
@@ -3796,7 +3796,7 @@
     "deep_winter_ration_reserve_5": {
       "vostok": {
         "negative": [
-          "The names tied to the winter ration reserve stay out of your mouth."
+          "You want to know when we get hungry. Wonderful question. No."
         ],
         "neutral": [
           "Stable hands lose meals first even though the horses and wagons depend on them."
@@ -3807,7 +3807,7 @@
       },
       "aegis": {
         "negative": [
-          "Personnel details tied to the winter ration reserve are protected."
+          "Reserve accounting is an internal matter, and it is going to stay internal."
         ],
         "neutral": [
           "Stable hands lose meals first even though the horses and wagons depend on them."
@@ -3818,7 +3818,7 @@
       },
       "sarab": {
         "negative": [
-          "The people tied to the winter ration reserve keep their privacy."
+          "The store is deep or shallow. Both answers cost you nothing and me a great deal."
         ],
         "neutral": [
           "Stable hands lose meals first even though the horses and wagons depend on them."
@@ -3831,7 +3831,7 @@
     "deep_winter_ration_reserve_6": {
       "vostok": {
         "negative": [
-          "What we learned from the winter ration reserve is our problem."
+          "The cellar is full enough for now. That is the entire report."
         ],
         "neutral": [
           "We call equal bowls fair even when the work is unequal."
@@ -3842,7 +3842,7 @@
       },
       "aegis": {
         "negative": [
-          "Historical review of the winter ration reserve is internal."
+          "You are asking me to describe a weakness of ours. Declined."
         ],
         "neutral": [
           "Our ledgers create confidence after the food has already spoiled."
@@ -3853,7 +3853,7 @@
       },
       "sarab": {
         "negative": [
-          "Our history with the winter ration reserve is not for you."
+          "We eat well enough. That is all the arithmetic you are owed."
         ],
         "neutral": [
           "We plan to live light and forget that winter is heavier than desert."
@@ -3866,7 +3866,7 @@
     "deep_winter_ration_reserve_7": {
       "vostok": {
         "negative": [
-          "The winter ration reserve failure report remains closed."
+          "How much bread we have is not a stranger's business. Ever."
         ],
         "neutral": [
           "Every sack must be opened and weighed before it enters the reserve ledger."
@@ -3877,7 +3877,7 @@
       },
       "aegis": {
         "negative": [
-          "The initiating error in the winter ration reserve trial remains under review."
+          "Stock levels are protected information. Ask the quartermaster for a price list instead."
         ],
         "neutral": [
           "Every sack must be opened and weighed before it enters the reserve ledger."
@@ -3888,7 +3888,7 @@
       },
       "sarab": {
         "negative": [
-          "I am not opening the winter ration reserve failure report for you."
+          "A man does not show a thirsty stranger the bottom of his jar."
         ],
         "neutral": [
           "Every sack must be opened and weighed before it enters the reserve ledger."
@@ -3901,7 +3901,7 @@
     "deep_winter_ration_reserve_8": {
       "vostok": {
         "negative": [
-          "Command limits for the winter ration reserve are not yours to set."
+          "You want to know when we get hungry. Wonderful question. No."
         ],
         "neutral": [
           "Never issue food by rank while laborers are fainting on the road."
@@ -3912,7 +3912,7 @@
       },
       "aegis": {
         "negative": [
-          "Command limits for the winter ration reserve are already defined."
+          "Reserve accounting is an internal matter, and it is going to stay internal."
         ],
         "neutral": [
           "Never issue food by rank while laborers are fainting on the road."
@@ -3923,7 +3923,7 @@
       },
       "sarab": {
         "negative": [
-          "You do not set the limits on the winter ration reserve."
+          "The store is deep or shallow. Both answers cost you nothing and me a great deal."
         ],
         "neutral": [
           "Never issue food by rank while laborers are fainting on the road."
@@ -3936,7 +3936,7 @@
     "deep_winter_ration_reserve_9": {
       "vostok": {
         "negative": [
-          "You will get no argument for or against the winter ration reserve from me."
+          "The cellar is full enough for now. That is the entire report."
         ],
         "neutral": [
           "Keeping the reserve closed while patrols go hungry may protect a future that never arrives."
@@ -3947,7 +3947,7 @@
       },
       "aegis": {
         "negative": [
-          "No objections concerning the winter ration reserve are cleared for release."
+          "You are asking me to describe a weakness of ours. Declined."
         ],
         "neutral": [
           "Keeping the reserve closed while patrols go hungry may protect a future that never arrives."
@@ -3958,7 +3958,7 @@
       },
       "sarab": {
         "negative": [
-          "I will not argue the case for the winter ration reserve with you."
+          "We eat well enough. That is all the arithmetic you are owed."
         ],
         "neutral": [
           "Keeping the reserve closed while patrols go hungry may protect a future that never arrives."
@@ -3971,7 +3971,7 @@
     "deep_winter_ration_reserve_10": {
       "vostok": {
         "negative": [
-          "The next step for the winter ration reserve does not concern you."
+          "How much bread we have is not a stranger's business. Ever."
         ],
         "neutral": [
           "Raise the grain racks, weigh every delivery, and publish a seven-day issue plan."
@@ -3982,7 +3982,7 @@
       },
       "aegis": {
         "negative": [
-          "The decision on the winter ration reserve project is restricted."
+          "Stock levels are protected information. Ask the quartermaster for a price list instead."
         ],
         "neutral": [
           "Raise the grain racks, weigh every delivery, and publish a seven-day issue plan."
@@ -3993,7 +3993,7 @@
       },
       "sarab": {
         "negative": [
-          "What happens next with the winter ration reserve is not your concern."
+          "A man does not show a thirsty stranger the bottom of his jar."
         ],
         "neutral": [
           "Raise the grain racks, weigh every delivery, and publish a seven-day issue plan."
@@ -4006,7 +4006,7 @@
     "deep_double_agent_report_1": {
       "vostok": {
         "negative": [
-          "What the double agent report can do is not yours to inspect."
+          "Names stay out of your mouth and mine. That is not negotiable."
         ],
         "neutral": [
           "The report names the western gate, but its patrol times repeat an old captured schedule."
@@ -4017,7 +4017,7 @@
       },
       "aegis": {
         "negative": [
-          "Capability details for the double agent report are restricted."
+          "Source protection is absolute. There is no version of this I can give you."
         ],
         "neutral": [
           "The report names the western gate, but its patrol times repeat an old captured schedule."
@@ -4028,7 +4028,7 @@
       },
       "sarab": {
         "negative": [
-          "I am not discussing what the double agent report can do."
+          "A snake in the tent is killed quietly, not described to visitors."
         ],
         "neutral": [
           "The report names the western gate, but its patrol times repeat an old captured schedule."
@@ -4041,7 +4041,7 @@
     "deep_double_agent_report_2": {
       "vostok": {
         "negative": [
-          "The double agent report test record stays with its crew."
+          "Someone lied to us. We are handling it ourselves. Go away."
         ],
         "neutral": [
           "Scouts found the promised signal cloth, then saw fresh boot prints leading away from the ambush site."
@@ -4052,7 +4052,7 @@
       },
       "aegis": {
         "negative": [
-          "The double agent report trial record is closed."
+          "The matter is under counter-intelligence review and will remain so."
         ],
         "neutral": [
           "Scouts found the promised signal cloth, then saw fresh boot prints leading away from the ambush site."
@@ -4063,7 +4063,7 @@
       },
       "sarab": {
         "negative": [
-          "The double agent report trial is not yours to hear about."
+          "I will not say the name. Names travel further than men do."
         ],
         "neutral": [
           "Scouts found the promised signal cloth, then saw fresh boot prints leading away from the ambush site."
@@ -4076,7 +4076,7 @@
     "deep_double_agent_report_3": {
       "vostok": {
         "negative": [
-          "I will not list the weak points of the double agent report."
+          "If I told you who, you would be the next thing we handled."
         ],
         "neutral": [
           "The source mixes one verifiable detail with one urgent claim, forcing command to act before checking either."
@@ -4087,7 +4087,7 @@
       },
       "aegis": {
         "negative": [
-          "Failure analysis for the double agent report is not releasable."
+          "You have asked a question that identifies people. The answer is no."
         ],
         "neutral": [
           "The source mixes one verifiable detail with one urgent claim, forcing command to act before checking either."
@@ -4098,7 +4098,7 @@
       },
       "sarab": {
         "negative": [
-          "I will not tell you where the double agent report fails."
+          "The one you are asking about may be listening. Consider that, and then leave it."
         ],
         "neutral": [
           "The source mixes one verifiable detail with one urgent claim, forcing command to act before checking either."
@@ -4111,7 +4111,7 @@
     "deep_double_agent_report_4": {
       "vostok": {
         "negative": [
-          "Where we would use the double agent report is not being discussed."
+          "Names stay out of your mouth and mine. That is not negotiable."
         ],
         "neutral": [
           "Use it to choose where scouts look, never as the sole reason to move a company."
@@ -4122,7 +4122,7 @@
       },
       "aegis": {
         "negative": [
-          "Field-use criteria for the double agent report are restricted."
+          "Source protection is absolute. There is no version of this I can give you."
         ],
         "neutral": [
           "Use it to choose where scouts look, never as the sole reason to move a company."
@@ -4133,7 +4133,7 @@
       },
       "sarab": {
         "negative": [
-          "I will not discuss where we would use the double agent report."
+          "A snake in the tent is killed quietly, not described to visitors."
         ],
         "neutral": [
           "Use it to choose where scouts look, never as the sole reason to move a company."
@@ -4146,7 +4146,7 @@
     "deep_double_agent_report_5": {
       "vostok": {
         "negative": [
-          "The names tied to the double agent report stay out of your mouth."
+          "Someone lied to us. We are handling it ourselves. Go away."
         ],
         "neutral": [
           "The courier's family remains inside enemy territory and can be punished for either truth or deception."
@@ -4157,7 +4157,7 @@
       },
       "aegis": {
         "negative": [
-          "Personnel details tied to the double agent report are protected."
+          "The matter is under counter-intelligence review and will remain so."
         ],
         "neutral": [
           "The courier's family remains inside enemy territory and can be punished for either truth or deception."
@@ -4168,7 +4168,7 @@
       },
       "sarab": {
         "negative": [
-          "The people tied to the double agent report keep their privacy."
+          "I will not say the name. Names travel further than men do."
         ],
         "neutral": [
           "The courier's family remains inside enemy territory and can be punished for either truth or deception."
@@ -4181,7 +4181,7 @@
     "deep_double_agent_report_6": {
       "vostok": {
         "negative": [
-          "What we learned from the double agent report is our problem."
+          "If I told you who, you would be the next thing we handled."
         ],
         "neutral": [
           "We reward a warning that lets us move and punish doubt as delay."
@@ -4192,7 +4192,7 @@
       },
       "aegis": {
         "negative": [
-          "Historical review of the double agent report is internal."
+          "You have asked a question that identifies people. The answer is no."
         ],
         "neutral": [
           "Our source ratings look precise but inherit the handler's first assumption."
@@ -4203,7 +4203,7 @@
       },
       "sarab": {
         "negative": [
-          "Our history with the double agent report is not for you."
+          "The one you are asking about may be listening. Consider that, and then leave it."
         ],
         "neutral": [
           "We admire the divided tongue and sometimes forget it can divide us too."
@@ -4216,7 +4216,7 @@
     "deep_double_agent_report_7": {
       "vostok": {
         "negative": [
-          "The double agent report failure report remains closed."
+          "Names stay out of your mouth and mine. That is not negotiable."
         ],
         "neutral": [
           "The first mistake was asking the source for predictions instead of facts already observed."
@@ -4227,7 +4227,7 @@
       },
       "aegis": {
         "negative": [
-          "The initiating error in the double agent report trial remains under review."
+          "Source protection is absolute. There is no version of this I can give you."
         ],
         "neutral": [
           "The first mistake was asking the source for predictions instead of facts already observed."
@@ -4238,7 +4238,7 @@
       },
       "sarab": {
         "negative": [
-          "I am not opening the double agent report failure report for you."
+          "A snake in the tent is killed quietly, not described to visitors."
         ],
         "neutral": [
           "The first mistake was asking the source for predictions instead of facts already observed."
@@ -4251,7 +4251,7 @@
     "deep_double_agent_report_8": {
       "vostok": {
         "negative": [
-          "Command limits for the double agent report are not yours to set."
+          "Someone lied to us. We are handling it ourselves. Go away."
         ],
         "neutral": [
           "Do not punish civilians named by a source until independent evidence places them in the act."
@@ -4262,7 +4262,7 @@
       },
       "aegis": {
         "negative": [
-          "Command limits for the double agent report are already defined."
+          "The matter is under counter-intelligence review and will remain so."
         ],
         "neutral": [
           "Do not punish civilians named by a source until independent evidence places them in the act."
@@ -4273,7 +4273,7 @@
       },
       "sarab": {
         "negative": [
-          "You do not set the limits on the double agent report."
+          "I will not say the name. Names travel further than men do."
         ],
         "neutral": [
           "Do not punish civilians named by a source until independent evidence places them in the act."
@@ -4286,7 +4286,7 @@
     "deep_double_agent_report_9": {
       "vostok": {
         "negative": [
-          "You will get no argument for or against the double agent report from me."
+          "If I told you who, you would be the next thing we handled."
         ],
         "neutral": [
           "Every accurate detail may be bait designed to make the final false warning believable."
@@ -4297,7 +4297,7 @@
       },
       "aegis": {
         "negative": [
-          "No objections concerning the double agent report are cleared for release."
+          "You have asked a question that identifies people. The answer is no."
         ],
         "neutral": [
           "Every accurate detail may be bait designed to make the final false warning believable."
@@ -4308,7 +4308,7 @@
       },
       "sarab": {
         "negative": [
-          "I will not argue the case for the double agent report with you."
+          "The one you are asking about may be listening. Consider that, and then leave it."
         ],
         "neutral": [
           "Every accurate detail may be bait designed to make the final false warning believable."
@@ -4321,7 +4321,7 @@
     "deep_double_agent_report_10": {
       "vostok": {
         "negative": [
-          "The next step for the double agent report does not concern you."
+          "Names stay out of your mouth and mine. That is not negotiable."
         ],
         "neutral": [
           "Limit the source to observed facts and require two independent confirmations for troop movements."
@@ -4332,7 +4332,7 @@
       },
       "aegis": {
         "negative": [
-          "The decision on the double agent report project is restricted."
+          "Source protection is absolute. There is no version of this I can give you."
         ],
         "neutral": [
           "Limit the source to observed facts and require two independent confirmations for troop movements."
@@ -4343,7 +4343,7 @@
       },
       "sarab": {
         "negative": [
-          "What happens next with the double agent report is not your concern."
+          "A snake in the tent is killed quietly, not described to visitors."
         ],
         "neutral": [
           "Limit the source to observed facts and require two independent confirmations for troop movements."
@@ -4356,7 +4356,7 @@
     "deep_unauthorized_rescue_mission_1": {
       "vostok": {
         "negative": [
-          "What the unauthorized rescue mission can do is not yours to inspect."
+          "They went without orders. They came back short. That is all you get."
         ],
         "neutral": [
           "Six soldiers left the line to recover two trapped scouts; four returned with one scout."
@@ -4367,7 +4367,7 @@
       },
       "aegis": {
         "negative": [
-          "Capability details for the unauthorized rescue mission are restricted."
+          "Proceedings are ongoing. Comment would prejudice them."
         ],
         "neutral": [
           "Six soldiers left the line to recover two trapped scouts; four returned with one scout."
@@ -4378,7 +4378,7 @@
       },
       "sarab": {
         "negative": [
-          "I am not discussing what the unauthorized rescue mission can do."
+          "Those who went are judged by those who waited. You did neither."
         ],
         "neutral": [
           "Six soldiers left the line to recover two trapped scouts; four returned with one scout."
@@ -4391,7 +4391,7 @@
     "deep_unauthorized_rescue_mission_2": {
       "vostok": {
         "negative": [
-          "The unauthorized rescue mission test record stays with its crew."
+          "The hearing is ours. Our dead, our argument, our business."
         ],
         "neutral": [
           "They reached the stone wall before enemy archers cut the marked return lane."
@@ -4402,7 +4402,7 @@
       },
       "aegis": {
         "negative": [
-          "The unauthorized rescue mission trial record is closed."
+          "Personnel matters are protected, particularly this one."
         ],
         "neutral": [
           "They reached the stone wall before enemy archers cut the marked return lane."
@@ -4413,7 +4413,7 @@
       },
       "sarab": {
         "negative": [
-          "The unauthorized rescue mission trial is not yours to hear about."
+          "The desert already heard the argument. It does not repeat itself."
         ],
         "neutral": [
           "They reached the stone wall before enemy archers cut the marked return lane."
@@ -4426,7 +4426,7 @@
     "deep_unauthorized_rescue_mission_3": {
       "vostok": {
         "negative": [
-          "I will not list the weak points of the unauthorized rescue mission."
+          "You want the story for the telling of it. Find another."
         ],
         "neutral": [
           "Nobody assigned rear security because every volunteer expected someone else to do it."
@@ -4437,7 +4437,7 @@
       },
       "aegis": {
         "negative": [
-          "Failure analysis for the unauthorized rescue mission is not releasable."
+          "The board has not reported. Neither will I."
         ],
         "neutral": [
           "Nobody assigned rear security because every volunteer expected someone else to do it."
@@ -4448,7 +4448,7 @@
       },
       "sarab": {
         "negative": [
-          "I will not tell you where the unauthorized rescue mission fails."
+          "Grief has its own court. Its doors are closed to guests."
         ],
         "neutral": [
           "Nobody assigned rear security because every volunteer expected someone else to do it."
@@ -4461,7 +4461,7 @@
     "deep_unauthorized_rescue_mission_4": {
       "vostok": {
         "negative": [
-          "Where we would use the unauthorized rescue mission is not being discussed."
+          "They went without orders. They came back short. That is all you get."
         ],
         "neutral": [
           "A rescue is justified only with a route, a time limit, and someone still holding the original position."
@@ -4472,7 +4472,7 @@
       },
       "aegis": {
         "negative": [
-          "Field-use criteria for the unauthorized rescue mission are restricted."
+          "Proceedings are ongoing. Comment would prejudice them."
         ],
         "neutral": [
           "A rescue is justified only with a route, a time limit, and someone still holding the original position."
@@ -4483,7 +4483,7 @@
       },
       "sarab": {
         "negative": [
-          "I will not discuss where we would use the unauthorized rescue mission."
+          "Those who went are judged by those who waited. You did neither."
         ],
         "neutral": [
           "A rescue is justified only with a route, a time limit, and someone still holding the original position."
@@ -4496,7 +4496,7 @@
     "deep_unauthorized_rescue_mission_5": {
       "vostok": {
         "negative": [
-          "The names tied to the unauthorized rescue mission stay out of your mouth."
+          "The hearing is ours. Our dead, our argument, our business."
         ],
         "neutral": [
           "The trapped scout's closest friend made the decision and carried the guilt back alone."
@@ -4507,7 +4507,7 @@
       },
       "aegis": {
         "negative": [
-          "Personnel details tied to the unauthorized rescue mission are protected."
+          "Personnel matters are protected, particularly this one."
         ],
         "neutral": [
           "The trapped scout's closest friend made the decision and carried the guilt back alone."
@@ -4518,7 +4518,7 @@
       },
       "sarab": {
         "negative": [
-          "The people tied to the unauthorized rescue mission keep their privacy."
+          "The desert already heard the argument. It does not repeat itself."
         ],
         "neutral": [
           "The trapped scout's closest friend made the decision and carried the guilt back alone."
@@ -4531,7 +4531,7 @@
     "deep_unauthorized_rescue_mission_6": {
       "vostok": {
         "negative": [
-          "What we learned from the unauthorized rescue mission is our problem."
+          "You want the story for the telling of it. Find another."
         ],
         "neutral": [
           "We praise the charge and count the empty trench afterward."
@@ -4542,7 +4542,7 @@
       },
       "aegis": {
         "negative": [
-          "Historical review of the unauthorized rescue mission is internal."
+          "The board has not reported. Neither will I."
         ],
         "neutral": [
           "Our approval chain can turn a ten-minute rescue into a forty-minute recovery."
@@ -4553,7 +4553,7 @@
       },
       "sarab": {
         "negative": [
-          "Our history with the unauthorized rescue mission is not for you."
+          "Grief has its own court. Its doors are closed to guests."
         ],
         "neutral": [
           "We let small teams choose, then give them too little structure for retreat."
@@ -4566,7 +4566,7 @@
     "deep_unauthorized_rescue_mission_7": {
       "vostok": {
         "negative": [
-          "The unauthorized rescue mission failure report remains closed."
+          "They went without orders. They came back short. That is all you get."
         ],
         "neutral": [
           "The officer dismissed the first rescue request without checking whether smoke support was available."
@@ -4577,7 +4577,7 @@
       },
       "aegis": {
         "negative": [
-          "The initiating error in the unauthorized rescue mission trial remains under review."
+          "Proceedings are ongoing. Comment would prejudice them."
         ],
         "neutral": [
           "The officer dismissed the first rescue request without checking whether smoke support was available."
@@ -4588,7 +4588,7 @@
       },
       "sarab": {
         "negative": [
-          "I am not opening the unauthorized rescue mission failure report for you."
+          "Those who went are judged by those who waited. You did neither."
         ],
         "neutral": [
           "The officer dismissed the first rescue request without checking whether smoke support was available."
@@ -4601,7 +4601,7 @@
     "deep_unauthorized_rescue_mission_8": {
       "vostok": {
         "negative": [
-          "Command limits for the unauthorized rescue mission are not yours to set."
+          "The hearing is ours. Our dead, our argument, our business."
         ],
         "neutral": [
           "No commander may order abandonment without first confirming the trapped soldiers' position and condition."
@@ -4612,7 +4612,7 @@
       },
       "aegis": {
         "negative": [
-          "Command limits for the unauthorized rescue mission are already defined."
+          "Personnel matters are protected, particularly this one."
         ],
         "neutral": [
           "No commander may order abandonment without first confirming the trapped soldiers' position and condition."
@@ -4623,7 +4623,7 @@
       },
       "sarab": {
         "negative": [
-          "You do not set the limits on the unauthorized rescue mission."
+          "The desert already heard the argument. It does not repeat itself."
         ],
         "neutral": [
           "No commander may order abandonment without first confirming the trapped soldiers' position and condition."
@@ -4636,7 +4636,7 @@
     "deep_unauthorized_rescue_mission_9": {
       "vostok": {
         "negative": [
-          "You will get no argument for or against the unauthorized rescue mission from me."
+          "You want the story for the telling of it. Find another."
         ],
         "neutral": [
           "One successful rescue can normalize disobedience that ruins the next coordinated defense."
@@ -4647,7 +4647,7 @@
       },
       "aegis": {
         "negative": [
-          "No objections concerning the unauthorized rescue mission are cleared for release."
+          "The board has not reported. Neither will I."
         ],
         "neutral": [
           "One successful rescue can normalize disobedience that ruins the next coordinated defense."
@@ -4658,7 +4658,7 @@
       },
       "sarab": {
         "negative": [
-          "I will not argue the case for the unauthorized rescue mission with you."
+          "Grief has its own court. Its doors are closed to guests."
         ],
         "neutral": [
           "One successful rescue can normalize disobedience that ruins the next coordinated defense."
@@ -4671,7 +4671,7 @@
     "deep_unauthorized_rescue_mission_10": {
       "vostok": {
         "negative": [
-          "The next step for the unauthorized rescue mission does not concern you."
+          "They went without orders. They came back short. That is all you get."
         ],
         "neutral": [
           "Write a rapid rescue drill and give squad leaders authority to launch it within fixed limits."
@@ -4682,7 +4682,7 @@
       },
       "aegis": {
         "negative": [
-          "The decision on the unauthorized rescue mission project is restricted."
+          "Proceedings are ongoing. Comment would prejudice them."
         ],
         "neutral": [
           "Write a rapid rescue drill and give squad leaders authority to launch it within fixed limits."
@@ -4693,7 +4693,7 @@
       },
       "sarab": {
         "negative": [
-          "What happens next with the unauthorized rescue mission is not your concern."
+          "Those who went are judged by those who waited. You did neither."
         ],
         "neutral": [
           "Write a rapid rescue drill and give squad leaders authority to launch it within fixed limits."
@@ -4706,7 +4706,7 @@
     "deep_unit_after_heavy_losses_1": {
       "vostok": {
         "negative": [
-          "What the unit after heavy losses can do is not yours to inspect."
+          "We are down. We are still here. Those are the only two facts you need."
         ],
         "neutral": [
           "Seventeen of forty soldiers answered morning roll, and five of those are walking wounded."
@@ -4717,7 +4717,7 @@
       },
       "aegis": {
         "negative": [
-          "Capability details for the unit after heavy losses are restricted."
+          "Strength returns are restricted, for reasons I would think obvious."
         ],
         "neutral": [
           "Seventeen of forty soldiers answered morning roll, and five of those are walking wounded."
@@ -4728,7 +4728,7 @@
       },
       "sarab": {
         "negative": [
-          "I am not discussing what the unit after heavy losses can do."
+          "We are fewer. The wind is also fewer, some days, and it still moves the dunes."
         ],
         "neutral": [
           "Seventeen of forty soldiers answered morning roll, and five of those are walking wounded."
@@ -4741,7 +4741,7 @@
     "deep_unit_after_heavy_losses_2": {
       "vostok": {
         "negative": [
-          "The unit after heavy losses test record stays with its crew."
+          "You are asking how badly we were hurt. Guess, and keep it to yourself."
         ],
         "neutral": [
           "Command held a victory formation before the burial detail had finished marking graves."
@@ -4752,7 +4752,7 @@
       },
       "aegis": {
         "negative": [
-          "The unit after heavy losses trial record is closed."
+          "Casualty figures are reported upward, not outward."
         ],
         "neutral": [
           "Command held a victory formation before the burial detail had finished marking graves."
@@ -4763,7 +4763,7 @@
       },
       "sarab": {
         "negative": [
-          "The unit after heavy losses trial is not yours to hear about."
+          "Do not ask a house how many stones it has lost. Ask whether it stands."
         ],
         "neutral": [
           "Command held a victory formation before the burial detail had finished marking graves."
@@ -4776,7 +4776,7 @@
     "deep_unit_after_heavy_losses_3": {
       "vostok": {
         "negative": [
-          "I will not list the weak points of the unit after heavy losses."
+          "Count the empty bunks yourself if you have the stomach. I will not read them out."
         ],
         "neutral": [
           "The unit is still receiving ordinary patrol orders because the roster was never corrected."
@@ -4787,7 +4787,7 @@
       },
       "aegis": {
         "negative": [
-          "Failure analysis for the unit after heavy losses is not releasable."
+          "You are asking whether we can be pushed. Ask by trying, or do not ask."
         ],
         "neutral": [
           "The unit is still receiving ordinary patrol orders because the roster was never corrected."
@@ -4798,7 +4798,7 @@
       },
       "sarab": {
         "negative": [
-          "I will not tell you where the unit after heavy losses fails."
+          "Our number is between us and the sand."
         ],
         "neutral": [
           "The unit is still receiving ordinary patrol orders because the roster was never corrected."
@@ -4811,7 +4811,7 @@
     "deep_unit_after_heavy_losses_4": {
       "vostok": {
         "negative": [
-          "Where we would use the unit after heavy losses is not being discussed."
+          "We are down. We are still here. Those are the only two facts you need."
         ],
         "neutral": [
           "Give them one defensible sector, two nights of sleep, and replacements who train beside them before patrol."
@@ -4822,7 +4822,7 @@
       },
       "aegis": {
         "negative": [
-          "Field-use criteria for the unit after heavy losses are restricted."
+          "Strength returns are restricted, for reasons I would think obvious."
         ],
         "neutral": [
           "Give them one defensible sector, two nights of sleep, and replacements who train beside them before patrol."
@@ -4833,7 +4833,7 @@
       },
       "sarab": {
         "negative": [
-          "I will not discuss where we would use the unit after heavy losses."
+          "We are fewer. The wind is also fewer, some days, and it still moves the dunes."
         ],
         "neutral": [
           "Give them one defensible sector, two nights of sleep, and replacements who train beside them before patrol."
@@ -4846,7 +4846,7 @@
     "deep_unit_after_heavy_losses_5": {
       "vostok": {
         "negative": [
-          "The names tied to the unit after heavy losses stay out of your mouth."
+          "You are asking how badly we were hurt. Guess, and keep it to yourself."
         ],
         "neutral": [
           "The newest replacements inherit bunks and equipment whose owners' names are still written on them."
@@ -4857,7 +4857,7 @@
       },
       "aegis": {
         "negative": [
-          "Personnel details tied to the unit after heavy losses are protected."
+          "Casualty figures are reported upward, not outward."
         ],
         "neutral": [
           "The newest replacements inherit bunks and equipment whose owners' names are still written on them."
@@ -4868,7 +4868,7 @@
       },
       "sarab": {
         "negative": [
-          "The people tied to the unit after heavy losses keep their privacy."
+          "Do not ask a house how many stones it has lost. Ask whether it stands."
         ],
         "neutral": [
           "The newest replacements inherit bunks and equipment whose owners' names are still written on them."
@@ -4881,7 +4881,7 @@
     "deep_unit_after_heavy_losses_6": {
       "vostok": {
         "negative": [
-          "What we learned from the unit after heavy losses is our problem."
+          "Count the empty bunks yourself if you have the stomach. I will not read them out."
         ],
         "neutral": [
           "We see survivors standing and assume they are ready."
@@ -4892,7 +4892,7 @@
       },
       "aegis": {
         "negative": [
-          "Historical review of the unit after heavy losses is internal."
+          "You are asking whether we can be pushed. Ask by trying, or do not ask."
         ],
         "neutral": [
           "Our readiness table stays green until somebody updates the casualty field."
@@ -4903,7 +4903,7 @@
       },
       "sarab": {
         "negative": [
-          "Our history with the unit after heavy losses is not for you."
+          "Our number is between us and the sand."
         ],
         "neutral": [
           "We scatter after loss and sometimes leave grief scattered with us."
@@ -4916,7 +4916,7 @@
     "deep_unit_after_heavy_losses_7": {
       "vostok": {
         "negative": [
-          "The unit after heavy losses failure report remains closed."
+          "We are down. We are still here. Those are the only two facts you need."
         ],
         "neutral": [
           "The casualty roster must be corrected before another order uses the old company strength."
@@ -4927,7 +4927,7 @@
       },
       "aegis": {
         "negative": [
-          "The initiating error in the unit after heavy losses trial remains under review."
+          "Strength returns are restricted, for reasons I would think obvious."
         ],
         "neutral": [
           "The casualty roster must be corrected before another order uses the old company strength."
@@ -4938,7 +4938,7 @@
       },
       "sarab": {
         "negative": [
-          "I am not opening the unit after heavy losses failure report for you."
+          "We are fewer. The wind is also fewer, some days, and it still moves the dunes."
         ],
         "neutral": [
           "The casualty roster must be corrected before another order uses the old company strength."
@@ -4951,7 +4951,7 @@
     "deep_unit_after_heavy_losses_8": {
       "vostok": {
         "negative": [
-          "Command limits for the unit after heavy losses are not yours to set."
+          "You are asking how badly we were hurt. Guess, and keep it to yourself."
         ],
         "neutral": [
           "Do not force survivors to celebrate before they have named and buried their dead."
@@ -4962,7 +4962,7 @@
       },
       "aegis": {
         "negative": [
-          "Command limits for the unit after heavy losses are already defined."
+          "Casualty figures are reported upward, not outward."
         ],
         "neutral": [
           "Do not force survivors to celebrate before they have named and buried their dead."
@@ -4973,7 +4973,7 @@
       },
       "sarab": {
         "negative": [
-          "You do not set the limits on the unit after heavy losses."
+          "Do not ask a house how many stones it has lost. Ask whether it stands."
         ],
         "neutral": [
           "Do not force survivors to celebrate before they have named and buried their dead."
@@ -4986,7 +4986,7 @@
     "deep_unit_after_heavy_losses_9": {
       "vostok": {
         "negative": [
-          "You will get no argument for or against the unit after heavy losses from me."
+          "Count the empty bunks yourself if you have the stomach. I will not read them out."
         ],
         "neutral": [
           "Removing the unit may confirm its fear that the dead achieved nothing and the survivors are being discarded."
@@ -4997,7 +4997,7 @@
       },
       "aegis": {
         "negative": [
-          "No objections concerning the unit after heavy losses are cleared for release."
+          "You are asking whether we can be pushed. Ask by trying, or do not ask."
         ],
         "neutral": [
           "Removing the unit may confirm its fear that the dead achieved nothing and the survivors are being discarded."
@@ -5008,7 +5008,7 @@
       },
       "sarab": {
         "negative": [
-          "I will not argue the case for the unit after heavy losses with you."
+          "Our number is between us and the sand."
         ],
         "neutral": [
           "Removing the unit may confirm its fear that the dead achieved nothing and the survivors are being discarded."
@@ -5021,7 +5021,7 @@
     "deep_unit_after_heavy_losses_10": {
       "vostok": {
         "negative": [
-          "The next step for the unit after heavy losses does not concern you."
+          "We are down. We are still here. Those are the only two facts you need."
         ],
         "neutral": [
           "Correct the roster, finish the graves, and rebuild around a smaller mission before adding replacements."
@@ -5032,7 +5032,7 @@
       },
       "aegis": {
         "negative": [
-          "The decision on the unit after heavy losses project is restricted."
+          "Strength returns are restricted, for reasons I would think obvious."
         ],
         "neutral": [
           "Correct the roster, finish the graves, and rebuild around a smaller mission before adding replacements."
@@ -5043,7 +5043,7 @@
       },
       "sarab": {
         "negative": [
-          "What happens next with the unit after heavy losses is not your concern."
+          "We are fewer. The wind is also fewer, some days, and it still moves the dunes."
         ],
         "neutral": [
           "Correct the roster, finish the graves, and rebuild around a smaller mission before adding replacements."
@@ -5056,7 +5056,7 @@
     "deep_hospital_claimed_by_both_sides_1": {
       "vostok": {
         "negative": [
-          "What the hospital claimed by both sides can do is not yours to inspect."
+          "Wounded are wounded. Beyond that it is not your argument."
         ],
         "neutral": [
           "The hospital treats both uniforms and has one marked entrance wide enough for stretchers."
@@ -5067,7 +5067,7 @@
       },
       "aegis": {
         "negative": [
-          "Capability details for the hospital claimed by both sides are restricted."
+          "The status of that facility is subject to negotiation and is not for discussion."
         ],
         "neutral": [
           "The hospital treats both uniforms and has one marked entrance wide enough for stretchers."
@@ -5078,7 +5078,7 @@
       },
       "sarab": {
         "negative": [
-          "I am not discussing what the hospital claimed by both sides can do."
+          "The sick belong to no flag. Neither does my answer."
         ],
         "neutral": [
           "The hospital treats both uniforms and has one marked entrance wide enough for stretchers."
@@ -5091,7 +5091,7 @@
     "deep_hospital_claimed_by_both_sides_2": {
       "vostok": {
         "negative": [
-          "The hospital claimed by both sides test record stays with its crew."
+          "The place is a hospital. Both sides say so. Neither side is honest. Enough."
         ],
         "neutral": [
           "A supply cart was searched twice, spoiling fever medicine while the seals were argued over."
@@ -5102,7 +5102,7 @@
       },
       "aegis": {
         "negative": [
-          "The hospital claimed by both sides trial record is closed."
+          "Protected-site matters are handled at command level. Not here, not by me."
         ],
         "neutral": [
           "A supply cart was searched twice, spoiling fever medicine while the seals were argued over."
@@ -5113,7 +5113,7 @@
       },
       "sarab": {
         "negative": [
-          "The hospital claimed by both sides trial is not yours to hear about."
+          "A roof over the dying is not a prize. Do not make me explain it twice."
         ],
         "neutral": [
           "A supply cart was searched twice, spoiling fever medicine while the seals were argued over."
@@ -5126,7 +5126,7 @@
     "deep_hospital_claimed_by_both_sides_3": {
       "vostok": {
         "negative": [
-          "I will not list the weak points of the hospital claimed by both sides."
+          "I will not discuss who holds the beds. People are in them."
         ],
         "neutral": [
           "Each side calls the roof observers medical guards, while both report troop movement from there."
@@ -5137,7 +5137,7 @@
       },
       "aegis": {
         "negative": [
-          "Failure analysis for the hospital claimed by both sides is not releasable."
+          "Any statement I make becomes a claim. I decline to make one."
         ],
         "neutral": [
           "Each side calls the roof observers medical guards, while both report troop movement from there."
@@ -5148,7 +5148,7 @@
       },
       "sarab": {
         "negative": [
-          "I will not tell you where the hospital claimed by both sides fails."
+          "Ask the physicians. They will also refuse, but more kindly."
         ],
         "neutral": [
           "Each side calls the roof observers medical guards, while both report troop movement from there."
@@ -5161,7 +5161,7 @@
     "deep_hospital_claimed_by_both_sides_4": {
       "vostok": {
         "negative": [
-          "Where we would use the hospital claimed by both sides is not being discussed."
+          "Wounded are wounded. Beyond that it is not your argument."
         ],
         "neutral": [
           "Create one unarmed inspection team and a weapon-free lane from the south road."
@@ -5172,7 +5172,7 @@
       },
       "aegis": {
         "negative": [
-          "Field-use criteria for the hospital claimed by both sides are restricted."
+          "The status of that facility is subject to negotiation and is not for discussion."
         ],
         "neutral": [
           "Create one unarmed inspection team and a weapon-free lane from the south road."
@@ -5183,7 +5183,7 @@
       },
       "sarab": {
         "negative": [
-          "I will not discuss where we would use the hospital claimed by both sides."
+          "The sick belong to no flag. Neither does my answer."
         ],
         "neutral": [
           "Create one unarmed inspection team and a weapon-free lane from the south road."
@@ -5196,7 +5196,7 @@
     "deep_hospital_claimed_by_both_sides_5": {
       "vostok": {
         "negative": [
-          "The names tied to the hospital claimed by both sides stay out of your mouth."
+          "The place is a hospital. Both sides say so. Neither side is honest. Enough."
         ],
         "neutral": [
           "Patients who cannot walk are accused of sheltering whichever uniform occupies the next bed."
@@ -5207,7 +5207,7 @@
       },
       "aegis": {
         "negative": [
-          "Personnel details tied to the hospital claimed by both sides are protected."
+          "Protected-site matters are handled at command level. Not here, not by me."
         ],
         "neutral": [
           "Patients who cannot walk are accused of sheltering whichever uniform occupies the next bed."
@@ -5218,7 +5218,7 @@
       },
       "sarab": {
         "negative": [
-          "The people tied to the hospital claimed by both sides keep their privacy."
+          "A roof over the dying is not a prize. Do not make me explain it twice."
         ],
         "neutral": [
           "Patients who cannot walk are accused of sheltering whichever uniform occupies the next bed."
@@ -5231,7 +5231,7 @@
     "deep_hospital_claimed_by_both_sides_6": {
       "vostok": {
         "negative": [
-          "What we learned from the hospital claimed by both sides is our problem."
+          "I will not discuss who holds the beds. People are in them."
         ],
         "neutral": [
           "We add guards until protection looks like occupation."
@@ -5242,7 +5242,7 @@
       },
       "aegis": {
         "negative": [
-          "Historical review of the hospital claimed by both sides is internal."
+          "Any statement I make becomes a claim. I decline to make one."
         ],
         "neutral": [
           "We mistake a signed protection plan for control of the people violating it."
@@ -5253,7 +5253,7 @@
       },
       "sarab": {
         "negative": [
-          "Our history with the hospital claimed by both sides is not for you."
+          "Ask the physicians. They will also refuse, but more kindly."
         ],
         "neutral": [
           "We use high roofs for eyes and pretend a healer's roof is different."
@@ -5266,7 +5266,7 @@
     "deep_hospital_claimed_by_both_sides_7": {
       "vostok": {
         "negative": [
-          "The hospital claimed by both sides failure report remains closed."
+          "Wounded are wounded. Beyond that it is not your argument."
         ],
         "neutral": [
           "Armed observers must leave the roof before either side can demand new guarantees."
@@ -5277,7 +5277,7 @@
       },
       "aegis": {
         "negative": [
-          "The initiating error in the hospital claimed by both sides trial remains under review."
+          "The status of that facility is subject to negotiation and is not for discussion."
         ],
         "neutral": [
           "Armed observers must leave the roof before either side can demand new guarantees."
@@ -5288,7 +5288,7 @@
       },
       "sarab": {
         "negative": [
-          "I am not opening the hospital claimed by both sides failure report for you."
+          "The sick belong to no flag. Neither does my answer."
         ],
         "neutral": [
           "Armed observers must leave the roof before either side can demand new guarantees."
@@ -5301,7 +5301,7 @@
     "deep_hospital_claimed_by_both_sides_8": {
       "vostok": {
         "negative": [
-          "Command limits for the hospital claimed by both sides are not yours to set."
+          "The place is a hospital. Both sides say so. Neither side is honest. Enough."
         ],
         "neutral": [
           "No wounded person may be removed for questioning until a doctor says transport will not kill them."
@@ -5312,7 +5312,7 @@
       },
       "aegis": {
         "negative": [
-          "Command limits for the hospital claimed by both sides are already defined."
+          "Protected-site matters are handled at command level. Not here, not by me."
         ],
         "neutral": [
           "No wounded person may be removed for questioning until a doctor says transport will not kill them."
@@ -5323,7 +5323,7 @@
       },
       "sarab": {
         "negative": [
-          "You do not set the limits on the hospital claimed by both sides."
+          "A roof over the dying is not a prize. Do not make me explain it twice."
         ],
         "neutral": [
           "No wounded person may be removed for questioning until a doctor says transport will not kill them."
@@ -5336,7 +5336,7 @@
     "deep_hospital_claimed_by_both_sides_9": {
       "vostok": {
         "negative": [
-          "You will get no argument for or against the hospital claimed by both sides from me."
+          "I will not discuss who holds the beds. People are in them."
         ],
         "neutral": [
           "Neutrality may be impossible while the hospital sits on the only road through the district."
@@ -5347,7 +5347,7 @@
       },
       "aegis": {
         "negative": [
-          "No objections concerning the hospital claimed by both sides are cleared for release."
+          "Any statement I make becomes a claim. I decline to make one."
         ],
         "neutral": [
           "Neutrality may be impossible while the hospital sits on the only road through the district."
@@ -5358,7 +5358,7 @@
       },
       "sarab": {
         "negative": [
-          "I will not argue the case for the hospital claimed by both sides with you."
+          "Ask the physicians. They will also refuse, but more kindly."
         ],
         "neutral": [
           "Neutrality may be impossible while the hospital sits on the only road through the district."
@@ -5371,7 +5371,7 @@
     "deep_hospital_claimed_by_both_sides_10": {
       "vostok": {
         "negative": [
-          "The next step for the hospital claimed by both sides does not concern you."
+          "Wounded are wounded. Beyond that it is not your argument."
         ],
         "neutral": [
           "Move observers off the roof, establish one inspection, and post the same patient rules at both checkpoints."
@@ -5382,7 +5382,7 @@
       },
       "aegis": {
         "negative": [
-          "The decision on the hospital claimed by both sides project is restricted."
+          "The status of that facility is subject to negotiation and is not for discussion."
         ],
         "neutral": [
           "Move observers off the roof, establish one inspection, and post the same patient rules at both checkpoints."
@@ -5393,7 +5393,7 @@
       },
       "sarab": {
         "negative": [
-          "What happens next with the hospital claimed by both sides is not your concern."
+          "The sick belong to no flag. Neither does my answer."
         ],
         "neutral": [
           "Move observers off the roof, establish one inspection, and post the same patient rules at both checkpoints."
@@ -5406,7 +5406,7 @@
     "deep_failed_prewar_treaty_1": {
       "vostok": {
         "negative": [
-          "What the failed prewar treaty can do is not yours to inspect."
+          "Old paper. It failed. Everyone who signed it is dead or lying."
         ],
         "neutral": [
           "The treaty fixed the border but never defined who controlled the three wells along it."
@@ -5417,7 +5417,7 @@
       },
       "aegis": {
         "negative": [
-          "Capability details for the failed prewar treaty are restricted."
+          "The negotiating record is sealed and will stay sealed."
         ],
         "neutral": [
           "The treaty fixed the border but never defined who controlled the three wells along it."
@@ -5428,7 +5428,7 @@
       },
       "sarab": {
         "negative": [
-          "I am not discussing what the failed prewar treaty can do."
+          "Promises made in a cool room do not survive the noon that follows."
         ],
         "neutral": [
           "The treaty fixed the border but never defined who controlled the three wells along it."
@@ -5441,7 +5441,7 @@
     "deep_failed_prewar_treaty_2": {
       "vostok": {
         "negative": [
-          "The failed prewar treaty test record stays with its crew."
+          "We were there. That is why I am not talking about it."
         ],
         "neutral": [
           "The first violation was a locked well gate during drought, not a troop crossing."
@@ -5452,7 +5452,7 @@
       },
       "aegis": {
         "negative": [
-          "The failed prewar treaty trial record is closed."
+          "Attributing the failure is a political act. I do not perform political acts."
         ],
         "neutral": [
           "The first violation was a locked well gate during drought, not a troop crossing."
@@ -5463,7 +5463,7 @@
       },
       "sarab": {
         "negative": [
-          "The failed prewar treaty trial is not yours to hear about."
+          "The treaty is a well everyone poisoned and no one will admit to."
         ],
         "neutral": [
           "The first violation was a locked well gate during drought, not a troop crossing."
@@ -5476,7 +5476,7 @@
     "deep_failed_prewar_treaty_3": {
       "vostok": {
         "negative": [
-          "I will not list the weak points of the failed prewar treaty."
+          "Read the treaty. Then read the casualty lists. Draw your own line between them."
         ],
         "neutral": [
           "The treaty named national commanders but gave village councils no way to report local violations."
@@ -5487,7 +5487,7 @@
       },
       "aegis": {
         "negative": [
-          "Failure analysis for the failed prewar treaty is not releasable."
+          "That file was closed deliberately, and it is going to stay closed."
         ],
         "neutral": [
           "The treaty named national commanders but gave village councils no way to report local violations."
@@ -5498,7 +5498,7 @@
       },
       "sarab": {
         "negative": [
-          "I will not tell you where the failed prewar treaty fails."
+          "I was not at the table. I was at the funerals. Ask someone who was at the table."
         ],
         "neutral": [
           "The treaty named national commanders but gave village councils no way to report local violations."
@@ -5511,7 +5511,7 @@
     "deep_failed_prewar_treaty_4": {
       "vostok": {
         "negative": [
-          "Where we would use the failed prewar treaty is not being discussed."
+          "Old paper. It failed. Everyone who signed it is dead or lying."
         ],
         "neutral": [
           "Use a joint well crew and let either village summon inspectors without waiting for a capital."
@@ -5522,7 +5522,7 @@
       },
       "aegis": {
         "negative": [
-          "Field-use criteria for the failed prewar treaty are restricted."
+          "The negotiating record is sealed and will stay sealed."
         ],
         "neutral": [
           "Use a joint well crew and let either village summon inspectors without waiting for a capital."
@@ -5533,7 +5533,7 @@
       },
       "sarab": {
         "negative": [
-          "I will not discuss where we would use the failed prewar treaty."
+          "Promises made in a cool room do not survive the noon that follows."
         ],
         "neutral": [
           "Use a joint well crew and let either village summon inspectors without waiting for a capital."
@@ -5546,7 +5546,7 @@
     "deep_failed_prewar_treaty_5": {
       "vostok": {
         "negative": [
-          "The names tied to the failed prewar treaty stay out of your mouth."
+          "We were there. That is why I am not talking about it."
         ],
         "neutral": [
           "Border families married and grazed animals across a line that officials treated as empty ground."
@@ -5557,7 +5557,7 @@
       },
       "aegis": {
         "negative": [
-          "Personnel details tied to the failed prewar treaty are protected."
+          "Attributing the failure is a political act. I do not perform political acts."
         ],
         "neutral": [
           "Border families married and grazed animals across a line that officials treated as empty ground."
@@ -5568,7 +5568,7 @@
       },
       "sarab": {
         "negative": [
-          "The people tied to the failed prewar treaty keep their privacy."
+          "The treaty is a well everyone poisoned and no one will admit to."
         ],
         "neutral": [
           "Border families married and grazed animals across a line that officials treated as empty ground."
@@ -5581,7 +5581,7 @@
     "deep_failed_prewar_treaty_6": {
       "vostok": {
         "negative": [
-          "What we learned from the failed prewar treaty is our problem."
+          "Read the treaty. Then read the casualty lists. Draw your own line between them."
         ],
         "neutral": [
           "We defend a clean border on a map where real families cross every day."
@@ -5592,7 +5592,7 @@
       },
       "aegis": {
         "negative": [
-          "Historical review of the failed prewar treaty is internal."
+          "That file was closed deliberately, and it is going to stay closed."
         ],
         "neutral": [
           "Our treaty defined escalation between armies but omitted the first village complaint."
@@ -5603,7 +5603,7 @@
       },
       "sarab": {
         "negative": [
-          "Our history with the failed prewar treaty is not for you."
+          "I was not at the table. I was at the funerals. Ask someone who was at the table."
         ],
         "neutral": [
           "We rely on custom to fill blank ink, but custom cannot bind a new captain."
@@ -5616,7 +5616,7 @@
     "deep_failed_prewar_treaty_7": {
       "vostok": {
         "negative": [
-          "The failed prewar treaty failure report remains closed."
+          "Old paper. It failed. Everyone who signed it is dead or lying."
         ],
         "neutral": [
           "The missing drought rule mattered more than the ceremony that announced the treaty."
@@ -5627,7 +5627,7 @@
       },
       "aegis": {
         "negative": [
-          "The initiating error in the failed prewar treaty trial remains under review."
+          "The negotiating record is sealed and will stay sealed."
         ],
         "neutral": [
           "The missing drought rule mattered more than the ceremony that announced the treaty."
@@ -5638,7 +5638,7 @@
       },
       "sarab": {
         "negative": [
-          "I am not opening the failed prewar treaty failure report for you."
+          "Promises made in a cool room do not survive the noon that follows."
         ],
         "neutral": [
           "The missing drought rule mattered more than the ceremony that announced the treaty."
@@ -5651,7 +5651,7 @@
     "deep_failed_prewar_treaty_8": {
       "vostok": {
         "negative": [
-          "Command limits for the failed prewar treaty are not yours to set."
+          "We were there. That is why I am not talking about it."
         ],
         "neutral": [
           "Water cannot be withheld from civilians as punishment for a military violation."
@@ -5662,7 +5662,7 @@
       },
       "aegis": {
         "negative": [
-          "Command limits for the failed prewar treaty are already defined."
+          "Attributing the failure is a political act. I do not perform political acts."
         ],
         "neutral": [
           "Water cannot be withheld from civilians as punishment for a military violation."
@@ -5673,7 +5673,7 @@
       },
       "sarab": {
         "negative": [
-          "You do not set the limits on the failed prewar treaty."
+          "The treaty is a well everyone poisoned and no one will admit to."
         ],
         "neutral": [
           "Water cannot be withheld from civilians as punishment for a military violation."
@@ -5686,7 +5686,7 @@
     "deep_failed_prewar_treaty_9": {
       "vostok": {
         "negative": [
-          "You will get no argument for or against the failed prewar treaty from me."
+          "Read the treaty. Then read the casualty lists. Draw your own line between them."
         ],
         "neutral": [
           "A new agreement may only pause the war if local captains can ignore it without consequence."
@@ -5697,7 +5697,7 @@
       },
       "aegis": {
         "negative": [
-          "No objections concerning the failed prewar treaty are cleared for release."
+          "That file was closed deliberately, and it is going to stay closed."
         ],
         "neutral": [
           "A new agreement may only pause the war if local captains can ignore it without consequence."
@@ -5708,7 +5708,7 @@
       },
       "sarab": {
         "negative": [
-          "I will not argue the case for the failed prewar treaty with you."
+          "I was not at the table. I was at the funerals. Ask someone who was at the table."
         ],
         "neutral": [
           "A new agreement may only pause the war if local captains can ignore it without consequence."
@@ -5721,7 +5721,7 @@
     "deep_failed_prewar_treaty_10": {
       "vostok": {
         "negative": [
-          "The next step for the failed prewar treaty does not concern you."
+          "Old paper. It failed. Everyone who signed it is dead or lying."
         ],
         "neutral": [
           "Put village councils in the agreement and publish drought, inspection, and removal procedures at every well."
@@ -5732,7 +5732,7 @@
       },
       "aegis": {
         "negative": [
-          "The decision on the failed prewar treaty project is restricted."
+          "The negotiating record is sealed and will stay sealed."
         ],
         "neutral": [
           "Put village councils in the agreement and publish drought, inspection, and removal procedures at every well."
@@ -5743,7 +5743,7 @@
       },
       "sarab": {
         "negative": [
-          "What happens next with the failed prewar treaty is not your concern."
+          "Promises made in a cool room do not survive the noon that follows."
         ],
         "neutral": [
           "Put village councils in the agreement and publish drought, inspection, and removal procedures at every well."
@@ -5756,7 +5756,7 @@
     "deep_prototype_defensive_barrier_1": {
       "vostok": {
         "negative": [
-          "What the prototype defensive barrier can do is not yours to inspect."
+          "It works or it does not. You will find out the same way we did."
         ],
         "neutral": [
           "It stops arrows and a charging body for about twelve seconds; rain cuts that time in half."
@@ -5767,7 +5767,7 @@
       },
       "aegis": {
         "negative": [
-          "Capability details for the prototype defensive barrier are restricted."
+          "Capability parameters are restricted, categorically and without exception."
         ],
         "neutral": [
           "It stops arrows and a charging body for about twelve seconds; rain cuts that time in half."
@@ -5778,7 +5778,7 @@
       },
       "sarab": {
         "negative": [
-          "I am not discussing what the prototype defensive barrier can do."
+          "A shield is best described by the one who strikes it. Try, and report back."
         ],
         "neutral": [
           "It stops arrows and a charging body for about twelve seconds; rain cuts that time in half."
@@ -5791,7 +5791,7 @@
     "deep_prototype_defensive_barrier_2": {
       "vostok": {
         "negative": [
-          "The prototype defensive barrier test record stays with its crew."
+          "You are asking where it breaks. Marvellous. No."
         ],
         "neutral": [
           "Two anchors sank in mud, the field folded inward, and three testers left with burns."
@@ -5802,7 +5802,7 @@
       },
       "aegis": {
         "negative": [
-          "The prototype defensive barrier trial record is closed."
+          "Trial data is not releasable, including the parts that flatter us."
         ],
         "neutral": [
           "Two anchors sank in mud, the field folded inward, and three testers left with burns."
@@ -5813,7 +5813,7 @@
       },
       "sarab": {
         "negative": [
-          "The prototype defensive barrier trial is not yours to hear about."
+          "We do not measure the height of our walls aloud, friend."
         ],
         "neutral": [
           "Two anchors sank in mud, the field folded inward, and three testers left with burns."
@@ -5826,7 +5826,7 @@
     "deep_prototype_defensive_barrier_3": {
       "vostok": {
         "negative": [
-          "I will not list the weak points of the prototype defensive barrier."
+          "Whatever it is, it is not yours to inspect."
         ],
         "neutral": [
           "One cracked anchor kills the whole field while the warning lamp stays blue."
@@ -5837,7 +5837,7 @@
       },
       "aegis": {
         "negative": [
-          "Failure analysis for the prototype defensive barrier is not releasable."
+          "You have asked for a failure mode. That is precisely what is protected."
         ],
         "neutral": [
           "One cracked anchor kills the whole field while the warning lamp stays blue."
@@ -5848,7 +5848,7 @@
       },
       "sarab": {
         "negative": [
-          "I will not tell you where the prototype defensive barrier fails."
+          "What holds and for how long is a secret worth more than the wall itself."
         ],
         "neutral": [
           "One cracked anchor kills the whole field while the warning lamp stays blue."
@@ -5861,7 +5861,7 @@
     "deep_prototype_defensive_barrier_4": {
       "vostok": {
         "negative": [
-          "Where we would use the prototype defensive barrier is not being discussed."
+          "It works or it does not. You will find out the same way we did."
         ],
         "neutral": [
           "Use it to cover a stretcher crossing, with shields ready when it fails; do not build an assault around it."
@@ -5872,7 +5872,7 @@
       },
       "aegis": {
         "negative": [
-          "Field-use criteria for the prototype defensive barrier are restricted."
+          "Capability parameters are restricted, categorically and without exception."
         ],
         "neutral": [
           "Use it to cover a stretcher crossing, with shields ready when it fails; do not build an assault around it."
@@ -5883,7 +5883,7 @@
       },
       "sarab": {
         "negative": [
-          "I will not discuss where we would use the prototype defensive barrier."
+          "A shield is best described by the one who strikes it. Try, and report back."
         ],
         "neutral": [
           "Use it to cover a stretcher crossing, with shields ready when it fails; do not build an assault around it."
@@ -5896,7 +5896,7 @@
     "deep_prototype_defensive_barrier_5": {
       "vostok": {
         "negative": [
-          "The names tied to the prototype defensive barrier stay out of your mouth."
+          "You are asking where it breaks. Marvellous. No."
         ],
         "neutral": [
           "The front rank cannot see the anchor lamps and takes the collapse first."
@@ -5907,7 +5907,7 @@
       },
       "aegis": {
         "negative": [
-          "Personnel details tied to the prototype defensive barrier are protected."
+          "Trial data is not releasable, including the parts that flatter us."
         ],
         "neutral": [
           "The front rank cannot see the anchor lamps and takes the collapse first."
@@ -5918,7 +5918,7 @@
       },
       "sarab": {
         "negative": [
-          "The people tied to the prototype defensive barrier keep their privacy."
+          "We do not measure the height of our walls aloud, friend."
         ],
         "neutral": [
           "The front rank cannot see the anchor lamps and takes the collapse first."
@@ -5931,7 +5931,7 @@
     "deep_prototype_defensive_barrier_6": {
       "vostok": {
         "negative": [
-          "What we learned from the prototype defensive barrier is our problem."
+          "Whatever it is, it is not yours to inspect."
         ],
         "neutral": [
           "Yes. At the third trial, we crowded behind it. When it failed, it left the whole squad bunched in one place."
@@ -5942,7 +5942,7 @@
       },
       "aegis": {
         "negative": [
-          "Historical review of the prototype defensive barrier is internal."
+          "You have asked for a failure mode. That is precisely what is protected."
         ],
         "neutral": [
           "At Northwatch. The lamp stayed blue after an anchor cracked. A section advanced, and the field collapsed."
@@ -5953,7 +5953,7 @@
       },
       "sarab": {
         "negative": [
-          "Our history with the prototype defensive barrier is not for you."
+          "What holds and for how long is a secret worth more than the wall itself."
         ],
         "neutral": [
           "At Qamar Pass. We used one as a decoy and left its two operators exposed."
@@ -5966,7 +5966,7 @@
     "deep_prototype_defensive_barrier_7": {
       "vostok": {
         "negative": [
-          "The prototype defensive barrier failure report remains closed."
+          "It works or it does not. You will find out the same way we did."
         ],
         "neutral": [
           "The trial should have stopped when the first anchor tilted; command reset it and ran again."
@@ -5977,7 +5977,7 @@
       },
       "aegis": {
         "negative": [
-          "The initiating error in the prototype defensive barrier trial remains under review."
+          "Capability parameters are restricted, categorically and without exception."
         ],
         "neutral": [
           "The trial should have stopped when the first anchor tilted; command reset it and ran again."
@@ -5988,7 +5988,7 @@
       },
       "sarab": {
         "negative": [
-          "I am not opening the prototype defensive barrier failure report for you."
+          "A shield is best described by the one who strikes it. Try, and report back."
         ],
         "neutral": [
           "The trial should have stopped when the first anchor tilted; command reset it and ran again."
@@ -6001,7 +6001,7 @@
     "deep_prototype_defensive_barrier_8": {
       "vostok": {
         "negative": [
-          "Command limits for the prototype defensive barrier are not yours to set."
+          "You are asking where it breaks. Marvellous. No."
         ],
         "neutral": [
           "No soldier should enter the field unless they can see a timed retreat signal independent of the blue lamp."
@@ -6012,7 +6012,7 @@
       },
       "aegis": {
         "negative": [
-          "Command limits for the prototype defensive barrier are already defined."
+          "Trial data is not releasable, including the parts that flatter us."
         ],
         "neutral": [
           "No soldier should enter the field unless they can see a timed retreat signal independent of the blue lamp."
@@ -6023,7 +6023,7 @@
       },
       "sarab": {
         "negative": [
-          "You do not set the limits on the prototype defensive barrier."
+          "We do not measure the height of our walls aloud, friend."
         ],
         "neutral": [
           "No soldier should enter the field unless they can see a timed retreat signal independent of the blue lamp."
@@ -6036,7 +6036,7 @@
     "deep_prototype_defensive_barrier_9": {
       "vostok": {
         "negative": [
-          "You will get no argument for or against the prototype defensive barrier from me."
+          "Whatever it is, it is not yours to inspect."
         ],
         "neutral": [
           "The barrier may encourage officers to cross ground they would reject without it."
@@ -6047,7 +6047,7 @@
       },
       "aegis": {
         "negative": [
-          "No objections concerning the prototype defensive barrier are cleared for release."
+          "You have asked for a failure mode. That is precisely what is protected."
         ],
         "neutral": [
           "The barrier may encourage officers to cross ground they would reject without it."
@@ -6058,7 +6058,7 @@
       },
       "sarab": {
         "negative": [
-          "I will not argue the case for the prototype defensive barrier with you."
+          "What holds and for how long is a secret worth more than the wall itself."
         ],
         "neutral": [
           "The barrier may encourage officers to cross ground they would reject without it."
@@ -6071,7 +6071,7 @@
     "deep_prototype_defensive_barrier_10": {
       "vostok": {
         "negative": [
-          "The next step for the prototype defensive barrier does not concern you."
+          "It works or it does not. You will find out the same way we did."
         ],
         "neutral": [
           "Fix the anchors, add a front-facing countdown, and repeat the rain trial with nobody inside."
@@ -6082,7 +6082,7 @@
       },
       "aegis": {
         "negative": [
-          "The decision on the prototype defensive barrier project is restricted."
+          "Capability parameters are restricted, categorically and without exception."
         ],
         "neutral": [
           "Fix the anchors, add a front-facing countdown, and repeat the rain trial with nobody inside."
@@ -6093,7 +6093,7 @@
       },
       "sarab": {
         "negative": [
-          "What happens next with the prototype defensive barrier is not your concern."
+          "A shield is best described by the one who strikes it. Try, and report back."
         ],
         "neutral": [
           "Fix the anchors, add a front-facing countdown, and repeat the rain trial with nobody inside."
@@ -6106,7 +6106,7 @@
     "deep_desert_water_emergency_1": {
       "vostok": {
         "negative": [
-          "What the desert water emergency can do is not yours to inspect."
+          "Water is short. Water is always short here. That is the whole briefing."
         ],
         "neutral": [
           "The patrol has nine full skins for fourteen people and the mapped well is dry."
@@ -6117,7 +6117,7 @@
       },
       "aegis": {
         "negative": [
-          "Capability details for the desert water emergency are restricted."
+          "Water status is operationally sensitive and will not be disclosed to you."
         ],
         "neutral": [
           "The patrol has nine full skins for fourteen people and the mapped well is dry."
@@ -6128,7 +6128,7 @@
       },
       "sarab": {
         "negative": [
-          "I am not discussing what the desert water emergency can do."
+          "I will not tell you how many wells we hold. Count the ones you found empty."
         ],
         "neutral": [
           "The patrol has nine full skins for fourteen people and the mapped well is dry."
@@ -6141,7 +6141,7 @@
     "deep_desert_water_emergency_2": {
       "vostok": {
         "negative": [
-          "The desert water emergency test record stays with its crew."
+          "You are asking how long we can last. Long enough. Move on."
         ],
         "neutral": [
           "A cracked pack frame punctured two skins before anyone noticed the wet sand."
@@ -6152,7 +6152,7 @@
       },
       "aegis": {
         "negative": [
-          "The desert water emergency trial record is closed."
+          "Consumption figures and reserve levels are both restricted information."
         ],
         "neutral": [
           "A cracked pack frame punctured two skins before anyone noticed the wet sand."
@@ -6163,7 +6163,7 @@
       },
       "sarab": {
         "negative": [
-          "The desert water emergency trial is not yours to hear about."
+          "Thirst is a private matter right up until it is everyone's."
         ],
         "neutral": [
           "A cracked pack frame punctured two skins before anyone noticed the wet sand."
@@ -6176,7 +6176,7 @@
     "deep_desert_water_emergency_3": {
       "vostok": {
         "negative": [
-          "I will not list the weak points of the desert water emergency."
+          "Wells are never discussed with people who might come to want one."
         ],
         "neutral": [
           "The patrol is rationing by container instead of measuring what each skin actually holds."
@@ -6187,7 +6187,7 @@
       },
       "aegis": {
         "negative": [
-          "Failure analysis for the desert water emergency is not releasable."
+          "That question maps the limit of our endurance. Declined."
         ],
         "neutral": [
           "The patrol is rationing by container instead of measuring what each skin actually holds."
@@ -6198,7 +6198,7 @@
       },
       "sarab": {
         "negative": [
-          "I will not tell you where the desert water emergency fails."
+          "The one who asks after water is either thirsty or planning. Neither earns an answer."
         ],
         "neutral": [
           "The patrol is rationing by container instead of measuring what each skin actually holds."
@@ -6211,7 +6211,7 @@
     "deep_desert_water_emergency_4": {
       "vostok": {
         "negative": [
-          "Where we would use the desert water emergency is not being discussed."
+          "Water is short. Water is always short here. That is the whole briefing."
         ],
         "neutral": [
           "Rest through afternoon heat and move at dusk toward the stone cistern, not the unconfirmed palm grove."
@@ -6222,7 +6222,7 @@
       },
       "aegis": {
         "negative": [
-          "Field-use criteria for the desert water emergency are restricted."
+          "Water status is operationally sensitive and will not be disclosed to you."
         ],
         "neutral": [
           "Rest through afternoon heat and move at dusk toward the stone cistern, not the unconfirmed palm grove."
@@ -6233,7 +6233,7 @@
       },
       "sarab": {
         "negative": [
-          "I will not discuss where we would use the desert water emergency."
+          "I will not tell you how many wells we hold. Count the ones you found empty."
         ],
         "neutral": [
           "Rest through afternoon heat and move at dusk toward the stone cistern, not the unconfirmed palm grove."
@@ -6246,7 +6246,7 @@
     "deep_desert_water_emergency_5": {
       "vostok": {
         "negative": [
-          "The names tied to the desert water emergency stay out of your mouth."
+          "You are asking how long we can last. Long enough. Move on."
         ],
         "neutral": [
           "The wounded scout needs twice the water and cannot carry a share of the load."
@@ -6257,7 +6257,7 @@
       },
       "aegis": {
         "negative": [
-          "Personnel details tied to the desert water emergency are protected."
+          "Consumption figures and reserve levels are both restricted information."
         ],
         "neutral": [
           "The wounded scout needs twice the water and cannot carry a share of the load."
@@ -6268,7 +6268,7 @@
       },
       "sarab": {
         "negative": [
-          "The people tied to the desert water emergency keep their privacy."
+          "Thirst is a private matter right up until it is everyone's."
         ],
         "neutral": [
           "The wounded scout needs twice the water and cannot carry a share of the load."
@@ -6281,7 +6281,7 @@
     "deep_desert_water_emergency_6": {
       "vostok": {
         "negative": [
-          "What we learned from the desert water emergency is our problem."
+          "Wells are never discussed with people who might come to want one."
         ],
         "neutral": [
           "We keep everyone together even when two fast scouts could save the column."
@@ -6292,7 +6292,7 @@
       },
       "aegis": {
         "negative": [
-          "Historical review of the desert water emergency is internal."
+          "That question maps the limit of our endurance. Declined."
         ],
         "neutral": [
           "Our issue table assumes every sealed skin holds the same amount."
@@ -6303,7 +6303,7 @@
       },
       "sarab": {
         "negative": [
-          "Our history with the desert water emergency is not for you."
+          "The one who asks after water is either thirsty or planning. Neither earns an answer."
         ],
         "neutral": [
           "We trust our memory of wells after the desert has changed them."
@@ -6316,7 +6316,7 @@
     "deep_desert_water_emergency_7": {
       "vostok": {
         "negative": [
-          "The desert water emergency failure report remains closed."
+          "Water is short. Water is always short here. That is the whole briefing."
         ],
         "neutral": [
           "Nobody inspected the pack frames when the patrol transferred water at noon."
@@ -6327,7 +6327,7 @@
       },
       "aegis": {
         "negative": [
-          "The initiating error in the desert water emergency trial remains under review."
+          "Water status is operationally sensitive and will not be disclosed to you."
         ],
         "neutral": [
           "Nobody inspected the pack frames when the patrol transferred water at noon."
@@ -6338,7 +6338,7 @@
       },
       "sarab": {
         "negative": [
-          "I am not opening the desert water emergency failure report for you."
+          "I will not tell you how many wells we hold. Count the ones you found empty."
         ],
         "neutral": [
           "Nobody inspected the pack frames when the patrol transferred water at noon."
@@ -6351,7 +6351,7 @@
     "deep_desert_water_emergency_8": {
       "vostok": {
         "negative": [
-          "Command limits for the desert water emergency are not yours to set."
+          "You are asking how long we can last. Long enough. Move on."
         ],
         "neutral": [
           "Do not abandon the wounded scout while enough water remains to reach confirmed shelter together."
@@ -6362,7 +6362,7 @@
       },
       "aegis": {
         "negative": [
-          "Command limits for the desert water emergency are already defined."
+          "Consumption figures and reserve levels are both restricted information."
         ],
         "neutral": [
           "Do not abandon the wounded scout while enough water remains to reach confirmed shelter together."
@@ -6373,7 +6373,7 @@
       },
       "sarab": {
         "negative": [
-          "You do not set the limits on the desert water emergency."
+          "Thirst is a private matter right up until it is everyone's."
         ],
         "neutral": [
           "Do not abandon the wounded scout while enough water remains to reach confirmed shelter together."
@@ -6386,7 +6386,7 @@
     "deep_desert_water_emergency_9": {
       "vostok": {
         "negative": [
-          "You will get no argument for or against the desert water emergency from me."
+          "Wells are never discussed with people who might come to want one."
         ],
         "neutral": [
           "The stone cistern report is three weeks old and may be no safer than the palm rumor."
@@ -6397,7 +6397,7 @@
       },
       "aegis": {
         "negative": [
-          "No objections concerning the desert water emergency are cleared for release."
+          "That question maps the limit of our endurance. Declined."
         ],
         "neutral": [
           "The stone cistern report is three weeks old and may be no safer than the palm rumor."
@@ -6408,7 +6408,7 @@
       },
       "sarab": {
         "negative": [
-          "I will not argue the case for the desert water emergency with you."
+          "The one who asks after water is either thirsty or planning. Neither earns an answer."
         ],
         "neutral": [
           "The stone cistern report is three weeks old and may be no safer than the palm rumor."
@@ -6421,7 +6421,7 @@
     "deep_desert_water_emergency_10": {
       "vostok": {
         "negative": [
-          "The next step for the desert water emergency does not concern you."
+          "Water is short. Water is always short here. That is the whole briefing."
         ],
         "neutral": [
           "Measure every skin, pad every buckle, send two scouts, and march only toward confirmed stonework."
@@ -6432,7 +6432,7 @@
       },
       "aegis": {
         "negative": [
-          "The decision on the desert water emergency project is restricted."
+          "Water status is operationally sensitive and will not be disclosed to you."
         ],
         "neutral": [
           "Measure every skin, pad every buckle, send two scouts, and march only toward confirmed stonework."
@@ -6443,7 +6443,7 @@
       },
       "sarab": {
         "negative": [
-          "What happens next with the desert water emergency is not your concern."
+          "I will not tell you how many wells we hold. Count the ones you found empty."
         ],
         "neutral": [
           "Measure every skin, pad every buckle, send two scouts, and march only toward confirmed stonework."
@@ -6456,7 +6456,7 @@
     "deep_disarming_rival_militias_1": {
       "vostok": {
         "negative": [
-          "What the disarming rival militias can do is not yours to inspect."
+          "Who gives up what, and when, is being argued by people above me. Loudly."
         ],
         "neutral": [
           "Three militias agreed to surrender heavy weapons, but none will hand over bows before the others."
@@ -6467,7 +6467,7 @@
       },
       "aegis": {
         "negative": [
-          "Capability details for the disarming rival militias are restricted."
+          "Terms under negotiation are not disclosed while they are under negotiation."
         ],
         "neutral": [
           "Three militias agreed to surrender heavy weapons, but none will hand over bows before the others."
@@ -6478,7 +6478,7 @@
       },
       "sarab": {
         "negative": [
-          "I am not discussing what the disarming rival militias can do."
+          "No one lays down the blade first. That is the entire difficulty, and I will say no more."
         ],
         "neutral": [
           "Three militias agreed to surrender heavy weapons, but none will hand over bows before the others."
@@ -6491,7 +6491,7 @@
     "deep_disarming_rival_militias_2": {
       "vostok": {
         "negative": [
-          "The disarming rival militias test record stays with its crew."
+          "Ask the militias yourself. They will tell you three different things, all wrong."
         ],
         "neutral": [
           "The first collection point was beside one militia's burned meeting hall and was rejected as a victory display."
@@ -6502,7 +6502,7 @@
       },
       "aegis": {
         "negative": [
-          "The disarming rival militias trial record is closed."
+          "Compliance schedules are restricted until they are agreed and verified."
         ],
         "neutral": [
           "The first collection point was beside one militia's burned meeting hall and was rejected as a victory display."
@@ -6513,7 +6513,7 @@
       },
       "sarab": {
         "negative": [
-          "The disarming rival militias trial is not yours to hear about."
+          "You ask who trusts whom. Nobody. Now let it rest."
         ],
         "neutral": [
           "The first collection point was beside one militia's burned meeting hall and was rejected as a victory display."
@@ -6526,7 +6526,7 @@
     "deep_disarming_rival_militias_3": {
       "vostok": {
         "negative": [
-          "I will not list the weak points of the disarming rival militias."
+          "Nothing is settled, none of it is yours, and not today."
         ],
         "neutral": [
           "The weapon count ignores hidden spare strings, arrowheads, and workshop stock."
@@ -6537,7 +6537,7 @@
       },
       "aegis": {
         "negative": [
-          "Failure analysis for the disarming rival militias is not releasable."
+          "Any figure I gave you would be a bargaining position. So, no."
         ],
         "neutral": [
           "The weapon count ignores hidden spare strings, arrowheads, and workshop stock."
@@ -6548,7 +6548,7 @@
       },
       "sarab": {
         "negative": [
-          "I will not tell you where the disarming rival militias fails."
+          "The bows come down when the reason to hold them does. Not before, and not in conversation."
         ],
         "neutral": [
           "The weapon count ignores hidden spare strings, arrowheads, and workshop stock."
@@ -6561,7 +6561,7 @@
     "deep_disarming_rival_militias_4": {
       "vostok": {
         "negative": [
-          "Where we would use the disarming rival militias is not being discussed."
+          "Who gives up what, and when, is being argued by people above me. Loudly."
         ],
         "neutral": [
           "Collect siege gear first, register personal bows, and schedule simultaneous handover at neutral granaries."
@@ -6572,7 +6572,7 @@
       },
       "aegis": {
         "negative": [
-          "Field-use criteria for the disarming rival militias are restricted."
+          "Terms under negotiation are not disclosed while they are under negotiation."
         ],
         "neutral": [
           "Collect siege gear first, register personal bows, and schedule simultaneous handover at neutral granaries."
@@ -6583,7 +6583,7 @@
       },
       "sarab": {
         "negative": [
-          "I will not discuss where we would use the disarming rival militias."
+          "No one lays down the blade first. That is the entire difficulty, and I will say no more."
         ],
         "neutral": [
           "Collect siege gear first, register personal bows, and schedule simultaneous handover at neutral granaries."
@@ -6596,7 +6596,7 @@
     "deep_disarming_rival_militias_5": {
       "vostok": {
         "negative": [
-          "The names tied to the disarming rival militias stay out of your mouth."
+          "Ask the militias yourself. They will tell you three different things, all wrong."
         ],
         "neutral": [
           "Villages rely on some militia members to guard livestock from raiders after the army leaves."
@@ -6607,7 +6607,7 @@
       },
       "aegis": {
         "negative": [
-          "Personnel details tied to the disarming rival militias are protected."
+          "Compliance schedules are restricted until they are agreed and verified."
         ],
         "neutral": [
           "Villages rely on some militia members to guard livestock from raiders after the army leaves."
@@ -6618,7 +6618,7 @@
       },
       "sarab": {
         "negative": [
-          "The people tied to the disarming rival militias keep their privacy."
+          "You ask who trusts whom. Nobody. Now let it rest."
         ],
         "neutral": [
           "Villages rely on some militia members to guard livestock from raiders after the army leaves."
@@ -6631,7 +6631,7 @@
     "deep_disarming_rival_militias_6": {
       "vostok": {
         "negative": [
-          "What we learned from the disarming rival militias is our problem."
+          "Nothing is settled, none of it is yours, and not today."
         ],
         "neutral": [
           "We want one visible pile and may stop counting once it is tall enough."
@@ -6642,7 +6642,7 @@
       },
       "aegis": {
         "negative": [
-          "Historical review of the disarming rival militias is internal."
+          "Any figure I gave you would be a bargaining position. So, no."
         ],
         "neutral": [
           "Our inventory can certify weapons while missing the coercive network that supplied them."
@@ -6653,7 +6653,7 @@
       },
       "sarab": {
         "negative": [
-          "Our history with the disarming rival militias is not for you."
+          "The bows come down when the reason to hold them does. Not before, and not in conversation."
         ],
         "neutral": [
           "We know every household can hide a bow and may use that truth to excuse collecting none."
@@ -6666,7 +6666,7 @@
     "deep_disarming_rival_militias_7": {
       "vostok": {
         "negative": [
-          "The disarming rival militias failure report remains closed."
+          "Who gives up what, and when, is being argued by people above me. Loudly."
         ],
         "neutral": [
           "The neutral collection sites should have been agreed before surrender numbers were announced."
@@ -6677,7 +6677,7 @@
       },
       "aegis": {
         "negative": [
-          "The initiating error in the disarming rival militias trial remains under review."
+          "Terms under negotiation are not disclosed while they are under negotiation."
         ],
         "neutral": [
           "The neutral collection sites should have been agreed before surrender numbers were announced."
@@ -6688,7 +6688,7 @@
       },
       "sarab": {
         "negative": [
-          "I am not opening the disarming rival militias failure report for you."
+          "No one lays down the blade first. That is the entire difficulty, and I will say no more."
         ],
         "neutral": [
           "The neutral collection sites should have been agreed before surrender numbers were announced."
@@ -6701,7 +6701,7 @@
     "deep_disarming_rival_militias_8": {
       "vostok": {
         "negative": [
-          "Command limits for the disarming rival militias are not yours to set."
+          "Ask the militias yourself. They will tell you three different things, all wrong."
         ],
         "neutral": [
           "No community loses defensive weapons before a civilian watch is trained and accountable."
@@ -6712,7 +6712,7 @@
       },
       "aegis": {
         "negative": [
-          "Command limits for the disarming rival militias are already defined."
+          "Compliance schedules are restricted until they are agreed and verified."
         ],
         "neutral": [
           "No community loses defensive weapons before a civilian watch is trained and accountable."
@@ -6723,7 +6723,7 @@
       },
       "sarab": {
         "negative": [
-          "You do not set the limits on the disarming rival militias."
+          "You ask who trusts whom. Nobody. Now let it rest."
         ],
         "neutral": [
           "No community loses defensive weapons before a civilian watch is trained and accountable."
@@ -6736,7 +6736,7 @@
     "deep_disarming_rival_militias_9": {
       "vostok": {
         "negative": [
-          "You will get no argument for or against the disarming rival militias from me."
+          "Nothing is settled, none of it is yours, and not today."
         ],
         "neutral": [
           "Registration may legitimize militias by turning their captains into permanent political gatekeepers."
@@ -6747,7 +6747,7 @@
       },
       "aegis": {
         "negative": [
-          "No objections concerning the disarming rival militias are cleared for release."
+          "Any figure I gave you would be a bargaining position. So, no."
         ],
         "neutral": [
           "Registration may legitimize militias by turning their captains into permanent political gatekeepers."
@@ -6758,7 +6758,7 @@
       },
       "sarab": {
         "negative": [
-          "I will not argue the case for the disarming rival militias with you."
+          "The bows come down when the reason to hold them does. Not before, and not in conversation."
         ],
         "neutral": [
           "Registration may legitimize militias by turning their captains into permanent political gatekeepers."
@@ -6771,7 +6771,7 @@
     "deep_disarming_rival_militias_10": {
       "vostok": {
         "negative": [
-          "The next step for the disarming rival militias does not concern you."
+          "Who gives up what, and when, is being argued by people above me. Loudly."
         ],
         "neutral": [
           "Use neutral sites, simultaneous seals, workshop inspections, and a dated transfer to civilian guards."
@@ -6782,7 +6782,7 @@
       },
       "aegis": {
         "negative": [
-          "The decision on the disarming rival militias project is restricted."
+          "Terms under negotiation are not disclosed while they are under negotiation."
         ],
         "neutral": [
           "Use neutral sites, simultaneous seals, workshop inspections, and a dated transfer to civilian guards."
@@ -6793,7 +6793,7 @@
       },
       "sarab": {
         "negative": [
-          "What happens next with the disarming rival militias is not your concern."
+          "No one lays down the blade first. That is the entire difficulty, and I will say no more."
         ],
         "neutral": [
           "Use neutral sites, simultaneous seals, workshop inspections, and a dated transfer to civilian guards."

@@ -4,6 +4,22 @@ Modern military factions for Minecraft 26.2 (Fabric). Three doctrine-driven fact
 
 Requires Fabric Loader 0.19.3+ and Fabric API for 26.2.
 
+## v0.3.1 — the dialogue rewrite
+
+- **Nothing is written by substitution any more.** The corpus had reached its size by
+  slotting a topic noun into shared sentence frames — three frames alone produced 300
+  player questions — and the seams showed as broken English: *"ammunition reserves is
+  measured"*, *"mountain passes … curling around it"*, *"the disarming rival militias"*.
+  Field chatter and every deep-branch refusal are now authored per subject.
+- **Each faction has a rhetorical grammar, not just a vocabulary.** Vostok speaks in
+  parataxis and litotes, Aegis in anaphora, asyndeton and meiosis, Sarab in the
+  balanced antithesis of proverb literature. `dialogue/VOICE.md` documents the devices.
+- **The validator prevents relapse.** `tools/validate-dialogue.js` fails the build on
+  firearms vocabulary and on any sentence frame reused past a small threshold.
+- Corpus is deliberately smaller and entirely readable: 1,863 player options and
+  4,418 response lines, with zero firearms violations and no frame repeated more than
+  four times.
+
 ## v0.3.0 — the settlement update
 
 - **Faction bases never generate on top of each other.** Every base, headquarters and

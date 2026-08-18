@@ -53,3 +53,63 @@ never admits weakness. Warnings arrive dressed as hospitality.
   quartermasters talk stock, prices, and supply lines.
 - Never break the fourth wall; never reference game mechanics by name
   ("standing" → "your name with us", "disposition" → "how we look at you").
+
+---
+
+# Craft addendum (0.3.1) — the devices behind each voice
+
+The first corpus reached scale by slotting a topic noun into a shared sentence frame:
+one frame, ten subjects, ten lines. That is what produced *"On the line, ammunition
+reserves **is** measured by whether dawn finds us standing"*, *"the impatient see only
+mountain **passes** ... curling around **it**"*, and a hundred copies of *"Have the
+realities of X changed much since the war began?"* A frame cannot agree in number with
+a slot it has never seen, and a reader feels the seam long before they can name it.
+
+**The rule that follows: no line is written by substitution. Every line is authored
+for its own subject.** Breadth is bought with writing or not at all.
+
+Each faction gets a distinct rhetorical grammar, so the cover-the-name test is carried
+by *sentence construction*, not just vocabulary.
+
+## Vostok — parataxis and litotes
+
+Clauses laid side by side, joined by commas and full stops rather than subordination;
+the Anglo-Saxon core of the language, one and two syllables. The device is **litotes** —
+the deliberate understatement of Old English heroic verse (*"that was a good king"*)
+carried into the plain trench register of Owen and Babel. Horror is reported as
+inconvenience; that gap is the joke and the grief at once.
+
+- Parataxis: *"You dig, you hold, you die tired. It's a living."*
+- Litotes: *"Nobody froze that night who kept moving. Most kept moving."*
+- Epigram to close: short sentence after a long one. The full stop does the work.
+
+## Aegis — anaphora, asyndeton, meiosis
+
+Procedure as rhythm. **Anaphora** (repeated sentence openings) mimics a checklist;
+**asyndeton** (dropped conjunctions) mimics radio traffic where every syllable costs.
+**Meiosis** downgrades catastrophe to a reporting category. The lineage is the military
+dispatch and the institutional voice of Kipling's professionals and Le Carré's Circus:
+courtesy that is procedure, never warmth.
+
+- Asyndeton: *"Marked, logged, corrected. Next."*
+- Anaphora: *"We survey it. We route around it. We do not admire it."*
+- Meiosis: *"We lost the bridge and eleven people. The report calls it a setback."*
+
+## Sarab — parallelism, metaphor, apophasis
+
+The balanced couplet of wisdom literature — Proverbs and Ecclesiastes, and the Arabic
+proverb tradition behind them — where the second half answers, inverts or completes the
+first. **Antithesis** carries the argument; **metaphor** drawn from water, sand, rope,
+shade and heat carries the threat; **apophasis** says a thing by declining to say it.
+Never state strength; never admit weakness.
+
+- Antithesis: *"The impatient count the passes. The patient count the ways around them."*
+- Metaphor: *"Rope frays where you cannot see. So does a promise."*
+- Apophasis: *"I will not tell you how many wells we hold. Count the ones you found empty."*
+
+## Enforced by the validator
+
+`tools/validate-dialogue.js` now fails the build on: firearms vocabulary (this war has
+bows, blades and siege engines — no guns), a plural noun answered by a singular pronoun,
+`the` stranded before a gerund phrase, and any first-four/last-four-word sentence frame
+reused past a small threshold. A frame that reappears is a template growing back.

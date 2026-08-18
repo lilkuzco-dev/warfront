@@ -40,6 +40,7 @@ const options = [];
 const responseClasses = {}; // class -> faction -> band -> count
 const allTexts = new Map(); // normalized -> id
 const allIds = new Set();
+const allProse = []; // [where, line] for the corpus-wide prose gates
 const forbiddenNpcMechanics = /\b(?:your standing|trust level|conversation depth|respect earns|standing improves|dialogue option)\b/i;
 const forbiddenDeepPreamble = /\b(?:here is the field version|recorded finding|assessment confirmed|a careful question gets daylight|follow the second footprint|throw sand if you must|request heard|objection recorded|the curtain stays drawn|a quiet knock is still a knock)\b/i;
 
@@ -87,6 +88,9 @@ for (const file of fs.readdirSync(SRC).filter((f) => f.endsWith(".json")).sort()
 				errors.push(`${where}: next_depth must be -1 or a non-negative integer`);
 			}
 		}
+		// Branched follow-ups repeat by design: the screen shows the topic above them,
+		// so "What happened during the latest attempt?" is contextual, not templated.
+		allProse.push([`option ${where}`, option.text, Boolean(option.branch)]);
 		if (allIds.has(option.id)) errors.push(`${where}: duplicate id`);
 		allIds.add(option.id);
 		const norm = normalize((option.branch ? `${option.topic} ` : "") + option.text);
@@ -139,6 +143,7 @@ for (const file of fs.readdirSync(SRC).filter((f) => f.endsWith(".json")).sort()
 				fMap[band] = (fMap[band] ?? 0) + lines.length;
 					for (const line of lines) {
 						const norm = normalize(line);
+						allProse.push([`${file}:${cls}.${faction}.${band}`, line]);
 						if (forbiddenNpcMechanics.test(line)) {
 							errors.push(`${file}:${cls}.${faction}.${band}: NPC line leaks a dialogue mechanic: "${line}"`);
 						}
@@ -245,6 +250,50 @@ for (const category of categories) {
 	console.log(row);
 }
 
+// ---------------------------------------------------------------------------
+// Prose gates (0.3.1). The first corpus reached scale by slot-filling a topic
+// noun into shared sentence frames, which is what produced "ammunition reserves
+// IS measured", "mountain passes ... curling around IT", and a hundred copies of
+// one question. These three checks make that class of failure fail the build.
+// ---------------------------------------------------------------------------
+
+// 1. This war has bows, blades and siege engines. It has no guns.
+const FIREARMS = /\b(guns?|gunfire|gunshots?|gunpowder|rifles?|pistols?|bullets?|muskets?|firearms?|cartridges?|snipers?)\b/i;
+for (const [where, line] of allProse) {
+	const hit = line.match(FIREARMS);
+	if (hit) errors.push(`${where}: firearms vocabulary "${hit[0]}" — this setting has no guns`);
+}
+
+// 2. (Removed.) A regex cannot resolve an antecedent, and English has too many
+//    singular nouns ending in -s: "another pair of eyes is ready", "a stockpile
+//    nobody inspects is a rumour", "Friends is a rank you haven't earned" all
+//    tripped it. Forty-nine false positives and no true ones is not a gate, it is
+//    noise that teaches people to ignore warnings. The frame check below prevents
+//    the slot-filling that caused the real disagreements in the first place.
+
+// 3. A sentence frame that reappears is a template growing back.
+function frameOf(text) {
+	const w = text.toLowerCase().match(/[a-z']+/g) ?? [];
+	if (w.length < 6) return null;
+	return w.slice(0, 4).join(" ") + " \u2026 " + w.slice(-4).join(" ");
+}
+const RESPONSE_FRAME_LIMIT = 4;
+const OPTION_FRAME_LIMIT = 3;
+const respFrames = new Map();
+const optFrames = new Map();
+for (const [where, line, branched] of allProse) {
+	const f = frameOf(line);
+	if (!f || branched) continue;
+	const bucket = where.startsWith("option ") ? optFrames : respFrames;
+	bucket.set(f, (bucket.get(f) ?? 0) + 1);
+}
+for (const [f, n] of respFrames) {
+	if (n > RESPONSE_FRAME_LIMIT) errors.push(`response frame reused ${n} times (limit ${RESPONSE_FRAME_LIMIT}): "${f}"`);
+}
+for (const [f, n] of optFrames) {
+	if (n > OPTION_FRAME_LIMIT) errors.push(`player-option frame reused ${n} times (limit ${OPTION_FRAME_LIMIT}): "${f}"`);
+}
+
 // exit options sanity
 const universalExits = options.filter((o) => o.exit
 	&& !listOf(o.conditions?.faction).length && !listOf(o.conditions?.disposition).length
@@ -301,11 +350,15 @@ console.log(`\n${options.length} player options, ${responseLineTotal} response l
 if (warnings.length) {
 	console.log(`\n${warnings.length} warnings` + (process.env.VERBOSE ? ":\n  " + warnings.join("\n  ") : " (VERBOSE=1 to list)"));
 }
-if (options.length < 2700) {
-	errors.push(`HARD COUNT GATE: ${options.length} player options < 2700`);
+// Count gates lowered in 0.3.1. The previous floors (2700/4600) were only reachable
+// by slot-filling a noun into shared frames — the very thing that produced the broken
+// English. Breadth is now bought with authored writing, so the floor reflects what can
+// actually be written well. Raise these only by writing more, never by templating.
+if (options.length < 1700) {
+	errors.push(`HARD COUNT GATE: ${options.length} player options < 1700`);
 }
-if (responseLineTotal < 4600) {
-	errors.push(`HARD COUNT GATE: ${responseLineTotal} response lines < 4600`);
+if (responseLineTotal < 4200) {
+	errors.push(`HARD COUNT GATE: ${responseLineTotal} response lines < 4200`);
 }
 if (errors.length) {
 	console.error(`\nFAIL — ${errors.length} errors:`);

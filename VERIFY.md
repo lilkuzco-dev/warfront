@@ -478,3 +478,67 @@ for Phase 3.
 - `node tools/gen-base-plans.js` reports **zero stamp collisions** across every plate,
   and now warns loudly instead of silently dropping a building that will not fit —
   which is how the Sarab city plate was found to be one command post too narrow. ✅
+
+## Dialogue rewrite gate — 0.3.1 (2026-08-18)
+
+The complaint was that the dialogue read as random and often was not English. It was
+both, and the cause was structural: the corpus reached its size by slotting a topic
+noun into shared sentence frames.
+
+### What the measurement found
+
+- Three player-question frames alone produced **300 lines** — *"Have the realities of
+  {X} changed much since the war began?"*, *"If I had to deal with {X} tomorrow…"* and
+  *"I've heard soldiers argue about {X}…"*, each repeated 100 times with a different
+  noun. 570 of 2,743 options came from just 30 reused frames. ✅
+- 18 response frames produced 180 near-identical lines. ✅
+- The seams showed as ungrammatical English, exactly as a reader would feel it:
+  *"On the line, ammunition reserves **is** measured…"*, *"We learn ammunition reserves
+  by shortage and remember **it** by scars"*, *"The impatient see only mountain
+  **passes**; the patient see the hidden roads curling around **it**"* (11 copies),
+  *"Our history with **the disarming rival militias** is not for you"*, and
+  *"What does the contested river bridge actually **do**?"* ✅
+- 27 lines used firearms vocabulary in a setting VOICE.md defines as bows and blades. ✅
+
+### What changed
+
+- `dialogue/VOICE.md` gained a craft addendum assigning each faction a rhetorical
+  grammar rather than just a word list: Vostok **parataxis and litotes** (Old English
+  understatement through the plain trench register), Aegis **anaphora, asyndeton and
+  meiosis** (the dispatch and the institutional voice), Sarab **antithesis, metaphor
+  and apophasis** (the balanced couplet of wisdom literature). The cover-the-name test
+  is now carried by sentence construction, not vocabulary. ✅
+- `gen-field-chatter.js` rewritten: **nothing is substituted.** 60 subjects, each with
+  its own authored player questions and its own authored reply per faction. ✅
+- `gen-deep-dialogue.js`: the 300 slot-filled refusals replaced by authored refusals
+  per topic per faction, and depth-0 openers authored per topic. ✅
+
+### Enforced, so it cannot grow back
+
+`tools/validate-dialogue.js` gained prose gates: firearms vocabulary, and a
+**frame-reuse detector** (first-four/last-four-word signature) that fails the build
+when any frame repeats past a small threshold. Branched follow-ups are exempt, and the
+screenshot is the justification: the topic header is on screen above them, so *"Tell
+me about the latest attempt."* under **Contested River Bridge** is context, not a
+template. A subject-verb heuristic was written, measured at **49 false positives and
+zero true ones**, and deleted rather than shipped — a gate with no precision only
+teaches people to ignore warnings. ✅
+
+### Result
+
+| | before | after |
+|---|---|---|
+| firearms violations | 27 | **0** |
+| plural noun answered by singular *it* | 11 | **0** |
+| most-reused player-option frame | 100× | **10×** (branched, topic shown) |
+| most-reused response frame | 10× | **4×** |
+| player options | 2,743 | 1,863 |
+| response lines | 4,659 | 4,418 |
+
+The count gates were lowered from 2700/4600 to 1700/4200 with the reason recorded in
+the validator: those floors were only reachable by templating. Breadth is bought with
+writing now, or not at all.
+
+`node tools/validate-dialogue.js`: **PASS**, zero warnings. `./gradlew runGametest`:
+PASS; dialogue frames read in-camera — *"What state is the river bridge actually in?"*
+now asks something a bridge can answer. ✅

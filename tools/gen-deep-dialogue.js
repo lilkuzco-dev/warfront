@@ -22,6 +22,59 @@ const prompts = [
 	["What must change before the next attempt?", "What should happen next?", "What would it take to make this safe?"]
 ];
 
+const openings = {
+	"contested river bridge": [
+		"What can you tell me about the bridge your people are contesting?",
+		"What state is the river bridge actually in?",
+		"Is that bridge really worth what it is costing you?"
+	],
+	"winter ration reserve": [
+		"Can you tell me how the winter reserve is holding?",
+		"How long will the winter ration reserve actually last?",
+		"Is the reserve as thin as people are saying?"
+	],
+	"double agent report": [
+		"Is there something you can tell me about the informer trouble?",
+		"What does the double agent report actually allege?",
+		"Are you sure there is an informer at all, or is this a witch hunt?"
+	],
+	"unauthorized rescue mission": [
+		"May I ask about the rescue that went out without orders?",
+		"What happened on the unauthorized rescue?",
+		"Was that rescue heroism, or just someone ignoring orders?"
+	],
+	"unit after heavy losses": [
+		"How is the company holding up after the losses?",
+		"How badly was this unit hit?",
+		"Is what is left of this unit still fit to fight?"
+	],
+	"hospital claimed by both sides": [
+		"What can you tell me about the hospital both sides claim?",
+		"Who actually holds the disputed hospital?",
+		"Is that hospital being protected, or just used as cover?"
+	],
+	"failed prewar treaty": [
+		"Would you tell me about the treaty that failed before the war?",
+		"What did the prewar treaty actually promise?",
+		"Did anyone ever intend to keep that treaty?"
+	],
+	"prototype defensive barrier": [
+		"What can your crews tell me about the new barrier?",
+		"What does the prototype barrier actually do?",
+		"Is there any proof the barrier works?"
+	],
+	"desert water emergency": [
+		"Can you tell me how the water shortage is being handled?",
+		"How serious is the water situation here?",
+		"Is the water crisis bad luck, or bad planning?"
+	],
+	"disarming rival militias": [
+		"What can you tell me about the effort to disarm the militias?",
+		"How is the disarmament of the militias meant to work?",
+		"Does anyone believe those militias will actually disarm?"
+	],
+};
+
 const topics = [
 	{
 		theme: "Frontline Operations", subject: "contested river bridge",
@@ -225,49 +278,139 @@ const topics = [
 	}
 ];
 
-const refusal = {
-	vostok: [
-		s => `What the ${s} can do is not yours to inspect.`,
-		s => `The ${s} test record stays with its crew.`,
-		s => `I will not list the weak points of the ${s}.`,
-		s => `Where we would use the ${s} is not being discussed.`,
-		s => `The names tied to the ${s} stay out of your mouth.`,
-		s => `What we learned from the ${s} is our problem.`,
-		s => `The ${s} failure report remains closed.`,
-		s => `Command limits for the ${s} are not yours to set.`,
-		s => `You will get no argument for or against the ${s} from me.`,
-		s => `The next step for the ${s} does not concern you.`
-	],
-	aegis: [
-		s => `Capability details for the ${s} are restricted.`,
-		s => `The ${s} trial record is closed.`,
-		s => `Failure analysis for the ${s} is not releasable.`,
-		s => `Field-use criteria for the ${s} are restricted.`,
-		s => `Personnel details tied to the ${s} are protected.`,
-		s => `Historical review of the ${s} is internal.`,
-		s => `The initiating error in the ${s} trial remains under review.`,
-		s => `Command limits for the ${s} are already defined.`,
-		s => `No objections concerning the ${s} are cleared for release.`,
-		s => `The decision on the ${s} project is restricted.`
-	],
-	sarab: [
-		s => `I am not discussing what the ${s} can do.`,
-		s => `The ${s} trial is not yours to hear about.`,
-		s => `I will not tell you where the ${s} fails.`,
-		s => `I will not discuss where we would use the ${s}.`,
-		s => `The people tied to the ${s} keep their privacy.`,
-		s => `Our history with the ${s} is not for you.`,
-		s => `I am not opening the ${s} failure report for you.`,
-		s => `You do not set the limits on the ${s}.`,
-		s => `I will not argue the case for the ${s} with you.`,
-		s => `What happens next with the ${s} is not your concern.`
-	]
+// Refusals used to be slot-filled — `The ${s} trial is not yours to hear about.` —
+// which produced "the disarming rival militias" and "the unauthorized rescue mission
+// trial". Each topic now carries three authored refusals per faction, in that
+// faction's own register, and depth selects among them. Nothing is substituted.
+const refusals = {
+	"contested river bridge": {
+		vostok: ["The bridge is ours to worry about. Walk the long way like everyone else.",
+			"We counted what that crossing cost. You do not get to read the number.",
+			"Ask me about the weather instead. I will answer that one gladly."],
+		aegis: ["Crossing dispositions are restricted. That is the whole of my answer.",
+			"The tollhouse action is under review. Nothing from it is releasable.",
+			"You are asking me to describe the eastern approach in detail. No."],
+		sarab: ["The river tells its own story. Go and stand beside it, if you like.",
+			"I will not name what waits on the far bank. Count the carts that came back.",
+			"Some crossings are made in silence. So are some conversations."]
+	},
+	"winter ration reserve": {
+		vostok: ["How much bread we have is not a stranger's business. Ever.",
+			"You want to know when we get hungry. Wonderful question. No.",
+			"The cellar is full enough for now. That is the entire report."],
+		aegis: ["Stock levels are protected information. Ask the quartermaster for a price list instead.",
+			"Reserve accounting is an internal matter, and it is going to stay internal.",
+			"You are asking me to describe a weakness of ours. Declined."],
+		sarab: ["A man does not show a thirsty stranger the bottom of his jar.",
+			"The store is deep or shallow. Both answers cost you nothing and me a great deal.",
+			"We eat well enough. That is all the arithmetic you are owed."]
+	},
+	"double agent report": {
+		vostok: ["Names stay out of your mouth and mine. That is not negotiable.",
+			"Someone lied to us. We are handling it ourselves. Go away.",
+			"If I told you who, you would be the next thing we handled."],
+		aegis: ["Source protection is absolute. There is no version of this I can give you.",
+			"The matter is under counter-intelligence review and will remain so.",
+			"You have asked a question that identifies people. The answer is no."],
+		sarab: ["A snake in the tent is killed quietly, not described to visitors.",
+			"I will not say the name. Names travel further than men do.",
+			"The one you are asking about may be listening. Consider that, and then leave it."]
+	},
+	"unauthorized rescue mission": {
+		vostok: ["They went without orders. They came back short. That is all you get.",
+			"The hearing is ours. Our dead, our argument, our business.",
+			"You want the story for the telling of it. Find another."],
+		aegis: ["Proceedings are ongoing. Comment would prejudice them.",
+			"Personnel matters are protected, particularly this one.",
+			"The board has not reported. Neither will I."],
+		sarab: ["Those who went are judged by those who waited. You did neither.",
+			"The desert already heard the argument. It does not repeat itself.",
+			"Grief has its own court. Its doors are closed to guests."]
+	},
+	"unit after heavy losses": {
+		vostok: ["We are down. We are still here. Those are the only two facts you need.",
+			"You are asking how badly we were hurt. Guess, and keep it to yourself.",
+			"Count the empty bunks yourself if you have the stomach. I will not read them out."],
+		aegis: ["Strength returns are restricted, for reasons I would think obvious.",
+			"Casualty figures are reported upward, not outward.",
+			"You are asking whether we can be pushed. Ask by trying, or do not ask."],
+		sarab: ["We are fewer. The wind is also fewer, some days, and it still moves the dunes.",
+			"Do not ask a house how many stones it has lost. Ask whether it stands.",
+			"Our number is between us and the sand."]
+	},
+	"hospital claimed by both sides": {
+		vostok: ["Wounded are wounded. Beyond that it is not your argument.",
+			"The place is a hospital. Both sides say so. Neither side is honest. Enough.",
+			"I will not discuss who holds the beds. People are in them."],
+		aegis: ["The status of that facility is subject to negotiation and is not for discussion.",
+			"Protected-site matters are handled at command level. Not here, not by me.",
+			"Any statement I make becomes a claim. I decline to make one."],
+		sarab: ["The sick belong to no flag. Neither does my answer.",
+			"A roof over the dying is not a prize. Do not make me explain it twice.",
+			"Ask the physicians. They will also refuse, but more kindly."]
+	},
+	"failed prewar treaty": {
+		vostok: ["Old paper. It failed. Everyone who signed it is dead or lying.",
+			"We were there. That is why I am not talking about it.",
+			"Read the treaty. Then read the casualty lists. Draw your own line between them."],
+		aegis: ["The negotiating record is sealed and will stay sealed.",
+			"Attributing the failure is a political act. I do not perform political acts.",
+			"That file was closed deliberately, and it is going to stay closed."],
+		sarab: ["Promises made in a cool room do not survive the noon that follows.",
+			"The treaty is a well everyone poisoned and no one will admit to.",
+			"I was not at the table. I was at the funerals. Ask someone who was at the table."]
+	},
+	"prototype defensive barrier": {
+		vostok: ["It works or it does not. You will find out the same way we did.",
+			"You are asking where it breaks. Marvellous. No.",
+			"Whatever it is, it is not yours to inspect."],
+		aegis: ["Capability parameters are restricted, categorically and without exception.",
+			"Trial data is not releasable, including the parts that flatter us.",
+			"You have asked for a failure mode. That is precisely what is protected."],
+		sarab: ["A shield is best described by the one who strikes it. Try, and report back.",
+			"We do not measure the height of our walls aloud, friend.",
+			"What holds and for how long is a secret worth more than the wall itself."]
+	},
+	"desert water emergency": {
+		vostok: ["Water is short. Water is always short here. That is the whole briefing.",
+			"You are asking how long we can last. Long enough. Move on.",
+			"Wells are never discussed with people who might come to want one."],
+		aegis: ["Water status is operationally sensitive and will not be disclosed to you.",
+			"Consumption figures and reserve levels are both restricted information.",
+			"That question maps the limit of our endurance. Declined."],
+		sarab: ["I will not tell you how many wells we hold. Count the ones you found empty.",
+			"Thirst is a private matter right up until it is everyone's.",
+			"The one who asks after water is either thirsty or planning. Neither earns an answer."]
+	},
+	"disarming rival militias": {
+		vostok: ["Who gives up what, and when, is being argued by people above me. Loudly.",
+			"Ask the militias yourself. They will tell you three different things, all wrong.",
+			"Nothing is settled, none of it is yours, and not today."],
+		aegis: ["Terms under negotiation are not disclosed while they are under negotiation.",
+			"Compliance schedules are restricted until they are agreed and verified.",
+			"Any figure I gave you would be a bargaining position. So, no."],
+		sarab: ["No one lays down the blade first. That is the entire difficulty, and I will say no more.",
+			"You ask who trusts whom. Nobody. Now let it rest.",
+			"The bows come down when the reason to hold them does. Not before, and not in conversation."]
+	}
 };
 
 function response(topic, depth, faction, band) {
-	if (band === "negative") return refusal[faction][depth](topic.subject);
+	if (band === "negative") {
+		const authored = refusals[topic.subject];
+		if (!authored) throw new Error(`no authored refusals for topic "${topic.subject}"`);
+		const lines = authored[faction];
+		return lines[depth % lines.length];
+	}
 	const pair = depth === 5 ? topic.history[faction] : topic.facts[depth];
 	return pair[band === "positive" ? 1 : 0];
+}
+
+for (const topic of topics) {
+	const set = openings[topic.subject];
+	if (!set || set.length !== 3) {
+		throw new Error(`topic "${topic.subject}" needs three authored depth-0 openers`);
+	}
 }
 
 const options = [];
@@ -279,7 +422,11 @@ for (const topic of topics) {
 		for (const [toneIndex, tone] of ["positive", "neutral", "negative"].entries()) {
 			options.push({
 				id: `${responseClass}_${tone}`,
-				text: prompts[depth][toneIndex].replace("{subject}", topic.subject),
+				// Depth 0 is authored per topic: the shared opener was written for the
+				// barrier and asked what a bridge "does" when applied to everything else.
+				text: depth === 0
+					? openings[topic.subject][toneIndex]
+					: prompts[depth][toneIndex].replace("{subject}", topic.subject),
 				response: responseClass,
 				tone,
 				branch,
