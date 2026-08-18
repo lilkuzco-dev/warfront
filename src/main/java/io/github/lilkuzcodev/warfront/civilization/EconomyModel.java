@@ -38,10 +38,16 @@ public final class EconomyModel {
 			long minimum, long lowerQuartile, long median, long upperQuartile, long p90, long maximum,
 			long totalMoney, long totalGoods, long unmetUpkeep) {}
 
+	/**
+	 * Money is closed <em>with respect to the city</em>. Player trade is the one opening,
+	 * so it is accounted rather than ignored: every emerald a player pays in and every
+	 * emerald a citizen pays out is booked here, and the balance still has to close.
+	 */
 	public record Conservation(long initialMoney, long moneyNow, long initialGoods, long regenerated,
-			long consumed, long shockLoss, long goodsNow) {
+			long consumed, long shockLoss, long goodsNow, long externalMoneyIn, long externalMoneyOut) {
 		public boolean balanced() {
-			return initialMoney == moneyNow && initialGoods + regenerated - consumed - shockLoss == goodsNow;
+			return initialMoney + externalMoneyIn - externalMoneyOut == moneyNow
+					&& initialGoods + regenerated - consumed - shockLoss == goodsNow;
 		}
 	}
 
@@ -64,6 +70,8 @@ public final class EconomyModel {
 	private long consumed;
 	private long shockLoss;
 	private long unmetUpkeep;
+	private long externalMoneyIn;
+	private long externalMoneyOut;
 	private long tick;
 	private long randomState;
 
@@ -356,7 +364,46 @@ public final class EconomyModel {
 
 	public Conservation conservation() {
 		return new Conservation(initialMoney, totalMoney(), initialGoods, regenerated, consumed, shockLoss,
-				totalGoodsIncludingNodes());
+				totalGoodsIncludingNodes(), externalMoneyIn, externalMoneyOut);
+	}
+
+	// ---------- player trade ----------
+
+	/**
+	 * A player buys {@code quantity} of {@code good} from {@code actor} for {@code payment}
+	 * money. The goods leave the closed system (booked as consumption) and the money
+	 * enters it. Returns false — changing nothing — if the actor is not holding that much.
+	 */
+	public boolean playerBuy(int actor, Good good, long quantity, long payment) {
+		if (actor < 0 || actor >= money.length || payment < 0 || quantity < 1) return false;
+		if (goods[actor][good.ordinal()] < quantity) return false;
+		goods[actor][good.ordinal()] -= quantity;
+		consumed += quantity;
+		money[actor] = Math.addExact(money[actor], payment);
+		externalMoneyIn += payment;
+		assertConservation();
+		return true;
+	}
+
+	/**
+	 * A player sells {@code quantity} of {@code good} to {@code actor} for {@code payment}
+	 * money. The goods enter the system and the money leaves it. Returns false — changing
+	 * nothing — if the actor cannot cover the payment.
+	 */
+	public boolean playerSell(int actor, Good good, long quantity, long payment) {
+		if (actor < 0 || actor >= money.length || payment < 0 || quantity < 1) return false;
+		if (money[actor] < payment) return false;
+		money[actor] -= payment;
+		externalMoneyOut += payment;
+		goods[actor][good.ordinal()] = Math.addExact(goods[actor][good.ordinal()], quantity);
+		regenerated += quantity;
+		assertConservation();
+		return true;
+	}
+
+	/** How much of {@code good} this actor is holding — what it can actually sell a player. */
+	public long actorStock(int actor, Good good) {
+		return actor < 0 || actor >= money.length ? 0L : goods[actor][good.ordinal()];
 	}
 
 	public long[] moneySnapshot() { return money.clone(); }
@@ -427,13 +474,14 @@ public final class EconomyModel {
 		try {
 			ByteArrayOutputStream bytes = new ByteArrayOutputStream();
 			try (DataOutputStream out = new DataOutputStream(bytes)) {
-				out.writeInt(0x57464532); // WFE2
+				out.writeInt(0x57464533); // WFE3 — adds the external (player-trade) money ledger
 				out.writeInt(config.population()); out.writeLong(config.seed()); out.writeLong(config.startingWealth());
 				out.writeLong(config.liquidityFloor()); out.writeLong(config.fixedExchange());
 				out.writeInt(config.exchangesPerTick()); out.writeInt(config.shockInterval());
 				out.writeInt(config.shockPermille());
 				out.writeLong(tick); out.writeLong(randomState); out.writeLong(regenerated); out.writeLong(consumed);
 				out.writeLong(shockLoss); out.writeLong(unmetUpkeep);
+				out.writeLong(externalMoneyIn); out.writeLong(externalMoneyOut);
 				for (int actor = 0; actor < money.length; actor++) {
 					out.writeLong(money[actor]); out.writeInt(skill[actor]); out.writeInt(metabolism[actor]);
 					out.writeInt(aptitude[actor]); out.writeByte(professions[actor].ordinal());
@@ -454,12 +502,21 @@ public final class EconomyModel {
 
 	public static EconomyModel decode(String encoded) {
 		try (DataInputStream in = new DataInputStream(new ByteArrayInputStream(Base64.getDecoder().decode(encoded)))) {
-			if (in.readInt() != 0x57464532) throw new IllegalArgumentException("unknown economy snapshot version");
+			// WFE2 predates the player-trade ledger; its two external totals are zero.
+			int version = in.readInt();
+			if (version != 0x57464532 && version != 0x57464533) {
+				throw new IllegalArgumentException("unknown economy snapshot version");
+			}
+			boolean hasExternalLedger = version == 0x57464533;
 			Config config = new Config(in.readInt(), in.readLong(), in.readLong(), in.readLong(), in.readLong(),
 					in.readInt(), in.readInt(), in.readInt());
 			EconomyModel model = new EconomyModel(config);
 			model.tick = in.readLong(); model.randomState = in.readLong(); model.regenerated = in.readLong();
 			model.consumed = in.readLong(); model.shockLoss = in.readLong(); model.unmetUpkeep = in.readLong();
+			if (hasExternalLedger) {
+				model.externalMoneyIn = in.readLong();
+				model.externalMoneyOut = in.readLong();
+			}
 			for (int actor = 0; actor < model.money.length; actor++) {
 				model.money[actor] = in.readLong(); model.skill[actor] = in.readInt();
 				model.metabolism[actor] = in.readInt(); model.aptitude[actor] = in.readInt();

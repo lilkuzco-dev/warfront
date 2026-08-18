@@ -418,3 +418,63 @@ for Phase 3.
   scales 1 and 2; all six frames passed no-marker, non-overlap, wrapping, complete
   button, and no-scroll assertions. Manual review of `screenshots/v0.2.4/` found the
   simplified header and final question/answer unobstructed at both scales. ✅
+
+## Settlement gate — 0.3.0 (2026-08-18)
+
+### Cross-faction base separation
+
+- **Reproduced the fault before fixing it.** `tools/verify-base-spacing.js` replays
+  `RandomSpreadStructurePlacement` and its `LegacyRandomSource` LCG offline, so every
+  candidate placement is known exactly without running the game. Against the nine
+  original structure sets it found two different factions in the **same chunk
+  (0.0 blocks apart) on 4 of 4 seeds** — e.g. `aegis_base` and `sarab_outpost` both at
+  (-12816, -3472). Root cause: `spacing`/`separation` constrain placements only
+  *within* one structure set, and warfront had nine sets with nine independent salts,
+  each blind to the others. ✅
+- After collapsing all twelve structures into one `warfront:bases` set at
+  `spacing 20 / separation 13`, the same tool over **8 seeds × 25,921 placements each**
+  reports a worst-case closest pair of **224.0 blocks**, cross-faction included,
+  against a required floor of 200. ✅
+- Confirmed live, not just on paper: `/locate structure` for all twelve structure
+  types on a real world gave a minimum over all 66 pairs of **244.8 blocks**, closest
+  cross-faction pair 256.0 blocks (`sarab_outpost` ↔ `vostok_base`). ✅
+- The verifier is deliberately conservative — biome predicates, exclusion zones and
+  `frequency` are ignored, and each can only *remove* a placement, so the measured
+  distance is a lower bound on what a real world produces. ✅
+
+### Civilians, cities, emeralds
+
+- Datapack loads clean: dev server reached `Done` with no registry loading errors
+  after the structure-set collapse and the three new city structures. ✅
+- Civilian seeding verified end-to-end on a live world. Walking into a naturally
+  generated Sarab city produced
+  `base_sarab_city_191_255 [sarab] citizens=28 soldiers=9`, and a forward base
+  produced `citizens=8` — both seeded automatically from structure discovery. ✅
+- **Caught and fixed a seeding bug with the same live check.** The first
+  implementation scanned the full jigsaw bounding box and filled greedily, so all 28
+  citizens landed in a line at `x=192` — the western edge of a 244-block-wide sprawl
+  box, 124+ blocks from the city, all stuck at `local` fidelity with **zero entities
+  spawned**. Reading the actual saved positions out of `civilization.dat` is what
+  exposed it. Seeding now anchors on the structure's *start piece* and sorts a full
+  disc scan by distance before choosing. Re-verified on a fresh city:
+  `embodied=28 local=0 virtual=0`, with a live citizen entity at (-1146.9, 75, -264.9). ✅
+- Emerald economy visible on a live citizen:
+  `warfront_inventory = "minecraft:emerald=4;…;minecraft:wheat=15"` on a farmer —
+  the capped purse, not the whole balance. `/warfront city economy` reports
+  `city wealth=1120` emeralds, per-lot buy prices `food=1 ore=5 timber=4 crafts=8`,
+  and `conserved=true` with the player-trade ledger at `in=0 out=0`. ✅
+- Old `WFE2` economy snapshots still decode — the external-trade ledger was added as
+  `WFE3` with the previous version kept readable, so existing worlds do not reset. ✅
+
+### Render battery (rule 9)
+
+- `./gradlew runGametest`: PASS. Twelve new aerial frames (four quadrants × three
+  faction cities) plus `aegis_city_plaza`, `aegis_city_avenue` and `aegis_city_farm`.
+- **Frames read, not just produced.** The plaza frame shows the well, awninged market
+  stalls, Aegis banners and street lamps; the farm frame shows fenced farmland with a
+  water channel and wheat at mixed growth stages. An earlier pass had two cameras
+  aimed at empty ground because Minecraft yaw 0 is *south*, not north — the frames
+  were re-shot rather than accepted, which is the whole point of looking at them. ✅
+- `node tools/gen-base-plans.js` reports **zero stamp collisions** across every plate,
+  and now warns loudly instead of silently dropping a building that will not fit —
+  which is how the Sarab city plate was found to be one command post too narrow. ✅

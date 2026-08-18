@@ -1,0 +1,32 @@
+{
+  "elements": [
+    {
+      "weight": 3,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "warfront:sarab/city_housing",
+        "processors": "warfront:sarab_rot",
+        "projection": "rigid"
+      }
+    },
+    {
+      "weight": 3,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "warfront:sarab/city_farm",
+        "processors": "warfront:sarab_rot",
+        "projection": "rigid"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "warfront:sarab/city_end",
+        "processors": "warfront:sarab_rot",
+        "projection": "rigid"
+      }
+    }
+  ],
+  "fallback": "warfront:sarab/city_end"
+}

@@ -205,8 +205,10 @@ public final class WarfrontRegistry {
 
 	/** Global population budget knobs (performance-facing; per-faction flavor lives in Faction.Population). */
 	public record PopulationGlobal(int perPlayerSoldierCap, int hydrationRadius, int baseTickSeconds,
-			int roamIntervalSeconds, float roamChance) {
-		public static final PopulationGlobal DEFAULT = new PopulationGlobal(64, 128, 15, 240, 0.5F);
+			int roamIntervalSeconds, float roamChance, int outpostCitizens, int forwardBaseCitizens,
+			int headquartersCitizens, int cityCitizens, int perPlayerCitizenCap) {
+		public static final PopulationGlobal DEFAULT =
+				new PopulationGlobal(64, 128, 15, 240, 0.5F, 4, 8, 14, 28, 48);
 
 		public static PopulationGlobal fromJson(JsonObject json) {
 			return new PopulationGlobal(
@@ -214,19 +216,37 @@ public final class WarfrontRegistry {
 					GsonHelper.getAsInt(json, "hydration_radius", 128),
 					GsonHelper.getAsInt(json, "base_tick_seconds", 15),
 					GsonHelper.getAsInt(json, "roam_interval_seconds", 240),
-					GsonHelper.getAsFloat(json, "roam_chance", 0.5F));
+					GsonHelper.getAsFloat(json, "roam_chance", 0.5F),
+					GsonHelper.getAsInt(json, "outpost_citizens", 4),
+					GsonHelper.getAsInt(json, "forward_base_citizens", 8),
+					GsonHelper.getAsInt(json, "headquarters_citizens", 14),
+					GsonHelper.getAsInt(json, "city_citizens", 28),
+					GsonHelper.getAsInt(json, "per_player_citizen_cap", 48));
+		}
+
+		/** Civilian population a freshly discovered structure of this tier seeds. */
+		public int citizensForTier(String tier) {
+			return switch (tier) {
+				case "headquarters" -> headquartersCitizens;
+				case "forward_base" -> forwardBaseCitizens;
+				case "city" -> cityCitizens;
+				default -> outpostCitizens;
+			};
 		}
 	}
 
 	/** Data-driven Phase 2 economy cadence, liquidity, exchange, and shock knobs. */
 	public record EconomyConfig(int gameTicksPerEconomicTick, long startingWealth, long liquidityFloor,
-			long fixedExchange, int exchangesPerActor, int shockInterval, int shockPermille) {
-		public static final EconomyConfig DEFAULT = new EconomyConfig(200, 1_000L, 100L, 3L, 1, 400, 180);
+			long fixedExchange, int exchangesPerActor, int shockInterval, int shockPermille,
+			long moneyPerEmerald, int traderEmeraldFloat, int citizenPurseCap, int tradeLot) {
+		public static final EconomyConfig DEFAULT =
+				new EconomyConfig(200, 1_000L, 100L, 3L, 1, 400, 180, 25L, 12, 4, 8);
 
 		public EconomyConfig {
 			if (gameTicksPerEconomicTick < 1 || startingWealth < 1 || liquidityFloor < 0
 					|| fixedExchange < 1 || exchangesPerActor < 0 || shockInterval < 0
-					|| shockPermille < 0 || shockPermille > 1_000) {
+					|| shockPermille < 0 || shockPermille > 1_000 || moneyPerEmerald < 1
+					|| traderEmeraldFloat < 0 || citizenPurseCap < 0 || tradeLot < 1) {
 				throw new IllegalArgumentException("invalid economy configuration");
 			}
 		}
@@ -239,7 +259,11 @@ public final class WarfrontRegistry {
 					GsonHelper.getAsLong(json, "fixed_exchange", 3L),
 					GsonHelper.getAsInt(json, "exchanges_per_actor", 1),
 					GsonHelper.getAsInt(json, "shock_interval", 400),
-					GsonHelper.getAsInt(json, "shock_permille", 180));
+					GsonHelper.getAsInt(json, "shock_permille", 180),
+					GsonHelper.getAsLong(json, "money_per_emerald", 25L),
+					GsonHelper.getAsInt(json, "trader_emerald_float", 12),
+					GsonHelper.getAsInt(json, "citizen_purse_cap", 4),
+					GsonHelper.getAsInt(json, "trade_lot", 8));
 		}
 	}
 

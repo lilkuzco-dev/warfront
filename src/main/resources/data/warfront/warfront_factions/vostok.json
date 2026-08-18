@@ -16,7 +16,7 @@
   },
   "population": {
     "_tuning_notes": "garrison = [min,max] per tier; each base rolls a stable target in-range. reinforce: 1 soldier per bunk block per reinforce_minutes, capped at the tier target, paused while enemies are within reinforce_pause_radius of the base center; no bunks = no reinforcement. roam_style column = road-march file between friendly bases within roam_link_blocks; roaming squads despawn if unloaded past roam_despawn_unloaded_minutes. Vostok doctrine: mass — biggest garrisons, biggest columns.",
-    "garrison": { "outpost": [8, 12], "forward_base": [16, 24], "headquarters": [30, 40] },
+    "garrison": { "outpost": [8, 12], "forward_base": [16, 24], "headquarters": [30, 40], "city": [7, 11] },
     "reinforce_minutes": 5.0,
     "reinforce_pause_radius": 32,
     "roam_style": "column",

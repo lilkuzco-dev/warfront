@@ -1,0 +1,32 @@
+{
+  "elements": [
+    {
+      "weight": 3,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "warfront:aegis/city_housing",
+        "processors": "minecraft:empty",
+        "projection": "rigid"
+      }
+    },
+    {
+      "weight": 3,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "warfront:aegis/city_farm",
+        "processors": "minecraft:empty",
+        "projection": "rigid"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "warfront:aegis/city_end",
+        "processors": "minecraft:empty",
+        "projection": "rigid"
+      }
+    }
+  ],
+  "fallback": "warfront:aegis/city_end"
+}

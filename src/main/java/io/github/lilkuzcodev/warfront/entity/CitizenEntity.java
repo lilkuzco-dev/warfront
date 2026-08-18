@@ -3,10 +3,16 @@ package io.github.lilkuzcodev.warfront.entity;
 import io.github.lilkuzcodev.warfront.civilization.CitizenProfession;
 import io.github.lilkuzcodev.warfront.civilization.CivilizationManager;
 import io.github.lilkuzcodev.warfront.civilization.CivilizationMath;
+import io.github.lilkuzcodev.warfront.civilization.EconomyManager;
+import io.github.lilkuzcodev.warfront.civilization.EconomyModel;
+import io.github.lilkuzcodev.warfront.data.WarfrontRegistry;
 import io.github.lilkuzcodev.warfront.entity.ai.CitizenWorkGoal;
 import java.util.HashMap;
 import java.util.Map;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.resources.Identifier;
+import net.minecraft.server.MinecraftServer;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
@@ -30,6 +36,7 @@ import net.minecraft.world.entity.ai.goal.WaterAvoidingRandomStrollGoal;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
@@ -131,15 +138,116 @@ public final class CitizenEntity extends PathfinderMob {
 
 	@Override
 	protected InteractionResult mobInteract(Player player, InteractionHand hand) {
-		if (!level().isClientSide()) {
-			long wealth = level() instanceof ServerLevel serverLevel
-					? io.github.lilkuzcodev.warfront.civilization.EconomyManager.actorMoney(
-							serverLevel.getServer(), cityId, serial) : 0L;
-			player.sendSystemMessage(Component.literal("Citizen #" + serial + " — " + profession().id()
-					+ " of " + cityId + "; wealth=" + wealth + "; goods=" + inventory + "; work=" + workTicks + "/"
-					+ CivilizationMath.WORK_CYCLE_TICKS));
+		if (level().isClientSide()) return InteractionResult.SUCCESS;
+		if (!(level() instanceof ServerLevel serverLevel) || serial < 0 || cityId.isEmpty()) {
+			return InteractionResult.SUCCESS;
 		}
+		MinecraftServer server = serverLevel.getServer();
+		ItemStack held = player.getItemInHand(hand);
+		if (held.is(Items.EMERALD)) {
+			return buyFromCitizen(server, player, held);
+		}
+		EconomyModel.Good offered = EconomyManager.goodOfItem(itemIdOf(held));
+		if (offered != null) {
+			return sellToCitizen(server, player, held, offered);
+		}
+		long wealth = EconomyManager.actorMoney(server, cityId, serial);
+		player.sendSystemMessage(Component.literal("Citizen #" + serial + " — " + profession().id()
+				+ " of " + cityId + "; wealth=" + EconomyManager.emeraldsOf(wealth) + " emeralds; goods="
+				+ inventory + "; work=" + workTicks + "/" + CivilizationMath.WORK_CYCLE_TICKS
+				+ ". Offer emeralds to buy, or goods to sell."));
 		return InteractionResult.SUCCESS;
+	}
+
+	/** Player pays emeralds and receives a lot of whatever this citizen is holding most of. */
+	private InteractionResult buyFromCitizen(MinecraftServer server, Player player, ItemStack emeralds) {
+		int lot = WarfrontRegistry.economy().tradeLot();
+		EconomyModel.Good best = null;
+		long bestStock = 0;
+		for (EconomyModel.Good good : EconomyModel.Good.values()) {
+			long stock = EconomyManager.actorStock(server, cityId, serial, good);
+			if (stock > bestStock) {
+				bestStock = stock;
+				best = good;
+			}
+		}
+		if (best == null || bestStock < lot) {
+			player.sendSystemMessage(Component.literal("Citizen #" + serial + " has nothing to sell right now."));
+			return InteractionResult.SUCCESS;
+		}
+		long price = EconomyManager.lotPriceEmeralds(server, city(server), best, true);
+		String goodItem = EconomyManager.itemOf(best);
+		if (emeralds.getCount() < price) {
+			player.sendSystemMessage(Component.literal("Citizen #" + serial + " asks " + price
+					+ " emeralds for " + lot + " " + shortName(goodItem) + " — you are holding " + emeralds.getCount() + "."));
+			return InteractionResult.SUCCESS;
+		}
+		if (!EconomyManager.trade(server, cityId, serial, best, true, price)) {
+			player.sendSystemMessage(Component.literal("That trade fell through."));
+			return InteractionResult.SUCCESS;
+		}
+		emeralds.shrink((int) price);
+		player.getInventory().placeItemBackInInventory(new ItemStack(itemOrAir(goodItem), lot));
+		player.sendSystemMessage(Component.literal("Bought " + lot + " " + shortName(goodItem)
+				+ " for " + price + " emeralds."));
+		return InteractionResult.SUCCESS;
+	}
+
+	/** Player hands over a lot of a good and is paid in emeralds from the citizen's balance. */
+	private InteractionResult sellToCitizen(MinecraftServer server, Player player, ItemStack offered,
+			EconomyModel.Good good) {
+		int lot = WarfrontRegistry.economy().tradeLot();
+		if (offered.getCount() < lot) {
+			player.sendSystemMessage(Component.literal("Citizen #" + serial + " buys " + shortName(
+					EconomyManager.itemOf(good)) + " " + lot + " at a time."));
+			return InteractionResult.SUCCESS;
+		}
+		long price = EconomyManager.lotPriceEmeralds(server, city(server), good, false);
+		if (EconomyManager.actorMoney(server, cityId, serial) < EconomyManager.moneyOf(price)) {
+			player.sendSystemMessage(Component.literal("Citizen #" + serial + " cannot afford that right now."));
+			return InteractionResult.SUCCESS;
+		}
+		if (!EconomyManager.trade(server, cityId, serial, good, false, price)) {
+			player.sendSystemMessage(Component.literal("That trade fell through."));
+			return InteractionResult.SUCCESS;
+		}
+		offered.shrink(lot);
+		player.getInventory().placeItemBackInInventory(new ItemStack(Items.EMERALD, (int) price));
+		player.sendSystemMessage(Component.literal("Sold " + lot + " " + shortName(EconomyManager.itemOf(good))
+				+ " for " + price + " emeralds."));
+		return InteractionResult.SUCCESS;
+	}
+
+	private io.github.lilkuzcodev.warfront.civilization.CivilizationState.CityRecord city(MinecraftServer server) {
+		return io.github.lilkuzcodev.warfront.civilization.CivilizationState.get(server).city(cityId);
+	}
+
+	private static String itemIdOf(ItemStack stack) {
+		return BuiltInRegistries.ITEM.getKey(stack.getItem()).toString();
+	}
+
+	private static net.minecraft.world.item.Item itemOrAir(String id) {
+		return BuiltInRegistries.ITEM.getOptional(Identifier.parse(id)).orElse(Items.AIR);
+	}
+
+	private static String shortName(String itemId) {
+		int colon = itemId.indexOf(':');
+		return colon < 0 ? itemId : itemId.substring(colon + 1);
+	}
+
+	/**
+	 * Drops the carried purse and goods. Only the visible float is ever carried, so this
+	 * cannot become an emerald farm — the rest of a citizen's wealth is abstract holdings
+	 * that die with the record.
+	 */
+	@Override
+	protected void dropCustomDeathLoot(ServerLevel level, DamageSource source, boolean recentlyHit) {
+		super.dropCustomDeathLoot(level, source, recentlyHit);
+		for (Map.Entry<String, Integer> entry : inventory.entrySet()) {
+			net.minecraft.world.item.Item item = itemOrAir(entry.getKey());
+			if (item == Items.AIR || entry.getValue() <= 0) continue;
+			spawnAtLocation(level, new ItemStack(item, entry.getValue()));
+		}
 	}
 
 	@Override

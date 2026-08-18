@@ -123,6 +123,7 @@ class Plan {
 			if (existing && ty >= 1 && existing.name !== "minecraft:air" && name !== "minecraft:air"
 					&& !existing.name.includes("wall") && !existing.name.includes("lantern")) {
 				this.collisions = (this.collisions ?? 0) + 1;
+				(this.collisionAt ??= []).push(`${tx},${ty},${tz} ${existing.name} <- ${name}`);
 			}
 			this.set(tx, ty, tz, name, rotProps(props, steps), nbt);
 		}
@@ -196,6 +197,9 @@ class Plan {
 		fs.writeFileSync(file, write(root));
 		console.log(`wrote ${faction}/${name}.nbt (${maxX + 1}x${maxY + 1}x${maxZ + 1}, ${this.blocks.size} blocks, ${this.entities.length} seeds)`
 			+ (this.collisions ? `  STAMP COLLISIONS: ${this.collisions}` : ""));
+		if (this.collisions && process.env.WF_DEBUG_COLLISIONS) {
+			for (const c of this.collisionAt.slice(0, 12)) console.log(`    at ${c}`);
+		}
 	}
 }
 
@@ -595,14 +599,217 @@ function tentPads() {
 	}
 }
 
+// ---------- civilian tissue (cities) ----------
+// Cities are the same stamped-building discipline as the bases, with the military
+// grammar swapped out: no perimeter wall, no gate, no training yard. What holds a
+// city together is roads, a plaza, lit streets and worked farmland.
+
+const ROAD = { vostok: "minecraft:gravel", aegis: "minecraft:polished_andesite", sarab: "minecraft:dirt_path" };
+const CROP = { vostok: "minecraft:potatoes", aegis: "minecraft:wheat", sarab: "minecraft:carrots" };
+
+/** Lamp post — the civilian counterpart of the floodlight. */
+function streetLamp(p, f, x, z) {
+	p.set(x, 1, z, WALL_CAP[f]);
+	for (let y = 2; y <= 4; y++) p.set(x, y, z, "minecraft:oak_fence");
+	p.set(x, 5, z, "minecraft:lantern", { hanging: "false" });
+}
+
+/** Open road grid: two avenues plus a paved plaza, no walls anywhere. */
+function cityRoads(p, f, size) {
+	const mid = Math.floor(size / 2);
+	p.fill(0, 0, 0, size - 1, 0, size - 1, GROUND[f]);
+	p.fill(mid - 2, 0, 0, mid + 2, 0, size - 1, ROAD[f]);
+	p.fill(0, 0, mid - 2, size - 1, 0, mid + 2, ROAD[f]);
+}
+
+/** Market plaza: well, stalls, banners and benches — the civic centre of the city. */
+function plaza(p, f, cx, cz, lootTable) {
+	p.fill(cx - 6, 0, cz - 6, cx + 6, 0, cz + 6, ROAD[f]);
+	// the well
+	p.fill(cx - 1, 1, cz - 1, cx + 1, 1, cz + 1, WALL[f]);
+	p.fill(cx, 1, cz, cx, 1, cz, "minecraft:water");
+	for (const [dx, dz] of [[-1, -1], [-1, 1], [1, -1], [1, 1]]) {
+		p.set(cx + dx, 2, cz + dz, "minecraft:oak_fence");
+		p.set(cx + dx, 3, cz + dz, "minecraft:oak_fence");
+	}
+	p.fill(cx - 1, 4, cz - 1, cx + 1, 4, cz + 1, WALL_CAP[f]);
+	// market stalls: barrels under awnings on two sides
+	for (const [sx, sz] of [[cx - 5, cz - 4], [cx + 4, cz - 4], [cx - 5, cz + 3], [cx + 4, cz + 3]]) {
+		p.set(sx, 1, sz, "minecraft:barrel", { facing: "up" }, { id: "minecraft:barrel", LootTable: lootTable });
+		p.set(sx + 1, 1, sz, "minecraft:oak_fence");
+		p.set(sx, 2, sz, "minecraft:oak_slab", { type: "top" });
+		p.set(sx + 1, 2, sz, "minecraft:oak_slab", { type: "top" });
+		p.set(sx, 3, sz, `minecraft:${BANNER[f]}_banner`, { rotation: "8" }, { id: "minecraft:banner" });
+	}
+	streetLamp(p, f, cx - 6, cz - 6);
+	streetLamp(p, f, cx + 6, cz - 6);
+	streetLamp(p, f, cx - 6, cz + 6);
+	streetLamp(p, f, cx + 6, cz + 6);
+}
+
+/** Worked farmland with a water channel — visible civilian production. */
+function farmPlot(p, f, x1, z1, w = 9, d = 7) {
+	p.fill(x1, 0, z1, x1 + w - 1, 0, z1 + d - 1, "minecraft:farmland", { moisture: "7" });
+	const channel = z1 + Math.floor(d / 2);
+	p.fill(x1, 0, channel, x1 + w - 1, 0, channel, "minecraft:water");
+	for (let x = x1; x < x1 + w; x++) {
+		for (let z = z1; z < z1 + d; z++) {
+			if (z === channel) continue;
+			p.set(x, 1, z, CROP[f], { age: String(((x + z) % 4) * 2 + 1) });
+		}
+	}
+	for (let x = x1 - 1; x <= x1 + w; x++) {
+		p.set(x, 1, z1 - 1, "minecraft:oak_fence");
+		p.set(x, 1, z1 + d, "minecraft:oak_fence");
+	}
+}
+
+/** Outward road sockets so a city sprawls into districts instead of stopping at a line. */
+function citySocket(p, f, x, z, orientation) {
+	p.jigsaw(x, 0, z, orientation, `warfront:${f}/city_districts`, ROAD[f]);
+}
+
+/**
+ * Reserves a lot for a piece without knowing its rotation. `stamp` resolves rotation
+ * from the piece's own entrance jigsaw, so the footprint is only known afterwards —
+ * planning against the square of the larger side is what keeps lots from overlapping.
+ */
+function lotSize(f, piece) {
+	const file = pieceFile(f, piece);
+	if (!fs.existsSync(file)) return null;
+	const { root } = parse(fs.readFileSync(file));
+	const [sx, , sz] = root.v.size.v.items;
+	return Math.max(sx, sz);
+}
+
+/** Stamps pieces along +x from (x0,z0), advancing by each reserved lot. Skips what will not fit. */
+function buildingRow(p, f, pieces, x0, z0, face, xLimit, zLimit, lootTable) {
+	let x = x0;
+	for (const piece of pieces) {
+		const lot = lotSize(f, piece);
+		if (lot === null) {
+			console.log(`  NOTE ${f}: no piece ${piece} for this faction, row continues`);
+			continue;
+		}
+		// A silently dropped building is a city that quietly comes out smaller than
+		// planned, so say so rather than skipping under the radar.
+		if (x + lot - 1 > xLimit || z0 + lot - 1 > zLimit) {
+			console.log(`  WARN ${f}: ${piece} (lot ${lot}) does not fit at x=${x} z=${z0} `
+				+ `within (${xLimit},${zLimit}) — SKIPPED`);
+			continue;
+		}
+		p.stamp(pieceFile(f, piece), x, 1, z0, face, lootTable);
+		x += lot + 2;
+	}
+	return x;
+}
+
+function city(f) {
+	// Sarab needs the wider plate: its command post is 17 deep against Aegis' 11.
+	const size = { vostok: 76, aegis: 72, sarab: 76 }[f];
+	const p = new Plan();
+	const mid = Math.floor(size / 2);
+	const L = loot(f, "outpost");
+	cityRoads(p, f, size);
+	plaza(p, f, mid, mid, L);
+
+	// Four quarters, bounded by the PLAZA's extent rather than the avenue's — the plaza
+	// is wider than the road it sits on, and its corner lamps stand 6 out from centre.
+	const lo = 3;
+	const hiNear = mid - 8;
+	const loFar = mid + 8;
+	const hiFar = size - 4;
+
+	// NW — the residential quarter
+	buildingRow(p, f, ["barracks_1", "bunkroom"], lo, lo, "s", hiNear, hiNear, L);
+	// NE — the guard tower watching the north road
+	tower(p, f, "watchtower", loFar, lo, "s");
+	// SW — civic buildings facing the plaza
+	buildingRow(p, f, ["command_post", f === "sarab" ? "supply" : "mess"], lo, loFar, "n", hiNear, hiFar, L);
+	// SE — trade buildings
+	buildingRow(p, f, ["quartermaster", "armory_1"], loFar, loFar, "n", hiFar, hiFar, L);
+
+	// Farmland fills the strip each northern row did not claim: the deepest lot up
+	// there is the tower's 15, so the fence line starts clear of it.
+	farmPlot(p, f, lo, hiNear - 9);
+	farmPlot(p, f, loFar + 15, hiNear - 9);
+
+	for (const d of [lo + 5, size - lo - 5]) {
+		streetLamp(p, f, mid - 3, d);
+		streetLamp(p, f, mid + 3, d);
+	}
+	flagpole(p, f, mid - 7, mid + 7, 8);
+
+	// A city is defended, but lightly: a token guard, so the garrison ledger has
+	// something to hold and the place is not a free larder.
+	p.soldier(mid, 1, mid + 8, f, "officer");
+	p.soldier(mid - 7, 1, mid, f, "soldier");
+
+	citySocket(p, f, 0, mid, "west_up");
+	citySocket(p, f, size - 1, mid, "east_up");
+	citySocket(p, f, mid, 0, "north_up");
+	citySocket(p, f, mid, size - 1, "south_up");
+	p.emit(f, "city");
+}
+
+/** District pieces the city sprawls into: more housing, more farmland, or a road end. */
+function cityDistricts() {
+	for (const f of ["vostok", "aegis", "sarab"]) {
+		const L = loot(f, "outpost");
+
+		const housing = new Plan();
+		housing.depthMid = 11;
+		housing.fill(0, 0, 0, 22, 0, 22, GROUND[f]);
+		housing.fill(0, 0, 9, 22, 0, 13, ROAD[f]);
+		housing.stamp(pieceFile(f, "barracks_2"), 2, 1, 1, "s", L);
+		housing.stamp(pieceFile(f, "bunkroom"), 13, 1, 15, "n", L);
+		streetLamp(housing, f, 6, 14);
+		streetLamp(housing, f, 17, 8);
+		housing.set(0, 0, 11, "minecraft:jigsaw", { orientation: "west_up" }, {
+			name: "minecraft:building_entrance", target: "minecraft:building_entrance",
+			pool: "minecraft:empty", final_state: ROAD[f], joint: "aligned",
+		});
+		housing.jigsaw(22, 0, 11, "east_up", `warfront:${f}/city_districts`, ROAD[f]);
+		housing.emit(f, "city_housing");
+
+		const farm = new Plan();
+		farm.depthMid = 10;
+		farm.fill(0, 0, 0, 20, 0, 20, GROUND[f]);
+		farm.fill(0, 0, 8, 20, 0, 12, ROAD[f]);
+		farmPlot(farm, f, 3, 1);
+		farmPlot(farm, f, 3, 14);
+		farm.set(16, 1, 4, "minecraft:hay_block");
+		farm.set(16, 1, 16, "minecraft:composter");
+		streetLamp(farm, f, 16, 10);
+		farm.set(0, 0, 10, "minecraft:jigsaw", { orientation: "west_up" }, {
+			name: "minecraft:building_entrance", target: "minecraft:building_entrance",
+			pool: "minecraft:empty", final_state: ROAD[f], joint: "aligned",
+		});
+		farm.jigsaw(20, 0, 10, "east_up", `warfront:${f}/city_districts`, ROAD[f]);
+		farm.emit(f, "city_farm");
+
+		const end = new Plan();
+		end.depthMid = 3;
+		end.fill(0, 0, 0, 6, 0, 6, ROAD[f]);
+		streetLamp(end, f, 5, 3);
+		end.set(0, 0, 3, "minecraft:jigsaw", { orientation: "west_up" }, {
+			name: "minecraft:building_entrance", target: "minecraft:building_entrance",
+			pool: "minecraft:empty", final_state: ROAD[f], joint: "aligned",
+		});
+		end.emit(f, "city_end");
+	}
+}
+
 // ---------- run ----------
 for (const f of ["vostok", "aegis", "sarab"]) {
 	outpost(f, "a");
 	outpost(f, "b");
 	forwardBase(f);
 	headquarters(f);
+	city(f);
 }
 trenchArm();
 sarabArms();
 sarabSubcamps();
 tentPads();
+cityDistricts();

@@ -2,6 +2,7 @@
   "values": [
     "warfront:aegis_base",
     "warfront:aegis_forward_base",
-    "warfront:aegis_headquarters"
+    "warfront:aegis_headquarters",
+    "warfront:aegis_city"
   ]
 }

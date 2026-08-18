@@ -103,6 +103,34 @@ public class WarfrontRenderTest implements FabricClientGameTest {
 				x += 300;
 			}
 
+			// --- the three faction cities (aerial), plus one eye-level read of the
+			// plaza, which is the piece of civilian grammar most likely to be wrong.
+			for (int i = 0; i < 3; i++) {
+				shootStructure(context, world, "warfront:" + factions[i] + "_city", factions[i] + "_city", x, 120);
+				x += 300;
+			}
+
+			int cx = 3000;
+			server.runCommand("forceload add " + (cx - 96) + " -96 " + (cx + 176) + " 176");
+			server.runCommand("tp @p " + cx + " -55 0");
+			context.waitTicks(200);
+			server.runCommand("place template warfront:aegis/city " + cx + " -60 0");
+			context.waitTicks(80);
+			// Yaw 0 faces SOUTH (+Z) and 180 faces NORTH (-Z); the plate's plaza sits at
+			// z 30..42, its farm plots at z 19..25, so each camera is aimed accordingly.
+			server.runCommand("gamemode spectator @p");
+			server.runCommand("tp @p " + (cx + 36) + " -56 22 0 5");
+			context.waitTicks(60);
+			context.takeScreenshot("aegis_city_plaza");
+			// look back down the avenue INTO the town, not out at empty superflat
+			server.runCommand("tp @p " + (cx + 36) + " -56 62 180 5");
+			context.waitTicks(30);
+			context.takeScreenshot("aegis_city_avenue");
+			// the NW farm plot sits at x 3..11, z 19..25 on the plate
+			server.runCommand("tp @p " + (cx + 7) + " -56 32 180 12");
+			context.waitTicks(30);
+			context.takeScreenshot("aegis_city_farm");
+
 			// --- aegis HQ eye-level read (depth-ruling addendum): does the plate read
 			// as a genuine installation from the ground, not just from the air?
 			// Unrotated /place template so the generator's composition coordinates hold

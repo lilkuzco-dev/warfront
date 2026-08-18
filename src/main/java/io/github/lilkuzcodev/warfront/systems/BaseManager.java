@@ -2,6 +2,7 @@ package io.github.lilkuzcodev.warfront.systems;
 
 import io.github.lilkuzcodev.warfront.Warfront;
 import io.github.lilkuzcodev.warfront.block.WarfrontBlocks;
+import io.github.lilkuzcodev.warfront.civilization.CivilizationManager;
 import io.github.lilkuzcodev.warfront.data.Faction;
 import io.github.lilkuzcodev.warfront.data.WarfrontRegistry;
 import io.github.lilkuzcodev.warfront.data.WarfrontState;
@@ -43,6 +44,8 @@ import net.minecraft.world.phys.AABB;
 public final class BaseManager {
 	public static final TagKey<Structure> ALL_BASES = TagKey.create(Registries.STRUCTURE, Warfront.id("bases"));
 	private static final int DISCOVERY_SETTLE_TICKS = 200;
+	/** How far from the settlement heart civilians live and are counted. */
+	private static final int SETTLEMENT_RADIUS = 40;
 
 	public static void init() {
 		ServerTickEvents.END_SERVER_TICK.register(server -> {
@@ -127,8 +130,64 @@ public final class BaseManager {
 					0, level.getGameTime(), false);
 			state.putBase(key, base);
 			Warfront.LOGGER.info("Registered base {} ({} {})", key, base.faction, base.tier);
+			// A base is not only a garrison: the people who keep it running live here too.
+			// Seeded once, at first contact, around the START PIECE rather than the whole
+			// structure box — jigsaw sprawl can stretch that box hundreds of blocks, and
+			// its centre need not be anywhere near the built plate.
+			seedCivilians(level, key, base, startPieceCenter(start, box));
 		}
 		return key;
+	}
+
+	/** Centre of the plate the structure started from, which is where the settlement is. */
+	private static BlockPos startPieceCenter(StructureStart start, BoundingBox fallback) {
+		var pieces = start.getPieces();
+		return pieces.isEmpty() ? fallback.getCenter() : pieces.get(0).getBoundingBox().getCenter();
+	}
+
+	/**
+	 * Attaches this structure's civilian population. Homes are real standable spots
+	 * inside the footprint, so citizens are never seeded inside a wall.
+	 */
+	private static void seedCivilians(ServerLevel level, String key, WarfrontState.Base base, BlockPos heart) {
+		int population = WarfrontRegistry.population().citizensForTier(base.tier);
+		if (population < 1) {
+			return;
+		}
+		CivilizationManager.seedSettlement(level, "base_" + key, base.faction, heart,
+				SETTLEMENT_RADIUS, population, standableSpots(level, heart, population * 2));
+	}
+
+	/**
+	 * Standable positions around the settlement heart, nearest first.
+	 *
+	 * <p>Scans the whole disc before choosing, rather than taking the first hits it
+	 * finds: filling greedily drains entirely out of the first column scanned and
+	 * strings every citizen along one edge instead of spreading them through the town.
+	 */
+	private static List<BlockPos> standableSpots(ServerLevel level, BlockPos heart, int wanted) {
+		List<BlockPos> found = new ArrayList<>();
+		int top = heart.getY() + 16;
+		int bottom = heart.getY() - 12;
+		for (int dx = -SETTLEMENT_RADIUS; dx <= SETTLEMENT_RADIUS; dx += 3) {
+			for (int dz = -SETTLEMENT_RADIUS; dz <= SETTLEMENT_RADIUS; dz += 3) {
+				int x = heart.getX() + dx;
+				int z = heart.getZ() + dz;
+				if (!level.isLoaded(new BlockPos(x, heart.getY(), z))) {
+					continue;
+				}
+				for (int y = top; y >= bottom; y--) {
+					BlockPos pos = new BlockPos(x, y, z);
+					if (level.getBlockState(pos).isAir() && level.getBlockState(pos.above()).isAir()
+							&& !level.getBlockState(pos.below()).isAir()) {
+						found.add(pos);
+						break;
+					}
+				}
+			}
+		}
+		found.sort(java.util.Comparator.comparingDouble(pos -> pos.distSqr(heart)));
+		return found.size() > wanted ? new ArrayList<>(found.subList(0, wanted)) : found;
 	}
 
 	private static @org.jspecify.annotations.Nullable String factionOf(String structurePath) {
@@ -143,6 +202,9 @@ public final class BaseManager {
 	private static String tierOf(String structurePath) {
 		if (structurePath.contains("headquarters")) {
 			return "headquarters";
+		}
+		if (structurePath.endsWith("_city")) {
+			return "city";
 		}
 		return structurePath.contains("forward") ? "forward_base" : "outpost";
 	}

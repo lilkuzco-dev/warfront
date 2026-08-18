@@ -1,0 +1,14 @@
+{
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "warfront:sarab/city",
+        "processors": "warfront:sarab_rot",
+        "projection": "rigid"
+      }
+    }
+  ],
+  "fallback": "minecraft:empty"
+}

@@ -1,9 +1,14 @@
 {
+  "_tuning_notes": "Phase 2 economy. money_per_emerald: internal money units one emerald is worth — citizen wealth and every player-facing price convert at this rate. citizen_purse_cap / trader_emerald_float: how many emeralds a citizen actually carries as items (the rest of their wealth stays abstract holdings, so citizens are not an emerald farm). trade_lot: units of a good exchanged per player trade.",
   "game_ticks_per_economic_tick": 200,
   "starting_wealth": 1000,
   "liquidity_floor": 100,
   "fixed_exchange": 3,
   "exchanges_per_actor": 1,
   "shock_interval": 400,
-  "shock_permille": 180
+  "shock_permille": 180,
+  "money_per_emerald": 25,
+  "trader_emerald_float": 12,
+  "citizen_purse_cap": 4,
+  "trade_lot": 8
 }

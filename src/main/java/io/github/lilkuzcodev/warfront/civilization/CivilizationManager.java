@@ -9,6 +9,7 @@ import io.github.lilkuzcodev.warfront.entity.WarfrontEntities;
 import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
@@ -42,18 +43,62 @@ public final class CivilizationManager {
 		String id = normalizeId(requestedId);
 		if (id.isEmpty()) throw new IllegalArgumentException("city id must contain a letter or number");
 		if (state.city(id) != null) throw new IllegalArgumentException("city already exists: " + id);
+		CityRecord city = new CityRecord(id, faction, center.immutable(), 64, population + 1L,
+				buildCitizens(level, id, center, population, List.of()));
+		state.putCity(city);
+		reconcile(level.getServer());
+		return state.city(id);
+	}
+
+	/**
+	 * Attaches a civilian population to a structure that just generated. Idempotent: a
+	 * settlement is seeded once, the first time its structure is discovered, and every
+	 * later discovery of the same structure is a no-op.
+	 *
+	 * <p>{@code homes} are standable positions found inside the structure; citizens are
+	 * placed on them so nobody spawns inside a wall. An empty list falls back to a
+	 * spiral around the centre.
+	 */
+	public static @org.jspecify.annotations.Nullable CityRecord seedSettlement(ServerLevel level, String rawId,
+			String faction, BlockPos center, int radius, int population, List<BlockPos> homes) {
+		if (population < 1) return null;
+		CivilizationState state = CivilizationState.get(level.getServer());
+		String id = normalizeId(rawId);
+		if (id.isEmpty()) return null;
+		CityRecord existing = state.city(id);
+		if (existing != null) return existing;
+		CityRecord city = new CityRecord(id, faction, center.immutable(), radius, population + 1L,
+				buildCitizens(level, id, center, population, homes));
+		state.putCity(city);
+		Warfront.LOGGER.info("Seeded settlement {} ({}) with {} citizens at {}", id, faction, population,
+				center.toShortString());
+		return city;
+	}
+
+	private static Map<String, CitizenRecord> buildCitizens(ServerLevel level, String id, BlockPos center,
+			int population, List<BlockPos> homes) {
 		Map<String, CitizenRecord> citizens = new HashMap<>();
 		long now = level.getGameTime();
 		for (int i = 0; i < population; i++) {
 			long serial = i + 1L;
-			double angle = serial * 2.399963229728653;
-			double distance = 3.0 + (serial % 7) * 1.7;
-			double x = center.getX() + 0.5 + Math.cos(angle) * distance;
-			double z = center.getZ() + 0.5 + Math.sin(angle) * distance;
-			// The command position is concrete even immediately after a teleport. A
-			// heightmap query can observe the pre-load sentinel for the destination
-			// chunk and strand actors at build height before their first promotion.
-			int y = center.getY();
+			double x;
+			double z;
+			int y;
+			if (homes.isEmpty()) {
+				double angle = serial * 2.399963229728653;
+				double distance = 3.0 + (serial % 7) * 1.7;
+				x = center.getX() + 0.5 + Math.cos(angle) * distance;
+				z = center.getZ() + 0.5 + Math.sin(angle) * distance;
+				// The command position is concrete even immediately after a teleport. A
+				// heightmap query can observe the pre-load sentinel for the destination
+				// chunk and strand actors at build height before their first promotion.
+				y = center.getY();
+			} else {
+				BlockPos home = homes.get(i % homes.size());
+				x = home.getX() + 0.5;
+				y = home.getY();
+				z = home.getZ() + 0.5;
+			}
 			CitizenProfession profession = CitizenProfession.values()[i % CitizenProfession.values().length];
 			UUID uuid = UUID.nameUUIDFromBytes((level.getSeed() + ":" + id + ":" + serial)
 					.getBytes(StandardCharsets.UTF_8));
@@ -61,10 +106,7 @@ public final class CivilizationManager {
 					FidelityTier.VIRTUAL);
 			citizens.put(Long.toString(serial), actor);
 		}
-		CityRecord city = new CityRecord(id, faction, center.immutable(), 64, population + 1L, Map.copyOf(citizens));
-		state.putCity(city);
-		reconcile(level.getServer());
-		return state.city(id);
+		return Map.copyOf(citizens);
 	}
 
 	public static void reconcile(MinecraftServer server) {
@@ -78,6 +120,12 @@ public final class CivilizationManager {
 			if (prior != null) duplicates.add(entity);
 		}
 		duplicates.forEach(CitizenEntity::removeForLadder);
+
+		// Global live-citizen budget, mirroring the garrison budget. Once it is spent the
+		// remaining citizens stay abstract: their economy keeps running, they simply are
+		// not embodied. Nothing is lost, because the record is what is authoritative.
+		int budget = io.github.lilkuzcodev.warfront.data.WarfrontRegistry.population().perPlayerCitizenCap()
+				* level.players().size() - loaded.size();
 
 		for (CityRecord city : state.cities().values()) {
 			long cityStarted = System.nanoTime();
@@ -96,8 +144,14 @@ public final class CivilizationManager {
 					current = advanceAbstract(original, level.getGameTime());
 				}
 
+				if (desired == FidelityTier.EMBODIED && entity == null && budget <= 0) {
+					desired = FidelityTier.LOCAL_ABSTRACT;
+				}
 				if (desired == FidelityTier.EMBODIED) {
-					if (entity == null || !entity.isAlive()) entity = embody(level, city, current);
+					if (entity == null || !entity.isAlive()) {
+						entity = embody(level, city, current);
+						if (entity != null) budget--;
+					}
 					if (entity != null) {
 						// A chunk may deserialize its last saved entity before our first
 						// reconciliation. On promotion the record wins, including goods

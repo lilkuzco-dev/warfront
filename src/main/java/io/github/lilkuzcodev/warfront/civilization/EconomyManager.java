@@ -89,6 +89,7 @@ public final class EconomyManager {
 				for (var entry : model.actorGoods(index).entrySet()) {
 					inventory.put(itemId(entry.getKey()), Math.toIntExact(entry.getValue()));
 				}
+				putPurse(inventory, actor.profession(), model.actorMoney(index));
 			}
 			actors.put(Long.toString(actor.serial()), actor.withState(actor.x(), actor.y(), actor.z(),
 					actor.workTicks(), inventory, actor.lastAdvancedTick(), actor.tier()));
@@ -137,8 +138,91 @@ public final class EconomyManager {
 			if (count == 0) inventory.remove(item);
 			else inventory.put(item, count);
 		}
+		putPurse(inventory, actor.profession(), model.actorMoney(index));
 		return actor.withState(actor.x(), actor.y(), actor.z(), actor.workTicks(), Map.copyOf(inventory),
 				actor.lastAdvancedTick(), actor.tier());
+	}
+
+	/** The carried-emerald float is derived state: recomputed, never accumulated. */
+	private static void putPurse(Map<String, Integer> inventory, CitizenProfession profession, long money) {
+		int emeralds = purse(profession, money);
+		if (emeralds <= 0) inventory.remove(EMERALD);
+		else inventory.put(EMERALD, emeralds);
+	}
+
+	// ---------- emeralds: the visible face of the model's abstract money ----------
+
+	public static final String EMERALD = "minecraft:emerald";
+
+	/** Whole emeralds a money balance is worth, at the datapack exchange rate. */
+	public static long emeraldsOf(long money) {
+		return money / WarfrontRegistry.economy().moneyPerEmerald();
+	}
+
+	/** Money value of a number of emeralds — the inverse of {@link #emeraldsOf}. */
+	public static long moneyOf(long emeralds) {
+		return emeralds * WarfrontRegistry.economy().moneyPerEmerald();
+	}
+
+	/**
+	 * Emeralds a citizen physically carries. Deliberately a small capped float rather
+	 * than their whole balance: wealth stays abstract holdings, so a citizen is visible
+	 * evidence of the economy without being an emerald farm.
+	 */
+	public static int purse(CitizenProfession profession, long money) {
+		var config = WarfrontRegistry.economy();
+		int cap = profession == CitizenProfession.TRADER
+				? config.traderEmeraldFloat() : config.citizenPurseCap();
+		return (int) Math.clamp(emeraldsOf(money), 0L, cap);
+	}
+
+	/** The good a tradeable item stands for, or null if the citizens do not deal in it. */
+	public static EconomyModel.@org.jspecify.annotations.Nullable Good goodOfItem(String itemId) {
+		for (EconomyModel.Good good : EconomyModel.Good.values()) {
+			if (itemId(good).equals(itemId)) return good;
+		}
+		return null;
+	}
+
+	public static String itemOf(EconomyModel.Good good) {
+		return itemId(good);
+	}
+
+	/** Emerald price for one lot, rounded so the citizen never trades at a loss. */
+	public static long lotPriceEmeralds(MinecraftServer server, CityRecord city, EconomyModel.Good good,
+			boolean playerIsBuying) {
+		long unit = price(server, city, good);
+		long lot = WarfrontRegistry.economy().tradeLot();
+		long money = unit * lot;
+		long perEmerald = WarfrontRegistry.economy().moneyPerEmerald();
+		// Buying rounds up and selling rounds down: the spread is the citizen's margin.
+		long emeralds = playerIsBuying
+				? (money + perEmerald - 1) / perEmerald
+				: money / perEmerald;
+		return Math.max(1L, emeralds);
+	}
+
+	/** Applies a completed player trade to the persistent model. */
+	public static boolean trade(MinecraftServer server, String cityId, long serial,
+			EconomyModel.Good good, boolean playerIsBuying, long emeralds) {
+		CityRecord city = CivilizationState.get(server).city(cityId);
+		if (city == null) return false;
+		EconomyModel model = model(server, city, EconomyState.get(server));
+		int index = Math.toIntExact(serial - 1);
+		long lot = WarfrontRegistry.economy().tradeLot();
+		boolean applied = playerIsBuying
+				? model.playerBuy(index, good, lot, moneyOf(emeralds))
+				: model.playerSell(index, good, lot, moneyOf(emeralds));
+		if (!applied) return false;
+		EconomyState.get(server).put(city.id(), model);
+		LAST_DISTRIBUTION.put(city.id(), model.distribution());
+		return true;
+	}
+
+	public static long actorStock(MinecraftServer server, String cityId, long serial, EconomyModel.Good good) {
+		CityRecord city = CivilizationState.get(server).city(cityId);
+		if (city == null) return 0L;
+		return model(server, city, EconomyState.get(server)).actorStock(Math.toIntExact(serial - 1), good);
 	}
 
 	private static String itemId(EconomyModel.Good good) {

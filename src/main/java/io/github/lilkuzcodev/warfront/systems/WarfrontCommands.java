@@ -181,6 +181,17 @@ public final class WarfrontCommands {
 				EconomyManager.price(source.getServer(), city, EconomyModel.Good.TIMBER),
 				EconomyManager.price(source.getServer(), city, EconomyModel.Good.CRAFTS),
 				d.totalMoney(), d.totalGoods(), audit.balanced(), ms)), false);
+		source.sendSuccess(() -> Component.literal(String.format(
+				"emeralds: city wealth=%d; %d/lot food=%d ore=%d timber=%d crafts=%d (buy); "
+						+ "player trade in=%d out=%d",
+				EconomyManager.emeraldsOf(d.totalMoney()),
+				WarfrontRegistry.economy().tradeLot(),
+				EconomyManager.lotPriceEmeralds(source.getServer(), city, EconomyModel.Good.FOOD, true),
+				EconomyManager.lotPriceEmeralds(source.getServer(), city, EconomyModel.Good.ORE, true),
+				EconomyManager.lotPriceEmeralds(source.getServer(), city, EconomyModel.Good.TIMBER, true),
+				EconomyManager.lotPriceEmeralds(source.getServer(), city, EconomyModel.Good.CRAFTS, true),
+				EconomyManager.emeraldsOf(audit.externalMoneyIn()),
+				EconomyManager.emeraldsOf(audit.externalMoneyOut()))), false);
 		return 1;
 	}
 
