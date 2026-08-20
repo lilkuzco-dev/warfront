@@ -8,9 +8,18 @@
  * placement across a region, then reports the closest pair — overall and
  * cross-faction.
  *
- * Deliberately conservative: biome predicates, exclusion zones and `frequency`
- * are all ignored. Every one of them can only *remove* a placement, so the
- * distance measured here is a lower bound on the distance a real world produces.
+ * Biome predicates and `frequency` are ignored — both can only *remove* a placement,
+ * so the distance measured is a lower bound on what a real world produces.
+ *
+ * `exclusion_zone` is NOT ignored, because it is load-bearing rather than incidental.
+ * Warfront's castles are 501 blocks across and live in their own set, and a set's
+ * spacing says nothing about any other set — the only thing keeping a base out of a
+ * castle is `bases`' exclusion zone pointing at `warfront:grand_castles`. A checker
+ * that skipped it would report an overlap the game does not produce, which is just as
+ * useless as missing one it does. Modelled the way vanilla does: a candidate is
+ * forbidden if any chunk within `chunk_count` (Chebyshev) is a placement chunk of the
+ * referenced set. Cross-set references outside this mod (`minecraft:villages`) cannot
+ * be replayed here and are reported as unmodelled rather than silently ignored.
  *
  *   node tools/verify-base-spacing.js [--floor 200] [--radius 1600] [--seeds 8]
  *
@@ -89,14 +98,55 @@ function loadSets() {
 		.filter(f => f.endsWith('.json'))
 		.map(f => {
 			const json = JSON.parse(fs.readFileSync(path.join(SET_DIR, f), 'utf8'));
-			return { file: f, json };
+			return { file: f, id: 'warfront:' + f.replace(/\.json$/, ''), json };
 		})
 		.filter(s => s.json.placement?.type === 'minecraft:random_spread');
 }
 
-function collectPlacements(sets, worldSeed, radiusChunks) {
+/** Placement chunks of one set, as a "cx,cz" Set — what an exclusion zone tests against. */
+function placementChunks(json, worldSeed, radiusChunks) {
+	const p = json.placement;
+	const chunks = new Set();
+	const cellLo = Math.floor(-radiusChunks / p.spacing);
+	const cellHi = Math.ceil(radiusChunks / p.spacing);
+	for (let cx = cellLo; cx <= cellHi; cx++) {
+		for (let cz = cellLo; cz <= cellHi; cz++) {
+			const [chunkX, chunkZ] = placementForCell(worldSeed, cx, cz, p.spacing, p.separation,
+				p.spread_type ?? 'linear', p.salt);
+			chunks.add(chunkX + ',' + chunkZ);
+		}
+	}
+	return chunks;
+}
+
+/**
+ * Chunks a set may not place in, given its exclusion zone: every chunk within
+ * `chunk_count` of any placement chunk of the referenced set. Expanding the sparse set
+ * once beats testing a (2n+1)^2 neighbourhood per candidate of the dense one.
+ */
+function forbiddenChunks(json, sets, worldSeed, radiusChunks, unmodelled) {
+	const zone = json.placement?.exclusion_zone;
+	if (!zone) return null;
+	const target = sets.find(s => s.id === zone.other_set);
+	if (!target) {
+		unmodelled.add(zone.other_set);
+		return null;
+	}
+	const n = zone.chunk_count;
+	const forbidden = new Set();
+	for (const key of placementChunks(target.json, worldSeed, radiusChunks)) {
+		const [cx, cz] = key.split(',').map(Number);
+		for (let dx = -n; dx <= n; dx++) {
+			for (let dz = -n; dz <= n; dz++) forbidden.add((cx + dx) + ',' + (cz + dz));
+		}
+	}
+	return forbidden;
+}
+
+function collectPlacements(sets, worldSeed, radiusChunks, unmodelled = new Set()) {
 	const points = [];
 	for (const { file, json } of sets) {
+		const forbidden = forbiddenChunks(json, sets, worldSeed, radiusChunks, unmodelled);
 		const p = json.placement;
 		const spacing = p.spacing;
 		const separation = p.separation;
@@ -110,6 +160,7 @@ function collectPlacements(sets, worldSeed, radiusChunks) {
 		for (let cx = cellLo; cx <= cellHi; cx++) {
 			for (let cz = cellLo; cz <= cellHi; cz++) {
 				const [chunkX, chunkZ] = placementForCell(worldSeed, cx, cz, spacing, separation, spreadType, p.salt);
+				if (forbidden && forbidden.has(chunkX + ',' + chunkZ)) continue;
 				points.push({
 					file,
 					factions,
@@ -169,53 +220,107 @@ function describe(pair) {
 }
 
 /**
- * Largest and second-largest structure plates in the set, and what the measured minimum
- * centre distance leaves between their edges. Reads the NBTs, so it cannot drift from the
- * structures actually shipped.
+ * Every structure's own plate width, read from its NBT, keyed by structure id.
+ *
+ * A structure set's `spacing` says nothing about any other set, so the only thing keeping
+ * a 501-block castle out of a base is `bases`' exclusion zone. That radius has to be at
+ * least half of each plate added together — and it has to be re-derived from the NBTs
+ * rather than remembered, because the whole point of the castle work is that a supplied
+ * build may be bigger than the last one.
  */
-function reportFootprintClearance(worstCentreDistance) {
+function plateWidths() {
 	let parse;
-	try {
-		({ parse } = require('./nbt.js'));
-	} catch {
-		return; // the spacing proof stands on its own; this is extra reporting
-	}
+	try { ({ parse } = require('./nbt.js')); } catch { return null; }
 	const structureDir = path.join(__dirname, '..', 'src', 'main', 'resources',
 		'data', 'warfront', 'structure');
-	const plates = [];
-	const walk = (dir) => {
+	const widths = new Map();
+	const walk = (dir, faction) => {
 		for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
 			const full = path.join(dir, entry.name);
-			if (entry.isDirectory()) walk(full);
+			if (entry.isDirectory()) walk(full, entry.name);
 			else if (entry.name.endsWith('.nbt')) {
 				try {
 					const size = parse(fs.readFileSync(full)).root.v.size.v.items;
-					plates.push({ name: path.relative(structureDir, full), width: Math.max(size[0], size[2]) });
+					// aegis/castle.nbt is the template behind warfront:aegis_castle
+					widths.set(`warfront:${faction}_${entry.name.replace(/\.nbt$/, '')}`,
+						Math.max(size[0], size[2]));
 				} catch { /* not a structure template */ }
 			}
 		}
 	};
-	try {
-		walk(structureDir);
-	} catch {
-		return;
-	}
-	if (plates.length < 2) return;
-	plates.sort((a, b) => b.width - a.width);
-	const [biggest, ...rest] = plates;
-	const nextDifferent = rest.find((plate) => plate.width < biggest.width) ?? rest[0];
-	const clearance = worstCentreDistance - biggest.width / 2 - nextDifferent.width / 2;
+	try { walk(structureDir, null); } catch { return null; }
+	return widths;
+}
 
-	console.log('\nFootprint clearance at that minimum:');
-	console.log(`  largest plate:    ${biggest.name} ${biggest.width} blocks wide`);
-	console.log(`  largest non-peer: ${nextDifferent.name} ${nextDifferent.width} blocks wide`);
-	console.log(`  edge-to-edge at ${worstCentreDistance.toFixed(0)} blocks centre-to-centre: `
-		+ `${clearance.toFixed(0)} blocks`);
-	if (clearance < 0) {
-		console.log(`  NOTE: negative — the two largest plates can still overlap by up to `
-			+ `${(-clearance).toFixed(0)} blocks when they land at the minimum. Raising `
-			+ `separation is what buys this back, at the cost of base density.`);
+/** Widest plate any member of this set can place. */
+function widestInSet(json, widths) {
+	let best = { id: null, width: 0 };
+	for (const entry of json.structures) {
+		const width = widths.get(entry.structure) ?? 0;
+		if (width > best.width) best = { id: entry.structure, width };
 	}
+	return best;
+}
+
+/**
+ * The gate for cross-set clearance. Two sets have no mutual spacing at all, so either an
+ * exclusion zone covers the two widest plates involved or the two structures can land on
+ * top of each other. Returns the number of failures.
+ */
+function checkExclusionZones(sets, widths) {
+	if (!widths) return 0;
+	let failures = 0;
+	console.log('\nCross-set clearance (a set\'s spacing does not apply to any other set):');
+	for (const set of sets) {
+		const zone = set.json.placement?.exclusion_zone;
+		const mine = widestInSet(set.json, widths);
+		if (!zone) {
+			console.log(`  ${set.file}: no exclusion zone — widest plate ${mine.width} blocks`);
+			continue;
+		}
+		const target = sets.find(s => s.id === zone.other_set);
+		if (!target) {
+			console.log(`  ${set.file} -> ${zone.other_set} @ ${zone.chunk_count} chunks `
+				+ `(outside this mod; plate sizes unknown, not checked)`);
+			continue;
+		}
+		const theirs = widestInSet(target.json, widths);
+		const needBlocks = mine.width / 2 + theirs.width / 2;
+		const needChunks = Math.ceil(needBlocks / 16);
+		const haveBlocks = zone.chunk_count * 16;
+		const ok = zone.chunk_count >= needChunks;
+		if (!ok) failures++;
+		console.log(`  ${set.file} -> ${zone.other_set}`);
+		console.log(`      widest here ${mine.width} (${mine.id}), widest there ${theirs.width} (${theirs.id})`);
+		console.log(`      need ${needBlocks.toFixed(0)} blocks = ${needChunks} chunks; `
+			+ `configured ${zone.chunk_count} chunks = ${haveBlocks} blocks  `
+			+ `${ok ? 'OK' : '<== TOO SMALL'}`);
+	}
+	return failures;
+}
+
+/** Closest measured distance between placements of two different sets. */
+function reportCrossSetDistances(points, widths) {
+	const byFile = new Map();
+	for (const pt of points) {
+		if (!byFile.has(pt.file)) byFile.set(pt.file, []);
+		byFile.get(pt.file).push(pt);
+	}
+	const files = [...byFile.keys()].sort();
+	const out = [];
+	for (let i = 0; i < files.length; i++) {
+		for (let j = i + 1; j < files.length; j++) {
+			let min = Infinity;
+			for (const a of byFile.get(files[i])) {
+				for (const b of byFile.get(files[j])) {
+					const d = Math.hypot(a.x - b.x, a.z - b.z);
+					if (d < min) min = d;
+				}
+			}
+			out.push({ a: files[i], b: files[j], min });
+		}
+	}
+	return out;
 }
 
 function main() {
@@ -232,8 +337,10 @@ function main() {
 	console.log(`Structure sets: ${sets.length}`);
 	for (const { file, json } of sets) {
 		const p = json.placement;
+		const zone = p.exclusion_zone
+			? ` exclusion=${p.exclusion_zone.other_set}@${p.exclusion_zone.chunk_count}ch` : '';
 		console.log(`  ${file}: spacing=${p.spacing} separation=${p.separation} `
-			+ `structures=${json.structures.length}`);
+			+ `structures=${json.structures.length}${zone}`);
 	}
 	console.log(`\nRegion: +/-${radius} chunks (${radius * 32} x ${radius * 32} blocks), `
 		+ `${seedCount} seeds, floor ${floor} blocks\n`);
@@ -241,16 +348,23 @@ function main() {
 	let worstOverall = Infinity;
 	let worstCross = Infinity;
 	let failures = 0;
+	const unmodelled = new Set();
+	const crossSet = [];
+	let seedFailures = 0;
 
 	for (let s = 0; s < seedCount; s++) {
 		// Fixed, arbitrary seeds — reproducible across runs.
 		const worldSeed = BigInt(s) * 6364136223846793005n + 1442695040888963407n;
-		const points = collectPlacements(sets, worldSeed, radius);
+		const points = collectPlacements(sets, worldSeed, radius, unmodelled);
 		const { overall, cross } = closestPairs(points, floor);
 		worstOverall = Math.min(worstOverall, overall.dist);
 		worstCross = Math.min(worstCross, cross.dist);
 		const bad = cross.dist < floor;
-		if (bad) failures++;
+		if (bad) { failures++; seedFailures++; }
+		for (const row of reportCrossSetDistances(points, null)) {
+			const prev = crossSet.find(r => r.a === row.a && r.b === row.b);
+			if (!prev) crossSet.push(row); else prev.min = Math.min(prev.min, row.min);
+		}
 		console.log(`seed ${worldSeed}  (${points.length} placements)`);
 		console.log(`  closest any-pair:   ${describe(overall)}`);
 		console.log(`  closest cross-fac:  ${describe(cross)} ${bad ? '  <== BELOW FLOOR' : ''}`);
@@ -265,13 +379,42 @@ function main() {
 	// plates can still put a castle wall through a metropolis. Report the plate sizes and
 	// the implied edge clearance so that residual is a measured number rather than
 	// something a reader has to work out for themselves.
-	reportFootprintClearance(worstOverall);
+	if (unmodelled.size) {
+		console.log(`\nUnmodelled exclusion targets (outside this mod, cannot be replayed here): `
+			+ [...unmodelled].join(', '));
+	}
+	const widths = plateWidths();
+	const zoneFailures = checkExclusionZones(sets, widths);
+	if (crossSet.length) {
+		console.log('\nClosest measured distance between sets, worst seed:');
+		for (const row of crossSet) {
+			const need = widths
+				? widestInSet(sets.find(s => s.file === row.a).json, widths).width / 2
+					+ widestInSet(sets.find(s => s.file === row.b).json, widths).width / 2
+				: null;
+			const verdict = need === null ? ''
+				: row.min >= need ? `  clearance +${(row.min - need).toFixed(0)}`
+				: `  <== OVERLAP by ${(need - row.min).toFixed(0)}`;
+			console.log(`  ${row.a} vs ${row.b}: ${row.min.toFixed(0)} blocks`
+				+ (need === null ? '' : ` (widest plates need ${need.toFixed(0)})${verdict}`));
+			if (need !== null && row.min < need) failures++;
+		}
+	}
+	failures += zoneFailures;
 
-	if (failures > 0) {
-		console.log(`\nFAIL: ${failures}/${seedCount} seeds place two different factions closer than ${floor} blocks.`);
+	if (seedFailures > 0 || failures > seedFailures) {
+		if (seedFailures > 0) {
+			console.log(`\nFAIL: ${seedFailures}/${seedCount} seeds place two different factions `
+				+ `closer than ${floor} blocks.`);
+		}
+		if (failures > seedFailures) {
+			console.log(`\nFAIL: ${failures - seedFailures} cross-set clearance problem(s) — a set's `
+				+ `spacing does not apply to another set, so an exclusion zone has to cover both plates.`);
+		}
 		process.exit(1);
 	}
-	console.log(`\nPASS: no cross-faction pair closer than ${floor} blocks on any tested seed.`);
+	console.log(`\nPASS: no cross-faction pair closer than ${floor} blocks on any tested seed, `
+		+ `and every cross-set exclusion covers the plates involved.`);
 }
 
 main();
