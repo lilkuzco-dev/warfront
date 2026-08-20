@@ -4,7 +4,7 @@ Modern military factions for Minecraft 26.2 (Fabric). Three doctrine-driven fact
 
 Requires Fabric Loader 0.19.3+ and Fabric API for 26.2.
 
-## v0.4.7 — grand castles and Dracula
+## v0.4.8 — grand castles and Dracula
 
 - Each faction can now generate a literal 501×501 grand castle estate with a
   surrounding working village, 64–96 soldiers, a named and armored king, and 240
@@ -23,6 +23,8 @@ Requires Fabric Loader 0.19.3+ and Fabric API for 26.2.
   and skin attribution is documented in `CREDITS.md`.
 - A dedicated client game test builds the full Aegis castle and captures an aerial
   proof frame; it is kept opt-in so normal builds and releases stay lightweight.
+- Worldgen bounds use Minecraft 26.2's terrain-adaptation-safe jigsaw radius and
+  valid 16-chunk exclusion cap; 0.4.7 was rolled back before it entered service.
 
 ## v0.4.6 — guarded working cities
 
