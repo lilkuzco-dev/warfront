@@ -283,15 +283,36 @@ public class WarfrontRenderTest implements FabricClientGameTest {
 		server.runCommand("time set 3000");
 		// Centre the client before placement so all 501x501 template chunks are loaded
 		// by the 32-chunk view distance without exceeding /forceload's 256-chunk cap.
-		server.runCommand("tp @p 250 -55 250");
-		context.waitTicks(400);
-		server.runCommand("place template warfront:aegis/castle 0 -60 0");
-		context.waitTicks(300);
-		server.runCommand("kill @e[type=warfront:soldier]");
-		server.runCommand("gamemode spectator @p");
-		server.runCommand("tp @p 250 300 250 -45 90");
-		context.waitTicks(160);
-		context.takeScreenshot("aegis_grand_castle_501_block_aerial");
+		// Every castle type, one after another, each on its own 1000-block lane so the
+		// previous one is far outside view distance. Shooting only Aegis proved only Aegis.
+		String[][] castles = {
+			{ "warfront:aegis/castle", "aegis" },
+			{ "warfront:sarab/castle", "sarab" },
+			{ "warfront:vostok/castle", "vostok" },
+			{ "warfront:dracula/castle", "dracula" },
+		};
+		int lane = 0;
+		for (String[] castle : castles) {
+			int originX = lane * 1000;
+			int centreX = originX + 250;
+			// Centre the client before placement so all 501x501 template chunks are loaded
+			// by the 32-chunk view distance without exceeding /forceload's 256-chunk cap.
+			server.runCommand("gamemode creative @p");
+			server.runCommand("tp @p " + centreX + " -55 250");
+			context.waitTicks(700);
+			server.runCommand("place template " + castle[0] + " " + originX + " -60 0");
+			context.waitTicks(300);
+			server.runCommand("kill @e[type=warfront:soldier]");
+			server.runCommand("gamemode spectator @p");
+			server.runCommand("tp @p " + centreX + " 300 250 -45 90");
+			context.waitTicks(400);
+			context.takeScreenshot(castle[1] + "_castle_501_block_aerial");
+			// A closer oblique so the architecture reads, not just the silhouette.
+			server.runCommand("tp @p " + centreX + " 140 " + (250 - 260) + " 0 35");
+			context.waitTicks(120);
+			context.takeScreenshot(castle[1] + "_castle_oblique");
+			lane++;
+		}
 	}
 
 	private void shootStructure(ClientGameTestContext context, TestSingleplayerContext world,
