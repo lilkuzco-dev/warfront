@@ -33,6 +33,50 @@
 - **What Warfront uses**: the legacy 64x32 `Vampire` skin, converted to Minecraft's
   modern 64x64 layout by `tools/gen-textures.js` and used for Count Dracula.
 
+## Dracula Castle
+- **Creator**: Nevas Buildings
+- **Builders**: Jatos, Nebaj, and Nasdas
+- **Source**: https://www.planetminecraft.com/project/creepy-blackstone-castle-halloween-edition/
+- **Permission**: included under the authorization supplied for this Warfront use.
+- **What Warfront uses**: the world geometry and free-standing decorative entities from **Creepy
+  Blackstone Castle | Halloween Edition**, cropped to Warfront's 501×501 monumental
+  structure footprint. Downloaded inventory contents are removed; a bounded set of
+  containers receives Warfront loot. Hanging frames and paintings are omitted because
+  Minecraft does not transform their separate absolute attachment coordinate when a
+  template is placed by worldgen. The reproducible conversion tool is
+  `tools/import-dracula-castle.js`.
+
+## Normal Grand Castles
+
+### Celestial Castle (Aegis)
+- **Creators**: CloseeDBr / CloseDBr and Chillde
+- **Source**: https://www.minecraftmaps.com/45712-celestial-castle
+- **Permission**: distributed as a freely accessible server map; the source requires
+  its author-credit cards/signs to remain, and Warfront preserves those block-entity
+  details in the imported castle core.
+- **What Warfront uses**: the supplied castle geometry and block-entity details,
+  imported into the Aegis grand-castle slot.
+
+### Cinderella's Armored Castle (Vostok)
+- **Creators**: RAMBO 1989 and GR.KOSTAS
+- **Source**: https://www.minecraftmaps.com/13219-cinderellas-armored-castle
+- **Permission**: the source page grants freestyle use subject to its listed terms.
+- **What Warfront uses**: the supplied castle geometry and block-entity details,
+  imported into the Vostok grand-castle slot.
+
+### Mug Castle (Sarab)
+- **Creators**: BlockMaster3310 and grimreaperdylan
+- **Source**: https://www.minecraftmaps.com/27607-mug-castle
+- **Permission**: the creators explicitly permit use in a server, minigame, or other
+  project when credit is provided.
+- **What Warfront uses**: the supplied cliff-city and keep geometry and block-entity
+  details, imported into the Sarab grand-castle slot.
+
+The three checked-in faction NBTs are produced by `tools/import-grand-castle.js`.
+Downloaded inventory contents are removed, source containers receive bounded Warfront
+loot, and four original Warfront working-town districts are composed around each
+castle. Reproduction details are in `structures/CASTLE-IMPORTS.md`.
+
 ## Mojang / Minecraft
 - Template pools reference vanilla (`minecraft:`) jigsaw pieces by resource location
   with Warfront processor lists — no vanilla assets are redistributed in this repo.

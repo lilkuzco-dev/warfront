@@ -1,8 +1,9 @@
 #!/usr/bin/env node
 // Base composer (Stage 3). Regular military and settlement buildings are stamped
 // from license-cleared rethemed NBTs under data/warfront/structure/<faction>/.
-// The monumental castles additionally use original Warfront collegiate-gothic
-// hall shells around attributed imported room cores (see structures/SOURCES.md).
+// The monumental faction castles are imported separately from their credited
+// source worlds; this generator retains the old shell builder only to supply the
+// four original Warfront working-town districts used by the import tool.
 //
 // Emits, per faction: outpost_a/outpost_b, forward_base, headquarters plates plus
 // the jigsaw-attached sprawl pieces (Vostok trench arms, Sarab path arms +
@@ -1085,11 +1086,13 @@ for (const f of ["vostok", "aegis", "sarab"]) {
 	settlement(f, "town");
 	settlement(f, "city");
 	settlement(f, "metropolis");
-	grandCastle(f);
 }
 trenchArm();
 sarabArms();
 sarabSubcamps();
 tentPads();
 cityDistricts();
-draculaCastle();
+// All four monumental castle assets are authorized imports. Do not overwrite their
+// checked-in NBTs while regenerating Warfront's original faction structures. Use
+// tools/import-grand-castle.js for the three faction castles and
+// tools/import-dracula-castle.js for Dracula's castle when a source world changes.

@@ -4,15 +4,16 @@ Modern military factions for Minecraft 26.2 (Fabric). Three doctrine-driven fact
 
 Requires Fabric Loader 0.19.3+ and Fabric API for 26.2.
 
-## v0.4.8 — grand castles and Dracula
+## v0.4.9 — supplied grand castles and Dracula
 
-- Each faction can now generate a literal 501×501 grand castle estate with a
-  surrounding working village, 64–96 soldiers, a named and armored king, and 240
-  citizens distributed across five economic districts.
-- The keep includes a throne hall, grand dining hall, multi-storey library,
-  scientific study, barracks, armory, prison, concealed passages, and hidden vault
-  loot. Its collegiate-gothic composition is original Warfront work; attributed
-  LGPL room cores add small-scale interior detail.
+- A normal grand-castle roll now chooses one of three supplied builds at equal 1/3
+  weight: **Celestial Castle** for Aegis, **Cinderella's Armored Castle** for Vostok,
+  or **Mug Castle** for Sarab. Each imported castle core keeps its source block states
+  and block-entity details, including creator credit signs.
+- Four large working Warfront towns surround every normal castle. Together with the
+  castle center they form five economic districts populated by 240 citizens, while
+  the faction's persistent 64–96-soldier garrison serves a named, armored king.
+  Source containers receive the faction's rich castle loot table.
 - A separate very rare 501×501 Dracula landmark uses the authorized **Creepy
   Blackstone Castle | Halloween Edition** build by Nevas Buildings. Its isolated
   ruined plateau, dense blackstone architecture, decorated rooms, and original
@@ -21,6 +22,8 @@ Requires Fabric Loader 0.19.3+ and Fabric API for 26.2.
   boss-grade health and damage, life steal and night regeneration, burns in direct
   sun, is harmed by water, and takes seven times damage from wooden swords. Full build
   and skin attribution is documented in `CREDITS.md`.
+- Dracula remains isolated: it is generated from its own rare structure set and does
+  not receive the four towns or the normal-castle civilian economy.
 - A dedicated client game test builds the full Aegis castle and captures an aerial
   proof frame; it is kept opt-in so normal builds and releases stay lightweight.
 - Worldgen bounds use Minecraft 26.2's terrain-adaptation-safe jigsaw radius and
