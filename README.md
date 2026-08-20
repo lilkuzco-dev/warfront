@@ -13,12 +13,16 @@ Requires Fabric Loader 0.19.3+ and Fabric API for 26.2.
   scientific study, barracks, armory, prison, concealed passages, and hidden vault
   loot. Its collegiate-gothic composition is original Warfront work; attributed
   LGPL room cores add small-scale interior detail.
-- A separate very rare 501×501 Dracula castle contains rich hidden caches and Count
-  Dracula. He has boss-grade health and damage, life steal and night regeneration,
-  burns in direct sun, is harmed by water, and takes seven times damage from wooden
-  swords. His attributed CC BY-SA vampire skin is documented in `CREDITS.md`.
-- An opt-in JitPack client game test builds the full Aegis castle and publishes a
-  real in-game aerial screenshot without starting Java on the developer workstation.
+- A separate very rare 501×501 Dracula landmark uses the authorized **Creepy
+  Blackstone Castle | Halloween Edition** build by Nevas Buildings. Its isolated
+  ruined plateau, dense blackstone architecture, decorated rooms, and original
+  entities replace the former generated rectangular estate. Sixteen bounded hidden
+  caches use Warfront loot, and Count Dracula stands at the southern approach. He has
+  boss-grade health and damage, life steal and night regeneration, burns in direct
+  sun, is harmed by water, and takes seven times damage from wooden swords. Full build
+  and skin attribution is documented in `CREDITS.md`.
+- A dedicated client game test builds the full Aegis castle and captures an aerial
+  proof frame; it is kept opt-in so normal builds and releases stay lightweight.
 
 ## v0.4.6 — guarded working cities
 

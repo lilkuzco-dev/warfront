@@ -1,2 +1,0 @@
-install:
-  - xvfb-run -a ./gradlew clean runCastlerender castleRenderJar publishToMavenLocal -PcastleRender --stacktrace
