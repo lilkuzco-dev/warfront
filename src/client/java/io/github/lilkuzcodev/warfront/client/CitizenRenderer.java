@@ -1,15 +1,30 @@
 package io.github.lilkuzcodev.warfront.client;
 
+import io.github.lilkuzcodev.warfront.civilization.CitizenProfession;
 import io.github.lilkuzcodev.warfront.entity.CitizenEntity;
 import net.minecraft.client.model.geom.ModelLayers;
 import net.minecraft.client.model.player.PlayerModel;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.HumanoidMobRenderer;
 import net.minecraft.client.renderer.entity.state.AvatarRenderState;
+import net.minecraft.core.ClientAsset;
 import net.minecraft.resources.Identifier;
+import net.minecraft.world.entity.player.PlayerModelType;
+import net.minecraft.world.entity.player.PlayerSkin;
 
 /** Player-model citizen with a distinct CC0 skin selected by synchronized profession. */
 public final class CitizenRenderer extends HumanoidMobRenderer<CitizenEntity, AvatarRenderState, PlayerModel> {
+	private static final Identifier MINER = texture("miner");
+	private static final Identifier FARMER = texture("farmer");
+	private static final Identifier BUILDER = texture("builder");
+	private static final Identifier TRADER = texture("trader");
+	private static final Identifier LABORER = texture("laborer");
+	private static final PlayerSkin MINER_SKIN = skin(MINER);
+	private static final PlayerSkin FARMER_SKIN = skin(FARMER);
+	private static final PlayerSkin BUILDER_SKIN = skin(BUILDER);
+	private static final PlayerSkin TRADER_SKIN = skin(TRADER);
+	private static final PlayerSkin LABORER_SKIN = skin(LABORER);
+
 	public CitizenRenderer(EntityRendererProvider.Context context) {
 		super(context, new PlayerModel(context.bakeLayer(ModelLayers.PLAYER), false),
 				new PlayerModel(context.bakeLayer(ModelLayers.PLAYER), false), 0.5F);
@@ -17,14 +32,17 @@ public final class CitizenRenderer extends HumanoidMobRenderer<CitizenEntity, Av
 
 	@Override public AvatarRenderState createRenderState() { return new CitizenRenderState(); }
 	@Override public Identifier getTextureLocation(AvatarRenderState state) {
-		return Identifier.fromNamespaceAndPath("warfront", "textures/entity/citizen/"
-				+ ((CitizenRenderState) state).profession + ".png");
+		return textureFor(((CitizenRenderState) state).profession);
 	}
 
 	@Override
 	public void extractRenderState(CitizenEntity entity, AvatarRenderState state, float partialTicks) {
 		super.extractRenderState(entity, state, partialTicks);
-		((CitizenRenderState) state).profession = entity.profession().id();
+		CitizenProfession profession = entity.profession();
+		((CitizenRenderState) state).profession = profession;
+		// PlayerModel's 26.2 avatar pipeline also carries a skin in its render state.
+		// Set it explicitly so a feature or renderer path can never fall back to Steve.
+		state.skin = skinFor(profession);
 		state.showHat = true;
 		state.showJacket = true;
 		state.showLeftSleeve = true;
@@ -32,5 +50,33 @@ public final class CitizenRenderer extends HumanoidMobRenderer<CitizenEntity, Av
 		state.showLeftPants = true;
 		state.showRightPants = true;
 		state.showCape = false;
+	}
+
+	private static Identifier texture(String profession) {
+		return Identifier.fromNamespaceAndPath("warfront", "textures/entity/citizen/" + profession + ".png");
+	}
+
+	private static PlayerSkin skin(Identifier texture) {
+		return new PlayerSkin(new ClientAsset.ResourceTexture(texture), null, null, PlayerModelType.WIDE, false);
+	}
+
+	private static Identifier textureFor(CitizenProfession profession) {
+		return switch (profession) {
+			case MINER -> MINER;
+			case FARMER -> FARMER;
+			case BUILDER -> BUILDER;
+			case TRADER -> TRADER;
+			case LABORER -> LABORER;
+		};
+	}
+
+	private static PlayerSkin skinFor(CitizenProfession profession) {
+		return switch (profession) {
+			case MINER -> MINER_SKIN;
+			case FARMER -> FARMER_SKIN;
+			case BUILDER -> BUILDER_SKIN;
+			case TRADER -> TRADER_SKIN;
+			case LABORER -> LABORER_SKIN;
+		};
 	}
 }

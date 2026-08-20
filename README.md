@@ -4,6 +4,14 @@ Modern military factions for Minecraft 26.2 (Fabric). Three doctrine-driven fact
 
 Requires Fabric Loader 0.19.3+ and Fabric API for 26.2.
 
+## v0.4.4 — profession skins stay profession skins
+
+- Citizen rendering now assigns the synchronized miner, farmer, builder, trader, or
+  laborer texture to both the entity render texture and Minecraft 26.2's avatar skin
+  state. This prevents the player-model pipeline from falling back to Steve.
+- The five CC0 profession textures are mapped exhaustively by profession rather than
+  assembled from an unchecked string at render time.
+
 ## v0.4.3 — citizens go to work
 
 - Existing citizens migrate away from the former shared city-center work anchor;
