@@ -727,3 +727,122 @@ comparison and reporting, never to choose a kill target: the sole PID the script
 signal to reclaim a port is one it recorded itself and that still matches the listener.
 The launcher fallback additionally checks the command line still looks like gradle/java
 before signalling, so a reused PID is left alone.
+
+## Retrospective audit — 0.4.2 through 0.4.9 (2026-08-20)
+
+Nine releases went out between 2026-08-18 20:55 and 2026-08-20 13:42 with **no entry in
+this log**. This section is written afterwards, during a folder-wide audit. It says what
+was actually confirmed, and — more usefully — what the confirmation found.
+
+The span, by release: 0.4.2 grounded citizens and profession markets · 0.4.3–0.4.5 citizens
+sent to productive worksites, profession skins bound in avatar state, trade restricted to
+tangible production · 0.4.6 guarded working cities · 0.4.7–0.4.8 monumental castles and
+Dracula (0.4.7 was rolled back the same day for registry bounds) · 0.4.9 imported castle
+builds.
+
+### Two defects, both invisible to every check that was being run
+
+**1. Every citizen rendered as the missing texture.** From 0.4.3 (`Bind citizen profession
+skins in avatar state`) to 0.4.9 inclusive, all five citizen professions drew as the
+magenta-and-black checkerboard on every client. Fixed in 0.4.10, below.
+
+**2. Castles could generate on top of faction bases.** 0.4.7 gave the castles their own
+structure sets. Minecraft enforces spacing and separation only *within* a set, so nothing
+kept a 501-block castle away from a base. Measured across 8 seeds: **5 of 8 placed a castle
+and a base in the same chunk — 0.0 blocks apart** — and the remaining 3 at 16 blocks.
+`tools/verify-base-spacing.js` had reported a 272-block floor at 0.3.0 and was failing
+8/8 by 0.4.9. Fixed in 0.4.10, below.
+
+Both shipped through a green `postship-check`, a green load gate, and a clean server boot,
+because neither is the kind of thing those check. The first needed a frame; the second
+needed a tool that was already in the repo and was not being run.
+
+### What the audit did confirm about 0.4.9
+
+- The jar on the Empire server hashes to `3edd08b502498bcce1e501e9…`, exactly what
+  `mods.json` declares, verified by pulling the file off the server. ✅
+- `warfront 0.4.9` initialised in the 13:43 boot — 104 mods, zero mixin failures, zero
+  errors. ✅
+- Rebuilt from committed source at `v0.4.9`: byte-identical to the shipped jar. ✅
+- `tools/econ-selftest.sh` **ALL PASS** (30 invariants, including that a re-encode is
+  byte-identical and conservation still closes after a snapshot round trip). ✅
+- `tools/validate-dialogue.js` **PASS** — 1,863 player options, 4,418 response lines,
+  310 classes, zero warnings. ✅
+- `tools/verify-grand-castles.js` **OK** — all four castles at 501×501, garrisons, rich
+  loot, working towns and economy intact. ✅
+
+## 0.4.10 — the two defects above (2026-08-20)
+
+### Citizen skins: what was actually wrong
+
+`CitizenRenderer` built each profession's `PlayerSkin` from the *full texture path*:
+
+```java
+new ClientAsset.ResourceTexture(warfront:textures/entity/citizen/miner.png)
+```
+
+`ClientAsset.ResourceTexture` takes an **asset id** and derives the file itself as
+`textures/<path>.png`. The file it therefore asked for was
+`warfront:textures/textures/entity/citizen/miner.png.png`, which does not exist.
+
+The renderer's own `getTextureLocation` override returned the correct path all along — but
+26.2's avatar pipeline prefers the render state's `skin`, so the correct answer sitting
+three lines above never got a look in. `SoldierRenderer` was unaffected for exactly one
+reason: it never sets `state.skin`, which is why soldiers looked perfect in the same frame
+where citizens did not.
+
+**Fixed** by passing the asset id. Confirmed two ways:
+
+- `CITIZEN_SKIN_AUDIT 5 professions resolve: [MINER=warfront:textures/entity/citizen/miner.png,
+  FARMER=…, BUILDER=…, TRADER=…, LABORER=…]` — note the single `textures/`. ✅
+- **Frame read**: `0002_citizen_profession_lineup` shows five citizens in five distinct
+  profession skins — trader with barrel, farmer in apron, builder, laborer with axe, miner
+  with helmet and pickaxe. Before the fix the same frame was five magenta checkerboards. ✅
+
+The battery now asserts this itself rather than leaving it to a human to notice: every
+profession's skin must resolve to a texture the resource manager actually has.
+
+### Castles: one structure set, because spacing only works inside one
+
+The four castles moved into `bases.json` as weighted entries and the two castle-only sets
+are gone. `tools/verify-base-spacing.js`:
+
+| | 0.4.9 | 0.4.10 |
+|---|---|---|
+| worst closest pair, 8 seeds | **0.0 blocks** | **272.0 blocks** |
+| seeds below the 200-block floor | 8 / 8 | 0 / 8 |
+
+272.0 is the same floor this tool measured at 0.3.0, before the castles existed — the merge
+restores the original invariant exactly rather than approximating it.
+
+The weights were solved, not chosen, so castle frequency is unchanged: grand castles at
+50 each and Dracula at 3 against a total of 6,613 reproduce the old spacing-160 and
+spacing-640×0.35 rates to **403/region vs 400** and **8.06 vs 8.75**.
+`verify-grand-castles.js` now pins that arithmetic, so a later weight edit cannot quietly
+make castles common, and it fails if either retired set file reappears.
+
+### Known residual — castle edges can still clip a large base
+
+Centre-to-centre distance is not the whole question once one member of the set is 501
+blocks across. At the 272-block minimum, a castle (half-extent 250) beside a metropolis
+(half-extent 62) leaves **−41 blocks**: they can overlap by up to 41 blocks when they land
+at the minimum. `verify-base-spacing.js` now measures and prints this rather than leaving
+it implicit.
+
+The same arithmetic applies to the set's village exclusion. A structure set carries one
+`exclusion_zone`, so the castles now inherit the bases' `minecraft:villages` at 8 chunks
+rather than the 16 they had of their own. Neither number was ever enough for a 501-block
+plate — 16 chunks is 256 blocks against a half-extent of 250 — so this is the same root
+cause rather than a new one: a monumental structure sharing placement numbers that were
+sized for 76-to-124-block plates.
+
+Buying either back means raising `separation` (and the exclusion radius), which costs base
+density near villages and everywhere else — a live trade-off, deliberately not made
+unilaterally. Recorded here so it is a decision rather than a surprise.
+
+### Regression suite, on 0.4.10
+
+`econ-selftest.sh` **ALL PASS** · `validate-dialogue.js` **PASS**, zero warnings ·
+`verify-base-spacing.js` **PASS** at 272.0 blocks · `verify-grand-castles.js` **OK** with
+castle rates pinned · `runGametest` **BUILD SUCCESSFUL**, 101 frames · `runCastlerender`
+**BUILD SUCCESSFUL**, castle aerial read.
