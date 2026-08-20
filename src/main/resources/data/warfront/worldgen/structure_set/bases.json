@@ -5,82 +5,98 @@
     "spacing": 24,
     "separation": 16,
     "exclusion_zone": {
-      "chunk_count": 20,
-      "other_set": "warfront:grand_castles"
+      "chunk_count": 8,
+      "other_set": "minecraft:villages"
     }
   },
   "structures": [
     {
       "structure": "warfront:sarab_outpost",
-      "weight": 76
+      "weight": 1520
     },
     {
       "structure": "warfront:aegis_base",
-      "weight": 44
+      "weight": 880
     },
     {
       "structure": "warfront:vostok_base",
-      "weight": 44
+      "weight": 880
     },
     {
       "structure": "warfront:aegis_forward_base",
-      "weight": 16
+      "weight": 320
     },
     {
       "structure": "warfront:sarab_forward_base",
-      "weight": 16
+      "weight": 320
     },
     {
       "structure": "warfront:vostok_forward_base",
-      "weight": 16
+      "weight": 320
     },
     {
       "structure": "warfront:aegis_headquarters",
-      "weight": 4
+      "weight": 80
     },
     {
       "structure": "warfront:sarab_headquarters",
-      "weight": 4
+      "weight": 80
     },
     {
       "structure": "warfront:vostok_headquarters",
-      "weight": 4
+      "weight": 80
     },
     {
       "structure": "warfront:aegis_town",
-      "weight": 24
+      "weight": 480
     },
     {
       "structure": "warfront:sarab_town",
-      "weight": 24
+      "weight": 480
     },
     {
       "structure": "warfront:vostok_town",
-      "weight": 24
+      "weight": 480
     },
     {
       "structure": "warfront:aegis_city",
-      "weight": 8
+      "weight": 160
     },
     {
       "structure": "warfront:sarab_city",
-      "weight": 8
+      "weight": 160
     },
     {
       "structure": "warfront:vostok_city",
-      "weight": 8
+      "weight": 160
     },
     {
       "structure": "warfront:aegis_metropolis",
-      "weight": 1
+      "weight": 20
     },
     {
       "structure": "warfront:sarab_metropolis",
-      "weight": 1
+      "weight": 20
     },
     {
       "structure": "warfront:vostok_metropolis",
-      "weight": 1
+      "weight": 20
+    },
+    {
+      "structure": "warfront:aegis_castle",
+      "weight": 50
+    },
+    {
+      "structure": "warfront:sarab_castle",
+      "weight": 50
+    },
+    {
+      "structure": "warfront:vostok_castle",
+      "weight": 50
+    },
+    {
+      "structure": "warfront:dracula_castle",
+      "weight": 3
     }
   ]
 }

@@ -18,30 +18,21 @@ function check(condition, message) {
 	if (!condition) throw new Error(message);
 }
 
-// All four castles live in ONE set of their own, and `bases` carries an exclusion zone
-// pointing at it. Minecraft enforces spacing only *within* a set, so nothing about the
-// castles' own spacing keeps a base out of one — the exclusion zone is the only thing that
-// does, and tools/verify-base-spacing.js re-derives its required radius from these NBTs on
-// every run. Keeping all four in one set means that single reference covers every castle,
-// including Dracula.
-const CASTLE_WEIGHT = 15;
-const DRACULA_WEIGHT = 1;
+// Castles live in the SAME structure set as the bases. Minecraft only enforces
+// spacing and separation *within* a set, so while the castles had sets of their own a
+// 501-block castle could — and on 5 of 8 tested seeds did — land in the same chunk as a
+// faction base. One set is the only thing that makes overlap impossible; see
+// tools/verify-base-spacing.js, which went from 0.0 to 272.0 blocks on that change.
+for (const stale of ["grand_castles.json", "dracula_castles.json"]) {
+	check(!fs.existsSync(path.join(dataDir, "worldgen/structure_set", stale)),
+		`${stale} is back — castles must stay in warfront:bases or spacing stops applying to them`);
+}
 const structureSet = JSON.parse(fs.readFileSync(
-	path.join(dataDir, "worldgen/structure_set/grand_castles.json"), "utf8"));
-check(structureSet.structures.length === 4,
-	`castle set must hold three faction castles plus Dracula, found ${structureSet.structures.length}`);
-check(!fs.existsSync(path.join(dataDir, "worldgen/structure_set/dracula_castles.json")),
-	"dracula_castles.json is back — Dracula shares the castle set so one exclusion zone covers it");
-
-const basesSet = JSON.parse(fs.readFileSync(
 	path.join(dataDir, "worldgen/structure_set/bases.json"), "utf8"));
-check(!basesSet.structures.some((entry) => entry.structure.includes("castle")),
-	"no castle may sit in the bases set — its spacing is sized for 76-to-124-block plates");
-const zone = basesSet.placement.exclusion_zone;
-check(zone && zone.other_set === "warfront:grand_castles",
-	"bases must carry an exclusion zone pointing at warfront:grand_castles, or a 501-block "
-	+ "castle has nothing keeping a base out of it");
-
+const CASTLE_WEIGHT = 50;
+const DRACULA_WEIGHT = 3;
+check(structureSet.structures.length === 22,
+	`bases set must hold 18 bases plus 4 castles, found ${structureSet.structures.length}`);
 for (const faction of factions) {
 	const entry = structureSet.structures.find((candidate) => candidate.structure === `warfront:${faction}_castle`);
 	check(entry?.weight === CASTLE_WEIGHT, `${faction} castle must have weight ${CASTLE_WEIGHT}`);
@@ -56,23 +47,23 @@ const draculaEntries = structureSet.structures.filter((entry) => entry.structure
 check(draculaEntries.length === 1 && draculaEntries[0].weight === DRACULA_WEIGHT,
 	`Dracula must appear exactly once at weight ${DRACULA_WEIGHT}`);
 
-// The weights are not taste. Dracula used to get its rarity from a set of its own at
-// spacing 640 with frequency 0.35; sharing the castle set it gets it from weight instead,
-// and 1 against 15/15/15 reproduces that rate. Pinning the arithmetic means a later weight
-// edit cannot quietly turn the rarest thing in the mod into a common one.
+// The weights are not taste. They were solved so the merged set reproduces the placement
+// rates the separate sets had: grand castles at spacing 160 (one per 2560x2560 blocks) and
+// Dracula at spacing 640 with frequency 0.35. Bases are one per 384x384, so a castle's
+// share of the weight table has to be that ratio. Pinning the arithmetic here means a
+// later weight edit cannot quietly make castles common.
 const totalWeight = structureSet.structures.reduce((sum, entry) => sum + entry.weight, 0);
-const castlePlacementsPerRegion = (3200 ** 2) / (160 ** 2);
+const basePlacementsPerRegion = (3200 ** 2) / (24 ** 2);
+const expectGrand = (3200 ** 2) / (160 ** 2);
 const expectDracula = (3200 ** 2) / (640 ** 2) * 0.35;
-const expectGrand = castlePlacementsPerRegion - expectDracula;
-const actualDracula = DRACULA_WEIGHT / totalWeight * castlePlacementsPerRegion;
-const actualGrand = (3 * CASTLE_WEIGHT) / totalWeight * castlePlacementsPerRegion;
-check(Math.abs(actualDracula - expectDracula) / expectDracula < 0.10,
-	`Dracula rate drifted: ${actualDracula.toFixed(2)} vs ${expectDracula.toFixed(2)} per region`);
+const actualGrand = (3 * CASTLE_WEIGHT) / totalWeight * basePlacementsPerRegion;
+const actualDracula = DRACULA_WEIGHT / totalWeight * basePlacementsPerRegion;
 check(Math.abs(actualGrand - expectGrand) / expectGrand < 0.05,
 	`grand castle rate drifted: ${actualGrand.toFixed(1)} vs ${expectGrand.toFixed(1)} per region`);
-console.log(`castle set: grand ${actualGrand.toFixed(0)}/region (was ${expectGrand.toFixed(0)}), `
-	+ `dracula ${actualDracula.toFixed(2)} (was ${expectDracula.toFixed(2)}); `
-	+ `bases exclude warfront:grand_castles at ${zone.chunk_count} chunks`);
+check(Math.abs(actualDracula - expectDracula) / expectDracula < 0.10,
+	`Dracula rate drifted: ${actualDracula.toFixed(2)} vs ${expectDracula.toFixed(2)} per region`);
+console.log(`castle rates preserved by weight: grand ${actualGrand.toFixed(0)}/region `
+	+ `(was ${expectGrand.toFixed(0)}), dracula ${actualDracula.toFixed(2)} (was ${expectDracula.toFixed(2)})`);
 
 const population = JSON.parse(fs.readFileSync(path.join(dataDir, "warfront_config/population.json"), "utf8"));
 check(population.castle_citizens === 240, "castle economy must seed 240 citizens");
