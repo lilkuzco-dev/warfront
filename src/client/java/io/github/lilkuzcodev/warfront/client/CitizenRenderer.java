@@ -19,11 +19,11 @@ public final class CitizenRenderer extends HumanoidMobRenderer<CitizenEntity, Av
 	private static final Identifier BUILDER = texture("builder");
 	private static final Identifier TRADER = texture("trader");
 	private static final Identifier LABORER = texture("laborer");
-	private static final PlayerSkin MINER_SKIN = skin(MINER);
-	private static final PlayerSkin FARMER_SKIN = skin(FARMER);
-	private static final PlayerSkin BUILDER_SKIN = skin(BUILDER);
-	private static final PlayerSkin TRADER_SKIN = skin(TRADER);
-	private static final PlayerSkin LABORER_SKIN = skin(LABORER);
+	private static final PlayerSkin MINER_SKIN = skin("miner");
+	private static final PlayerSkin FARMER_SKIN = skin("farmer");
+	private static final PlayerSkin BUILDER_SKIN = skin("builder");
+	private static final PlayerSkin TRADER_SKIN = skin("trader");
+	private static final PlayerSkin LABORER_SKIN = skin("laborer");
 
 	public CitizenRenderer(EntityRendererProvider.Context context) {
 		super(context, new PlayerModel(context.bakeLayer(ModelLayers.PLAYER), false),
@@ -56,8 +56,17 @@ public final class CitizenRenderer extends HumanoidMobRenderer<CitizenEntity, Av
 		return Identifier.fromNamespaceAndPath("warfront", "textures/entity/citizen/" + profession + ".png");
 	}
 
-	private static PlayerSkin skin(Identifier texture) {
-		return new PlayerSkin(new ClientAsset.ResourceTexture(texture), null, null, PlayerModelType.WIDE, false);
+	// ClientAsset.ResourceTexture takes an ASSET ID, not a texture path: it derives the file
+	// itself as `textures/<path>.png`. Handing it the full path this renderer uses for
+	// getTextureLocation produced `warfront:textures/textures/entity/citizen/miner.png.png`,
+	// which does not exist — so every citizen rendered as the magenta-and-black missing
+	// texture. The avatar pipeline prefers the render state's skin over getTextureLocation,
+	// so the correct override sitting right above it never got a look in. SoldierRenderer is
+	// unaffected precisely because it never sets state.skin.
+	private static PlayerSkin skin(String profession) {
+		return new PlayerSkin(new ClientAsset.ResourceTexture(
+				Identifier.fromNamespaceAndPath("warfront", "entity/citizen/" + profession)),
+				null, null, PlayerModelType.WIDE, false);
 	}
 
 	private static Identifier textureFor(CitizenProfession profession) {
@@ -70,7 +79,12 @@ public final class CitizenRenderer extends HumanoidMobRenderer<CitizenEntity, Av
 		};
 	}
 
-	private static PlayerSkin skinFor(CitizenProfession profession) {
+	/**
+	 * The exact skin the renderer will use. Public so the render battery can assert the
+	 * texture it points at actually resolves, rather than leaving a missing skin to be
+	 * caught only by a human looking at a frame.
+	 */
+	public static PlayerSkin skinFor(CitizenProfession profession) {
 		return switch (profession) {
 			case MINER -> MINER_SKIN;
 			case FARMER -> FARMER_SKIN;

@@ -1,6 +1,10 @@
 package io.github.lilkuzcodev.warfront.client;
 
+import io.github.lilkuzcodev.warfront.civilization.CitizenProfession;
 import io.github.lilkuzcodev.warfront.entity.CitizenEntity;
+import java.util.ArrayList;
+import java.util.List;
+import net.minecraft.resources.Identifier;
 import net.fabricmc.fabric.api.client.gametest.v1.FabricClientGameTest;
 import net.fabricmc.fabric.api.client.gametest.v1.context.ClientGameTestContext;
 import net.fabricmc.fabric.api.client.gametest.v1.context.TestSingleplayerContext;
@@ -97,6 +101,7 @@ public class WarfrontRenderTest implements FabricClientGameTest {
 				}
 			});
 			context.waitTicks(20);
+			assertCitizenSkinsResolve(context);
 			context.takeScreenshot("citizen_profession_lineup");
 			server.runOnServer(minecraftServer -> {
 				var player = minecraftServer.getPlayerList().getPlayers().getFirst();
@@ -105,6 +110,13 @@ public class WarfrontRenderTest implements FabricClientGameTest {
 				CitizenEntity citizen = citizens.stream().min(java.util.Comparator.comparingLong(CitizenEntity::serial))
 						.orElseThrow();
 				citizen.setPos(player.getX(), player.getY(), player.getZ() + 2.5);
+				// Since "Trade only tangible citizen production", offers are built from what this
+				// citizen has physically produced and nothing else — so a citizen in a city that is
+				// seconds old has an empty stall by design, and mobInteract deliberately declines to
+				// open a screen. Stock it the way a shift at the worksite would. Without this the
+				// test waits for a MerchantScreen that the mod is correct never to show, which is
+				// exactly how it failed: a stale test reading as a broken feature.
+				citizen.storeProduced("minecraft:wheat", 64);
 			});
 			context.waitTicks(5);
 			context.getInput().pressKey(options -> options.keyUse);
@@ -209,6 +221,36 @@ public class WarfrontRenderTest implements FabricClientGameTest {
 			server.runCommand("forceload remove all");
 			server.runCommand("kill @e[type=warfront:soldier]");
 		}
+	}
+
+	/**
+	 * Every citizen profession's skin must point at a texture that exists.
+	 *
+	 * 0.4.9 shipped with all five pointing at nothing: the skin was built from the full
+	 * texture path, but ClientAsset.ResourceTexture takes an asset id and derives
+	 * `textures/<path>.png` itself, so the file it actually asked for was
+	 * `warfront:textures/textures/entity/citizen/miner.png.png`. Every citizen in every city
+	 * rendered as the magenta-and-black missing texture, on a release where every server-side
+	 * check was green. A frame caught it; this exists so a frame never has to again.
+	 */
+	private static void assertCitizenSkinsResolve(ClientGameTestContext context) {
+		context.runOnClient(client -> {
+			List<String> missing = new ArrayList<>();
+			for (CitizenProfession profession : CitizenProfession.values()) {
+				Identifier texture = CitizenRenderer.skinFor(profession).body().texturePath();
+				if (client.getResourceManager().getResource(texture).isEmpty()) {
+					missing.add(profession + " -> " + texture);
+				}
+			}
+			if (!missing.isEmpty()) {
+				throw new AssertionError("citizen skins resolve to no texture: " + missing);
+			}
+			io.github.lilkuzcodev.warfront.Warfront.LOGGER.info("CITIZEN_SKIN_AUDIT {} professions resolve: {}",
+					CitizenProfession.values().length,
+					java.util.Arrays.stream(CitizenProfession.values())
+							.map(p -> p + "=" + CitizenRenderer.skinFor(p).body().texturePath())
+							.toList());
+		});
 	}
 
 	private static PerfSample samplePerformance(ClientGameTestContext context, int samples) {
