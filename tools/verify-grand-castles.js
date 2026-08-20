@@ -18,12 +18,24 @@ function check(condition, message) {
 	if (!condition) throw new Error(message);
 }
 
+// Castles live in the SAME structure set as the bases. Minecraft only enforces
+// spacing and separation *within* a set, so while the castles had sets of their own a
+// 501-block castle could — and on 5 of 8 tested seeds did — land in the same chunk as a
+// faction base. One set is the only thing that makes overlap impossible; see
+// tools/verify-base-spacing.js, which went from 0.0 to 272.0 blocks on that change.
+for (const stale of ["grand_castles.json", "dracula_castles.json"]) {
+	check(!fs.existsSync(path.join(dataDir, "worldgen/structure_set", stale)),
+		`${stale} is back — castles must stay in warfront:bases or spacing stops applying to them`);
+}
 const structureSet = JSON.parse(fs.readFileSync(
-	path.join(dataDir, "worldgen/structure_set/grand_castles.json"), "utf8"));
-check(structureSet.structures.length === 3, "normal castle set must contain exactly three entries");
+	path.join(dataDir, "worldgen/structure_set/bases.json"), "utf8"));
+const CASTLE_WEIGHT = 50;
+const DRACULA_WEIGHT = 3;
+check(structureSet.structures.length === 22,
+	`bases set must hold 18 bases plus 4 castles, found ${structureSet.structures.length}`);
 for (const faction of factions) {
 	const entry = structureSet.structures.find((candidate) => candidate.structure === `warfront:${faction}_castle`);
-	check(entry?.weight === 1, `${faction} castle must have weight 1`);
+	check(entry?.weight === CASTLE_WEIGHT, `${faction} castle must have weight ${CASTLE_WEIGHT}`);
 	const factionConfig = JSON.parse(fs.readFileSync(path.join(dataDir, `warfront_factions/${faction}.json`), "utf8"));
 	check(JSON.stringify(factionConfig.population.garrison.castle) === JSON.stringify(expected[faction].garrison),
 		`${faction}: castle garrison range changed unexpectedly`);
@@ -31,8 +43,27 @@ for (const faction of factions) {
 	for (const prize of ["minecraft:diamond", "minecraft:golden_apple", "minecraft:totem_of_undying"])
 		check(lootTable.includes(prize), `${faction}: rich castle loot is missing ${prize}`);
 }
-check(!structureSet.structures.some((entry) => entry.structure.includes("dracula")),
-	"Dracula must not be in the normal castle set");
+const draculaEntries = structureSet.structures.filter((entry) => entry.structure.includes("dracula"));
+check(draculaEntries.length === 1 && draculaEntries[0].weight === DRACULA_WEIGHT,
+	`Dracula must appear exactly once at weight ${DRACULA_WEIGHT}`);
+
+// The weights are not taste. They were solved so the merged set reproduces the placement
+// rates the separate sets had: grand castles at spacing 160 (one per 2560x2560 blocks) and
+// Dracula at spacing 640 with frequency 0.35. Bases are one per 384x384, so a castle's
+// share of the weight table has to be that ratio. Pinning the arithmetic here means a
+// later weight edit cannot quietly make castles common.
+const totalWeight = structureSet.structures.reduce((sum, entry) => sum + entry.weight, 0);
+const basePlacementsPerRegion = (3200 ** 2) / (24 ** 2);
+const expectGrand = (3200 ** 2) / (160 ** 2);
+const expectDracula = (3200 ** 2) / (640 ** 2) * 0.35;
+const actualGrand = (3 * CASTLE_WEIGHT) / totalWeight * basePlacementsPerRegion;
+const actualDracula = DRACULA_WEIGHT / totalWeight * basePlacementsPerRegion;
+check(Math.abs(actualGrand - expectGrand) / expectGrand < 0.05,
+	`grand castle rate drifted: ${actualGrand.toFixed(1)} vs ${expectGrand.toFixed(1)} per region`);
+check(Math.abs(actualDracula - expectDracula) / expectDracula < 0.10,
+	`Dracula rate drifted: ${actualDracula.toFixed(2)} vs ${expectDracula.toFixed(2)} per region`);
+console.log(`castle rates preserved by weight: grand ${actualGrand.toFixed(0)}/region `
+	+ `(was ${expectGrand.toFixed(0)}), dracula ${actualDracula.toFixed(2)} (was ${expectDracula.toFixed(2)})`);
 
 const population = JSON.parse(fs.readFileSync(path.join(dataDir, "warfront_config/population.json"), "utf8"));
 check(population.castle_citizens === 240, "castle economy must seed 240 citizens");
@@ -98,10 +129,6 @@ for (const faction of factions) {
 		+ `${loot} rich-loot containers, 4 working towns, 32 guards, 1 king`);
 }
 
-const draculaSet = JSON.parse(fs.readFileSync(
-	path.join(dataDir, "worldgen/structure_set/dracula_castles.json"), "utf8"));
-check(draculaSet.structures.length === 1 && draculaSet.structures[0].structure === "warfront:dracula_castle",
-	"Dracula must remain in its own structure set");
 const dracula = parse(fs.readFileSync(path.join(dataDir, "structure/dracula/castle.nbt"))).root.v;
 check(JSON.stringify(dracula.size.v.items) === JSON.stringify([501, 79, 501]),
 	"Dracula: imported structure dimensions changed unexpectedly");

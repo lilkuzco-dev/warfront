@@ -168,6 +168,56 @@ function describe(pair) {
 		+ `vs ${pair.b.file} @ (${pair.b.x}, ${pair.b.z})`;
 }
 
+/**
+ * Largest and second-largest structure plates in the set, and what the measured minimum
+ * centre distance leaves between their edges. Reads the NBTs, so it cannot drift from the
+ * structures actually shipped.
+ */
+function reportFootprintClearance(worstCentreDistance) {
+	let parse;
+	try {
+		({ parse } = require('./nbt.js'));
+	} catch {
+		return; // the spacing proof stands on its own; this is extra reporting
+	}
+	const structureDir = path.join(__dirname, '..', 'src', 'main', 'resources',
+		'data', 'warfront', 'structure');
+	const plates = [];
+	const walk = (dir) => {
+		for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+			const full = path.join(dir, entry.name);
+			if (entry.isDirectory()) walk(full);
+			else if (entry.name.endsWith('.nbt')) {
+				try {
+					const size = parse(fs.readFileSync(full)).root.v.size.v.items;
+					plates.push({ name: path.relative(structureDir, full), width: Math.max(size[0], size[2]) });
+				} catch { /* not a structure template */ }
+			}
+		}
+	};
+	try {
+		walk(structureDir);
+	} catch {
+		return;
+	}
+	if (plates.length < 2) return;
+	plates.sort((a, b) => b.width - a.width);
+	const [biggest, ...rest] = plates;
+	const nextDifferent = rest.find((plate) => plate.width < biggest.width) ?? rest[0];
+	const clearance = worstCentreDistance - biggest.width / 2 - nextDifferent.width / 2;
+
+	console.log('\nFootprint clearance at that minimum:');
+	console.log(`  largest plate:    ${biggest.name} ${biggest.width} blocks wide`);
+	console.log(`  largest non-peer: ${nextDifferent.name} ${nextDifferent.width} blocks wide`);
+	console.log(`  edge-to-edge at ${worstCentreDistance.toFixed(0)} blocks centre-to-centre: `
+		+ `${clearance.toFixed(0)} blocks`);
+	if (clearance < 0) {
+		console.log(`  NOTE: negative — the two largest plates can still overlap by up to `
+			+ `${(-clearance).toFixed(0)} blocks when they land at the minimum. Raising `
+			+ `separation is what buys this back, at the cost of base density.`);
+	}
+}
+
 function main() {
 	const argv = process.argv.slice(2);
 	const arg = (name, fallback) => {
@@ -209,6 +259,13 @@ function main() {
 	console.log(`\nWorst closest any-pair across all seeds:   ${worstOverall.toFixed(1)} blocks`);
 	console.log(`Worst closest cross-faction across seeds:  ${worstCross.toFixed(1)} blocks`);
 	console.log(`Required floor: ${floor} blocks`);
+
+	// Centre-to-centre distance is not the whole question once one structure in the set is
+	// 501 blocks across. A distance that clears the floor comfortably for two 76-block
+	// plates can still put a castle wall through a metropolis. Report the plate sizes and
+	// the implied edge clearance so that residual is a measured number rather than
+	// something a reader has to work out for themselves.
+	reportFootprintClearance(worstOverall);
 
 	if (failures > 0) {
 		console.log(`\nFAIL: ${failures}/${seedCount} seeds place two different factions closer than ${floor} blocks.`);
