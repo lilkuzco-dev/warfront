@@ -21,7 +21,6 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.EntitySpawnReason;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.structure.Structure;
 import net.minecraft.world.phys.AABB;
 
@@ -188,12 +187,13 @@ public final class WarfrontSystems {
 		for (int i = 0; i < size; i++) {
 			int x = from.getX() + (column ? (int) (dx / len * (i + 2)) : level.getRandom().nextInt(5) - 2);
 			int z = from.getZ() + (column ? (int) (dz / len * (i + 2)) : level.getRandom().nextInt(5) - 2);
-			int y = level.getHeight(Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, x, z);
+			BlockPos spawn = SpawnSafety.openGroundNear(level, x, z, 5);
+			if (spawn == null) break;
 			SoldierEntity soldier = WarfrontEntities.SOLDIER.create(level, EntitySpawnReason.EVENT);
 			if (soldier == null) {
 				break;
 			}
-			soldier.setPos(x + 0.5, y, z + 0.5);
+			soldier.setPos(spawn.getX() + 0.5, spawn.getY(), spawn.getZ() + 0.5);
 			soldier.setFaction(faction.id());
 			soldier.setRank(i == 0 ? "officer" : "soldier");
 			soldier.setHomePos(from);
@@ -238,15 +238,16 @@ public final class WarfrontSystems {
 		for (int i = 0; i < size; i++) {
 			int x = cx + level.getRandom().nextInt(5) - 2;
 			int z = cz + level.getRandom().nextInt(5) - 2;
-			int y = level.getHeight(Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, x, z);
+			BlockPos spawn = SpawnSafety.openGroundNear(level, x, z, 5);
+			if (spawn == null) break;
 			SoldierEntity soldier = WarfrontEntities.SOLDIER.create(level, EntitySpawnReason.EVENT);
 			if (soldier == null) {
 				break;
 			}
-			soldier.setPos(x + 0.5, y, z + 0.5);
+			soldier.setPos(spawn.getX() + 0.5, spawn.getY(), spawn.getZ() + 0.5);
 			soldier.setFaction(factionId);
 			soldier.setRank(i == 0 ? "officer" : "soldier");
-			soldier.setHomePos(new BlockPos(cx, y, cz));
+			soldier.setHomePos(new BlockPos(cx, spawn.getY(), cz));
 			soldier.applyLoadout(techLevel);
 			soldier.setPersistenceRequired();
 			if (!level.addFreshEntity(soldier)) {

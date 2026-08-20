@@ -1,5 +1,16 @@
 # Credits
 
+## Citizen Skins
+- **Author**: isaiah658
+- **Source**: https://opengameart.org/content/minetest-skins-pack-1
+- **License**: CC0 1.0
+- **What Warfront uses**: five skins from Minetest Skins Pack 1, assigned to the
+  miner, farmer, builder, trader, and laborer professions. The source pack uses the
+  legacy 64x32 Minecraft layout; `tools/gen-textures.js` converts the selected skins
+  to the modern 64x64 layout. Per-file provenance is recorded in
+  `tools/assets/citizen-skins/README.md`.
+- Credit is not required by CC0, but is retained with thanks to isaiah658.
+
 ## Repurposed Structures
 - **Author**: TelepathicGrunt
 - **Source**: https://github.com/TelepathicGrunt/RepurposedStructures (branch `26.2-MDG`,

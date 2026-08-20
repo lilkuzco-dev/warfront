@@ -4,6 +4,16 @@ Modern military factions for Minecraft 26.2 (Fabric). Three doctrine-driven fact
 
 Requires Fabric Loader 0.19.3+ and Fabric API for 26.2.
 
+## v0.4.2 — grounded populations and profession markets
+
+- Citizens and base soldiers now seed on the settlement's ground band instead of
+  selecting rooftops; saved roof spawns are corrected after upgrade, and roaming or
+  assault squads choose nearby open ground rather than heightmap spikes.
+- Citizens use five job-specific CC0 skins (miner, farmer, builder, trader, laborer)
+  instead of the generic Steve texture.
+- Right-clicking a citizen opens Minecraft's native villager-style merchant screen,
+  with offers backed by that citizen's real inventory, prices, and purse.
+
 ## v0.4.1 — dev-server launcher hardening
 
 - `tools/devserver.sh` now records the **listening JVM's** PID in `run/server.pid`, not

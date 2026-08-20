@@ -1,5 +1,6 @@
 package io.github.lilkuzcodev.warfront.client;
 
+import io.github.lilkuzcodev.warfront.entity.CitizenEntity;
 import net.fabricmc.fabric.api.client.gametest.v1.FabricClientGameTest;
 import net.fabricmc.fabric.api.client.gametest.v1.context.ClientGameTestContext;
 import net.fabricmc.fabric.api.client.gametest.v1.context.TestSingleplayerContext;
@@ -75,6 +76,40 @@ public class WarfrontRenderTest implements FabricClientGameTest {
 			context.waitTicks(60);
 			context.takeScreenshot("soldier_lineup");
 			server.runCommand("kill @e[type=warfront:soldier]");
+
+			// --- citizens: all five synchronized professions + native merchant UI ---
+			server.runCommand("execute at @p run warfront city create render_test aegis 5");
+			context.waitTicks(60);
+			server.runOnServer(minecraftServer -> {
+				var player = minecraftServer.getPlayerList().getPlayers().getFirst();
+				var citizens = minecraftServer.overworld().getEntitiesOfClass(CitizenEntity.class,
+						player.getBoundingBox().inflate(24));
+				citizens.sort(java.util.Comparator.comparingLong(CitizenEntity::serial));
+				for (int i = 0; i < citizens.size(); i++) {
+					CitizenEntity citizen = citizens.get(i);
+					citizen.setNoAi(true);
+					citizen.setPos(player.getX() - 4 + i * 2, player.getY(), player.getZ() + 6);
+					citizen.setYRot(180.0F);
+				}
+			});
+			context.waitTicks(20);
+			context.takeScreenshot("citizen_profession_lineup");
+			server.runOnServer(minecraftServer -> {
+				var player = minecraftServer.getPlayerList().getPlayers().getFirst();
+				var citizens = minecraftServer.overworld().getEntitiesOfClass(CitizenEntity.class,
+						player.getBoundingBox().inflate(24));
+				CitizenEntity citizen = citizens.stream().min(java.util.Comparator.comparingLong(CitizenEntity::serial))
+						.orElseThrow();
+				citizen.setPos(player.getX(), player.getY(), player.getZ() + 2.5);
+			});
+			context.waitTicks(5);
+			context.getInput().pressKey(options -> options.keyUse);
+			context.waitForScreen(net.minecraft.client.gui.screens.inventory.MerchantScreen.class);
+			context.waitTicks(10);
+			context.takeScreenshot("citizen_villager_style_market");
+			context.getInput().pressKey(options -> options.keyInventory);
+			context.waitTicks(5);
+			server.runCommand("kill @e[type=warfront:citizen]");
 
 			// --- retheme triptych: the same sourced barracks in three faction skins ---
 			server.runCommand("execute at @p run fill ~-30 ~-1 ~2 ~30 ~-1 ~30 minecraft:smooth_stone");

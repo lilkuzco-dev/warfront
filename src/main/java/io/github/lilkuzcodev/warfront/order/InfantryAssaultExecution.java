@@ -18,7 +18,6 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.EntitySpawnReason;
-import net.minecraft.world.level.levelgen.Heightmap;
 
 /**
  * The one shipped tactical template executor: muster -> approach via doctrine vectors ->
@@ -109,12 +108,13 @@ public final class InfantryAssaultExecution implements General.TemplateExecutor 
 		if (!level.hasChunk(x >> 4, z >> 4)) {
 			return null;
 		}
-		int y = level.getHeight(Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, x, z);
+		BlockPos spawn = io.github.lilkuzcodev.warfront.systems.SpawnSafety.openGroundNear(level, x, z, 5);
+		if (spawn == null) return null;
 		SoldierEntity soldier = WarfrontEntities.SOLDIER.create(level, EntitySpawnReason.EVENT);
 		if (soldier == null) {
 			return null;
 		}
-		soldier.setPos(x + 0.5, y, z + 0.5);
+		soldier.setPos(spawn.getX() + 0.5, spawn.getY(), spawn.getZ() + 0.5);
 		soldier.setFaction(faction.id());
 		soldier.setRank(officer ? "officer" : "soldier");
 		soldier.setHomePos(target); // anchors approach + post-fight patrol on the objective

@@ -135,6 +135,7 @@ public final class CivilizationManager {
 			for (CitizenRecord original : city.citizens().values()) {
 				String key = actorKey(city.id(), original.serial());
 				CitizenEntity entity = loaded.get(key);
+				if (entity != null) entity.ensureGroundSpawn(level);
 				FidelityTier desired = desiredTier(level, original);
 				if (original.tier() == FidelityTier.VIRTUAL && desired != FidelityTier.VIRTUAL) {
 					original = EconomyManager.hydrateForPromotion(server, city, original);
@@ -163,6 +164,7 @@ public final class CivilizationManager {
 							entity.initialize(city.id(), current.serial(), current.profession(), city.center(),
 									current.workTicks(), current.inventory());
 						}
+						entity.ensureGroundSpawn(level);
 						current = current.withState(entity.getX(), entity.getY(), entity.getZ(), current.workTicks(),
 								current.inventory(), level.getGameTime(), FidelityTier.EMBODIED);
 					} else {

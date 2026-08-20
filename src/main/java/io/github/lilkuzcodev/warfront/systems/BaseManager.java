@@ -189,7 +189,7 @@ public final class BaseManager {
 			return;
 		}
 		CivilizationManager.seedSettlement(level, "base_" + key, base.faction, heart,
-				SETTLEMENT_RADIUS, population, standableSpots(level, heart, population * 2));
+				SETTLEMENT_RADIUS, population, standableSpots(level, base, heart, population * 2));
 	}
 
 	/**
@@ -199,10 +199,10 @@ public final class BaseManager {
 	 * finds: filling greedily drains entirely out of the first column scanned and
 	 * strings every citizen along one edge instead of spreading them through the town.
 	 */
-	private static List<BlockPos> standableSpots(ServerLevel level, BlockPos heart, int wanted) {
+	private static List<BlockPos> standableSpots(ServerLevel level, WarfrontState.Base base,
+			BlockPos heart, int wanted) {
 		List<BlockPos> found = new ArrayList<>();
-		int top = heart.getY() + 16;
-		int bottom = heart.getY() - 12;
+		int ground = baseGroundY(base, heart);
 		for (int dx = -SETTLEMENT_RADIUS; dx <= SETTLEMENT_RADIUS; dx += 3) {
 			for (int dz = -SETTLEMENT_RADIUS; dz <= SETTLEMENT_RADIUS; dz += 3) {
 				int x = heart.getX() + dx;
@@ -210,7 +210,10 @@ public final class BaseManager {
 				if (!level.isLoaded(new BlockPos(x, heart.getY(), z))) {
 					continue;
 				}
-				for (int y = top; y >= bottom; y--) {
+				// Bottom-up and deliberately limited to the settlement's ground band.
+				// The old top-down scan selected the first walkable cap in a column,
+				// which made house and tower roofs the preferred civilian homes.
+				for (int y = ground; y <= ground + 4; y++) {
 					BlockPos pos = new BlockPos(x, y, z);
 					if (level.getBlockState(pos).isAir() && level.getBlockState(pos.above()).isAir()
 							&& !level.getBlockState(pos.below()).isAir()) {
@@ -222,6 +225,10 @@ public final class BaseManager {
 		}
 		found.sort(java.util.Comparator.comparingDouble(pos -> pos.distSqr(heart)));
 		return found.size() > wanted ? new ArrayList<>(found.subList(0, wanted)) : found;
+	}
+
+	private static int baseGroundY(WarfrontState.Base base, BlockPos fallback) {
+		return base.bounds.size() == 6 ? base.bounds.get(1) + 1 : fallback.getY();
 	}
 
 	private static @org.jspecify.annotations.Nullable String factionOf(String structurePath) {
@@ -329,6 +336,15 @@ public final class BaseManager {
 		int removedWrongFaction = 0;
 		boolean changed = false;
 		for (SoldierEntity soldier : List.copyOf(live)) {
+			int groundY = baseGroundY(base, base.center);
+			if (soldier.getY() > groundY + 4) {
+				BlockPos ground = standablePosNear(level, soldier.blockPosition(), groundY);
+				if (ground != null) {
+					soldier.setPos(ground.getX() + 0.5, ground.getY(), ground.getZ() + 0.5);
+					soldier.setHomePos(ground);
+					changed = true;
+				}
+			}
 			if (!base.faction.equals(soldier.getFaction())) {
 				soldier.setBaseKey("");
 				live.remove(soldier);
@@ -444,7 +460,7 @@ public final class BaseManager {
 			List<BlockPos> anchors, String rank) {
 		BlockPos anchor = anchors.isEmpty() ? base.center
 				: anchors.get(level.getRandom().nextInt(anchors.size()));
-		BlockPos spawn = standablePosNear(level, anchor);
+		BlockPos spawn = standablePosNear(level, anchor, baseGroundY(base, base.center));
 		if (spawn == null) {
 			return null;
 		}
@@ -466,11 +482,15 @@ public final class BaseManager {
 		return soldier;
 	}
 
-	private static BlockPos standablePosNear(ServerLevel level, BlockPos anchor) {
-		for (BlockPos candidate : BlockPos.betweenClosed(anchor.offset(-2, 0, -2), anchor.offset(2, 2, 2))) {
-			if (level.getBlockState(candidate).isAir() && level.getBlockState(candidate.above()).isAir()
-					&& !level.getBlockState(candidate.below()).isAir()) {
-				return candidate.immutable();
+	private static BlockPos standablePosNear(ServerLevel level, BlockPos anchor, int groundY) {
+		for (int y = groundY; y <= groundY + 4; y++) {
+			for (BlockPos candidate : BlockPos.betweenClosed(
+					new BlockPos(anchor.getX() - 3, y, anchor.getZ() - 3),
+					new BlockPos(anchor.getX() + 3, y, anchor.getZ() + 3))) {
+				if (level.getBlockState(candidate).isAir() && level.getBlockState(candidate.above()).isAir()
+						&& !level.getBlockState(candidate.below()).isAir()) {
+					return candidate.immutable();
+				}
 			}
 		}
 		return null;
@@ -486,9 +506,9 @@ public final class BaseManager {
 	}
 
 	/**
-	 * Spawn anchors, distributed across the base's pieces: bunks (barracks), stations
-	 * (towers, gates), falling back to the center courtyard. This is what puts soldiers
-	 * on the towers and at the gates instead of one clump in the middle.
+	 * Spawn anchors distributed across ground-level barracks, falling back to the
+	 * center courtyard. Sandbag stations are intentionally not anchors: several are
+	 * mounted on watchtowers and made roof spawning a permanent reinforcement path.
 	 */
 	private static List<BlockPos> anchorPoints(ServerLevel level, WarfrontState.Base base) {
 		// Bounded to the core deliberately. This runs on EVERY base tick until the base
@@ -497,7 +517,6 @@ public final class BaseManager {
 		// scans was 5.5M block reads every fifteen seconds for any base that could not
 		// finish hydrating. Anchors only need to be somewhere sensible to stand.
 		List<BlockPos> anchors = scanNearCentre(level, base, WarfrontBlocks.BUNK, ANCHOR_SCAN_RADIUS);
-		anchors.addAll(scanNearCentre(level, base, WarfrontBlocks.SANDBAG_STATION, ANCHOR_SCAN_RADIUS));
 		if (anchors.isEmpty()) {
 			anchors.add(base.center);
 		}

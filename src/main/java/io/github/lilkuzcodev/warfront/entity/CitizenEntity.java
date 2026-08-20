@@ -8,6 +8,7 @@ import io.github.lilkuzcodev.warfront.civilization.EconomyModel;
 import io.github.lilkuzcodev.warfront.data.WarfrontRegistry;
 import io.github.lilkuzcodev.warfront.entity.ai.CitizenWorkGoal;
 import java.util.HashMap;
+import java.util.IdentityHashMap;
 import java.util.Map;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -18,6 +19,7 @@ import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.damagesource.DamageSource;
@@ -51,6 +53,12 @@ public final class CitizenEntity extends PathfinderMob {
 	private BlockPos homePos = BlockPos.ZERO;
 	private long workTicks;
 	private final Map<String, Integer> inventory = new HashMap<>();
+	private final Map<net.minecraft.world.item.trading.MerchantOffer, CitizenTrade> pendingTrades =
+			new IdentityHashMap<>();
+	private @org.jspecify.annotations.Nullable Player tradingPlayer;
+	private net.minecraft.world.item.trading.MerchantOffers offers =
+			new net.minecraft.world.item.trading.MerchantOffers();
+	private boolean groundSpawnChecked;
 	private boolean ladderRemoval;
 
 	public CitizenEntity(EntityType<? extends CitizenEntity> type, Level level) {
@@ -88,6 +96,17 @@ public final class CitizenEntity extends PathfinderMob {
 	public CitizenProfession profession() { return CitizenProfession.byId(entityData.get(PROFESSION)); }
 	public long workTicks() { return workTicks; }
 	public Map<String, Integer> inventorySnapshot() { return Map.copyOf(inventory); }
+
+	/** One-time migration for records created by the former roof-first spawn scan. */
+	public void ensureGroundSpawn(ServerLevel level) {
+		if (groundSpawnChecked) return;
+		groundSpawnChecked = true;
+		BlockPos ground = io.github.lilkuzcodev.warfront.systems.SpawnSafety.openGroundNear(
+				level, blockPosition().getX(), blockPosition().getZ(), 8);
+		if (ground != null && getY() - ground.getY() >= 3.0) {
+			setPos(ground.getX() + 0.5, ground.getY(), ground.getZ() + 0.5);
+		}
+	}
 
 	public void initialize(String cityId, long serial, CitizenProfession profession, BlockPos home,
 			long workTicks, Map<String, Integer> inventory) {
@@ -138,113 +157,110 @@ public final class CitizenEntity extends PathfinderMob {
 
 	@Override
 	protected InteractionResult mobInteract(Player player, InteractionHand hand) {
+		if (hand != InteractionHand.MAIN_HAND || serial < 0 || cityId.isEmpty()) {
+			return super.mobInteract(player, hand);
+		}
 		if (level().isClientSide()) return InteractionResult.SUCCESS;
-		if (!(level() instanceof ServerLevel serverLevel) || serial < 0 || cityId.isEmpty()) {
-			return InteractionResult.SUCCESS;
+		if (!(player instanceof ServerPlayer serverPlayer) || !(level() instanceof ServerLevel serverLevel)) {
+			return InteractionResult.PASS;
 		}
-		MinecraftServer server = serverLevel.getServer();
-		ItemStack held = player.getItemInHand(hand);
-		if (held.is(Items.EMERALD)) {
-			return buyFromCitizen(server, player, held);
-		}
-		EconomyModel.Good offered = EconomyManager.goodOfItem(itemIdOf(held));
-		if (offered != null) {
-			return sellToCitizen(server, player, held, offered);
-		}
-		long wealth = EconomyManager.actorMoney(server, cityId, serial);
-		player.sendSystemMessage(Component.literal("Citizen #" + serial + " — " + profession().id()
-				+ " of " + cityId + "; wealth=" + EconomyManager.emeraldsOf(wealth) + " emeralds; goods="
-				+ inventory + "; work=" + workTicks + "/" + CivilizationMath.WORK_CYCLE_TICKS
-				+ ". Offer emeralds to buy, or goods to sell."));
-		return InteractionResult.SUCCESS;
+		buildOffers(serverLevel.getServer());
+		tradingPlayer = player;
+		merchant.openTradingScreen(serverPlayer, Component.literal(displayProfession() + " #" + serial
+				+ " — " + cityId), 0);
+		return InteractionResult.CONSUME;
 	}
 
-	/** Player pays emeralds and receives a lot of whatever this citizen is holding most of. */
-	private InteractionResult buyFromCitizen(MinecraftServer server, Player player, ItemStack emeralds) {
+	/** Builds native villager-screen offers from this citizen's live purse and inventory. */
+	private void buildOffers(MinecraftServer server) {
+		offers = new net.minecraft.world.item.trading.MerchantOffers();
+		pendingTrades.clear();
+		var city = city(server);
+		if (city == null) return;
 		int lot = WarfrontRegistry.economy().tradeLot();
-		EconomyModel.Good best = null;
-		long bestStock = 0;
+		long remainingMoney = EconomyManager.actorMoney(server, cityId, serial);
 		for (EconomyModel.Good good : EconomyModel.Good.values()) {
 			long stock = EconomyManager.actorStock(server, cityId, serial, good);
-			if (stock > bestStock) {
-				bestStock = stock;
-				best = good;
+			String itemId = EconomyManager.itemOf(good);
+			net.minecraft.world.item.Item item = itemOrAir(itemId);
+			if (item == Items.AIR) continue;
+
+			long buyPrice = EconomyManager.lotPriceEmeralds(server, city, good, true);
+			int buyUses = (int) Math.min(12L, stock / lot);
+			if (buyUses > 0 && buyPrice <= 64L) {
+				var offer = new net.minecraft.world.item.trading.MerchantOffer(
+						new net.minecraft.world.item.trading.ItemCost(Items.EMERALD, (int) buyPrice),
+						new ItemStack(item, lot), buyUses, 2, 0.0F);
+				offers.add(offer);
+				pendingTrades.put(offer, new CitizenTrade(good, true, buyPrice, itemId, lot));
+			}
+
+			long sellPrice = EconomyManager.lotPriceEmeralds(server, city, good, false);
+			long tradeValue = EconomyManager.moneyOf(sellPrice);
+			long affordable = remainingMoney / tradeValue;
+			int sellUses = (int) Math.min(12L, affordable);
+			if (sellUses > 0 && sellPrice <= 64L) {
+				var offer = new net.minecraft.world.item.trading.MerchantOffer(
+						new net.minecraft.world.item.trading.ItemCost(item, lot),
+						new ItemStack(Items.EMERALD, (int) sellPrice), sellUses, 2, 0.0F);
+				offers.add(offer);
+				pendingTrades.put(offer, new CitizenTrade(good, false, sellPrice, itemId, lot));
+				remainingMoney -= (long) sellUses * tradeValue;
 			}
 		}
-		if (best == null || bestStock < lot) {
-			player.sendSystemMessage(Component.literal("Citizen #" + serial + " has nothing to sell right now."));
-			return InteractionResult.SUCCESS;
-		}
-		long price = EconomyManager.lotPriceEmeralds(server, city(server), best, true);
-		String goodItem = EconomyManager.itemOf(best);
-		if (emeralds.getCount() < price) {
-			player.sendSystemMessage(Component.literal("Citizen #" + serial + " asks " + price
-					+ " emeralds for " + lot + " " + shortName(goodItem) + " — you are holding " + emeralds.getCount() + "."));
-			return InteractionResult.SUCCESS;
-		}
-		if (!EconomyManager.trade(server, cityId, serial, best, true, price)) {
-			player.sendSystemMessage(Component.literal("That trade fell through."));
-			return InteractionResult.SUCCESS;
-		}
-		// The record — not the model — is authoritative for goods while a citizen is
-		// embodied: the next economic tick copies this inventory INTO the model. Without
-		// this line the model's side of the trade is silently overwritten a tick later
-		// and the goods reappear on the citizen, having also been handed to the player.
-		consume(goodItem, lot);
-		emeralds.shrink((int) price);
-		player.getInventory().placeItemBackInInventory(new ItemStack(itemOrAir(goodItem), lot));
-		player.sendSystemMessage(Component.literal("Bought " + lot + " " + shortName(goodItem)
-				+ " for " + price + " emeralds."));
-		return InteractionResult.SUCCESS;
 	}
 
-	/** Player hands over a lot of a good and is paid in emeralds from the citizen's balance. */
-	private InteractionResult sellToCitizen(MinecraftServer server, Player player, ItemStack offered,
-			EconomyModel.Good good) {
-		int lot = WarfrontRegistry.economy().tradeLot();
-		if (offered.getCount() < lot) {
-			player.sendSystemMessage(Component.literal("Citizen #" + serial + " buys " + shortName(
-					EconomyManager.itemOf(good)) + " " + lot + " at a time."));
-			return InteractionResult.SUCCESS;
-		}
-		var record = city(server);
-		if (record == null) {
-			return InteractionResult.SUCCESS; // orphaned citizen: no city to trade against
-		}
-		long price = EconomyManager.lotPriceEmeralds(server, record, good, false);
-		if (EconomyManager.actorMoney(server, cityId, serial) < EconomyManager.moneyOf(price)) {
-			player.sendSystemMessage(Component.literal("Citizen #" + serial + " cannot afford that right now."));
-			return InteractionResult.SUCCESS;
-		}
-		if (!EconomyManager.trade(server, cityId, serial, good, false, price)) {
-			player.sendSystemMessage(Component.literal("That trade fell through."));
-			return InteractionResult.SUCCESS;
-		}
-		// Same reason as the buy path: the record feeds the model, so the goods have to
-		// land on the citizen here or the sale is undone at the next economic tick.
-		store(EconomyManager.itemOf(good), lot);
-		offered.shrink(lot);
-		player.getInventory().placeItemBackInInventory(new ItemStack(Items.EMERALD, (int) price));
-		player.sendSystemMessage(Component.literal("Sold " + lot + " " + shortName(EconomyManager.itemOf(good))
-				+ " for " + price + " emeralds."));
-		return InteractionResult.SUCCESS;
+	private String displayProfession() {
+		String id = profession().id();
+		return Character.toUpperCase(id.charAt(0)) + id.substring(1);
 	}
+
+	private record CitizenTrade(EconomyModel.Good good, boolean playerIsBuying,
+			long emeralds, String itemId, int lot) {}
+
+	/** Merchant facade keeps the trade authoritative while using Minecraft's villager UI. */
+	public final net.minecraft.world.item.trading.Merchant merchant = new net.minecraft.world.item.trading.Merchant() {
+		@Override public void setTradingPlayer(@org.jspecify.annotations.Nullable Player player) {
+			tradingPlayer = player;
+		}
+		@Override public Player getTradingPlayer() { return tradingPlayer; }
+		@Override public net.minecraft.world.item.trading.MerchantOffers getOffers() { return offers; }
+		@Override public void overrideOffers(net.minecraft.world.item.trading.MerchantOffers ignored) {}
+
+		@Override
+		public void notifyTrade(net.minecraft.world.item.trading.MerchantOffer offer) {
+			CitizenTrade trade = pendingTrades.get(offer);
+			if (trade == null || !(level() instanceof ServerLevel serverLevel)) return;
+			if (!EconomyManager.trade(serverLevel.getServer(), cityId, serial, trade.good(),
+					trade.playerIsBuying(), trade.emeralds())) {
+				if (tradingPlayer != null) tradingPlayer.sendSystemMessage(Component.literal("That trade fell through."));
+				return;
+			}
+			// The embodied record feeds its inventory back into the economic model, so
+			// mirror the completed screen trade here to prevent stock duplication.
+			if (trade.playerIsBuying()) consume(trade.itemId(), trade.lot());
+			else store(trade.itemId(), trade.lot());
+		}
+
+		@Override public void notifyTradeUpdated(ItemStack stack) {}
+		@Override public int getVillagerXp() { return 0; }
+		@Override public void overrideXp(int xp) {}
+		@Override public boolean showProgressBar() { return false; }
+		@Override public net.minecraft.sounds.SoundEvent getNotifyTradeSound() {
+			return net.minecraft.sounds.SoundEvents.VILLAGER_YES;
+		}
+		@Override public boolean isClientSide() { return level().isClientSide(); }
+		@Override public boolean stillValid(Player player) {
+			return tradingPlayer == player && isAlive() && player.distanceToSqr(CitizenEntity.this) < 64.0;
+		}
+	};
 
 	private io.github.lilkuzcodev.warfront.civilization.CivilizationState.CityRecord city(MinecraftServer server) {
 		return io.github.lilkuzcodev.warfront.civilization.CivilizationState.get(server).city(cityId);
 	}
 
-	private static String itemIdOf(ItemStack stack) {
-		return BuiltInRegistries.ITEM.getKey(stack.getItem()).toString();
-	}
-
 	private static net.minecraft.world.item.Item itemOrAir(String id) {
 		return BuiltInRegistries.ITEM.getOptional(Identifier.parse(id)).orElse(Items.AIR);
-	}
-
-	private static String shortName(String itemId) {
-		int colon = itemId.indexOf(':');
-		return colon < 0 ? itemId : itemId.substring(colon + 1);
 	}
 
 	/**
@@ -271,6 +287,7 @@ public final class CitizenEntity extends PathfinderMob {
 		output.store("warfront_home", BlockPos.CODEC, homePos);
 		output.putLong("warfront_work_ticks", workTicks);
 		output.putString("warfront_inventory", encodeInventory(inventory));
+		output.putBoolean("warfront_ground_spawn_checked", groundSpawnChecked);
 	}
 
 	@Override
@@ -284,6 +301,7 @@ public final class CitizenEntity extends PathfinderMob {
 		workTicks = input.getLongOr("warfront_work_ticks", 0L);
 		inventory.clear();
 		decodeInventory(input.getStringOr("warfront_inventory", ""), inventory);
+		groundSpawnChecked = input.getBooleanOr("warfront_ground_spawn_checked", false);
 		setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(profession.tool()));
 		setDropChance(EquipmentSlot.MAINHAND, 0.0F);
 	}

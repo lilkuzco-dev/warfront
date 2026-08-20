@@ -297,14 +297,14 @@ function trainingYard(p, f, x1, z1) {
 	for (let x = x1 - 1; x <= x1 + 9; x += 2) p.set(x, 1, z1 + 8, "minecraft:oak_fence");
 }
 
-/** Stamps a tower and mans its top platform with a station + seed guard. */
+/** Stamps a tower with a decorative top station; guards seed at ground level. */
 function tower(p, f, piece, x, z, face) {
 	const { w, d } = p.stamp(pieceFile(f, piece), x, 1, z, face, loot(f, "outpost"));
 	const top = p.topPlatform(x + 2, z + 2, x + w - 3, z + d - 3);
 	if (top) {
 		p.set(top.x, top.y, top.z, "warfront:sandbag_station");
-		p.soldier(top.x + 1, top.y, top.z, f, "soldier");
 	}
+	p.soldier(x + Math.floor(w / 2), 1, z + d, f, "soldier");
 	return { w, d };
 }
 
@@ -578,8 +578,8 @@ function sarabSubcamps() {
 		const top = p.topPlatform(4, 4, w - 2, d - 2);
 		if (top) {
 			p.set(top.x, top.y, top.z, "warfront:sandbag_station");
-			p.soldier(top.x + 1, top.y, top.z, "sarab", "soldier");
 		}
+		p.soldier(9, 1, 13, "sarab", "soldier");
 	});
 }
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // Warfront textures: per-faction soldier uniforms are recolors of the vanilla player
-// skin (clothing/limb UV regions hue-mapped to the faction color, head untouched);
-// the sandbag station texture and mod icon are procedural.
+// skin; citizen skins are CC0 legacy skins converted to the modern 64x64 layout; the
+// sandbag station texture and mod icon are procedural.
 // Requires `unzip` + a populated Loom cache. Usage: node tools/gen-textures.js
 
 const zlib = require("node:zlib");
@@ -164,6 +164,60 @@ const ROOT = path.join(__dirname, "..");
 const ASSETS = path.join(ROOT, "src/main/resources/assets/warfront");
 const jar = findClientJar();
 const steve = decodePng(execFileSync("unzip", ["-p", jar, "assets/minecraft/textures/entity/player/wide/steve.png"], { maxBuffer: 1 << 22 }));
+
+// Minetest Skins Pack 1 uses the legacy 64x32 Minecraft layout. Modern player
+// models have independent left-limb UVs in the lower half, so mirror the old
+// right-limb faces into those slots exactly as Minecraft's legacy loader does.
+function legacySkinToModern(legacy) {
+	if (legacy.w !== 64 || legacy.h !== 32) {
+		throw new Error(`citizen source must be a legacy 64x32 skin, got ${legacy.w}x${legacy.h}`);
+	}
+	const out = Buffer.alloc(64 * 64 * 4);
+	legacy.px.copy(out, 0);
+	const copy = (sx, sy, w, h, dx, dy, mirrorX) => {
+		for (let y = 0; y < h; y++) {
+			for (let x = 0; x < w; x++) {
+				const sourceX = sx + (mirrorX ? w - 1 - x : x);
+				const source = (sy * 64 + sourceX + y * 64) * 4;
+				const target = ((dy + y) * 64 + dx + x) * 4;
+				legacy.px.copy(out, target, source, source + 4);
+			}
+		}
+	};
+	// left leg: top, bottom, right, front, left, back
+	copy(4, 16, 4, 4, 20, 48, true);
+	copy(8, 16, 4, 4, 24, 48, true);
+	copy(0, 20, 4, 12, 24, 52, true);
+	copy(4, 20, 4, 12, 20, 52, true);
+	copy(8, 20, 4, 12, 16, 52, true);
+	copy(12, 20, 4, 12, 28, 52, true);
+	// left arm: top, bottom, right, front, left, back
+	copy(44, 16, 4, 4, 36, 48, true);
+	copy(48, 16, 4, 4, 40, 48, true);
+	copy(40, 20, 4, 12, 40, 52, true);
+	copy(44, 20, 4, 12, 36, 52, true);
+	copy(48, 20, 4, 12, 32, 52, true);
+	copy(52, 20, 4, 12, 44, 52, true);
+
+	// Fully opaque legacy files use filler pixels in the optional hat area. The
+	// vanilla legacy loader clears that area rather than rendering a black shell.
+	let hatHasTransparency = false;
+	for (let y = 0; y < 16; y++) for (let x = 32; x < 64; x++) {
+		if (out[(y * 64 + x) * 4 + 3] < 128) hatHasTransparency = true;
+	}
+	if (!hatHasTransparency) for (let y = 0; y < 16; y++) for (let x = 32; x < 64; x++) {
+		out[(y * 64 + x) * 4 + 3] = 0;
+	}
+	return out;
+}
+
+for (const profession of ["miner", "farmer", "builder", "trader", "laborer"]) {
+	const source = decodePng(fs.readFileSync(path.join(ROOT, `tools/assets/citizen-skins/${profession}.png`)));
+	const file = path.join(ASSETS, `textures/entity/citizen/${profession}.png`);
+	fs.mkdirSync(path.dirname(file), { recursive: true });
+	fs.writeFileSync(file, encodePng(64, 64, legacySkinToModern(source)));
+	console.log(`wrote citizen/${profession}.png`);
+}
 
 // uniform = every body/limb pixel below the head rows (y >= 16) hue-mapped to the
 // faction color, keeping per-pixel luminance for cloth shading
