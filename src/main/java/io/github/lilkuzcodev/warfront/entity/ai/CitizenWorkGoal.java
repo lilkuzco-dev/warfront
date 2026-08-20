@@ -103,7 +103,7 @@ public final class CitizenWorkGoal extends Goal {
 
 	private @Nullable BlockPos findTarget(ServerLevel level) {
 		CitizenProfession profession = citizen.profession();
-		BlockPos center = citizen.homePos();
+		BlockPos center = citizen.workSearchCenter(level);
 		List<BlockPos> primary = new ArrayList<>();
 		List<BlockPos> fallback = new ArrayList<>();
 		for (BlockPos pos : BlockPos.betweenClosed(center.offset(-SEARCH_RADIUS, -SEARCH_Y, -SEARCH_RADIUS),
@@ -131,8 +131,9 @@ public final class CitizenWorkGoal extends Goal {
 					&& hasMiningFace(level, pos);
 			case FARMER -> state.getBlock() instanceof CropBlock crop && crop.isMaxAge(state);
 			case BUILDER -> isBuilderWorkstation(state);
-			case TRADER -> isContainer(state);
-			case LABORER -> isContainer(state) || state.is(Blocks.HAY_BLOCK);
+			case TRADER -> state.is(Blocks.LECTERN) || state.is(Blocks.BELL);
+			case LABORER -> state.is(Blocks.SMOKER) || state.is(Blocks.FURNACE)
+					|| state.is(Blocks.HAY_BLOCK);
 		};
 	}
 
@@ -144,8 +145,8 @@ public final class CitizenWorkGoal extends Goal {
 					|| state.is(Blocks.FARMLAND);
 			case BUILDER -> state.is(Blocks.BLAST_FURNACE) || state.is(Blocks.FURNACE)
 					|| state.is(Blocks.BARREL);
-			case TRADER -> state.is(Blocks.LECTERN) || state.is(Blocks.BELL);
-			case LABORER -> state.is(Blocks.SMOKER) || state.is(Blocks.FURNACE);
+			case TRADER -> isContainer(state);
+			case LABORER -> isContainer(state);
 		};
 	}
 

@@ -241,10 +241,15 @@ public class SoldierEntity extends PathfinderMob {
 
 	public void endDialogue(UUID playerId) {
 		if (playerId.equals(dialoguePartner)) {
-			dialoguePartner = null;
-			dialogueAnchor = null;
-			getNavigation().stop();
+			cancelDialogue();
 		}
+	}
+
+	/** Ends any conversation immediately when duty or combat takes priority. */
+	public void cancelDialogue() {
+		dialoguePartner = null;
+		dialogueAnchor = null;
+		getNavigation().stop();
 	}
 
 	public @Nullable ServerPlayer getDialoguePartner() {

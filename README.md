@@ -4,6 +4,21 @@ Modern military factions for Minecraft 26.2 (Fabric). Three doctrine-driven fact
 
 Requires Fabric Loader 0.19.3+ and Fabric API for 26.2.
 
+## v0.4.6 — guarded working cities
+
+- Hitting a citizen immediately makes the attacker hostile to that faction and alerts
+  every same-faction city guard inside the settlement. Guards break off dialogue and
+  pursue the attacker like iron golems defending villagers.
+- Every newly generated town, city, and metropolis guarantees a distinct mine office,
+  farmhouse and worked field, builder workshop, trader exchange, laborer warehouse,
+  and sealed city vault. Profession AI prioritizes the matching workstations instead
+  of gathering at arbitrary containers.
+- Citizens no longer drop the abstract city-economy inventory projected onto their
+  records. Death loot is limited to at most eight items they physically produced plus
+  occasional pocket change; the city's treasury is represented by its fortified vault.
+- The larger functional town plates have matching jigsaw distance bounds, and every
+  guaranteed job site remains within the runtime work-search radius.
+
 ## v0.4.5 — visible work, tangible stock
 
 - Miners break exposed city ore with visible crack progress at vanilla survival speed
@@ -120,13 +135,12 @@ Requires Fabric Loader 0.19.3+ and Fabric API for 26.2.
   grammar instead of military: an open road cross, a market plaza with a well and
   stalls, worked farmland, lit streets, and a light guard rather than a garrison.
   Cities sprawl into housing and farm districts along their roads.
-- **Emeralds are the currency.** The economy's abstract money is now denominated in
-  emeralds at a datapack rate, citizens physically carry a capped purse of them (so
-  they are visible and lootable without being a farm), and you can trade: offer a
-  citizen emeralds to buy a lot of goods, or offer goods to be paid in emeralds.
-  Player trade is booked in the conservation ledger rather than quietly breaking it,
-  so `conserved=true` still means what it says. `/warfront city economy` reports
-  city wealth, per-lot prices and net player trade in emeralds.
+- **Emeralds are the currency.** The economy's abstract money is denominated in
+  emeralds at a datapack rate. Citizens sell only stock they physically produced;
+  their larger holdings and the city treasury remain economic state rather than
+  turning every resident into a loot chest. Player trade is booked in the conservation
+  ledger, so `conserved=true` still means what it says. `/warfront city economy`
+  reports city wealth, per-lot prices and net player trade in emeralds.
 
 ## Civilization update — Phases 1–2
 
@@ -135,9 +149,10 @@ Requires Fabric Loader 0.19.3+ and Fabric API for 26.2.
   through exactly one representation: embodied inside 48 blocks, local-abstract in
   loaded chunks, and virtual in unloaded chunks.
 - Five citizen professions ship in Phase 1: miner, farmer, builder, trader, and
-  laborer. Embodied citizens pathfind, work at blocks/routes, flee monsters, and are
-  defended by the existing soldier-vs-hostile behavior. Nearby same-faction soldiers
-  are assigned to the city rather than duplicated into a new military system.
+  laborer. Embodied citizens pathfind, work at profession buildings and world resources,
+  and flee monsters. Damaging one alerts the settlement's same-faction soldiers
+  immediately; those guards are assigned to the city rather than duplicated into a
+  separate military system.
 - The actor record owns serial ID, position, partial work, and full goods inventory.
   Demotion snapshots the entity; local/virtual work uses deterministic elapsed-time
   arithmetic; promotion overwrites even a stale chunk-restored entity from that

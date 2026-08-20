@@ -3,6 +3,8 @@ package io.github.lilkuzcodev.warfront.civilization;
 import io.github.lilkuzcodev.warfront.Warfront;
 import io.github.lilkuzcodev.warfront.civilization.CivilizationState.CitizenRecord;
 import io.github.lilkuzcodev.warfront.civilization.CivilizationState.CityRecord;
+import io.github.lilkuzcodev.warfront.data.WarfrontRegistry;
+import io.github.lilkuzcodev.warfront.data.WarfrontState;
 import io.github.lilkuzcodev.warfront.entity.CitizenEntity;
 import io.github.lilkuzcodev.warfront.entity.SoldierEntity;
 import io.github.lilkuzcodev.warfront.entity.WarfrontEntities;
@@ -247,6 +249,28 @@ public final class CivilizationManager {
 
 	public static void onCitizenDeath(ServerLevel level, String cityId, long serial) {
 		CivilizationState.get(level.getServer()).removeCitizen(cityId, serial);
+	}
+
+	/** City guards defend citizens immediately, just as iron golems defend villagers. */
+	public static void onCitizenAttacked(ServerLevel level, String cityId, ServerPlayer attacker) {
+		if (attacker.isCreative() || attacker.isSpectator()) return;
+		CityRecord city = CivilizationState.get(level.getServer()).city(cityId);
+		if (city == null || city.faction().isEmpty()) return;
+
+		WarfrontState standing = WarfrontState.get(level.getServer());
+		standing.addStanding(attacker.getUUID(), city.faction(), WarfrontRegistry.standing().attackPenalty());
+		standing.recordEvent(attacker.getUUID(), city.faction(), "attacked_citizen", WarfrontState.clock(level));
+
+		// Include outer watchtowers on metropolis plates, not only the embodied-citizen
+		// core. The global structure spacing floor keeps another faction's base out.
+		AABB cityBounds = new AABB(city.center()).inflate(city.radius() + 32);
+		for (SoldierEntity guard : level.getEntitiesOfClass(SoldierEntity.class, cityBounds,
+				soldier -> soldier.isAlive() && city.faction().equals(soldier.getFaction()))) {
+			io.github.lilkuzcodev.warfront.dialogue.DialogueSessions.onSoldierGone(guard);
+			guard.cancelDialogue();
+			guard.getNavigation().stop();
+			guard.setTarget(attacker);
+		}
 	}
 
 	public static ValidationResult validatePhaseOne() {

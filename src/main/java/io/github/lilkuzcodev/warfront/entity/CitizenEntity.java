@@ -3,6 +3,7 @@ package io.github.lilkuzcodev.warfront.entity;
 import io.github.lilkuzcodev.warfront.civilization.CitizenProfession;
 import io.github.lilkuzcodev.warfront.civilization.CivilizationManager;
 import io.github.lilkuzcodev.warfront.civilization.CivilizationMath;
+import io.github.lilkuzcodev.warfront.civilization.CivilizationState;
 import io.github.lilkuzcodev.warfront.civilization.EconomyManager;
 import io.github.lilkuzcodev.warfront.data.WarfrontRegistry;
 import io.github.lilkuzcodev.warfront.entity.ai.CitizenWorkGoal;
@@ -93,6 +94,10 @@ public final class CitizenEntity extends PathfinderMob {
 	public String cityId() { return cityId; }
 	public long serial() { return serial; }
 	public BlockPos homePos() { return homePos; }
+	public BlockPos workSearchCenter(ServerLevel level) {
+		var city = CivilizationState.get(level.getServer()).city(cityId);
+		return city == null ? homePos : city.center();
+	}
 	public CitizenProfession profession() { return CitizenProfession.byId(entityData.get(PROFESSION)); }
 	public long workTicks() { return workTicks; }
 	public Map<String, Integer> inventorySnapshot() { return Map.copyOf(inventory); }
@@ -213,6 +218,15 @@ public final class CitizenEntity extends PathfinderMob {
 	}
 
 	@Override
+	public boolean hurtServer(ServerLevel level, DamageSource source, float amount) {
+		boolean hurt = super.hurtServer(level, source, amount);
+		if (hurt && source.getEntity() instanceof ServerPlayer attacker && !cityId.isEmpty()) {
+			CivilizationManager.onCitizenAttacked(level, cityId, attacker);
+		}
+		return hurt;
+	}
+
+	@Override
 	protected InteractionResult mobInteract(Player player, InteractionHand hand) {
 		if (hand != InteractionHand.MAIN_HAND || serial < 0 || cityId.isEmpty()) {
 			return super.mobInteract(player, hand);
@@ -308,18 +322,31 @@ public final class CitizenEntity extends PathfinderMob {
 	}
 
 	/**
-	 * Drops the carried purse and goods. Only the visible float is ever carried, so this
-	 * cannot become an emerald farm — the rest of a citizen's wealth is abstract holdings
-	 * that die with the record.
+	 * Drops only a small amount of embodied work stock and occasional pocket change.
+	 * The unmarked inventory entries are projections of the city economy, not a backpack;
+	 * exposing them here was why every citizen appeared to carry stacks of city timber.
 	 */
 	@Override
 	protected void dropCustomDeathLoot(ServerLevel level, DamageSource source, boolean recentlyHit) {
 		super.dropCustomDeathLoot(level, source, recentlyHit);
-		for (Map.Entry<String, Integer> entry : inventory.entrySet()) {
-			if (entry.getKey().startsWith(PRODUCED_PREFIX)) continue;
+		int remainingGoods = 8;
+		for (Map.Entry<String, Integer> entry : producedStock().entrySet().stream()
+				.sorted(Map.Entry.comparingByKey()).toList()) {
+			if (remainingGoods <= 0) break;
 			net.minecraft.world.item.Item item = itemOrAir(entry.getKey());
-			if (item == Items.AIR || entry.getValue() <= 0) continue;
-			spawnAtLocation(level, new ItemStack(item, entry.getValue()));
+			if (item == Items.AIR || item == Items.EMERALD) continue;
+			int count = Math.min(remainingGoods, Math.min(entry.getValue(), 1 + getRandom().nextInt(4)));
+			if (count > 0) {
+				spawnAtLocation(level, new ItemStack(item, count));
+				remainingGoods -= count;
+			}
+		}
+		// Most citizens have no loose emeralds on them. Traders are a little more
+		// likely to carry change, but the city's real wealth remains in its treasury.
+		float purseChance = profession() == CitizenProfession.TRADER ? 0.45F : 0.20F;
+		if (getRandom().nextFloat() < purseChance) {
+			int emeralds = profession() == CitizenProfession.TRADER ? 1 + getRandom().nextInt(3) : 1;
+			spawnAtLocation(level, new ItemStack(Items.EMERALD, emeralds));
 		}
 	}
 

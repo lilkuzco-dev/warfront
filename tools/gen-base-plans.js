@@ -714,11 +714,48 @@ function buildingRow(p, f, pieces, x0, z0, face, xLimit, zLimit, lootTable) {
  * way a piece's entrance rotates it.
  */
 const SETTLEMENTS = {
-	// Sarab needs the wider plate everywhere: its command post is 17 deep against Aegis' 11.
-	town: { size: { vostok: 52, aegis: 48, sarab: 52 }, guards: 1 },
-	city: { size: { vostok: 76, aegis: 72, sarab: 76 }, guards: 2 },
-	metropolis: { size: { vostok: 124, aegis: 120, sarab: 124 }, guards: 6 },
+	// Functional civilian quarters need enough reserved frontage for all five jobs and
+	// a physically separate treasury. Sarab stays four blocks wider because its trader
+	// exchange is the 17-deep library silhouette.
+	town: { size: { vostok: 72, aegis: 72, sarab: 76 }, guards: 2 },
+	city: { size: { vostok: 92, aegis: 92, sarab: 96 }, guards: 4 },
+	metropolis: { size: { vostok: 124, aegis: 120, sarab: 124 }, guards: 10 },
 };
+
+/**
+ * Guaranteed civic workplaces. Each role gets a different sourced building and a
+ * unique vanilla workstation grammar that CitizenWorkGoal recognizes:
+ * armorer=mine office, barracks+field=farmhouse, toolsmith=builder workshop,
+ * library=exchange, mess/supply=warehouse. The solid sourced bunker store is the
+ * vault; its four barrels alone receive the treasury loot table.
+ */
+function civicWorkplaces(p, f, size, mid, L, lo, hiNear, loFar, hiFar) {
+	// Keep the whole working quarter inside the runtime city's 40-block fidelity
+	// radius even on a metropolis-sized plate. Housing may sprawl farther out.
+	const workLo = Math.max(lo, mid - 33);
+	const warehouse = f === "sarab" ? "supply" : "mess";
+	buildingRow(p, f, ["armory_1", warehouse], workLo, workLo, "s", hiNear, hiNear, L);
+	buildingRow(p, f, ["command_post"], loFar, workLo, "s", hiFar, hiNear, L);
+	const vaultX = buildingRow(p, f, ["barracks_2"], workLo, loFar, "n", hiNear, hiFar, L);
+	buildingRow(p, f, ["bunker_storage"], vaultX, loFar, "n", hiNear, hiFar,
+			"warfront:city/vault");
+	buildingRow(p, f, ["quartermaster"], loFar, loFar, "n", hiFar, hiFar, L);
+
+	// A visible loading dock makes the warehouse the laborer's preferred destination
+	// instead of any arbitrary chest (especially the vault barrels).
+	const dockX = workLo + lotSize(f, "armory_1") + 2;
+	p.set(dockX - 1, 1, workLo + 3, "minecraft:smoker", { facing: "south" });
+	p.set(dockX - 1, 1, workLo + 4, "minecraft:barrel", { facing: "up" },
+			{ id: "minecraft:barrel", LootTable: "warfront:city/warehouse" });
+	p.set(dockX - 1, 1, workLo + 5, "minecraft:hay_block");
+
+	// The farmhouse is inseparable from a worked field and composter. Keeping this
+	// behind the south-west row also leaves both central avenues completely open.
+	const farmZ = Math.min(size - 12, loFar + 16);
+	farmPlot(p, f, workLo, farmZ, 11, 7);
+	p.set(workLo + 12, 1, farmZ + 2, "minecraft:composter", { level: "5" });
+	p.set(workLo + 12, 1, farmZ + 4, "minecraft:hay_block");
+}
 
 function settlement(f, tier) {
 	const spec = SETTLEMENTS[tier];
@@ -735,39 +772,21 @@ function settlement(f, tier) {
 	const hiNear = mid - 8;
 	const loFar = mid + 8;
 	const hiFar = size - 4;
+	const workLo = Math.max(lo, mid - 33);
 
-	if (tier === "town") {
-		// A town quarter is only ~16 across, which is one building and no more.
-		buildingRow(p, f, ["barracks_1"], lo, lo, "s", hiNear, hiNear, L);
-		buildingRow(p, f, ["bunkroom"], loFar, lo, "s", hiFar, hiNear, L);
-		buildingRow(p, f, [f === "sarab" ? "supply" : "mess"], lo, loFar, "n", hiNear, hiFar, L);
-		buildingRow(p, f, ["quartermaster"], loFar, loFar, "n", hiFar, hiFar, L);
-		farmPlot(p, f, lo, mid - 5, 11, 7);
-	} else if (tier === "city") {
-		buildingRow(p, f, ["barracks_1", "bunkroom"], lo, lo, "s", hiNear, hiNear, L);
-		tower(p, f, "watchtower", loFar, lo, "s");
-		buildingRow(p, f, ["command_post", f === "sarab" ? "supply" : "mess"], lo, loFar, "n", hiNear, hiFar, L);
-		buildingRow(p, f, ["quartermaster", "armory_1"], loFar, loFar, "n", hiFar, hiFar, L);
-		// The deepest lot in a northern row is the tower's 15, so the fence starts clear.
-		farmPlot(p, f, lo, hiNear - 9);
-		farmPlot(p, f, loFar + 15, hiNear - 9);
-	} else {
-		// A metropolis fills all four quarters two rows deep and rings the plaza with
-		// towers. This is where the housing comes from: every barracks and bunkroom
-		// carries beds, and beds are what a settlement's population is allowed to grow to.
-		buildingRow(p, f, ["barracks_1", "barracks_2", "bunkroom"], lo, lo, "s", hiNear, hiNear, L);
-		buildingRow(p, f, ["bunkroom", "barracks_1"], lo, lo + 20, "s", hiNear, hiNear, L);
-		buildingRow(p, f, ["command_post", "armory_1", "armory_2"], loFar, lo, "s", hiFar, hiNear, L);
-		buildingRow(p, f, ["barracks_2", "bunkroom"], loFar, lo + 20, "s", hiFar, hiNear, L);
-		buildingRow(p, f, [f === "sarab" ? "supply" : "mess", "barracks_1"], lo, loFar, "n", hiNear, hiFar, L);
-		buildingRow(p, f, ["bunkroom", "barracks_2"], lo, loFar + 20, "n", hiNear, hiFar, L);
-		buildingRow(p, f, ["quartermaster", "bunkroom"], loFar, loFar, "n", hiFar, hiFar, L);
-		buildingRow(p, f, ["barracks_1", "bunkroom"], loFar, loFar + 20, "n", hiFar, hiFar, L);
+	civicWorkplaces(p, f, size, mid, L, lo, hiNear, loFar, hiFar);
+
+	if (tier !== "town") {
+		// Housing sits on a second row behind the guaranteed workplaces. It never
+		// substitutes for one, so adding population cannot erase a profession's home.
+		buildingRow(p, f, ["barracks_1", "bunkroom"], workLo, workLo + 12, "s", hiNear, hiNear, L);
+		buildingRow(p, f, ["bunkroom"], loFar, loFar + 20, "n", hiFar, hiFar, L);
+		tower(p, f, "watchtower", size - 18, mid - 7, "s");
+	}
+	if (tier === "metropolis") {
+		buildingRow(p, f, ["barracks_1", "bunkroom"], loFar, loFar + 36, "n", hiFar, hiFar, L);
 		tower(p, f, "heavy_tower", mid - 7, lo, "s");
 		tower(p, f, "watchtower", lo, mid - 7, "s");
-		tower(p, f, "watchtower", size - 18, mid - 7, "s");
-		farmPlot(p, f, lo, mid - 6, 13, 9);
-		farmPlot(p, f, size - 16, mid - 6, 13, 9);
 	}
 
 	for (const d of [lo + 5, size - lo - 5]) {
