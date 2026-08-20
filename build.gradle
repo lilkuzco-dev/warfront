@@ -43,6 +43,7 @@ loom {
 			vmArg "-Dfabric.client.gametest=true"
 			vmArg "-Dfabric.client.gametest.modid=warfront"
 			vmArg "-Dwarfront.castle.only=true"
+			vmArg "-Dorg.lwjgl.system.SharedLibraryExtractPath=${layout.buildDirectory.dir('lwjgl-natives').get().asFile.absolutePath}"
 			runDir "build/run-castle-render"
 		}
 	}
@@ -119,6 +120,11 @@ publishing {
 def castleRenderJar = tasks.register("castleRenderJar", Jar) {
 	archiveClassifier.set("castle-render")
 	from(layout.buildDirectory.dir("run-castle-render/screenshots"))
+}
+tasks.named("runCastlerender").configure {
+	doFirst {
+		layout.buildDirectory.dir("lwjgl-natives").get().asFile.mkdirs()
+	}
 }
 if (project.hasProperty("castleRender")) {
 	publishing.publications.mavenJava.artifact(castleRenderJar)
