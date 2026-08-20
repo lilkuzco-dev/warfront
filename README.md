@@ -17,8 +17,8 @@ Requires Fabric Loader 0.19.3+ and Fabric API for 26.2.
   Dracula. He has boss-grade health and damage, life steal and night regeneration,
   burns in direct sun, is harmed by water, and takes seven times damage from wooden
   swords. His attributed CC BY-SA vampire skin is documented in `CREDITS.md`.
-- A remote client game test builds the full Aegis castle and captures a real in-game
-  aerial screenshot without starting Java on the developer workstation.
+- An opt-in JitPack client game test builds the full Aegis castle and publishes a
+  real in-game aerial screenshot without starting Java on the developer workstation.
 
 ## v0.4.6 — guarded working cities
 

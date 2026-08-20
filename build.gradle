@@ -38,6 +38,13 @@ loom {
 			vmArg "-Dwarfront.c2.only=true"
 			runDir "build/run-c2-gametest"
 		}
+		castlerender {
+			inherit client
+			vmArg "-Dfabric.client.gametest=true"
+			vmArg "-Dfabric.client.gametest.modid=warfront"
+			vmArg "-Dwarfront.castle.only=true"
+			runDir "build/run-castle-render"
+		}
 	}
 }
 
@@ -105,4 +112,14 @@ publishing {
 		// The repositories here will be used for publishing your artifact, not for
 		// retrieving dependencies.
 	}
+}
+
+// JitPack's opt-in castleRender build publishes the real client screenshot as a
+// classifier artifact. Normal builds and releases remain unchanged.
+def castleRenderJar = tasks.register("castleRenderJar", Jar) {
+	archiveClassifier.set("castle-render")
+	from(layout.buildDirectory.dir("run-castle-render/screenshots"))
+}
+if (project.hasProperty("castleRender")) {
+	publishing.publications.mavenJava.artifact(castleRenderJar)
 }

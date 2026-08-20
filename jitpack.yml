@@ -1,0 +1,5 @@
+before_install:
+  - sudo apt-get update
+  - sudo apt-get install -y xvfb libgl1-mesa-dri libgtk-3-0
+install:
+  - xvfb-run -a ./gradlew clean runCastlerender castleRenderJar publishToMavenLocal -PcastleRender --stacktrace
