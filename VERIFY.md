@@ -846,3 +846,96 @@ unilaterally. Recorded here so it is a decision rather than a surprise.
 `verify-base-spacing.js` **PASS** at 272.0 blocks · `verify-grand-castles.js` **OK** with
 castle rates pinned · `runGametest` **BUILD SUCCESSFUL**, 101 frames · `runCastlerender`
 **BUILD SUCCESSFUL**, castle aerial read.
+
+## 0.4.11 — cross-set clearance without vanilla's cap (2026-08-20)
+
+0.4.10 stopped castles landing on bases by merging them into the bases set. That worked,
+and it was the wrong shape: it made every castle obey placement numbers sized for
+76-to-124-block plates, when the point of the castle work is that a supplied build may be
+larger than the last one.
+
+### What the supplied builds actually are
+
+Measured with the new `tools/measure-build.js`, against the maps as supplied:
+
+| | supplied build | the importer's 341×341 window captures |
+|---|---|---|
+| Celestial Castle (Aegis) | castle core ~272×288 | **97.6%** |
+| Mug Castle (Sarab) | spread cliff-city | **87.5%** |
+| Cinderella Armored (Vostok) | 1.77M built blocks, core ~1248×528 | **36.5%** |
+
+Two things follow. The 501 footprint is **castle plus four working towns plus roads**, not
+castle — the Aegis castle geometry is ~272 across. And Vostok is imported from roughly a
+third of the build it was given. Neither is visible from anything the repo checked: the jar
+hashes, the structure loads, the castle renders, and `verify-grand-castles.js` confirms
+501×501 because 501×501 is what the importer was told to write.
+
+### The ceiling that decided the design
+
+Splitting castles into their own set needs `bases` to keep clear of them, and vanilla's only
+tool for that is `exclusion_zone`. Its `chunk_count` is codec-bounded to **[1:16]** — 256
+blocks — while a 501-block castle beside a 124-block metropolis needs **313**. The game
+refuses the datapack rather than degrading:
+
+```
+Errors in element warfront:bases:
+Caused by: java.lang.IllegalStateException: Value 20 outside of range [1:16]
+```
+
+That is the same registry-bounds class of failure that got 0.4.7 rolled back, caught this
+time before shipping because the castle render config boots a world and loads every datapack.
+
+### warfront:base_spread
+
+So `bases` uses a placement type of Warfront's own: `RandomSpreadStructurePlacement` plus an
+uncapped `avoid_set`/`avoid_chunks`, applied at the same override point vanilla applies its
+exclusion zone and delegating to vanilla's own `hasStructureChunkInRange`. Same call, same
+semantics, different bound — and the clearance is now free to grow with the castles.
+
+It also keeps the vanilla exclusion zone, so bases still dodge villages at 8 chunks *and*
+hold 20 chunks off castles, at full spacing-24 density. The trade a datapack-only design
+would have forced is simply not paid.
+
+All four castles share one set so a single `avoid_set` covers them, Dracula included at
+weight 1 against 15/15/15 — reproducing the 8.75-per-region rate his own
+spacing-640-at-0.35 set produced (**8.70** measured). Grand castles unchanged at **391**.
+
+### Proven twice, on purpose
+
+- **Offline** — `verify-base-spacing.js` models exclusion zones and `base_spread`, and
+  re-derives from the structure NBTs the radius each clearance *needs*: need 313 blocks =
+  20 chunks, configured 20, **measured 336** across 8 seeds. Because the number comes from
+  the NBTs, a castle that grows fails this until the clearance grows with it. Verified the
+  gate bites by setting the zone to 10 chunks: TOO SMALL, measured 176, overlap by 137.
+- **In-game** — `./gradlew runWorldgentest` asks the server's own generator state through
+  the real `isStructureChunk` path:
+  `CASTLE_CLEARANCE castles=18 closest base 339 blocks (need 313)`. ✅
+
+  A JavaScript reimplementation being right says nothing about a custom placement type being
+  wired in correctly, which is exactly where this would have failed silently. That test
+  needs its own run config: the render battery uses a **flat** world for deterministic
+  aerial framing, and a flat world's generator carries only its preset's structure sets —
+  measured as `minecraft:strongholds, minecraft:villages`, neither of them ours.
+
+### Regression
+
+`econ-selftest.sh` ALL PASS · `validate-dialogue.js` PASS · `verify-base-spacing.js` PASS ·
+`verify-grand-castles.js` OK · `gen-base-plans.js` reproduces every NBT unchanged ·
+`runGametest` **BUILD SUCCESSFUL, 101 frames**, citizen skins still resolving ·
+`runWorldgentest` PASS.
+
+### Still open: the castles are not yet bigger
+
+This release makes bigger castles *possible*. It does not make them bigger. Re-importing at
+true size needs, in order:
+
+1. **A generator for the town shells.** `structures/working-town-shells/*.nbt` are three
+   committed 501×24×501 plates with **no generator anywhere in the repo** — the importer
+   only reads them. The four districts are stamped at fixed coordinates inside the 501 grid,
+   so they cannot move outside a larger castle until they can be regenerated. This is a
+   rule 4 problem in its own right: a generated file whose generator does not exist.
+2. **The importer sized from the build** rather than `SIZE = 501` and `--source-radius 170`.
+3. **Mug upgraded.** Cinderella is already upgraded and measured; Mug is 1.10.2 and needs the
+   same `--forceUpgrade` pass (recipe and its trap are in `tools/measure-build.js`).
+4. Re-import ×3, then raise `avoid_chunks` — `verify-base-spacing.js` will say by how much,
+   and fail until it is done.
