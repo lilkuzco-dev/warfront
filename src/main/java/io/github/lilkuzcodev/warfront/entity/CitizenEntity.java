@@ -4,7 +4,6 @@ import io.github.lilkuzcodev.warfront.civilization.CitizenProfession;
 import io.github.lilkuzcodev.warfront.civilization.CivilizationManager;
 import io.github.lilkuzcodev.warfront.civilization.CivilizationMath;
 import io.github.lilkuzcodev.warfront.civilization.EconomyManager;
-import io.github.lilkuzcodev.warfront.civilization.EconomyModel;
 import io.github.lilkuzcodev.warfront.data.WarfrontRegistry;
 import io.github.lilkuzcodev.warfront.entity.ai.CitizenWorkGoal;
 import java.util.HashMap;
@@ -45,6 +44,7 @@ import net.minecraft.world.level.storage.ValueOutput;
 
 /** Tier-1 projection of one persistent civilization actor record. */
 public final class CitizenEntity extends PathfinderMob {
+	private static final String PRODUCED_PREFIX = "warfront:produced/";
 	private static final EntityDataAccessor<String> PROFESSION =
 			SynchedEntityData.defineId(CitizenEntity.class, EntityDataSerializers.STRING);
 
@@ -152,12 +152,51 @@ public final class CitizenEntity extends PathfinderMob {
 		if (count > 0) inventory.merge(itemId, count, Math::addExact);
 	}
 
+	/** Stores a tangible work result and marks exactly that quantity as player-tradeable. */
+	public void storeProduced(String itemId, int count) {
+		if (count <= 0) return;
+		store(itemId, count);
+		inventory.merge(PRODUCED_PREFIX + itemId, count, Math::addExact);
+	}
+
 	public boolean consume(String itemId, int count) {
 		int available = inventory.getOrDefault(itemId, 0);
 		if (count < 1 || available < count) return false;
 		if (available == count) inventory.remove(itemId);
 		else inventory.put(itemId, available - count);
 		return true;
+	}
+
+	private boolean consumeProduced(String itemId, int count) {
+		String marker = PRODUCED_PREFIX + itemId;
+		int produced = inventory.getOrDefault(marker, 0);
+		if (count < 1 || produced < count || inventory.getOrDefault(itemId, 0) < count) return false;
+		if (!consume(itemId, count)) return false;
+		if (produced == count) inventory.remove(marker);
+		else inventory.put(marker, produced - count);
+		return true;
+	}
+
+	/**
+	 * Returns only stock created by embodied world work. Abstract economy goods never
+	 * receive a marker and therefore can never silently appear in the merchant screen.
+	 */
+	private Map<String, Integer> producedStock() {
+		Map<String, Integer> result = new HashMap<>();
+		var iterator = inventory.entrySet().iterator();
+		while (iterator.hasNext()) {
+			Map.Entry<String, Integer> entry = iterator.next();
+			if (!entry.getKey().startsWith(PRODUCED_PREFIX)) continue;
+			String itemId = entry.getKey().substring(PRODUCED_PREFIX.length());
+			int available = Math.min(entry.getValue(), inventory.getOrDefault(itemId, 0));
+			if (available <= 0) {
+				iterator.remove();
+			} else {
+				entry.setValue(available);
+				result.put(itemId, available);
+			}
+		}
+		return Map.copyOf(result);
 	}
 
 	public void removeForLadder() {
@@ -183,49 +222,40 @@ public final class CitizenEntity extends PathfinderMob {
 			return InteractionResult.PASS;
 		}
 		buildOffers(serverLevel.getServer());
+		if (offers.isEmpty()) {
+			player.sendSystemMessage(Component.literal(
+					"This citizen has not produced anything available for sale yet."));
+			return InteractionResult.CONSUME;
+		}
 		tradingPlayer = player;
 		merchant.openTradingScreen(serverPlayer, Component.literal(displayProfession() + " #" + serial
 				+ " — " + cityId), 0);
 		return InteractionResult.CONSUME;
 	}
 
-	/** Builds native villager-screen offers from this citizen's live purse and inventory. */
+	/** Builds emerald purchase offers exclusively from this citizen's physical work output. */
 	private void buildOffers(MinecraftServer server) {
 		offers = new net.minecraft.world.item.trading.MerchantOffers();
 		pendingTrades.clear();
 		var city = city(server);
 		if (city == null) return;
-		int lot = WarfrontRegistry.economy().tradeLot();
-		long remainingMoney = EconomyManager.actorMoney(server, cityId, serial);
-		for (EconomyModel.Good good : EconomyModel.Good.values()) {
-			long stock = EconomyManager.actorStock(server, cityId, serial, good);
-			String itemId = EconomyManager.itemOf(good);
+		int configuredLot = WarfrontRegistry.economy().tradeLot();
+		producedStock().entrySet().stream().sorted(Map.Entry.comparingByKey()).forEach(entry -> {
+			String itemId = entry.getKey();
 			net.minecraft.world.item.Item item = itemOrAir(itemId);
-			if (item == Items.AIR) continue;
-
-			long buyPrice = EconomyManager.lotPriceEmeralds(server, city, good, true);
-			int buyUses = (int) Math.min(12L, stock / lot);
-			if (buyUses > 0 && buyPrice <= 64L) {
+			if (item == Items.AIR || item == Items.EMERALD) return;
+			int stock = entry.getValue();
+			int quantity = Math.min(configuredLot, stock);
+			long price = EconomyManager.physicalSalePriceEmeralds(server, city, itemId, quantity);
+			int uses = Math.min(12, stock / quantity);
+			if (uses > 0 && price <= 64L) {
 				var offer = new net.minecraft.world.item.trading.MerchantOffer(
-						new net.minecraft.world.item.trading.ItemCost(Items.EMERALD, (int) buyPrice),
-						new ItemStack(item, lot), buyUses, 2, 0.0F);
+						new net.minecraft.world.item.trading.ItemCost(Items.EMERALD, (int) price),
+						new ItemStack(item, quantity), uses, 2, 0.0F);
 				offers.add(offer);
-				pendingTrades.put(offer, new CitizenTrade(good, true, buyPrice, itemId, lot));
+				pendingTrades.put(offer, new CitizenTrade(price, itemId, quantity));
 			}
-
-			long sellPrice = EconomyManager.lotPriceEmeralds(server, city, good, false);
-			long tradeValue = EconomyManager.moneyOf(sellPrice);
-			long affordable = remainingMoney / tradeValue;
-			int sellUses = (int) Math.min(12L, affordable);
-			if (sellUses > 0 && sellPrice <= 64L) {
-				var offer = new net.minecraft.world.item.trading.MerchantOffer(
-						new net.minecraft.world.item.trading.ItemCost(item, lot),
-						new ItemStack(Items.EMERALD, (int) sellPrice), sellUses, 2, 0.0F);
-				offers.add(offer);
-				pendingTrades.put(offer, new CitizenTrade(good, false, sellPrice, itemId, lot));
-				remainingMoney -= (long) sellUses * tradeValue;
-			}
-		}
+		});
 	}
 
 	private String displayProfession() {
@@ -233,8 +263,7 @@ public final class CitizenEntity extends PathfinderMob {
 		return Character.toUpperCase(id.charAt(0)) + id.substring(1);
 	}
 
-	private record CitizenTrade(EconomyModel.Good good, boolean playerIsBuying,
-			long emeralds, String itemId, int lot) {}
+	private record CitizenTrade(long emeralds, String itemId, int quantity) {}
 
 	/** Merchant facade keeps the trade authoritative while using Minecraft's villager UI. */
 	public final net.minecraft.world.item.trading.Merchant merchant = new net.minecraft.world.item.trading.Merchant() {
@@ -249,15 +278,12 @@ public final class CitizenEntity extends PathfinderMob {
 		public void notifyTrade(net.minecraft.world.item.trading.MerchantOffer offer) {
 			CitizenTrade trade = pendingTrades.get(offer);
 			if (trade == null || !(level() instanceof ServerLevel serverLevel)) return;
-			if (!EconomyManager.trade(serverLevel.getServer(), cityId, serial, trade.good(),
-					trade.playerIsBuying(), trade.emeralds())) {
+			if (!consumeProduced(trade.itemId(), trade.quantity())) {
 				if (tradingPlayer != null) tradingPlayer.sendSystemMessage(Component.literal("That trade fell through."));
 				return;
 			}
-			// The embodied record feeds its inventory back into the economic model, so
-			// mirror the completed screen trade here to prevent stock duplication.
-			if (trade.playerIsBuying()) consume(trade.itemId(), trade.lot());
-			else store(trade.itemId(), trade.lot());
+			store(EconomyManager.EMERALD, Math.toIntExact(trade.emeralds()));
+			EconomyManager.recordPhysicalSale(serverLevel.getServer(), cityId, serial, trade.emeralds());
 		}
 
 		@Override public void notifyTradeUpdated(ItemStack stack) {}
@@ -290,6 +316,7 @@ public final class CitizenEntity extends PathfinderMob {
 	protected void dropCustomDeathLoot(ServerLevel level, DamageSource source, boolean recentlyHit) {
 		super.dropCustomDeathLoot(level, source, recentlyHit);
 		for (Map.Entry<String, Integer> entry : inventory.entrySet()) {
+			if (entry.getKey().startsWith(PRODUCED_PREFIX)) continue;
 			net.minecraft.world.item.Item item = itemOrAir(entry.getKey());
 			if (item == Items.AIR || entry.getValue() <= 0) continue;
 			spawnAtLocation(level, new ItemStack(item, entry.getValue()));

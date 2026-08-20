@@ -4,6 +4,17 @@ Modern military factions for Minecraft 26.2 (Fabric). Three doctrine-driven fact
 
 Requires Fabric Loader 0.19.3+ and Fabric API for 26.2.
 
+## v0.4.5 — visible work, tangible stock
+
+- Miners break exposed city ore with visible crack progress at vanilla survival speed
+  for their held pickaxe, while farmers harvest mature crops and replant them.
+- Mined drops, crop drops, and builder-crafted planks enter a separate tangible-output
+  ledger. Abstract economy simulation can no longer invent merchant stock.
+- A citizen's villager-style market now offers only the exact items and quantities that
+  citizen physically produced, in exchange for emeralds. Empty workers plainly report
+  that they have nothing ready for sale.
+- Builder crafting now follows the vanilla one-log-to-four-planks recipe.
+
 ## v0.4.4 — profession skins stay profession skins
 
 - Citizen rendering now assigns the synchronized miner, farmer, builder, trader, or

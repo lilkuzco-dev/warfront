@@ -624,6 +624,15 @@ public final class EconomyModel {
 		return true;
 	}
 
+	/** Books emeralds paid for stock already removed from an embodied citizen's inventory. */
+	public boolean receivePlayerPayment(int actor, long payment) {
+		if (actor < 0 || actor >= money.length || !active[actor] || payment < 1) return false;
+		money[actor] = Math.addExact(money[actor], payment);
+		externalMoneyIn = Math.addExact(externalMoneyIn, payment);
+		assertConservation();
+		return true;
+	}
+
 	/** How much of {@code good} this actor is holding — what it can actually sell a player. */
 	public long actorStock(int actor, Good good) {
 		return actor < 0 || actor >= money.length ? 0L : goods[actor][good.ordinal()];

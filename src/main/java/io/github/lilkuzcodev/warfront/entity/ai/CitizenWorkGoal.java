@@ -9,9 +9,11 @@ import java.util.ArrayList;
 import java.util.EnumSet;
 import java.util.List;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.tags.FluidTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.ai.goal.Goal;
 import net.minecraft.world.item.ItemStack;
@@ -36,6 +38,9 @@ public final class CitizenWorkGoal extends Goal {
 	private int travelTicks;
 	private @Nullable BlockPos blockedTarget;
 	private int blockedUntil;
+	private @Nullable BlockPos breakingTarget;
+	private float breakProgress;
+	private int crackStage = -1;
 
 	public CitizenWorkGoal(CitizenEntity citizen) {
 		this.citizen = citizen;
@@ -79,13 +84,21 @@ public final class CitizenWorkGoal extends Goal {
 		}
 		citizen.getNavigation().stop();
 		travelTicks = 0;
+		BlockState state = level.getBlockState(target);
+		if (citizen.profession() == CitizenProfession.MINER) {
+			if (state.is(MINEABLE)) tickMining(level, state);
+			else {
+				clearBreaking(level);
+				finishWork();
+			}
+			return;
+		}
 		if (citizen.tickCount % 20 == 0) {
 			citizen.swing(net.minecraft.world.InteractionHand.MAIN_HAND);
 		}
 		if (!citizen.advanceEmbodiedWork()) return;
 		completeWork(level);
-		target = null;
-		nextSearch = adjustedTickDelay(20 + citizen.getRandom().nextInt(40));
+		finishWork();
 	}
 
 	private @Nullable BlockPos findTarget(ServerLevel level) {
@@ -114,7 +127,8 @@ public final class CitizenWorkGoal extends Goal {
 	private static boolean isPrimaryWorksite(CitizenProfession profession, BlockState state,
 			ServerLevel level, BlockPos pos) {
 		return switch (profession) {
-			case MINER -> state.is(MINEABLE) && state.getDestroySpeed(level, pos) >= 0;
+			case MINER -> state.is(MINEABLE) && state.getDestroySpeed(level, pos) >= 0
+					&& hasMiningFace(level, pos);
 			case FARMER -> state.getBlock() instanceof CropBlock crop && crop.isMaxAge(state);
 			case BUILDER -> isBuilderWorkstation(state);
 			case TRADER -> isContainer(state);
@@ -144,6 +158,13 @@ public final class CitizenWorkGoal extends Goal {
 		return state.is(Blocks.BARREL) || state.is(Blocks.CHEST) || state.is(Blocks.TRAPPED_CHEST);
 	}
 
+	private static boolean hasMiningFace(ServerLevel level, BlockPos pos) {
+		for (Direction direction : Direction.values()) {
+			if (level.getBlockState(pos.relative(direction)).isAir()) return true;
+		}
+		return false;
+	}
+
 	private @Nullable BlockPos routePoint(ServerLevel level, BlockPos center) {
 		long phase = citizen.serial() + citizen.tickCount / CivilizationMath.WORK_CYCLE_TICKS;
 		double angle = phase * 2.399963229728653;
@@ -158,12 +179,14 @@ public final class CitizenWorkGoal extends Goal {
 		BlockState state = level.getBlockState(target);
 		if (profession == CitizenProfession.MINER && level.getGameRules().get(GameRules.MOB_GRIEFING)
 				&& state.is(MINEABLE)) {
+			ItemStack tool = citizen.getMainHandItem();
 			List<ItemStack> drops = Block.getDrops(state, level, target, level.getBlockEntity(target), citizen,
-					new ItemStack(profession.tool()));
-			level.destroyBlock(target, false, citizen);
-			for (ItemStack drop : drops) {
-				String id = BuiltInRegistries.ITEM.getKey(drop.getItem()).toString();
-				citizen.store(id, drop.getCount());
+					tool.copy());
+			if (level.destroyBlock(target, false, citizen)) {
+				for (ItemStack drop : drops) {
+					String id = BuiltInRegistries.ITEM.getKey(drop.getItem()).toString();
+					citizen.storeProduced(id, drop.getCount());
+				}
 			}
 			return;
 		}
@@ -174,21 +197,63 @@ public final class CitizenWorkGoal extends Goal {
 			level.setBlockAndUpdate(target, crop.getStateForAge(0));
 			for (ItemStack drop : drops) {
 				String id = BuiltInRegistries.ITEM.getKey(drop.getItem()).toString();
-				citizen.store(id, drop.getCount());
+				citizen.storeProduced(id, drop.getCount());
 			}
 			return;
 		}
 		if (profession == CitizenProfession.BUILDER && isBuilderWorkstation(state)
-				&& citizen.consume("minecraft:raw_iron", 1)) {
-			if (citizen.consume("minecraft:oak_log", 1)) {
-				citizen.store("minecraft:oak_planks", 2);
-			} else {
-				// A failed two-input craft changes nothing.
-				citizen.store("minecraft:raw_iron", 1);
-			}
+				&& citizen.consume("minecraft:oak_log", 1)) {
+			// Match the vanilla log recipe: one tangible log becomes four tangible planks.
+			citizen.storeProduced("minecraft:oak_planks", 4);
 		}
 		// Traders and laborers visibly run their routes. Their transfers/wages are
 		// settled by the same city economy tick used for abstract citizens.
+	}
+
+	private void tickMining(ServerLevel level, BlockState state) {
+		if (target == null) return;
+		if (!target.equals(breakingTarget)) {
+			clearBreaking(level);
+			breakingTarget = target.immutable();
+		}
+		if (citizen.tickCount % 5 == 0) {
+			citizen.swing(net.minecraft.world.InteractionHand.MAIN_HAND);
+		}
+		breakProgress += miningProgressPerTick(state, level, target);
+		int nextStage = Math.min(9, (int) (breakProgress * 10.0F));
+		if (nextStage != crackStage) {
+			crackStage = nextStage;
+			level.destroyBlockProgress(citizen.getId(), target, crackStage);
+		}
+		if (breakProgress < 1.0F) return;
+		completeWork(level);
+		clearBreaking(level);
+		finishWork();
+	}
+
+	/** Vanilla survival break progress for the citizen's actual held tool. */
+	private float miningProgressPerTick(BlockState state, ServerLevel level, BlockPos pos) {
+		float hardness = state.getDestroySpeed(level, pos);
+		if (hardness < 0.0F) return 0.0F;
+		if (hardness == 0.0F) return 1.0F;
+		ItemStack tool = citizen.getMainHandItem();
+		float speed = tool.getDestroySpeed(state);
+		if (citizen.isEyeInFluid(FluidTags.WATER)) speed /= 5.0F;
+		if (!citizen.onGround()) speed /= 5.0F;
+		boolean correctTool = !state.requiresCorrectToolForDrops() || tool.isCorrectToolForDrops(state);
+		return speed / hardness / (correctTool ? 30.0F : 100.0F);
+	}
+
+	private void clearBreaking(ServerLevel level) {
+		if (breakingTarget != null) level.destroyBlockProgress(citizen.getId(), breakingTarget, -1);
+		breakingTarget = null;
+		breakProgress = 0.0F;
+		crackStage = -1;
+	}
+
+	private void finishWork() {
+		target = null;
+		nextSearch = adjustedTickDelay(20 + citizen.getRandom().nextInt(40));
 	}
 
 	private void moveToTarget() {
@@ -197,6 +262,7 @@ public final class CitizenWorkGoal extends Goal {
 
 	@Override
 	public void stop() {
+		if (citizen.level() instanceof ServerLevel level) clearBreaking(level);
 		if (target != null && travelTicks >= MAX_TRAVEL_TICKS) {
 			blockedTarget = target;
 			blockedUntil = citizen.tickCount + 600;

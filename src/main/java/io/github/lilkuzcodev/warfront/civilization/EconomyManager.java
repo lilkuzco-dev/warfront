@@ -287,6 +287,32 @@ public final class EconomyManager {
 		return Math.max(1L, emeralds);
 	}
 
+	/** Prices an exact quantity of a tangible item; unknown drops use one emerald per configured lot. */
+	public static long physicalSalePriceEmeralds(MinecraftServer server, CityRecord city,
+			String itemId, int quantity) {
+		if (quantity < 1) return 1L;
+		EconomyModel.Good good = goodOfItem(itemId);
+		long perEmerald = WarfrontRegistry.economy().moneyPerEmerald();
+		long unitMoney = good == null
+				? Math.max(1L, perEmerald / WarfrontRegistry.economy().tradeLot())
+				: price(server, city, good);
+		long money = Math.multiplyExact(unitMoney, quantity);
+		return Math.max(1L, (money + perEmerald - 1L) / perEmerald);
+	}
+
+	/** Records emeralds paid to an embodied worker; physical stock is reconciled separately. */
+	public static boolean recordPhysicalSale(MinecraftServer server, String cityId, long serial,
+			long emeralds) {
+		CityRecord city = CivilizationState.get(server).city(cityId);
+		if (city == null || emeralds < 1) return false;
+		EconomyModel model = model(server, city, EconomyState.get(server));
+		int index = Math.toIntExact(serial - 1);
+		if (!model.receivePlayerPayment(index, moneyOf(emeralds))) return false;
+		EconomyState.get(server).put(city.id(), model);
+		LAST_DISTRIBUTION.put(city.id(), model.distribution());
+		return true;
+	}
+
 	/** Applies a completed player trade to the persistent model. */
 	public static boolean trade(MinecraftServer server, String cityId, long serial,
 			EconomyModel.Good good, boolean playerIsBuying, long emeralds) {
