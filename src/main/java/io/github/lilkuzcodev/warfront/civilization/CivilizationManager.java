@@ -135,7 +135,10 @@ public final class CivilizationManager {
 			for (CitizenRecord original : city.citizens().values()) {
 				String key = actorKey(city.id(), original.serial());
 				CitizenEntity entity = loaded.get(key);
-				if (entity != null) entity.ensureGroundSpawn(level);
+				if (entity != null) {
+					entity.ensureGroundSpawn(level);
+					entity.ensureDistributedWorkHome(level, city.center(), city.radius());
+				}
 				FidelityTier desired = desiredTier(level, original);
 				if (original.tier() == FidelityTier.VIRTUAL && desired != FidelityTier.VIRTUAL) {
 					original = EconomyManager.hydrateForPromotion(server, city, original);
@@ -161,10 +164,12 @@ public final class CivilizationManager {
 						// produced while that chunk was absent.
 						if (original.tier() != FidelityTier.EMBODIED) {
 							entity.setPos(current.x(), current.y(), current.z());
-							entity.initialize(city.id(), current.serial(), current.profession(), city.center(),
+							entity.initialize(city.id(), current.serial(), current.profession(),
+									BlockPos.containing(current.x(), current.y(), current.z()),
 									current.workTicks(), current.inventory());
 						}
 						entity.ensureGroundSpawn(level);
+						entity.ensureDistributedWorkHome(level, city.center(), city.radius());
 						current = current.withState(entity.getX(), entity.getY(), entity.getZ(), current.workTicks(),
 								current.inventory(), level.getGameTime(), FidelityTier.EMBODIED);
 					} else {
@@ -209,7 +214,8 @@ public final class CivilizationManager {
 		if (entity == null) return null;
 		entity.setUUID(actor.entityId());
 		entity.setPos(actor.x(), actor.y(), actor.z());
-		entity.initialize(city.id(), actor.serial(), actor.profession(), city.center(), actor.workTicks(), actor.inventory());
+		entity.initialize(city.id(), actor.serial(), actor.profession(),
+				BlockPos.containing(actor.x(), actor.y(), actor.z()), actor.workTicks(), actor.inventory());
 		if (!level.addFreshEntity(entity)) return null;
 		return entity;
 	}

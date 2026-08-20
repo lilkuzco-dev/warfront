@@ -108,6 +108,24 @@ public final class CitizenEntity extends PathfinderMob {
 		}
 	}
 
+	/**
+	 * Migrates the old shared city-centre work anchor to a deterministic point spread
+	 * through the settlement. Existing saves all have {@code homePos == cityCenter};
+	 * new citizens keep the concrete home position recorded when the structure seeded.
+	 */
+	public void ensureDistributedWorkHome(ServerLevel level, BlockPos cityCenter, int cityRadius) {
+		if (!homePos.equals(cityCenter) || serial < 0) return;
+		int outerRadius = Math.max(8, Math.min(32, cityRadius / 2));
+		int distance = 8 + Math.floorMod(serial * 11L, Math.max(1, outerRadius - 7));
+		double angle = serial * 2.399963229728653;
+		int x = cityCenter.getX() + (int) Math.round(Math.cos(angle) * distance);
+		int z = cityCenter.getZ() + (int) Math.round(Math.sin(angle) * distance);
+		BlockPos ground = io.github.lilkuzcodev.warfront.systems.SpawnSafety.openGroundNear(level, x, z, 4);
+		if (ground != null) {
+			homePos = ground.immutable();
+		}
+	}
+
 	public void initialize(String cityId, long serial, CitizenProfession profession, BlockPos home,
 			long workTicks, Map<String, Integer> inventory) {
 		this.cityId = cityId;

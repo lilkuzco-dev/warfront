@@ -4,6 +4,17 @@ Modern military factions for Minecraft 26.2 (Fabric). Three doctrine-driven fact
 
 Requires Fabric Loader 0.19.3+ and Fabric API for 26.2.
 
+## v0.4.3 — citizens go to work
+
+- Existing citizens migrate away from the former shared city-center work anchor;
+  new citizens retain their own seeded home/work position.
+- Farmers spread across real mature crop rows, miners seek local ore or forge sites,
+  builders use city workshops, and traders/laborers route among storage and market
+  blocks. When a specialist site is absent they run a distributed local work route
+  while the persistent economy continues its profession production.
+- Worksite searches cover a full city district, rotate workers across matching sites,
+  and abandon unreachable targets instead of crowding indefinitely against a tower.
+
 ## v0.4.2 — grounded populations and profession markets
 
 - Citizens and base soldiers now seed on the settlement's ground band instead of
