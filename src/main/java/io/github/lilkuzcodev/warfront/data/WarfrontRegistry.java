@@ -251,9 +251,10 @@ public final class WarfrontRegistry {
 	public record PopulationGlobal(int perPlayerSoldierCap, int hydrationRadius, int baseTickSeconds,
 			int roamIntervalSeconds, float roamChance, int outpostCitizens, int forwardBaseCitizens,
 			int headquartersCitizens, int cityCitizens, int perPlayerCitizenCap,
-			int townCitizens, int metropolisCitizens, int citizenHardCap, int citizensPerBunk) {
+			int townCitizens, int metropolisCitizens, int castleCitizens,
+			int citizenHardCap, int citizensPerBunk) {
 		public static final PopulationGlobal DEFAULT =
-				new PopulationGlobal(64, 128, 15, 240, 0.5F, 4, 8, 14, 28, 48, 10, 300, 420, 4);
+				new PopulationGlobal(64, 128, 15, 240, 0.5F, 4, 8, 14, 28, 48, 10, 300, 240, 420, 4);
 
 		public static PopulationGlobal fromJson(JsonObject json) {
 			return new PopulationGlobal(
@@ -269,6 +270,7 @@ public final class WarfrontRegistry {
 					GsonHelper.getAsInt(json, "per_player_citizen_cap", 48),
 					GsonHelper.getAsInt(json, "town_citizens", 10),
 					GsonHelper.getAsInt(json, "metropolis_citizens", 300),
+					GsonHelper.getAsInt(json, "castle_citizens", 240),
 					GsonHelper.getAsInt(json, "citizen_hard_cap", 420),
 					GsonHelper.getAsInt(json, "citizens_per_bunk", 4));
 		}
@@ -281,6 +283,7 @@ public final class WarfrontRegistry {
 				case "town" -> townCitizens;
 				case "city" -> cityCitizens;
 				case "metropolis" -> metropolisCitizens;
+				case "castle" -> castleCitizens;
 				default -> outpostCitizens;
 			};
 		}

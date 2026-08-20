@@ -17,6 +17,9 @@ public final class WarfrontEntities {
 	public static final EntityType<CitizenEntity> CITIZEN = register("citizen",
 			EntityType.Builder.<CitizenEntity>of(CitizenEntity::new, MobCategory.CREATURE)
 					.sized(0.6F, 1.8F).eyeHeight(1.62F).clientTrackingRange(10));
+	public static final EntityType<DraculaEntity> DRACULA = register("dracula",
+			EntityType.Builder.<DraculaEntity>of(DraculaEntity::new, MobCategory.MONSTER)
+					.sized(0.6F, 1.8F).eyeHeight(1.62F).clientTrackingRange(12));
 
 	private static <T extends Entity> EntityType<T> register(String name, EntityType.Builder<T> builder) {
 		ResourceKey<EntityType<?>> key = ResourceKey.create(Registries.ENTITY_TYPE, Warfront.id(name));
@@ -26,6 +29,7 @@ public final class WarfrontEntities {
 	public static void init() {
 		FabricDefaultAttributeRegistry.register(SOLDIER, SoldierEntity.createAttributes());
 		FabricDefaultAttributeRegistry.register(CITIZEN, CitizenEntity.createAttributes());
+		FabricDefaultAttributeRegistry.register(DRACULA, DraculaEntity.createAttributes());
 	}
 
 	private WarfrontEntities() {

@@ -25,6 +25,14 @@
 - Warfront itself is LGPL-3.0-or-later; the adapted structure files remain under
   LGPL-3.0. Thank you TelepathicGrunt for keeping quality structure work open.
 
+## Dracula Skin
+- **Author**: TenPlus1
+- **Source**: https://github.com/mightyjoe781/simple_skins/blob/4efdee9cb1b3e5ac3c1591303669b62275b9c49d/textures/character_1995.png
+- **Metadata**: https://github.com/mightyjoe781/simple_skins/blob/4efdee9cb1b3e5ac3c1591303669b62275b9c49d/meta/character_1995.txt
+- **License**: CC BY-SA 4.0
+- **What Warfront uses**: the legacy 64x32 `Vampire` skin, converted to Minecraft's
+  modern 64x64 layout by `tools/gen-textures.js` and used for Count Dracula.
+
 ## Mojang / Minecraft
 - Template pools reference vanilla (`minecraft:`) jigsaw pieces by resource location
   with Warfront processor lists — no vanilla assets are redistributed in this repo.

@@ -1,9 +1,8 @@
 #!/usr/bin/env node
-// Base composer (Stage 3). Freehand geometry here is CONNECTIVE TISSUE ONLY —
-// perimeter walls, gates, paths, trenches, sandbag lines, flat pads, flagpoles,
-// courtyards. Every enclosed building is STAMPED from a license-cleared rethemed
-// NBT under data/warfront/structure/<faction>/ (see structures/SOURCES.md); this
-// script never freehands a building.
+// Base composer (Stage 3). Regular military and settlement buildings are stamped
+// from license-cleared rethemed NBTs under data/warfront/structure/<faction>/.
+// The monumental castles additionally use original Warfront collegiate-gothic
+// hall shells around attributed imported room cores (see structures/SOURCES.md).
 //
 // Emits, per faction: outpost_a/outpost_b, forward_base, headquarters plates plus
 // the jigsaw-attached sprawl pieces (Vostok trench arms, Sarab path arms +
@@ -58,7 +57,10 @@ class Plan {
 		for (let x = x1; x <= x2; x++) for (let y = y1; y <= y2; y++) for (let z = z1; z <= z2; z++) this.set(x, y, z, name, props);
 	}
 	soldier(x, y, z, faction, rank) {
-		this.entities.push({ x: x + 0.5, y, z: z + 0.5, faction, rank });
+		this.entities.push({ id: "warfront:soldier", x: x + 0.5, y, z: z + 0.5, faction, rank });
+	}
+	dracula(x, y, z) {
+		this.entities.push({ id: "warfront:dracula", x: x + 0.5, y, z: z + 0.5 });
 	}
 	jigsaw(x, y, z, orientation, pool, finalState, joint = "rollable", target = "minecraft:building_entrance") {
 		this.set(x, y, z, "minecraft:jigsaw", { orientation }, {
@@ -179,12 +181,10 @@ class Plan {
 		const entityItems = this.entities.map((e) => ({
 			pos: N.list(TAG.double, [e.x, e.y, e.z]),
 			blockPos: N.list(TAG.int, [Math.floor(e.x), Math.floor(e.y), Math.floor(e.z)]),
-			nbt: N.compound({
-				id: N.string("warfront:soldier"),
-				warfront_faction: N.string(e.faction),
-				warfront_rank: N.string(e.rank),
-				PersistenceRequired: N.byte(1),
-			}),
+			nbt: e.id === "warfront:soldier" ? N.compound({
+				id: N.string(e.id), warfront_faction: N.string(e.faction),
+				warfront_rank: N.string(e.rank), PersistenceRequired: N.byte(1),
+			}) : N.compound({ id: N.string(e.id), PersistenceRequired: N.byte(1) }),
 		}));
 		const root = N.compound({
 			size: N.list(TAG.int, [maxX + 1, maxY + 1, maxZ + 1]),
@@ -857,6 +857,225 @@ function cityDistricts() {
 	}
 }
 
+// ---------- monumental grand castles ----------
+// These are deliberately single sparse 501x501 start pieces. Jigsaw's expansion
+// radius is capped at 128 blocks, but a start template itself is not; keeping the
+// plan sparse gives the requested half-kilometre silhouette without filling a
+// quarter-million-block square or recursively loading hundreds of child pieces.
+const CASTLE_SIZE = 501;
+
+function castleChest(p, x, y, z, table, facing = "north") {
+	p.set(x, y, z, "minecraft:chest", { facing }, { id: "minecraft:chest", LootTable: table });
+}
+
+/** Crenellated wall ring. Grand castles have four gates; the inner keep has one. */
+function castleWall(p, f, min, max, height, fourGates = true) {
+	const mid = Math.floor((min + max) / 2);
+	const gate = 9;
+	const open = (x, z) => {
+		if (Math.abs(x - mid) <= gate && (z === min || z === max)) return true;
+		return fourGates && Math.abs(z - mid) <= gate && (x === min || x === max);
+	};
+	for (let i = min; i <= max; i++) {
+		for (const [x, z] of [[i, min], [i, max], [min, i], [max, i]]) {
+			if (open(x, z)) {
+				p.set(x, 0, z, PATH[f]);
+				continue;
+			}
+			p.set(x, 0, z, WALL_CAP[f]);
+			for (let y = 1; y <= height; y++) p.set(x, y, z, WALL[f]);
+			if ((x + z) % 3 !== 1) p.set(x, height + 1, z, WALL_CAP[f]);
+		}
+	}
+	for (const [x, z] of [[mid - gate - 1, min], [mid + gate + 1, min],
+		[mid - gate - 1, max], [mid + gate + 1, max]]) {
+		for (let y = 1; y <= height + 4; y++) p.set(x, y, z, WALL_CAP[f]);
+		p.set(x, height + 5, z, "minecraft:lantern");
+	}
+}
+
+/** Original collegiate-gothic hall shell, with a high roof and lancet windows. */
+function gothicHall(p, f, x1, z1, x2, z2, height, kind, lootTable) {
+	const floor = WALL_CAP[f];
+	p.fill(x1, 0, z1, x2, 0, z2, floor);
+	for (let x = x1; x <= x2; x++) for (let y = 1; y <= height; y++) {
+		p.set(x, y, z1, WALL[f]); p.set(x, y, z2, WALL[f]);
+	}
+	for (let z = z1; z <= z2; z++) for (let y = 1; y <= height; y++) {
+		p.set(x1, y, z, WALL[f]); p.set(x2, y, z, WALL[f]);
+	}
+	// Tall stained-glass window rhythm.
+	for (let x = x1 + 5; x <= x2 - 5; x += 6) for (let y = 4; y <= height - 3; y++) {
+		p.set(x, y, z1, "minecraft:purple_stained_glass_pane");
+		p.set(x, y, z2, "minecraft:purple_stained_glass_pane");
+	}
+	for (let z = z1 + 5; z <= z2 - 5; z += 6) for (let y = 4; y <= height - 3; y++) {
+		p.set(x1, y, z, "minecraft:purple_stained_glass_pane");
+		p.set(x2, y, z, "minecraft:purple_stained_glass_pane");
+	}
+	p.fill(x1, height + 1, z1, x2, height + 1, z2, WALL_CAP[f]);
+	// South and north portals connect the halls to the castle paths.
+	const midX = Math.floor((x1 + x2) / 2);
+	p.fill(midX - 2, 1, z1, midX + 2, 5, z1, "minecraft:air");
+	p.fill(midX - 2, 1, z2, midX + 2, 5, z2, "minecraft:air");
+	for (let x = x1 + 4; x <= x2 - 4; x += 8) p.set(x, height, z1 + 2, "minecraft:lantern", { hanging: "true" });
+
+	if (kind === "dining") {
+		// Three banquet tables, each long enough to read as a true great hall.
+		for (const x of [x1 + 10, midX, x2 - 10]) {
+			for (let z = z1 + 7; z <= z2 - 7; z++) {
+				p.set(x, 2, z, "minecraft:dark_oak_slab", { type: "top" });
+				if (z % 4 === 0) p.set(x, 3, z, "minecraft:candle", { candles: "3", lit: "true" });
+			}
+			for (let z = z1 + 8; z <= z2 - 8; z += 3) {
+				p.set(x - 2, 1, z, "minecraft:dark_oak_stairs", { facing: "west" });
+				p.set(x + 2, 1, z, "minecraft:dark_oak_stairs", { facing: "east" });
+			}
+		}
+	} else if (kind === "library") {
+		for (let y = 1; y <= 6; y++) for (let z = z1 + 3; z <= z2 - 3; z++) {
+			if (z % 5 !== 0) {
+				p.set(x1 + 2, y, z, "minecraft:bookshelf");
+				p.set(x2 - 2, y, z, "minecraft:bookshelf");
+			}
+		}
+		for (let z = z1 + 8; z <= z2 - 8; z += 8) {
+			p.fill(midX - 8, 1, z, midX + 8, 1, z + 1, "minecraft:dark_oak_planks");
+			p.set(midX, 2, z, "minecraft:lectern", { facing: "south", has_book: "true" });
+		}
+		castleChest(p, x2 - 3, 1, z2 - 3, lootTable, "west");
+	} else if (kind === "study") {
+		for (const [x, z] of [[x1 + 7, z1 + 7], [x2 - 7, z1 + 7], [x1 + 7, z2 - 7], [x2 - 7, z2 - 7]]) {
+			p.fill(x - 2, 1, z - 2, x + 2, 1, z + 2, "minecraft:polished_deepslate");
+			p.set(x, 2, z, "minecraft:brewing_stand");
+			p.set(x - 2, 2, z, "minecraft:cauldron");
+			p.set(x + 2, 2, z, "minecraft:redstone_lamp", { lit: "true" });
+		}
+		p.set(midX, 1, Math.floor((z1 + z2) / 2), "minecraft:enchanting_table");
+		p.set(midX, 2, Math.floor((z1 + z2) / 2) + 4, "minecraft:lightning_rod", { facing: "up" });
+		castleChest(p, x1 + 3, 1, z2 - 3, lootTable, "east");
+	} else if (kind === "throne") {
+		const cz = z1 + 8;
+		p.fill(midX - 6, 1, cz - 4, midX + 6, 2, cz + 4, WALL_CAP[f]);
+		p.set(midX, 3, cz, "minecraft:gold_block");
+		p.set(midX, 4, cz, "minecraft:dark_oak_stairs", { facing: "south" });
+		for (const dx of [-5, 5]) p.set(midX + dx, 3, cz, `minecraft:${BANNER[f]}_banner`, { rotation: "8" }, { id: "minecraft:banner" });
+		castleChest(p, midX - 4, 3, cz - 2, lootTable, "east");
+		castleChest(p, midX + 4, 3, cz - 2, lootTable, "west");
+	}
+}
+
+/** A real working settlement quarter outside the keep, not decorative empty houses. */
+function castleVillage(p, f, cx, cz, lootTable) {
+	p.fill(cx - 34, 0, cz - 34, cx + 34, 0, cz + 34, GROUND[f]);
+	p.fill(cx - 2, 0, cz - 34, cx + 2, 0, cz + 34, ROAD[f]);
+	p.fill(cx - 34, 0, cz - 2, cx + 34, 0, cz + 2, ROAD[f]);
+	p.stamp(pieceFile(f, "barracks_1"), cx - 30, 1, cz - 29, "s", lootTable);
+	p.stamp(pieceFile(f, "bunkroom"), cx + 15, 1, cz - 28, "s", lootTable);
+	p.stamp(pieceFile(f, "armory_1"), cx - 30, 1, cz + 13, "n", lootTable);
+	p.stamp(pieceFile(f, "quartermaster"), cx + 15, 1, cz + 13, "n", lootTable);
+	farmPlot(p, f, cx - 13, cz - 29, 11, 9);
+	farmPlot(p, f, cx + 2, cz + 18, 11, 9);
+	p.set(cx - 14, 1, cz - 18, "minecraft:composter", { level: "6" });
+	p.set(cx + 14, 1, cz + 18, "minecraft:smoker", { facing: "north" });
+	p.set(cx, 1, cz, "minecraft:bell", { attachment: "floor", facing: "north", powered: "false" });
+	for (const [dx, dz] of [[-7, -7], [7, -7], [-7, 7], [7, 7]]) streetLamp(p, f, cx + dx, cz + dz);
+}
+
+function grandCastle(f) {
+	const p = new Plan();
+	const max = CASTLE_SIZE - 1, mid = Math.floor(CASTLE_SIZE / 2);
+	const L = `warfront:castle/${f}`;
+	castleWall(p, f, 0, max, 9, true);
+	castleWall(p, f, 145, 355, 13, false);
+	// Four kilometer-readable approach roads and a paved inner cross.
+	p.fill(mid - 3, 0, 0, mid + 3, 0, max, ROAD[f]);
+	p.fill(0, 0, mid - 3, max, 0, mid + 3, ROAD[f]);
+	p.fill(150, 0, 150, 350, 0, 350, GROUND[f]);
+	p.fill(mid - 4, 0, 145, mid + 4, 0, 355, ROAD[f]);
+	p.fill(145, 0, mid - 4, 355, 0, mid + 4, ROAD[f]);
+
+	// The four staffed villages are physically separate quarters around the keep.
+	castleVillage(p, f, mid, 72, L);
+	castleVillage(p, f, 428, mid, L);
+	castleVillage(p, f, mid, 428, L);
+	castleVillage(p, f, 72, mid, L);
+
+	// Main collegiate castle: required destination rooms plus royal and military wings.
+	gothicHall(p, f, 210, 158, 290, 207, 19, "throne", L);
+	gothicHall(p, f, 158, 219, 242, 285, 17, "dining", L);
+	gothicHall(p, f, 258, 219, 342, 285, 21, "library", L);
+	gothicHall(p, f, 210, 297, 290, 342, 18, "study", L);
+	// The imported open-source cores give the library, study, and secret passage
+	// distinct room-scale detail inside the original monumental shells.
+	for (const [x, z, face] of [[266, 230, "s"], [318, 230, "s"], [266, 258, "n"], [318, 258, "n"]])
+		p.stamp(pieceFile(f, "grand_library"), x, 1, z, face, L);
+	for (const [x, z] of [[218, 307], [258, 307]])
+		p.stamp(pieceFile(f, "scientific_study"), x, 1, z, "s", L);
+	for (const [x, z, face] of [[166, 191, "s"], [318, 191, "s"], [166, 304, "n"], [318, 304, "n"]])
+		p.stamp(pieceFile(f, "heavy_tower"), x, 1, z, face, L);
+	// Royal apartments, barracks, armory, prison, vault, and concealed approaches.
+	p.stamp(pieceFile(f, "command_post"), 166, 1, 166, "s", L);
+	p.stamp(pieceFile(f, "barracks_1"), 166, 1, 330, "n", L);
+	p.stamp(pieceFile(f, "barracks_2"), 310, 1, 330, "n", L);
+	p.stamp(pieceFile(f, "armory_2"), 315, 1, 166, "s", L);
+	p.stamp(pieceFile(f, "bunker_cells"), 175, 1, 292, "e", L);
+	p.stamp(pieceFile(f, "bunker_storage"), 310, 1, 292, "w", "warfront:castle/hidden_vault");
+	for (const [x, z, face] of [[198, 214, "e"], [296, 214, "w"], [198, 289, "e"], [296, 289, "w"]])
+		p.stamp(pieceFile(f, "secret_passage"), x, 1, z, face, "warfront:castle/hidden_vault");
+	for (const [x, z] of [[151, 151], [334, 151], [151, 334], [334, 334]]) {
+		p.stamp(pieceFile(f, "watchtower"), x, 1, z, "s", L);
+	}
+	// Bunks are both visible castle staff housing and persistent garrison anchors.
+	for (let x = 185; x <= 315; x += 10) {
+		p.set(x, 1, 348, "warfront:bunk");
+		p.set(x, 1, 352, "warfront:bunk");
+	}
+	// One named royal rank; armor/loadout identity is applied by SoldierEntity.
+	p.soldier(mid, 3, 166, f, "king");
+	for (const [x, z] of [[mid - 7, 211], [mid + 7, 211], [150, mid], [350, mid], [mid, 350], [mid, 150]])
+		p.soldier(x, 1, z, f, "officer");
+	for (let i = 0; i < 36; i++) {
+		const side = i % 4, off = 25 + Math.floor(i / 4) * 18;
+		const spots = [[off, 4], [max - 4, off], [max - off, max - 4], [4, max - off]];
+		p.soldier(spots[side][0], 1, spots[side][1], f, "soldier");
+	}
+	p.emit(f, "castle");
+}
+
+function draculaCastle() {
+	const p = new Plan();
+	const f = "vostok", max = CASTLE_SIZE - 1, mid = Math.floor(CASTLE_SIZE / 2);
+	castleWall(p, f, 0, max, 14, true);
+	castleWall(p, f, 125, 375, 18, false);
+	p.fill(mid - 2, 0, 0, mid + 2, 0, max, "minecraft:cracked_deepslate_bricks");
+	p.fill(125, 0, 125, 375, 0, 375, "minecraft:deepslate_tiles");
+	gothicHall(p, f, 185, 135, 315, 218, 25, "throne", "warfront:castle/dracula");
+	gothicHall(p, f, 132, 228, 238, 332, 22, "dining", "warfront:castle/dracula");
+	gothicHall(p, f, 262, 228, 368, 332, 26, "library", "warfront:castle/dracula");
+	gothicHall(p, f, 185, 342, 315, 385, 21, "study", "warfront:castle/dracula");
+	for (const [x, z, face] of [[274, 240, "s"], [340, 240, "s"], [274, 285, "n"], [340, 285, "n"]])
+		p.stamp(pieceFile(f, "grand_library"), x, 1, z, face, "warfront:castle/dracula");
+	for (const [x, z] of [[198, 352], [270, 352]])
+		p.stamp(pieceFile(f, "scientific_study"), x, 1, z, "s", "warfront:castle/dracula");
+	for (const [x, z, face] of [[134, 134, "s"], [350, 134, "s"], [134, 350, "n"], [350, 350, "n"]])
+		p.stamp(pieceFile(f, "heavy_tower"), x, 1, z, face, "warfront:castle/dracula");
+	// Abandoned village ring: recognizable houses and work sites, but choked with webs.
+	for (const [cx, cz] of [[mid, 66], [434, mid], [mid, 434], [66, mid]]) {
+		p.fill(cx - 30, 0, cz - 30, cx + 30, 0, cz + 30, "minecraft:coarse_dirt");
+		p.stamp(pieceFile(f, "barracks_1"), cx - 25, 1, cz - 24, "s", "warfront:castle/dracula");
+		p.stamp(pieceFile(f, "bunkroom"), cx + 10, 1, cz + 10, "n", "warfront:castle/dracula");
+		for (let i = -20; i <= 20; i += 10) p.set(cx + i, 1, cz, "minecraft:cobweb");
+	}
+	// Twelve concealed caches; the crypt cluster uses the richest table.
+	for (const [x, z] of [[140, 220], [160, 220], [340, 220], [360, 220], [145, 340], [355, 340]])
+		castleChest(p, x, 1, z, "warfront:castle/dracula", "south");
+	for (const [x, z, face] of [[214, 223, "e"], [281, 223, "w"], [214, 335, "e"], [281, 335, "w"]])
+		p.stamp(pieceFile(f, "secret_passage"), x, 1, z, face, "warfront:castle/dracula");
+	p.dracula(mid, 3, 150);
+	p.emit("dracula", "castle");
+}
+
 // ---------- run ----------
 for (const f of ["vostok", "aegis", "sarab"]) {
 	outpost(f, "a");
@@ -866,9 +1085,11 @@ for (const f of ["vostok", "aegis", "sarab"]) {
 	settlement(f, "town");
 	settlement(f, "city");
 	settlement(f, "metropolis");
+	grandCastle(f);
 }
 trenchArm();
 sarabArms();
 sarabSubcamps();
 tentPads();
 cityDistricts();
+draculaCastle();

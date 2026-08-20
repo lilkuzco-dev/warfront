@@ -35,6 +35,10 @@ public class WarfrontRenderTest implements FabricClientGameTest {
 			// the benchmark and may attack/open dialogue, so isolate the camera first.
 			server.runCommand("kill @e[type=warfront:soldier]");
 			server.runCommand("kill @e[type=warfront:citizen]");
+			if (Boolean.getBoolean("warfront.castle.only")) {
+				renderGrandCastle(context, world);
+				return;
+			}
 
 			// --- C2 Phase 1: one controller texture split across a full 5x3 wall ---
 			server.runCommand("execute at @p run fill ~-5 ~-1 ~-2 ~5 ~-1 ~10 minecraft:smooth_stone");
@@ -225,6 +229,25 @@ public class WarfrontRenderTest implements FabricClientGameTest {
 	}
 
 	private record PerfSample(double medianFps, double p95FrameMs) { }
+
+	/** Dedicated remote-only proof frame for the literal 501-block castle template. */
+	private void renderGrandCastle(ClientGameTestContext context, TestSingleplayerContext world) {
+		var server = world.getServer();
+		server.runCommand("gamerule doMobSpawning false");
+		server.runCommand("weather clear");
+		server.runCommand("time set 3000");
+		// Centre the client before placement so all 501x501 template chunks are loaded
+		// by the 32-chunk view distance without exceeding /forceload's 256-chunk cap.
+		server.runCommand("tp @p 250 -55 250");
+		context.waitTicks(400);
+		server.runCommand("place template warfront:aegis/castle 0 -60 0");
+		context.waitTicks(300);
+		server.runCommand("kill @e[type=warfront:soldier]");
+		server.runCommand("gamemode spectator @p");
+		server.runCommand("tp @p 250 300 250 -45 90");
+		context.waitTicks(160);
+		context.takeScreenshot("aegis_grand_castle_501_block_aerial");
+	}
 
 	private void shootStructure(ClientGameTestContext context, TestSingleplayerContext world,
 			String structureId, String shotName, int x, int height) {

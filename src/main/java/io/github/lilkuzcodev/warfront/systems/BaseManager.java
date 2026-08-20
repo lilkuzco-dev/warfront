@@ -188,6 +188,25 @@ public final class BaseManager {
 		if (population < 1) {
 			return;
 		}
+		if ("castle".equals(base.tier)) {
+			// The 501x501 castle has a central keep and four surrounding working
+			// villages. Give every quarter its own economy/home anchor so workers go
+			// to farms, mines and job buildings across the estate instead of forming
+			// one crowd at the keep's centre.
+			String[] suffixes = { "", "_north", "_east", "_south", "_west" };
+			int[][] offsets = { { 0, 0 }, { 0, -178 }, { 178, 0 }, { 0, 178 }, { -178, 0 } };
+			int remaining = population;
+			for (int i = 0; i < offsets.length; i++) {
+				int districtsLeft = offsets.length - i;
+				int districtPopulation = remaining / districtsLeft;
+				remaining -= districtPopulation;
+				BlockPos district = heart.offset(offsets[i][0], 0, offsets[i][1]);
+				CivilizationManager.seedSettlement(level, "base_" + key + suffixes[i], base.faction,
+						district, SETTLEMENT_RADIUS, districtPopulation,
+						standableSpots(level, base, district, districtPopulation * 2));
+			}
+			return;
+		}
 		CivilizationManager.seedSettlement(level, "base_" + key, base.faction, heart,
 				SETTLEMENT_RADIUS, population, standableSpots(level, base, heart, population * 2));
 	}
@@ -241,6 +260,9 @@ public final class BaseManager {
 	}
 
 	private static String tierOf(String structurePath) {
+		if (structurePath.endsWith("_castle")) {
+			return "castle";
+		}
 		if (structurePath.contains("headquarters")) {
 			return "headquarters";
 		}
@@ -357,8 +379,11 @@ public final class BaseManager {
 		}
 		if (live.size() > target) {
 			// Keep officers where possible; trim ordinary duplicate soldiers first.
-			live.sort(java.util.Comparator.comparingInt(soldier ->
-					"officer".equals(soldier.getRank()) || "quartermaster".equals(soldier.getRank()) ? 1 : 0));
+			live.sort(java.util.Comparator.comparingInt(soldier -> switch (soldier.getRank()) {
+				case "king" -> 2;
+				case "officer", "quartermaster" -> 1;
+				default -> 0;
+			}));
 			int excess = live.size() - target;
 			for (int i = 0; i < excess; i++) {
 				SoldierEntity soldier = live.get(i);

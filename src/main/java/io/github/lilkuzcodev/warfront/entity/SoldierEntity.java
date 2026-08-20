@@ -162,6 +162,7 @@ public class SoldierEntity extends PathfinderMob {
 
 	public void setFaction(String faction) {
 		this.entityData.set(FACTION, faction);
+		applyRoyalIdentity();
 	}
 
 	public String getRank() {
@@ -170,6 +171,7 @@ public class SoldierEntity extends PathfinderMob {
 
 	public void setRank(String value) {
 		this.rank = value;
+		applyRoyalIdentity();
 	}
 
 	public @Nullable UUID getSquadId() {
@@ -368,6 +370,16 @@ public class SoldierEntity extends PathfinderMob {
 				weapon = new ItemStack(Items.WOODEN_SWORD);
 			}
 		}
+		// Kings are a recognizable, persistent castle role rather than an ordinary
+		// soldier with a label. The gold helm reads as a crown while the royal guard
+		// gear keeps the sovereign from being trivially removed by ambient mobs.
+		if ("king".equals(rank)) {
+			head = new ItemStack(Items.GOLDEN_HELMET);
+			chest = new ItemStack(Items.NETHERITE_CHESTPLATE);
+			legs = new ItemStack(Items.NETHERITE_LEGGINGS);
+			feet = new ItemStack(Items.NETHERITE_BOOTS);
+			weapon = new ItemStack(Items.NETHERITE_SWORD);
+		}
 		if (faction != null) {
 			for (ItemStack stack : new ItemStack[] { head, chest, legs, feet }) {
 				if (stack.is(Items.LEATHER_HELMET) || stack.is(Items.LEATHER_CHESTPLATE)
@@ -384,6 +396,18 @@ public class SoldierEntity extends PathfinderMob {
 		for (EquipmentSlot slot : EquipmentSlot.values()) {
 			setDropChance(slot, 0.0F);
 		}
+		applyRoyalIdentity();
+	}
+
+	private void applyRoyalIdentity() {
+		if (!"king".equals(rank)) {
+			return;
+		}
+		Faction faction = WarfrontRegistry.faction(getFaction());
+		String realm = faction == null ? "Warfront" : faction.name();
+		setCustomName(net.minecraft.network.chat.Component.literal("King of " + realm));
+		setCustomNameVisible(true);
+		setPersistenceRequired();
 	}
 
 	// ---------- persistence ----------
@@ -410,7 +434,7 @@ public class SoldierEntity extends PathfinderMob {
 	protected void readAdditionalSaveData(ValueInput input) {
 		super.readAdditionalSaveData(input);
 		setFaction(input.getStringOr("warfront_faction", ""));
-		rank = input.getStringOr("warfront_rank", "soldier");
+		setRank(input.getStringOr("warfront_rank", "soldier"));
 		String squad = input.getStringOr("warfront_squad", "");
 		try {
 			squadId = squad.isEmpty() ? null : UUID.fromString(squad);

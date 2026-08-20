@@ -4,6 +4,22 @@ Modern military factions for Minecraft 26.2 (Fabric). Three doctrine-driven fact
 
 Requires Fabric Loader 0.19.3+ and Fabric API for 26.2.
 
+## v0.4.7 — grand castles and Dracula
+
+- Each faction can now generate a literal 501×501 grand castle estate with a
+  surrounding working village, 64–96 soldiers, a named and armored king, and 240
+  citizens distributed across five economic districts.
+- The keep includes a throne hall, grand dining hall, multi-storey library,
+  scientific study, barracks, armory, prison, concealed passages, and hidden vault
+  loot. Its collegiate-gothic composition is original Warfront work; attributed
+  LGPL room cores add small-scale interior detail.
+- A separate very rare 501×501 Dracula castle contains rich hidden caches and Count
+  Dracula. He has boss-grade health and damage, life steal and night regeneration,
+  burns in direct sun, is harmed by water, and takes seven times damage from wooden
+  swords. His attributed CC BY-SA vampire skin is documented in `CREDITS.md`.
+- A remote client game test builds the full Aegis castle and captures a real in-game
+  aerial screenshot without starting Java on the developer workstation.
+
 ## v0.4.6 — guarded working cities
 
 - Hitting a citizen immediately makes the attacker hostile to that faction and alerts

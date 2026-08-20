@@ -1,0 +1,11 @@
+{
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 173146091,
+    "spacing": 640,
+    "separation": 480,
+    "exclusion_zone": { "chunk_count": 24, "other_set": "minecraft:villages" },
+    "frequency": 0.35
+  },
+  "structures": [{ "structure": "warfront:dracula_castle", "weight": 1 }]
+}

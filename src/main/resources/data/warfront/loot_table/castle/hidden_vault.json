@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:chest",
+  "pools": [{
+    "rolls": { "type": "minecraft:uniform", "min": 7, "max": 11 },
+    "entries": [
+      { "type": "minecraft:item", "name": "minecraft:diamond_block", "weight": 8, "functions": [{ "function": "minecraft:set_count", "count": { "type": "minecraft:uniform", "min": 1, "max": 3 }}]},
+      { "type": "minecraft:item", "name": "minecraft:emerald_block", "weight": 8, "functions": [{ "function": "minecraft:set_count", "count": { "type": "minecraft:uniform", "min": 1, "max": 4 }}]},
+      { "type": "minecraft:item", "name": "minecraft:netherite_ingot", "weight": 4, "functions": [{ "function": "minecraft:set_count", "count": { "type": "minecraft:uniform", "min": 1, "max": 2 }}]},
+      { "type": "minecraft:item", "name": "minecraft:enchanted_golden_apple", "weight": 2 },
+      { "type": "minecraft:item", "name": "minecraft:nether_star", "weight": 1 },
+      { "type": "minecraft:item", "name": "minecraft:heavy_core", "weight": 1 },
+      { "type": "minecraft:item", "name": "minecraft:totem_of_undying", "weight": 3 }
+    ]
+  }]
+}

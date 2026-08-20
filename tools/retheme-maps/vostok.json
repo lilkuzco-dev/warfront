@@ -44,6 +44,11 @@
     "minecraft:obsidian": "minecraft:polished_deepslate",
     "minecraft:end_stone_bricks": "minecraft:deepslate_tiles",
     "minecraft:purpur_block": "minecraft:cracked_deepslate_bricks",
+    "minecraft:purpur_pillar": "minecraft:polished_basalt",
+    "minecraft:purpur_slab": "minecraft:deepslate_brick_slab",
+    "minecraft:amethyst_block": "minecraft:amethyst_block",
+    "minecraft:small_amethyst_bud": "minecraft:small_amethyst_bud",
+    "minecraft:purple_stained_glass_pane": "minecraft:red_stained_glass_pane",
     "minecraft:end_rod": {
       "name": "minecraft:lantern",
       "props": "strip"

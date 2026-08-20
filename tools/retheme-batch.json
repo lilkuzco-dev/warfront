@@ -19,6 +19,9 @@
       { "src": "outposts/badlands/targets", "out": "targets" },
       { "src": "strongholds/end/prison", "out": "bunker_cells" },
       { "src": "strongholds/end/storage_crossing", "out": "bunker_storage" },
+      { "src": "strongholds/end/library_big", "out": "grand_library" },
+      { "src": "strongholds/end/library_small", "out": "scientific_study" },
+      { "src": "strongholds/end/chest_corridor", "out": "secret_passage" },
       { "src": "fortresses/jungle/center_room", "out": "bunker_core" }
     ],
     "aegis": [
@@ -35,6 +38,9 @@
       { "src": "outposts/badlands/targets", "out": "targets" },
       { "src": "strongholds/end/prison", "out": "bunker_cells" },
       { "src": "strongholds/end/storage_crossing", "out": "bunker_storage" },
+      { "src": "strongholds/end/library_big", "out": "grand_library" },
+      { "src": "strongholds/end/library_small", "out": "scientific_study" },
+      { "src": "strongholds/end/chest_corridor", "out": "secret_passage" },
       { "src": "fortresses/jungle/center_room", "out": "bunker_core" }
     ],
     "sarab": [
@@ -53,6 +59,9 @@
       { "src": "outposts/badlands/targets", "out": "targets" },
       { "src": "strongholds/end/prison", "out": "bunker_cells" },
       { "src": "strongholds/end/storage_crossing", "out": "bunker_storage" },
+      { "src": "strongholds/end/library_big", "out": "grand_library" },
+      { "src": "strongholds/end/library_small", "out": "scientific_study" },
+      { "src": "strongholds/end/chest_corridor", "out": "secret_passage" },
       { "src": "fortresses/jungle/center_room", "out": "bunker_core" }
     ]
   }

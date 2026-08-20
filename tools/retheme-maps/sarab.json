@@ -62,6 +62,11 @@
     "minecraft:obsidian": "minecraft:mud_bricks",
     "minecraft:end_stone_bricks": "minecraft:sandstone",
     "minecraft:purpur_block": "minecraft:terracotta",
+    "minecraft:purpur_pillar": "minecraft:cut_sandstone",
+    "minecraft:purpur_slab": "minecraft:cut_sandstone_slab",
+    "minecraft:amethyst_block": "minecraft:amethyst_block",
+    "minecraft:small_amethyst_bud": "minecraft:small_amethyst_bud",
+    "minecraft:purple_stained_glass_pane": "minecraft:green_stained_glass_pane",
     "minecraft:end_rod": {
       "name": "minecraft:lantern",
       "props": "strip"

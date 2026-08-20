@@ -26,6 +26,7 @@ public class WarfrontClient implements ClientModInitializer {
 	public void onInitializeClient() {
 		EntityRenderers.register(WarfrontEntities.SOLDIER, SoldierRenderer::new);
 		EntityRenderers.register(WarfrontEntities.CITIZEN, CitizenRenderer::new);
+		EntityRenderers.register(WarfrontEntities.DRACULA, DraculaRenderer::new);
 		BlockEntityRenderers.register(
 				io.github.lilkuzcodev.warfront.block.WarfrontBlockEntities.DISPLAY, DisplayRenderer::new);
 		ClientPlayConnectionEvents.DISCONNECT.register((handler, client) -> client.execute(DisplayTextureCache::clear));

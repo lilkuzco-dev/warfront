@@ -51,6 +51,11 @@
     "minecraft:obsidian": "minecraft:gray_concrete",
     "minecraft:end_stone_bricks": "minecraft:smooth_stone",
     "minecraft:purpur_block": "minecraft:light_gray_concrete",
+    "minecraft:purpur_pillar": "minecraft:polished_andesite",
+    "minecraft:purpur_slab": "minecraft:polished_andesite_slab",
+    "minecraft:amethyst_block": "minecraft:amethyst_block",
+    "minecraft:small_amethyst_bud": "minecraft:small_amethyst_bud",
+    "minecraft:purple_stained_glass_pane": "minecraft:blue_stained_glass_pane",
     "minecraft:shulker_box": {
       "name": "minecraft:barrel",
       "props": {

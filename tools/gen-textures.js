@@ -219,6 +219,17 @@ for (const profession of ["miner", "farmer", "builder", "trader", "laborer"]) {
 	console.log(`wrote citizen/${profession}.png`);
 }
 
+// Count Dracula: TenPlus1's CC BY-SA 4.0 Vampire skin from Simple Skins, pinned
+// and attributed in tools/assets/vampire-skins/README.md. Keep the source bytes
+// intact and perform only the standard legacy-to-modern limb conversion here.
+{
+	const source = decodePng(fs.readFileSync(path.join(ROOT, "tools/assets/vampire-skins/dracula.png")));
+	const file = path.join(ASSETS, "textures/entity/dracula.png");
+	fs.mkdirSync(path.dirname(file), { recursive: true });
+	fs.writeFileSync(file, encodePng(64, 64, legacySkinToModern(source)));
+	console.log("wrote entity/dracula.png");
+}
+
 // uniform = every body/limb pixel below the head rows (y >= 16) hue-mapped to the
 // faction color, keeping per-pixel luminance for cloth shading
 for (const [faction, color] of Object.entries(FACTIONS)) {
