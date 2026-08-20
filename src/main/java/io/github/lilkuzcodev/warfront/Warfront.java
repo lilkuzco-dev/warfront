@@ -15,6 +15,9 @@ public class Warfront implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
+		// Before anything reads a datapack: bases.json declares "type": "warfront:base_spread",
+		// and an unregistered placement type is a registry-load failure, not a warning.
+		io.github.lilkuzcodev.warfront.worldgen.BaseSpreadPlacement.register();
 		io.github.lilkuzcodev.warfront.data.WarfrontRegistry.init();
 		io.github.lilkuzcodev.warfront.dialogue.DialogueRegistry.init();
 		io.github.lilkuzcodev.warfront.dialogue.WarfrontNet.init();

@@ -19,6 +19,9 @@ import net.fabricmc.fabric.api.client.gametest.v1.context.TestSingleplayerContex
 public class WarfrontRenderTest implements FabricClientGameTest {
 	@Override
 	public void runTest(ClientGameTestContext context) {
+		// The worldgen check needs a normal world and this test builds a flat one; skip so the
+		// two do not fight over the same run.
+		if (Boolean.getBoolean("warfront.worldgen.only")) return;
 		// before world creation: the integrated server snapshots the client view
 		// distance at connect; the 130-block aerial cameras need the full radius
 		context.runOnClient(client -> client.options.renderDistance().set(32));

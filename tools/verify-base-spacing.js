@@ -100,7 +100,26 @@ function loadSets() {
 			const json = JSON.parse(fs.readFileSync(path.join(SET_DIR, f), 'utf8'));
 			return { file: f, id: 'warfront:' + f.replace(/\.json$/, ''), json };
 		})
-		.filter(s => s.json.placement?.type === 'minecraft:random_spread');
+		// warfront:base_spread is RandomSpreadStructurePlacement with an extra, uncapped
+		// clearance against another set — same spread maths, so the same replay works.
+		.filter(s => s.json.placement?.type === 'minecraft:random_spread'
+			|| s.json.placement?.type === 'warfront:base_spread');
+}
+
+/**
+ * Every cross-set clearance a set declares, normalised. Vanilla's `exclusion_zone` is capped
+ * at 16 chunks by its codec; `warfront:base_spread` adds `avoid_set`/`avoid_chunks`, which is
+ * the same test without the cap. Both are read here so nothing downstream has to care which
+ * mechanism a given set happens to use.
+ */
+function exclusionsOf(json) {
+	const placement = json.placement ?? {};
+	const out = [];
+	if (placement.exclusion_zone) out.push(placement.exclusion_zone);
+	if (placement.avoid_set) {
+		out.push({ other_set: placement.avoid_set, chunk_count: placement.avoid_chunks });
+	}
+	return out;
 }
 
 /** Placement chunks of one set, as a "cx,cz" Set — what an exclusion zone tests against. */
@@ -125,22 +144,24 @@ function placementChunks(json, worldSeed, radiusChunks) {
  * once beats testing a (2n+1)^2 neighbourhood per candidate of the dense one.
  */
 function forbiddenChunks(json, sets, worldSeed, radiusChunks, unmodelled) {
-	const zone = json.placement?.exclusion_zone;
-	if (!zone) return null;
-	const target = sets.find(s => s.id === zone.other_set);
-	if (!target) {
-		unmodelled.add(zone.other_set);
-		return null;
-	}
-	const n = zone.chunk_count;
 	const forbidden = new Set();
-	for (const key of placementChunks(target.json, worldSeed, radiusChunks)) {
-		const [cx, cz] = key.split(',').map(Number);
-		for (let dx = -n; dx <= n; dx++) {
-			for (let dz = -n; dz <= n; dz++) forbidden.add((cx + dx) + ',' + (cz + dz));
+	let any = false;
+	for (const zone of exclusionsOf(json)) {
+		const target = sets.find(s => s.id === zone.other_set);
+		if (!target) {
+			unmodelled.add(zone.other_set);
+			continue;
+		}
+		any = true;
+		const n = zone.chunk_count;
+		for (const key of placementChunks(target.json, worldSeed, radiusChunks)) {
+			const [cx, cz] = key.split(',').map(Number);
+			for (let dx = -n; dx <= n; dx++) {
+				for (let dz = -n; dz <= n; dz++) forbidden.add((cx + dx) + ',' + (cz + dz));
+			}
 		}
 	}
-	return forbidden;
+	return any ? forbidden : null;
 }
 
 function collectPlacements(sets, worldSeed, radiusChunks, unmodelled = new Set()) {
@@ -272,12 +293,13 @@ function checkExclusionZones(sets, widths) {
 	let failures = 0;
 	console.log('\nCross-set clearance (a set\'s spacing does not apply to any other set):');
 	for (const set of sets) {
-		const zone = set.json.placement?.exclusion_zone;
+		const zones = exclusionsOf(set.json);
 		const mine = widestInSet(set.json, widths);
-		if (!zone) {
-			console.log(`  ${set.file}: no exclusion zone — widest plate ${mine.width} blocks`);
+		if (!zones.length) {
+			console.log(`  ${set.file}: no cross-set clearance — widest plate ${mine.width} blocks`);
 			continue;
 		}
+		for (const zone of zones) {
 		const target = sets.find(s => s.id === zone.other_set);
 		if (!target) {
 			console.log(`  ${set.file} -> ${zone.other_set} @ ${zone.chunk_count} chunks `
@@ -295,6 +317,7 @@ function checkExclusionZones(sets, widths) {
 		console.log(`      need ${needBlocks.toFixed(0)} blocks = ${needChunks} chunks; `
 			+ `configured ${zone.chunk_count} chunks = ${haveBlocks} blocks  `
 			+ `${ok ? 'OK' : '<== TOO SMALL'}`);
+		}
 	}
 	return failures;
 }

@@ -38,6 +38,16 @@ loom {
 			vmArg "-Dwarfront.c2.only=true"
 			runDir "build/run-c2-gametest"
 		}
+		// Placement maths only — no rendering, and deliberately a NORMAL world, because a
+		// flat world's generator carries only its preset's structure sets and Warfront's are
+		// not among them.
+		worldgentest {
+			inherit client
+			vmArg "-Dfabric.client.gametest=true"
+			vmArg "-Dfabric.client.gametest.modid=warfront"
+			vmArg "-Dwarfront.worldgen.only=true"
+			runDir "build/run-worldgen-test"
+		}
 		castlerender {
 			inherit client
 			vmArg "-Dfabric.client.gametest=true"
