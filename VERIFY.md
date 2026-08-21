@@ -1041,3 +1041,115 @@ castle is finished rather than left holding a thousand chunks for the life of th
 
 Re-verified, all four types: `aegis=8/8 sarab=63/63 vostok=861/861 dracula=118/118`, plus a
 natural site end to end.
+
+## 0.4.14 — the castles as reported from play (2026-08-21)
+
+Jesse played 0.4.13 and reported, with screenshots: castles floating above the ground on
+slabs and pedestals; the wrong castle model "half the time"; the Dracula site showing a
+completely different castle; no soldiers or citizens in the castle proper; no loot; empty
+interiors missing the specified rooms; and the King of Vostok standing in a cobblestone
+basement full of note blocks, talking like a grunt. Every one of those traced to a real,
+distinct defect.
+
+### Which castle, where, and when — CastleBuilder now reads the world
+
+- **Wrong model / wrong Dracula.** The builder picked the faction with a private hash of
+  the chunk coordinates, while `/locate`, discovery and the city ledger read the chunk's
+  recorded `StructureStart`. It now reads the same start everything else reads
+  (`ChunkStatus.STRUCTURE_STARTS`) and pastes exactly that castle; a placement chunk whose
+  entries were all biome-vetoed is skipped instead of getting a castle no system knows.
+- **~250-block offset.** The paste was centred on the anchor chunk; the jigsaw start box
+  begins AT it. The paste is now anchored to the start's own bounding box, so blocks,
+  ledger, citizens and `/locate` agree.
+- **Floating.** One `WORLD_SURFACE_WG` column (treetops included) decided the height of
+  half a million blocks. Now: median `OCEAN_FLOOR` of a 5x5 grid across the footprint,
+  budgeted like the slices; each slice then carves terrain above the paste height and
+  drops foundation columns from the template's underside to solid ground.
+- **Empty castle.** Civilians were seeded at discovery — before any block existed — and
+  the paste landed on them; district anchors were hardcoded ±178 (only right for 501
+  wide); reconcile dragged anything 5 blocks above "ground" down to the plate, kings and
+  wall-watch included. Castle seeding now runs from `onCastleBuilt` with the real paste
+  origin and size; castle bases hydrate only after they exist; castle soldiers keep their
+  altitude.
+
+### The imports (see structures/CASTLE-IMPORTS.md for the full record)
+
+Crop centres are measured by the importer's new `--scan` (mass centroid + tall-material
+bins + Y histogram) **and their renders read before being trusted** — the scan alone
+centred Vostok on decorative parasol trees and Sarab on cliff spires with the keep at the
+crop edge. Renders of the final three crops show each keep at its template centre. min-y
+sits just below the measured ground plateau, cutting the source worlds' buried machinery
+(the Vostok note-block room among it). Each castle carries the SOURCES.md interior —
+rethemed grand library, study, storage junction and two concealed vault passages —
+stamped beneath a throne the importer derives from the build (highest roofed chamber near
+centre: kings at template y=113/42/52), plus royal guards, a rampart watch, vault
+sentries, and full loot coverage (24 rich + hidden_vault + common on everything else;
+`minecraft:empty` is gone and the verifier rejects it, Dracula included via `--retrofit`).
+
+### The king is a court
+
+Rank king now maps to its own dialogue role, and a royal audience is exclusive both ways:
+kings offer only royal.json lines (authored per faction voice: presence, realm, war,
+people, counsel, defiance, farewell — 23 options, 189 response lines across all bands),
+and nobody else ever offers them. Kings lose station/hunt/patrol/travel/stroll goals at
+rank application and hold their chamber via KingCourtGoal; the royal guard fights.
+
+### Gates
+
+`verify-grand-castles.js` OK (per-castle pins incl. king height ≥ y20) ·
+`verify-base-spacing.js` PASS (496 measured vs 463 needed) · `validate-dialogue.js` PASS
+(1,886 options / 4,607 lines, royal 23/23/23 per faction) · `econ-selftest.sh` ALL PASS ·
+`gradlew build` clean · render battery + worldgen battery: see below.
+
+### The fourth defect, found by the gates: castle starts had NEVER generated since 0.4.9
+
+Wiring the truth-based builder into the batteries surfaced a deeper fault than any
+reported: a jigsaw start piece must fit the generation box (`max_distance_from_center`
+is codec-capped at 128), so from the moment the template pools pointed at 501-wide
+monoliths, `findValidGenerationPoint` failed silently everywhere — no StructureStart,
+no /locate, no discovery, no ledger, on any fresh chunk. Every castle the live server
+ever "located" was a relic start baked into pre-0.4.9 chunks. Fixed by decoupling the
+record from the blocks: the pools now place a 16x4x16 zero-block marker
+(`tools/gen-castle-marker.js`), and the builder pastes the monument at the marker's
+site. Along the way: `getChunk(STRUCTURE_STARTS)` returns an empty placeholder in 26.2
+(measured: 40 candidates, 40 empty answers, under a second) — the working oracle is
+`StructureCheck.checkStructurePresence`, the same machinery /locate uses.
+
+### Proven end to end on the dedicated dev server (fresh world, 2026-08-21)
+
+- `/locate` finds all four castle structures on a fresh world. ✅
+- Walking Watcher to each located site builds THAT castle: vostok 927/927, sarab
+  1514/1514, aegis 10/10, dracula 118/118 chests verified in world. ✅
+- `CASTLE_GROUND` sampled footprints (e.g. 58..122 → paste height 71) — castles are
+  carved in uphill and footed downhill instead of hovering. ✅
+- The moment the last slice is down: `Registered base sarab_castle@-7135,3088` and
+  `CASTLE_POPULATION seeded 240 citizens across 5 districts`. ✅
+- Dracula builds with zero "Can't keep up" warnings after pacing (8-wide slices,
+  three single-tick phases on alternate ticks, tickets released 40/tick). Residual:
+  the densest template (aegis, 4.2M records) still accrues some tick debt on a dev
+  machine; a castle takes a few minutes of background construction, once, per site.
+
+### Batteries
+
+`runCastlerender` BUILD SUCCESSFUL (8m05s) — all four castle aerials + obliques READ:
+each type is its own build, centred, towns present; plus the full 101-frame suite.
+`runWorldgentest` BUILD SUCCESSFUL (11m35s) — clearance 505 vs 313 needed; natural
+sites: builder decisions honest (3 biome vetoes on this ocean-heavy seed); all-types
+paste `aegis=10/10 sarab=1514/1514 vostok=927/927 dracula=118/118`.
+
+### Residuals, written down on purpose
+
+- Existing worlds keep their broken 0.4.13 castles: CastleSites marks those sites
+  built, and pre-0.4.14 chunks carry either relic starts or none. Castle fixes are
+  fully visible only in fresh chunks — for structure work, a fresh world (the empire
+  world was already throwaway pending Wave 4).
+- The client-gametest integrated server answers structure queries with empty
+  placeholder chunks; its natural-site assertion is deliberately "builder made an
+  honest decision", with paste coverage from the all-types check and the end-to-end
+  proof on the dedicated server above.
+- Castles appear only where the has_structure biome tag allows (plains, forests,
+  savanna, taiga, snowy plains, desert, windswept hills). 0.4.13 pasted ghost
+  castles at every placement chunk regardless of biome — including modded biomes —
+  which is how a castle ended up towering over an enchanted forest with no systems
+  attached. If castle frequency now feels low, widening the tag is a design decision,
+  not a bug fix.
