@@ -1,7 +1,7 @@
 {
   "elements": [{ "weight": 1, "element": {
     "element_type": "minecraft:single_pool_element",
-    "location": "warfront:aegis/castle",
+    "location": "warfront:marker/castle_site",
     "processors": "minecraft:empty",
     "projection": "rigid"
   }}],

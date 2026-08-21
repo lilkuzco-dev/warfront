@@ -222,12 +222,27 @@ public final class BaseManager {
 		int chunkZ = Integer.parseInt(siteKey.substring(comma + 1));
 		// Register against the START chunk: structure references only reach 8 chunks from
 		// the start, so the centre of a 501-block castle has no reference at all and
-		// getStructureWithPieceAt cannot see the castle from there.
-		BlockPos startPos = new BlockPos(chunkX * 16 + 8, origin.getY() + 1, chunkZ * 16 + 8);
-		String key = registerBaseAt(level, startPos, faction);
+		// getStructureWithPieceAt cannot see the castle from there. The probe position is
+		// read from the recorded start's own bounding box — the marker piece is only 4
+		// blocks tall, projected from a heightmap the finished castle has since raised, so
+		// any guessed height misses it. The chunk is loaded (the paste just finished), so
+		// its starts are directly readable.
+		BlockPos probe = null;
+		var chunk = level.getChunk(chunkX, chunkZ);
+		for (var entry : chunk.getAllStarts().entrySet()) {
+			Identifier id = level.registryAccess()
+					.lookupOrThrow(net.minecraft.core.registries.Registries.STRUCTURE)
+					.getKey(entry.getKey());
+			if (id != null && id.getNamespace().equals(Warfront.MOD_ID) && id.getPath().endsWith("_castle")
+					&& entry.getValue().isValid()) {
+				probe = entry.getValue().getBoundingBox().getCenter();
+				break;
+			}
+		}
+		String key = probe == null ? null : registerBaseAt(level, probe, faction);
 		if (key == null) {
-			Warfront.LOGGER.warn("CASTLE_POPULATION no registrable structure start at {} for {}",
-					startPos.toShortString(), templateId);
+			Warfront.LOGGER.warn("CASTLE_POPULATION no registrable structure start in chunk {},{} for {}",
+					chunkX, chunkZ, templateId);
 			return;
 		}
 		if (CivilizationState.get(level.getServer())
