@@ -7,11 +7,17 @@ const { parse } = require("./nbt");
 const rootDir = path.join(__dirname, "..");
 const dataDir = path.join(rootDir, "src/main/resources/data/warfront");
 const factions = ["aegis", "sarab", "vostok"];
-const townCenters = [[250, 72], [428, 250], [250, 428], [72, 250]];
+// District centres follow the castle's footprint now, the same way the importer places them:
+// a fixed inset from each edge, so a wider castle spreads its towns rather than growing them.
+const TOWN_INSET = 72;
+const townCentersFor = (size) => {
+	const mid = Math.floor(size / 2);
+	return [[mid, TOWN_INSET], [size - 1 - TOWN_INSET, mid], [mid, size - 1 - TOWN_INSET], [TOWN_INSET, mid]];
+};
 const expected = {
-	aegis: { sizeY: 189, blocks: 2173213, loot: 17, garrison: [64, 80] },
-	sarab: { sizeY: 106, blocks: 878814, loot: 24, garrison: [72, 88] },
-	vostok: { sizeY: 192, blocks: 463156, loot: 24, garrison: [84, 96] },
+	aegis: { sizeX: 501, sizeY: 216, blocks: 710062, loot: 24, garrison: [64, 80] },
+	sarab: { sizeX: 801, sizeY: 139, blocks: 1139747, loot: 24, garrison: [72, 88] },
+	vostok: { sizeX: 501, sizeY: 216, blocks: 3992843, loot: 24, garrison: [84, 96] },
 };
 
 function check(condition, message) {
@@ -86,12 +92,20 @@ for (const faction of factions) {
 	const file = path.join(dataDir, `structure/${faction}/castle.nbt`);
 	const root = parse(fs.readFileSync(file)).root.v;
 	const [sizeX, sizeY, sizeZ] = root.size.v.items;
-	check(sizeX === 501 && sizeZ === 501 && sizeY === expected[faction].sizeY,
-		`${faction}: imported structure dimensions changed unexpectedly`);
+	// Castles are no longer all 501: the importer's footprint follows its source radius, so
+	// a build that warrants a wider crop gets one. Warfront pastes castles itself, so the
+	// vanilla 128-block structure reach no longer caps them. What must not drift silently is
+	// the size of a GIVEN castle, so each is pinned individually.
+	check(sizeX === expected[faction].sizeX && sizeZ === expected[faction].sizeX
+			&& sizeY === expected[faction].sizeY,
+		`${faction}: imported structure dimensions changed unexpectedly `
+		+ `(${sizeX}x${sizeY}x${sizeZ}, expected ${expected[faction].sizeX}x${expected[faction].sizeY})`);
+	check(sizeX >= 501, `${faction}: a castle must be at least 501 blocks across, got ${sizeX}`);
 	check(root.blocks.v.items.length === expected[faction].blocks,
 		`${faction}: imported structure block count changed unexpectedly`);
 	const palette = root.palette.v.items.map((entry) => entry.Name.v);
 	const occupied = new Uint8Array(sizeX * sizeY * sizeZ);
+	const townCenters = townCentersFor(sizeX);
 	const townFeatures = townCenters.map(() => ({ bunks: 0, farmland: 0, jobs: 0 }));
 	let loot = 0;
 

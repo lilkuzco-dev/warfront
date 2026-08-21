@@ -40,17 +40,28 @@ if (!world || !baseFile || !output || !faction || centerX === null || centerZ ==
 	process.exit(2);
 }
 
-const SIZE = 501;
-const HALF = 250;
+// The castle IS the crop. Previously SIZE was pinned at 501 while only a 341x341 window of
+// the supplied build was read, so the outer ring was Warfront's own towns and roads — which
+// is how a "501-block castle" turned out to be ~272 blocks of castle wearing a village as a
+// belt. The footprint now follows the source radius, and the four working districts sit
+// inside the castle grounds rather than standing in for its edges.
+const SIZE = 2 * sourceRadius + 1;
+const HALF = sourceRadius;
 const minX = centerX - HALF, maxX = centerX + HALF;
 const minZ = centerZ - HALF, maxZ = centerZ + HALF;
 const sourceMinX = centerX - sourceRadius, sourceMaxX = centerX + sourceRadius;
 const sourceMinZ = centerZ - sourceRadius, sourceMaxZ = centerZ + sourceRadius;
-const sourceOffset = HALF - sourceRadius;
-const townCenters = [[250, 72], [428, 250], [250, 428], [72, 250]];
-const inTown = (x, z) => townCenters.some(([cx, cz]) => Math.abs(x - cx) <= 34 && Math.abs(z - cz) <= 34);
-const inRoad = (x, z) => (Math.abs(x - 250) <= 3 && (z <= 145 || z >= 355))
-	|| (Math.abs(z - 250) <= 3 && (x <= 145 || x >= 355));
+const sourceOffset = 0; // the crop fills the output; nothing is padded around it
+// Districts keep their 69x69 footprint and sit a fixed distance in from each edge, so a
+// bigger castle gets its towns further apart rather than four bigger towns.
+const TOWN_HALF = 34;
+const TOWN_INSET = 72;
+const MID = HALF;
+const townCenters = [[MID, TOWN_INSET], [SIZE - 1 - TOWN_INSET, MID], [MID, SIZE - 1 - TOWN_INSET],
+	[TOWN_INSET, MID]];
+const inTown = (x, z) => townCenters.some(([cx, cz]) => Math.abs(x - cx) <= TOWN_HALF && Math.abs(z - cz) <= TOWN_HALF);
+const inRoad = (x, z) => (Math.abs(x - MID) <= 3 && (z <= MID - 105 || z >= MID + 105))
+	|| (Math.abs(z - MID) <= 3 && (x <= MID - 105 || x >= MID + 105));
 const NATURAL_GROUND = new Set([
 	"minecraft:stone", "minecraft:dirt", "minecraft:grass_block", "minecraft:bedrock",
 	"minecraft:granite", "minecraft:diorite", "minecraft:andesite", "minecraft:gravel",
@@ -208,12 +219,21 @@ for (const [key, block] of [...plan]) {
 }
 const base = parse(fs.readFileSync(baseFile)).root.v;
 const basePalette = base.palette.v.items;
+// The shell is a fixed 501x24x501 plate with its four districts at fixed centres. Read each
+// district out of it and re-stamp it at this castle's district centre, so the shells work at
+// any footprint without needing to be regenerated (there is no generator for them).
+const SHELL_CENTERS = [[250, 72], [428, 250], [250, 428], [72, 250]];
 for (const record of base.blocks.v.items) {
 	const [x, y, z] = record.pos.v.items;
-	if (!inTown(x, z) && !(inRoad(x, z) && y === 0)) continue;
 	const entry = basePalette[record.state.v];
 	if (entry.Name.v === "minecraft:air" || entry.Name.v === "minecraft:cave_air") continue;
-	put(x, y, z, entry, record.nbt ?? null);
+	const district = SHELL_CENTERS.findIndex(([cx, cz]) =>
+		Math.abs(x - cx) <= TOWN_HALF && Math.abs(z - cz) <= TOWN_HALF);
+	if (district >= 0) {
+		const [sx, sz] = SHELL_CENTERS[district];
+		const [tx, tz] = townCenters[district];
+		put(x - sx + tx, y, z - sz + tz, entry, record.nbt ?? null);
+	}
 }
 
 const containers = [...plan.values()].filter((block) => block.name === "minecraft:chest"

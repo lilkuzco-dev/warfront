@@ -290,22 +290,35 @@ public class WarfrontRenderTest implements FabricClientGameTest {
 		};
 		int lane = 0;
 		for (String[] castle : castles) {
-			int originX = lane * 1000;
-			int centreX = originX + 250;
+			// Castles are no longer all 501 wide, so the camera cannot assume a centre.
+			// Sarab is 801 and framing it at +250 photographed empty ground.
+			final String templateId = castle[0];
+			int size = server.computeOnServer(minecraftServer -> minecraftServer.getStructureManager()
+					.get(net.minecraft.resources.Identifier.parse(templateId))
+					.map(t -> Math.max(t.getSize().getX(), t.getSize().getZ()))
+					.orElse(501));
+			int originX = lane * 1400;
+			int centreX = originX + size / 2;
 			// Centre the client before placement so all 501x501 template chunks are loaded
 			// by the 32-chunk view distance without exceeding /forceload's 256-chunk cap.
 			server.runCommand("gamemode creative @p");
-			server.runCommand("tp @p " + centreX + " -55 250");
-			context.waitTicks(700);
+			server.runCommand("tp @p " + centreX + " -55 " + (size / 2));
+			// Waits scale with the castle. Fixed waits sized for 501 left an 801-wide,
+			// 1.14M-block Sarab photographed as empty sky: placement is synchronous but
+			// the client meshes the chunks afterwards, and that takes longer the more there is.
+			int settle = 700 + (size - 501) * 2;
+			context.waitTicks(settle);
 			server.runCommand("place template " + castle[0] + " " + originX + " -60 0");
-			context.waitTicks(300);
+			context.waitTicks(300 + (size - 501) * 2);
 			server.runCommand("kill @e[type=warfront:soldier]");
 			server.runCommand("gamemode spectator @p");
-			server.runCommand("tp @p " + centreX + " 300 250 -45 90");
-			context.waitTicks(400);
+			// Fixed altitude: the flat-world surface is -60, and scaling height with the
+			// castle put the camera past render distance and photographed empty sky.
+			server.runCommand("tp @p " + centreX + " 330 " + (size / 2) + " -45 90");
+			context.waitTicks(400 + (size - 501) * 2);
 			context.takeScreenshot(castle[1] + "_castle_501_block_aerial");
 			// A closer oblique so the architecture reads, not just the silhouette.
-			server.runCommand("tp @p " + centreX + " 140 " + (250 - 260) + " 0 35");
+			server.runCommand("tp @p " + centreX + " 130 " + (-240) + " 0 30");
 			context.waitTicks(120);
 			context.takeScreenshot(castle[1] + "_castle_oblique");
 			lane++;

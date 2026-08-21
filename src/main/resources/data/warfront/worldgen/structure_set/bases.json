@@ -9,7 +9,7 @@
       "other_set": "minecraft:villages"
     },
     "avoid_set": "warfront:grand_castles",
-    "avoid_chunks": 20
+    "avoid_chunks": 30
   },
   "structures": [
     {

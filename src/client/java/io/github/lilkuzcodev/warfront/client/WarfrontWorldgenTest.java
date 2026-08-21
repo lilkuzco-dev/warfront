@@ -181,11 +181,18 @@ public final class WarfrontWorldgenTest implements FabricClientGameTest {
 		server.runCommand("weather clear");
 		server.runCommand("time set 3000");
 		for (int i = 0; i < factions.length; i++) {
-			int cx = 20000 + i * 1000 + 250;
+			// Centre on the castle's real size — a hardcoded +250 put Sarab's camera a
+			// quarter of the way in — and give the client time to mesh it.
+			final String faction = factions[i];
+			int size = server.computeOnServer(minecraftServer -> minecraftServer.getStructureManager()
+					.get(io.github.lilkuzcodev.warfront.Warfront.id(faction + "/castle"))
+					.map(t -> Math.max(t.getSize().getX(), t.getSize().getZ())).orElse(501));
+			int cx = 20000 + i * 1000 + size / 2;
+			int cz = 20000 + size / 2;
 			server.runCommand("gamemode spectator @p");
-			server.runCommand("tp @p " + cx + " 260 " + (20000 + 250) + " -45 90");
-			context.waitTicks(300);
-			context.takeScreenshot(factions[i] + "_castle_as_generated");
+			server.runCommand("tp @p " + cx + " 300 " + cz + " -45 90");
+			context.waitTicks(400 + (size - 501) * 2);
+			context.takeScreenshot(faction + "_castle_as_generated");
 		}
         int failures = Integer.parseInt(verdict.substring(0, verdict.indexOf('|')));
 		if (failures > 0) {

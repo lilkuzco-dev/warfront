@@ -45,9 +45,13 @@ import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemp
  */
 public final class CastleBuilder {
 
-	/** Templates are 501x501; the paste is anchored so the placement chunk is its centre. */
-	private static final int CASTLE_SIZE = 501;
-	private static final int HALF = CASTLE_SIZE / 2;
+	/**
+	 * Castles are no longer all one size. The engine limit that made 501 special applied to
+	 * vanilla structure generation, and this class exists precisely because that limit no
+	 * longer applies — so the size comes from whatever template is loaded, and a re-import
+	 * that captures more of a supplied build simply produces a bigger castle.
+	 */
+	private static final int FALLBACK_SIZE = 501;
 	/** How near a player must be before a castle is worth building. */
 	private static final int TRIGGER_CHUNKS = 12;
 	/** Blocks per tick. A slice is bounded so a 2.17M-block paste never stalls a tick. */
@@ -120,14 +124,17 @@ public final class CastleBuilder {
 		int roll = Math.floorMod(Long.hashCode(mix), 46);
 		String faction = roll == 45 ? "dracula" : roll < 15 ? "aegis" : roll < 30 ? "sarab" : "vostok";
 
+		Identifier templateId = Warfront.id(faction + "/castle");
+		int size = level.getServer().getStructureManager().get(templateId)
+				.map(t -> Math.max(t.getSize().getX(), t.getSize().getZ())).orElse(FALLBACK_SIZE);
 		BlockPos anchor = new BlockPos(chunkX * 16, 0, chunkZ * 16);
 		int surface = level.getHeight(Heightmap.Types.WORLD_SURFACE_WG, anchor.getX(), anchor.getZ());
-		BlockPos origin = new BlockPos(anchor.getX() - HALF, surface - 1, anchor.getZ() - HALF);
+		BlockPos origin = new BlockPos(anchor.getX() - size / 2, surface - 1, anchor.getZ() - size / 2);
 
-		QUEUE.add(new PendingCastle(key, Warfront.id(faction + "/castle"), origin, 0));
+		QUEUE.add(new PendingCastle(key, templateId, origin, 0));
 		QUEUED.add(key);
 		Warfront.LOGGER.info("CASTLE_QUEUED {} at {} ({} blocks wide, pasting in slices)",
-				faction, origin.toShortString(), CASTLE_SIZE);
+				faction, origin.toShortString(), size);
 	}
 
 	/**
@@ -157,11 +164,12 @@ public final class CastleBuilder {
 			return;
 		}
 
+		final int width = Math.max(template.getSize().getX(), template.getSize().getZ());
 		int fromX = pending.nextX();
-		int toX = Math.min(CASTLE_SIZE - 1, fromX + SLICE_BLOCKS - 1);
+		int toX = Math.min(width - 1, fromX + SLICE_BLOCKS - 1);
 		BoundingBox slice = new BoundingBox(
 				pending.origin().getX() + fromX, level.getMinY(), pending.origin().getZ(),
-				pending.origin().getX() + toX, level.getMaxY(), pending.origin().getZ() + CASTLE_SIZE - 1);
+				pending.origin().getX() + toX, level.getMaxY(), pending.origin().getZ() + width - 1);
 
 		// Load the chunks this slice needs, a few per tick, and only paste once they are all
 		// in. getChunk generates a chunk that does not exist yet, so loading a whole strip in
@@ -196,13 +204,13 @@ public final class CastleBuilder {
 					fromX, toX);
 		}
 
-		if (toX >= CASTLE_SIZE - 1) {
+		if (toX >= width - 1) {
 			QUEUE.poll();
 			QUEUED.remove(pending.key());
 			// Release the tickets: they exist to hold the ground still while the castle goes
 			// down, not to keep a thousand chunks loaded for the rest of the world's life.
-			for (int cx = pending.origin().getX() >> 4; cx <= (pending.origin().getX() + CASTLE_SIZE) >> 4; cx++) {
-				for (int cz = pending.origin().getZ() >> 4; cz <= (pending.origin().getZ() + CASTLE_SIZE) >> 4; cz++) {
+			for (int cx = pending.origin().getX() >> 4; cx <= (pending.origin().getX() + width) >> 4; cx++) {
+				for (int cz = pending.origin().getZ() >> 4; cz <= (pending.origin().getZ() + width) >> 4; cz++) {
 					level.setChunkForced(cx, cz, false);
 				}
 			}

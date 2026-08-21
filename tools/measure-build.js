@@ -129,6 +129,41 @@ for (const name of fs.readdirSync(regionDir).filter(n => n.endsWith(".mca"))) {
   }
 }
 
+// ---------------------------------------------------------------------------
+//  Where should the crop actually be centred, and how wide?
+// ---------------------------------------------------------------------------
+// The importer took a centre and a radius on faith. Sarab shipped a 341x341 window of
+// jungle canopy and a snowy cliff with no keep in it, because the centre it was given was
+// not where the castle is. This searches for the window that captures the most built
+// material, which is a question with an answer rather than a judgement call.
+function recommendCrop(points, total) {
+	const byChunk = new Map(points.map((p) => [p.x + "," + p.z, p.c]));
+	const sum = (cx, cz, rChunks) => {
+		let acc = 0;
+		for (let dx = -rChunks; dx <= rChunks; dx++) {
+			for (let dz = -rChunks; dz <= rChunks; dz++) acc += byChunk.get((cx + dx) + "," + (cz + dz)) ?? 0;
+		}
+		return acc;
+	};
+	console.log("\nbest crop centre by window size (block coords, and what it captures):");
+	const out = [];
+	for (const radius of [170, 250, 320, 400, 500]) {
+		const rChunks = Math.ceil(radius / 16);
+		let best = { c: -1, x: 0, z: 0 };
+		for (const p of points) {
+			const c = sum(p.x, p.z, rChunks);
+			if (c > best.c) best = { c, x: p.x, z: p.z };
+		}
+		const centreX = best.x * 16 + 8;
+		const centreZ = best.z * 16 + 8;
+		const pct = (best.c / total * 100).toFixed(1);
+		console.log(`  radius ${String(radius).padStart(3)} (${String(2 * radius + 1).padStart(4)} wide): `
+			+ `centre (${centreX}, ${centreZ})  captures ${pct}%`);
+		out.push({ radius, centreX, centreZ, pct });
+	}
+	return out;
+}
+
 const hits = [...built.entries()].filter(([, c]) => c >= THRESHOLD).map(([k, c]) => {
   const [x, z] = k.split(",").map(Number); return { x, z, c };
 });
@@ -144,4 +179,5 @@ console.log(`built blocks counted: ${total.toLocaleString()}`);
 // densest core, to separate the main build from outbuildings
 const sorted = hits.sort((a, b) => b.c - a.c).slice(0, Math.max(1, Math.floor(hits.length * 0.9)));
 const sx = sorted.map(h => h.x), sz = sorted.map(h => h.z);
+recommendCrop(hits, hits.reduce((s2, h) => s2 + h.c, 0));
 console.log(`core 90% of chunks: ${(Math.max(...sx) - Math.min(...sx) + 1) * 16} x ${(Math.max(...sz) - Math.min(...sz) + 1) * 16} blocks`);
