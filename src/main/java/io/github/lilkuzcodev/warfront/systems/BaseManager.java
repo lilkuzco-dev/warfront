@@ -139,7 +139,14 @@ public final class BaseManager {
 			// Seeded once, at first contact, around the START PIECE rather than the whole
 			// structure box — jigsaw sprawl can stretch that box hundreds of blocks, and
 			// its centre need not be anywhere near the built plate.
-			seedCivilians(level, key, base, startPieceCenter(start, box));
+			//
+			// Castles are the exception: their blocks are pasted by CastleBuilder AFTER
+			// discovery, so seeding here put every citizen on the bare pre-castle terrain
+			// and the castle then landed on top of them. Castle settlements are seeded
+			// from onCastleBuilt instead, once the ground they will stand on exists.
+			if (!"castle".equals(base.tier)) {
+				seedCivilians(level, key, base, startPieceCenter(start, box));
+			}
 		}
 		return key;
 	}
@@ -188,27 +195,71 @@ public final class BaseManager {
 		if (population < 1) {
 			return;
 		}
-		if ("castle".equals(base.tier)) {
-			// The 501x501 castle has a central keep and four surrounding working
-			// villages. Give every quarter its own economy/home anchor so workers go
-			// to farms, mines and job buildings across the estate instead of forming
-			// one crowd at the keep's centre.
-			String[] suffixes = { "", "_north", "_east", "_south", "_west" };
-			int[][] offsets = { { 0, 0 }, { 0, -178 }, { 178, 0 }, { 0, 178 }, { -178, 0 } };
-			int remaining = population;
-			for (int i = 0; i < offsets.length; i++) {
-				int districtsLeft = offsets.length - i;
-				int districtPopulation = remaining / districtsLeft;
-				remaining -= districtPopulation;
-				BlockPos district = heart.offset(offsets[i][0], 0, offsets[i][1]);
-				CivilizationManager.seedSettlement(level, "base_" + key + suffixes[i], base.faction,
-						district, SETTLEMENT_RADIUS, districtPopulation,
-						standableSpots(level, base, district, districtPopulation * 2));
-			}
-			return;
-		}
 		CivilizationManager.seedSettlement(level, "base_" + key, base.faction, heart,
 				SETTLEMENT_RADIUS, population, standableSpots(level, base, heart, population * 2));
+	}
+
+	/**
+	 * Called by CastleBuilder the moment a castle's last slice is down. Castle blocks do
+	 * not exist at discovery time (the paste follows the player, slice by slice), so this
+	 * is the earliest moment castle civilians have real ground to stand on — and unlike
+	 * discovery, the paste origin passed in here is where the blocks actually are, not
+	 * where the structure box says they should be.
+	 */
+	public static void onCastleBuilt(ServerLevel level, String siteKey, Identifier templateId,
+			BlockPos origin, int width) {
+		String faction = templateId.getPath().contains("/")
+				? templateId.getPath().substring(0, templateId.getPath().indexOf('/'))
+				: templateId.getPath();
+		if (WarfrontRegistry.faction(faction) == null) {
+			return; // Dracula's castle has no working population; it is deliberately dead.
+		}
+		int comma = siteKey.indexOf(',');
+		if (siteKey.startsWith("test/") || comma < 0) {
+			return; // test pastes have no structure start to register against
+		}
+		int chunkX = Integer.parseInt(siteKey.substring(0, comma));
+		int chunkZ = Integer.parseInt(siteKey.substring(comma + 1));
+		// Register against the START chunk: structure references only reach 8 chunks from
+		// the start, so the centre of a 501-block castle has no reference at all and
+		// getStructureWithPieceAt cannot see the castle from there.
+		BlockPos startPos = new BlockPos(chunkX * 16 + 8, origin.getY() + 1, chunkZ * 16 + 8);
+		String key = registerBaseAt(level, startPos, faction);
+		if (key == null) {
+			Warfront.LOGGER.warn("CASTLE_POPULATION no registrable structure start at {} for {}",
+					startPos.toShortString(), templateId);
+			return;
+		}
+		if (CivilizationState.get(level.getServer())
+				.city(CivilizationManager.normalizeId("base_" + key)) != null) {
+			return; // already seeded (a rebuild after restart, or an old already-seeded record)
+		}
+		WarfrontState.Base base = WarfrontState.get(level.getServer()).base(key);
+		int population = WarfrontRegistry.population().citizensForTier("castle");
+		if (base == null || population < 1) {
+			return;
+		}
+		// The keep and its four working districts each get their own economy/home anchor
+		// so workers go to farms, mines and job buildings across the estate instead of
+		// forming one crowd at the centre. District centres follow the template geometry
+		// the importer stamps: a fixed 72-block inset from each edge, whatever the size —
+		// the old hardcoded ±178 was only ever right for a 501-wide castle.
+		int mid = width / 2;
+		int inset = mid - 72;
+		BlockPos centre = origin.offset(mid, 1, mid);
+		String[] suffixes = { "", "_north", "_east", "_south", "_west" };
+		int[][] offsets = { { 0, 0 }, { 0, -inset }, { inset, 0 }, { 0, inset }, { -inset, 0 } };
+		int remaining = population;
+		for (int i = 0; i < offsets.length; i++) {
+			int districtsLeft = offsets.length - i;
+			int districtPopulation = remaining / districtsLeft;
+			remaining -= districtPopulation;
+			BlockPos district = centre.offset(offsets[i][0], 0, offsets[i][1]);
+			CivilizationManager.seedSettlement(level, "base_" + key + suffixes[i], base.faction,
+					district, SETTLEMENT_RADIUS, districtPopulation,
+					standableSpots(level, origin.getY() + 1, 25, district, districtPopulation * 2));
+		}
+		Warfront.LOGGER.info("CASTLE_POPULATION seeded {} citizens across 5 districts of {}", population, key);
 	}
 
 	/**
@@ -220,8 +271,12 @@ public final class BaseManager {
 	 */
 	private static List<BlockPos> standableSpots(ServerLevel level, WarfrontState.Base base,
 			BlockPos heart, int wanted) {
+		return standableSpots(level, baseGroundY(base, heart), 4, heart, wanted);
+	}
+
+	private static List<BlockPos> standableSpots(ServerLevel level, int ground, int band,
+			BlockPos heart, int wanted) {
 		List<BlockPos> found = new ArrayList<>();
-		int ground = baseGroundY(base, heart);
 		for (int dx = -SETTLEMENT_RADIUS; dx <= SETTLEMENT_RADIUS; dx += 3) {
 			for (int dz = -SETTLEMENT_RADIUS; dz <= SETTLEMENT_RADIUS; dz += 3) {
 				int x = heart.getX() + dx;
@@ -232,7 +287,9 @@ public final class BaseManager {
 				// Bottom-up and deliberately limited to the settlement's ground band.
 				// The old top-down scan selected the first walkable cap in a column,
 				// which made house and tower roofs the preferred civilian homes.
-				for (int y = ground; y <= ground + 4; y++) {
+				// Castle districts pass a taller band: their town plates stack up to 24
+				// blocks of standable interior above the paste origin.
+				for (int y = ground; y <= ground + band; y++) {
 					BlockPos pos = new BlockPos(x, y, z);
 					if (level.getBlockState(pos).isAir() && level.getBlockState(pos.above()).isAir()
 							&& !level.getBlockState(pos.below()).isAir()) {
@@ -327,6 +384,14 @@ public final class BaseManager {
 			if (faction == null) {
 				continue;
 			}
+			// A castle base exists in the ledger before a single block of it exists in
+			// the world (discovery precedes the paste). Hydrating then would stand the
+			// garrison on bare terrain for the castle to land on. Its settlement is only
+			// seeded from onCastleBuilt, so "city exists" is exactly "castle is built".
+			if ("castle".equals(base.tier) && CivilizationState.get(level.getServer())
+					.city(CivilizationManager.normalizeId("base_" + key)) == null) {
+				continue;
+			}
 			int target = faction.population().garrisonTarget(base.tier, key.hashCode());
 			refreshHousing(level, key, base);
 			if (level.getGameTime() - base.lastReinforce >= DISCOVERY_SETTLE_TICKS) {
@@ -359,7 +424,10 @@ public final class BaseManager {
 		boolean changed = false;
 		for (SoldierEntity soldier : List.copyOf(live)) {
 			int groundY = baseGroundY(base, base.center);
-			if (soldier.getY() > groundY + 4) {
+			// Castles are the one tier whose soldiers legitimately stand far above ground
+			// level — wall walks, keep floors, tower rooms, the king's chamber. Dragging
+			// them down to the plate is how a keep garrison ends up in the courtyard.
+			if (!"castle".equals(base.tier) && soldier.getY() > groundY + 4) {
 				BlockPos ground = standablePosNear(level, soldier.blockPosition(), groundY);
 				if (ground != null) {
 					soldier.setPos(ground.getX() + 0.5, ground.getY(), ground.getZ() + 0.5);
