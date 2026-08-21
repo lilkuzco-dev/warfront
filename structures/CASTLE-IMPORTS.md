@@ -48,6 +48,14 @@ What the importer does beyond the crop, in order:
   sentries at the vault passage, and eight guards per working town — 49 persistent
   soldiers in all.
 
+**After any import, regenerate the occupancy sidecar** — it is what lets CastleBuilder
+blend the castle into terrain instead of flattening the square, and the verifier fails
+if it drifts from its castle:
+
+```sh
+node tools/gen-castle-occupancy.js src/main/resources/data/warfront/structure/<faction>/castle.nbt
+```
+
 The exact import commands, with `U` set to the directory containing the three upgraded
 worlds:
 
