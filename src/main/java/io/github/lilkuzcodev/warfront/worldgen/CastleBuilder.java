@@ -53,6 +53,8 @@ public final class CastleBuilder {
 	/** Blocks per tick. A slice is bounded so a 2.17M-block paste never stalls a tick. */
 	private static final int SLICE_BLOCKS = 48;
 	private static final int SCAN_INTERVAL = 100;
+	/** Chunks generated per tick while a castle is going down. Keeps the paste off the tick budget. */
+	private static final int CHUNKS_PER_TICK = 6;
 
 	private static final Deque<PendingCastle> QUEUE = new ArrayDeque<>();
 	private static final Set<String> QUEUED = new HashSet<>();
@@ -161,16 +163,26 @@ public final class CastleBuilder {
 				pending.origin().getX() + fromX, level.getMinY(), pending.origin().getZ(),
 				pending.origin().getX() + toX, level.getMaxY(), pending.origin().getZ() + CASTLE_SIZE - 1);
 
-		// Load every chunk this slice touches, first. placeInWorld reports success whether or
-		// not the blocks land: measured, a slice written while chunks were still streaming in
-		// returned placed=true and left nothing behind. The paste runs in a handful of ticks
-		// and chunk loading does not, so waiting on the player's view distance loses the
-		// castle silently — which is the same shape as the bug this whole class exists to fix.
-		for (int cx = slice.minX() >> 4; cx <= slice.maxX() >> 4; cx++) {
+		// Load the chunks this slice needs, a few per tick, and only paste once they are all
+		// in. getChunk generates a chunk that does not exist yet, so loading a whole strip in
+		// one tick is what put the live server 14 seconds behind on the first castle. The
+		// blocks still cannot be written before the chunks exist — a slice written into
+		// unloaded chunks reports success and leaves nothing behind — so this waits rather
+		// than skipping.
+		int loadedThisTick = 0;
+		boolean sliceReady = true;
+		for (int cx = slice.minX() >> 4; cx <= slice.maxX() >> 4 && sliceReady; cx++) {
 			for (int cz = slice.minZ() >> 4; cz <= slice.maxZ() >> 4; cz++) {
-				level.getChunk(cx, cz);
+				if (level.getChunkSource().hasChunk(cx, cz)) continue;
+				if (loadedThisTick >= CHUNKS_PER_TICK) { sliceReady = false; break; }
+				// setChunkForced, not getChunk: a chunk pulled in without a ticket is
+				// unloaded again before the next tick, so a budgeted loop over getChunk
+				// re-loads the same chunks forever and the castle never finishes.
+				level.setChunkForced(cx, cz, true);
+				loadedThisTick++;
 			}
 		}
+		if (!sliceReady) return; // come back next tick; the slice keeps its place in the queue
 
 		// Bounded to one slice. A castle is 2.17 million blocks and pasting it in a single
 		// tick freezes a live server for seconds, so it goes down a strip at a time.
@@ -187,6 +199,13 @@ public final class CastleBuilder {
 		if (toX >= CASTLE_SIZE - 1) {
 			QUEUE.poll();
 			QUEUED.remove(pending.key());
+			// Release the tickets: they exist to hold the ground still while the castle goes
+			// down, not to keep a thousand chunks loaded for the rest of the world's life.
+			for (int cx = pending.origin().getX() >> 4; cx <= (pending.origin().getX() + CASTLE_SIZE) >> 4; cx++) {
+				for (int cz = pending.origin().getZ() >> 4; cz <= (pending.origin().getZ() + CASTLE_SIZE) >> 4; cz++) {
+					level.setChunkForced(cx, cz, false);
+				}
+			}
 			CastleSites.get(level.getServer()).markBuilt(pending.key(), pending.origin());
 			// Count the castle's own chests back out of the world. filterBlocks hands back
 			// TEMPLATE-RELATIVE positions no matter what BlockPos it is given, so the origin

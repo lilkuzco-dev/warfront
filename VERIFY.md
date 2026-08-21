@@ -1023,3 +1023,21 @@ natural build, and all four types.
 - **Vostok has a stray slab floating above it**, visible in its template render.
 - Castles are still 501, not the larger sizes the supplied builds could support; the importer
   still hardcodes `SIZE = 501` and `--source-radius 170`.
+
+## 0.4.13 — the castle paste stops stalling the server (2026-08-20)
+
+0.4.12 built castles correctly and cost the live server **14 seconds** doing it:
+`Can't keep up! Running 14231ms or 284 ticks behind` on the first castle in the fresh world.
+The paste itself is cheap; generating a strip of up to 128 chunks in a single tick is not.
+
+Chunk loading is now budgeted to **6 per tick**, and the slice waits rather than pasting into
+ground that does not exist yet — a slice written into unloaded chunks reports success and
+leaves nothing behind, which is the failure this whole class exists to prevent.
+
+The first attempt at budgeting deadlocked: `level.getChunk` pulls a chunk in without a
+ticket, so it unloads again before the next tick and a budgeted loop re-loads the same
+chunks forever. `setChunkForced` holds them, and the tickets are released the moment the
+castle is finished rather than left holding a thousand chunks for the life of the world.
+
+Re-verified, all four types: `aegis=8/8 sarab=63/63 vostok=861/861 dracula=118/118`, plus a
+natural site end to end.
