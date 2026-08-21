@@ -153,7 +153,10 @@ public final class VampireVeil {
 	private static void ensureDracula(ServerLevel level, Site site) {
 		CastleSites sites = CastleSites.get(level.getServer());
 		if (sites.isDraculaSlain(site.key())) return;
-		if (!level.getEntitiesOfClass(DraculaEntity.class, site.box()).isEmpty()) return;
+		// The search box is wider than the castle: a chase can lure the Count past his
+		// grounds, and a spawn check that cannot see him out there would raise a second
+		// Dracula while the first walks home. (Audit finding, 2026-08-21.)
+		if (!level.getEntitiesOfClass(DraculaEntity.class, site.box().inflate(96.0)).isEmpty()) return;
 		BlockPos spot = roofedSpotNear(level, site.centre());
 		if (spot == null) return; // castle centre not loaded yet; the next scan retries
 		DraculaEntity dracula = WarfrontEntities.DRACULA.create(level, EntitySpawnReason.EVENT);
