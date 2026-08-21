@@ -37,6 +37,7 @@ public final class DialogueEngine {
 			String role = switch (soldier.getRank()) {
 				case "officer" -> "officer";
 				case "quartermaster" -> "quartermaster";
+				case "king" -> "king";
 				default -> "grunt";
 			};
 			String location = !soldier.getBaseKey().isEmpty() ? "in_base"
@@ -132,6 +133,13 @@ public final class DialogueEngine {
 				continue;
 			}
 			if (excluded.contains(option.id()) || !matches(option, ctx)) {
+				continue;
+			}
+			// A royal audience is its own register: the king is offered ONLY lines written
+			// for a king, and nobody else is ever offered them. Without the first half of
+			// this, every unconditioned grunt line matches a king too, and the sovereign
+			// makes small talk about trench rations.
+			if ("king".equals(ctx.role()) != option.conditions().roles().contains("king")) {
 				continue;
 			}
 			boolean safeExit = option.exit()

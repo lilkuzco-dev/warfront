@@ -69,6 +69,17 @@ public class SoldierEntity extends PathfinderMob {
 	private @Nullable UUID dialoguePartner;
 	private @Nullable Vec3 dialogueAnchor;
 	private final Map<UUID, Integer> dialogueProvocation = new HashMap<>();
+	// Assigned in registerGoals (which the Mob constructor calls before initializers
+	// run), removed again when the soldier turns out to be a king.
+	private net.minecraft.world.entity.ai.goal.Goal stationGoal;
+	private net.minecraft.world.entity.ai.goal.Goal meleeGoal;
+	private net.minecraft.world.entity.ai.goal.Goal travelGoal;
+	private net.minecraft.world.entity.ai.goal.Goal patrolGoal;
+	private net.minecraft.world.entity.ai.goal.Goal strollGoal;
+	private net.minecraft.world.entity.ai.goal.Goal huntSoldiersGoal;
+	private net.minecraft.world.entity.ai.goal.Goal huntPlayersGoal;
+	private net.minecraft.world.entity.ai.goal.Goal huntMobsGoal;
+	private boolean holdingCourt;
 
 	public SoldierEntity(EntityType<? extends SoldierEntity> type, Level level) {
 		super(type, level);
@@ -90,31 +101,42 @@ public class SoldierEntity extends PathfinderMob {
 
 	@Override
 	protected void registerGoals() {
+		// NOTE: this runs from the Mob constructor, BEFORE field initializers — the
+		// soldierly-goal fields must be plain declarations assigned here, never
+		// initialized at the declaration, or the initializer nulls them afterwards.
 		this.goalSelector.addGoal(0, new FloatGoal(this));
 		this.goalSelector.addGoal(1, new DialogueGoal(this));
 		this.goalSelector.addGoal(2, new RetreatGoal(this));
-		this.goalSelector.addGoal(3, new StationGoal(this));
-		this.goalSelector.addGoal(4, new MeleeAttackGoal(this, 1.15, true));
-		this.goalSelector.addGoal(5, new io.github.lilkuzcodev.warfront.entity.ai.TravelGoal(this));
-		this.goalSelector.addGoal(6, new PatrolGoal(this));
-		this.goalSelector.addGoal(7, new WaterAvoidingRandomStrollGoal(this, 0.6) {
+		this.stationGoal = new StationGoal(this);
+		this.goalSelector.addGoal(3, stationGoal);
+		this.meleeGoal = new MeleeAttackGoal(this, 1.15, true);
+		this.goalSelector.addGoal(4, meleeGoal);
+		this.travelGoal = new io.github.lilkuzcodev.warfront.entity.ai.TravelGoal(this);
+		this.goalSelector.addGoal(5, travelGoal);
+		this.patrolGoal = new PatrolGoal(this);
+		this.goalSelector.addGoal(6, patrolGoal);
+		this.strollGoal = new WaterAvoidingRandomStrollGoal(this, 0.6) {
 			@Override
 			public boolean canUse() {
 				// ambush doctrine holds position instead of wandering; stationed soldiers stay put
 				return SoldierEntity.this.stationPos == null
 						&& SoldierEntity.this.doctrine().ambushBias() < 0.5F && super.canUse();
 			}
-		});
+		};
+		this.goalSelector.addGoal(7, strollGoal);
 		this.goalSelector.addGoal(8, new LookAtPlayerGoal(this, Player.class, 8.0F));
 		this.goalSelector.addGoal(9, new RandomLookAroundGoal(this));
 
 		this.targetSelector.addGoal(1, new HurtByTargetGoal(this));
-		this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, SoldierEntity.class, true,
-				(target, level) -> target instanceof SoldierEntity other && this.isHostileToSoldier(other)));
-		this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, Player.class, true,
-				(target, level) -> target instanceof ServerPlayer player && this.isHostileToPlayer(player, level)));
-		this.targetSelector.addGoal(4, new NearestAttackableTargetGoal<>(this, Mob.class, true,
-				(target, level) -> target instanceof Enemy && target != this));
+		this.huntSoldiersGoal = new NearestAttackableTargetGoal<>(this, SoldierEntity.class, true,
+				(target, level) -> target instanceof SoldierEntity other && this.isHostileToSoldier(other));
+		this.targetSelector.addGoal(2, huntSoldiersGoal);
+		this.huntPlayersGoal = new NearestAttackableTargetGoal<>(this, Player.class, true,
+				(target, level) -> target instanceof ServerPlayer player && this.isHostileToPlayer(player, level));
+		this.targetSelector.addGoal(3, huntPlayersGoal);
+		this.huntMobsGoal = new NearestAttackableTargetGoal<>(this, Mob.class, true,
+				(target, level) -> target instanceof Enemy && target != this);
+		this.targetSelector.addGoal(4, huntMobsGoal);
 	}
 
 	// ---------- doctrine-driven checks ----------
@@ -408,6 +430,22 @@ public class SoldierEntity extends PathfinderMob {
 		setCustomName(net.minecraft.network.chat.Component.literal("King of " + realm));
 		setCustomNameVisible(true);
 		setPersistenceRequired();
+		// A king is a court, not a combatant. He does not take a station, hunt, patrol,
+		// travel between bases or wander off; he holds his chamber and receives visitors,
+		// and his royal guard does the fighting. The soldierly goals are removed rather
+		// than gated so no later system can re-activate them.
+		if (!level().isClientSide() && !holdingCourt && stationGoal != null) {
+			holdingCourt = true;
+			goalSelector.removeGoal(stationGoal);
+			goalSelector.removeGoal(meleeGoal);
+			goalSelector.removeGoal(travelGoal);
+			goalSelector.removeGoal(patrolGoal);
+			goalSelector.removeGoal(strollGoal);
+			targetSelector.removeGoal(huntSoldiersGoal);
+			targetSelector.removeGoal(huntPlayersGoal);
+			targetSelector.removeGoal(huntMobsGoal);
+			goalSelector.addGoal(3, new io.github.lilkuzcodev.warfront.entity.ai.KingCourtGoal(this));
+		}
 	}
 
 	// ---------- persistence ----------

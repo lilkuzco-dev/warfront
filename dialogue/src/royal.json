@@ -1,0 +1,435 @@
+{
+ "category": "royal",
+ "options": [
+  { "id": "royal_hail_majesty", "text": "Your Majesty.", "response": "royal_presence",
+    "tone": "positive", "conditions": { "role": ["king"] }, "weight": 12 },
+  { "id": "royal_hail_honored", "text": "I'm honored to stand before you.", "response": "royal_presence",
+    "tone": "positive", "conditions": { "role": ["king"] }, "weight": 10 },
+  { "id": "royal_hail_long_life", "text": "Long life to you, King.", "response": "royal_presence",
+    "tone": "positive", "conditions": { "role": ["king"] }, "weight": 10 },
+  { "id": "royal_hail_traveled", "text": "I've traveled a long way to meet you.", "response": "royal_presence",
+    "tone": "positive", "conditions": { "role": ["king"] }, "weight": 8 },
+  { "id": "royal_hail_respects", "text": "My respects to the crown.", "response": "royal_presence",
+    "tone": "positive", "conditions": { "role": ["king"] }, "weight": 8 },
+
+  { "id": "royal_ask_castle", "text": "Tell me about your castle.", "response": "royal_realm",
+    "conditions": { "role": ["king"] }, "weight": 10 },
+  { "id": "royal_ask_realm", "text": "How fares your realm?", "response": "royal_realm",
+    "conditions": { "role": ["king"] }, "weight": 10 },
+  { "id": "royal_ask_fortress", "text": "This is quite a fortress you have.", "response": "royal_realm",
+    "conditions": { "role": ["king"] }, "weight": 8 },
+  { "id": "royal_ask_age", "text": "How old is this place?", "response": "royal_realm",
+    "conditions": { "role": ["king"] }, "weight": 7 },
+
+  { "id": "royal_ask_war", "text": "How goes the war?", "response": "royal_war",
+    "conditions": { "role": ["king"] }, "weight": 10 },
+  { "id": "royal_ask_enemies", "text": "What do you make of your enemies?", "response": "royal_war",
+    "conditions": { "role": ["king"] }, "weight": 9 },
+  { "id": "royal_ask_peace", "text": "Will there ever be peace?", "response": "royal_war",
+    "conditions": { "role": ["king"] }, "weight": 8 },
+
+  { "id": "royal_ask_people", "text": "Your people seem busy.", "response": "royal_people",
+    "conditions": { "role": ["king"] }, "weight": 9 },
+  { "id": "royal_ask_subjects", "text": "What do your subjects need most?", "response": "royal_people",
+    "conditions": { "role": ["king"] }, "weight": 9 },
+  { "id": "royal_ask_who_runs", "text": "Who keeps a castle like this running?", "response": "royal_people",
+    "conditions": { "role": ["king"] }, "weight": 8 },
+
+  { "id": "royal_seek_counsel", "text": "I seek your counsel.", "response": "royal_counsel",
+    "tone": "positive", "conditions": { "role": ["king"] }, "weight": 10 },
+  { "id": "royal_seek_task", "text": "What would you have me do?", "response": "royal_counsel",
+    "tone": "positive", "conditions": { "role": ["king"] }, "weight": 9 },
+  { "id": "royal_seek_serve", "text": "How can I serve the crown?", "response": "royal_counsel",
+    "tone": "positive", "conditions": { "role": ["king"] }, "weight": 8 },
+
+  { "id": "royal_defy_no_king", "text": "You're no king of mine.", "response": "royal_defiance",
+    "conditions": { "role": ["king"] },
+    "effects": [ { "type": "disposition", "event": "insulted" } ], "weight": 8 },
+  { "id": "royal_defy_mortal", "text": "Kings die like anyone else.", "response": "royal_defiance",
+    "conditions": { "role": ["king"] },
+    "effects": [ { "type": "disposition", "event": "insulted" } ], "weight": 7 },
+  { "id": "royal_defy_throne", "text": "Your throne won't stand forever.", "response": "royal_defiance",
+    "conditions": { "role": ["king"] },
+    "effects": [ { "type": "disposition", "event": "insulted" } ], "weight": 7 },
+
+  { "id": "royal_leave_by_your_leave", "text": "By your leave, Majesty.", "response": "royal_farewell",
+    "conditions": { "role": ["king"] },
+    "effects": [ { "type": "end" } ], "exit": true, "weight": 10 },
+  { "id": "royal_leave_farewell", "text": "Farewell, Your Majesty.", "response": "royal_farewell",
+    "conditions": { "role": ["king"] },
+    "effects": [ { "type": "end" } ], "exit": true, "weight": 9 }
+ ],
+ "responses": {
+  "royal_presence": {
+   "vostok": {
+    "negative": [
+     "Save the bow. The line remembers what you did to it.",
+     "Kings hear flattery all day. Ours arrives with clean hands. Yours are not clean.",
+     "You kneel prettily for someone the line counts as a debt."
+    ],
+    "neutral": [
+     "Rise. The floor is cold and ceremony wastes heat.",
+     "A crown is a helmet that stopped pretending. State your business.",
+     "You found the throne. Most find the trenches first."
+    ],
+    "positive": [
+     "Stand easy, friend of the line. Kneeling is for mud, and you have carried enough mud.",
+     "The quota knows your name kindly. Few can say that.",
+     "Sit. The stove is lit. That is the whole of Vostok hospitality, and it is yours."
+    ]
+   },
+   "aegis": {
+    "negative": [
+     "Protocol admits you. Nothing else about you is admitted.",
+     "Your record is open on my desk. Bow if you like; the record does not blink.",
+     "Courtesies noted, logged, and set against a ledger you have not balanced."
+    ],
+    "neutral": [
+     "You are received. Reception is not endorsement. Proceed.",
+     "The crown acknowledges you. Keep your hands visible and your requests brief.",
+     "Audience granted. Six minutes. Spend them like arrows."
+    ],
+    "positive": [
+     "The realm reads its ledgers, and yours reads well. Welcome.",
+     "You are on the short list of names I am pleased to hear announced.",
+     "Sector quiet, ledger clean, and a friend at the door. A good morning by any measure."
+    ]
+   },
+   "sarab": {
+    "negative": [
+     "The tent is open even to the wind that tears it. Enter, wind.",
+     "You bow the way a scorpion lowers its tail. I have ruled too long to miss it.",
+     "Shade is given freely here. Trust is drawn from a deeper well, and yours is dry."
+    ],
+    "neutral": [
+     "Sit in the shade you are offered and want no other. Then we may talk.",
+     "A king is a well the whole desert visits. Draw, but mind the rope.",
+     "You crossed much sand to stand still before an old man. Speak."
+    ],
+    "positive": [
+     "The well rises to meet some visitors. Yours is a name it knows.",
+     "Sit close. The desert starves flatterers and feeds friends; you have eaten with us before.",
+     "For you the carpet, the coffee, and the truth. All three are rare."
+    ]
+   }
+  },
+  "royal_realm": {
+   "vostok": {
+    "negative": [
+     "These walls were paid for in winters. You are not owed the tour.",
+     "Ask the stones yourself. They talk more freely to strangers than I do.",
+     "It stands. It will stand when you are gone. That ends the tour."
+    ],
+    "neutral": [
+     "Granite below, snow above, quota between. That is the whole castle.",
+     "Every tower cost a company. We name them for the companies, not for the stone.",
+     "It is warm in three rooms and honest in all of them."
+    ],
+    "positive": [
+     "Come to the window. Everything the fog touches is ours, and the fog works long shifts.",
+     "I will show you the old wall. It has held longer than any promise I have made.",
+     "The cellars go deeper than the maps admit. So does the stubbornness."
+    ]
+   },
+   "aegis": {
+    "negative": [
+     "The fortress specifications are classified. Your clearance is the door.",
+     "It is a secure facility. Note the emphasis, then note the exit.",
+     "Strong walls, stronger records. Both have your measure already."
+    ],
+    "neutral": [
+     "Concentric walls, audited stores, drilled watches. The realm is a machine that eats disorder.",
+     "Every stone is inventoried. Every inventory is checked. Sleep comes easily here.",
+     "The castle predates the war. The filing system predates the castle."
+    ],
+    "positive": [
+     "Between us: the walls hold because the people holding them are paid, fed, and believed.",
+     "Walk the east rampart at dusk. Even a ledger has one beautiful page.",
+     "The keep's foundations were cut true a century back. We merely refuse to let them down."
+    ]
+   },
+   "sarab": {
+    "negative": [
+     "You ask the desert to describe its dunes. It buries surveyors.",
+     "The walls you see are the least of the walls. Be glad you see only these.",
+     "Maps of this place are sold cheap in every bazaar. All of them are wrong."
+    ],
+    "neutral": [
+     "The castle is a well with towers. Everything else is ornament and patience.",
+     "We built where the water was and let the sand build everywhere else.",
+     "Stone above, cistern below, silence throughout. You have seen the whole of it."
+    ],
+    "positive": [
+     "Come to the garden. A king who can keep a fig tree alive out here can keep a kingdom.",
+     "I will show you the cistern. It has outlasted four sieges and three of my moods.",
+     "The evening wind makes the towers sing. Stay, and hear my favorite argument for mercy."
+    ]
+   }
+  },
+  "royal_war": {
+   "vostok": {
+    "negative": [
+     "The war goes as wars go. Your part in it sits badly with me.",
+     "We trade men for ground and ground for time. What do you trade, I wonder.",
+     "Ask me again when your own account with us is settled."
+    ],
+    "neutral": [
+     "The line holds. It always holds. The cost is the only news.",
+     "War is a quota like any other. This month we are ahead.",
+     "Winter fights for us. Summer fights for them. Autumn is honest work."
+    ],
+    "positive": [
+     "Between friends: we will win because we can lose longer than they can.",
+     "The war eats. We feed it slower than the enemy does. That is strategy.",
+     "Good news is rationed like everything else. Today there is some."
+    ]
+   },
+   "aegis": {
+    "negative": [
+     "Operational matters are not shared with liabilities.",
+     "The war proceeds. Your conduct is a line item in it, and not on our side of the page.",
+     "Weapons-free is a sentence I have signed for less than what you have done."
+    ],
+    "neutral": [
+     "Fronts stable. Supply adequate. Morale within parameters. Next question.",
+     "We do not narrate the war. We schedule it.",
+     "Setbacks logged, corrected, absorbed. The machine turns."
+    ],
+    "positive": [
+     "Off the record: the enemy improvises beautifully. We do not improvise. We win.",
+     "The maps in the war room look better each quarter. I permit myself one smile per map.",
+     "We lead on every measure that matters and two that do not. I count all of them."
+    ]
+   },
+   "sarab": {
+    "negative": [
+     "The war is a fire you have carried wood to. Do not warm your hands here.",
+     "I do not discuss the storm with those who whistle for it.",
+     "The sand keeps the names it is given. Ask me nothing while yours is among them."
+    ],
+    "neutral": [
+     "Armies cross the desert. The desert does not notice. We are the desert's memory.",
+     "They hold the roads. The roads hold nothing. We are content.",
+     "War in the open is theirs. War in the shade is ours. There is more shade than open."
+    ],
+    "positive": [
+     "For you, the truth: we lose every battle they can find and win every one they cannot.",
+     "Patience is a blade that never needs the grindstone. Ours is very old and very sharp.",
+     "The enemy counts our tents and laughs. He has never once counted the wells."
+    ]
+   }
+  },
+  "royal_people": {
+   "vostok": {
+    "negative": [
+     "My people are not a spectacle. Mind your eyes.",
+     "They work. They would work easier if your shadow left the yard.",
+     "The line feeds them and they feed the line. You are outside both."
+    ],
+    "neutral": [
+     "Everyone here has a quota. Even the king. Mine is worry.",
+     "They dig, they forge, they marry, they dig again. It is a life. It is ours.",
+     "Count the chimneys. Every one lit is a family the war has not won against."
+    ],
+    "positive": [
+     "Ask the smiths to show you the school they built. I bragged about it for a month, quietly.",
+     "My people are stubborn as frost and twice as patient. I am their king because I noticed.",
+     "We bury too many and we sing too rarely. But the bread is real and no one eats alone."
+    ]
+   },
+   "aegis": {
+    "negative": [
+     "The census is confidential. The exits are well marked.",
+     "My citizens are assets under protection. From, at present, you.",
+     "They are fed, housed, and warned about strangers. The warnings have your outline."
+    ],
+    "neutral": [
+     "Population stable. Rations balanced. Grievances filed and heard on Thursdays.",
+     "Each district reports, each report is read. Kingship is mostly reading.",
+     "They keep the walls; the walls keep them. The arrangement is audited yearly."
+    ],
+    "positive": [
+     "Visit the lower market. Order that no one has to enforce — that is my proudest asset.",
+     "A realm is people plus procedure. Ours have made the procedure kind.",
+     "The choir practices on Thursdays. Attendance is voluntary and total. Doctrine cannot explain it."
+    ]
+   },
+   "sarab": {
+    "negative": [
+     "My people are the dunes. Count them, and they will have moved by morning.",
+     "Ask the vulture why it circles before you ask a king about his flock.",
+     "They see you more clearly than you see them. Be troubled by that."
+    ],
+    "neutral": [
+     "By day they trade and tend. By night they are the reason the desert has ears.",
+     "A people is a river that learned to hide. Mine hides well and arrives everywhere.",
+     "They ask little of me: water, judgment, and that I never sell the shade."
+    ],
+    "positive": [
+     "Walk the souk at dusk and taste what is offered. My treasury is that no one will let you pay.",
+     "My people gave me this throne twice. Once in war, once in peace. The second gift weighs more.",
+     "Every child here knows three wells and one song. The song mocks me gently. I keep it."
+    ]
+   }
+  },
+  "royal_counsel": {
+   "vostok": {
+    "negative": [
+     "My counsel: settle what you owe the line. Then we speak of futures.",
+     "Advice is for allies. Bring proof you are one.",
+     "Dig yourself out of the hole you dug with us. That is the whole of my wisdom for you."
+    ],
+    "neutral": [
+     "Hold something. A wall, a word, a friend's flank. Holding is the whole trade.",
+     "Spend yourself slowly. The war is long and men are not.",
+     "Learn to be cold without being cruel. Most learn neither."
+    ],
+    "positive": [
+     "Guard the small things. Big things are only small things that held.",
+     "Find work that outlives the winter. Then do it every winter.",
+     "You have a strong back and a decent name. Lend both where they are thanked."
+    ]
+   },
+   "aegis": {
+    "negative": [
+     "Guidance is issued to those in compliance. You are advised of that, and only that.",
+     "My counsel is corrective: stop. You know precisely what.",
+     "Begin with restitution. The ledger will consider a second page."
+    ],
+    "neutral": [
+     "Verify before trusting. File what you learn. Doctrine in eight words.",
+     "Choose a sector and be answerable for it. Responsibility is the fastest promotion.",
+     "Precision, then speed, then courage. In that order. Courage first is how boys die."
+    ],
+    "positive": [
+     "Take the border road, learn its gaps, and report them. The realm pays attention, and debts.",
+     "Keep your word to small people. Kings and clerks both keep records of that.",
+     "Train your eye before your arm. The arm follows a schooled eye anywhere."
+    ]
+   },
+   "sarab": {
+    "negative": [
+     "Counsel is water. I do not pour it into cracked jars.",
+     "First mend what you broke. The desert forgives nothing it has not watched repaired.",
+     "Seek wisdom elsewhere while your name dries out here."
+    ],
+    "neutral": [
+     "Walk slower than your fear and faster than your pride. Most trouble misses such a walker.",
+     "Own a rope, a friend, and a debt you intend to pay. More than that is baggage.",
+     "When lost, sit. The desert rearranges itself for the patient."
+    ],
+    "positive": [
+     "Plant something. A man with a tree argues differently about the future.",
+     "Keep one promise past the point it costs you. After that, all doors know your knock.",
+     "Drink before you are thirsty, forgive before you are asked. The rest is footwork."
+    ]
+   }
+  },
+  "royal_defiance": {
+   "vostok": {
+    "negative": [
+     "Bold words in a warm room. The cold outside has heard bolder.",
+     "Eleven kings before me heard such talk. The talkers are buried in even rows.",
+     "Say it again outside the wall. The wind argues back harder than I do."
+    ],
+    "neutral": [
+     "Thrones outlast opinions here. It is nearly all they do.",
+     "Noted. The quota does not care, and today I am the quota's man.",
+     "I have been threatened by winters. You are not a winter."
+    ],
+    "positive": [
+     "From a friend, that is almost a joke. Almost. Have a drink and find the rest of it.",
+     "You earned one free insult with us. That was it. Spend the next more wisely.",
+     "The line laughs rarely. It is not laughing now. Mind your boots, friend."
+    ]
+   },
+   "aegis": {
+    "negative": [
+     "Threat catalogued. Response authorized. Your next move decides the paperwork.",
+     "You mistake patience for permission. The distinction is armed.",
+     "One more incident and the guards stop being ceremonial."
+    ],
+    "neutral": [
+     "Sedition is a category, not a conversation. You are drifting toward the category.",
+     "The crown registers your opinion. The crown files it under noise.",
+     "The guards remain at ease. Remain worth that decision."
+    ],
+    "positive": [
+     "I will assume the road made you rude. Water and a chair are behind you. Use both.",
+     "Friends may test the crown once. Consider it tested and the matter closed.",
+     "That cost you a page of goodwill. You had several. Now you have several minus one."
+    ]
+   },
+   "sarab": {
+    "negative": [
+     "The sand has swallowed prouder sentences. It is always hungry.",
+     "Insult the well and thirst keeps the score. I need do nothing.",
+     "You speak loudly for a man standing where echoes have owners."
+    ],
+    "neutral": [
+     "A king who fears words has already lost his wells. Mine are safe. Speak on.",
+     "The tent flap is behind you. The desert enjoys debates.",
+     "I decline to be wounded. Apply elsewhere."
+    ],
+    "positive": [
+     "From you I will call that thirst talking. Sit. Drink. Try again as yourself.",
+     "Even the fig tree drops one bitter fruit. I will not judge the tree.",
+     "Careful, friend. The desert repeats what it hears, and its memory is excellent."
+    ]
+   }
+  },
+  "royal_farewell": {
+   "vostok": {
+    "negative": [
+     "Go. The door is the kindest thing I own for you today.",
+     "Leave the way you came. Straighter, if possible.",
+     "The cold will walk you out."
+    ],
+    "neutral": [
+     "Go well. Dig deep, wherever they put you.",
+     "The line is long and you are keeping someone from it. Good day.",
+     "Mind the ice on the causeway. It has opinions."
+    ],
+    "positive": [
+     "Come back before the stove goes out. It rarely does.",
+     "Travel as if a quota is waiting. For you, one always will be.",
+     "Go warm, friend of the line. That is the best blessing Vostok issues."
+    ]
+   },
+   "aegis": {
+    "negative": [
+     "Dismissed. The escort is not optional.",
+     "This audience is concluded and annotated. Study the annotation.",
+     "The exit is that way. Compliance is the other courtesy expected."
+    ],
+    "neutral": [
+     "Audience concluded. The doors are marked. Good day.",
+     "You are released to your own schedule. Keep it clear of ours.",
+     "Dismissed in good order. The realm resumes."
+    ],
+    "positive": [
+     "Safe roads. Report anything broken and anyone brave. Both interest me.",
+     "Go with the realm's regard. It is bankable in every district.",
+     "Until the next audience. The short list keeps your name."
+    ]
+   },
+   "sarab": {
+    "negative": [
+     "Go. May the road teach you what I declined to.",
+     "The desert will finish this conversation better than I can.",
+     "Take your shadow with you. We have enough of our own."
+    ],
+    "neutral": [
+     "Go with water. Everything else is negotiable.",
+     "May your rope be long and your questions shorter next time.",
+     "The dunes will point your way home. They rarely lie twice."
+    ],
+    "positive": [
+     "Go as a friend of the shade. Every well between here and the sea will know it.",
+     "Peace on your road, and figs when you return. Both are promised.",
+     "Carry my greeting to the horizon. It owes me several."
+    ]
+   }
+  }
+ }
+}

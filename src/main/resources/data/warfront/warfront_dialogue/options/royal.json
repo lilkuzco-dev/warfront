@@ -1,0 +1,296 @@
+{
+ "category": "royal",
+ "options": [
+  {
+   "id": "royal_hail_majesty",
+   "text": "dialogue.warfront.opt.royal_hail_majesty",
+   "response": "royal_presence",
+   "tone": "positive",
+   "conditions": {
+    "role": [
+     "king"
+    ]
+   },
+   "weight": 12
+  },
+  {
+   "id": "royal_hail_honored",
+   "text": "dialogue.warfront.opt.royal_hail_honored",
+   "response": "royal_presence",
+   "tone": "positive",
+   "conditions": {
+    "role": [
+     "king"
+    ]
+   },
+   "weight": 10
+  },
+  {
+   "id": "royal_hail_long_life",
+   "text": "dialogue.warfront.opt.royal_hail_long_life",
+   "response": "royal_presence",
+   "tone": "positive",
+   "conditions": {
+    "role": [
+     "king"
+    ]
+   },
+   "weight": 10
+  },
+  {
+   "id": "royal_hail_traveled",
+   "text": "dialogue.warfront.opt.royal_hail_traveled",
+   "response": "royal_presence",
+   "tone": "positive",
+   "conditions": {
+    "role": [
+     "king"
+    ]
+   },
+   "weight": 8
+  },
+  {
+   "id": "royal_hail_respects",
+   "text": "dialogue.warfront.opt.royal_hail_respects",
+   "response": "royal_presence",
+   "tone": "positive",
+   "conditions": {
+    "role": [
+     "king"
+    ]
+   },
+   "weight": 8
+  },
+  {
+   "id": "royal_ask_castle",
+   "text": "dialogue.warfront.opt.royal_ask_castle",
+   "response": "royal_realm",
+   "conditions": {
+    "role": [
+     "king"
+    ]
+   },
+   "weight": 10
+  },
+  {
+   "id": "royal_ask_realm",
+   "text": "dialogue.warfront.opt.royal_ask_realm",
+   "response": "royal_realm",
+   "conditions": {
+    "role": [
+     "king"
+    ]
+   },
+   "weight": 10
+  },
+  {
+   "id": "royal_ask_fortress",
+   "text": "dialogue.warfront.opt.royal_ask_fortress",
+   "response": "royal_realm",
+   "conditions": {
+    "role": [
+     "king"
+    ]
+   },
+   "weight": 8
+  },
+  {
+   "id": "royal_ask_age",
+   "text": "dialogue.warfront.opt.royal_ask_age",
+   "response": "royal_realm",
+   "conditions": {
+    "role": [
+     "king"
+    ]
+   },
+   "weight": 7
+  },
+  {
+   "id": "royal_ask_war",
+   "text": "dialogue.warfront.opt.royal_ask_war",
+   "response": "royal_war",
+   "conditions": {
+    "role": [
+     "king"
+    ]
+   },
+   "weight": 10
+  },
+  {
+   "id": "royal_ask_enemies",
+   "text": "dialogue.warfront.opt.royal_ask_enemies",
+   "response": "royal_war",
+   "conditions": {
+    "role": [
+     "king"
+    ]
+   },
+   "weight": 9
+  },
+  {
+   "id": "royal_ask_peace",
+   "text": "dialogue.warfront.opt.royal_ask_peace",
+   "response": "royal_war",
+   "conditions": {
+    "role": [
+     "king"
+    ]
+   },
+   "weight": 8
+  },
+  {
+   "id": "royal_ask_people",
+   "text": "dialogue.warfront.opt.royal_ask_people",
+   "response": "royal_people",
+   "conditions": {
+    "role": [
+     "king"
+    ]
+   },
+   "weight": 9
+  },
+  {
+   "id": "royal_ask_subjects",
+   "text": "dialogue.warfront.opt.royal_ask_subjects",
+   "response": "royal_people",
+   "conditions": {
+    "role": [
+     "king"
+    ]
+   },
+   "weight": 9
+  },
+  {
+   "id": "royal_ask_who_runs",
+   "text": "dialogue.warfront.opt.royal_ask_who_runs",
+   "response": "royal_people",
+   "conditions": {
+    "role": [
+     "king"
+    ]
+   },
+   "weight": 8
+  },
+  {
+   "id": "royal_seek_counsel",
+   "text": "dialogue.warfront.opt.royal_seek_counsel",
+   "response": "royal_counsel",
+   "tone": "positive",
+   "conditions": {
+    "role": [
+     "king"
+    ]
+   },
+   "weight": 10
+  },
+  {
+   "id": "royal_seek_task",
+   "text": "dialogue.warfront.opt.royal_seek_task",
+   "response": "royal_counsel",
+   "tone": "positive",
+   "conditions": {
+    "role": [
+     "king"
+    ]
+   },
+   "weight": 9
+  },
+  {
+   "id": "royal_seek_serve",
+   "text": "dialogue.warfront.opt.royal_seek_serve",
+   "response": "royal_counsel",
+   "tone": "positive",
+   "conditions": {
+    "role": [
+     "king"
+    ]
+   },
+   "weight": 8
+  },
+  {
+   "id": "royal_defy_no_king",
+   "text": "dialogue.warfront.opt.royal_defy_no_king",
+   "response": "royal_defiance",
+   "conditions": {
+    "role": [
+     "king"
+    ]
+   },
+   "effects": [
+    {
+     "type": "disposition",
+     "event": "insulted"
+    }
+   ],
+   "weight": 8
+  },
+  {
+   "id": "royal_defy_mortal",
+   "text": "dialogue.warfront.opt.royal_defy_mortal",
+   "response": "royal_defiance",
+   "conditions": {
+    "role": [
+     "king"
+    ]
+   },
+   "effects": [
+    {
+     "type": "disposition",
+     "event": "insulted"
+    }
+   ],
+   "weight": 7
+  },
+  {
+   "id": "royal_defy_throne",
+   "text": "dialogue.warfront.opt.royal_defy_throne",
+   "response": "royal_defiance",
+   "conditions": {
+    "role": [
+     "king"
+    ]
+   },
+   "effects": [
+    {
+     "type": "disposition",
+     "event": "insulted"
+    }
+   ],
+   "weight": 7
+  },
+  {
+   "id": "royal_leave_by_your_leave",
+   "text": "dialogue.warfront.opt.royal_leave_by_your_leave",
+   "response": "royal_farewell",
+   "conditions": {
+    "role": [
+     "king"
+    ]
+   },
+   "effects": [
+    {
+     "type": "end"
+    }
+   ],
+   "exit": true,
+   "weight": 10
+  },
+  {
+   "id": "royal_leave_farewell",
+   "text": "dialogue.warfront.opt.royal_leave_farewell",
+   "response": "royal_farewell",
+   "conditions": {
+    "role": [
+     "king"
+    ]
+   },
+   "effects": [
+    {
+     "type": "end"
+    }
+   ],
+   "exit": true,
+   "weight": 9
+  }
+ ]
+}

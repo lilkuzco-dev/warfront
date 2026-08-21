@@ -17,7 +17,7 @@ const BANDS = ["vengeful", "hostile", "cold", "neutral", "warm", "friendly", "de
 const GROUPS = { vengeful: "negative", hostile: "negative", cold: "negative", neutral: "neutral",
 	warm: "positive", friendly: "positive", devoted: "positive" };
 const STANDINGS = ["hostile", "wary", "neutral", "friendly", "trusted"];
-const ROLES = ["grunt", "officer", "quartermaster"];
+const ROLES = ["grunt", "officer", "quartermaster", "king"];
 const PERSONALITIES = ["patient", "professional", "proud", "volatile"];
 const LOCATIONS = ["in_base", "patrol", "wilderness"];
 const TIMES = ["day", "night"];
