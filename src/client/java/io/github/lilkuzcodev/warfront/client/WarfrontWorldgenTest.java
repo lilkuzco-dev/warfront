@@ -225,8 +225,14 @@ public final class WarfrontWorldgenTest implements FabricClientGameTest {
 			int cx = 20000 + i * 1000 + size / 2;
 			int cz = 20000 + size / 2;
 			server.runCommand("gamemode spectator @p");
-			server.runCommand("tp @p " + cx + " 300 " + cz + " -45 90");
-			context.waitTicks(400 + (size - 501) * 2);
+			// Two stages: stand at ground level first so the server streams the terrain
+			// chunks (a camera parked at y300 got only the tallest towers meshed — the
+			// frames were castle tips floating in sky), then lift to a low oblique that
+			// shows the castle IN its terrain, which is the whole thing being verified.
+			server.runCommand("tp @p " + cx + " 120 " + cz);
+			context.waitTicks(500 + (size - 501));
+			server.runCommand("tp @p " + (cx - size / 2 - 60) + " 170 " + (cz - size / 2 - 60) + " 45 25");
+			context.waitTicks(400 + (size - 501));
 			context.takeScreenshot(faction + "_castle_as_generated");
 		}
         int failures = Integer.parseInt(verdict.substring(0, verdict.indexOf('|')));

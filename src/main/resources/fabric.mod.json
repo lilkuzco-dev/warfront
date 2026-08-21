@@ -1,35 +1,41 @@
 {
-	"schemaVersion": 1,
-	"id": "warfront",
-	"version": "${version}",
-	"name": "Warfront",
-	"description": "Doctrine-driven military factions with staffed bases, patrols, progression, dialogue, contracts, and tactical orders.",
-	"authors": [
-		"lilkuzco-dev"
-	],
-	"contact": {
-		"sources": "https://github.com/lilkuzco-dev"
-	},
-	"license": "LGPL-3.0-or-later",
-	"icon": "assets/warfront/icon.png",
-	"environment": "*",
-	"entrypoints": {
-		"main": [
-			"io.github.lilkuzcodev.warfront.Warfront"
-		],
-		"client": [
-			"io.github.lilkuzcodev.warfront.client.WarfrontClient"
-		],
-		"fabric-client-gametest": [
-			"io.github.lilkuzcodev.warfront.client.WarfrontRenderTest",
-			"io.github.lilkuzcodev.warfront.client.WarfrontDialogueTest",
-			"io.github.lilkuzcodev.warfront.client.WarfrontWorldgenTest"
-		]
-	},
-	"depends": {
-		"fabricloader": ">=0.19.3",
-		"minecraft": "~26.2",
-		"java": ">=25",
-		"fabric-api": "*"
-	}
+ "schemaVersion": 1,
+ "id": "warfront",
+ "version": "${version}",
+ "name": "Warfront",
+ "description": "Doctrine-driven military factions with staffed bases, patrols, progression, dialogue, contracts, and tactical orders.",
+ "authors": [
+  "lilkuzco-dev"
+ ],
+ "contact": {
+  "sources": "https://github.com/lilkuzco-dev"
+ },
+ "license": "LGPL-3.0-or-later",
+ "icon": "assets/warfront/icon.png",
+ "environment": "*",
+ "entrypoints": {
+  "main": [
+   "io.github.lilkuzcodev.warfront.Warfront"
+  ],
+  "client": [
+   "io.github.lilkuzcodev.warfront.client.WarfrontClient"
+  ],
+  "fabric-client-gametest": [
+   "io.github.lilkuzcodev.warfront.client.WarfrontRenderTest",
+   "io.github.lilkuzcodev.warfront.client.WarfrontDialogueTest",
+   "io.github.lilkuzcodev.warfront.client.WarfrontWorldgenTest"
+  ]
+ },
+ "depends": {
+  "fabricloader": ">=0.19.3",
+  "minecraft": "~26.2",
+  "java": ">=25",
+  "fabric-api": "*"
+ },
+ "mixins": [
+  {
+   "config": "warfront.client.mixins.json",
+   "environment": "client"
+  }
+ ]
 }

@@ -23,18 +23,31 @@ public final class CastleSites extends SavedData {
 	// reports the castle's own roof, so nothing can recompute where it was put.
 	private static final Codec<CastleSites> CODEC = RecordCodecBuilder.create(instance -> instance.group(
 			Codec.unboundedMap(Codec.STRING, Codec.STRING).optionalFieldOf("built", java.util.Map.of())
-					.forGetter(sites -> java.util.Map.copyOf(sites.built))
+					.forGetter(sites -> java.util.Map.copyOf(sites.built)),
+			Codec.unboundedMap(Codec.STRING, Codec.STRING).optionalFieldOf("templates", java.util.Map.of())
+					.forGetter(sites -> java.util.Map.copyOf(sites.templates)),
+			Codec.STRING.listOf().optionalFieldOf("dracula_slain", List.of())
+					.forGetter(sites -> List.copyOf(sites.draculaSlain))
 	).apply(instance, CastleSites::new));
 
 	public static final SavedDataType<CastleSites> TYPE = new SavedDataType<>(
 			Warfront.id("castle_sites"), CastleSites::new, CODEC, DataFixTypes.SAVED_DATA_COMMAND_STORAGE);
 
 	private final java.util.Map<String, String> built = new java.util.HashMap<>();
+	// key -> template identifier ("warfront:dracula/castle"), so systems that care which
+	// castle stands at a site (the vampire's veil) never have to guess. Sites built before
+	// this field existed simply have no entry until something backfills them.
+	private final java.util.Map<String, String> templates = new java.util.HashMap<>();
+	// Sites whose Dracula was slain by a player's hand. The sun does not count.
+	private final java.util.Set<String> draculaSlain = new java.util.HashSet<>();
 
 	public CastleSites() {}
 
-	private CastleSites(java.util.Map<String, String> built) {
+	private CastleSites(java.util.Map<String, String> built, java.util.Map<String, String> templates,
+			List<String> draculaSlain) {
 		this.built.putAll(built);
+		this.templates.putAll(templates);
+		this.draculaSlain.addAll(draculaSlain);
 	}
 
 	public static CastleSites get(MinecraftServer server) {
@@ -45,8 +58,29 @@ public final class CastleSites extends SavedData {
 		return built.containsKey(key);
 	}
 
-	public void markBuilt(String key, net.minecraft.core.BlockPos origin) {
+	public void markBuilt(String key, net.minecraft.core.BlockPos origin,
+			net.minecraft.resources.Identifier template) {
 		built.put(key, origin.getX() + "," + origin.getY() + "," + origin.getZ());
+		templates.put(key, template.toString());
+		setDirty();
+	}
+
+	/** The template pasted at a built site, or null for sites built before this was recorded. */
+	public @org.jspecify.annotations.Nullable String template(String key) {
+		return templates.get(key);
+	}
+
+	public void recordTemplate(String key, net.minecraft.resources.Identifier template) {
+		templates.put(key, template.toString());
+		setDirty();
+	}
+
+	public boolean isDraculaSlain(String key) {
+		return draculaSlain.contains(key);
+	}
+
+	public void markDraculaSlain(String key) {
+		draculaSlain.add(key);
 		setDirty();
 	}
 

@@ -29,7 +29,12 @@ public class WarfrontClient implements ClientModInitializer {
 		EntityRenderers.register(WarfrontEntities.DRACULA, DraculaRenderer::new);
 		BlockEntityRenderers.register(
 				io.github.lilkuzcodev.warfront.block.WarfrontBlockEntities.DISPLAY, DisplayRenderer::new);
-		ClientPlayConnectionEvents.DISCONNECT.register((handler, client) -> client.execute(DisplayTextureCache::clear));
+		ClientPlayConnectionEvents.DISCONNECT.register((handler, client) -> client.execute(() -> {
+			DisplayTextureCache.clear();
+			VampireVeilClient.setActive(false);
+		}));
+		ClientPlayNetworking.registerGlobalReceiver(WarfrontNet.VeilS2C.TYPE, (payload, context) ->
+				context.client().execute(() -> VampireVeilClient.setActive(payload.active())));
 		ClientTickEvents.END_CLIENT_TICK.register(DisplayTextureCache::tick);
 		loadClientConfig();
 

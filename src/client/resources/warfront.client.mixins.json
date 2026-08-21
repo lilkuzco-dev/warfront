@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "package": "io.github.lilkuzcodev.warfront.client.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "client": [
+    "SkyRendererMixin",
+    "WeatherEffectRendererMixin",
+    "LightmapRenderStateExtractorMixin",
+    "FogRendererMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

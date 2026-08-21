@@ -174,6 +174,14 @@ for (const faction of factions) {
 	const kingY = kings[0].blockPos.v.items[1];
 	check(kingY >= 20, `${faction}: king stands at template y=${kingY}, which is a basement`);
 
+	// The occupancy sidecar is what shapes terrain blending; a stale one carves the
+	// wrong columns silently. Regenerate with tools/gen-castle-occupancy.js after any
+	// re-import.
+	const occ = parse(fs.readFileSync(path.join(dataDir, `structure/${faction}/castle_occupancy.nbt`))).root.v;
+	check(occ.width.v === sizeX, `${faction}: occupancy width ${occ.width.v} != castle ${sizeX}`);
+	check(occ.min_y.v.length === sizeX * sizeX,
+		`${faction}: occupancy has ${occ.min_y.v.length} columns, expected ${sizeX * sizeX}`);
+
 	console.log(`${faction}: ${sizeX}x${sizeY}x${sizeZ}, ${root.blocks.v.items.length} blocks, `
 		+ `${loot} rich + ${vault} vault + ${common} common loot, 4 working towns, `
 		+ `${soldiers.length - 1} guards, 1 king at y=${kingY}`);
@@ -196,6 +204,9 @@ for (const block of dracula.blocks.v.items) {
 	}
 }
 check(draculaLoot === 16, `Dracula: expected 16 rich-loot containers, got ${draculaLoot}`);
+const draculaOcc = parse(fs.readFileSync(path.join(dataDir, "structure/dracula/castle_occupancy.nbt"))).root.v;
+check(draculaOcc.width.v === 501 && draculaOcc.min_y.v.length === 501 * 501,
+	"Dracula: occupancy sidecar missing or mismatched");
 for (const wrapper of dracula.entities.v.items) {
 	const entity = wrapper.nbt.v;
 	check(!entity.WorldUUIDMost && !entity.WorldUUIDLeast, "Dracula: source-world UUID leaked into an entity");

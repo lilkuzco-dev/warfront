@@ -111,8 +111,23 @@ public final class WarfrontNet {
 		}
 	}
 
+	/** S2C: the vampire's veil — midnight, blood moon and snowfall, for this player only. */
+	public record VeilS2C(boolean active) implements CustomPacketPayload {
+		public static final CustomPacketPayload.Type<VeilS2C> TYPE =
+				new CustomPacketPayload.Type<>(Warfront.id("vampire_veil"));
+		public static final StreamCodec<RegistryFriendlyByteBuf, VeilS2C> CODEC = StreamCodec.of(
+				(buf, payload) -> buf.writeBoolean(payload.active()),
+				buf -> new VeilS2C(buf.readBoolean()));
+
+		@Override
+		public CustomPacketPayload.Type<VeilS2C> type() {
+			return TYPE;
+		}
+	}
+
 	public static void init() {
 		PayloadTypeRegistry.clientboundPlay().register(DialogueS2C.TYPE, DialogueS2C.CODEC);
+		PayloadTypeRegistry.clientboundPlay().register(VeilS2C.TYPE, VeilS2C.CODEC);
 		PayloadTypeRegistry.clientboundPlay().register(DialogueCloseS2C.TYPE, DialogueCloseS2C.CODEC);
 		PayloadTypeRegistry.serverboundPlay().register(ChooseC2S.TYPE, ChooseC2S.CODEC);
 		ServerPlayNetworking.registerGlobalReceiver(ChooseC2S.TYPE,

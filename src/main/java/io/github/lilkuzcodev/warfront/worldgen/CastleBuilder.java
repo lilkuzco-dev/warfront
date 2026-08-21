@@ -300,7 +300,7 @@ public final class CastleBuilder {
 			// height in this slice's columns is cleared, so a hillside never pokes through
 			// a courtyard. The template carries no air records (the importer skips air),
 			// so the paste alone cannot remove terrain.
-			carveAboveOrigin(level, slice, pending.originY());
+			carveSlice(level, slice, pending);
 			requeue(pending, pending.nextX(), 1);
 			return;
 		}
@@ -322,7 +322,7 @@ public final class CastleBuilder {
 		// Ground the slice: where the template's underside hangs over a dip in the real
 		// terrain, drop a foundation column to solid ground. This is what keeps a castle on
 		// a hillside from floating — one sampled paste height can never fit every column.
-		groundSlice(level, slice, pending.originY());
+		groundSlice(level, slice, pending);
 
 		if (toX >= width - 1) {
 			QUEUE.poll();
@@ -336,7 +336,7 @@ public final class CastleBuilder {
 					RELEASE.add(new int[] { cx, cz });
 				}
 			}
-			CastleSites.get(level.getServer()).markBuilt(pending.key(), pending.origin());
+			CastleSites.get(level.getServer()).markBuilt(pending.key(), pending.origin(), pending.template());
 			// Count the castle's own chests back out of the world. filterBlocks hands back
 			// TEMPLATE-RELATIVE positions no matter what BlockPos it is given, so the origin
 			// has to be added — reading its raw coordinates checks a spot thousands of blocks
@@ -406,11 +406,17 @@ public final class CastleBuilder {
 		}
 		heights.sort(Integer::compareTo);
 		int median = heights.get(heights.size() / 2);
+		// Never below the sea. A coastal footprint's OCEAN_FLOOR samples include seabed,
+		// which drags the median under the waterline — and the site-prep carve then digs
+		// the whole footprint into a basin the ocean floods (reported from play, with the
+		// fields and towns underwater). Clamped here, the carve only ever removes ground
+		// ABOVE the sea surface, and ocean columns get foundation piles down to the seabed.
+		int originY = Math.max(median, level.getSeaLevel()) - 1;
 		QUEUE.poll();
 		QUEUE.addFirst(new PendingCastle(pending.key(), pending.template(), pending.minX(),
-				pending.minZ(), median - 1, 0, 0));
-		Warfront.LOGGER.info("CASTLE_GROUND {} paste height {} (sampled {}..{} across the footprint)",
-				pending.key(), median - 1, heights.get(0), heights.get(heights.size() - 1));
+				pending.minZ(), originY, 0, 0));
+		Warfront.LOGGER.info("CASTLE_GROUND {} paste height {} (sampled {}..{}, sea level {})",
+				pending.key(), originY, heights.get(0), heights.get(heights.size() - 1), level.getSeaLevel());
 	}
 
 	/** Forces the chunks of one region a few per tick; true once they are all present. */
@@ -430,13 +436,76 @@ public final class CastleBuilder {
 		return true;
 	}
 
-	/** Clears natural terrain above the paste height in this slice's columns. */
-	private static void carveAboveOrigin(ServerLevel level, BoundingBox slice, int originY) {
+	/**
+	 * Per-template, per-column occupancy: the lowest Y the template places in each
+	 * column, or -1 where it places nothing. This is what lets a castle blend into
+	 * terrain the way a Woodland Mansion does — a mansion displaces exactly its own
+	 * volume because its template carries air records; the imported castles carry none,
+	 * so the sidecar (tools/gen-castle-occupancy.js) says where the castle actually is.
+	 * Columns the castle does not touch keep their hills, trees and water untouched.
+	 */
+	private record Occupancy(int width, int[] minY) {
+		int columnMinY(int x, int z) {
+			if (x < 0 || x >= width || z < 0 || z >= width) return -1;
+			return minY[x * width + z];
+		}
+	}
+
+	private static final java.util.Map<Identifier, Optional<Occupancy>> OCCUPANCY = new java.util.HashMap<>();
+
+	private static Optional<Occupancy> occupancy(ServerLevel level, Identifier template) {
+		return OCCUPANCY.computeIfAbsent(template, id -> {
+			// warfront:aegis/castle -> warfront:structure/aegis/castle_occupancy.nbt
+			Identifier resource = Identifier.fromNamespaceAndPath(id.getNamespace(),
+					"structure/" + id.getPath() + "_occupancy.nbt");
+			try {
+				var found = level.getServer().getResourceManager().getResource(resource);
+				if (found.isEmpty()) {
+					Warfront.LOGGER.warn("CASTLE_OCCUPANCY {} missing; falling back to full-footprint site prep",
+							resource);
+					return Optional.empty();
+				}
+				try (var stream = found.get().open()) {
+					var tag = net.minecraft.nbt.NbtIo.readCompressed(stream,
+							net.minecraft.nbt.NbtAccounter.unlimitedHeap());
+					int width = tag.getIntOr("width", 0);
+					int[] minY = tag.getIntArray("min_y").orElse(new int[0]);
+					if (width <= 0 || minY.length != width * width) {
+						Warfront.LOGGER.warn("CASTLE_OCCUPANCY {} malformed ({} entries for width {})",
+								resource, minY.length, width);
+						return Optional.empty();
+					}
+					return Optional.of(new Occupancy(width, minY));
+				}
+			} catch (Exception error) {
+				Warfront.LOGGER.warn("CASTLE_OCCUPANCY {} unreadable: {}", resource, error.toString());
+				return Optional.empty();
+			}
+		});
+	}
+
+	/**
+	 * Site preparation, shaped by the template itself: a column the castle occupies is
+	 * cleared from the castle's own base upward (so a hillside never pokes through a
+	 * hall, and nothing hangs over the roof), and a column it does not occupy is left
+	 * exactly as the world generated it. Without a sidecar the old behaviour remains:
+	 * every column cleared above the paste height.
+	 */
+	private static void carveSlice(ServerLevel level, BoundingBox slice, PendingCastle pending) {
+		Optional<Occupancy> occupancy = occupancy(level, pending.template());
 		BlockPos.MutableBlockPos pos = new BlockPos.MutableBlockPos();
 		for (int x = slice.minX(); x <= slice.maxX(); x++) {
 			for (int z = slice.minZ(); z <= slice.maxZ(); z++) {
+				int clearFrom;
+				if (occupancy.isPresent()) {
+					int columnMin = occupancy.get().columnMinY(x - pending.minX(), z - pending.minZ());
+					if (columnMin < 0) continue; // the castle is not here; the terrain stays
+					clearFrom = pending.originY() + columnMin;
+				} else {
+					clearFrom = pending.originY();
+				}
 				int top = level.getHeight(Heightmap.Types.WORLD_SURFACE, x, z) - 1;
-				for (int y = top; y > originY; y--) {
+				for (int y = top; y > clearFrom; y--) {
 					pos.set(x, y, z);
 					if (!level.getBlockState(pos).isAir()) {
 						level.setBlock(pos, Blocks.AIR.defaultBlockState(), 2);
@@ -447,25 +516,33 @@ public final class CastleBuilder {
 	}
 
 	/**
-	 * Extends the template's underside down to solid ground, column by column. The fill
-	 * copies the underside block itself (grass becomes dirt), so a stone terrace grows
-	 * stone footings rather than a visibly alien plug.
+	 * Extends the template's underside down to solid ground, column by column — the
+	 * hand-made equivalent of a vanilla structure's terrain beard. The fill copies the
+	 * underside block itself (grass becomes dirt), so a stone terrace grows stone
+	 * footings rather than a visibly alien plug.
 	 */
-	private static void groundSlice(ServerLevel level, BoundingBox slice, int originY) {
+	private static void groundSlice(ServerLevel level, BoundingBox slice, PendingCastle pending) {
+		Optional<Occupancy> occupancy = occupancy(level, pending.template());
 		BlockPos.MutableBlockPos pos = new BlockPos.MutableBlockPos();
 		for (int x = slice.minX(); x <= slice.maxX(); x++) {
 			for (int z = slice.minZ(); z <= slice.maxZ(); z++) {
 				int underside = Integer.MIN_VALUE;
-				for (int y = originY; y <= originY + FOUNDATION_SEARCH_HEIGHT; y++) {
-					pos.set(x, y, z);
-					if (!level.getBlockState(pos).isAir()) {
-						underside = y;
-						break;
+				if (occupancy.isPresent()) {
+					int columnMin = occupancy.get().columnMinY(x - pending.minX(), z - pending.minZ());
+					if (columnMin >= 0) underside = pending.originY() + columnMin;
+				} else {
+					for (int y = pending.originY(); y <= pending.originY() + FOUNDATION_SEARCH_HEIGHT; y++) {
+						pos.set(x, y, z);
+						if (!level.getBlockState(pos).isAir()) {
+							underside = y;
+							break;
+						}
 					}
 				}
 				if (underside == Integer.MIN_VALUE) continue;
 				pos.set(x, underside, z);
 				BlockState fill = level.getBlockState(pos);
+				if (fill.isAir()) continue; // occupancy said content, paste disagreed; leave it
 				if (fill.is(Blocks.GRASS_BLOCK) || fill.is(Blocks.DIRT_PATH) || fill.is(Blocks.FARMLAND)) {
 					fill = Blocks.DIRT.defaultBlockState();
 				}

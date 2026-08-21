@@ -103,6 +103,17 @@ public final class DraculaEntity extends PathfinderMob implements Enemy {
 	}
 
 	@Override
+	public void die(DamageSource source) {
+		// Only a player's hand ends the Count for good; the sun and the sea merely send
+		// him back to his coffin until the next visitor.
+		if (level() instanceof ServerLevel serverLevel
+				&& getKillCredit() instanceof Player) {
+			io.github.lilkuzcodev.warfront.systems.VampireVeil.onDraculaSlainByPlayer(serverLevel, blockPosition());
+		}
+		super.die(source);
+	}
+
+	@Override
 	protected void dropCustomDeathLoot(ServerLevel level, DamageSource source, boolean recentlyHit) {
 		super.dropCustomDeathLoot(level, source, recentlyHit);
 		spawnAtLocation(level, new ItemStack(Items.NETHER_STAR, 2));

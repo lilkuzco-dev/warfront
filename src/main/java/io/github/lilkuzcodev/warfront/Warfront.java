@@ -35,6 +35,7 @@ public class Warfront implements ModInitializer {
 		io.github.lilkuzcodev.warfront.systems.TickScheduler.init();
 		io.github.lilkuzcodev.warfront.systems.WarfrontSystems.init();
 		io.github.lilkuzcodev.warfront.systems.BaseManager.init();
+		io.github.lilkuzcodev.warfront.systems.VampireVeil.init();
 		io.github.lilkuzcodev.warfront.systems.WarfrontCommands.init();
 		io.github.lilkuzcodev.warfront.order.General.registerExecutor("warfront:infantry_assault",
 				new io.github.lilkuzcodev.warfront.order.InfantryAssaultExecution());

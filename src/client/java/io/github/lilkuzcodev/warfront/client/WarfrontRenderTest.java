@@ -323,6 +323,24 @@ public class WarfrontRenderTest implements FabricClientGameTest {
 			context.takeScreenshot(castle[1] + "_castle_oblique");
 			lane++;
 		}
+
+		// --- The vampire's veil: per-player midnight, blood moon, snowfall ---
+		// Server time is NOON on purpose: the frames prove the veil overrides the real
+		// clock for this player alone. The dracula lane's castle is still standing, so
+		// the snowfall frame reads against real architecture.
+		int draculaCentre = 3 * 1400 + 250;
+		server.runCommand("time set noon");
+		server.runCommand("warfront veil on @p");
+		context.waitTicks(40);
+		server.runCommand("tp @p " + draculaCentre + " 40 250 0 -75");
+		context.waitTicks(80);
+		context.takeScreenshot("vampire_veil_blood_moon");
+		server.runCommand("tp @p " + draculaCentre + " 20 100 15 0");
+		context.waitTicks(60);
+		context.takeScreenshot("vampire_veil_snowfall");
+		server.runCommand("warfront veil off @p");
+		context.waitTicks(40);
+		context.takeScreenshot("vampire_veil_lifted_noon_again");
 	}
 
 	private void shootStructure(ClientGameTestContext context, TestSingleplayerContext world,

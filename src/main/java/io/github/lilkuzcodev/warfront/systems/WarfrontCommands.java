@@ -54,6 +54,17 @@ public final class WarfrontCommands {
 						.then(Commands.literal("standing").executes(ctx -> standing(ctx.getSource())))
 						.then(Commands.literal("bases").requires(Commands.hasPermission(Commands.LEVEL_GAMEMASTERS)).executes(ctx -> bases(ctx.getSource())))
 						.then(Commands.literal("adopt").requires(Commands.hasPermission(Commands.LEVEL_GAMEMASTERS)).executes(ctx -> adoptDebug(ctx.getSource())))
+						.then(Commands.literal("veil").requires(Commands.hasPermission(Commands.LEVEL_GAMEMASTERS))
+								.then(Commands.literal("on")
+										.executes(ctx -> veil(ctx.getSource(), null, true))
+										.then(Commands.argument("targets", net.minecraft.commands.arguments.EntityArgument.players())
+												.executes(ctx -> veil(ctx.getSource(),
+														net.minecraft.commands.arguments.EntityArgument.getPlayers(ctx, "targets"), true))))
+								.then(Commands.literal("off")
+										.executes(ctx -> veil(ctx.getSource(), null, false))
+										.then(Commands.argument("targets", net.minecraft.commands.arguments.EntityArgument.players())
+												.executes(ctx -> veil(ctx.getSource(),
+														net.minecraft.commands.arguments.EntityArgument.getPlayers(ctx, "targets"), false)))))
 						.then(Commands.literal("ledger").requires(Commands.hasPermission(Commands.LEVEL_GAMEMASTERS))
 								.then(Commands.argument("faction", StringArgumentType.word())
 										.then(Commands.argument("event", StringArgumentType.word())
@@ -301,6 +312,19 @@ public final class WarfrontCommands {
 	}
 
 	/** Diagnostics for base discovery: what structure references exist at my position? */
+	/** Forces the vampire's veil on or off for testing and theatrics. */
+	private static int veil(CommandSourceStack source,
+			java.util.@org.jspecify.annotations.Nullable Collection<net.minecraft.server.level.ServerPlayer> targets,
+			boolean active) throws com.mojang.brigadier.exceptions.CommandSyntaxException {
+		var players = targets != null ? targets : List.of(source.getPlayerOrException());
+		for (var player : players) {
+			VampireVeil.setForced(player, active);
+		}
+		source.sendSuccess(() -> Component.literal("vampire veil " + (active ? "on" : "off")
+				+ " for " + players.size() + " player(s)"), false);
+		return players.size();
+	}
+
 	private static int adoptDebug(CommandSourceStack source) {
 		ServerLevel level = source.getLevel();
 		BlockPos pos = BlockPos.containing(source.getPosition());

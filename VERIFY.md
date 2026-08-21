@@ -1153,3 +1153,45 @@ paste `aegis=10/10 sarab=1514/1514 vostok=927/927 dracula=118/118`.
   which is how a castle ended up towering over an enchanted forest with no systems
   attached. If castle frequency now feels low, widening the tag is a design decision,
   not a bug fix.
+
+## 0.4.15 — the sea, the veil, the Count, and the blend (2026-08-21)
+
+Four reports from Jesse's live play of 0.4.14, all addressed:
+
+- **Coastal castles flooded.** A coastal footprint's OCEAN_FLOOR samples dragged the
+  median paste height under the waterline (his Sarab pasted at y=48 — 15 under the sea)
+  and the site carve dug a basin the ocean filled. Paste height is now floored at sea
+  level; the carve can never breach the waterline, and ocean columns get foundation
+  piles to the seabed. The "milling, limited citizens" report was downstream of this:
+  240 citizens seeded correctly at that site, then crowded the few dry patches.
+- **No Dracula.** He was baked into the template all along — and his own vampire rules
+  killed him: castle builds in daylight, he strolls a courtyard, the sun takes 6 HP/s.
+  `VampireVeil` now raises the Count in a roofed chamber whenever a mortal enters an
+  un-slain castle, leashes him to his keep (`setHomeTo`, 40 blocks), and only a
+  player's killing blow marks the site permanently slain (`CastleSites.dracula_slain`).
+- **The vampire's veil.** Entering Dracula's grounds turns THAT PLAYER's world to
+  midnight under a blood-red full moon with snowfall — four client-only mixins
+  (sky-state rotated by the time-delta to midnight so vanilla's own conventions hold;
+  moon tinted at its one uniform write; weather forced to snow at the renderer's call
+  sites; lightmap and fog collapsed to night). Server time, weather and mob logic are
+  untouched. Battery frames READ across two iterations: the first showed salmon-brown
+  snow (red-tinted sky light dyeing the flakes — removed) and a bright day-fog horizon
+  (FogRendererMixin added). Final frames: black sky, red moon, white snow, dark
+  horizon; veil-off frame restores noon instantly. `/warfront veil on|off` for demos.
+- **"Blend like a Woodland Mansion."** Mansions displace exactly their own volume
+  because their templates carry air; the imports carry none, which is why the builder
+  flattened the whole square. Each castle now ships a per-column occupancy sidecar
+  (`tools/gen-castle-occupancy.js`, verifier-pinned): occupied columns are cleared from
+  the castle's own base upward and footed to solid ground; untouched columns keep their
+  hills, trees and water. Dracula occupies 23.9% of his square — three-quarters of his
+  grounds are now real terrain. Verified from the battery world's region files with the
+  new `tools/render-world-topdown.js` (the client-gametest camera cannot stream remote
+  chunks reliably — three attempts produced fog; region files cannot fail to mesh):
+  Dracula's islands sprawl across a real archipelago with no square scar, Sarab's
+  estate has rivers and snowfields threading between its buildings, Aegis keeps its own
+  imported grounds with the world running cleanly to their edge.
+
+Gates: `verify-grand-castles.js` OK (now also pins occupancy sidecars) ·
+`verify-base-spacing.js` PASS · `runCastlerender` BUILD SUCCESSFUL, veil frames read ·
+`runWorldgentest` BUILD SUCCESSFUL, all four types chest-verified under the new site
+prep (aegis 10/10, sarab 1514/1514, vostok 927/927, dracula 118/118).
