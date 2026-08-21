@@ -14,10 +14,13 @@ const townCentersFor = (size) => {
 	const mid = Math.floor(size / 2);
 	return [[mid, TOWN_INSET], [size - 1 - TOWN_INSET, mid], [mid, size - 1 - TOWN_INSET], [TOWN_INSET, mid]];
 };
+// Baked-soldier counts vary by a few per faction: the rampart-watch ring skips a
+// position when the min-y cut leaves that column empty (real terrain shows through
+// there instead), and a skipped position is safer than a soldier baked into the ground.
 const expected = {
-	aegis: { sizeX: 501, sizeY: 216, blocks: 710062, loot: 24, garrison: [64, 80] },
-	sarab: { sizeX: 801, sizeY: 139, blocks: 1139747, loot: 24, garrison: [72, 88] },
-	vostok: { sizeX: 501, sizeY: 216, blocks: 3992843, loot: 24, garrison: [84, 96] },
+	aegis: { sizeX: 501, sizeY: 196, blocks: 4244844, loot: 24, garrison: [64, 80], officers: 12, rankAndFile: 34 },
+	sarab: { sizeX: 801, sizeY: 119, blocks: 1125889, loot: 24, garrison: [72, 88], officers: 10, rankAndFile: 31 },
+	vostok: { sizeX: 501, sizeY: 196, blocks: 1313425, loot: 24, garrison: [84, 96], officers: 11, rankAndFile: 34 },
 };
 
 function check(condition, message) {
@@ -108,6 +111,8 @@ for (const faction of factions) {
 	const townCenters = townCentersFor(sizeX);
 	const townFeatures = townCenters.map(() => ({ bunks: 0, farmland: 0, jobs: 0 }));
 	let loot = 0;
+	let vault = 0;
+	let common = 0;
 
 	for (const block of root.blocks.v.items) {
 		const [x, y, z] = block.pos.v.items;
@@ -120,9 +125,15 @@ for (const faction of factions) {
 		occupied[flat] = 1;
 		if (palette[block.state.v] === "minecraft:chest" || palette[block.state.v] === "minecraft:barrel") {
 			const table = block.nbt?.v?.LootTable?.v;
-			check(table === `warfront:castle/${faction}` || table === "minecraft:empty",
-				`${faction}: container at ${x},${y},${z} has unmanaged inventory or loot`);
+			// Every container answers: rich, vault, or common. "minecraft:empty" is no
+			// longer allowed — a castle where 97% of chests are deliberately blank reads
+			// as broken loot, and was reported as exactly that.
+			check(table === `warfront:castle/${faction}` || table === "warfront:castle/hidden_vault"
+					|| table === "warfront:castle/common",
+				`${faction}: container at ${x},${y},${z} has unmanaged inventory or loot (${table})`);
 			if (table === `warfront:castle/${faction}`) loot++;
+			if (table === "warfront:castle/hidden_vault") vault++;
+			if (table === "warfront:castle/common") common++;
 		}
 		for (let i = 0; i < townCenters.length; i++) {
 			const [cx, cz] = townCenters[i];
@@ -136,25 +147,36 @@ for (const faction of factions) {
 	}
 
 	check(loot === expected[faction].loot, `${faction}: expected ${expected[faction].loot} rich-loot containers, got ${loot}`);
+	check(vault >= 2, `${faction}: expected at least 2 hidden-vault chests, got ${vault}`);
+	check(common > 0, `${faction}: expected common-loot containers, got none`);
 	for (let i = 0; i < townFeatures.length; i++) {
 		const feature = townFeatures[i];
 		check(feature.bunks >= 6 && feature.farmland >= 100 && feature.jobs >= 2,
 			`${faction}: town ${i + 1} is missing housing, farming, or jobs`);
 	}
 
+	// 32 town guards, a rampart watch of up to 12, 2 royal guards, 2 cellar sentries,
+	// and the king.
 	const soldiers = root.entities.v.items.filter((entity) => entity.nbt?.v?.id?.v === "warfront:soldier");
-	check(soldiers.length === 33, `${faction}: expected 32 guards plus one king, got ${soldiers.length}`);
+	const expectedBaked = 1 + expected[faction].officers + expected[faction].rankAndFile;
+	check(soldiers.length === expectedBaked,
+		`${faction}: expected ${expectedBaked} baked soldiers, got ${soldiers.length}`);
 	check(soldiers.every((entity) => entity.nbt.v.warfront_faction?.v === faction
 		&& entity.nbt.v.PersistenceRequired?.v === 1), `${faction}: invalid guard faction or persistence`);
-	check(soldiers.filter((entity) => entity.nbt.v.warfront_rank?.v === "king").length === 1,
-		`${faction}: expected exactly one king`);
-	check(soldiers.filter((entity) => entity.nbt.v.warfront_rank?.v === "officer").length === 8,
-		`${faction}: expected eight town officers`);
-	check(soldiers.filter((entity) => entity.nbt.v.warfront_rank?.v === "soldier").length === 24,
-		`${faction}: expected 24 town soldiers`);
+	const kings = soldiers.filter((entity) => entity.nbt.v.warfront_rank?.v === "king");
+	check(kings.length === 1, `${faction}: expected exactly one king`);
+	check(soldiers.filter((entity) => entity.nbt.v.warfront_rank?.v === "officer").length === expected[faction].officers,
+		`${faction}: officer count changed unexpectedly`);
+	check(soldiers.filter((entity) => entity.nbt.v.warfront_rank?.v === "soldier").length === expected[faction].rankAndFile,
+		`${faction}: rank-and-file count changed unexpectedly`);
+	// The king presides from a chamber, not a basement: he must stand well above the
+	// template floor. (Reported from play: "the king was spawned in the basement.")
+	const kingY = kings[0].blockPos.v.items[1];
+	check(kingY >= 20, `${faction}: king stands at template y=${kingY}, which is a basement`);
 
 	console.log(`${faction}: ${sizeX}x${sizeY}x${sizeZ}, ${root.blocks.v.items.length} blocks, `
-		+ `${loot} rich-loot containers, 4 working towns, 32 guards, 1 king`);
+		+ `${loot} rich + ${vault} vault + ${common} common loot, 4 working towns, `
+		+ `${soldiers.length - 1} guards, 1 king at y=${kingY}`);
 }
 
 const dracula = parse(fs.readFileSync(path.join(dataDir, "structure/dracula/castle.nbt"))).root.v;
@@ -168,8 +190,8 @@ for (const block of dracula.blocks.v.items) {
 	check(name !== "warfront:bunk", "Dracula must not contain normal-castle town housing");
 	if (name === "minecraft:chest" || name === "minecraft:barrel") {
 		const table = block.nbt?.v?.LootTable?.v;
-		check(table === "warfront:castle/dracula" || table === "minecraft:empty",
-			"Dracula contains an unmanaged inventory or loot table");
+		check(table === "warfront:castle/dracula" || table === "warfront:castle/common",
+			`Dracula contains an unmanaged inventory or loot table (${table})`);
 		if (table === "warfront:castle/dracula") draculaLoot++;
 	}
 }

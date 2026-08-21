@@ -32,11 +32,11 @@ const centerZ = numberArg("--center-z");
 const minY = numberArg("--min-y");
 const sourceRadius = numberArg("--source-radius", "170");
 const scanOnly = args.includes("--scan");
-const kingWorld = [numberArg("--king-x", String(centerX)), numberArg("--king-y"),
-	numberArg("--king-z", String(centerZ))];
+// The king's position is no longer supplied: it is derived from the build itself (the
+// highest roofed chamber near the centre), so there is no coordinate to get wrong.
 if (!world || !baseFile || !output || !faction || centerX === null || centerZ === null
-		|| minY === null || kingWorld[1] === null) {
-	console.error("missing required --world/--base/--out/--faction/--center-x/--center-z/--min-y/--king-y");
+		|| minY === null) {
+	console.error("missing required --world/--base/--out/--faction/--center-x/--center-z/--min-y");
 	process.exit(2);
 }
 
@@ -115,6 +115,7 @@ const paletteIndexes = new Map();
 const plan = new Map();
 const blockEntities = new Map();
 const scanBins = new Map();
+const scanYBins = new Map();
 const scanBounds = [Infinity, Infinity, Infinity, -Infinity, -Infinity, -Infinity];
 let dataVersion = 4903;
 
@@ -132,8 +133,10 @@ function ensurePalette(entry) {
 	}
 	return paletteIndexes.get(key);
 }
+let highestY = 0;
 function put(x, y, z, entry, nbt = null) {
 	if (x < 0 || x >= SIZE || z < 0 || z >= SIZE || y < 0) return;
+	if (y > highestY) highestY = y;
 	plan.set(`${x},${y},${z}`, { x, y, z, state: ensurePalette(entry), name: entry.Name.v, nbt });
 }
 
@@ -180,6 +183,7 @@ for (const filename of fs.readdirSync(regionDir).filter((name) => name.endsWith(
 				if (scanOnly) {
 					const bin = `${Math.floor(worldX / 25) * 25},${Math.floor(worldZ / 25) * 25}`;
 					scanBins.set(bin, (scanBins.get(bin) ?? 0) + 1);
+					scanYBins.set(worldY, (scanYBins.get(worldY) ?? 0) + 1);
 					scanBounds[0] = Math.min(scanBounds[0], worldX); scanBounds[1] = Math.min(scanBounds[1], worldY);
 					scanBounds[2] = Math.min(scanBounds[2], worldZ); scanBounds[3] = Math.max(scanBounds[3], worldX);
 					scanBounds[4] = Math.max(scanBounds[4], worldY); scanBounds[5] = Math.max(scanBounds[5], worldZ);
@@ -194,7 +198,25 @@ for (const filename of fs.readdirSync(regionDir).filter((name) => name.endsWith(
 
 if (scanOnly) {
 	console.log(`scan bounds ${scanBounds.join(",")}`);
-	for (const [bin, count] of [...scanBins].sort((a, b) => b[1] - a[1]).slice(0, 80)) {
+	// Where the mass is: the weighted centroid answers "where should the crop centre
+	// be" — a maximum-capture window can park the castle at the crop's edge, which
+	// centres the template on empty terrain and every centre-anchored feature (towns,
+	// throne search, district seeding) with it.
+	let cx = 0, cz = 0, total = 0;
+	for (const [bin, count] of scanBins) {
+		const [bx, bz] = bin.split(",").map(Number);
+		cx += (bx + 12) * count;
+		cz += (bz + 12) * count;
+		total += count;
+	}
+	if (total > 0) console.log(`mass centroid ${Math.round(cx / total)},${Math.round(cz / total)} of ${total} blocks`);
+	// And how the mass stacks vertically: the plateau is the build's ground level, and
+	// anything far below it is source-world machinery (the note-block basement) that
+	// --min-y exists to cut off.
+	for (const [y, count] of [...scanYBins].sort((a, b) => a[0] - b[0])) {
+		if (count > total / 200) console.log(`y ${String(y).padStart(4)}: ${count}`);
+	}
+	for (const [bin, count] of [...scanBins].sort((a, b) => b[1] - a[1]).slice(0, 20)) {
 		console.log(String(count).padStart(8), bin);
 	}
 	process.exit(0);
@@ -236,17 +258,144 @@ for (const record of base.blocks.v.items) {
 	}
 }
 
+// ---------------------------------------------------------------------------
+//  The throne, and the rooms beneath it
+// ---------------------------------------------------------------------------
+// The specified castle interior (structures/SOURCES.md): a library core, a smaller
+// study core, and concealed vault passages, plus a storage junction. These are the
+// faction's own RETHEMED variants (produced by retheme-structure.js), never the raw
+// end-stronghold pieces — the raw ones are obsidian and purpur. They are stamped as a
+// cellar complex directly beneath the king's chamber, reached by a ladder shaft beside
+// the throne — so the king literally sits on the vault entrance. Each room's bounding
+// box is carved to air first, so the cavity exists even where a piece has no record.
+const ROOMS_DIR = path.join(__dirname, `../src/main/resources/data/warfront/structure/${faction}`);
+const CELLAR_Y = 2;
+const vaultChests = new Set();
+const AIR = { Name: N.string("minecraft:air") };
+const STONE_BRICKS = { Name: N.string("minecraft:stone_bricks") };
+
+function carveBox(x1, y1, z1, x2, y2, z2) {
+	for (let x = x1; x <= x2; x++) for (let y = y1; y <= y2; y++) for (let z = z1; z <= z2; z++) {
+		put(x, y, z, AIR);
+	}
+}
+
+function stampRoom(file, ox, oy, oz, collectChests = false) {
+	const room = parse(fs.readFileSync(path.join(ROOMS_DIR, file))).root.v;
+	const [sx, sy, sz] = room.size.v.items.map((i) => i.v ?? i);
+	const roomPalette = room.palette.v.items;
+	// Jigsaw connectors are worldgen plumbing, not architecture; stamped literally they
+	// ship as visible jigsaw blocks in the cellar walls. The piece's base material
+	// (palette entry 0 in every retheme map) fills them.
+	const filler = roomPalette[0];
+	carveBox(ox, oy, oz, ox + sx - 1, oy + sy - 1, oz + sz - 1);
+	for (const record of room.blocks.v.items) {
+		const [px, py, pz] = record.pos.v.items.map((i) => i.v ?? i);
+		let entry = roomPalette[record.state.v];
+		let nbt = record.nbt ?? null;
+		if (entry.Name.v === "minecraft:jigsaw") {
+			entry = filler;
+			nbt = null;
+		}
+		put(ox + px, oy + py, oz + pz, entry, nbt);
+		if (collectChests && (entry.Name.v.endsWith("chest") || entry.Name.v.endsWith("barrel")
+				|| entry.Name.v.endsWith("shulker_box"))) {
+			vaultChests.add(`${ox + px},${oy + py},${oz + pz}`);
+		}
+	}
+	return [sx, sy, sz];
+}
+
+// The king's chamber: the highest roofed room near the castle's centre — a roomy 5x5
+// floor if one exists, a 3x3 otherwise. Height is the tiebreak because thrones live at
+// the top of keeps; a roof requirement keeps wall walks and open terraces out.
+function findThroneChamber(clearance) {
+	const half = Math.floor(clearance / 2);
+	const solidAt = (x, y, z) => plan.has(`${x},${y},${z}`);
+	let best = null;
+	for (let dx = -48; dx <= 48; dx += 2) {
+		for (let dz = -48; dz <= 48; dz += 2) {
+			const x = MID + dx, z = MID + dz;
+			for (let y = Math.min(highestY - 4, 250); y >= CELLAR_Y + 14; y--) {
+				let ok = true;
+				for (let fx = -half; fx <= half && ok; fx++) for (let fz = -half; fz <= half; fz++) {
+					if (!solidAt(x + fx, y - 1, z + fz) || solidAt(x + fx, y, z + fz)
+							|| solidAt(x + fx, y + 1, z + fz) || solidAt(x + fx, y + 2, z + fz)) { ok = false; break; }
+				}
+				if (!ok) continue;
+				let roofed = false;
+				for (let ry = y + 3; ry <= y + 14 && !roofed; ry++) roofed = solidAt(x, ry, z);
+				if (!roofed) continue;
+				const d = dx * dx + dz * dz;
+				if (!best || y > best.y || (y === best.y && d < best.d)) best = { x, y, z, d };
+				break; // only the highest chamber per column matters
+			}
+		}
+	}
+	return best;
+}
+
+let throne = findThroneChamber(5) ?? findThroneChamber(3);
+if (!throne) {
+	const [kx, ky, kz] = standableNear(MID, MID, 1, 48);
+	throne = { x: kx, y: ky, z: kz, d: 0 };
+	console.warn("no roofed chamber found near the centre; king placed at ground level");
+}
+
+// Cellar: junction under the throne, big library west, study east, two vault-corridor
+// segments north ending in the vault. Doorways are carved where the pieces meet.
+const tx = throne.x, tz = throne.z;
+stampRoom("bunker_storage.nbt", tx - 5, CELLAR_Y, tz - 5);
+stampRoom("grand_library.nbt", tx - 20, CELLAR_Y, tz - 7);
+stampRoom("scientific_study.nbt", tx + 6, CELLAR_Y, tz - 7);
+stampRoom("secret_passage.nbt", tx - 2, CELLAR_Y, tz - 12, true);
+stampRoom("secret_passage.nbt", tx - 2, CELLAR_Y, tz - 19, true);
+carveBox(tx - 6, CELLAR_Y + 1, tz - 1, tx - 5, CELLAR_Y + 3, tz);     // west doorway
+carveBox(tx + 5, CELLAR_Y + 1, tz - 1, tx + 6, CELLAR_Y + 3, tz);     // east doorway
+carveBox(tx - 1, CELLAR_Y + 1, tz - 6, tx, CELLAR_Y + 3, tz - 5);     // north doorway
+carveBox(tx - 1, CELLAR_Y + 1, tz - 13, tx, CELLAR_Y + 3, tz - 12);   // vault passage join
+
+// Ladder shaft from beside the throne down into the junction. The ring is clad in
+// stone bricks wherever the shaft passes through open space, so the ladder always has
+// a wall and the descent reads as built, not glitched.
+const shaftX = tx + 1, shaftZ = tz + 1;
+for (let y = CELLAR_Y + 1; y <= throne.y - 1; y++) {
+	carveBox(shaftX, y, shaftZ, shaftX + 1, y, shaftZ + 1);
+	for (let rx = shaftX - 1; rx <= shaftX + 2; rx++) {
+		for (let rz = shaftZ - 1; rz <= shaftZ + 2; rz++) {
+			const inside = rx >= shaftX && rx <= shaftX + 1 && rz >= shaftZ && rz <= shaftZ + 1;
+			if (!inside && !plan.has(`${rx},${y},${rz}`)) put(rx, y, rz, STONE_BRICKS);
+		}
+	}
+	put(shaftX, y, shaftZ + 1, { Name: N.string("minecraft:ladder"),
+		Properties: N.compound({ facing: N.string("north") }) });
+}
+
+// ---------------------------------------------------------------------------
+//  Loot: every container answers, none are silent
+// ---------------------------------------------------------------------------
+// Reported from play as "there is no loot": 24 rich containers among Vostok's 861
+// chests meant 97% of everything a player opened was deliberately empty. Now the
+// vault chests carry the hidden-vault table, 24 spread containers stay rich, and
+// everything else gets the modest common table instead of minecraft:empty.
 const containers = [...plan.values()].filter((block) => block.name === "minecraft:chest"
 	|| block.name === "minecraft:barrel").sort((a, b) => `${a.x},${a.y},${a.z}`.localeCompare(`${b.x},${b.y},${b.z}`));
+const spreadable = containers.filter((block) => !vaultChests.has(`${block.x},${block.y},${block.z}`));
 const lootIndexes = new Set();
-const lootCount = Math.min(24, containers.length);
+const lootCount = Math.min(24, spreadable.length);
 for (let i = 0; i < lootCount; i++) {
-	lootIndexes.add(Math.round(i * (containers.length - 1) / Math.max(1, lootCount - 1)));
+	lootIndexes.add(Math.round(i * (spreadable.length - 1) / Math.max(1, lootCount - 1)));
 }
-for (let i = 0; i < containers.length; i++) {
-	containers[i].nbt = N.compound({
-		id: N.string(containers[i].name),
-		LootTable: N.string(lootIndexes.has(i) ? `warfront:castle/${faction}` : "minecraft:empty"),
+for (const block of containers) {
+	if (vaultChests.has(`${block.x},${block.y},${block.z}`)) {
+		block.nbt = N.compound({ id: N.string(block.name),
+			LootTable: N.string("warfront:castle/hidden_vault") });
+	}
+}
+for (let i = 0; i < spreadable.length; i++) {
+	spreadable[i].nbt = N.compound({
+		id: N.string(spreadable[i].name),
+		LootTable: N.string(lootIndexes.has(i) ? `warfront:castle/${faction}` : "warfront:castle/common"),
 	});
 }
 
@@ -275,8 +424,35 @@ function soldierEntity(x, y, z, rank) {
 }
 
 const entities = [];
-const king = standableNear(kingWorld[0] - minX, kingWorld[2] - minZ, kingWorld[1] - minY, 48);
-entities.push(soldierEntity(...king, "king"));
+// The king stands in his chamber, flanked by two officers of the royal guard. The old
+// import walked standableNear up from a supplied height and found whatever pocket came
+// first — which is how a king ended up presiding over a basement.
+entities.push(soldierEntity(throne.x, throne.y, throne.z, "king"));
+for (const dx of [-2, 2]) {
+	const pos = standableNear(throne.x + dx, throne.z, throne.y - 1, 6);
+	entities.push(soldierEntity(...pos, "officer"));
+}
+// The castle proper gets its own watch: twelve soldiers on a ring a fifth of the way
+// out from the centre, standing on whatever is highest there — courtyard, rampart or
+// tower top, which is exactly where castle guards belong.
+function topSolidY(x, z) {
+	for (let y = highestY; y >= 0; y--) if (plan.has(`${x},${y},${z}`)) return y;
+	return -1;
+}
+const watchRadius = Math.floor(SIZE * 0.22);
+for (let i = 0; i < 12; i++) {
+	const angle = (i * Math.PI) / 6;
+	const x = MID + Math.round(watchRadius * Math.cos(angle));
+	const z = MID + Math.round(watchRadius * Math.sin(angle));
+	const top = topSolidY(x, z);
+	if (top < 0) continue;
+	entities.push(soldierEntity(x, top + 1, z, i < 2 ? "officer" : "soldier"));
+}
+// Two sentries in the cellar junction, watching the vault passage.
+for (const dx of [-3, 3]) {
+	const pos = standableNear(tx + dx, tz, CELLAR_Y + 1, 6);
+	entities.push(soldierEntity(...pos, "soldier"));
+}
 const guardOffsets = [[-18, 0], [-12, 7], [-6, -7], [0, 12], [6, -7], [12, 7], [18, 0], [0, -12]];
 for (const [townX, townZ] of townCenters) {
 	for (let i = 0; i < guardOffsets.length; i++) {
@@ -310,4 +486,5 @@ fs.mkdirSync(path.dirname(output), { recursive: true });
 fs.writeFileSync(output, write(structure));
 console.log(`wrote ${output}`);
 console.log(`faction=${faction} size=${SIZE}x${maxY + 1}x${SIZE} blocks=${blocks.length} palette=${palette.length}`);
-console.log(`towns=4 soldiers=${entities.length - 1} kings=1 loot=${lootIndexes.size}`);
+console.log(`towns=4 soldiers=${entities.length - 1} kings=1 throne=${throne.x},${throne.y},${throne.z}`);
+console.log(`loot: rich=${lootIndexes.size} vault=${vaultChests.size} common=${spreadable.length - lootIndexes.size}`);

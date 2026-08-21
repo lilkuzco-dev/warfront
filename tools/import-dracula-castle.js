@@ -20,6 +20,27 @@ function arg(flag, fallback = null) {
 
 const world = arg("--world");
 const output = arg("--out");
+
+// --retrofit <castle.nbt>: applies the current loot rule (empty containers become
+// warfront:castle/common) to an already-imported structure IN PLACE. Exists because the
+// source world is not always still on disk when the loot rule changes; a fresh import
+// with this same file produces the same result, so generator and artifact stay in step.
+const retrofit = arg("--retrofit");
+if (retrofit) {
+	const parsed = parse(fs.readFileSync(retrofit));
+	let changed = 0;
+	for (const record of parsed.root.v.blocks.v.items) {
+		const table = record.nbt?.v?.LootTable;
+		if (table && table.v === "minecraft:empty") {
+			table.v = "warfront:castle/common";
+			changed++;
+		}
+	}
+	fs.writeFileSync(retrofit, write(parsed.root, parsed.rootName));
+	console.log(`retrofit ${retrofit}: ${changed} empty containers now use warfront:castle/common`);
+	process.exit(0);
+}
+
 if (!world || !output) {
 	console.error("usage: import-dracula-castle.js --world <extracted-world> --out <castle.nbt>");
 	process.exit(2);
@@ -154,7 +175,9 @@ for (let i = 0; i < lootCount; i++) {
 }
 for (let i = 0; i < lootCandidates.length; i++) {
 	const { record, name } = lootCandidates[i];
-	const table = lootIndexes.has(i) ? "warfront:castle/dracula" : "minecraft:empty";
+	// Every container answers: 16 rich, the rest common. A castle whose chests are
+	// mostly deliberately blank reads as broken loot (reported from play).
+	const table = lootIndexes.has(i) ? "warfront:castle/dracula" : "warfront:castle/common";
 	record.nbt = N.compound({
 		id: N.string(name),
 		LootTable: N.string(table),
