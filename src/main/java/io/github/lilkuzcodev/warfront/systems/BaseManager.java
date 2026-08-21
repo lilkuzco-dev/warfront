@@ -275,6 +275,24 @@ public final class BaseManager {
 					standableSpots(level, origin.getY() + 1, 25, district, districtPopulation * 2));
 		}
 		Warfront.LOGGER.info("CASTLE_POPULATION seeded {} citizens across 5 districts of {}", population, key);
+		// Adopt the baked garrison. Template soldiers try to adopt on their first tick,
+		// but castle soldiers spawn slice by slice BEFORE this base record exists, so
+		// every one of them missed the window and walked the walls as a ledger orphan
+		// (audit finding, 2026-08-21: 41 soldiers standing, stored=0).
+		int adopted = 0;
+		for (SoldierEntity soldier : level.getEntitiesOfClass(SoldierEntity.class,
+				new net.minecraft.world.phys.AABB(origin.getX(), origin.getY() - 16, origin.getZ(),
+						origin.getX() + width, origin.getY() + 120, origin.getZ() + width))) {
+			if (soldier.getBaseKey().isEmpty() && soldier.getFaction().equals(base.faction)) {
+				soldier.setBaseKey(key);
+				base.garrison++;
+				adopted++;
+			}
+		}
+		if (adopted > 0) {
+			WarfrontState.get(level.getServer()).markBasesDirty();
+			Warfront.LOGGER.info("CASTLE_POPULATION adopted {} baked soldiers into {}", adopted, key);
+		}
 	}
 
 	/**
@@ -568,7 +586,10 @@ public final class BaseManager {
 			List<BlockPos> anchors, String rank) {
 		BlockPos anchor = anchors.isEmpty() ? base.center
 				: anchors.get(level.getRandom().nextInt(anchors.size()));
-		BlockPos spawn = standablePosNear(level, anchor, baseGroundY(base, base.center));
+		// Castle anchors carry their own honest Y (walkable surface); the base record's
+		// ground is the pre-paste marker estimate, which sits inside the finished plate.
+		int groundY = "castle".equals(base.tier) ? anchor.getY() : baseGroundY(base, base.center);
+		BlockPos spawn = standablePosNear(level, anchor, groundY);
 		if (spawn == null) {
 			return null;
 		}
@@ -619,6 +640,28 @@ public final class BaseManager {
 	 * mounted on watchtowers and made roof spawning a permanent reinforcement path.
 	 */
 	private static List<BlockPos> anchorPoints(ServerLevel level, WarfrontState.Base base) {
+		// Castles first: their bunks live in the town districts hundreds of blocks out,
+		// so the bunk scan below finds nothing and the fallback anchor was base.center —
+		// whose Y is the pre-paste marker estimate, INSIDE the finished castle's plate.
+		// Every spawn attempt failed silently and the keep never hydrated its garrison
+		// (audit finding, 2026-08-21: stored=0 against target 76 with a player standing
+		// in the keep). Castle anchors are read from the world instead: the walkable
+		// surface near the centre — courtyard ground, wall walks and roofs, which is
+		// where castle guards belong anyway.
+		if ("castle".equals(base.tier)) {
+			List<BlockPos> anchors = new ArrayList<>();
+			for (int dx = -48; dx <= 48; dx += 6) {
+				for (int dz = -48; dz <= 48; dz += 6) {
+					int x = base.center.getX() + dx;
+					int z = base.center.getZ() + dz;
+					if (!level.isLoaded(new BlockPos(x, base.center.getY(), z))) continue;
+					int y = level.getHeight(net.minecraft.world.level.levelgen.Heightmap.Types.MOTION_BLOCKING, x, z);
+					if (y <= level.getMinY() || y > base.center.getY() + 140) continue;
+					anchors.add(new BlockPos(x, y, z));
+				}
+			}
+			if (!anchors.isEmpty()) return anchors;
+		}
 		// Bounded to the core deliberately. This runs on EVERY base tick until the base
 		// finishes hydrating, and a jigsaw structure's bounding box is far larger than
 		// the plate: a generated city measured 245x46x245, so the unbounded pair of
