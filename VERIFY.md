@@ -939,3 +939,87 @@ true size needs, in order:
    same `--forceUpgrade` pass (recipe and its trap are in `tools/measure-build.js`).
 4. Re-import ×3, then raise `avoid_chunks` — `verify-base-spacing.js` will say by how much,
    and fail until it is done.
+
+## 0.4.12 — the castles generate (2026-08-20)
+
+### They never had
+
+Reported from play: teleporting to a Dracula castle arrived at flat ground with no castle.
+Confirmed on the live server three independent ways:
+
+- `/locate` finds one — that is pure placement arithmetic and involves no blocks.
+- **Zero entities.** Each castle carries 33 baked-in soldiers (21 for Dracula). Within 120
+  blocks of the located Aegis centre: no soldiers, no citizens, one Pig.
+- **Zero blocks.** A filtered clone over a 32×32×32 box at the exact centre returned `0`
+  stone bricks, `0` bunks, `0` chests, `0` cobblestone.
+
+The city record was still seeded and ticking (`base_aegis_castle_5744_10660_east`), which is
+why nothing looked wrong from the server side.
+
+### Why — an engine ceiling, not a setting
+
+`ChunkGenerator.createReferences` scans a **hardcoded 8-chunk radius** for structure starts,
+so a structure reaches at most **128 blocks from its start chunk**, and
+`max_distance_from_center` is codec-capped at 128 as well. The castles are **501 blocks
+across — 250 from centre**. No structure type can generate them.
+
+This also answers "generate them the way Woodland Mansions do": mansions are ~200 blocks and
+sit *under* that ceiling. Ancient cities and trial chambers likewise. There is no vanilla
+structure wider than ~257 blocks.
+
+It also explains why the castle render config stayed green throughout: it proves templates by
+pasting them with `/place`, which bypasses worldgen entirely.
+
+### The replacement
+
+`CastleBuilder` replays the castle set's own placement maths on `END_SERVER_TICK` — the same
+arithmetic `/locate` uses — loads the chunks each strip touches, and pastes the template **48
+blocks at a time** so a 2.17-million-block castle never lands in a single tick.
+`CastleSites` records the origin of each finished site, so a castle is built once and never
+stamped over a player's work. Rule 7 throughout: no entity or block-entity tick anywhere in it.
+
+### Verified by counting each castle's own chests back out of the world
+
+| | chests in template | present in world |
+|---|---|---|
+| aegis | 8 | **8** |
+| sarab | 63 | **63** |
+| vostok | 861 | **861** |
+| dracula | 118 | **118** |
+
+Plus a natural site built end to end (`CASTLE_BUILT warfront:sarab/castle at -5258, 62, 2694
+— 63/63 chests verified`), and screenshots taken of what the **builder** produced rather than
+what `/place` produces.
+
+### What the debugging cost, and why it is written down
+
+Four rounds, and every one of them was the check being wrong rather than the code.
+
+`StructureTemplate.filterBlocks` returns **template-relative positions** whatever `BlockPos`
+is handed to it, so reading the world at those raw coordinates inspects a spot thousands of
+blocks away. Three separate checks reported a confident zero against a paste that was
+working:
+
+1. looked for stone bricks — at Sarab, whose import is jungle canopy and snow;
+2. recomputed the origin from the surface heightmap, which a finished castle raises;
+3. passed `Blocks.AIR` to `filterBlocks`, which filters **for** the block given, so it
+   sampled nothing and reported `0/0`.
+
+What broke the deadlock was a probe that wrote a single diamond block at the origin and read
+it straight back: `present=true, chunkStatus=minecraft:full`. That separated "cannot write
+here" from "not looking where it wrote", and the next check found 63 of 63 chests.
+
+### Regression
+
+`econ-selftest.sh` ALL PASS · `validate-dialogue.js` PASS · `verify-base-spacing.js` PASS ·
+`verify-grand-castles.js` OK · `runWorldgentest` **BUILD SUCCESSFUL** including clearance,
+natural build, and all four types.
+
+### Still open
+
+- **Sarab's import is wrong.** Its screenshot is jungle canopy and a snowy cliff with no
+  visible keep: the Mug Castle build is spread across its source map and the fixed 341×341
+  window centred on terrain. It now *generates* faithfully — it is simply the wrong 341×341.
+- **Vostok has a stray slab floating above it**, visible in its template render.
+- Castles are still 501, not the larger sizes the supplied builds could support; the importer
+  still hardcodes `SIZE = 501` and `--source-radius 170`.
