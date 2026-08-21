@@ -113,13 +113,10 @@ public class WarfrontRenderTest implements FabricClientGameTest {
 				CitizenEntity citizen = citizens.stream().min(java.util.Comparator.comparingLong(CitizenEntity::serial))
 						.orElseThrow();
 				citizen.setPos(player.getX(), player.getY(), player.getZ() + 2.5);
-				// Since "Trade only tangible citizen production", offers are built from what this
-				// citizen has physically produced and nothing else — so a citizen in a city that is
-				// seconds old has an empty stall by design, and mobInteract deliberately declines to
-				// open a screen. Stock it the way a shift at the worksite would. Without this the
-				// test waits for a MerchantScreen that the mod is correct never to show, which is
-				// exactly how it failed: a stale test reading as a broken feature.
-				citizen.storeProduced("minecraft:wheat", 64);
+				// Deliberately NOT stocked by hand. Offers now come from the city's conserved
+				// economy, so a citizen in a real city has something to sell without a player
+				// standing over it while it mines. Hand-stocking here is what hid the fact that
+				// trade was impossible in practice — the test passed and the game did not.
 			});
 			context.waitTicks(5);
 			context.getInput().pressKey(options -> options.keyUse);

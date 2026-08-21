@@ -137,6 +137,50 @@ public final class EconomyManager {
 		EconomyState.get(server).put(cityId, model);
 	}
 
+	/**
+	 * What a citizen can actually sell a player: its own share of the city's conserved
+	 * stock, by good.
+	 *
+	 * <p>Trade used to be gated on a {@code warfront:produced/} marker that only physical
+	 * block-breaking set. Measured on the live server 2026-08-20: ten citizens across all
+	 * five professions, embodied, holding up to 970 wheat between them — and not one
+	 * tradeable item, because abstract goods never carry the marker and traders and
+	 * labourers cannot set it at all. A city with 8,347 goods could not sell a loaf.
+	 *
+	 * <p>The goods here are not conjured: the model reports {@code conserved=true} and
+	 * {@link EconomyModel#playerBuy} asserts conservation on every sale, so what a player
+	 * buys is stock that existed and leaves the city when it is bought.
+	 */
+	public static Map<EconomyModel.Good, Long> sellableStock(MinecraftServer server, CityRecord city,
+			long serial) {
+		EconomyModel model = model(server, city, EconomyState.get(server));
+		int index = Math.toIntExact(serial - 1);
+		if (index < 0 || index >= model.population() || !model.isActive(index)) return Map.of();
+		Map<EconomyModel.Good, Long> stock = new java.util.EnumMap<>(EconomyModel.Good.class);
+		for (EconomyModel.Good good : EconomyModel.Good.values()) {
+			long held = model.actorStock(index, good);
+			if (held > 0) stock.put(good, held);
+		}
+		return stock;
+	}
+
+	/**
+	 * Settles a player buying {@code quantity} of {@code good} from one citizen for
+	 * {@code emeralds}. Returns false and changes nothing if the citizen no longer holds
+	 * the stock — the merchant screen can outlive the goods behind it.
+	 */
+	public static boolean playerBuysFromCitizen(MinecraftServer server, String cityId, long serial,
+			EconomyModel.Good good, long quantity, long emeralds) {
+		CityRecord city = CivilizationState.get(server).city(cityId);
+		if (city == null) return false;
+		EconomyModel model = model(server, city, EconomyState.get(server));
+		int index = Math.toIntExact(serial - 1);
+		long payment = Math.multiplyExact(emeralds, WarfrontRegistry.economy().moneyPerEmerald());
+		if (!model.playerBuy(index, good, quantity, payment)) return false;
+		EconomyState.get(server).put(cityId, model);
+		return true;
+	}
+
 	public static long removeGoods(MinecraftServer server, String cityId, EconomyModel.Good good, long amount) {
 		CityRecord city = CivilizationState.get(server).city(cityId);
 		if (city == null) return 0L;

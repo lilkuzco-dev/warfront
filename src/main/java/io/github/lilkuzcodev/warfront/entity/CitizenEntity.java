@@ -5,6 +5,7 @@ import io.github.lilkuzcodev.warfront.civilization.CivilizationManager;
 import io.github.lilkuzcodev.warfront.civilization.CivilizationMath;
 import io.github.lilkuzcodev.warfront.civilization.CivilizationState;
 import io.github.lilkuzcodev.warfront.civilization.EconomyManager;
+import io.github.lilkuzcodev.warfront.civilization.EconomyModel;
 import io.github.lilkuzcodev.warfront.data.WarfrontRegistry;
 import io.github.lilkuzcodev.warfront.entity.ai.CitizenWorkGoal;
 import java.util.HashMap;
@@ -238,7 +239,7 @@ public final class CitizenEntity extends PathfinderMob {
 		buildOffers(serverLevel.getServer());
 		if (offers.isEmpty()) {
 			player.sendSystemMessage(Component.literal(
-					"This citizen has not produced anything available for sale yet."));
+					"This citizen has nothing to sell right now."));
 			return InteractionResult.CONSUME;
 		}
 		tradingPlayer = player;
@@ -247,29 +248,44 @@ public final class CitizenEntity extends PathfinderMob {
 		return InteractionResult.CONSUME;
 	}
 
-	/** Builds emerald purchase offers exclusively from this citizen's physical work output. */
+	/**
+	 * Builds emerald purchase offers from this citizen's share of the city's conserved
+	 * stock.
+	 *
+	 * <p>This used to offer only stock carrying a {@code warfront:produced/} marker, which
+	 * exclusively physical block-breaking set. That made trade all but impossible in
+	 * practice: traders and labourers can never set the marker, and measured on the live
+	 * server, ten embodied citizens across every profession held up to 970 wheat each and
+	 * offered nothing at all. The city had 8,347 goods and could not sell one of them.
+	 *
+	 * <p>Selling from the model is not selling something imaginary. The economy reports
+	 * {@code conserved=true}, and {@link EconomyModel#playerBuy} re-asserts conservation on
+	 * every sale, so the stock leaves the city exactly as it reaches the player.
+	 */
 	private void buildOffers(MinecraftServer server) {
 		offers = new net.minecraft.world.item.trading.MerchantOffers();
 		pendingTrades.clear();
 		var city = city(server);
 		if (city == null) return;
 		int configuredLot = WarfrontRegistry.economy().tradeLot();
-		producedStock().entrySet().stream().sorted(Map.Entry.comparingByKey()).forEach(entry -> {
-			String itemId = entry.getKey();
-			net.minecraft.world.item.Item item = itemOrAir(itemId);
-			if (item == Items.AIR || item == Items.EMERALD) return;
-			int stock = entry.getValue();
-			int quantity = Math.min(configuredLot, stock);
-			long price = EconomyManager.physicalSalePriceEmeralds(server, city, itemId, quantity);
-			int uses = Math.min(12, stock / quantity);
+		var stock = EconomyManager.sellableStock(server, city, serial);
+		for (var entry : stock.entrySet()) {
+			EconomyModel.Good good = entry.getKey();
+			net.minecraft.world.item.Item item = itemOrAir(EconomyManager.itemOf(good));
+			if (item == Items.AIR || item == Items.EMERALD) continue;
+			long held = entry.getValue();
+			int quantity = (int) Math.min(configuredLot, held);
+			if (quantity < 1) continue;
+			long price = EconomyManager.lotPriceEmeralds(server, city, good, true);
+			int uses = (int) Math.min(12L, held / quantity);
 			if (uses > 0 && price <= 64L) {
 				var offer = new net.minecraft.world.item.trading.MerchantOffer(
 						new net.minecraft.world.item.trading.ItemCost(Items.EMERALD, (int) price),
 						new ItemStack(item, quantity), uses, 2, 0.0F);
 				offers.add(offer);
-				pendingTrades.put(offer, new CitizenTrade(price, itemId, quantity));
+				pendingTrades.put(offer, new CitizenTrade(price, good, quantity));
 			}
-		});
+		}
 	}
 
 	private String displayProfession() {
@@ -277,7 +293,7 @@ public final class CitizenEntity extends PathfinderMob {
 		return Character.toUpperCase(id.charAt(0)) + id.substring(1);
 	}
 
-	private record CitizenTrade(long emeralds, String itemId, int quantity) {}
+	private record CitizenTrade(long emeralds, EconomyModel.Good good, int quantity) {}
 
 	/** Merchant facade keeps the trade authoritative while using Minecraft's villager UI. */
 	public final net.minecraft.world.item.trading.Merchant merchant = new net.minecraft.world.item.trading.Merchant() {
@@ -292,7 +308,10 @@ public final class CitizenEntity extends PathfinderMob {
 		public void notifyTrade(net.minecraft.world.item.trading.MerchantOffer offer) {
 			CitizenTrade trade = pendingTrades.get(offer);
 			if (trade == null || !(level() instanceof ServerLevel serverLevel)) return;
-			if (!consumeProduced(trade.itemId(), trade.quantity())) {
+			// The screen can outlive the stock behind it, so the model has the final say and
+			// the sale is refused rather than conjured if the goods are gone.
+			if (!EconomyManager.playerBuysFromCitizen(serverLevel.getServer(), cityId, serial,
+					trade.good(), trade.quantity(), trade.emeralds())) {
 				if (tradingPlayer != null) tradingPlayer.sendSystemMessage(Component.literal("That trade fell through."));
 				return;
 			}
