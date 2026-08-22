@@ -61,8 +61,14 @@ import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemp
  */
 public final class CastleBuilder {
 
-	/** How near a player must be before a castle is worth building. */
-	private static final int TRIGGER_CHUNKS = 12;
+	/**
+	 * How near a player must be before a castle is worth building. 48 chunks is 768
+	 * blocks — far enough that a walking player arrives at finished walls instead of
+	 * watching them materialise around their boots (reported from play, along with
+	 * being entombed in the paste; the burial rescue covers what no radius can, since
+	 * an elytra outruns any build).
+	 */
+	private static final int TRIGGER_CHUNKS = 48;
 	/**
 	 * Slice width in blocks. A slice is bounded so a multi-million-block paste never
 	 * stalls a tick — and each slice is further split into three single-tick phases
@@ -115,11 +121,24 @@ public final class CastleBuilder {
 		ServerTickEvents.END_SERVER_TICK.register(server -> {
 			ServerLevel level = server.overworld();
 			if (server.getTickCount() % SCAN_INTERVAL == 0) scanNearPlayers(level);
-			// Every other tick: chunk generation and the slice phases are each heavy
-			// enough that running them back-to-back on consecutive ticks saturates the
-			// server thread for the length of the build (measured 37s of tick debt on an
-			// 801-wide castle). The idle tick between steps is where players get served.
-			if (server.getTickCount() % 2 == 0) buildOneSlice(level);
+			// Every other tick while players are close: chunk generation and the slice
+			// phases are each heavy enough that running them back-to-back saturates the
+			// server thread (measured 37s of tick debt on an 801-wide castle), and the
+			// idle tick between steps is where players get served. With nobody within
+			// 256 blocks of the site there is nobody to serve — full speed, so the
+			// castle is standing by the time they arrive.
+			PendingCastle head = QUEUE.peek();
+			boolean audience = false;
+			if (head != null) {
+				for (ServerPlayer player : level.players()) {
+					if (Math.abs(player.getX() - head.minX()) < 256 + 801
+							&& Math.abs(player.getZ() - head.minZ()) < 256 + 801) {
+						audience = true;
+						break;
+					}
+				}
+			}
+			if (!audience || server.getTickCount() % 2 == 0) buildOneSlice(level);
 			for (int i = 0; i < RELEASES_PER_TICK && !RELEASE.isEmpty(); i++) {
 				int[] pos = RELEASE.poll();
 				level.setChunkForced(pos[0], pos[1], false);
@@ -316,6 +335,8 @@ public final class CastleBuilder {
 				Warfront.LOGGER.warn("CASTLE_SLICE {} slice {}..{} reported no placement", pending.template(),
 						fromX, toX);
 			}
+			io.github.lilkuzcodev.warfront.systems.SpawnSafety.rescueBuried(level,
+					slice.minX(), slice.minZ(), slice.maxX(), slice.maxZ());
 			requeue(pending, pending.nextX(), 2);
 			return;
 		}
@@ -323,6 +344,8 @@ public final class CastleBuilder {
 		// terrain, drop a foundation column to solid ground. This is what keeps a castle on
 		// a hillside from floating — one sampled paste height can never fit every column.
 		groundSlice(level, slice, pending);
+		io.github.lilkuzcodev.warfront.systems.SpawnSafety.rescueBuried(level,
+				slice.minX(), slice.minZ(), slice.maxX(), slice.maxZ());
 
 		if (toX >= width - 1) {
 			QUEUE.poll();

@@ -33,4 +33,29 @@ public final class SpawnSafety {
 	}
 
 	private SpawnSafety() {}
+
+	/**
+	 * Lifts any player the world just built over. Slice pastes and foundation fills are
+	 * budgeted background work; a player standing in the wrong column when their slice
+	 * lands would be entombed in fresh masonry. Reported from play at castle sites:
+	 * "you can get stuck inside the castle blocks."
+	 */
+	public static void rescueBuried(net.minecraft.server.level.ServerLevel level,
+			int minX, int minZ, int maxX, int maxZ) {
+		for (net.minecraft.server.level.ServerPlayer player : level.players()) {
+			if (player.getX() < minX - 1 || player.getX() > maxX + 2
+					|| player.getZ() < minZ - 1 || player.getZ() > maxZ + 2) {
+				continue;
+			}
+			BlockPos feet = player.blockPosition();
+			boolean buried = !level.getBlockState(feet).getCollisionShape(level, feet).isEmpty()
+					|| !level.getBlockState(feet.above()).getCollisionShape(level, feet.above()).isEmpty();
+			if (!buried) continue;
+			int surface = level.getHeight(net.minecraft.world.level.levelgen.Heightmap.Types.MOTION_BLOCKING,
+					feet.getX(), feet.getZ());
+			player.teleportTo(player.getX(), surface, player.getZ());
+			player.sendOverlayMessage(net.minecraft.network.chat.Component.literal(
+					"The masonry rises beneath you."));
+		}
+	}
 }

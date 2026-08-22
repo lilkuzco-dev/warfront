@@ -123,6 +123,9 @@ public final class SiteFoundations {
 				}
 			}
 		}
+		if (filled > 0) {
+			SpawnSafety.rescueBuried(level, job.minX(), job.minZ(), job.maxX(), job.maxZ());
+		}
 		if (cursor >= total) {
 			QUEUE.poll();
 			QUEUED.remove(job.key());
