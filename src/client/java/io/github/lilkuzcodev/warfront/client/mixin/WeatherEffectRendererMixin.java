@@ -22,7 +22,8 @@ import org.spongepowered.asm.mixin.injection.At;
  * the weather radius and skips a column only when the precipitation lookup answers NONE,
  * so the veil answers SNOW for one column in {@link #VEIL_SNOW_ONE_IN} and NONE for the
  * rest. A full field (every column) read as a blizzard indoors — the Count's halls were
- * wall-to-wall flakes — and 1-in-4 is the 75% cut that was asked for. The choice is a
+ * wall-to-wall flakes; 1-in-4 was the 75% cut first asked for, and 1-in-8 the further
+ * half cut asked for after seeing it. The choice is a
  * fixed hash of the column's position, not a per-frame roll, so the sparse field stands
  * still relative to the architecture instead of flickering.
  */
@@ -31,7 +32,7 @@ public class WeatherEffectRendererMixin {
 
 	/** One column in this many carries snow while the veil holds; the rest stay clear. */
 	@Unique
-	private static final int VEIL_SNOW_ONE_IN = 4;
+	private static final int VEIL_SNOW_ONE_IN = 8;
 
 	@WrapOperation(method = "extractRenderState", at = @At(value = "INVOKE",
 			target = "Lnet/minecraft/client/multiplayer/ClientLevel;getRainLevel(F)F"))

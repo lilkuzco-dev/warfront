@@ -15,9 +15,14 @@ import java.util.UUID;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.minecraft.core.BlockPos;
+import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.EntitySpawnReason;
+import net.minecraft.world.entity.ambient.Bat;
 import net.minecraft.world.phys.AABB;
 
 /**
@@ -39,6 +44,14 @@ import net.minecraft.world.phys.AABB;
 public final class VampireVeil {
 
 	private static final int SCAN_INTERVAL_TICKS = 10;
+	/** The Count comes for a visitor he is farther than this from. */
+	private static final double STALK_TRIGGER = 40.0;
+	private static final int STALK_COOLDOWN_TICKS = 400;
+	private static final int STALK_RETRY_TICKS = 100;
+	/** Bats kept aloft over a visited castle, topped up every BAT_INTERVAL ticks. */
+	private static final int BATS_PER_SITE = 40;
+	private static final int BATS_PER_TOPUP = 6;
+	private static final int BAT_INTERVAL_TICKS = 100;
 	/** Castle footprint width fallback; the real value is read from the template. */
 	private static final int FALLBACK_WIDTH = 501;
 	/** How far below/above the paste origin still counts as "inside the castle". */
@@ -51,6 +64,8 @@ public final class VampireVeil {
 
 	/** Last logged reason the Count could not rise, per site — logged on change only. */
 	private static final Map<String, String> WAIT_REASON = new HashMap<>();
+	/** Per visitor: the game tick before which the Count will not come for them again. */
+	private static final Map<UUID, Long> STALK_NOT_BEFORE = new HashMap<>();
 
 	private record Site(String key, AABB box, BlockPos centre) {}
 
@@ -82,6 +97,8 @@ public final class VampireVeil {
 				}
 				if (inside != null) {
 					ensureDracula(level, inside);
+					stalk(level, inside, player);
+					if (server.getTickCount() % BAT_INTERVAL_TICKS == 0) ensureBats(level, inside, player);
 				}
 			}
 		});
@@ -182,6 +199,59 @@ public final class VampireVeil {
 		level.addFreshEntity(dracula);
 		WAIT_REASON.remove(site.key());
 		Warfront.LOGGER.info("DRACULA_RISES at {} (site {})", spot.toShortString(), site.key());
+	}
+
+	/**
+	 * The Count comes to the visitor. Reported from play on 0.4.19: he rose in his keep
+	 * tower, sixty-eight blocks up, and the visitor walked the halls below for minutes and
+	 * never met him. Now, whenever a mortal stands in his grounds farther than
+	 * STALK_TRIGGER from him, he shadow-steps out of the dark eight to fourteen blocks from
+	 * them (never into the real sun) and takes them as his target — unless they are in
+	 * creative, in which case he appears and watches. Rule 7: this is the server tick.
+	 */
+	private static void stalk(ServerLevel level, Site site, ServerPlayer player) {
+		if (player.isSpectator()) return;
+		long now = level.getGameTime();
+		if (STALK_NOT_BEFORE.getOrDefault(player.getUUID(), 0L) > now) return;
+		DraculaEntity dracula = null;
+		for (DraculaEntity candidate : level.getEntitiesOfClass(DraculaEntity.class, site.box().inflate(96.0))) {
+			if (dracula == null || candidate.distanceToSqr(player) < dracula.distanceToSqr(player)) dracula = candidate;
+		}
+		if (dracula == null || dracula.distanceTo(player) <= STALK_TRIGGER) return;
+		var target = dracula.getTarget();
+		if (target != null && target.isAlive() && dracula.distanceTo(target) <= STALK_TRIGGER) return;
+		if (!dracula.shadowStepTo(level, player, 8.0, 14.0)) {
+			STALK_NOT_BEFORE.put(player.getUUID(), now + STALK_RETRY_TICKS);
+			waiting(site, "no dark standable spot near " + player.getScoreboardName() + " to step to");
+			return;
+		}
+		STALK_NOT_BEFORE.put(player.getUUID(), now + STALK_COOLDOWN_TICKS);
+		if (!player.isCreative()) dracula.setTarget(player);
+		player.sendOverlayMessage(Component.translatable("message.warfront.dracula.found"));
+		level.playSound(null, player.blockPosition(), SoundEvents.WARDEN_NEARBY_CLOSEST, SoundSource.HOSTILE, 1.0F, 0.6F);
+		Warfront.LOGGER.info("DRACULA_STALKS {} from {} (site {})", player.getScoreboardName(),
+				dracula.blockPosition().toShortString(), site.key());
+	}
+
+	/** Bats over the grounds while someone is there to see them — topped up, never hoarded. */
+	private static void ensureBats(ServerLevel level, Site site, ServerPlayer player) {
+		int present = level.getEntitiesOfClass(Bat.class, site.box()).size();
+		if (present >= BATS_PER_SITE) return;
+		RandomSource random = level.getRandom();
+		int spawned = 0;
+		for (int attempt = 0; attempt < 24 && spawned < BATS_PER_TOPUP; attempt++) {
+			double x = player.getX() + (random.nextDouble() - 0.5) * 48.0;
+			double y = player.getY() + 2.0 + random.nextDouble() * 14.0;
+			double z = player.getZ() + (random.nextDouble() - 0.5) * 48.0;
+			BlockPos pos = BlockPos.containing(x, y, z);
+			if (!site.box().contains(x, y, z) || !level.isLoaded(pos)) continue;
+			if (!level.getBlockState(pos).isAir() || !level.getBlockState(pos.above()).isAir()) continue;
+			Bat bat = DraculaEntity.batType().create(level, EntitySpawnReason.EVENT);
+			if (bat == null) break;
+			bat.snapTo(x, y, z, random.nextFloat() * 360.0F, 0.0F);
+			level.addFreshEntity(bat);
+			spawned++;
+		}
 	}
 
 	/**

@@ -1309,3 +1309,45 @@ a hillside plate. Under 0.4.19 this row would be full of the plate's own roof ma
 - One dev-server boot crashed on a worker-thread `MissingPaletteEntryException` during a
   24,000-block teleport before any base was registered or any block written by this code;
   two further boots did not reproduce it.
+
+## 0.4.21 — the Count made menacing, and the Steve that shipped for twelve versions (2026-08-22)
+
+Reported from play on 0.4.20, with a screenshot: the risen Count was **Steve** ("this ain't
+Dracula wtf"), the player had to `/summon` him because he still would not appear naturally,
+and the veil snow was still too dense.
+
+- **Steve for twelve versions.** `DraculaRenderer` returned the right texture from
+  `getTextureLocation`, but 26.2's avatar pipeline draws `state.skin` — default Steve — and
+  it wins over the override. Exactly the [[clientasset-resourcetexture-trap]] the citizens hit
+  at 0.4.3; Dracula shipped Steve from 0.4.9 to 0.4.20 because nothing ever photographed him
+  (the render lanes shoot an empty castle). Fixed by setting `state.skin` to a `PlayerSkin`
+  built from `ClientAsset.ResourceTexture("warfront:entity/dracula")` (asset id, not path),
+  plus an authored crimson `entity/dracula_cape` and a `CapeLayer`. The battery now asserts
+  both textures resolve, as it does for citizens.
+- **He still would not come.** `ensureDracula` rises him at the throne chamber — sixty-eight
+  blocks up the keep tower — and a visitor who entered at the grounds' edge or walked the
+  lower halls never met him (this is why the report had to `/summon`). New `VampireVeil.stalk`
+  (server tick, rule 7): whenever a mortal stands in the grounds farther than 40 blocks from
+  him, he shadow-steps out of the dark 8–14 blocks away, takes them as target, and says so
+  ("Count Dracula has found you."). Cooldown 400t, retry 100t if no dark spot; creative/
+  spectator visitors get the appearance, not the aggression.
+- **Menace.** MAX_HEALTH 240→600, damage 16→24, armor+toughness, full knockback resistance,
+  a boss bar that darkens the sky within 64 blocks. Four powers: **shadow step** (closes on a
+  target out of reach or sight, never into real sun), **the swarm** (bats burst around the
+  quarry, who is slowed and blinded), **mist form** (regen+resistance+speed below two fifths),
+  **dread** (darkness within 5 blocks). Bites steal 12 HP and inflict darkness/weakness/wither;
+  arrows land at 35%, fall damage ignored, wooden sword still ×7. He dies into a burst of bats.
+- **Bats.** `VampireVeil.ensureBats` keeps up to 40 vanilla bats aloft over a visited castle,
+  topped up 6 at a time every 100t, never hoarded.
+- **Snow, again −50%.** `VEIL_SNOW_ONE_IN` 4→8 (an eighth of vanilla's full field).
+
+Gate: `runDraculatest` extended — after the roofed rise it now (1) asserts both Dracula
+textures resolve in the client resource manager, (2) drops a creative visitor on the ground
+floor far below the tower and requires the Count to **come to them** (stalked to 10.9 blocks),
+(3) makes the visitor an unkillable survival mortal 20 blocks off and requires him to **close**
+(2.6 blocks), (4) counts **bats** over the grounds (47), (5) photographs him lit and frozen
+front and back. READ: `dracula_count_face_to_face` shows a pale red-eyed Count in a crimson
+waistcoat — not Steve — and `dracula_count_cape` shows the crimson cape. `DRACULA_TEST PASS
+health 600.0 -> 600.0 stalked=10.9 closed=2.6 bats=47`, `BUILD SUCCESSFUL`. `runVeilrender`
+snowfall frame re-read at 1-in-8: sparse, castle fully legible. Skin: TenPlus1's CC BY-SA 4.0
+Vampire (already attributed in CREDITS.md); cape authored here.

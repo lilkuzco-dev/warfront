@@ -230,6 +230,33 @@ for (const profession of ["miner", "farmer", "builder", "trader", "laborer"]) {
 	console.log("wrote entity/dracula.png");
 }
 
+// Count Dracula's cape: authored here, no upstream source. Vanilla's cape model samples
+// the 22x17 region at the origin of a 64x32 texture (a 10x16x1 box unwrapped at 0,0).
+// A charcoal cape was READ against his black suit in the battery and did not exist to
+// the eye, so it is crimson: deep crimson outer face with a black border, brighter
+// crimson inner face, black one-pixel edges.
+{
+	const px = Buffer.alloc(64 * 32 * 4);
+	const set = (x, y, r, g, b) => {
+		const i = (y * 64 + x) * 4;
+		px[i] = r; px[i + 1] = g; px[i + 2] = b; px[i + 3] = 255;
+	};
+	for (let y = 0; y < 17; y++) {
+		for (let x = 0; x < 22; x++) {
+			const fold = ((x * 7 + y * 3) % 5 === 0) ? -18 : 0;
+			const outer = x >= 1 && x < 11 && y >= 1;
+			const inner = x >= 12 && y >= 1;
+			const border = (outer && (x === 1 || x === 10 || y === 16)) || (inner && (x === 12 || x === 21 || y === 16));
+			if (border) set(x, y, 18, 12, 16);
+			else if (outer) set(x, y, 128 + fold, 10, 22);
+			else if (inner) set(x, y, 176 + fold, 22, 34);
+			else set(x, y, 18, 12, 16);
+		}
+	}
+	fs.writeFileSync(path.join(ASSETS, "textures/entity/dracula_cape.png"), encodePng(64, 32, px));
+	console.log("wrote entity/dracula_cape.png");
+}
+
 // uniform = every body/limb pixel below the head rows (y >= 16) hue-mapped to the
 // faction color, keeping per-pixel luminance for cloth shading
 for (const [faction, color] of Object.entries(FACTIONS)) {

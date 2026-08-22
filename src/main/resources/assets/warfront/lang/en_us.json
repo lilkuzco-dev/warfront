@@ -11,6 +11,8 @@
   "message.warfront.display.satellite_selected": "Recon satellite selected: %s",
   "entity.warfront.soldier": "Soldier",
   "entity.warfront.citizen": "Citizen",
+  "entity.warfront.dracula": "Count Dracula",
+  "message.warfront.dracula.found": "Count Dracula has found you.",
   "dialogue.warfront.more": "More...",
   "dialogue.warfront.change_subject": "Change Subject",
   "dialogue.warfront.leave": "Leave",
