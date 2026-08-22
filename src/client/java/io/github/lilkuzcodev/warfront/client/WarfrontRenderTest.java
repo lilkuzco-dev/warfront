@@ -68,6 +68,18 @@ public class WarfrontRenderTest implements FabricClientGameTest {
 						+ baseline + ", wall=" + wall);
 			}
 			context.takeScreenshot("c2_5x3_live_wall_and_projector");
+			// The live map's burden of proof is CONTRAST: over flat grassland a working
+			// terrain feed and a stuck green texture produce the same uniform frame
+			// (read from the battery, 2026-08-22). Paint terrain the map cannot miss,
+			// wait past the 40-tick refresh, and the wall must show it. The visible
+			// tile seams are the harness's own artifact: /fill never calls setPlacedBy,
+			// so command-built walls stay partitioned by design — hand-placed panels
+			// reconcile into one seamless wall (DisplayWallLayoutTest covers the maths).
+			server.runCommand("execute at @p run fill ~-48 ~-1 ~-48 ~48 ~-1 ~-16 minecraft:netherrack");
+			server.runCommand("execute at @p run fill ~-48 ~-1 ~16 ~48 ~-1 ~48 minecraft:snow_block");
+			server.runCommand("execute at @p run fill ~-48 ~-1 ~-15 ~-16 ~-1 ~15 minecraft:water");
+			context.waitTicks(100);
+			context.takeScreenshot("c2_wall_live_map_contrast");
 			if (Boolean.getBoolean("warfront.c2.only")) {
 				return;
 			}
