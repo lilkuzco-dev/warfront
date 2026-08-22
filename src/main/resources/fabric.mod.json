@@ -23,7 +23,8 @@
   "fabric-client-gametest": [
    "io.github.lilkuzcodev.warfront.client.WarfrontRenderTest",
    "io.github.lilkuzcodev.warfront.client.WarfrontDialogueTest",
-   "io.github.lilkuzcodev.warfront.client.WarfrontWorldgenTest"
+   "io.github.lilkuzcodev.warfront.client.WarfrontWorldgenTest",
+   "io.github.lilkuzcodev.warfront.client.WarfrontDraculaTest"
   ]
  },
  "depends": {

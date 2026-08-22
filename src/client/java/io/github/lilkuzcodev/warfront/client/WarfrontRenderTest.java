@@ -22,6 +22,7 @@ public class WarfrontRenderTest implements FabricClientGameTest {
 		// The worldgen check needs a normal world and this test builds a flat one; skip so the
 		// two do not fight over the same run.
 		if (Boolean.getBoolean("warfront.worldgen.only")) return;
+		if (Boolean.getBoolean("warfront.dracula.only")) return;
 		// before world creation: the integrated server snapshots the client view
 		// distance at connect; the 130-block aerial cameras need the full radius
 		context.runOnClient(client -> client.options.renderDistance().set(32));
@@ -42,7 +43,7 @@ public class WarfrontRenderTest implements FabricClientGameTest {
 			// the benchmark and may attack/open dialogue, so isolate the camera first.
 			server.runCommand("kill @e[type=warfront:soldier]");
 			server.runCommand("kill @e[type=warfront:citizen]");
-			if (Boolean.getBoolean("warfront.castle.only")) {
+			if (Boolean.getBoolean("warfront.castle.only") || Boolean.getBoolean("warfront.veil.only")) {
 				renderGrandCastle(context, world);
 				return;
 			}
@@ -288,8 +289,16 @@ public class WarfrontRenderTest implements FabricClientGameTest {
 			{ "warfront:vostok/castle", "vostok" },
 			{ "warfront:dracula/castle", "dracula" },
 		};
+		// The veil-only lane (runVeilrender) stands up Dracula alone: his castle is the one
+		// the veil frames read against, and the other three cost minutes each to mesh.
+		// Lane numbering is kept so draculaCentre below stays true.
+		boolean veilOnly = Boolean.getBoolean("warfront.veil.only");
 		int lane = 0;
 		for (String[] castle : castles) {
+			if (veilOnly && !castle[1].equals("dracula")) {
+				lane++;
+				continue;
+			}
 			// Castles are no longer all 501 wide, so the camera cannot assume a centre.
 			// Sarab is 801 and framing it at +250 photographed empty ground.
 			final String templateId = castle[0];

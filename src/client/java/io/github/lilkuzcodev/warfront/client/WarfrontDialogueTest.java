@@ -21,6 +21,7 @@ public class WarfrontDialogueTest implements FabricClientGameTest {
 		// The worldgen check needs a normal world and this test builds a flat one; skip so the
 		// two do not fight over the same run.
 		if (Boolean.getBoolean("warfront.worldgen.only")) return;
+		if (Boolean.getBoolean("warfront.dracula.only")) return;
 		if (Boolean.getBoolean("warfront.c2.only")) return;
 		int originalGuiScale = context.computeOnClient(client -> client.options.guiScale().get());
 		System.setProperty("warfront.test.dialogueBranch", "prototype_defensive_barrier");

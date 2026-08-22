@@ -1195,3 +1195,42 @@ Gates: `verify-grand-castles.js` OK (now also pins occupancy sidecars) ·
 `verify-base-spacing.js` PASS · `runCastlerender` BUILD SUCCESSFUL, veil frames read ·
 `runWorldgentest` BUILD SUCCESSFUL, all four types chest-verified under the new site
 prep (aegis 10/10, sarab 1514/1514, vostok 927/927, dracula 118/118).
+
+## 0.4.19 — the thinned veil, and the Count who never rose (2026-08-22)
+
+Two reports from Jesse's live play of 0.4.16 at a freshly built Dracula castle
+(singleplayer; `/locate` → CASTLE_QUEUED 13:53:03 → CASTLE_BUILT 13:54:49, 118/118):
+
+- **"The floating stuff is too dense — decrease by 75%."** The veil forced every
+  precipitation column in the weather radius to snow, and indoors that read as a blizzard
+  of crosses. Vanilla raises one column per (x, z) and skips a column only when
+  `getPrecipitationAt` answers NONE, so `WeatherEffectRendererMixin` now answers SNOW for
+  one column in four (`VEIL_SNOW_ONE_IN`) and NONE for the rest — a murmur3-mixed hash of
+  the column position, so the sparse field stands still against the architecture instead
+  of flickering. Hash checked offline over a 128×128 grid: 24.6% kept, no row or column
+  striping. New `runVeilrender` lane stands up Dracula alone (≈3 min, not the four-castle
+  battery) and the `vampire_veil_snowfall` frame was READ: black sky, dark horizon, sparse
+  flakes, castle legible through them.
+- **"Still no Dracula unit spawning."** His client log had no `DRACULA_RISES` in four
+  minutes under the veil. `VampireVeil.roofedSpotNear` is a port of the importer's
+  `findThroneChamber`, and the port inverted one statement: the importer does
+  `if (!roofed) continue` (keep descending the column); the Java did `break` (abandon the
+  column). The first standable spot under the sky in nearly every castle column is the
+  roof or the courtyard, so the walk never reached a room, returned null on every scan
+  from 0.4.15 onward, and said nothing. Nothing had ever exercised it: the veil/castle
+  render lanes place the castle with `/place template`, which records no site, so
+  `ensureDracula` never ran in any battery. Fixed (`continue`), and every withheld rise
+  now logs `DRACULA_WAITS site: reason` once per change of reason — already present,
+  centre not loaded, no roofed spot — so the next silent failure is not silent.
+
+Gate: new `runDraculatest` builds the castle through `CastleBuilder` (the real path —
+CastleSites records the site, the veil engages on its own), logs the template's baked
+Count (1), sends him to his coffin with `/kill` (non-player credit, asserts the site is
+NOT marked slain), walks a spectator into the box and requires the rise. READ from the
+run: `DRACULA_RISES at 20278, 132, 20262` three seconds after the visitor entered,
+`roofed=true`, health `240.0 -> 240.0` across ten seconds of noon, veil on inside and
+off 200 blocks out; `dracula_risen_in_keep` frame shows his nameplate in the keep tower.
+The first run of this test failed on its own sequencing — the observer hovered inside the
+site box during the build, so the Count rose two seconds after the kill and the "zero
+after kill" check saw the risen one. That is the fix working; the observer now waits
+above the box. `BUILD SUCCESSFUL in 1m 5s`.

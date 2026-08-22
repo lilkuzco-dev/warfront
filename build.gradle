@@ -56,6 +56,22 @@ loom {
 			vmArg "-Dorg.lwjgl.system.SharedLibraryExtractPath=${layout.buildDirectory.dir('lwjgl-natives').get().asFile.absolutePath}"
 			runDir "build/run-castle-render"
 		}
+		veilrender {
+			inherit client
+			vmArg "-Dfabric.client.gametest=true"
+			vmArg "-Dfabric.client.gametest.modid=warfront"
+			vmArg "-Dwarfront.veil.only=true"
+			vmArg "-Dorg.lwjgl.system.SharedLibraryExtractPath=${layout.buildDirectory.dir('lwjgl-natives').get().asFile.absolutePath}"
+			runDir "build/run-veil-render"
+		}
+		draculatest {
+			inherit client
+			vmArg "-Dfabric.client.gametest=true"
+			vmArg "-Dfabric.client.gametest.modid=warfront"
+			vmArg "-Dwarfront.dracula.only=true"
+			vmArg "-Dorg.lwjgl.system.SharedLibraryExtractPath=${layout.buildDirectory.dir('lwjgl-natives').get().asFile.absolutePath}"
+			runDir "build/run-dracula-test"
+		}
 	}
 }
 
@@ -131,9 +147,11 @@ def castleRenderJar = tasks.register("castleRenderJar", Jar) {
 	archiveClassifier.set("castle-render")
 	from(layout.buildDirectory.dir("run-castle-render/screenshots"))
 }
-tasks.named("runCastlerender").configure {
-	doFirst {
-		layout.buildDirectory.dir("lwjgl-natives").get().asFile.mkdirs()
+for (name in ["runCastlerender", "runVeilrender", "runDraculatest"]) {
+	tasks.named(name).configure {
+		doFirst {
+			layout.buildDirectory.dir("lwjgl-natives").get().asFile.mkdirs()
+		}
 	}
 }
 if (project.hasProperty("castleRender")) {
