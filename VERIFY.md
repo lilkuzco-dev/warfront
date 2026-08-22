@@ -1234,3 +1234,78 @@ The first run of this test failed on its own sequencing — the observer hovered
 site box during the build, so the Count rose two seconds after the kill and the "zero
 after kill" check saw the risen one. That is the fix working; the observer now waits
 above the box. `BUILD SUCCESSFUL in 1m 5s`.
+
+## v0.4.20 — bases stop destroying what they land beside (2026-08-22)
+
+### The report
+
+Jesse found a Waldschatten witch hut "filled with wood" with a base "spawned next to it
+and basically destroyed it". His client log: `aegis_town@-97,-360` registered, then
+`FOUNDATION_LAID aegis_town@-97,-360 (23712 columns walked)`, hut located at (32, −288).
+A census of the saved world around the hut (`census.js` over the 26.2 `dimensions/`
+region files) found 206 stripped birch logs, 174 stone bricks and 46 birch trapdoors —
+aegis town building blocks, none of which the hut template contains — while the hut's own
+dark-oak planks were down to 27 of 84. Two defects, one of them not ours:
+
+1. **`SiteFoundations` (0.4.17–0.4.19) walked the whole structure box** — the jigsaw
+   sprawl box, 23,712 columns for a 5,184-column plate — and extruded *every* solid block
+   with air beneath it, top-down. That rule fills a room from its ceiling to its floor and
+   does it to anything inside the box. Its acceptance test ("zero built blocks hanging")
+   is one that filling everything passes by construction.
+2. **The town generated over the hut.** Structure sets are blind across mods exactly as
+   they are within one; `bases.json` kept clear of villages and castles and nothing else.
+
+(The "wood" itself was mostly Waldschatten's own tree-stacking bug — twisted logs to
+y=319 in that world — fixed in waldschatten 0.1.4. Both were true at once.)
+
+### The fixes
+
+- **Footing is per piece, from the piece's own bottom row.** Measured over all 24 plate
+  NBTs: 100% of columns have their lowest block at template y=0 — every plate is a solid
+  slab — so the underside is the bounding box's bottom and nothing above it is ever
+  written. Columns owned by another structure's piece are skipped; unloaded columns are
+  retried (backoff 600 ticks, at most 6 passes) instead of being abandoned as "founded".
+  The pass logs `max_fill_y` against `lowest_piece_bottom` so the invariant is on record
+  every time, not trusted.
+- **`avoid_sets` on `warfront:base_spread`**: identifier-named, uncapped clearances
+  resolved against the world's own structure sets, so warfront still loads without
+  waldschatten. `bases.json` keeps 10 chunks from `waldschatten:witch_huts` and
+  `waldschatten:set_pieces` (reach 116 + a hut); `grand_castles.json` moves to the same
+  placement type and keeps 27 chunks from huts (401-block reach). The base yields, the
+  hut stays — a hut is one-per-patch. `verify-base-spacing.js` reports them as
+  cross-mod/unmodelled; PASS otherwise (bases vs castles 496 blocks, need 463).
+
+### Evidence — dev server, fresh chunks, seed `warfront-test-1`
+
+Fake player teleported to a never-visited `aegis_town` at (15776, 20064):
+
+```
+Registered base aegis_town@15736,20045 (aegis town)
+FOUNDATION_LAID aegis_town@15736,20045 pieces=8 columns_footed=6701 blocks_filled=149
+  max_fill_y=98 lowest_piece_bottom=99 foreign_columns_skipped=0 unloaded_columns=0 pass=1
+```
+
+Then from the saved region files, independently of the server (`foundation-census.js`):
+
+| | aegis town, **footed** (hillside) | vostok town, not footed |
+|---|---|---|
+| plate columns with a gap under the bottom row | **0** of 5,184 | 159 |
+| template-air positions that are non-air in world | 4,072 (7.4%) | 810 (1.5%) |
+| …of which plate materials (bricks, planks, concrete) | **0** | 0 |
+| …what they are | dirt 1562, stone 1429, grass 471, leaf litter 249, leaves 146 | stone 429, dirt 169 … |
+
+Every non-air block inside the footed plate's rooms is terrain or a plant poking through
+a hillside plate. Under 0.4.19 this row would be full of the plate's own roof material.
+
+`tools/verify-base-spacing.js`: PASS. Client render battery not rerun: nothing drawn.
+
+### Not covered
+
+- The `avoid_sets` clearance resolves (no "not a structure set" line with waldschatten
+  staged) but no seed was searched for a hut–base near-miss; the maths is vanilla's own
+  `hasStructureChunkInRange`, the same call the capped exclusion zone makes.
+- Worlds already carrying 0.4.17–0.4.19 footings keep them; `founded` bases are not
+  re-walked. A fresh world is the honest test, as with every worldgen change.
+- One dev-server boot crashed on a worker-thread `MissingPaletteEntryException` during a
+  24,000-block teleport before any base was registered or any block written by this code;
+  two further boots did not reproduce it.

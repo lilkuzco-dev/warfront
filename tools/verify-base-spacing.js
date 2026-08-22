@@ -116,6 +116,11 @@ function exclusionsOf(json) {
 	const placement = json.placement ?? {};
 	const out = [];
 	if (placement.exclusion_zone) out.push(placement.exclusion_zone);
+	// avoid_sets name OTHER mods' sets by identifier (soft references; see
+	// BaseSpreadPlacement). They cannot be replayed here and surface as unmodelled.
+	for (const avoid of placement.avoid_sets ?? []) {
+		out.push({ other_set: avoid.set, chunk_count: avoid.chunks });
+	}
 	if (placement.avoid_set) {
 		out.push({ other_set: placement.avoid_set, chunk_count: placement.avoid_chunks });
 	}

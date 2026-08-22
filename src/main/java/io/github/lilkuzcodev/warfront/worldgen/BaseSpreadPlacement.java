@@ -5,6 +5,12 @@ import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import io.github.lilkuzcodev.warfront.Warfront;
 import java.util.Optional;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+import net.minecraft.resources.Identifier;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
 import net.minecraft.core.Vec3i;
@@ -41,6 +47,19 @@ import net.minecraft.world.level.levelgen.structure.placement.StructurePlacement
  * {@code tools/verify-base-spacing.js} closes that gap from the other side: it re-derives
  * the radius each set actually needs from the NBTs on disk and fails if the configured one
  * is smaller. The code takes a number; the checker proves the number.
+ *
+ * <h2>{@code avoid_sets}: other mods' landmarks</h2>
+ * Reported from play 2026-08-22: an aegis town generated over a Waldschatten witch hut and
+ * left two-thirds of it as stripped birch and stone brick. Structure sets are mutually
+ * blind across mods exactly as they are within one, so a base needs to be told what to
+ * keep away from. {@code avoid_sets} is a list of {@code {set, chunks}} pairs with the same
+ * uncapped clearance test — but referenced by <em>identifier</em>, not by registry holder.
+ * A holder reference to {@code waldschatten:witch_huts} would make this mod fail to load
+ * any world where waldschatten is absent (the dev server, the batteries, anyone running
+ * warfront alone). An identifier is resolved against the world's own structure sets at
+ * placement time; a set that is not in this world is simply not there to avoid, logged
+ * once. The clearance can only ever remove placements, never add one, so the base yields
+ * and the landmark stays — a hut is one-per-patch and irreplaceable; a base is not.
  */
 public class BaseSpreadPlacement extends RandomSpreadStructurePlacement {
 
@@ -52,27 +71,45 @@ public class BaseSpreadPlacement extends RandomSpreadStructurePlacement {
 							.forGetter(RandomSpreadStructurePlacement::separation),
 					RandomSpreadType.CODEC.optionalFieldOf("spread_type", RandomSpreadType.LINEAR)
 							.forGetter(RandomSpreadStructurePlacement::spreadType),
-					StructureSet.CODEC.fieldOf("avoid_set")
+					StructureSet.CODEC.optionalFieldOf("avoid_set")
 							.forGetter(placement -> placement.avoidSet),
 					// Deliberately not [1:16]. That bound is the thing this type exists to escape.
-					Codec.intRange(1, 4096).fieldOf("avoid_chunks")
-							.forGetter(placement -> placement.avoidChunks)))
+					Codec.intRange(1, 4096).optionalFieldOf("avoid_chunks", 1)
+							.forGetter(placement -> placement.avoidChunks),
+					AvoidSet.CODEC.listOf().optionalFieldOf("avoid_sets", List.of())
+							.forGetter(placement -> placement.avoidSets)))
 					.apply(instance, BaseSpreadPlacement::new));
+
+	/** A structure set to keep clear of, named by identifier so its absence is not an error. */
+	public record AvoidSet(Identifier set, int chunks) {
+		public static final Codec<AvoidSet> CODEC = RecordCodecBuilder.create(i -> i.group(
+				Identifier.CODEC.fieldOf("set").forGetter(AvoidSet::set),
+				Codec.intRange(1, 4096).fieldOf("chunks").forGetter(AvoidSet::chunks))
+				.apply(i, AvoidSet::new));
+
+		ResourceKey<StructureSet> key() {
+			return ResourceKey.create(Registries.STRUCTURE_SET, set);
+		}
+	}
+
+	private static final Set<Identifier> MISSING_WARNED = new HashSet<>();
 
 	/** Registered so `"type": "warfront:base_spread"` resolves in a structure set. */
 	public static final StructurePlacementType<BaseSpreadPlacement> TYPE = () -> CODEC;
 
-	private final Holder<StructureSet> avoidSet;
+	private final Optional<Holder<StructureSet>> avoidSet;
 	private final int avoidChunks;
+	private final List<AvoidSet> avoidSets;
 
 	public BaseSpreadPlacement(Vec3i locateOffset, FrequencyReductionMethod frequencyReductionMethod,
 			float frequency, int salt, Optional<StructurePlacement.ExclusionZone> exclusionZone,
 			int spacing, int separation, RandomSpreadType spreadType,
-			Holder<StructureSet> avoidSet, int avoidChunks) {
+			Optional<Holder<StructureSet>> avoidSet, int avoidChunks, List<AvoidSet> avoidSets) {
 		super(locateOffset, frequencyReductionMethod, frequency, salt, exclusionZone,
 				spacing, separation, spreadType);
 		this.avoidSet = avoidSet;
 		this.avoidChunks = avoidChunks;
+		this.avoidSets = avoidSets;
 	}
 
 	/**
@@ -84,7 +121,27 @@ public class BaseSpreadPlacement extends RandomSpreadStructurePlacement {
 	public boolean applyInteractionsWithOtherStructures(ChunkGeneratorStructureState state,
 			int chunkX, int chunkZ) {
 		if (!super.applyInteractionsWithOtherStructures(state, chunkX, chunkZ)) return false;
-		return !state.hasStructureChunkInRange(avoidSet, chunkX, chunkZ, avoidChunks);
+		if (avoidSet.isPresent() && state.hasStructureChunkInRange(avoidSet.get(), chunkX, chunkZ, avoidChunks)) {
+			return false;
+		}
+		for (AvoidSet avoid : avoidSets) {
+			Holder<StructureSet> resolved = null;
+			for (Holder<StructureSet> candidate : state.possibleStructureSets()) {
+				if (candidate.is(avoid.key())) {
+					resolved = candidate;
+					break;
+				}
+			}
+			if (resolved == null) {
+				if (MISSING_WARNED.add(avoid.set())) {
+					Warfront.LOGGER.info("avoid_sets: {} is not a structure set in this world; nothing to keep clear of",
+							avoid.set());
+				}
+				continue;
+			}
+			if (state.hasStructureChunkInRange(resolved, chunkX, chunkZ, avoid.chunks())) return false;
+		}
+		return true;
 	}
 
 	@Override

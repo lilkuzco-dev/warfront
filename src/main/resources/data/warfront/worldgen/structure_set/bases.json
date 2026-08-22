@@ -9,7 +9,17 @@
       "other_set": "minecraft:villages"
     },
     "avoid_set": "warfront:grand_castles",
-    "avoid_chunks": 30
+    "avoid_chunks": 30,
+    "avoid_sets": [
+      {
+        "set": "waldschatten:witch_huts",
+        "chunks": 10
+      },
+      {
+        "set": "waldschatten:set_pieces",
+        "chunks": 10
+      }
+    ]
   },
   "structures": [
     {
