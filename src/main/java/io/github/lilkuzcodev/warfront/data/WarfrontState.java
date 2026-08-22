@@ -104,7 +104,8 @@ public class WarfrontState extends SavedData {
 				Codec.INT.listOf().fieldOf("bounds").forGetter(b -> b.bounds),
 				Codec.INT.fieldOf("garrison").forGetter(b -> b.garrison),
 				Codec.LONG.fieldOf("last_reinforce").forGetter(b -> b.lastReinforce),
-				Codec.BOOL.fieldOf("hydrated").forGetter(b -> b.hydrated)
+				Codec.BOOL.fieldOf("hydrated").forGetter(b -> b.hydrated),
+				Codec.BOOL.optionalFieldOf("founded", false).forGetter(b -> b.founded)
 		).apply(i, Base::new));
 
 		public final String faction;
@@ -114,9 +115,17 @@ public class WarfrontState extends SavedData {
 		public int garrison;
 		public long lastReinforce;
 		public boolean hydrated;
+		// Whether SiteFoundations has footed this base's plate. Optional in the codec so
+		// records from before 0.4.17 decode as un-footed and get their feet on revisit.
+		public boolean founded;
 
 		public Base(String faction, String tier, net.minecraft.core.BlockPos center, java.util.List<Integer> bounds,
 				int garrison, long lastReinforce, boolean hydrated) {
+			this(faction, tier, center, bounds, garrison, lastReinforce, hydrated, false);
+		}
+
+		public Base(String faction, String tier, net.minecraft.core.BlockPos center, java.util.List<Integer> bounds,
+				int garrison, long lastReinforce, boolean hydrated, boolean founded) {
 			this.faction = faction;
 			this.tier = tier;
 			this.center = center;
@@ -124,6 +133,7 @@ public class WarfrontState extends SavedData {
 			this.garrison = garrison;
 			this.lastReinforce = lastReinforce;
 			this.hydrated = hydrated;
+			this.founded = founded;
 		}
 	}
 
